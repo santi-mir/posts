@@ -21,13 +21,15 @@ They also compare it against approaches that use structural information in the i
 
 The process they followed is something like:
 
-1. Convert a database of crystal structures of materials into a graph,
-2. Use the graph to generate a database of connected atom pairs A-B (and B-A),
+1. Get a database of crystal structures of materials,
+2. Convert each into a graph (paper uses Voronoi decomposition / method for this),
+3. Use the graph to generate a database of connected atom pairs A-B (and B-A),
     * Each pairs is composed of the input and the output, used for training,
-3. Hot encode each atom in a vector,
-4. Train a single layer to predict one vector given another,
+4. Hot encode each atom in a vector,
+5. Train a single layer to predict the neighbour hot-encoded vector given the central atom,
+    * The training task is to minimise the average log probability (not sure how the vectors are "reduced", is the distance computed, or what?).
 
-At the end, each the single layer is the optimised matrix, each column being an atom's vector. The atom's vector (embedding) is a reflection of the atom's environment. Atoms often found in similar environments should have similar vectors (possibly carbon, oxygen, nitrogen).
+The result is that each projection-matrix-column is now an atom's embedding. The atom's vector (embedding) is a reflection of the atom's environment. Atoms often found in similar environments should have similar vectors (possibly carbon, oxygen, nitrogen).
 
 ## Embeddings
 
@@ -59,7 +61,9 @@ Which ways are there to create embeddings of atoms?
 In both Mat2Vec and SkipAtom the analogy is that a _word_ (not a letter) is an _atom_. Multiple words make a sentence, and multiple atoms a material or compound.
 
 
-## Application
+### Combining atom embeddings (pooling)
+(not yet finished)
+
 Then for a given compound, the embeddings for each of its atoms can be combined (pooled) into a single vector.
 
 The resulting vector is a compound embedding. On the on hand, similar compounds will have similar vectors, which is useful; on the other hand, all isomers have the same vector, which is a limitation of what this method can express.

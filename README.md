@@ -2,12 +2,13 @@
 
 My thoughts related to AI for chemistry.
 
+It's mostly commentary and summaries of papers I read, for learning purposes.
+
 The URL for the book is <https://santi-mir.github.io/blog_ai4chem>.
 
 ## License
 
 All the content here is under [CC BY 4.0].
-
 
 ## Tools Used
 
