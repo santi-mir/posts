@@ -42,15 +42,17 @@ Some interesting experiments would be how to choose the optimal dimensionality o
 Which ways are there to create embeddings of atoms?
 
 * Random vector for each atom,
-* One-hot vector: One component is a 1, the rest are 0s,
+* One-hot vector: one component is a 1, the rest are 0s,
     * For example: `[1,0,0]` and `[0,1,0]` are different atoms,
     * Each index represents an atom,
     * Only one position is a 1 (and all 0s would be no atom).
 * Atom2Vec: build a matrix of co-occurences of atoms, then apply single-value decomposition (SVD).
     * Every matrix (square or not) has an SVD.
     * Comment: not quite sure why this would be attractive or useful, but they used it.
-* Mat2Vec: Applies to Word2Vec algorithm to a corpus of compounds.
-    * The task is given context word predict the blank, as in "The cat ___ on the mat."
+* Mat2Vec: applies to Word2Vec algorithm to a corpus of compounds.
+    * The projection matrix, initially random, ends up storing embeddings.
+    * The task is to predict the missing word given neighbouring words.
+    * Example: as in "The cat ___ on the mat."
 * SkipAtom: In the same paper of Word2Vec there is the Skip-gram algorithm, which is adapted for chemistry in this paper.
     * The task here is to use the word to predict the neighbours "___ ___ sat __ ___ ____" (same sentence).
 
@@ -60,9 +62,9 @@ In both Mat2Vec and SkipAtom the analogy is that a _word_ (not a letter) is an _
 ## Application
 Then for a given compound, the embeddings for each of its atoms can be combined (pooled) into a single vector.
 
-The resulting vector is a compound embedding (similar compounds will have similar vectors, and isomers would have the same vector).
+The resulting vector is a compound embedding. On the on hand, similar compounds will have similar vectors, which is useful; on the other hand, all isomers have the same vector, which is a limitation of what this method can express.
 
-This material embedding is then used for training a feed-forward NN on different tasks. Also benchmarked using MatBench.
+The resulting compound embedding is then used for training a feed-forward NN on different tasks. Also benchmarked using MatBench.
 
 ## When it's useful
 
@@ -71,7 +73,6 @@ With this model, having just the material's composition but not its structure, w
 The model does use connectivity information to train it (just the pairs, without any extra data like distance or angles). But the model just needs the formula at inference time (and does fine with non-stoichiometric solids).
 
 Another reason why it matters is that, apparently, calculating a property of interest using DFT is computationally expensive, and this could be faster. They claim that DFT also has challenges with systems with strongly correlated electrons, or high levels of disorder (unsure what this means).
-
 
 
 
