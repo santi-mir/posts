@@ -4,6 +4,8 @@
 
 These are some of my opinions and ideas after reading [Discovery of Crystalline Inorganic Solids in the Digital Age][Account] (2025).
 
+-----------
+
 ## Summary
 
 Compounds' properties are determined by their composition and structure. These are two useful dimensions of the chemical space.

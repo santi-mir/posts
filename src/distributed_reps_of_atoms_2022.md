@@ -3,6 +3,7 @@
 These are some of my opinions and ideas after reading [Distributed representations of atoms and materials for
 machine learning][Nature] (2022).
 
+-----------
 
 ## Summary
 
