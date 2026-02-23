@@ -1,6 +1,6 @@
 # Summary
 
-[Introduction](./WELCOME.md)
+[Introduction](./welcome.md)
 
 -----
 
@@ -14,8 +14,9 @@
 
 # Taxonomies
 - [CompChem Map](./compchem_map.md)
+- [Databases and Benches](./db_and_benches.md)
 - [Visualising High-Dimensional Data](./visualising_high_dimensional_data.md)
 
 -----
 
-[Queries](./QUERIES.md)
+[Queries](./queries.md)
