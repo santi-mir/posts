@@ -19,10 +19,8 @@ definition-lists = false
 admonitions = true
 # Can cause issues copying and pasting
 smart-punctuation = false
-# Remove h2 sections from sidebar.
-sidebar-header-nav = false
-# Same, remove numbers from section.
-no-section-label = false
+sidebar-header-nav = false # Hide doc-level headings.
+no-section-label = true # remove numbers in navbar.
 additional-css = ["./src/assets/custom.css"]
 additional-js = ["./src/assets/mermaid.min.js", "./src/assets/mermaid-init.js"]
 # input-404 = "not-found.md"

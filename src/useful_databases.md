@@ -1,5 +1,4 @@
-# Useful Databases
+# Databases, Benchmarks
 
-I should still review them, add a description, and add them to Zotero.
-
-- 48. Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation.
+- Jain, A. et al. The materials project database <https://materialsproject.org/>
+- Matbench benchmark: <https://hackingmaterials.lbl.gov/automatminer/datasets.html>
