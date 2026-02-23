@@ -68,7 +68,7 @@ flowchart LR
 
 ## Distributed Representations
 
-In this context, distributed representations are just vectors for atoms.
+In this context, distributed representations are just vectors for atoms. They can be continuous or discrete, sparse or dense.[^1]
 
 Which ways are there to create vector-representations of atoms?
 
@@ -88,13 +88,11 @@ Which ways are there to create vector-representations of atoms?
 
 ### Embeddings
 
-Embeddings are particular types of distributed representations. Here, it denotes a vector, in continuous vector space, representing an object.
-
-In general, similar objects must have similar vectors.
+Embeddings are vectors in real ($R^n$) non-random vector-space, representing an object. _Real_ here implies continuous.
 
 Not all vector or distributed representations are embeddings.
 
-In most, cases similar vectors won't be close in terms of euclidean distance.
+For embeddings, similar objects have similar vectors, according to some metric.
 
 ### Combining Vectors (pooling)
 
@@ -120,3 +118,4 @@ This approach is attractive because the training does not rely on labelled data 
 The model just needs the formula at inference time, and does fine with non-stoichiometric solids. In other words, having just the material's composition &mdash;but no structural information&mdash; we can still calculate some properties.
 
 [Nature]: https://www.nature.com/articles/s41524-022-00729-3
+[^1]: This are just my definitions and may be wrong!
