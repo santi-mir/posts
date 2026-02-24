@@ -1,0 +1,95 @@
+html {
+    font-family: "Ubuntu", "system-ui", "sans-serif";
+     font-size: 100%;
+}
+
+body {
+  font-size:calc(1.3em + 1vw);
+  margin:auto;
+  padding-top:calc(0.5em + 0.75vw);
+}
+#mdbook-content{
+  padding-left: 2vw;
+}
+.content main {
+  max-width:66ch;
+  margin:auto
+}
+.sidebar-scrollbox {
+  min-width:20vw
+}
+.fa-svg {
+  font-size:calc(0.75em + 1vw);
+}
+h2,
+h3 {
+  margin-block-start: calc(1em + 2vh);
+}
+
+main > p {
+  margin:0.8rem 0;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+div img {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #d1d1d1;
+}
+
+div.w420 {
+  max-width: 420px;
+}
+
+div.w320 {
+  max-width: 320px;
+}
+
+div.w220 {
+  max-width: 220px;
+}
+div.w150 {
+  max-width: 150px;
+}
+
+ol li {
+  margin: 1rem 0;
+}
+
+main ol {
+  list-style: none;
+  counter-reset: num;
+}
+
+main ol > li {
+  counter-increment: num;
+}
+
+main ol > li > p {
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+main li {
+  margin: calc(0.7rem + 0.8vh) 0;
+}
+
+main ol > li::before {
+  content: counter(num) ". ";
+}
+
+html:is(.ayu) main ol > li::before {
+  color: inherit;
+}
+
+html:is(.rust, .light) main ol > li::before {
+  color: #248eb8;
+}
+
+html:is(.coal, .navy) main ol > li::before {
+  color: #ffa500;
+}

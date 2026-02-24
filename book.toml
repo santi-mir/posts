@@ -1,0 +1,55 @@
+[book]
+title = "AI for Chemistry"
+authors = ["Santiago Miranda"]
+description = "Blogging about AI for chemistry."
+language = "en"
+src = "src"
+
+[build]
+build-dir ="docs"
+create-missing = false
+
+[rust]
+edition = "2024"
+
+[output.html]
+git-repository-url = "https://github.com/santi-mir/blog_ai4chem/"
+edit-url-template = "https://github.com/santi-mir/blog_ai4chem/edit/main/book/{path}"
+# default was "light"
+default-theme = "dark"
+# default was "navy"
+preferred-dark-theme = "ayu"
+definition-lists = false
+admonitions = true
+# Can cause issues copying and pasting
+smart-punctuation = false
+sidebar-header-nav = false # Hide doc-level headings.
+no-section-label = true # remove numbers in navbar.
+additional-css = ["./src/assets/custom.css"]
+additional-js = ["./src/assets/mermaid.min.js", "./src/assets/mermaid-init.js"]
+# input-404 = "not-found.md"
+# mathjax-support = true
+
+# they did not upgrade to 0.5 just yet.
+# [preprocessor.quiz]
+
+[preprocessor.katex]
+after = ["links"]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html.print]
+enable = true    # include support for printable output
+page-break = true # insert page-break after each chapter
+
+[output.html.fold]
+enable = false    # whether or not to enable section folding
+level = 0         # the depth to start folding
+
+[output.html.playground]
+runnable = false         # displays a run button for rust code
+editable = false         # allows editing the source code
+copyable = true          # include the copy button for copying code snippets
+copy-js = true          # includes the JavaScript for the code editor
+line-numbers = false     # displays line numbers for editable code
