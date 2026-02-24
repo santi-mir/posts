@@ -1,45 +1,40 @@
 # Explainable AI for chemistry
 
-These are some of my opinions and ideas after reading [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][Account] (2022).
+These are some of my opinions and ideas after reading [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][Account] (2022), and [Explaining Explanations: An Overview of Interpretability of Machine Learning][arxiv] (2019).
+
+A very interesting experiment in terms of explainability was <https://distill.pub>.
 
 --------------------
 
 ## Summary
 
-Survey of methods that can help to make classical ML and DL algorithms more interpretable, that is, easier to understand for a human.
+Scientific models are expected to be explainable; that is, an expert human is confident on how it works, what it means and so on.
 
-## Introduction
-
-Scientists strive to explain the world. When a mathematical description or model is proposed, it is expected to be interpretable. By _interpretable_ we mean understood by a human, both mathematically and conceptually.
-
-A conceptual level generally means that we explain it using terms from the domain of applicability of the model. Here are two examples:
-
-- In chemistry, this could be electronegativity or mass.
-- In physics, if we take a Hamiltonian, we can talk about the kinetic energy term, the electric potential term, and so on. We can also understand its mathematical structure as part of a differential equation.
-
-## The question
-
-ML algorithms tend to be interpretable in a general sense (a human can explain it); however, deep neural networks (DNNs) are often considered black boxes.
-
-But insofar as we are doing _science_ with deep learning models, it is important to understand the model itself, not just its output.
+When the opposite happens, the model is called a "Black Box".
+Currently, most deep-learning models are black boxes.
 
 This is how we get to the question to be explored:
 
-- How can scientists gain deeper understanding of traditional ML algorithms and DNNs?
+- In which ways are models explainable?
+- How can this be leveraged to deep learning models?
 
-(Admittedly, in some cases we may be satisfied with DNNs' predictive power alone.)
+(Admittedly, in some cases we may be satisfied with DNNs' predictive power alone!)
 
 ## Concepts
 
-The paper defines a few concepts, I use my own terms below.
+These are my own defs, inspired by the papers at the top.
 
 - _Correctness_: how accurate the model is.
+
+_Correctness_ is a useful dimension to consider, but it is a properties of explanations. The ones below are:
+
 - _Domainness_: extent to which the mathematical model is explained by domain concepts e.g. mass or charge.
     - If high: helps experts build confidence interpreting the outputs.
+- _Completeness_: the more we can explain "what ifs" about the model, the more complete an explanation is.
+    - Its formula explains it completely, but it's hard.
+    - Without its formula and weights, heuristics and proxy-models (e.g. linear fit to outputs) to provide _some_ explanation. These are valid _even if_ we have its arch (which may be too complex.)
 
-There is usually a tradeoff between _domainness_ and _correctness_ because complex behaviour requires complex networks or models, to which we can rarely assign high domainness.
-
-They mention, as an example of high domainness, the compatibility of a DNN with the Penn model of dielectrics (possibly some of its inner working cleanly maps to the Penn model).
+There are tradeoffs between all these above, high domainness concepts are unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".
 
 Both for DNNs and classical ML algorithms _intrinsic_ and _extrinsic_ methods are detailed. These refer to methods or techniques to make the model more interpretable.
 
@@ -137,5 +132,7 @@ There isn't much about these ones, this is what I take away:
 - Introducing inductive biases related to symmetry.
 
 [Account]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
+[arxiv]: http://arxiv.org/abs/1806.00069
 [CC BY 4.0]: https://creativecommons.org/licenses/by/4.0/
 [^1]:  This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail.
+

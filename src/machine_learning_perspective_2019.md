@@ -10,10 +10,12 @@ The process of converting raw data into a format more suitable for an algorithm 
 >
 > Selecting how best to represent the data may require insight into both the underlying scientific problem and the operation of the learning algorithm, since it is not always obvious which choice of representation will give the best performance
 >
-> Many representations are available to encode structures and properties
+
+Some representations:
 
 - Coulomb Matrix: atomic nuclear repulsion information.
 - Graphs: connectivity of molecules.
+- String representations: SMILES, SELFIEs,..
 - Solid-state unit-cells: Representations based on radial distribution functions, Voronoi tessellations, and property-labelled materials fragments (...)
     > In the solid-state, the conventional description of crystal structures by translation vectors and fractional coordinates of the atoms is **not appropriate for ML**, since a lattice can be represented in an infinite number of ways by choosing a different coordinate system.
 
