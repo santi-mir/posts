@@ -4,8 +4,8 @@ html {
 }
 
 body {
-  font-size:calc(1.3em + 1vw);
   margin:auto;
+  font-size:calc(1.1em + 1vw);
   padding-top:calc(0.5em + 0.75vw);
 }
 #mdbook-content{
