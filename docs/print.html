@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-8fb2be1c.js";
+            window.path_to_searchindex_js = "searchindex-a4891754.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-eb0fe77f.js"></script>
+        <script src="toc-3c004fd3.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -191,7 +191,7 @@
 <li><a href="https://github.com/rust-lang/mdBook"><code>mdbook</code></a>.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="explainable-ai-for-chemistry"><a class="header" href="#explainable-ai-for-chemistry">Explainable AI for chemistry</a></h1>
+<h1 id="explainable-ai"><a class="header" href="#explainable-ai">Explainable AI</a></h1>
 <p>These are some of my opinions and ideas after reading <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022), and <a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2019).</p>
 <p>A very interesting experiment in terms of explainability was <a href="https://distill.pub">https://distill.pub</a>.</p>
 <hr>
@@ -211,11 +211,10 @@
 <li><em>Completeness</em>: the more we can explain "what ifs" about the model, the more complete an explanation is.</li>
 </ul>
 <p>There are tradeoffs between all these above, using domain concepts is unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".</p>
-<h2 id="enhancing-explanations"><a class="header" href="#enhancing-explanations">Enhancing Explanations</a></h2>
+<h2 id="classical-ml"><a class="header" href="#classical-ml">Classical ML</a></h2>
 <p>As an example of Classical ML think of Support Vector Regression, and other kinds of regressions.</p>
-<h3 id="intrinsic-methods"><a class="header" href="#intrinsic-methods">Intrinsic methods</a></h3>
-<p>We want to make the mathematical model more explainable. Regardless of our knowledge, some models will map in a more meaningful manner to the phenomenon being modelled.</p>
-<p>These are methods that can help us with it:</p>
+<h3 id="enhancing-explanations-with-intrinsic-methods"><a class="header" href="#enhancing-explanations-with-intrinsic-methods">Enhancing explanations with intrinsic methods</a></h3>
+<p>This focuses on the math (internal structure).</p>
 <ul>
 <li>Simplifying the model (when possible)
 <ul>
@@ -223,13 +222,13 @@
 <li>LASSO: to remove features when tightly correlated (leaving the most helpful one).</li>
 </ul>
 </li>
-<li>Generalised Linear Models (GLMs) where the generalised model approximates the more complex model i.e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, respectively. The GLM, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, is defined as:
+<li>Proxy Models e.g. Generalised Linear Models (GLMs) to approximate the more complex model i.e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, respectively. The GLM, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, is defined as:
 <span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:3.106em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></li>
 </ul>
-<h3 id="extrinsic-methods"><a class="header" href="#extrinsic-methods">Extrinsic Methods</a></h3>
-<p>We want to understand the model by looking at it's behaviour. Its outputs, input-outputs relationships, and so on.</p>
+<h3 id="enhancing-explanations-with-extrinsic-methods"><a class="header" href="#enhancing-explanations-with-extrinsic-methods">Enhancing explanations with extrinsic methods</a></h3>
+<p>This focuses on its behaviour: its outputs, input-outputs relationships, and so forth.</p>
 <ul>
-<li>What-if: Correlate changes in input-features with changes in outputs.
+<li>Correlate changes in input-features with changes in outputs.
 <ul>
 <li>Partial Dependence Plots (PDPs). Though it masks possible correlations between features (if all are kept constant but one).</li>
 <li>Individual Conditional Expectations (ICE) overcomes the limitation above.</li>
@@ -257,10 +256,16 @@
 
 </div>
 
-<h2 id="interpreting-deep-learning-models"><a class="header" href="#interpreting-deep-learning-models">Interpreting Deep Learning Models</a></h2>
+<h2 id="deep-learning"><a class="header" href="#deep-learning">Deep Learning</a></h2>
 <p>This is the interesting part at present (2026), although the paper attention is split between deep learning and classical machine learning, so there isn't very much about deep learning.</p>
 <p>The paper mentions the <em>processing</em> and <em>representation</em> approaches. These concepts map to "what ifs" (or extrinsic) and "looking inside the model" (intrinsic).</p>
-<h3 id="extrinsic-methods-1"><a class="header" href="#extrinsic-methods-1">Extrinsic Methods</a></h3>
+<h3 id="enhancing-explanations-with-intrinsic-methods-1"><a class="header" href="#enhancing-explanations-with-intrinsic-methods-1">Enhancing explanations with intrinsic methods</a></h3>
+<p>There isn't much about these ones, this is what I take away:</p>
+<ul>
+<li>Representation Methods: Interpret the learnt representations (i.e intrinsic). This is not always possible and sometimes may be just somewhat interpretable, or interpretable "to a degree".</li>
+<li>Introducing inductive biases related to symmetry.</li>
+</ul>
+<h3 id="enhancing-explanations-with-extrinsic-methods-1"><a class="header" href="#enhancing-explanations-with-extrinsic-methods-1">Enhancing explanations with extrinsic methods</a></h3>
 <ul>
 <li>Processing Methods: How the model processes an input (like what-if analyses i.e extrinsic).
 <ul>
@@ -302,12 +307,6 @@
 <li>What is observer is just the network exploiting some correlation, without real meaning (<em>shortcut learning</em>).</li>
 </ul>
 <p>Both <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>-VAEs or transformers are considered quite explainable models.</p>
-<h3 id="intrinsic-methods-1"><a class="header" href="#intrinsic-methods-1">Intrinsic Methods</a></h3>
-<p>There isn't much about these ones, this is what I take away:</p>
-<ul>
-<li>Representation Methods: Interpret the learnt representations (i.e intrinsic). This is not always possible and sometimes may be just somewhat interpretable, or interpretable "to a degree".</li>
-<li>Introducing inductive biases related to symmetry.</li>
-</ul>
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-1">
@@ -768,6 +767,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
