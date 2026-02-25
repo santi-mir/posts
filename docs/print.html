@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-a4891754.js";
+            window.path_to_searchindex_js = "searchindex-5ed34be5.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-3c004fd3.js"></script>
@@ -195,22 +195,51 @@
 <p>These are some of my opinions and ideas after reading <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022), and <a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2019).</p>
 <p>A very interesting experiment in terms of explainability was <a href="https://distill.pub">https://distill.pub</a>.</p>
 <hr>
-<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
-<p>Scientific models are expected to be explainable; that is, an expert human is confident on how it works, what it means and so on.</p>
-<p>When the opposite happens, the model is called a "Black Box". Currently, most deep-learning models are black boxes.</p>
-<p>This is how we get to the question to be explored:</p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Scientific models are expected to be explainable; that is, an expert human can respond to <em>why</em> questions with it and about it.</p>
+<p>And yet, deep learning models' operation remains hard to explain.
+So how can we explain deep-learning models? That is what this blog explores.</p>
+<p>(Admittedly, in some cases we may be satisfied with the predictive power alone.)</p>
+<h2 id="explanations"><a class="header" href="#explanations">Explanations</a></h2>
+<p>Explanation can be defined in an intuitive way. First, phrase what we want to know as a "Why question", the answer is a candidate-explanation. Keep asking why until satisfied. Call the process an explanation.</p>
+<p>We can characterise explanations using:</p>
 <ul>
-<li>In which ways are models explainable?</li>
-<li>How can this be leveraged to deep learning models?</li>
+<li><em>Simplicity</em>: how easy to understand the explanation is. (The opposite term, <em>complexity</em> could be used as well.)</li>
+<li><em>Completeness</em>: how accurately it describes the model's behaviour.</li>
 </ul>
-<p>(Admittedly, in some cases we may be satisfied with DNNs' predictive power alone!)</p>
-<h2 id="characterising-explanations"><a class="header" href="#characterising-explanations">Characterising Explanations</a></h2>
-<p>These are my own defs, inspired by the papers at the top.</p>
+<div class="w320 center">
+<a href="assets/tradeoff.png">
+<img style="display:inline-block" src="assets/tradeoff.png" />
+</a>
+<p>Completeness/Simplicity tradeoff graph.</p>
+
+</div>
+
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>This isn't universal but just a common case. Some phenomena are simple, and both characteristics are high.</p>
+</blockquote>
+<p>A related dimension is <em>correctness</em>, which does not belong to explaining a model, but is of high importance. A 3D radar plot is included in the linked above, and reproduced below (<em>simplicity</em> maps to <em>understandability</em>):</p>
+<div class="center w320"> <!--other classes: w220, w420-->
+    <a href="assets/radial_plot.png">
+    <img src="assets/radial_plot.png" alt="Plot of the three dimensions" />
+    </a>
+    
+<p>
+    Image from <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Original Paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-SA 4.0</a>
+    </p>
+
+</div>
+
+<h3 id="strategies"><a class="header" href="#strategies">Strategies</a></h3>
+<p>Some examples of explanation strategies are:</p>
 <ul>
-<li><em>Complexity</em>: how hard it is. Frequently it can be reduced by using domain concepts e.g. mass or charge; or by simplifying a model or using proxy models.</li>
-<li><em>Completeness</em>: the more we can explain "what ifs" about the model, the more complete an explanation is.</li>
+<li>Using domain concepts e.g. mass or charge, usually making it less <em>complete</em> i.e. they would answer only a subset of "what ifs".</li>
+<li>Rule-extraction techniques, analysing input-output relations (considering the model as a black box), finding trends.</li>
+<li>Salience Maps.</li>
+<li>Simplifying the model, or using proxy models.</li>
 </ul>
-<p>There are tradeoffs between all these above, using domain concepts is unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".</p>
+<p>Let's consider some concrete examples.</p>
 <h2 id="classical-ml"><a class="header" href="#classical-ml">Classical ML</a></h2>
 <p>As an example of Classical ML think of Support Vector Regression, and other kinds of regressions.</p>
 <h3 id="enhancing-explanations-with-intrinsic-methods"><a class="header" href="#enhancing-explanations-with-intrinsic-methods">Enhancing explanations with intrinsic methods</a></h3>
@@ -374,7 +403,7 @@
 <p>These are some of my opinions and ideas after reading <a href="https://www.nature.com/articles/s41524-022-00729-3">Distributed representations of atoms and materials for
 machine learning</a> (2022).</p>
 <hr>
-<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <p>The paper proposes <strong>SkipAtom</strong>, an unsupervised-learning approach to learn atom-embeddings, inspired by Skip-gram (an NLP algorithm to generate word embeddings).</p>
 <ul>
 <li>
@@ -517,7 +546,7 @@ machine learning</a> (2022).</p>
 <li><a href="https://www.nature.com/articles/s41467-021-25343-7">Element selection for crystalline inorganic solid discovery guided by unsupervised machine learning of experimentally explored chemistry</a> (2021)</li>
 </ol>
 <hr>
-<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
 <p>In solid-state chemistry, some elemental compositions (phase fields) are more likely to lead to isolable compounds than others.</p>
 <p>Deep learning models can help differentiate between these two groups, and lead researchers to the promising areas. The models can be trained for this task with data from ICSD, the Inorganic Crystal Structure Database.</p>
 <p>Such models would improve the allocation of resources when exploring new phase fields.</p>
@@ -767,6 +796,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
