@@ -13,22 +13,34 @@ The repo contains the built html-book in `./docs`, it makes publishing faster th
 The packages needed for building from the source markdown files are:
 
 ```bash
-cargo install mdbook lychee rumdl caesiumclt mdbook-mermaid mdbook-katex
+cargo install mdbook mdbook-mermaid mdbook-katex
 ```
 
-And a useful pre-push git hook (optional)
+## Development
+
+Besides the build-apps, install:
+
+```
+cargo install lychee rumdl caesiumclt
+```
+
+It's useful to have a pre-commit git hook
 
 ```bash
-#! /bin/env bash
-
-# make lychee a must-pass
-lychee src || exit 1
+#!/bin/env bash
 rumdl check
-caesiumclt --lossless -O bigger src/assets/*.{jpg,jpeg,png} --same-folder-as-input
 mdbook build
 ```
 
-Then do `chmod +x .git/hooks/pre-push`
+And pre-push
+
+```bash
+#!/bin/env bash
+lychee src || exit 1
+caesiumclt --lossless -O bigger src/assets/*.{jpg,jpeg,png} --same-folder-as-input
+```
+
+Then do `chmod +x .git/hooks/{pre-push,pre-commit}`
 
 ## License
 
