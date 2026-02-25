@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-9572b58a.js";
+            window.path_to_searchindex_js = "searchindex-8fb2be1c.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-eb0fe77f.js"></script>
@@ -188,40 +188,24 @@
 <hr>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <p>Scientific models are expected to be explainable; that is, an expert human is confident on how it works, what it means and so on.</p>
-<p>When the opposite happens, the model is called a "Black Box".
-Currently, most deep-learning models are black boxes.</p>
+<p>When the opposite happens, the model is called a "Black Box". Currently, most deep-learning models are black boxes.</p>
 <p>This is how we get to the question to be explored:</p>
 <ul>
 <li>In which ways are models explainable?</li>
 <li>How can this be leveraged to deep learning models?</li>
 </ul>
 <p>(Admittedly, in some cases we may be satisfied with DNNs' predictive power alone!)</p>
-<h2 id="concepts"><a class="header" href="#concepts">Concepts</a></h2>
+<h2 id="characterising-explanations"><a class="header" href="#characterising-explanations">Characterising Explanations</a></h2>
 <p>These are my own defs, inspired by the papers at the top.</p>
 <ul>
-<li><em>Correctness</em>: how accurate the model is.</li>
+<li><em>Complexity</em>: how hard it is. Frequently it can be reduced by using domain concepts e.g. mass or charge; or by simplifying a model or using proxy models.</li>
+<li><em>Completeness</em>: the more we can explain "what ifs" about the model, the more complete an explanation is.</li>
 </ul>
-<p><em>Correctness</em> is a useful dimension to consider, but it is a properties of explanations. The ones below are:</p>
-<ul>
-<li><em>Domainness</em>: extent to which the mathematical model is explained by domain concepts e.g. mass or charge.
-<ul>
-<li>If high: helps experts build confidence interpreting the outputs.</li>
-</ul>
-</li>
-<li><em>Completeness</em>: the more we can explain "what ifs" about the model, the more complete an explanation is.
-<ul>
-<li>Its formula explains it completely, but it's hard.</li>
-<li>Without its formula and weights, heuristics and proxy-models (e.g. linear fit to outputs) to provide <em>some</em> explanation. These are valid <em>even if</em> we have its arch (which may be too complex.)</li>
-</ul>
-</li>
-</ul>
-<p>There are tradeoffs between all these above, high domainness concepts are unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".</p>
-<p>Both for DNNs and classical ML algorithms <em>intrinsic</em> and <em>extrinsic</em> methods are detailed. These refer to methods or techniques to make the model more interpretable.</p>
-<p>Intrinsic and extrinsic methods are complementary.</p>
-<h2 id="interpreting-classical-ml-algorithms"><a class="header" href="#interpreting-classical-ml-algorithms">Interpreting Classical ML Algorithms</a></h2>
+<p>There are tradeoffs between all these above, using domain concepts is unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".</p>
+<h2 id="enhancing-explanations"><a class="header" href="#enhancing-explanations">Enhancing Explanations</a></h2>
 <p>As an example of Classical ML think of Support Vector Regression, and other kinds of regressions.</p>
 <h3 id="intrinsic-methods"><a class="header" href="#intrinsic-methods">Intrinsic methods</a></h3>
-<p>We want to make the mathematical model more interpretable. Regardless of our knowledge, some models will map in a more meaningful manner to the phenomenon being modelled.</p>
+<p>We want to make the mathematical model more explainable. Regardless of our knowledge, some models will map in a more meaningful manner to the phenomenon being modelled.</p>
 <p>These are methods that can help us with it:</p>
 <ul>
 <li>Simplifying the model (when possible)

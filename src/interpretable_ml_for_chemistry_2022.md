@@ -10,8 +10,7 @@ A very interesting experiment in terms of explainability was <https://distill.pu
 
 Scientific models are expected to be explainable; that is, an expert human is confident on how it works, what it means and so on.
 
-When the opposite happens, the model is called a "Black Box".
-Currently, most deep-learning models are black boxes.
+When the opposite happens, the model is called a "Black Box". Currently, most deep-learning models are black boxes.
 
 This is how we get to the question to be explored:
 
@@ -20,33 +19,22 @@ This is how we get to the question to be explored:
 
 (Admittedly, in some cases we may be satisfied with DNNs' predictive power alone!)
 
-## Concepts
+## Characterising Explanations
 
 These are my own defs, inspired by the papers at the top.
 
-- _Correctness_: how accurate the model is.
-
-_Correctness_ is a useful dimension to consider, but it is a properties of explanations. The ones below are:
-
-- _Domainness_: extent to which the mathematical model is explained by domain concepts e.g. mass or charge.
-    - If high: helps experts build confidence interpreting the outputs.
+- _Complexity_: how hard it is. Frequently it can be reduced by using domain concepts e.g. mass or charge; or by simplifying a model or using proxy models.
 - _Completeness_: the more we can explain "what ifs" about the model, the more complete an explanation is.
-    - Its formula explains it completely, but it's hard.
-    - Without its formula and weights, heuristics and proxy-models (e.g. linear fit to outputs) to provide _some_ explanation. These are valid _even if_ we have its arch (which may be too complex.)
 
-There are tradeoffs between all these above, high domainness concepts are unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".
+There are tradeoffs between all these above, using domain concepts is unlikely to explain a model completely i.e. they would answer only a subset of "what ifs".
 
-Both for DNNs and classical ML algorithms _intrinsic_ and _extrinsic_ methods are detailed. These refer to methods or techniques to make the model more interpretable.
-
-Intrinsic and extrinsic methods are complementary.
-
-## Interpreting Classical ML Algorithms
+## Enhancing Explanations
 
 As an example of Classical ML think of Support Vector Regression, and other kinds of regressions.
 
 ### Intrinsic methods
 
-We want to make the mathematical model more interpretable. Regardless of our knowledge, some models will map in a more meaningful manner to the phenomenon being modelled.
+We want to make the mathematical model more explainable. Regardless of our knowledge, some models will map in a more meaningful manner to the phenomenon being modelled.
 
 These are methods that can help us with it:
 
@@ -135,3 +123,4 @@ There isn't much about these ones, this is what I take away:
 [arxiv]: http://arxiv.org/abs/1806.00069
 [CC BY 4.0]: https://creativecommons.org/licenses/by/4.0/
 [^1]:  This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail.
+

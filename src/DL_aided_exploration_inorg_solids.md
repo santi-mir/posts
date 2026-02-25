@@ -18,6 +18,12 @@ Such models would improve the allocation of resources when exploring new phase f
 
 ## Searching for new compounds
 
+
+Some definitions will be used:
+
+- _Phase field_: the elements selected. Can be thought as the labels for cartesian axes.
+- _Composition_: the values or ranges of values in each axes. Once we have the axes' labels we can explore values computationally.
+
 We can search for compounds by _analogy_ and by _exploration_, characterised in the table below:
 
 | Method         | Starting Point               | Concept                                   | Success Rate |
@@ -25,19 +31,12 @@ We can search for compounds by _analogy_ and by _exploration_, characterised in 
 | By analogy     | Parent Compound              | Change composition, same structure        | Higher       |
 | By exploration | Structural Hypothesis / Idea | Try composition and structure             | Lower        |
 
-### Definitions
-
-- _Phase field_: the elements selected. Can be thought as the labels for cartesian axes.
-- _Composition_: the values or ranges of values in each axes.
-    - Once we have the axes' labels we can explore values computationally.
-
 ### Analogy Based Search
 
 The analogy-based search involves:
 
 1. Starts from a naturally occuring mineral, or previously discovered structures,
-2. Change its composition retaining the crystalline structure.
-   - For example, $\mathrm{Li_7Si_2S_7I}$ can be expanded by analogy to $\mathrm{Li_7Si_{2-x}Ge_xS_7I}$, conserving the crystalline structure.
+2. Change its composition retaining the crystalline structure. For example, $\mathrm{Li_7Si_2S_7I}$ can be expanded by analogy to $\mathrm{Li_7Si_{2-x}Ge_xS_7I}$, conserving the crystalline structure.
 
 With respect to analogy-based search, the paper notes:
 
@@ -54,15 +53,13 @@ The ML-aided exploratory-search involves:
 1. Human selects elements or _phase field_ e.g. $\mathrm{Y−Sr−Ca−Ga−O}$, $\mathrm{LiSiXX'}$,...
    - A VAE decodes the seed-input into similar compounds (nearby in latent space).
    - The reconstruction loss is used as a ranking metric for the generated compounds.
-2. Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. $\mathrm{Y_8Sr_{32}Ca{_40}Ga_{80}O_{204}}$
+2. Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. $\mathrm{Li_3SnS_3Cl}$.
    - Can use physical constraints (like max n of atoms).
    - Calculate thermodynamically stable[^1] probe structure (this step is complex).
       Hints experimentalists of promising region.
 3. Try synthesis, and find somewhat similar structures to the computationally suggested one.
 
-### Flowchart
-
-We can describe the steps as a flow as well:
+We can describe the exploration steps as a flow as well:
 
 ```mermaid
 ---
@@ -77,27 +74,25 @@ B -- "`**Ranked Phases**`" --> D(Distance Metric)
 D -- "`**Compositions**`" --> F(Thermodynamics)
 F -- "`**Probe**`" --> H(Try synthesis)
 
-style A fill:#eee,stroke:#333,stroke-width:0px
+style A fill:#123456,color:#f4f4f4,stroke-width:0px
 ```
 
-## Variational Autoencoder (VAE)
 
-### Data Slice
+## In depth workflow
 
-4-element crystals are selected from ICSD, and only the elements are retained.
+### Dataset
+
+The atom descriptors are taken from a atom-property database and include atomic weight, valence, ionic radius, and others.
+
+The 4-element crystals are selected from ICSD, and only the elements are retained.
 For example, $\mathrm{CaNaLiO_2}$ would become $\mathrm{CaNaLiO}$ for training.
 
-The data is scaled 24 fold by performing all possible permutations of 4 elements (4\*3\*2\*1). This enhances learning, reduces overfitting.
+The data is scaled 24 fold by performing all possible permutations of 4 elements, i.e. 4! (factorial). This enhances learning, reduces overfitting.
 
-### Input representation
 
-A 37-dim descriptor (vector) is chosen for each atom; it is combined into a single 148 vector representing the 4 elements.
+### Architecture: Variational Autoencoder (VAE)
 
-The descriptors are taken from a atom-property database and include atomic weight, valence, ionic radius, and others.
-
-### Variational Autoencoder (VAE) Model
-
-The model emphasis is on exploiting a pattern and not on interpretability, the human expert evaluates the compounds afterwards.
+Here the emphasis is on exploiting a pattern and not on interpretability, the human expert evaluates the compounds afterwards.
 
 An autoencoder consists of two parts, an encoder, and a decoder. The overall task is to reconstruct the original vector from the compressed representation.
 
@@ -115,7 +110,7 @@ A larger reconstruction loss means the phase is less likely to be synthesizable,
 
 The rank will also tell how different the compound is to the original.
 
-### Example of Results
+## Example of Results
 
 After VAE ranking, the decision to explore Li-Sn-S-Cl phase field was based on the high conductivity of a related ternary field Li-Sn-S.
 
