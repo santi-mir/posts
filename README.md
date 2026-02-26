@@ -1,10 +1,10 @@
 # Blog
 
-Blogging about AI for chemistry.
+Where I write my thoughts on topics related to AI for chemistry.
 
-It's mostly commentary of papers I read.
+The posts are normally very short, some of them in a few parts.
 
-The URL is <https://santi-mir.github.io/blog_ai4chem>.
+**URL**: <https://santi-mir.github.io/blog_ai4chem>.
 
 ## Build
 
