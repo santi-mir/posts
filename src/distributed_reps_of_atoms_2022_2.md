@@ -31,6 +31,3 @@ The model just needs the formula at inference time, and does fine with non-stoic
 Similar compounds have similar vectors, which is useful. But without structural information, all isomers have the same vector, which is a limitation.
 
 It is computationally cheap, and can help screen large number of compounds as a first selection step.
-
-[Nature]: https://www.nature.com/articles/s41524-022-00729-3
-[^1]: This are just my definitions and may be wrong!

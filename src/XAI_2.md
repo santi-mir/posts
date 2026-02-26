@@ -70,7 +70,5 @@ These study the model's behaviour, as a black box. Most below, correlate changes
     </p>
 </div>
 
-[Account]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [arxiv]: http://arxiv.org/abs/1806.00069
-[CC BY 4.0]: https://creativecommons.org/licenses/by/4.0/
 [^1]:  This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail.

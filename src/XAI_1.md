@@ -48,4 +48,3 @@ This isn't a characteristic of explanations, but of a model, yet it is often cor
 
 [Account]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [arxiv]: http://arxiv.org/abs/1806.00069
-[CC BY 4.0]: https://creativecommons.org/licenses/by/4.0/

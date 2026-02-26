@@ -49,7 +49,3 @@ The magenta point A in the image is the new phase found, not far from the probe 
     Image from <a href="https://www.nature.com/articles/s41467-021-25343-7">Original Paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-SA 4.0</a>
     </p>
 </div>
-
-[Account]: https://pubs.acs.org/doi/10.1021/acs.accounts.4c00694
-[Nature]: https://www.nature.com/articles/s41467-021-25343-7
-[^1]: With respect to the convex hull.
