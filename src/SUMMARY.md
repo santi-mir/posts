@@ -4,16 +4,22 @@
 
 -----
 
-# AI4Chem Thoughts
-
-- [XAI - Concepts](./XAI_1.md)
+# Explainable AI
+- [Concepts](./XAI_1.md)
 - [XAI - Strategies](./XAI_2.md)
-- [Vectors for Atoms](./vectors_for_atoms_1.md)
-- [V4A - Types](./vectors_for_atoms_2.md)
-- [V4A - Results](./vectors_for_atoms_3.md)
+
+# Atom Vectors
+- [Introduction](./vectors_for_atoms_1.md)
+- [Types](./vectors_for_atoms_2.md)
+- [Results](./vectors_for_atoms_3.md)
+
+# AI for the Solid State
 - [Discovering Solids - Concepts](./DL_aided_exploration_inorg_solids_1.md)
 - [Discovering Solids - Workflow](./DL_aided_exploration_inorg_solids_2.md)
+
+# Perspective
 - [ML Perspective (draft)](./machine_learning_perspective_2019.md)
+
 
 -----
 
