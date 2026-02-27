@@ -1,27 +1,39 @@
-# Learning embeddings for atoms
+# Vectors for atoms
 
-These are some of my opinions and ideas after reading [Distributed representations of atoms and materials for
-machine learning][Nature] (2022).
+These are some of my opinions and ideas after reading the [Atom2Vec][PNAS] (2018) and [SkipAtom][Nature] (2022) papers.
 
 -----------
 
-## Summary
+## Introduction
 
-The paper proposes **SkipAtom**, an unsupervised-learning approach to learn atom-embeddings, inspired by Skip-gram (an NLP algorithm to generate word embeddings).
+We want to represent atoms in a machine-useful way. One way is to _represent atoms as vectors_. Both Atom2Vec and SkipAtom are unsupervised algorithms to generate these vectors.
 
-- In Skip-gram, hot-encoded words are projected onto a dense, lower-dimensional vector, which is then decoded into another word.
+Atom vectors can be combined into compound vectors, and these used for downstream tasks like property-prediction.
 
-- In SkipAtom, hot-encoded atoms are projected instead, and is decoded into the neighbour-atom.
+These approaches are competitive with others that use structural information, but are computationally cheaper.
 
-Compound embeddings can be created by combining atom-emdeddings, then used for property prediction neural networks (NNs) and other tasks.
+## Atom2Vec
 
-> With compound representations consisting of composition information alone results in competitive performance when comparing to approaches that make use of structural information.
+Involves collecting all groups each atom in the periodic table is linked to, and this makes up the vector (it is slightly more subtle than this, but it's the gist).
 
-## High-Level procedure
+Each atom-vector is very sparse, since a particular atom binds to a small fraction of all groups. Similar atoms have similar vectors.
+
+They use two algorithms to extract information from the matrix:
+
+1. "Model-free machine" uses SVD and selects the vectors with the $d$ row vectors with the largest singular values. $d$ must be the number of groups, but I'm unsure. This model performed best.
+2. "Model-based machine" uses random vectors and optimises them (does not explain much).
+
+### Findings
+
+- Comparing the resulting vectors &mdash;just by looking at them&mdash; it's clear similar atoms are clustered nearby in the high-dimensional vector space.
+- It's also possible by looking at the variation of some dimensions, to assign meaning to some of them.
+- Measuring similarity they end up grouped as in the periodic table. Also projecting first and second dimensions show clustering.
+
+## SkipAtom
 
 First, compounds are downloaded, then the atom-pairs-dataset is generated. The Voronoi Decomposition helps derive training-pairs from the unit cell. This is shown in the image below:
 
-<div class="center w320">
+<div class="center w40">
     <a href="./assets/distributed_reps_dataset_gen.png">
         <img src="./assets/distributed_reps_dataset_gen.png" alt="Using formula and Voronoi Decomposition to build a crystal-graph"/>
     </a>
@@ -30,28 +42,9 @@ First, compounds are downloaded, then the atom-pairs-dataset is generated. The V
     </p>
 </div>
 
-Next, use the dataset for training a shallow network:
+Next, use the dataset for training a shallow network, trained to predict the neighbour-pair. Visually, it looks like this:
 
-```mermaid
----
-config:
-    flowchart:
-        htmlLabels: false
----
-flowchart LR
-        D("`Hot-encode atoms
-            (sparse)`")
-        E("Minimise Log-Probability")
-        F("`Extract Embeddings
-            (dense)`")
-        D --"`**Train
-            CrossEntropy(y, y')**`"--> E
-        E --> F
-```
-
-The shallow net is trained to predict the neighbour-pair. Visually, it looks like this:
-
-<div class="center w320">
+<div class="center w40">
     <a href="./assets/shallow_net.png">
         <img src="./assets/shallow_net.png" alt="Shallow network used to create the embeddings. It consists of a projection matrix, followed by a 'prediction' matrix."/>
     </a>
@@ -107,4 +100,5 @@ The resulting compound representation is then used for training a feed-forward N
 The pooling can also be done with hot-encoded vectors. This is done in ElemNet (mean pooling), and in Bag-of-atoms (sum pooling). In these cases, the result is a _sparse_ vector.
 
 [Nature]: https://www.nature.com/articles/s41524-022-00729-3
+[PNAS]: https://pnas.org/doi/full/10.1073/pnas.1801181115
 [^1]: This are just my definitions and may be wrong!

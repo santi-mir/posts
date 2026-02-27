@@ -4,6 +4,8 @@ Welcome to the blog!
 
 Here I write my thoughts on topics related to AI for chemistry.
 
+Most posts are split in parts, to make reading them easier.
+
 The index can be found by opening the sidebar.
 
 ## License

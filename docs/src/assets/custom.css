@@ -3,7 +3,7 @@
 :root {
     --sidebar-target-width: 40rem;
     --scaler_w:1vw;
-    --scaler_h:2vh;
+    --scaler_h:1.8vh;
     --sidebar-width: min(var(--sidebar-target-width), 80vw);
     --sidebar-resize-indicator-width: calc(0.75rem + var(--scaler_w));
     --sidebar-resize-indicator-space: calc(0.3rem + var(--scaler_w));
@@ -15,7 +15,6 @@
 }
 html {
     font-family: "Ubuntu", "system-ui", "sans-serif";
-    /* font-size: 62.5%; /* Makes 1 rem = 10 px */ */
 }
 
 body {
@@ -23,10 +22,10 @@ body {
   padding-top:calc(0.5rem + 1vh);
 }
 body, .fa-svg, input, code {
-  font-size:calc(0.8rem + var(--scaler_h));
+  font-size:calc(0.9rem + var(--scaler_h));
 }
 svg {
-  font-size:calc(0.8rem + var(--scaler_h))!important;
+  font-size:calc(1rem + var(--scaler_h))!important;
 }
 #mdbook-content{
   padding-left: 2vw;
@@ -40,7 +39,7 @@ nav.sidebar {
   font-size: inherit;
 }
 
-main p { margin:calc(1rem + var(--scaler_h)) 0;}
+main p { margin:calc(0.2rem + var(--scaler_h)) 0;}
 h2,
 h3 {
   margin-block-start: calc(1rem + 2vh);
