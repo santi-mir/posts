@@ -1,33 +1,43 @@
-# Distributed Representation of Atoms: Results
+# Types of Distributed Representations
 
-## Quality of Atom Representations
+In this context, distributed representations are just vectors for atoms or compounds. They can be continuous or discrete, sparse or dense.[^1]
 
-One-hot, Random, Atom2Vec, Mat2Vec and SkipAtom compared.
+Which ways are there to create vector-representations of atoms?
 
-The atom-vectors were _concatenated_ into compound representations, and these used to predict elpasolites (compounds) formation-energy.
+| Random | One-Hot | Atom2Vec | Mat2Vec | SkipAtom|
+|--------|---------|----------|---------|----------|
+| From Random Distributions  | One 1, rest 0s | SVD of Co-Occurence Matrix      | Embedding (Word2Vec)| Embedding (Skip-gram) |
+| $(0.4,\ldots,0.6)$ | $(0,\ldots,1,\ldots,0)$| as random | as random | as random |
+|dense|sparse|sparse|dense|dense|
 
-SkipAtom outperformed other methods.
+## Comments
 
-## Pooling approaches
+- **Atom2Vec**: any matrix (square or not) has SVD; but does this improves over co-occurences vector?
+- **Mat2Vec**: The projection matrix, initially random, ends up storing embeddings.
+    - Task: context-words predict centre-word. Example: `The cat ___ on the mat.`
+- **SkipAtom**: In the same paper of Word2Vec there is the Skip-gram algorithm, which is adapted for chemistry in this paper.
+    - Task: centre-word predicts context-words. Example: `___ ___ sat __ ___ ____` (same sentence).
 
-Vector pooling strategies were compared through 9 prediction tasks; 5 regressions, 3 classifications and OQMD Formation Energy prediction (also a regression).
+## Embeddings
 
-- OQDM: bag-of-atoms, which is sum-pooling hot-enc atom vectors, is best.
+Embeddings are vectors in real ($R^n$) non-random vector-space, representing an object. _Real_ here implies continuous.
 
-The rest is summarised well in the paper:
+Not all vector or distributed representations are embeddings.
 
-> (...) the models described in this report outperform the existing benchmarks on tasks where only composition is available (namely, the Experimental Band Gap, Bulk Metallic Glass Formation, and Experimental Metallicity tasks). Also, on the Theoretical Metallicity task and the Refractive Index task, the pooled SkipAtom, Mat2Vec and one-hot vector representations perform comparably [to the SOTA], despite making use of composition information only.
+For embeddings, similar objects have similar vectors, according to some metric.
 
-And an interesting observation:
+## Representations of Compounds (Pooling)
 
-> The ElemNet architecture demonstrated (...) Perhaps surprisingly, the combination of a deep feed-forward neural network with compound representations consisting of composition information alone results in competitive performance when comparing to approaches that make use of structural information.
+The analogy to NLP is that _words are like atoms_, and _sentences are like compounds_. Hence, distributed representations of atoms can be combined (pooled) into a vector representing a compound.
 
-## Use cases and limitations
+Vector-pooling options are:
 
-Training does not rely on labelled data (unsupervised learning).
+- _sum_: $\sum s_i \vec{a}_i$ where $s_i$ is the stoichiometry (can be fractional),
+- _mean_: $\frac{\sum s_i \vec{a}_i}{\sum s_i}$, i.e. divided by total number of atoms (can be fractional too).
+- _max_: $\mathrm{max}(M_i)$, reduces material matrix $\mathrm{M}$ to vector. Selects max value of each column, each row being an atom in the compound.
 
-The model just needs the formula at inference time, and does fine with non-stoichiometric solids. So having the material's composition &mdash;but no structural information&mdash; we can still calculate some properties.
+The resulting compound representation is then used for training a feed-forward NN on different tasks. Also benchmarked using MatBench.
 
-Similar compounds have similar vectors, which is useful. But without structural information, all isomers have the same vector, which is a limitation.
+The pooling can also be done with hot-encoded vectors. This is done in ElemNet (mean pooling), and in Bag-of-atoms (sum pooling). In these cases, the result is a _sparse_ vector.
 
-It is computationally cheap, and can help screen large number of compounds as a first selection step.
+[^1]: This are just my definitions and may be wrong!
