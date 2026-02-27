@@ -11,7 +11,7 @@
 
 # Atom Vectors
 
-- [Introduction](./vectors_for_atoms_1.md)
+- [Key Ideas](./vectors_for_atoms_1.md)
 - [Types](./vectors_for_atoms_2.md)
 - [Results](./vectors_for_atoms_3.md)
 

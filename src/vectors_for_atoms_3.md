@@ -1,4 +1,6 @@
-# Distributed Representation of Atoms: Results
+# Distributed Representations: Results
+
+Brief description of a comparison of the representations in different tasks.
 
 ## Quality of Atom Representations
 

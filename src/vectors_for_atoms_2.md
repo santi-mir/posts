@@ -1,12 +1,12 @@
-# Types of Distributed Representations
+# Distributed Representations
 
-In this context, distributed representations are just vectors for atoms or compounds. They can be continuous or discrete, sparse or dense.[^1]
+Distributed representations are the technical name for the vectors (for atoms, compounds, words,..) we have talked about. They can be continuous or discrete, sparse or dense.[^1]
 
 Which ways are there to create vector-representations of atoms?
 
 | Random | One-Hot | Atom2Vec | Mat2Vec | SkipAtom|
 |--------|---------|----------|---------|----------|
-| From Random Distributions  | One 1, rest 0s | SVD of Co-Occurence Matrix      | Embedding (Word2Vec)| Embedding (Skip-gram) |
+| From Random Distributions  | One 1, rest 0s | SVD of Atom-Group matrix  | Embedding (Word2Vec)| Embedding (Skip-gram) |
 | $(0.4,\ldots,0.6)$ | $(0,\ldots,1,\ldots,0)$| as random | as random | as random |
 |dense|sparse|sparse|dense|dense|
 
