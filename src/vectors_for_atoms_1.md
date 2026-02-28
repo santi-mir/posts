@@ -48,4 +48,3 @@ Then, they compared to "empirical features" &mdash; a vector `(group, period,...
 The paper ends with an interesting insight:
 
 > Structural information has to be taken into account to accurately model how atoms are bound together to form either environment or compound, where the recent development on recursive and graph-based neural networks might help.
-

@@ -1,6 +1,5 @@
 # Atom Vectors - Introduction
 
-
 These are some of my opinions and ideas after reading the "[Atom2Vec][PNAS]" (2018) and "[SkipAtom][Nature]" (2022) papers.
 
 -----------
@@ -35,11 +34,9 @@ Which ways are there to create vector-representations of atoms?
 
 Let's see how each algorithm obtains the atom vectors.
 
-
 [^1]: Empirical features refers to the group and period (and potentially charge, mass, ..). This was widely used prior to 2018, before the automated ones.
 
 [^2]: This are just my definitions and may be wrong!
-
 
 [Nature]: https://www.nature.com/articles/s41524-022-00729-3
 [PNAS]: https://pnas.org/doi/full/10.1073/pnas.1801181115
