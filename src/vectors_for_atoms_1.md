@@ -1,5 +1,6 @@
 # Atom Vectors - Key Ideas
 
+
 These are some of my opinions and ideas after reading the "[Atom2Vec][PNAS]" (2018) and "[SkipAtom][Nature]" (2022) papers.
 
 -----------
