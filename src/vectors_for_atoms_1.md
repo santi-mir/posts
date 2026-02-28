@@ -14,7 +14,8 @@ In other words, $X$ is a co-occurence matrix of atom-environment pairs.
 
 The index `(N)` is the stoichiometry of the atom in the compound $\mathrm{Bi_2Sb_3}$ for the first column. Each atom-vector is sparse, since a particular atom binds to a small fraction of all groups.
 
-### SVD Method
+## SVD Method
+
 A normalised matrix $X_u$ is obtain by independently normalising each row vector. Using euclidean norm (2-norm) allows for an intuitive similarity metric:
 
 $$\mathrm{dist}(\vec{u_1},\vec{u_2}) = 1 - \vec{u_1} \cdot \vec{u_2} = 1 - \mathrm{similarity}$$
@@ -25,6 +26,7 @@ In their best-performing model, they compute $SVD(X_u) = U\,D\,V^T$, collect the
 > The strategy has certain beauty to it: the new f-vectors retain the inner product similarity but are denser. Though now, the columns have no explicit meaning.
 
 ### Findings
+
 They find:
 
 - Similar atoms have similar vectors,
