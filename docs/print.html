@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-be453131.js";
+            window.path_to_searchindex_js = "searchindex-331d69a2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-27d2b58b.js"></script>
+        <script src="toc-bf7b14bb.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -195,21 +195,17 @@
 <h1 id="atom-vectors---key-ideas"><a class="header" href="#atom-vectors---key-ideas">Atom Vectors - Key Ideas</a></h1>
 <p>These are some of my opinions and ideas after reading the "<a href="https://pnas.org/doi/full/10.1073/pnas.1801181115">Atom2Vec</a>" (2018) and "<a href="https://www.nature.com/articles/s41524-022-00729-3">SkipAtom</a>" (2022) papers.</p>
 <hr>
-<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<h2 id="background-vectors-in-nlp"><a class="header" href="#background-vectors-in-nlp">Background: Vectors in NLP</a></h2>
 <p>Around 2014, Mikolov et. al. proposed an algorithm for machine-learning vector representations of words.</p>
 <p>The insight was to encode information about the word's environment (neighbouring words). The vector space had similar word clustered together, and these vectors became useful for downstream tasks.</p>
 <p>By exploiting the analogy that <em>words are to sentences what to atoms are to compounds</em>, computational chemists have built upon these findings.</p>
-<h2 id="introduction-in-chemistry"><a class="header" href="#introduction-in-chemistry">Introduction in Chemistry</a></h2>
-<p>Atom vectors can be <em>built</em> from empirical features or they can be <em>learnt</em> by an algorithm. Selecting descriptors is tedious, need to be designed for each particular task, and may be less accurate. So the automated approach, with more general-purpose vectors, has won in popularity.</p>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>"Empirical features" refers to the group and period (but also potentially many others like charge, mass, ..). This was widely used prior to 2018, before the automated ones.</p>
-</blockquote>
+<h2 id="vectors-in-chemistry"><a class="header" href="#vectors-in-chemistry">Vectors in Chemistry</a></h2>
+<p>Atom vectors can be <em>built</em> from empirical features or they can be <em>learnt</em> by an algorithm<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>. Learning vectors yields more general-purpose vectors, and has won in popularity.</p>
 <p>Both <em>Atom2Vec</em> and <em>SkipAtom</em> are unsupervised algorithms that obtain their atom vectors from compound-databases. Atom vectors can be combined into compound vectors, and used for downstream tasks like property-prediction.</p>
 <p>These approaches compete with others that use crystal-structure information, but are computationally cheaper.</p>
 <p>Let's see how each algorithm obtains the atom vectors.</p>
-<h2 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h2>
-<p>In the table below, each row is the atom's connection to groups, <code>1</code>s represent Atom-Group link, <code>0</code>s no link.</p>
+<h3 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h3>
+<p>Atom2Vec uses defines a matrix (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>) where each column is an environment and each row an element. Each <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> can be 0 or a natural number, and represents the <em>count</em> of those atom-environment combinations. In other words, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> is a co-occurence matrix of atom-environment pairs.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -218,13 +214,14 @@
 <tbody>
 <tr><td>Bi</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
 <tr><td>Sb</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-<tr><td>...</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>...</td><td>0</td><td>0</td><td>8</td><td>0</td><td>0</td><td>4</td><td>3</td></tr>
 </tbody>
 </table>
 </div>
-<p>The index <code>(N)</code> is the stoichiometry of the atom in the compound <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">B</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">S</span><span class="mord"><span class="mord mathrm">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> for the first column.</p>
-<p>Each atom-vector is very sparse, since a particular atom binds to a small fraction of all groups. Similar atoms have similar vectors.</p>
-<p>They proposed two models but explain the best performing one called "Model-free machine". In this model, a matrix like the above is SVD'ed, and the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span>-rows with the largest singular values are extracted.</p>
+<p>The index <code>(N)</code> is the stoichiometry of the atom in the compound <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">B</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">S</span><span class="mord"><span class="mord mathrm">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> for the first column. Each atom-vector is sparse, since a particular atom binds to a small fraction of all groups.</p>
+<p>A normalised matrix <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is obtain by independently normalising each row vector. Using euclidean norm (2-norm) allows for an intuitive similarity metric:</p>
+<p>$$\mathrm{dist}(\vec{u_1},\vec{u_2}) = 1 - \vec{u_1} \cdot \vec{u_2} = 1 - \mathtrm{similarity}$$</p>
+<p>In their best-performing model, they compute <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> and collect the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span>-rows with the largest singular values.</p>
 <p>They find:</p>
 <ul>
 <li>Similar atoms, similar vectors i.e. clustered nearby in the high-dimensional vector space.</li>
@@ -236,7 +233,7 @@
 <blockquote>
 <p>Structural information has to be taken into account to accurately model how atoms are bound together to form either environment or compound, where the recent development on recursive and graph-based neural networks might help.</p>
 </blockquote>
-<h2 id="skipatom"><a class="header" href="#skipatom">SkipAtom</a></h2>
+<h3 id="skipatom"><a class="header" href="#skipatom">SkipAtom</a></h3>
 <p>First, compounds are downloaded, then the atom-pairs-dataset is generated. The Voronoi Decomposition helps derive training-pairs from the unit cell. This is shown in the image below:</p>
 <div class="center w40">
     <a href="assets/distributed_reps_dataset_gen.png">
@@ -269,9 +266,15 @@
 </blockquote>
 </li>
 </ul>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>Empirical features refers to the group and period (and potentially charge, mass, ..). This was widely used prior to 2018, before the automated ones. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="distributed-representations"><a class="header" href="#distributed-representations">Distributed Representations</a></h1>
-<p>Distributed representations are the technical name for the vectors (for atoms, compounds, words,..) we have talked about. They can be continuous or discrete, sparse or dense.<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>Distributed representations are the technical name for the vectors (for atoms, compounds, words,..) we have talked about. They can be continuous or discrete, sparse or dense.<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
 <p>Which ways are there to create vector-representations of atoms?</p>
 <div class="table-wrapper">
 <table>
@@ -315,8 +318,8 @@
 <p>The pooling can also be done with hot-encoded vectors. This is done in ElemNet (mean pooling), and in Bag-of-atoms (sum pooling). In these cases, the result is a <em>sparse</em> vector.</p>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1">
-<p>This are just my definitions and may be wrong! <a href="#fr-1-1">↩</a></p>
+<li id="footnote-1-1">
+<p>This are just my definitions and may be wrong! <a href="#fr-1-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -440,7 +443,7 @@ First, for Deep Learning, then the same is done for Classical Machine Learning.<
 <ul>
 <li>Partial Dependence Plots (PDPs). Though it masks possible correlations between features (if all are kept constant but one).</li>
 <li>Individual Conditional Expectations (ICE) overcomes the limitation above.</li>
-<li>Feature Importance methods: partial derivative of an output w.r.t some input feature.<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></li>
+<li>Feature Importance methods: partial derivative of an output w.r.t some input feature.<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup></li>
 <li>Shapley Analysis: involves fitting a linear model using nearby input-points.
 <ul>
 <li>We get insight on which features are locally relevant, by looking at the accompanying coefficients.</li>
@@ -462,8 +465,8 @@ First, for Deep Learning, then the same is done for Classical Machine Learning.<
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-1">
-<p>This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail. <a href="#fr-1-1-1">↩</a></p>
+<li id="footnote-1-2">
+<p>This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail. <a href="#fr-1-1-2">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -522,7 +525,7 @@ First, for Deep Learning, then the same is done for Classical Machine Learning.<
 <li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
 <ul>
 <li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> probe structure (this step is complex).
+<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> probe structure (this step is complex).
 Hints experimentalists of promising region.</li>
 </ul>
 </li>
@@ -546,8 +549,8 @@ style A fill:#123456,color:#f4f4f4,stroke-width:0px
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-2">
-<p>With respect to the convex hull. <a href="#fr-1-1-2">↩</a></p>
+<li id="footnote-1-3">
+<p>With respect to the convex hull. <a href="#fr-1-1-3">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -783,6 +786,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
