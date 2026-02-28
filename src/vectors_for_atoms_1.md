@@ -1,6 +1,6 @@
 # Atom Vectors - Atom2Vec
 
-Let's start with the representation that appeared first (2018), Atom2Vec.
+A popular representation of atoms as vectors appeared in (2018): Atom2Vec.
 
 Atom2Vec uses defines a matrix ($X$) where each column is an environment and each row an element. Each $X_{ij}$ can be 0 or a natural number, and represents the _count_ of those atom-environment combinations.
 
@@ -10,13 +10,13 @@ In other words, $X$ is a co-occurence matrix of atom-environment pairs.
 | ----          | ---- | -----|------|------|------|-----|-----|
 | Bi| 1 | 1 |1|0|0|1 | 0 |
 | Sb | 0 | 1 |1|1|0|0 | 1 |
-| ... | 0 | 0 |8|0|0|4 | 3 |
+| ... | 2 | 0 |8|0|0|4 | 3 |
 
 The index `(N)` is the stoichiometry of the atom in the compound $\mathrm{Bi_2Sb_3}$ for the first column. Each atom-vector is sparse, since a particular atom binds to a small fraction of all groups.
 
 ## SVD Method
 
-A normalised matrix $X_u$ is obtain by independently normalising each row vector. Using euclidean norm (2-norm) allows for an intuitive similarity metric:
+A normalised matrix $X_u$ is obtained by normalising each row vector independently. Using the euclidean norm (2-norm) allows for an intuitive similarity metric:
 
 $$\mathrm{dist}(\vec{u_1},\vec{u_2}) = 1 - \vec{u_1} \cdot \vec{u_2} = 1 - \mathrm{similarity}$$
 
