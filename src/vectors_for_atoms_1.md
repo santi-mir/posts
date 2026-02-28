@@ -55,7 +55,7 @@ The index `(N)` is the stoichiometry of the atom in the compound $\mathrm{Bi_2Sb
 
 A normalised matrix $X_u$ is obtain by independently normalising each row vector. Using euclidean norm (2-norm) allows for an intuitive similarity metric:
 
-$$\mathrm{dist}(\vec{u_1},\vec{u_2}) = 1 - \vec{u_1} \cdot \vec{u_2} = 1 - \mathtrm{similarity}$$
+$$\mathrm{dist}(\vec{u_1},\vec{u_2}) = 1 - \vec{u_1} \cdot \vec{u_2} = 1 - \mathrm{similarity}$$
 
 In their best-performing model, they compute $SVD(X_u) = U\,D\,V^T$, collect the $d$-rows with the largest singular values, and compute $F = U'\,D'$ where $D'$ is the slice of rows of D with the $d$ largest singular values, and $U'$ the corresponding columns.
 
