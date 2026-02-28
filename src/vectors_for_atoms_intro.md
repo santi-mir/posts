@@ -28,6 +28,8 @@ Mixing up continuous and discrete components isn't common, nor it is to use comp
 
 Usually, the term _embedding_ is reserved for dense vectors with real (continuous) components.
 
+The collection of embeddings (which is a matrix) is called distributed representation (of words, atoms, compounds,..). Neural networks are also distributed representations.
+
 [^1]: Empirical features refers to the group and period (and potentially charge, mass, ..). This was widely used prior to 2018, before the automated ones.
 
 [Nature]: https://www.nature.com/articles/s41524-022-00729-3
