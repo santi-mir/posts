@@ -26,9 +26,14 @@ The vector representations can be sparse, like one-hot encoding, or dense, like 
 
 Mixing up continuous and discrete components isn't common, nor it is to use complex numbers.
 
-Usually, the term _embedding_ is reserved for dense vectors with real (continuous) components.
+The term _embedding_ is usually used when these properties apply:
 
-The collection of embeddings (which is a matrix) is called distributed representation (of words, atoms, compounds,..). Neural networks are also distributed representations.
+- Dense vectors with real (continuous) components,
+    - This reduces size of weight matrices in MLPs.
+- Compressed versions of higher-dimensional vectors.
+- The vector-space is structured (semantically similar vectors are close together.)
+
+These properties allow for more accurate, and smaller networks (faster to train).
 
 [^1]: Empirical features refers to the group and period (and potentially charge, mass, ..). This was widely used prior to 2018, before the automated ones.
 

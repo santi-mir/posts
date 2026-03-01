@@ -2,7 +2,23 @@
 
 Atom2Vec was already described, now it's time for SkipAtom.
 
-First, compounds are downloaded, then the atom-pairs-dataset is generated. The Voronoi Decomposition helps derive training-pairs from the unit cell. This is shown in the image below:
+## Summary
+
+This paper proposes a method to create atom embeddings (SkipAtom), and compares a few things:
+
+- Predictions concatenating vectors (no pooling) vs other methods:
+    - These should hint about the embedding quality.
+    - In elpasolite-task; SkipAtom wins here.
+- Predictions across embedding-methods and pooling-methods (9 prediction tasks)
+    - Sum and Mean Pooling outperform Max Pooling
+    - Mat2Vec does best, and second Skip Vector.
+    - Bag of Atoms (sum pool of hot enc) does best in one task
+- The results against state of the art methods.
+    - Showing these methods can be useful when no structural info is available.
+
+## Method
+
+First, compounds are downloaded. Then, the Voronoi Decomposition is used to derive graphs from unit-cells, and from the graphs generate training-pairs. As they show in the paper:
 
 <div class="center w40">
     <a href="./assets/distributed_reps_dataset_gen.png">
@@ -13,7 +29,7 @@ First, compounds are downloaded, then the atom-pairs-dataset is generated. The V
     </p>
 </div>
 
-Next, use the dataset for training a shallow network, trained to predict the neighbour-pair. Visually, it looks like this:
+Finally, these pairs are used to train a shallow network to predict the pair-target from the pair-reference.
 
 <div class="center w40">
     <a href="./assets/shallow_net.png">
@@ -27,14 +43,6 @@ Next, use the dataset for training a shallow network, trained to predict the nei
 - The resulting representation is dense and structured/semantic. This can be shown using dimensionality reduction techniques (PCA, t-SNE,..)
 - The architecture is described as:
     > (...) single hidden layer with linear activation, whose size depended on the desired dimensionality of the learned embeddings, and an output layer with 86 neurons (one for each of the utilized atom types) with softmax activation. (...) minimizing the cross-entropy loss between the predicted context atom probabilities and the one-hot vector representing the context atom, given the one-vector representing the target atom as input.
-
-## Embeddings
-
-Embeddings are vectors in real ($R^n$) non-random vector-space, representing an object. _Real_ here implies continuous.
-
-Not all vector or distributed representations are embeddings.
-
-For embeddings, similar objects have similar vectors, according to some metric.
 
 ## Representations of Compounds (Pooling)
 
