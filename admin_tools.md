@@ -7,6 +7,7 @@ flowchart LR
 A["Zotero Laptop App"] <--WebDAV--> B["Koofr"]
 B <--WebDAV--> C["Zotero Phone App"]
 ```
+
 So instead of using Zotero Sync, I use WebDAV which links to Koofr which provides 10GB for free.
 
 That way Zotero handles a lot less data (just metadata). To save papers I use "Zotero Connector" add-on / browser extension.
