@@ -2,16 +2,16 @@
 
 The paper [Is domain knowledge necessary for machine learning materials properties?][comparison] compared descriptors generated in different ways for downstream tasks.
 
-They found hand-crafted descriptors most useful for small datasets, and fractional (ElemNet) or random-vector representations of elements for large datasets.
+They found hand-crafted descriptors most useful for small datasets, and fractional ([ElemNet]) or random-vector representations of elements for large datasets.
 
 > [!TIP]
 > For data-scarce problems (small datasets) featurisation is useful, for data-rich cases it is irrelevant.
 
-Skip atom includes a comparison of the representations in different tasks, and is discussed below.
+[SkipAtom] includes a comparison of the representations in different tasks, and is discussed below.
 
 ## Quality of Atom Representations
 
-One-hot, Random, Atom2Vec, Mat2Vec and SkipAtom compared.
+[ElemNet] (One-hot), Random, [Atom2Vec], Mat2Vec and [SkipAtom] compared.
 
 The atom-vectors were _concatenated_ into compound representations, and these used to predict elpasolites (compounds) formation-energy.
 
@@ -42,3 +42,6 @@ Similar compounds have similar vectors, which is useful. But without structural 
 It is computationally cheap, and can help screen large number of compounds as a first selection step.
 
 [comparison]: https://link.springer.com/article/10.1007/s40192-020-00179-z
+[Atom2Vec]: https://arxiv.org/pdf/1807.05617
+[SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3.pdf
+[ElemNet]: https://www.nature.com/articles/s41598-018-35934-y
