@@ -4,7 +4,7 @@ Machine-learnt vectors for atoms were inspired by NLP models. An example was lea
 
 The insight of the paper was to encode information about a word's environment (neighbouring words). The resulting vectors had similar word-vectors clustered together in vector space.
 
-The vectors supported semantically  meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
+The vectors supported semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
 
 ```txt
 vector("Queen") = vector("King") - vector("Man") + vector("Woman")
