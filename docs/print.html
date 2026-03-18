@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-5f3cf249.js";
+            window.path_to_searchindex_js = "searchindex-24fcf622.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-1c83127a.js"></script>
@@ -207,19 +207,35 @@
 <p>Both <em>Atom2Vec</em> and <em>SkipAtom</em> are unsupervised algorithms that obtain their atom vectors from databases of compounds. Atom vectors can be combined into compound vectors, and used for downstream tasks like property-prediction.</p>
 <p>These approaches compete with others that use crystal-structure information. Without structural informtation they <em>tend to</em> be less accurate, computationally cheaper to learn.</p>
 <h3 id="embedding"><a class="header" href="#embedding">Embedding</a></h3>
-<p>The vector representations can be sparse, like one-hot encoding, or dense, like most approaches. The components of the vectors can be all continuous (real) or all discrete (integers, natural numbers, binary).</p>
-<p>Mixing up continuous and discrete components isn't common, nor it is to use complex numbers.</p>
-<p>The term <em>embedding</em> is usually used when these properties apply:</p>
+<p>A simple definition is:</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p><em>Embeddings</em> are machine-learnt vectors <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span>.</p>
+</blockquote>
+<p>Though that alone isn't quite complete. Normally, they are also:</p>
 <ul>
-<li>Dense vectors with real (continuous) components,
+<li>Dense rather than sparse i.e they have few zeros,</li>
+<li>Real-valued rather than discrete,</li>
+<li>Non-human-readable (though some parts may be interpretable).</li>
+<li>Belong to a structured vector space: semantically similar vectors are close together and allow for meaningful vector-arithmetic.</li>
+</ul>
+<p>Dense vectors are useful because training will be faster (than a similar sparse version).</p>
+<h2 id="featurisers"><a class="header" href="#featurisers">Featurisers</a></h2>
+<p>The strategy to generate the descriptors (atom or element-vectors) is called a <em>featuriser</em>.</p>
+<p>Element descriptors can be:</p>
 <ul>
-<li>This reduces size of weight matrices in MLPs.</li>
+<li>Simple: like hot-encoded, random;</li>
+<li>Human-designed: Composition-Based Feature Vector (CBFV) which are expert-curated vectors as in Jarvis, Magpie;</li>
+<li>Machine-learnt: embeddings, like SkipAtom.</li>
 </ul>
-</li>
-<li>Compressed versions of higher-dimensional vectors.</li>
-<li>The vector-space is structured (semantically similar vectors are close together.)</li>
-</ul>
-<p>These properties allow for more accurate, and smaller networks (faster to train).</p>
+<p>which are combined in some way to describe compounds.</p>
+<p>We can pick any of the already-computed element-descriptors and use them as inputs, or run the featurising process to make our own.</p>
+<p>A performance-comparison of vector representations is carried out in <a href="https://www.researchgate.net/profile/Taylor-Sparks-2/publication/343926838_Is_Domain_Knowledge_Necessary_for_Machine_Learning_Materials_Properties">"Is domain knowledge necessary for machine learning materials properties?"</a>.</p>
+<p>Their conclusion is: Human-designed Composition Based Feature Vectors (CBFV like Jarvis and Olyinyk) outperform other methods if there isn't much data. This was prior to SkipAtom, but does include Atom2Vec.</p>
+<p>Otherwise, performance in downstream tasks is similar to hot-encoded or random vectors.</p>
+<blockquote>
+<p>(...) Although new, data-driven approaches are of interest, those studied here have yet to surpass CBFVs in terms of material property prediction with small data.</p>
+</blockquote>
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-1">
