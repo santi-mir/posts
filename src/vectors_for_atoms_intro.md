@@ -51,7 +51,6 @@ Both [Atom2Vec] and [SkipAtom] are unsupervised algorithms that obtain their ato
 
 These approaches compete with others that use crystal-structure information. Without structural informtation they _tend to_ be less accurate, computationally cheaper to learn.
 
-
 ### Featurisers
 
 The strategy to generate the descriptors (atom or element-vectors) is called a _featuriser_.
@@ -80,7 +79,6 @@ Human-designed vectors are easier to interpret. Machine learnt vectors require m
 Can we design machine-learnt interpretable vectors that are intrinsically interpretable?
 
 Attention-masks and disentangled representations are closer to this.
-
 
 [SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3
 [Atom2Vec]: https://pnas.org/doi/full/10.1073/pnas.1801181115

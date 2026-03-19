@@ -2,13 +2,13 @@
 
 A popular representation of atoms as vectors appeared in (2018): [Atom2Vec].
 
-They take compounds from a database, and build a matrix like the one below:
+They take compounds from a database, and build a matrix like the one below:[^1]
 
 |  |$\mathrm{(2)Sb_3}$|$\mathrm{(2)Se_3}$|$\mathrm{(2)Te_3}$|$\mathrm{(3)Bi_2}$|$\mathrm{(3)Sb_2}$|$\mathrm{(3)O_2}$|$\mathrm{(3)S_2}$|
 | ----          | ---- | -----|------|------|------|-----|-----|
 | $\mathrm{Bi}$| 1 | 1 |1|0|0|1 | 0 |
 | $\mathrm{Sb}$ | 0 | 1 |1|1|0|0 | 1 |
-| ... | 2 | 0 |8|0|0|4 | 3 |
+| ... | 1 | 0 |1|0|0|1 | 1 |
 
 Let's describe using the compound $\mathrm{Bi_2Sb_3}$ as an example:
 
@@ -30,7 +30,6 @@ In their best-performing model, they compute $SVD(X_u) = U\,D\,V^T$, collect the
 
 ### Findings
 
-They find:
 
 - Similar atoms have similar vectors,
 - Increasing the distance threshold _in stages_, vectors can be clustered hierarchically, from the leaf-nodes (atoms) downwards (groups).
@@ -50,10 +49,13 @@ They find:
 
 ### Benches
 
-Then, they compared to "empirical features" &mdash; a vector `(group, period,...)`, randomly padded to match their $d$&mdash;, with the task of predicting the DFT-found formation-energies of $\approx 10^4$ elpasolite crystals ($\mathrm{ABC_2D_6}$). They represent each solid as a concatenation of atom vectors, and feed it to a hidden layer. (They also do other tasks.)
+Then, they compared to "empirical features" &mdash;a vector `(group, period,...)`, padded to match their $d$&mdash; with the task of predicting the DFT-found formation-energies of $\approx 10^4$ elpasolite crystals ($\mathrm{ABC_2D_6}$).
+
+Each solid was represented as a concatenation of atom vectors, and feed it to a hidden layer. (They also do other tasks.)
 
 The paper ends with an interesting insight:
 
 > Structural information has to be taken into account to accurately model how atoms are bound together to form either environment or compound, where the recent development on recursive and graph-based neural networks might help.
 
 [Atom2Vec]: https://arxiv.org/pdf/1807.05617
+[^1]: It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason).
