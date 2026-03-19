@@ -10,7 +10,6 @@ They take compounds from a database, and build a matrix like the one below:
 | $\mathrm{Sb}$ | 0 | 1 |1|1|0|0 | 1 |
 | ... | 2 | 0 |8|0|0|4 | 3 |
 
-
 Let's describe using the compound $\mathrm{Bi_2Sb_3}$ as an example:
 
 - When $\mathrm{Bi}$ is the target, it generates $(2) \mathrm{Sb_3}$, placed in the first column. `(2)` is the stoichiometry of the element $\mathrm{Bi}$ in the compound.

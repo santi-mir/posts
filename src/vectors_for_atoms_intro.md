@@ -2,7 +2,7 @@
 
 Representing atoms and compounds as vectors has been around for decades &mdash;including those that are machine-learnt.
 
-A related term, _descriptors_, is generic and frequently used for expert-designed vectors.  Anither term, _embedding_, is restricted to machine-learnt vectors.
+A related term, _descriptors_, is generic and frequently used for expert-designed vectors. Anither term, _embedding_, is restricted to machine-learnt vectors.
 
 In summary, these vectors (descriptors or embeddings) can be useful inputs to ML models for prediction tasks.[^1]
 
@@ -25,7 +25,6 @@ and (Source: [SkipAtom]):
 > atoms are to compounds as words are to sentences
 
 computational chemists have built upon these findings.
-
 
 >[!NOTE]
 > Human-designed vectors are easier to interpret.
