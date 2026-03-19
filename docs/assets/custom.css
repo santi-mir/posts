@@ -13,14 +13,14 @@ html {
 }
 
 
-div:has(>a>img) * {
+div:has(>a>img) *, blockquote {
   font-family: "cmu-concrete"
 }
 
 h2,
 h3 {
-  margin-block-start: 1.2rem;
-  margin-block-end:1.4rem;
+  margin-block-start: calc(3vw + 1.4rem);
+  margin-block-end:calc(0.2vw);
 }
 .content main {
   max-width:72ch;
