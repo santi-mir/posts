@@ -18,10 +18,7 @@ By exploiting the analogy that _words are to sentences what atoms are to compoun
 
 >[!NOTE]
 > Human-designed vectors are easier to interpret.
->
-> Can we design machine-learnt interpretable vectors?
->
-> Attention-masks and disentangled representations are closer to this.
+> Can we design machine-learnt interpretable vectors? (Attention-masks and disentangled representations are closer to this).
 
 ## Vectors in Chemistry
 
@@ -31,18 +28,13 @@ Both [Atom2Vec] and [SkipAtom] are unsupervised algorithms that obtain their ato
 
 These approaches compete with others that use crystal-structure information. Without structural informtation they _tend to_ be less accurate, computationally cheaper to learn.
 
-### Embedding
+### What is an embedding?
 
-A simple definition is:
-
->[!NOTE]
-> _Embeddings_ are machine-learnt vectors $\in \mathbb{R}^N$.
-
-Though that alone isn't quite complete. Normally, they are also:
+At a basic level embeddings are _machine-learnt vectors $\in \mathbb{R}^N$._ But this isn't enough. Normally, they are also:
 
 - Dense rather than sparse i.e they have few zeros,
 - Real-valued rather than discrete,
-- Non-human-readable (though some parts may be interpretable).
+- Non-human-readable (though some parts may be interpretable),
 - Belong to a structured vector space: semantically similar vectors are close together and allow for meaningful vector-arithmetic.
 
 Dense vectors are useful because training will be faster (than a similar sparse version).
