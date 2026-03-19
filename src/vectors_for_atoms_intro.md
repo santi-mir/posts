@@ -1,14 +1,31 @@
 # Atom Vectors - Introduction
 
-Representing atoms and compounds as vectors has been around for decades &mdash;including those that are machine-learnt.
+Representing atoms and compounds as vectors has been around for decades.
 
-A related term, _descriptors_, is generic and frequently used for expert-designed vectors. Anither term, _embedding_, is restricted to machine-learnt vectors.
+"Atom-vectors" is a broad category. A narrower category is _descriptors_, used for expert-designed vectors; another one is _embedding_, used for machine-learnt vectors.
 
-In summary, these vectors (descriptors or embeddings) can be useful inputs to ML models for prediction tasks.[^1]
+The vectors are of interest because they can be useful inputs to ML models for prediction tasks.[^1]
 
-ML models _can_ be trained with simple one-hot encoded vectors, but descriptors and embeddings can lead to better results.
+Descriptors are hand-crafted vectors optimised for each problem, we don't get into details here.
 
-Embeddings for atoms were inspired by NLP models in the 2010s. One such example was learning [continuous vector representations of words][arxiv] by Mikolov et. al. in (2013). They proposed an automated mechanism generate word-vectors by absorbing information from that word's environment (neighbouring words).
+The interest here is automated methods that don't require so much human expertise or time. Creating embeddings is one such approach but we talk about one-hot and random vectors later on.
+
+Let's get to embeddings.
+
+## What are embeddings?
+
+Embeddings are _machine-learnt vectors $\in \mathbb{R}^N$._ Normally, they are also:
+
+- Dense rather than sparse i.e they have few zeros,
+- Real-valued rather than discrete,
+- Non-human-readable (though some parts may be interpretable),
+- Belong to a structured vector space: semantically similar vectors are close together and allow for meaningful vector-arithmetic.
+
+Dense vectors are useful because training will be faster (than a similar sparse version).
+
+### Origin
+
+Embeddings for atoms were inspired by NLP models from the 2010s. One such example was learning [continuous vector representations of words][arxiv] by Mikolov et. al. in (2013). They proposed an automated mechanism generate word-vectors by absorbing information from that word's environment (neighbouring words).
 
 They found that similar words had similar vectors. And the vectors also supported semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
 
@@ -26,10 +43,6 @@ and (Source: [SkipAtom]):
 
 computational chemists have built upon these findings.
 
->[!NOTE]
-> Human-designed vectors are easier to interpret.
-> Can we design machine-learnt interpretable vectors? (Attention-masks and disentangled representations are closer to this).
-
 ## Vectors in Chemistry
 
 Atom vectors can be expert-designed or they can be _learnt_ by an algorithm[^2]. Learning vectors yields more general-purpose vectors, and has won in popularity.
@@ -38,16 +51,6 @@ Both [Atom2Vec] and [SkipAtom] are unsupervised algorithms that obtain their ato
 
 These approaches compete with others that use crystal-structure information. Without structural informtation they _tend to_ be less accurate, computationally cheaper to learn.
 
-### What is an embedding?
-
-At a basic level embeddings are _machine-learnt vectors $\in \mathbb{R}^N$._ But this isn't enough. Normally, they are also:
-
-- Dense rather than sparse i.e they have few zeros,
-- Real-valued rather than discrete,
-- Non-human-readable (though some parts may be interpretable),
-- Belong to a structured vector space: semantically similar vectors are close together and allow for meaningful vector-arithmetic.
-
-Dense vectors are useful because training will be faster (than a similar sparse version).
 
 ### Featurisers
 
@@ -70,6 +73,14 @@ Their conclusion is: Human-designed Composition Based Feature Vectors (CBFV like
 Otherwise, performance in downstream tasks is similar to hot-encoded or random vectors.
 
 > (...) Although new, data-driven approaches are of interest, those studied here have yet to surpass CBFVs in terms of material property prediction with small data.
+
+### Thoughts
+
+Human-designed vectors are easier to interpret. Machine learnt vectors require more effort.
+Can we design machine-learnt interpretable vectors that are intrinsically interpretable?
+
+Attention-masks and disentangled representations are closer to this.
+
 
 [SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3
 [Atom2Vec]: https://pnas.org/doi/full/10.1073/pnas.1801181115
