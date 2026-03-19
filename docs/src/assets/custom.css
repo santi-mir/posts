@@ -5,17 +5,32 @@
     font-style: normal;
 }
 
-:root, .fa-svg {
-  font-size:clamp(13px, 2vw, 22px)
+:root{
+  font-size:clamp(13px, 2vw, 22px)!important
 }
+
+#mdbook-menu-bar{
+  padding:1rem;
+  display:flex;
+  justify-content:space-between;
+  h1 {
+    display:none
+  }
+}
+.fa-svg, .fa-svg svg {
+  font-size:clamp(22px, 3vw, 48px)!important;
+}
+
 html {
   font-family: Ubuntu, Roboto, system-ui, sans-serif;
 }
 
 
-div:has(>a>img) *, blockquote {
-  font-family: "cmu-concrete"
+div:has(>a>img) *, blockquote,nav#mdbook-sidebar ol>li.part-title{
+  font-family: "cmu-concrete", "serif"
 }
+
+
 
 h2,
 h3 {
@@ -80,4 +95,3 @@ main li {
 main ol > li::before {
   content: counter(num) ". ";
 }
-
