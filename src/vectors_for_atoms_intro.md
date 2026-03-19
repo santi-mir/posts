@@ -1,20 +1,31 @@
 # Atom Vectors - Introduction
 
-Representing atoms and compounds as vectors isn't new. Even those that are machine-learnt.
+Representing atoms and compounds as vectors has been around for decades &mdash;including those that are machine-learnt.
 
-The general idea is that these vectors can be useful for downstream tasks; for example, as inputs for machine-learning models.[^1]
+A related term, _descriptors_, is generic and frequently used for expert-designed vectors.  Anither term, _embedding_, is restricted to machine-learnt vectors.
 
-Machine-learnt vectors for atoms were inspired by NLP models in the 2010s. One such example was learning [continuous vector representations of words][arxiv] using neural networks by Mikolov et. al. in (2013).
+In summary, these vectors (descriptors or embeddings) can be useful inputs to ML models for prediction tasks.[^1]
 
-The insight of the paper was to encode information about a word's environment (neighbouring words). The resulting vectors had similar word-vectors clustered together in vector space.
+ML models _can_ be trained with simple one-hot encoded vectors, but descriptors and embeddings can lead to better results.
 
-The vectors supported semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
+Embeddings for atoms were inspired by NLP models in the 2010s. One such example was learning [continuous vector representations of words][arxiv] by Mikolov et. al. in (2013). They proposed an automated mechanism generate word-vectors by absorbing information from that word's environment (neighbouring words).
+
+They found that similar words had similar vectors. And the vectors also supported semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
 
 ```txt
 vector("Queen") = vector("King") - vector("Man") + vector("Woman")
 ```
 
-By exploiting the analogy that _words are to sentences what atoms are to compounds_, computational chemists have built upon these findings.
+By exploiting analogies like (Source: [Atom2Vec]):
+
+> properties of an atom can be inferred from the environments it lives in,
+
+and (Source: [SkipAtom]):
+
+> atoms are to compounds as words are to sentences
+
+computational chemists have built upon these findings.
+
 
 >[!NOTE]
 > Human-designed vectors are easier to interpret.
@@ -66,5 +77,5 @@ Otherwise, performance in downstream tasks is similar to hot-encoded or random v
 [arxiv]: https://arxiv.org/1301.3781v3
 [comparison]: https://www.researchgate.net/profile/Taylor-Sparks-2/publication/343926838_Is_Domain_Knowledge_Necessary_for_Machine_Learning_Materials_Properties
 
-[^1]: Machine Learning includes deep-learning and traditional methods like regression, support vector machines, random forests and so on.
+[^1]: Machine Learning (ML) includes deep-learning and traditional methods like regression, support vector machines, random forests and so on.
 [^2]: Empirical features refers to the group and period (and potentially charge, mass, ..). This was widely used prior to 2018, before the automated ones.

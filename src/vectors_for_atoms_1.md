@@ -2,17 +2,21 @@
 
 A popular representation of atoms as vectors appeared in (2018): [Atom2Vec].
 
-Atom2Vec defines a matrix ($X$). Each row represents an element, each column represents an environment.
+They take compounds from a database, and build a matrix like the one below:
 
-In other words, each cell is a _count_ of the number or times the atom-environment pair appears in the dataset; a co-occurrence matrix.
-
-|  |(2)Sb3|(2)Se3|(2)Te3|(3)Bi2|(3)Sb2|(3)O2|(3)S2|
+|  |$\mathrm{(2)Sb_3}$|$\mathrm{(2)Se_3}$|$\mathrm{(2)Te_3}$|$\mathrm{(3)Bi_2}$|$\mathrm{(3)Sb_2}$|$\mathrm{(3)O_2}$|$\mathrm{(3)S_2}$|
 | ----          | ---- | -----|------|------|------|-----|-----|
-| Bi| 1 | 1 |1|0|0|1 | 0 |
-| Sb | 0 | 1 |1|1|0|0 | 1 |
+| $\mathrm{Bi}$| 1 | 1 |1|0|0|1 | 0 |
+| $\mathrm{Sb}$ | 0 | 1 |1|1|0|0 | 1 |
 | ... | 2 | 0 |8|0|0|4 | 3 |
 
-The index `(N)` is the stoichiometry of the atom in the compound $\mathrm{Bi_2Sb_3}$ for the first column. Each atom-vector is sparse, since a particular atom binds to a small fraction of all groups.
+
+Let's describe using the compound $\mathrm{Bi_2Sb_3}$ as an example:
+
+- When $\mathrm{Bi}$ is the target, it generates $(2) \mathrm{Sb_3}$, placed in the first column. `(2)` is the stoichiometry of the element $\mathrm{Bi}$ in the compound.
+- When $\mathrm{Sb}$ is the target it generates $\mathrm{(3) Bi_2}$, placed in the fourth column. `(3)` is the stoichiometry of the element $\mathrm{Sb}$ in the compound.
+
+Since a particular atom binds to a very small fraction of all groups, each row is very sparse (high fraction of zeros). The same is valid for columns.
 
 ## SVD Method
 
