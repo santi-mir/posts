@@ -30,7 +30,6 @@ In their best-performing model, they compute $SVD(X_u) = U\,D\,V^T$, collect the
 
 ### Findings
 
-
 - Similar atoms have similar vectors,
 - Increasing the distance threshold _in stages_, vectors can be clustered hierarchically, from the leaf-nodes (atoms) downwards (groups).
     - At some level, groups match the periodic table groups. (I don't know how the grouping is made unambiguous).
