@@ -6,6 +6,7 @@ TL;DR from the paper ["Best practices in machine learning for chemistry"][best p
     - Ensure dataset remains available, and is version-tagged (they change)
     - For home-made or mixes, explain the process of generation
     - Describe any data curation, balancing, augmentation, and so on.
+
 - _For Representations_
     - Try more than one, compare
     - Use very basic ones as baseline representation to compare (example random or one-hot)
@@ -21,6 +22,7 @@ TL;DR from the paper ["Best practices in machine learning for chemistry"][best p
     - Test extrapolative learning: leave out some class entirely, or train until a cutoff date and evaluate with dates after that.
     - Test intrapolative learning: with varied test sets
     - Mindful of shorcut learning (have varied test dataset).
+
 - Results and code must be made available and reproducible
 
 They also state:
