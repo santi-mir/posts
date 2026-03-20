@@ -27,8 +27,6 @@ They also state:
 
 > In all reports, remember to cite the methods and packages employed to ensure that the development community receive the recognition they deserve.
 
-
 They provide a great checklist but since the license is a mess I am not including it here.
 
 [best practices]: https://www.nature.com/articles/s41557-021-00716-z
-
