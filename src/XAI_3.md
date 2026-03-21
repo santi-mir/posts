@@ -1,16 +1,26 @@
 # Explainable Hierarchical Monte Carlo Ensemble
 
-They propose the model ["Explainable Hierarchical Monte Carlo Ensemble"][EHME].
+In the paper ["Domain Independent XAI for Material Science"][EHME] they propose the model Explainable Hierarchical Monte Carlo Ensemble (EHME).
 
-## General ideas
+## Terms
 
-- Hypothesis A (split dataset): the dataset can be split into independent regions; each model is responsible for one region. The models required are simpler.
+Let's clarify some words in the title and model name:
+
+- Domain Independent: The vectors aren't expert-designed but _fractional_:
+    - _Fractional_ means one-hot encoded elements, average pooled to make compound representations.
+- Explainable: simpler models,
+- Hierarchical: Involves passing on what isn't classified to other classifiers up the hierarchy.
+- Ensemble: multiple models
+
+## Structure
+Three hypothesis structure the paper:
+
+- Hypothesis A (split dataset): views the dataset as union of independent regions. For a region, the models required are simpler and more explainable.
 - Hypothesis B (confidence passes on): Take a test input, how do we know which model to use? Using the model's "classification confidence".
 - Hypothesis C (hierarchy): says that models can be hierarchically ordered.[^1]
 
-So the "Explainable" (simple models), "Hierarchical" (passing on) and "Ensemble" (multiple models) are contextualised.
 
-The "Domain Independent" simply means using compound vectors pooled from atom hot-encoded vectors; that is, with little expert knowledge.
+
 
 ## Explainability
 
