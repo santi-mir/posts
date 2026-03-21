@@ -34,11 +34,12 @@
 
 -----
 
-# Taxonomies
+# Other
 
+- [Best Practices](./best_practices.md)
+- [Databases & Benchmarks](./databases_and_benchmarks.md)
 - [CompChem Map](./compchem_map.md)
-- [Databases and Benches](./db_and_benches.md)
-- [Visualising High-Dimensional Data](./visualising_high_dimensional_data.md)
+- [Visualising N-Dimensions](./visualising_high_dimensional_data.md)
 
 -----
 

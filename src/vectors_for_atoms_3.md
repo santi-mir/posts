@@ -11,6 +11,16 @@ They found hand-crafted descriptors most useful for small datasets, and fraction
 
 [SkipAtom] includes a comparison of the representations in different tasks, and is discussed below.
 
+## Simple classification
+
+We have a simple classification of the available methods:
+
+1. Human-engineered vectors;
+2. Low effort vectors: one-hot encoded (ElemNet), random, Atom2Vec;
+3. Machine-learnt vectors (SkipAtom).
+
+Atom2Vec may be in category 3 above; however, it is not an optimisation that creates them, it is a matrix factorisation.
+
 ## Quality of Atom Representations
 
 [ElemNet] (One-hot), Random, [Atom2Vec], Mat2Vec and [SkipAtom] compared.

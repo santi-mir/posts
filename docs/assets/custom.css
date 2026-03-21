@@ -1,3 +1,9 @@
+:root{
+  font-size:clamp(13px, 2vw, 22px)!important;
+    --sidebar-target-width: max(20vw, 300px);
+    --sidebar-width: min(var(--sidebar-target-width), 80vw);
+}
+
 @font-face {
     font-family: 'cmu-concrete';
     src: url('/assets/font/cmuconcrete_roman_macroman/cmunorm-webfont.woff') format('woff'),
@@ -5,9 +11,7 @@
     font-style: normal;
 }
 
-:root{
-  font-size:clamp(13px, 2vw, 22px)!important
-}
+
 
 #mdbook-menu-bar{
   padding:1rem;
@@ -85,11 +89,11 @@ main ol > li {
 
 main ol > li > p {
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: min(calc(0.3rem + 0.8vh), 2rem) 0;
 }
 
 main li {
-  margin: calc(0.7rem + 0.8vh) 0;
+  margin: min(calc(0.7rem + 0.8vh), 2rem) 0;
 }
 
 main ol > li::before {
