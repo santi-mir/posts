@@ -6,19 +6,24 @@ In the paper ["Domain Independent XAI for Material Science"][EHME] they propose 
 
 Let's clarify some words in the title and model name:
 
-- Domain Independent: The vectors aren't expert-designed but _fractional_:
+- **Domain Independent**: The vectors aren't expert-designed but _fractional_:
     - _Fractional_ means one-hot encoded elements, average pooled to make compound representations.
-- Explainable: simpler models,
-- Hierarchical: Involves passing on what isn't classified to other classifiers up the hierarchy.
-- Ensemble: multiple models
+- **Explainable**: simpler models,
+- **Hierarchical**: Involves passing on what isn't classified to other classifiers up the hierarchy,
+- **Ensemble**: multiple models.
 
 ## Structure
 
-Three hypothesis structure the paper:
+Three interesting hypothesis structure the paper:
 
 - Hypothesis A (split dataset): views the dataset as union of independent regions. For a region, the models required are simpler and more explainable.
-- Hypothesis B (confidence passes on): Take a test input, how do we know which model to use? Using the model's "classification confidence".
-- Hypothesis C (hierarchy): says that models can be hierarchically ordered.[^1]
+- Hypothesis B (pass on): For a test item, its region _and_ class are unknown, so which model should be executed?[^1]
+    - Litmus test: If $P_{max} \gt P_{max_2} + \delta$ then it is classified; else, pass the item to the next model up the hierarchy.
+    - This is run until the item is classified.
+    - They call each $P_i$ a _centroid_.
+- Hypothesis C (hierarchy): models representing regions of a dataset can be hierarchically ordered.[^2]
+
+They argue that this allows simpler models, requiring less data and being more interpretable.
 
 ## Explainability
 
@@ -57,4 +62,5 @@ Another idea would be to have a "routing" network that delegates to each based o
 (Some of these may be what they did, still unsure)
 
 [EHME]: https://fruct.org/files/publications/volume-38/fruct38/Urs.pdf
-[^1]: So far, it looks more like it involves passing whatever a model can't classify with enough confidence to the next model, and the next, and so on. But hierarchy may be obvious in next sections.
+[^1]: Could KNN be used? I assume so, but maybe it is described further down.
+[^2]: So far, it looks more like it involves passing whatever a model can't classify with enough confidence to the next model, and the next, and so on. But hierarchy may be obvious in next sections.
