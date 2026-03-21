@@ -1,25 +1,6 @@
 # Atoms Vectors - SkipAtom
 
-[Atom2Vec] was already described, now it's time for [SkipAtom].
-
-----------
-
-The paper proposes a method to create atom embeddings (SkipAtom).
-
-To evaluate the representation they use elpasolite task, where the atom vectors are concatenated into a compound vector (no pooling).
-SkipAtom performs best here.
-
-Then they compare representations and pooling methods, across 9 prediction tasks. The results are:
-
-- Pooling: sum and mean-pooling outperform max-pooling,
-- Kind: Mat2Vec does best, and second Skip Vector,
-- Bag-of-Atoms (sum pool of hot enc) does best in one task.
-
-They conclude that these methods are most useful when no structural info is available.
-
-As said in the [Results][./vectors_for_atoms_3.md] other reasearchers find that, with enough data, hot-encoded works just as well; they also find that, with little data, human-designed vectors tend to perform better (CBFVs like MagPie).
-
-In other words, there isn't a simple answer so far, it depends in the featuriser and the tasks.
+[Atom2Vec] was already described; now it's time for [SkipAtom], another algorithm to learn atom embeddings.
 
 ## Method
 
@@ -34,7 +15,7 @@ First, compounds are downloaded. Then, the Voronoi Decomposition is used to deri
     </p>
 </div>
 
-Finally, these pairs are used to train a shallow network to predict the pair-target from the pair-reference.
+Finally, each pair X-Y is used to train a shallow network to predict the target (Y) from the reference (X).
 
 <div class="center w40">
     <a href="./assets/shallow_net.png">
@@ -45,7 +26,7 @@ Finally, these pairs are used to train a shallow network to predict the pair-tar
     </p>
 </div>
 
-- The resulting representation is dense and structured/semantic. This can be shown using dimensionality reduction techniques (PCA, t-SNE,..)
+- The resulting representation is dense and structured/semantic. This can be shown using dimensionality reduction techniques (PCA, t-SNE,..).
 - The architecture is described as:
     > (...) single hidden layer with linear activation, whose size depended on the desired dimensionality of the learned embeddings, and an output layer with 86 neurons (one for each of the utilized atom types) with softmax activation. (...) minimizing the cross-entropy loss between the predicted context atom probabilities and the one-hot vector representing the context atom, given the one-vector representing the target atom as input.
 
@@ -63,6 +44,23 @@ The resulting compound representation is then used for training a feed-forward N
 
 The pooling can also be done with hot-encoded vectors for atoms. This is done in [ElemNet] (mean pooling), and in Bag-of-atoms (sum pooling). The advantage: no training required, the disadvantage: the result is a _sparse_ vector, and _can_ be less accurate.
 
+## Results
+
+They run two groups of tests:
+
+- Embeddings' quality through elpasolite task. Where the atom vectors are concatenated into a compound vector (no pooling). The vectors train a network for property prediction. SkipAtom performs best here.
+- Embeddings quality and pooling methods, through 9 prediction tasks. The results are:
+    - Pooling: sum and mean-pooling outperform max-pooling,
+    - Kind: Mat2Vec does best, and second SkipAtom,
+    - Bag-of-Atoms (sum pool of hot enc) does best in one task.
+
+They conclude that these methods are most useful when no structural info is available.
+
+However, there isn't a simple answer to which representation is best, it depends in the task. This is discussed in more detailed in [Results].
+
+
+
 [Atom2Vec]: https://arxiv.org/pdf/1807.05617
 [SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3.pdf
 [ElemNet]: https://www.nature.com/articles/s41598-018-35934-y
+[Results]: /vectors_for_atoms_3.md

@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-4b02d0c0.js";
+            window.path_to_searchindex_js = "searchindex-ae93a13f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-abe782a1.js"></script>
@@ -326,20 +326,7 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atoms-vectors---skipatom"><a class="header" href="#atoms-vectors---skipatom">Atoms Vectors - SkipAtom</a></h1>
-<p><a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a> was already described, now it's time for <a href="https://www.nature.com/articles/s41524-022-00729-3.pdf">SkipAtom</a>.</p>
-<hr>
-<p>The paper proposes a method to create atom embeddings (SkipAtom).</p>
-<p>To evaluate the representation they use elpasolite task, where the atom vectors are concatenated into a compound vector (no pooling).
-SkipAtom performs best here.</p>
-<p>Then they compare representations and pooling methods, across 9 prediction tasks. The results are:</p>
-<ul>
-<li>Pooling: sum and mean-pooling outperform max-pooling,</li>
-<li>Kind: Mat2Vec does best, and second Skip Vector,</li>
-<li>Bag-of-Atoms (sum pool of hot enc) does best in one task.</li>
-</ul>
-<p>They conclude that these methods are most useful when no structural info is available.</p>
-<p>As said in the [Results][./vectors_for_atoms_3.md] other reasearchers find that, with enough data, hot-encoded works just as well; they also find that, with little data, human-designed vectors tend to perform better (CBFVs like MagPie).</p>
-<p>In other words, there isn't a simple answer so far, it depends in the featuriser and the tasks.</p>
+<p><a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a> was already described; now it's time for <a href="https://www.nature.com/articles/s41524-022-00729-3.pdf">SkipAtom</a>, another algorithm to learn atom embeddings.</p>
 <h2 id="method"><a class="header" href="#method">Method</a></h2>
 <p>First, compounds are downloaded. Then, the Voronoi Decomposition is used to derive graphs from unit-cells, and from the graphs generate training-pairs. As they show in the paper:</p>
 <div class="center w40">
@@ -353,7 +340,7 @@ SkipAtom performs best here.</p>
 
 </div>
 
-<p>Finally, these pairs are used to train a shallow network to predict the pair-target from the pair-reference.</p>
+<p>Finally, each pair X-Y is used to train a shallow network to predict the target (Y) from the reference (X).</p>
 <div class="center w40">
     <a href="assets/shallow_net.png">
         <img src="assets/shallow_net.png" alt="Shallow network used to create the embeddings. It consists of a projection matrix, followed by a &#39;prediction&#39; matrix." />
@@ -366,7 +353,7 @@ SkipAtom performs best here.</p>
 </div>
 
 <ul>
-<li>The resulting representation is dense and structured/semantic. This can be shown using dimensionality reduction techniques (PCA, t-SNE,..)</li>
+<li>The resulting representation is dense and structured/semantic. This can be shown using dimensionality reduction techniques (PCA, t-SNE,..).</li>
 <li>The architecture is described as:
 <blockquote>
 <p>(...) single hidden layer with linear activation, whose size depended on the desired dimensionality of the learned embeddings, and an output layer with 86 neurons (one for each of the utilized atom types) with softmax activation. (...) minimizing the cross-entropy loss between the predicted context atom probabilities and the one-hot vector representing the context atom, given the one-vector representing the target atom as input.</p>
@@ -383,16 +370,28 @@ SkipAtom performs best here.</p>
 </ul>
 <p>The resulting compound representation is then used for training a feed-forward NN on different tasks. Also benchmarked using MatBench.</p>
 <p>The pooling can also be done with hot-encoded vectors for atoms. This is done in <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> (mean pooling), and in Bag-of-atoms (sum pooling). The advantage: no training required, the disadvantage: the result is a <em>sparse</em> vector, and <em>can</em> be less accurate.</p>
+<h2 id="results"><a class="header" href="#results">Results</a></h2>
+<p>They run two groups of tests:</p>
+<ul>
+<li>Embeddings' quality through elpasolite task. Where the atom vectors are concatenated into a compound vector (no pooling). The vectors train a network for property prediction. SkipAtom performs best here.</li>
+<li>Embeddings quality and pooling methods, through 9 prediction tasks. The results are:
+<ul>
+<li>Pooling: sum and mean-pooling outperform max-pooling,</li>
+<li>Kind: Mat2Vec does best, and second SkipAtom,</li>
+<li>Bag-of-Atoms (sum pool of hot enc) does best in one task.</li>
+</ul>
+</li>
+</ul>
+<p>They conclude that these methods are most useful when no structural info is available.</p>
+<p>However, there isn't a simple answer to which representation is best, it depends in the task. This is discussed in more detailed in <a href="/vectors_for_atoms_3.html">Results</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="comparison"><a class="header" href="#comparison">Comparison</a></h1>
-<p>We have discussed a few vector representation of atoms, with emphasis in SkipVec and Atom2Vec.</p>
+<p>SkipVec and Atom2Vec were previously discussed.</p>
 <p>The paper <a href="https://link.springer.com/article/10.1007/s40192-020-00179-z">Is domain knowledge necessary for machine learning materials properties?</a> compared descriptors (same as vector representations) generated in different ways for downstream tasks.</p>
-<p>They found hand-crafted descriptors most useful for small datasets, and fractional (<a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a>) or random-vector representations of elements for large datasets.</p>
-<blockquote class="blockquote-tag blockquote-tag-tip">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
-<p>For data-scarce problems (small datasets) featurisation is useful, for data-rich cases it is irrelevant.</p>
-</blockquote>
-<p><a href="https://www.nature.com/articles/s41524-022-00729-3.pdf">SkipAtom</a> includes a comparison of the representations in different tasks, and is discussed below.</p>
+<p>They find hand-crafted descriptors useful for small and large datasets, but these are cumbersome to create —expert knowledge is required. One-hot and random-vectors perform similar to hand-crafted descriptors in large datasets.</p>
+<p>With that, it seems wise to use hand-crafted descriptors for small datasets, and learnt, one-hot or random for larger ones.</p>
+<p>SkipAtom evaluates on different approaches and tasks, and finds their method outperforms one-hot and random-vector, but does not test hand-crafted ones.</p>
+<p><a href="https://www.nature.com/articles/s41524-022-00729-3.pdf">SkipAtom</a>'s comparison of representations is discussed below.</p>
 <h2 id="simple-classification"><a class="header" href="#simple-classification">Simple classification</a></h2>
 <p>We have a simple classification of the available methods:</p>
 <ol>
@@ -1021,6 +1020,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

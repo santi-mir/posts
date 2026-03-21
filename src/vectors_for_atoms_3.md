@@ -1,15 +1,16 @@
 # Comparison
 
-We have discussed a few vector representation of atoms, with emphasis in SkipVec and Atom2Vec.
+SkipVec and Atom2Vec were previously discussed.
 
 The paper [Is domain knowledge necessary for machine learning materials properties?][comparison] compared descriptors (same as vector representations) generated in different ways for downstream tasks.
 
-They found hand-crafted descriptors most useful for small datasets, and fractional ([ElemNet]) or random-vector representations of elements for large datasets.
+They find hand-crafted descriptors useful for small and large datasets, but these are cumbersome to create &mdash;expert knowledge is required. One-hot and random-vectors perform similar to hand-crafted descriptors in large datasets.
 
-> [!TIP]
-> For data-scarce problems (small datasets) featurisation is useful, for data-rich cases it is irrelevant.
+With that, it seems wise to use hand-crafted descriptors for small datasets, and learnt, one-hot or random for larger ones.
 
-[SkipAtom] includes a comparison of the representations in different tasks, and is discussed below.
+SkipAtom evaluates on different approaches and tasks, and finds their method outperforms one-hot and random-vector, but does not test hand-crafted ones.
+
+[SkipAtom]'s comparison of representations is discussed below.
 
 ## Simple classification
 
