@@ -20,8 +20,6 @@ h3 {
 }
 
 
-
-
 .content main {
   max-width:72ch;
   margin:auto
@@ -92,7 +90,6 @@ main ol > li::before {
 .fa-svg, .fa-svg svg {
   font-size:clamp(22px, 3vw, 48px)!important;
 }
-
 
 
 div:has(>a>img) *, blockquote, q, nav#mdbook-sidebar ol>li.part-title{
