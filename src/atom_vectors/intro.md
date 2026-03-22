@@ -22,11 +22,16 @@ Dense vectors are useful because training will be faster (than a similar sparse 
 
 ### Some Background on Embeddings
 
-Embeddings for atoms were inspired by NLP models from the 2010s. One such example was learning [continuous vector representations of words][arxiv] by Mikolov et. al. in (2013). They proposed an automated mechanism generate word-vectors by absorbing information from that word's environment (neighbouring words).
+Embeddings for atoms were inspired by NLP models from the 2010s.
 
-Materials science has exploited the same ideas: <q>properties of an atom can be inferred from the environments it lives in</q> ([Atom2Vec], 2018), or another example <q>atoms are to compounds as words are to sentences</q> ([SkipAtom], 2022), so computational chemists have built upon these findings.
+One such example was learning [continuous vector representations of words][arxiv] (2013). They proposed an automated mechanism generate word-vectors by absorbing information from that word's environment (neighbouring words).
 
-What Mikolov's and derived approaches found is that similar words (or atoms) produce similar vectors. The vectors also support semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
+Materials science has exploited the same ideas, for example:
+
+- <q>properties of an atom can be inferred from the environments it lives in</q> ([Atom2Vec], 2018),
+- <q>atoms are to compounds as words are to sentences</q> ([SkipAtom], 2022),
+
+The surprise was that similar words (or atoms) produce similar vectors. The vectors also support semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:
 
 ```txt
 vector("Queen") = vector("King") - vector("Man") + vector("Woman")
