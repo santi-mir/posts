@@ -44,19 +44,33 @@ The classification condition is $P_max \gt P_{max_2} + \delta$, where each $P_i$
 
 $$P_i = \frac{1/d_i}{\sum_0^m 1/d_j}$$
 
-$m$ is the number of classes, $d_i$ the euclidean distance to each classes' _trained centroid_. The model's name is _Trained Detailed Centroids_ (TDC).
-
-According to the paper, TDC differs from KNN, which uses _actual centroids_ rather than _trained centroids_.
+$m$ is the number of classes, $d_i$ the euclidean distance to each classes' _trained centroid_. That is, a trained vector that represents the class.
 
 - The smaller $d_i$ is (closer to centroid $i$) the larger $P_i$ is, since the term $1/d_i$ eventually dominates the sum.
 - The larger $d_i$ is (far from centroid) the more it tends towards zero, the term contributes little to the sum.
 
-The method uses $n\times{}m$ parameters given by $n$ number of features and $m$ prediction classes.
+
+They propose two methods to generate centroids:
+
+1. Trained Detailed Centroids (TDC):
+    - Each class has an independently trained centroid,
+    - Params to train: $n\times{}m$ parameters given by $n$ features and $m$ classes,
+    - According to the paper, TDC differs from KNN, which uses _actual centroids_ rather than _trained centroids_.
+2. Trained Compressed Centroids (TCC):
+    - Classes centroids are generated from a common centroid,
+    - Params to train: $n + m$, for $m$ classes and $n$ features of $c$,
+    - Aims to reduce N params which may be too large for a small dataset to optimise.
+
+The class compressed centroid comes from comparing the compressed centroid ($P$) with the single class parameter ($Q_i$), using "minimum" function:
+
+$$\vec{c}_i = \langle \text{min}(P_1, Q_i), \ldots, \text{min}(P_n, Q_i)\rangle$$
+
+which is done for each class. It could be represented as a matrix but I find it less clear. Or in a single formula: ${\large\forall{}}_{j=1,n}^{i=1,m}\text{min}(P_j, Q_i)$.
 
 ## My questions so far
 
 - Could KNN be used to decide Hypothesis B? Possibly.
-- <q>However, they are not suitable for incorporating a Euclidean distance model.</q> I DL can cerainly use this?
+- <q>However, they are not suitable for incorporating a Euclidean distance model.</q> Can't DL use this?
 - How are the centroids-and-element's coordinates obtained (used for building $d_i$)?
 
 ## Other avenues
