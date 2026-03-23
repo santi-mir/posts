@@ -1,6 +1,14 @@
+/* Font is loaded twice, is the only way I found to make it work
+ * locally and on github */
 @font-face {
     font-family: 'cmu-concrete';
     src: url('/fonts/cmuconcrete_roman_macroman/cmunorm-webfont.woff') format('woff'),
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'cmu-concrete';
+    src: url('/blog_ai4chem/fonts/cmuconcrete_roman_macroman/cmunorm-webfont.woff') format('woff'),
     font-weight: 500;
     font-style: normal;
 }
