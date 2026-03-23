@@ -7,7 +7,7 @@ We can clarify some of the terms:
 - **Domain Independent**: They use composition vectors; it is "domain independent" within materials science,
 - **Explainable**: Simple input (composition vector), euclidean distance classification (their model),
 - **Hierarchical**: Involves passing on what isn't classified to other classifiers up the hierarchy,
-- **Monte Carlo Ensemble**: Multiple Monte Carlo models. It's is unclear what role this plays.
+- **Monte Carlo Ensemble**: Multiple Monte Carlo models. It's is unclear how is this used, but is is coupled with the euclidean distance model.
 
 ## Hierarchical Learning
 
@@ -36,7 +36,7 @@ They use ElemNet's _fractional_ representation is $\mathbf{v} = \frac{1}{N}\sum_
 
 ### Modelling: euclidean-based probabilities
 
-The hierarchy springs from the _constrain_ in the probability $P$ of membership: $P_{i=max} \gt P_{j=max_2} + \delta$. The test input is passed on to the next model if this doesn't hold.
+The hierarchy stems from the _constrain_ in the probability $P$ of membership: $P_{i=max} \gt P_{j=max_2} + \delta$. The test input is passed on to the next model if this doesn't hold.
 
 The _model_ is: $P_i = {\Large \frac{||\mathbf{v}-\mathbf{c}^i||^{-1}}{\sum_{j=1}^m ||\mathbf{v}-\mathbf{c}^j||^{-1}}}$ where $m$ is the number of classes and $||\cdot||$ are euclidean distances between test vectors $\mathbf{v}$ and centroids $\mathbf{c}$.
 
@@ -59,14 +59,11 @@ In TCC, to generate the vector for class $i$, compare components of the common c
 
 Seems to be just selecting $\delta$ in the probability formula given earlier.
 
-### EHME
-
-The centroids are trained using an evolutionary algorighm (EA).
-
 ## My questions so far
 
 - Could KNN be used to decide Hypothesis B? Possibly.
 - <q>However, they are not suitable for incorporating a Euclidean distance model.</q> Can't DL use this?
+- How are the datasets split, and which role does Monte Carlo Ensemble play?
 
 ## Other avenues
 
