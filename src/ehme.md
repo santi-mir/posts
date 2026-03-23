@@ -4,29 +4,27 @@ In the paper [Domain Independent XAI for Material Science][EHME] the model Expla
 
 We can clarify some of the terms:
 
-- **Domain Independent**: They use composition vectors; it is "domain independent" only within materials science.
-- **Explainable**: Simple input (composition vector), euclidean distance classification, hyperspace definition.
+- **Domain Independent**: They use composition vectors; it is "domain independent" within materials science,
+- **Explainable**: Simple input (composition vector), euclidean distance classification (their model),
 - **Hierarchical**: Involves passing on what isn't classified to other classifiers up the hierarchy,
-- **Monte Carlo Ensemble**: multiple Monte Carlo models.
-
-_Explainability_ is unclear in the text. The model uses an euclidean distance formula to estimate the probability of a class. The distance is of the input vector to class vectors. (Is the input vector the composition vector directly?)
-
-The class vectors are produced through an evolution algorithm and Monte Carlo ensembles. And this part is quite confusing.
-
-So this post focuses on the key ideas, with "just enough" of explainability.
+- **Monte Carlo Ensemble**: Multiple Monte Carlo models. It's is unclear what role this plays.
 
 ## Hierarchical Learning
 
-The hierarchical learning idea is a hypothesis to deal with smaller datasets and use less complex models.
-In a nutshell it assumes:
+The hierarchical learning[^1] idea is a hypothesis to deal with smaller datasets and use less complex models. In a nutshell, it assumes:
 
 1. The dataset can be split into regions,
-2. A test input can be classified for class $i$ if $P_{i=max} \gt P_{j=max_2} + \delta$ is met, or passed to the next model in the _hierarchy_,
+2. The hierarchy arises from the constrain $P_{i=max} \gt P_{j=max_2} + \delta$ which test input passes to the next predictor if unmet,
 3. The models can be ordered hierarchically.
 
-In my view the paper's use of the term _hyperspace_ is inaccurate; hyperspace is $\mathbb{R}^{N > 3}$. What they have seem _subsets of hyperspace_ given by the probability condition above.
+So $\delta$ defines a limit for an input to belong to a class, with reasonable confidence.
 
-In simpler words, $\delta$ defines a limit for an input to belong to a class, with reasonable confidence.
+### What is this doing exactly?
+
+Remember that the dataset is split into regions, and each region has its own centroids (hence own model).
+
+When the probability-test fails, the item is passed on to a classifier from another region.
+This repeats until one is confident enough.
 
 ## Explainability Stages
 
@@ -34,21 +32,15 @@ The stages are pre-modelling, modelling and post-modelling; each stage is somewh
 
 ### Pre-modelling: composition vector
 
-They use a composition representation, sometimes called fractional.
-
-The _fractional_ representation is $\vec{v}_c = \frac{1}{N}\sum n_a \vec{h}_a$; an average of one-hot encoded vectors ($\vec{h}$) of atoms ($a$).
-
-Other approaches require training to produce higher-quality element vectors, such as Mat2Vec or SkipAtom. The performance is not too different though.
+They use ElemNet's _fractional_ representation is $\mathbf{v} = \frac{1}{N}\sum_a n_a \mathbf{h}_a$; an average of one-hot encoded vectors $\mathbf{h}$ of atoms $a$.[^2]
 
 ### Modelling: euclidean-based probabilities
 
-Each $P$ of membership in $P_{i=max} \gt P_{j=max_2} + \delta$ is calculated from:
+The hierarchy springs from the _constrain_ in the probability $P$ of membership: $P_{i=max} \gt P_{j=max_2} + \delta$. The test input is passed on to the next model if this doesn't hold.
 
-$$P_i = \frac{1/||v-c^i||}{\sum_{j=1}^m 1/||v-c^j||}$$
+The _model_ is: $P_i = {\Large \frac{||\mathbf{v}-\mathbf{c}^i||^{-1}}{\sum_{j=1}^m ||\mathbf{v}-\mathbf{c}^j||^{-1}}}$ where $m$ is the number of classes and $||\cdot||$ are euclidean distances between test vectors $\mathbf{v}$ and centroids $\mathbf{c}$.
 
-$m$ is the number of classes; $||\cdot||$ are euclidean distances between test vectors $v$ and centroids $c$.
-
-Closer distances have higher probabilities, and farther ones lower.
+The closer the vector and centroid are, the higher the probability of the test item belonging to that class.
 
 They propose two methods to generate centroids. In both cases, the centroids are trained using an evolutionary algorithm (EA).
 
@@ -86,3 +78,5 @@ Another idea would be to have a "routing" network that delegates to each based o
 (Some of these may be what they did, still unsure)
 
 [EHME]: https://fruct.org/files/publications/volume-38/fruct38/Urs.pdf
+[^1]: In my view the paper's use of the term _hyperspace_ is inaccurate; hyperspace is $\mathbb{R}^{N > 3}$. What they have seem _subsets of hyperspace_ given by the probability condition above.
+[^2]: Other approaches require training to produce higher-quality element vectors, such as Mat2Vec or SkipAtom. The performance is not too different though.
