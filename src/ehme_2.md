@@ -1,14 +1,18 @@
-# EHME&mdash;Part II
+# EHME: Discussion
 
-Here are some further thoughts on the paper
+Here are some further thoughts on the paper.
 
 ## Comments
 
-- Could KNN be used to decide Hypothesis B? I think it is possible.
-    - Option 1: if we run KNN for each cluster, we need to think how to select one cluster over another.
-    - Option 2: if each point is labelled class-cluster, the problem seems solvable. The winner would be the cluster with largest class votes.
+Could KNN be used to decide Hypothesis B? I think it is possible.
+- Option 1: if we run KNN for each cluster, we need to think how to select one cluster over another.
+- Option 2: if each point is labelled class-cluster, the problem seems solvable. The winner would be the cluster with largest class votes.
+
+They also talk about KNN as a model, and argue that their centroids are trained vs just actual centroids (which is used in KNN). So that is the main difference.
+
 - <q>However, they are not suitable for incorporating a Euclidean distance model.</q> Can't DL use this?
 - How are the datasets split, and which role does Monte Carlo Ensemble play?
+
 - Even though the pieces are simple, explainability in the sense of _how and why_ the model proposes a candidate is not achieved.
 - In my view the paper's use of the term _hyperspace_ is inaccurate; hyperspace is $\mathbb{R}^{N > 3}$. What they have seem _subsets of hyperspace_ given by the probability condition above.
 - It's not described here (but elsewhere) _how_ the hierarchy of models is produced; that is which one is executed after which. However, it seems to involve an ensemble of models trained together to run sequentially (hierarchically if the sequence is imagined vertically?).

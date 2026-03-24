@@ -1,4 +1,4 @@
-# EHME
+# EHME: Concepts
 
 In [this paper][EHME] the model _Explainable Hierarchical Monte Carlo Ensemble_ (EHME) is proposed.
 
