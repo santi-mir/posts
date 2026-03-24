@@ -20,7 +20,6 @@ $$P_i = {\large \frac{||\mathbf{v}-\mathbf{c}^i||^{-1}}{\sum_{j=1}^m ||\mathbf{v
 
 Where $m$ is the number of classes and $||\cdot||$ are euclidean distances. When the vector $\mathbf{v}$ and centroid $\mathbf{c}^i$ (for class $i$) are closer, the probability $P_i$ of the test item belonging to that class increases.
 
-
 ### Where do models come from?
 
 Remember that the dataset is split into clusters, and each cluster has its own centroids, hence own euclidean distance model.
@@ -61,4 +60,3 @@ The point at which they become equal is called Rocchio boundary. And the surface
 [EHME]: https://fruct.org/files/publications/volume-38/fruct38/Urs.pdf
 [post_modelling]: #post-modelling-explainability
 [^1]: Other approaches require training to produce higher-quality element vectors, such as Mat2Vec or SkipAtom. These are not intrinsically interpretable nor always produce better results.
-
