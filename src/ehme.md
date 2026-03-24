@@ -2,11 +2,11 @@
 
 In [this paper][EHME] the model _Explainable Hierarchical Monte Carlo Ensemble_ (EHME) is proposed.
 
-In short, _simple models are used to fit a split dataset_. Let's expand on some of the ideas behind this.
+In short, _simple models are used to fit a split dataset_.
 
-## Explainability Stages
+Three stages of explainability are defined: pre-modelling, modelling and post-modelling explainability. Let's expand on some of the ideas behind this.
 
-### Pre-modelling Explainability
+## Pre-modelling Explainability
 
 The paper states:
 
@@ -16,7 +16,7 @@ The core idea is to **split the dataset** and then use simpler models.
 
 They also use [ElemNet]'s _fractional_ representation is $\mathbf{v} = \frac{1}{N}\sum_a n_a \mathbf{h}_a$; an average of one-hot encoded vectors $\mathbf{h}$ of atoms $a$.[^1] This does not make the model later on explainable, but seems reasonable to consider it here.
 
-### Modelling Explainability
+## Modelling Explainability
 
 The core idea for model explainability is to use euclidean-based probabilities, which is considered explainable.
 
@@ -42,13 +42,13 @@ In TCC, to generate the vector for class $i$, compare components of the common c
 
 </details>
 
-#### Where do models come from?
+### Where do models come from?
 
 Remember that the dataset is split into clusters, and each cluster has its own centroids, hence own euclidean distance model.
 
 When the confidence test fails, a new model is run (from another cluster). This repeats until one is confident enough.
 
-### Post-modelling explainability
+## Post-modelling explainability
 
 The hierarchy stems from the _constrain_ in the probability $P$ of membership: $P_{i=max} \gt P_{j=max_2} + \delta$. The test input is passed on to the next model if this doesn't hold.
 
