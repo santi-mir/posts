@@ -1,30 +1,31 @@
-# Explainable Hierarchical Monte Carlo Ensemble
+# EHME
 
-In the paper [Domain Independent XAI for Material Science][EHME] the model Explainable Hierarchical Monte Carlo Ensemble (EHME) is proposed.
+In [this paper][EHME] the model _Explainable Hierarchical Monte Carlo Ensemble_ (EHME) is proposed.
 
-Let's expand some of the terms:
+Problem: How to have simple (explainable) models represent complex datasets _and_ be accurate?
 
-- **Domain Independent**: They use composition vectors which are domain independent _within_ materials science.
-- **Explainable**: Composition vectors are intuitive, and so is euclidean distance which is the base of their classification models.
-- **Hierarchical**: Involves passing on what isn't classified to other classifiers up the hierarchy.
-- **Monte Carlo Ensemble**: Multiple Monte Carlo models. It's unclear how is this used, but it is coupled with the euclidean distance model.
+Solution: They suggest to split datasets into clusters and have a simpler model for each cluster. Furthermore, models are hierarchically organised.
 
-## Hierarchical Learning
+And what is a _simple_ (explainable) model? Here, it is a euclidean-distance based model, which is considered explainable.
 
-The hierarchical learning[^1] idea is a hypothesis to deal with smaller datasets and use less complex models. In a nutshell, it assumes:
+In short, we have a set of euclidean-distance based models each responsible for different clusters of a split dataset.
 
-1. The dataset can be split into regions,
-2. The hierarchy arises from the constrain $P_{i=max} \gt P_{j=max_2} + \delta$ which test input passes to the next predictor if unmet,
-3. The models can be ordered hierarchically.
+## Explainable Hierarchical Learning
 
-So $\delta$ defines a limit for an input to belong to a class, with reasonable confidence.
+The ideas below help define an _explainable model_ that will use _hierarchical learning_.
 
-### What is this doing exactly?
+1. A complex dataset can be split into clusters, each one following a simpler pattern, each captured by a simpler model,
+2. To handle model participation they use a confidence test: rank classes using $P$ then calculate $P^i_{max} \gt P^j_{max_2} + \delta$
+    - Input is from $i$ if met, else it is passed to the next predictor.
+3. Models from each cluster can be ordered hierarchically. So the $P$s always start from a first model and follow an order.
 
-Remember that the dataset is split into regions, and each region has its own centroids (hence own model).
+Which aims to connect hierarchical learning to explainability. How? Because each _model_ in the hierarchy is explainable.
 
-When the probability-test fails, the item is passed on to a classifier from another region.
-This repeats until one is confident enough.
+### But where do these models come from?
+
+Remember that the dataset is split into clusters, and each cluster has its own centroids, hence own euclidean distance model.
+
+When the confidence test fails, a new model is run (from another cluster). This repeats until one is confident enough.
 
 ## Explainability Stages
 
@@ -59,22 +60,7 @@ In TCC, to generate the vector for class $i$, compare components of the common c
 
 Seems to be just selecting $\delta$ which helps define regions of interest. This is not the calculation of centroids (previous step), but a vector that makes the probabilities of interest equal (0.5 for two classes.)
 
-## My questions so far
-
-- Could KNN be used to decide Hypothesis B? Possibly.
-- <q>However, they are not suitable for incorporating a Euclidean distance model.</q> Can't DL use this?
-- How are the datasets split, and which role does Monte Carlo Ensemble play?
-
-## Other avenues
-
-One could also test the opposite Hypothesis to B, i.e that those regions actually are or can-be-made to reside quite close.
-
-Or could also use other kinds of hierarchies: for example to train a model to predict Class A, Class B,...and Class X. Where class X would be "Other", and in that case it is passed on.
-
-Another idea would be to have a "routing" network that delegates to each based on a higher classification (could be what they did).
-(Some of these may be what they did, still unsure)
 
 [ElemNet]: https://www.nature.com/articles/s41598-018-35934-y
 [EHME]: https://fruct.org/files/publications/volume-38/fruct38/Urs.pdf
-[^1]: In my view the paper's use of the term _hyperspace_ is inaccurate; hyperspace is $\mathbb{R}^{N > 3}$. What they have seem _subsets of hyperspace_ given by the probability condition above.
-[^2]: Other approaches require training to produce higher-quality element vectors, such as Mat2Vec or SkipAtom. The performance is not too different though.
+[^1]: Other approaches require training to produce higher-quality element vectors, such as Mat2Vec or SkipAtom. The performance is not too different though.

@@ -24,7 +24,8 @@
 
 - [Discovering Solids - Concepts](./DL_aided_exploration_inorg_solids_1.md)
 - [Discovering Solids - Workflow](./DL_aided_exploration_inorg_solids_2.md)
-- [Model Ensembles](./ehme.md)
+- [Model Ensembles - Concepts](./ehme.md)
+- [Model Ensembles - Comments](./ehme_2.md)
 
 -----
 
