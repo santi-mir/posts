@@ -68,5 +68,4 @@ EHME involves all the pieces above: the split datasets, the training of a hierar
 
 [ElemNet]: https://www.nature.com/articles/s41598-018-35934-y
 [EHME]: https://fruct.org/files/publications/volume-38/fruct38/Urs.pdf
-[post_modelling]: #post-modelling-explainability
 [^1]: Other approaches require training to produce higher-quality element vectors, such as Mat2Vec or SkipAtom. These are not intrinsically interpretable nor always produce better results.
