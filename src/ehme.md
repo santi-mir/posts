@@ -66,8 +66,6 @@ The point at which they become equal is called Rocchio boundary. And the surface
 
 EHME involves all the pieces above: the split datasets, the training of a hierarchy of models (using hierarchical learning, evolutionary algorithms, and Monte Carlo ensembles), and the defining of regions of interest that are worth exploring.
 
-
-
 [ElemNet]: https://www.nature.com/articles/s41598-018-35934-y
 [EHME]: https://fruct.org/files/publications/volume-38/fruct38/Urs.pdf
 [post_modelling]: #post-modelling-explainability
