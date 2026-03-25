@@ -20,7 +20,7 @@
 
 -----
 
-# AI for the Solid State
+# Rosseinsky Group
 
 - [Discovering Solids - Concepts](./DL_aided_exploration_inorg_solids_1.md)
 - [Discovering Solids - Workflow](./DL_aided_exploration_inorg_solids_2.md)

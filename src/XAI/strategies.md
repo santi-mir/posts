@@ -7,29 +7,29 @@ First, for Deep Learning, then the same is done for Classical Machine Learning.
 
 ### Intrinsic or Representation Methods
 
-These help us to interpret the learnt representations and data inside the model (intrinsic).
-
-They help answer the question: _What information does the network contain?_
+Interpreting the learnt representations and data inside the model (intrinsic) with questions such as _what information does the network contain?_.
 
 They classify these at the level of Layer, Neuron, and Vector.
 
-- Role of Layers: for example, transfer learning, reusing output of some layers for another task.
-- Role of Units: "visualizations of the input patterns that maximize the response of a single unit or quantitatively, by testing the ability of a unit to solve a transfer problem" ([source][arxiv]).
-- Role of Vectors: for example using Concept Activation Vectors framework.
+- **Role of Layers**: for example, transfer learning, reusing output of some layers for another task.
+- **Role of Units**: <q>visualizations of the input patterns that maximize the response of a single unit or quantitatively, by testing the ability of a unit to solve a transfer problem</q> ([source][XX]).
+- **Role of Vectors**: for example using Concept Activation Vectors framework.
 
 Another way is to introduce biases like symmetry considerations which can help interpretability.
 
 ### Extrinsic or Processing Methods
 
-These relate to how the model processes _an input_ (extrinsic) and in a way we look at the model as a black box.
+In a way, still looks at the model as a black box, with questions such as _how does the model process an input?_ (extrinsic).
 
-- Linear Proxy Models: fit a simpler model to the neighbourhood of an input (+ noise), i.e $g(z) \approx f(z)$ around some $z$. For example, LIME or Generalised Linear Models (GLMs).
-
+- Linear Proxy Models: fit a simpler model to the neighbourhood of an input (+ noise), i.e $g(z) \approx f(z)$ around some $z$. For example, Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).
+- SHAP: Shapley Additive Explanations, a game-theory based approach (offers both global and local, but still looks at the model as black box).
 - Salience Maps: aim to explain which portions of the computation (original model) are most important for different inputs.
-
 - Validity Interval Analysis: another technique fitting the NN behaviour to try to extract explanations.
-
 - Principal Component Analysis, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.
+
+
+Both SHAP and LIME are affected by feature collinearity and non-linear dependencies across features (LIME assumes they are independent and linear).
+
 
 ### Explanation-Producing systems
 
@@ -73,5 +73,5 @@ These study the model's behaviour, as a black box. Most below, correlate changes
     </p>
 </div>
 
-[arxiv]: http://arxiv.org/abs/1806.00069
+[XX]: http://arxiv.org/abs/1806.00069
 [^1]:  This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail.

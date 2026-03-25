@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-2ebf6c9a.js";
+            window.path_to_searchindex_js = "searchindex-79a83650.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ba19695e.js"></script>
+        <script src="toc-76d7e6bc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -424,14 +424,16 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <h1 id="explainable-ai---concepts"><a class="header" href="#explainable-ai---concepts">Explainable AI - Concepts</a></h1>
 <pre class="mermaid">
 flowchart LR
-    A["ML Model"] --&gt; B["Explainable"]
+    A["ML model"] --&gt; B["Explainable"]
     A --&gt; C["Not Explainable"]
-    B --&gt; D["Intrinsically (Internals)"]
-    B --&gt; E["Extrinsically (Black box, I/O relation)"]
+    B --&gt; D["Intrinsically
+            (Internals)"]
+    B --&gt; E["Extrinsically
+            (Black box, I/O relation)"]
 
 </pre>
 
-<p>These are some of my opinions and ideas after reading <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022), and <a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2019).</p>
+<p>These are some of my opinions and ideas after reading <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022), <a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2019) and <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024)</p>
 <p>A very interesting experiment in terms of explainability was <a href="https://distill.pub">https://distill.pub</a>.</p>
 <hr>
 <h2 id="explanations"><a class="header" href="#explanations">Explanations</a></h2>
@@ -441,6 +443,10 @@ So how can we explain deep-learning models? That is what this blog explores.</p>
 <p>(Admittedly, in some cases we may be satisfied with the predictive power alone.)</p>
 <h3 id="definition-and-characteristics"><a class="header" href="#definition-and-characteristics">Definition and characteristics</a></h3>
 <p><em>Explanation</em> can be defined in an intuitive way. First, phrase what we want to know as a "Why question", the answer is a candidate-explanation. Keep asking "Why" until satisfied. Call the process an explanation.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>However, some questions are clearly useful and not "Why" questions, for example: "What role does this neuron play?" In certain sense, any question regarding the "behaviour" or operation of the model is valid, and should admit an explanation as a response.</p>
+</blockquote>
 <p>We can characterise explanations using:</p>
 <ul>
 <li><em>Simplicity</em>: how easy to understand the explanation is. (The opposite term, <em>complexity</em>, could be used as well.)</li>
@@ -454,7 +460,7 @@ So how can we explain deep-learning models? That is what this blog explores.</p>
 
 </div>
 
-<p>This tradeoff isn't universal but just a common case. Some phenomena are simple, in which case both characteristics are high.</p>
+<p>This trade-off isn't universal but just a common case, particularly in deep learning. However, some models are straightforward, in which case both characteristics are high.</p>
 <h3 id="correctness"><a class="header" href="#correctness">Correctness</a></h3>
 <p>This isn't a characteristic of explanations, but of a model, yet it is often correlated, as represented below (<em>understandability</em> replaces <em>simplicity</em>):</p>
 <div class="center w40"> <!--other classes: w220, w420-->
@@ -474,31 +480,24 @@ So how can we explain deep-learning models? That is what this blog explores.</p>
 First, for Deep Learning, then the same is done for Classical Machine Learning.</p>
 <h2 id="deep-learning"><a class="header" href="#deep-learning">Deep Learning</a></h2>
 <h3 id="intrinsic-or-representation-methods"><a class="header" href="#intrinsic-or-representation-methods">Intrinsic or Representation Methods</a></h3>
-<p>These help us to interpret the learnt representations and data inside the model (intrinsic).</p>
-<p>They help answer the question: <em>What information does the network contain?</em></p>
+<p>Interpreting the learnt representations and data inside the model (intrinsic) with questions such as <em>what information does the network contain?</em>.</p>
 <p>They classify these at the level of Layer, Neuron, and Vector.</p>
 <ul>
-<li>Role of Layers: for example, transfer learning, reusing output of some layers for another task.</li>
-<li>Role of Units: "visualizations of the input patterns that maximize the response of a single unit or quantitatively, by testing the ability of a unit to solve a transfer problem" (<a href="http://arxiv.org/abs/1806.00069">source</a>).</li>
-<li>Role of Vectors: for example using Concept Activation Vectors framework.</li>
+<li><strong>Role of Layers</strong>: for example, transfer learning, reusing output of some layers for another task.</li>
+<li><strong>Role of Units</strong>: <q>visualizations of the input patterns that maximize the response of a single unit or quantitatively, by testing the ability of a unit to solve a transfer problem</q> (<a href="http://arxiv.org/abs/1806.00069">source</a>).</li>
+<li><strong>Role of Vectors</strong>: for example using Concept Activation Vectors framework.</li>
 </ul>
 <p>Another way is to introduce biases like symmetry considerations which can help interpretability.</p>
 <h3 id="extrinsic-or-processing-methods"><a class="header" href="#extrinsic-or-processing-methods">Extrinsic or Processing Methods</a></h3>
-<p>These relate to how the model processes <em>an input</em> (extrinsic) and in a way we look at the model as a black box.</p>
+<p>In a way, still looks at the model as a black box, with questions such as <em>how does the model process an input?</em> (extrinsic).</p>
 <ul>
-<li>
-<p>Linear Proxy Models: fit a simpler model to the neighbourhood of an input (+ noise), i.e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span> around some <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>. For example, LIME or Generalised Linear Models (GLMs).</p>
-</li>
-<li>
-<p>Salience Maps: aim to explain which portions of the computation (original model) are most important for different inputs.</p>
-</li>
-<li>
-<p>Validity Interval Analysis: another technique fitting the NN behaviour to try to extract explanations.</p>
-</li>
-<li>
-<p>Principal Component Analysis, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.</p>
-</li>
+<li>Linear Proxy Models: fit a simpler model to the neighbourhood of an input (+ noise), i.e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span> around some <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>. For example, Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).</li>
+<li>SHAP: Shapley Additive Explanations, a game-theory based approach (offers both global and local, but still looks at the model as black box).</li>
+<li>Salience Maps: aim to explain which portions of the computation (original model) are most important for different inputs.</li>
+<li>Validity Interval Analysis: another technique fitting the NN behaviour to try to extract explanations.</li>
+<li>Principal Component Analysis, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.</li>
 </ul>
+<p>Both SHAP and LIME are affected by feature collinearity and non-linear dependencies across features (LIME assumes they are independent and linear).</p>
 <h3 id="explanation-producing-systems"><a class="header" href="#explanation-producing-systems">Explanation-Producing systems</a></h3>
 <p>Architectures designed to make explaining part of their operation easier.</p>
 <ul>
@@ -506,7 +505,7 @@ First, for Deep Learning, then the same is done for Classical Machine Learning.<
 <p>Using Explicit Attention: An attention layer/mask learns how parts of an input embedding pay attention to other parts. The layer is somewhat interpretable. In chemistry, it could learn which atoms connect (or pay attention to) other atoms.</p>
 </li>
 <li>
-<p>Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." (<a href="http://arxiv.org/abs/1806.00069">source</a>). Examples of architectures are Beta-VAE, INFOGan, capsule networks.</p>
+<p>Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." ([source][arxiv]). Examples of architectures are Beta-VAE, INFOGan, capsule networks.</p>
 </li>
 </ul>
 <h2 id="classical-machine-learning"><a class="header" href="#classical-machine-learning">Classical Machine Learning</a></h2>
@@ -735,17 +734,10 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 <p>They also talk about KNN as a model, and argue that their centroids are trained vs just actual centroids (which is used in KNN). So that is the main difference.</p>
 <ul>
 <li><q>However, they are not suitable for incorporating a Euclidean distance model.</q> Can't DL use this?</li>
-<li>How are the datasets split, and which role does Monte Carlo Ensemble play?</li>
 <li>Even though the pieces are simple, explainability in the sense of <em>how and why</em> the model proposes a candidate is not achieved.</li>
-<li>In my view the paper's use of the term <em>hyperspace</em> is inaccurate; hyperspace is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mrel mtight">&gt;</span><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span>. What they have seem <em>subsets of hyperspace</em> given by the probability condition above.</li>
-<li>It's not described here (but elsewhere) <em>how</em> the hierarchy of models is produced; that is which one is executed after which. However, it seems to involve an ensemble of models trained together to run sequentially (hierarchically if the sequence is imagined vertically?).</li>
-<li>The paper does not describe exactly how the dataset is split, nor is detailed enough about the training.</li>
+<li>In my view the paper's use of the term <em>hyperspace</em> is inaccurate; hyperspace is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mrel mtight">&gt;</span><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span>. What they have seem <em>subsets of hyperspace</em> given by the probability test / inequality.</li>
+<li>How are the datasets split, and which role does Monte Carlo Ensemble play?</li>
 </ul>
-<h2 id="other-avenues"><a class="header" href="#other-avenues">Other avenues</a></h2>
-<p>One could also test the opposite Hypothesis to B, i.e that those regions actually are or can-be-made to reside quite close.</p>
-<p>Or could also use other kinds of hierarchies: for example to train a model to predict Class A, Class B,...and Class X. Where class X would be "Other", and in that case it is passed on.</p>
-<p>Another idea would be to have a "routing" network that delegates to each based on a higher classification (could be what they did).
-(Some of these may be what they did, still unsure)</p>
 <h2 id="terminology-breakdown"><a class="header" href="#terminology-breakdown">Terminology breakdown</a></h2>
 <p>The title of the paper is <em>Domain Independent XAI for Material Science</em>. This is confusing: is it domain-independent or for the domain of
 materials science?</p>
@@ -1059,6 +1051,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
