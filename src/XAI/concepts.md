@@ -60,21 +60,6 @@ In the image below, note that _understandability_ replaces _simplicity_, and _co
     </p>
 </div>
 
-## Next Steps
-
-In the next post, a classification of explanations is given, the diagram below is a preview / summary:
-
-```mermaid
-
-flowchart LR
-    A["ML model"] --> B["Explainable"]
-    A --> C["Not Explainable"]
-    B --> D["Intrinsically
-            (Internals)"]
-    B --> E["Extrinsically
-            (Black box, I/O relation)"]
-
-```
 
 [XAI4MAT]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [SHAP and LIME]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304

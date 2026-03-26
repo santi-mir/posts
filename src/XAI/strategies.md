@@ -2,17 +2,6 @@
 
 This post is about explainability for deep learning, focusing on some popular ones and their limitations or pitfalls.
 
-## Intrinsic or Representation Methods
-
-Interpreting the model from the inside (intrinsic), with questions such as _what information does the network contain?_.
-
-[Explaining explainability][XX] classifies these at the level of Layer, Neuron, and Vector.
-
-- **Role of Layers**: for example, transfer learning, reusing output of some layers for another task.
-- **Role of Units**: <q>The role of such individual units can be understood qualitatively, by creating visualizations of the input patterns that maximize the response of a single unit, or quantitatively, by testing the ability of a unit to solve a transfer problem.</q> from [Explaining Explainability][XX], 2018.
-- **Role of Vectors**: for example using Concept Activation Vectors framework.
-
-Another way is to introduce biases like symmetry considerations which can help interpretability.
 
 ## Extrinsic or Processing Methods
 
@@ -69,7 +58,30 @@ Architectures designed to make explaining part of their operation easier.
 
 - Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." from [Explaining Explainability][XX], 2018. Examples of architectures are $\beta$-VAE, INFOGan, capsule networks.
 
+
+## Intrinsic or Representation Methods
+
+<details><summary>Intrinsic Methods</summary>
+
+Interpreting the model from the inside (intrinsic), with questions such as _what information does the network contain?_.
+
+[Explaining explainability][XX] classifies these at the level of Layer, Neuron, and Vector.
+
+**Role of Layers**: for example, transfer learning, reusing output of some layers for another task.
+
+**Role of Units**: <q>The role of such individual units can be understood qualitatively, by creating visualizations of the input patterns that maximize the response of a single unit, or quantitatively, by testing the ability of a unit to solve a transfer problem.</q> from [Explaining Explainability][XX], 2018.
+
+**Role of Vectors**: for example using Concept Activation Vectors framework.
+
+Another way is to introduce biases like symmetry considerations which can help interpretability.
+
+</details>
+
+This is all regarding explainability for the moment!
+
+
 [XX]: http://arxiv.org/abs/1806.00069
 [SHAP AND LIME]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
+
 [^1]: Score refers to the SHAP values / explainability score.
 [^2]: Although some strategies do take non-linearity into account.

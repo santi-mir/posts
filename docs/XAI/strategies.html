@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-6ec83b47.js";
+            window.path_to_searchindex_js = "../searchindex-95c510ba.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-713fc51a.js"></script>
@@ -184,15 +184,6 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explainable-ai---strategies"><a class="header" href="#explainable-ai---strategies">Explainable AI - Strategies</a></h1>
 <p>This post is about explainability for deep learning, focusing on some popular ones and their limitations or pitfalls.</p>
-<h2 id="intrinsic-or-representation-methods"><a class="header" href="#intrinsic-or-representation-methods">Intrinsic or Representation Methods</a></h2>
-<p>Interpreting the model from the inside (intrinsic), with questions such as <em>what information does the network contain?</em>.</p>
-<p><a href="http://arxiv.org/abs/1806.00069">Explaining explainability</a> classifies these at the level of Layer, Neuron, and Vector.</p>
-<ul>
-<li><strong>Role of Layers</strong>: for example, transfer learning, reusing output of some layers for another task.</li>
-<li><strong>Role of Units</strong>: <q>The role of such individual units can be understood qualitatively, by creating visualizations of the input patterns that maximize the response of a single unit, or quantitatively, by testing the ability of a unit to solve a transfer problem.</q> from <a href="http://arxiv.org/abs/1806.00069">Explaining Explainability</a>, 2018.</li>
-<li><strong>Role of Vectors</strong>: for example using Concept Activation Vectors framework.</li>
-</ul>
-<p>Another way is to introduce biases like symmetry considerations which can help interpretability.</p>
 <h2 id="extrinsic-or-processing-methods"><a class="header" href="#extrinsic-or-processing-methods">Extrinsic or Processing Methods</a></h2>
 <p>Many extrinsic methods measure importance of input features determining the output. Two examples are SHAP and LIME. They look at the model as black-box.</p>
 <h3 id="shapley-additive-explanations-shap"><a class="header" href="#shapley-additive-explanations-shap">Shapley Additive Explanations (SHAP)</a></h3>
@@ -243,6 +234,16 @@
 <p>Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." from <a href="http://arxiv.org/abs/1806.00069">Explaining Explainability</a>, 2018. Examples of architectures are <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>-VAE, INFOGan, capsule networks.</p>
 </li>
 </ul>
+<h2 id="intrinsic-or-representation-methods"><a class="header" href="#intrinsic-or-representation-methods">Intrinsic or Representation Methods</a></h2>
+<details><summary>Intrinsic Methods</summary>
+<p>Interpreting the model from the inside (intrinsic), with questions such as <em>what information does the network contain?</em>.</p>
+<p><a href="http://arxiv.org/abs/1806.00069">Explaining explainability</a> classifies these at the level of Layer, Neuron, and Vector.</p>
+<p><strong>Role of Layers</strong>: for example, transfer learning, reusing output of some layers for another task.</p>
+<p><strong>Role of Units</strong>: <q>The role of such individual units can be understood qualitatively, by creating visualizations of the input patterns that maximize the response of a single unit, or quantitatively, by testing the ability of a unit to solve a transfer problem.</q> from <a href="http://arxiv.org/abs/1806.00069">Explaining Explainability</a>, 2018.</p>
+<p><strong>Role of Vectors</strong>: for example using Concept Activation Vectors framework.</p>
+<p>Another way is to introduce biases like symmetry considerations which can help interpretability.</p>
+</details>
+<p>This is all regarding explainability for the moment!</p>
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-1">
@@ -288,6 +289,22 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
