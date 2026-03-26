@@ -51,10 +51,12 @@ In the [paper's words][SHAP AND LIME]:
 
 > [MIP] works similarly to NMR by iteratively removing the top feature and retraining and testing the model. Thereafter, it examines how the features are reordered in the model which implies the effect of collinearity.
 
+These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one &mdash;most stable&mdash; of several methods.
+
 ### LIME and other methods
 
 - Linear Proxy Models: Fits a surrogate linear model to the original. For example, Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).
-    - LIME does local explanations (for a given input) only.
+    - LIME does model-agnostic local explanations (for a given input) only. For this reason, it can not be considered an explanation of the whole model (but globals can).
 - Salience Maps: aim to explain which portions of the computation (original model) are most important for different inputs.
 - Validity Interval Analysis: another technique fitting the NN behaviour to try to extract explanations.
 - Principal Component Analysis, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.
