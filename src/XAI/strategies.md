@@ -36,9 +36,6 @@ Let's describe these effects.
 
 **Collinearity**: one feature is a linear combination of one or more other features. For example, $x_3 = \beta_2 x_2 + \beta_1 x_1 + \beta_0$; assuming linear independence would be an error.
 
->[!important]
-> The effect here is quite drastic. Two highly correlated features may result _high_ importance or weight (SHAP or LIME, respectively) for one and _low_ to the other one. And this importance may be reversed or just different between models (or training runs).
-
 In the [paper's words][SHAP AND LIME]:
 
 > Indeed, some features might be assigned a low score despite being significantly associated with the outcome. This is because they do not improve the model performance due to their collinearity with other features whose impact has already been accounted for.
@@ -47,15 +44,14 @@ In the [paper's words][SHAP AND LIME]:
 
 Luckily, we can get some help:
 
-- Normalised Moving Rate (NMR): assesses the stability of the list against the collinearity. Smaller NMR means more stable ordering. The method is just a robustness-test, it does not update the parameters.
-
+- Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering.
 - Modified Index Position (MIP) can be used to address just that, and re-order the importance of features considering their multicollinearity.
 
 In the [paper's words][SHAP AND LIME]:
 
 > [MIP] works similarly to NMR by iteratively removing the top feature and retraining and testing the model. Thereafter, it examines how the features are reordered in the model which implies the effect of collinearity.
 
-### Other methods
+### LIME and other methods
 
 - Linear Proxy Models: Fits a surrogate linear model to the original. For example, Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).
     - LIME does local explanations (for a given input) only.
