@@ -12,20 +12,9 @@ Could KNN be used to decide Hypothesis B? I think it is possible.
 They also talk about KNN as a model, and argue that their centroids are trained vs just actual centroids (which is used in KNN). So that is the main difference.
 
 - <q>However, they are not suitable for incorporating a Euclidean distance model.</q> Can't DL use this?
-- How are the datasets split, and which role does Monte Carlo Ensemble play?
 - Even though the pieces are simple, explainability in the sense of _how and why_ the model proposes a candidate is not achieved.
-- In my view the paper's use of the term _hyperspace_ is inaccurate; hyperspace is $\mathbb{R}^{N > 3}$. What they have seem _subsets of hyperspace_ given by the probability condition above.
-- It's not described here (but elsewhere) _how_ the hierarchy of models is produced; that is which one is executed after which. However, it seems to involve an ensemble of models trained together to run sequentially (hierarchically if the sequence is imagined vertically?).
-- The paper does not describe exactly how the dataset is split, nor is detailed enough about the training.
-
-## Other avenues
-
-One could also test the opposite Hypothesis to B, i.e that those regions actually are or can-be-made to reside quite close.
-
-Or could also use other kinds of hierarchies: for example to train a model to predict Class A, Class B,...and Class X. Where class X would be "Other", and in that case it is passed on.
-
-Another idea would be to have a "routing" network that delegates to each based on a higher classification (could be what they did).
-(Some of these may be what they did, still unsure)
+- In my view the paper's use of the term _hyperspace_ is inaccurate; hyperspace is $\mathbb{R}^{N > 3}$. What they have seem _subsets of hyperspace_ given by the probability test / inequality.
+- How are the datasets split, and which role does Monte Carlo Ensemble play?
 
 ## Terminology breakdown
 

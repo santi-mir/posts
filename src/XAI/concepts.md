@@ -1,18 +1,12 @@
 # Explainable AI - Concepts
 
-```mermaid
+These are some of my opinions and ideas after reading a few papers:
 
-flowchart LR
-    A["ML Model"] --> B["Explainable"]
-    A --> C["Not Explainable"]
-    B --> D["Intrinsically (Internals)"]
-    B --> E["Extrinsically (Black box, I/O relation)"]
+1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][XX] (2018),
+2. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
+3. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][SHAP and LIME] (2024).
 
-```
-
-These are some of my opinions and ideas after reading [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][Account] (2022), and [Explaining Explanations: An Overview of Interpretability of Machine Learning][arxiv] (2019).
-
-A very interesting experiment in terms of explainability was <https://distill.pub>.
+<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
 --------------------
 
@@ -25,13 +19,19 @@ So how can we explain deep-learning models? That is what this blog explores.
 
 (Admittedly, in some cases we may be satisfied with the predictive power alone.)
 
-### Definition and characteristics
+### Definition
 
 _Explanation_ can be defined in an intuitive way. First, phrase what we want to know as a "Why question", the answer is a candidate-explanation. Keep asking "Why" until satisfied. Call the process an explanation.
+
+> [!NOTE]
+> However, some questions are clearly useful and not "Why" questions, for example: "What role does this neuron play?" In certain sense, any question regarding the "behaviour" or operation of the model is valid, and should admit an explanation as a response.
+
+### Characteristics
 
 We can characterise explanations using:
 
 - _Simplicity_: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
+        - This is correlated with how simple _the model itself_ is.
 - _Completeness_: how accurately it describes the model's behaviour.
 
 <div class="w40 center">
@@ -41,11 +41,15 @@ We can characterise explanations using:
 <p>Completeness v. Simplicity tradeoff.</p>
 </div>
 
-This tradeoff isn't universal but just a common case. Some phenomena are simple, in which case both characteristics are high.
+This trade-off isn't universal but just a common case, particularly in deep learning; some other models are straightforward, in which case both characteristics can be high.
 
-### Correctness
+### Predictive power
 
-This isn't a characteristic of explanations, but of a model, yet it is often correlated, as represented below (_understandability_ replaces _simplicity_):
+Predictive power is a characteristic of a model, not of an explanation of a model, but is often correlated to those: more predictive models tend to be more complex and the explanation tends to be more complex.
+
+The reason to include it here is that _predictive power_ plays an important role deciding which model to use.
+
+In the image below, note that _understandability_ replaces _simplicity_, and _correctness_ replaces _predictive power_.
 
 <div class="center w40"> <!--other classes: w220, w420-->
     <a href="../assets/radar_plot.png">
@@ -56,5 +60,6 @@ This isn't a characteristic of explanations, but of a model, yet it is often cor
     </p>
 </div>
 
-[Account]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
-[arxiv]: http://arxiv.org/abs/1806.00069
+[XAI4MAT]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
+[SHAP and LIME]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
+[XX]: http://arxiv.org/abs/1806.00069
