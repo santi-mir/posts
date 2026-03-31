@@ -40,7 +40,7 @@ Luckily, we can get some help:
 
 These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one &mdash;most stable&mdash; of several methods.
 
-Other methods are listed in the [Unified Framework][unified_framework_lcof] paper, building off the original Lloyd Shapley's _A value for n-person games_ paper (1953). Here SHAP and LIME are described, which are the most used ones.
+Other methods are listed in the [Unified Framework][unified_framework_lcobf] paper, building off the original Lloyd Shapley's _A value for n-person games_ paper (1953). Here SHAP and LIME are described, which are the most used ones.
 
 ### Shapley Additive Explanations (SHAP)
 
@@ -61,4 +61,4 @@ Approximate the original model with a simpler, linear one. For example, Local In
 
 [XX]: http://arxiv.org/abs/1806.00069
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
-[unified_framework_lcof]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[unified_framework_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html

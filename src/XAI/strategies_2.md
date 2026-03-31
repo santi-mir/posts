@@ -14,3 +14,4 @@ Architectures designed to make explaining part of their operation easier.
 
 - Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." from [Explaining Explainability][XX], 2018. Examples of architectures are $\beta$-VAE, INFOGan, capsule networks.
 
+[XX]: http://arxiv.org/abs/1806.00069
