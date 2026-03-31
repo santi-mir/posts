@@ -59,6 +59,5 @@ Approximate the original model with a simpler, linear one. For example, Local In
 
 "Local" in the name refers to being for a _particular input_, not "Global" which would be general.
 
-[XX]: http://arxiv.org/abs/1806.00069
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [unified_framework_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
