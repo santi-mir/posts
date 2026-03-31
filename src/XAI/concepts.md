@@ -12,29 +12,15 @@ These are some of my opinions and ideas after reading a few papers:
 
 ## Explanations
 
-Scientific models are expected to be explainable; that is, an expert human can respond to _why_ questions about it.
+Scientific models are expected to be explainable; that is, to admit explanations of _why_ they make certain prediction, _how_ they operate, _what_ the role of certain part of it is, and so on.
 
-A simple model, e.g. a linear model, is easy to understand.
-However, deep learning models are highly complex.
-How can we explain deep-learning models?
-That is what this blog explores.
-
-(Admittedly, in some cases we may be satisfied with the predictive power alone.)
-
-### Definition
-
-_Explanation_ can be defined in an intuitive way. First, phrase what we want to know as a "Why question", the answer is a candidate-explanation. Keep asking "Why" until satisfied. Call the process an explanation.
-
-> [!NOTE]
-> However, some questions are clearly useful and not "Why" questions, for example: "What role does this neuron play?" In certain sense, any question regarding the "behaviour" or operation of the model is valid, and should admit an explanation as a response.
-
-### Characteristics
+So we refer to explanation as responses to questions about model "behaviour" or operation.
 
 We can characterise explanations using:
 
-- _Simplicity_: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
+- __Simplicity__: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
         - This is correlated with how simple _the model itself_ is.
-- _Completeness_: how accurately it describes the model's behaviour.
+- __Completeness__: how accurately it describes the model's behaviour.
 
 <div class="w40 center">
 <a href="../assets/tradeoff.png">
@@ -47,7 +33,7 @@ This trade-off isn't universal but just a common case, particularly in deep lear
 
 ### Predictive power
 
-Predictive power is a characteristic of a model, not of an explanation of a model, but is often correlated to those: more predictive models tend to be more complex and the explanation tends to be more complex.
+__Predictive power__ is a characteristic of a model, not of an explanation of a model, but is often correlated to those: more predictive models tend to be more complex and the explanation tends to be more complex.
 
 The reason to include it here is that _predictive power_ plays an important role deciding which model to use.
 
