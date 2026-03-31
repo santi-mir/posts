@@ -2,21 +2,23 @@
 
 We want to explain the operation or "behaviour" of a model, such as a deep learning model.
 
-There are many classifications; instead, the post focuses on particular methods.
+This post discuss explanation types: extrinsic, intrinsic and explanation producing. It also discussed explanation methods within type.
 
-## Linear Combination of Binary Features
+## Extrinsic or Processing Methods
 
-- Models the contribution of each feature to an output or prediction as a linear sum,
-- Helps build an intuition of how features affect its behaviour,
-- Looks at the model as a black-box.
+Extrinsic methods explain complex models _without_ focusing on internals. Rather, they focus on the contribution of each feature to an output or prediction.
 
-This models form a _class_ in that all methods follow this formula:
+They help build a feeling for the model, an intuition of how it predicts: which features contribute to the output more (or less), positively (or negatively) and so on.
 
-$$f(x) \approx g(z') = \phi_0 + \sum_{i=1} \phi_i z_i$$
+But they do look at the model as a black-box.
 
-$g$ is a linear model fitting  $f$, the complex model. $\phi_i$ is the effect of each binary feature $z_i$ in the output.
+### Additive Feature Attribution Methods
 
-Different methods in the class make different assumptions, and result in different contributions.
+This is a common _class_ of extrinsic methods. It is a class in that all methods follow this formula:
+
+$$f(x) \approx g(z') = \sum_i \phi_i z_i$$
+
+$g$ is a linear model fitting the complex model $f$, and $\phi_i$ are the contributions of each feature $z_i$. Methods make different assumptions, and result in different contributions.
 
 This class of methods all share pitfalls:
 
@@ -42,32 +44,29 @@ Luckily, we can get some help:
 
 These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one &mdash;most stable&mdash; of several methods.
 
-Other methods are listed in the [Unified Framework][unified_framework_lcof] paper, building off the original Lloyd Shapley's _A value for n-person games_ paper (1953). Here SHAP and LIME are described, which are the most used ones.
+Other methods are listed in the [SHAP values] paper, building off the original Lloyd Shapley's _A value for n-person games_ paper (1953). Here SHAP and LIME are described, which are the most used ones.
 
-### Shapley Additive Explanations (SHAP)
+#### Shapley Additive Explanations (SHAP)
 
-SHAP values are estimations of the contribution of each feature to the model's output.
+Just as other extrinsic methods, SHAP helps us interpreting predictions. It calculates SHAP values, a contribution or effect of each feature to the model's output.
 
 SHAP provides both global (average across inputs) and local (for a given input).
 
-### Linear Proxy models
+#### Linear Proxy models
 
-Approximate the original model with a simpler, linear one. For example, Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).
+Approximate the original model with a simpler, linear one. For example, Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs). How is the fit _local_?
 
 1. Given an input $\mathbf{x}$, element-wise binary masks $\mathbf{m}_i$ are applied to it, switching components on and off.
 2. We run the model with original and masked $y=f(\mathbf{x})$.
 3. We now have a table of $y$ values, masks $\mathbf{m}$ and linearly fit a surrogate model to those $y$ values.
-4. The coefficients $\phi_i$ are found minimising an objective function. This is similar to MSE objective function, minimised in standard linear regression in order to find the coefficients.
 
-"Local" in the name refers to being for a _particular input_, not "Global" which would be general.
-
-## Other Methods
+### Other Methods
 
 - Salience Maps: aim to explain which portions of the computation (original model) are most important for different inputs.
 - Validity Interval Analysis: another technique fitting the NN behaviour to try to extract explanations.
-- Principal Component Analysis, t-SNE, Dimensionality Reduction, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.
+- Principal Component Analysis, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.
 
-## Architectures
+## Explanation-Producing systems
 
 Architectures designed to make explaining part of their operation easier.
 
@@ -75,7 +74,26 @@ Architectures designed to make explaining part of their operation easier.
 
 - Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." from [Explaining Explainability][XX], 2018. Examples of architectures are $\beta$-VAE, INFOGan, capsule networks.
 
+## Intrinsic or Representation Methods
+
+<details><summary>Intrinsic Methods</summary>
+
+Interpreting the model from the inside (intrinsic), with questions such as _what information does the network contain?_.
+
+[Explaining explainability][XX] classifies these at the level of Layer, Neuron, and Vector.
+
+**Role of Layers**: for example, transfer learning, reusing output of some layers for another task.
+
+**Role of Units**: <q>The role of such individual units can be understood qualitatively, by creating visualizations of the input patterns that maximize the response of a single unit, or quantitatively, by testing the ability of a unit to solve a transfer problem.</q> from [Explaining Explainability][XX], 2018.
+
+**Role of Vectors**: for example using Concept Activation Vectors framework.
+
+Another way is to introduce biases like symmetry considerations which can help interpretability.
+
+</details>
+
+This is all regarding explainability for the moment!
 
 [XX]: http://arxiv.org/abs/1806.00069
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
-[unified_framework_lcof]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[SHAP values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html

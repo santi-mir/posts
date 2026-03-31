@@ -7,6 +7,7 @@
 
 - Splits for datasets, validation / testing.
 - Balancing datasets.
+- Evaluation metrics, loss functions.
 
 ## Ideas
 
