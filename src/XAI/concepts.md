@@ -1,30 +1,36 @@
 # Explainable AI - Concepts
 
-These are some of my opinions and ideas after reading a few papers:
+There are many definitions of what explanations are in the context of explainable AI. For example:
 
-1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][XX] (2018),
-2. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
-3. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024),
-4. [A Unified Approach to Interpreting Model Predictions][SHAP values] (2017).
+> [!IMPORTANT]
+> Explanations are answers to questions about the model's "behaviour" or operation. Examples of such questions are: _how_ it operates, _why_ it makes certain prediction, _what_ the role of certain part of it is, and so on.
 
-<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+This is in contrast to black-box models where no explanations are given except the model itself, and accuracy metrics.
 
---------------------
+The kind of explanation will depend on the _audience_, _context_, _AI development stages_ an so forth; [for example][radiology]:
 
-## Explanations
+> (...) there are two competing broad definitions of interpretability. Machine learning specialists seek to understand the mechanisms underlying their models, but doctors and other end-users simply want "human-style" explanations; the same sort of explanations they currently receive from other humans.
 
-A system is explainable if a scientist can provide answer questions about the systems "behaviour" or operation (explanations).[^1]
+They further say:
 
-In particular, scientific models are expected to be explainable.
-Examples of such questions are:
+> description is often post-hoc and may not accurately reflect the decision making process, it is the form of explanation that end-users currently expect and are satisfied with.
 
-- _how_ it operates,
-- _why_ it makes certain prediction,
-- _what_ the role of certain part of it is, and so on.
+In that case, the important step was to train an RNN to emit text for any decision. The output is then judged by a clinician or field-expert.
+
+Similarly, in synthetic chemistry, new candidates are vetted by expert chemists. Again, text can be a useful piece of information for the expert to work on, consider, evaluate.
+
+If there is no human in the loop, this approach isn't enough.
+
+There are many dimensions to explanations, besides the _audience_:
+
+- Contexts: In areas of science, healthcare, finance, energy, weapons, and in general in large parts of automated decision-making. Critical due to transparency or ethical reasons.
+    - Yet in other scenarios, explainability may not matter &mdash;but only the model's output, which a human expert could evaluate.
+- Audiences: scientists, ML practitioners, developers, non-expertsand so forth.
+- Stages: pre-modelling, modelling, post-modelling.
 
 ## Characteristics
 
-We can _characterise_ explanations using:
+We can consider characteristics of explanations independent of the audience and context:
 
 - __Simplicity__: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
     - This is correlated with how simple _the model itself_ is.
@@ -60,50 +66,25 @@ In the image below, note that _understandability_ replaces _simplicity_, and _co
 
 Let's now look at some actual methods.
 
-<!-- ## Complex Systems View -->
-<!---->
-<!-- Think of complex objects such as: -->
-<!---->
-<!-- - a car, -->
-<!-- - a computer -->
-<!-- - the atmosphere, -->
-<!-- - a unicellular organism, -->
-<!-- - a brain, -->
-<!-- - a mammal -->
-<!---->
-<!-- There are many ways in which we study these things. They roughly correspond to scale and mereology, of parts and functions. We have associated techniques for to measuring and testing them at each level. -->
-<!-- Some levels map to disciplines like physical, chemical, biological, neurobiological; some are more informational some are emergent; some use analogies of metaphors. We also study them as entire systems, observing their external behaviour, interactions and response to stimuli. -->
-<!---->
-<!-- Now, play with the idea of studying a deep learning model in a variety of such ways. Can we extract any insight from analogies to those above? -->
-<!---->
-<!-- To make it a bit more concrete, let's say we have: -->
-<!---->
-<!-- 1. Intrinsic / Mereological Levels (neurons, layers,...) -->
-<!--     - The connection between parts and levels -->
-<!--     - Informational aspects, mathematical aspects -->
-<!--     - Parts and functions -->
-<!--     - How? Is there emergent behaviour? -->
-<!--     - Lower level, Higher level -->
-<!-- 2. Extrinsic / The system as a totality and its environment -->
-<!--     - Testing, -->
-<!--     - Fitting simpler models -->
-<!---->
-<!-- Besides we can think of questions. The questions XAI asks are: How does it make this or that decision? Which inputs were most important? Which questions do we ask elsewhere about such complex systems? How do you trust your dog, or your partner, or another human? -->
-<!---->
-<!-- However, there may be a critical difference which is DL systems may be used to make decisions in our behalf. But in this case, we can still push the analogy to another human making a decision. What would be require of the human? -->
-<!---->
-<!-- Where does this analogy hold, where does it break? One currently missing characteristic is for models to be __accountable__, and to be able to learn on the fly, when shown to be wrong. -->
-<!---->
-<!-- What is quite obvious from the start, is that we do not have access to the lower level model, such as the neurons or the processes within a cell (for a single celled organism). -->
-<!---->
-<!-- What we have are higher level theories of how they work, and we test them to that extent. A similar thing with other humans. -->
-<!---->
-<!-- In a way, we are then looking for higher-level theories that makes us trust the model. -->
+## Sources
 
+1. [A Unified Approach to Interpreting Model Predictions][SHAP values] (2017),
+2. [Explaining Explanations: An Overview of Interpretability of Machine Learning][XX] (2018),
+3. [Producing radiologist-quality reports for interpretable artificial intelligence.][radiology] (2018),
+3. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
+4. Blog Posts: [What is Explainable AI?][What is XAI] (2022) and from [IBM][XAI IBM],
+5. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+
+<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+
+
+--------------------
 [XAI4MAT]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [XX]: http://arxiv.org/abs/1806.00069
 [SHAP values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 [XAI for whom]: http://arxiv.org/abs/2106.05568
+[What is XAI]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
+[XAI IBM]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
+[radiology]: https://arxiv.org/abs/1806.00340
 
-[^1]: There is a paper titled [Explainable AI, but explainable to whom?][XAI for whom]; sufficient explanations depend on the audience, context, stakes. However, in this context, it is meant that a scientist can explain its model to other scientist, as part of the practice of advancing science.

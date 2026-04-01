@@ -7,7 +7,8 @@
 
 - Splits for datasets, validation / testing.
 - Balancing datasets.
-- Evaluation metrics, loss functions.
+- Evaluation metrics, loss functions,
+- ROC classification performance metric
 
 ## Ideas
 
