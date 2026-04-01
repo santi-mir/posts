@@ -44,6 +44,7 @@ But anyway, which model in the class is _best_? We need a definition of _best_.
 The paper proposing the [Unified Framework][unified_framework_lcobf] (the linear combination at the top) suggests 3 desirable properties for any methods. Young (1985) proved that SHAP has the 3 properties(is best); other methods violate some of the 3 properties. But again, according to _their definition_ of best.
 
 Exact Shapley values are expensive to calculate; approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
+
 - Assumption 1: Feature independence (stronger than non-multicollinearity). Then we can use _Shapley Sampling Values_ method or _Quantitative Input Influence_;
 - Assumption 2: Model linearity.
 

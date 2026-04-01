@@ -71,20 +71,19 @@ Let's now look at some actual methods.
 1. [A Unified Approach to Interpreting Model Predictions][SHAP values] (2017),
 2. [Explaining Explanations: An Overview of Interpretability of Machine Learning][XX] (2018),
 3. [Producing radiologist-quality reports for interpretable artificial intelligence.][radiology] (2018),
-3. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
-4. Blog Posts: [What is Explainable AI?][What is XAI] (2022) and from [IBM][XAI IBM],
-5. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+4. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
+5. Blog Posts: [What is Explainable AI?][What is XAI] (2022) and from [IBM][XAI IBM],
+6. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
-
 --------------------
+
 [XAI4MAT]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [XX]: http://arxiv.org/abs/1806.00069
 [SHAP values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
-[XAI for whom]: http://arxiv.org/abs/2106.05568
+<!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 [What is XAI]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [XAI IBM]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [radiology]: https://arxiv.org/abs/1806.00340
-

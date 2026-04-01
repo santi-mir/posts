@@ -37,4 +37,3 @@
 <!-- What we have are higher level theories of how they work, and we test them to that extent. A similar thing with other humans. -->
 <!---->
 <!-- In a way, we are then looking for higher-level theories that makes us trust the model. -->
-
