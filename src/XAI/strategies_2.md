@@ -12,6 +12,6 @@ Architectures designed to make explaining part of their operation easier.
 
 - Using Explicit Attention: An attention layer/mask learns how parts of an input embedding pay attention to other parts. The layer is somewhat interpretable. In chemistry, it could learn which atoms connect (or pay attention to) other atoms.
 
-- Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." from [Explaining Explainability][XX], 2018. Examples of architectures are $\beta$-VAE, INFOGan, capsule networks.
+- Dissentangled Representations: <q>Disentangled representations have individual dimensions that describe meaningful and independent factors of variation.</q> &mdash;[Explaining Explainability][XX] (2018). Examples of architectures are $\beta$-VAE, INFOGan, capsule networks.
 
 [XX]: http://arxiv.org/abs/1806.00069

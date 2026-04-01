@@ -13,12 +13,15 @@ These are some of my opinions and ideas after reading a few papers:
 
 ## Explanations
 
-Scientific models are expected to be explainable. Explanations are responses to questions about the model's "behaviour" or operation. For example:
+A system is explainable if a scientist can provide answer questions about the systems "behaviour" or operation (explanations).[^1]
 
+In particular, scientific models are expected to be explainable.
+Examples of such questions are:
 - _how_ it operates,
 - _why_ it makes certain prediction,
 - _what_ the role of certain part of it is, and so on.
 
+## Characteristics
 We can _characterise_ explanations using:
 
 - __Simplicity__: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
@@ -99,3 +102,6 @@ Let's now look at some actual methods.
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [XX]: http://arxiv.org/abs/1806.00069
 [SHAP values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[XAI for whom]: http://arxiv.org/abs/2106.05568
+
+[^1]: There is a paper titled [Explainable AI, but explainable to whom?][XAI for whom]; sufficient explanations depend on the audience, context, stakes. However, in this context, it is meant that a scientist can explain its model to other scientist, as part of the practice of advancing science.
