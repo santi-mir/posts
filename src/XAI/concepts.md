@@ -4,7 +4,7 @@ These are some of my opinions and ideas after reading a few papers:
 
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][XX] (2018),
 2. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
-3. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+3. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024),
 4. [A Unified Approach to Interpreting Model Predictions][SHAP values] (2017).
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
@@ -13,23 +13,19 @@ These are some of my opinions and ideas after reading a few papers:
 
 ## Explanations
 
-For a system, explanations are responses to questions about its "behaviour" or operation.
+Scientific models are expected to be explainable. Explanations are responses to questions about the model's "behaviour" or operation. For example:
 
-Scientific models are expected to be explainable; that is, they admit explanations about:
-
-- _how_ they operate,
-- _why_ they make certain prediction,
+- _how_ it operates,
+- _why_ it makes certain prediction,
 - _what_ the role of certain part of it is, and so on.
 
-We can characterise explanations using:
+We can _characterise_ explanations using:
 
 - __Simplicity__: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
-        - This is correlated with how simple _the model itself_ is.
+   - This is correlated with how simple _the model itself_ is.
 - __Completeness__: how accurately it describes the model's behaviour.
 - __Level__ / __Mereological__: High level or lower level; coarse grained or detailed; selection of parts and functions.
 - __Internal__ or __external__
-
-<!-- Not all will be examined, just some, in some depth. -->
 
 <div class="w40 center">
 <a href="../assets/tradeoff.png">
@@ -42,7 +38,7 @@ This trade-off isn't universal but just a common case, particularly in deep lear
 
 ## Predictive power
 
-__Predictive power__ is a characteristic of a _model_, not of an _explanation_ of a model. Yet it is correlated to the characteristics given earlier: more predictive models tend to be more complex making harder to explain them.
+__Predictive power__ is a characteristic of a _model_, not of an _explanation_ of a model. Yet, it is correlated to the characteristics given earlier: more predictive models tend to be more complex making harder to explain them.
 
 The reason to include it here is that _predictive power_ plays an important role deciding which model to use.
 
