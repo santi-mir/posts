@@ -30,6 +30,7 @@ Technicalities aside, the authors argue these coefficients are more intuitive fo
 **Non-linearity**: output changes are not proportional to input changes. For example $y = \beta x^N$ is non-linear, and fitting a line $y' = \alpha x$ to it would be inaccurate. Some SHAP models can model this correctly.
 
 ## Method: SHAP
+
 SHAP stands for SHapley Additive exPlanations.
 
 The exact Shapley values $\phi_i$ result from an expensive combinatorial ([A value for n-person games][shap original], 1952). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
