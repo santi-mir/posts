@@ -73,10 +73,10 @@ Sources:
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017),
 2. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 3. [Producing radiologist-quality reports for interpretable artificial intelligence][radiology] (2018),
-3. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021) this paper is a particularly short and amenable introduction;
-4. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
-5. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
-6. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+4. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021) this paper is a particularly short and amenable introduction;
+5. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
+6. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
+7. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
