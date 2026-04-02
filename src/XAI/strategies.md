@@ -56,12 +56,11 @@ SHAP provides both global (average across inputs) and local (for a given input).
 
 ## LIME
 
-Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).
+Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).[^1]
 
 For LIME, the coefficients $\phi_i$ are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.
 
 Assuming feature independence and model linearity, the objective function can be modified and the SHAP values obtained through weighted linear regression (no slow combinatorics). This is called **Kernel SHAP**, and obeys the 3 properties listed earlier.
-
 
 ## Fixes
 
@@ -73,10 +72,5 @@ These two methods (MIP, NMR) can be useful both in having a reliable sorting of 
 
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [unified_framework_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
-[lcobf]: #linear-combination-of-binary-features
-
-[^1]: _Local_ in the name refers to being for a _particular input_, not _Global_ which would be general.
-
-
 [shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
-
+[^1]: _Local_ in the name refers to being for a _particular input_, not _Global_ which would be general.

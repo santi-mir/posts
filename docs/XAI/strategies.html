@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-2a9ac511.js";
+            window.path_to_searchindex_js = "../searchindex-c939589c.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d3a7edad.js"></script>
@@ -231,7 +231,7 @@
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="lime"><a class="header" href="#lime">LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).</p>
+<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
 <p>For LIME, the coefficients <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.</p>
 <p>Assuming feature independence and model linearity, the objective function can be modified and the SHAP values obtained through weighted linear regression (no slow combinatorics). This is called <strong>Kernel SHAP</strong>, and obeys the 3 properties listed earlier.</p>
 <h2 id="fixes"><a class="header" href="#fixes">Fixes</a></h2>
@@ -245,7 +245,11 @@
 </ul>
 <p>These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one —most stable— of several methods.</p>
 <hr>
-<ol class="footnote-definition"></ol>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
 
                     </main>
 

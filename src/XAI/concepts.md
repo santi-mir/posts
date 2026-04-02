@@ -16,7 +16,7 @@ They further say:
 
 > description is often post-hoc and may not accurately reflect the decision making process, it is the form of explanation that end-users currently expect and are satisfied with.
 
-Doctors preferred an RNN's **text outputs** &mdash;besides the saliency map&mdash; for any decision. The output was then evaluated by a clinician. Similarly, in synthetic chemistry, new candidates are vetted by expert chemists. Again, text can be a useful piece of information for the expert to work on, consider, evaluate. However, with no "human in the loop", this approach isn't enough.
+Doctors preferred an RNN's __text outputs__ &mdash;besides the saliency map&mdash; for any decision. The output was then evaluated by a clinician. Similarly, in synthetic chemistry, new candidates are vetted by expert chemists. Again, text can be a useful piece of information for the expert to work on, consider, evaluate. However, with no "human in the loop", this approach isn't enough.
 
 There are many dimensions to explanations, besides the _audience_:
 
@@ -75,7 +75,6 @@ Sources:
 6. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-
 
 [XAI4MAT]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
