@@ -1,6 +1,6 @@
 # XAI - Linear Methods
 
-Linear methods, including Shapley Values and LIME, result from linear approximations ($g$) to the original ($f$). Mathematically:
+Linear methods, result from linear approximations ($g$) to the original ($f$). Mathematically:
 
 $$f(x) \approx g(z') = \phi_0 + \sum_{i=1} \phi_i z_i$$
 
@@ -15,14 +15,9 @@ It should be noted that:
 2. Two complex models $f_1, f_2$ trained with same data likely have different $\phi_i$s,
 3. Methods don't protect from a biased model.
 
-## Best coefficients
+But which model gets the _best_ coefficients $\phi_i$? A definition of _best_ is needed.
 
-So which model gets the _best_ coefficients $\phi_i$? We need to define _best_.
-
-> [!important]
-> It can be shown Shapley values are unique/best solution for the coefficients of the linear combination requiring [3 desirable properties][unified_framework_lcobf] (local accuracy, missingness, consistency). Other methods violate some of the 3 properties.
-
-Bear in mind, this is _their definition_ of best.
+The [Unified Framework][unified_framework_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
 
 Technicalities aside, the authors argue these coefficients are more intuitive for humans.
 
@@ -34,17 +29,10 @@ Technicalities aside, the authors argue these coefficients are more intuitive fo
 
 **Non-linearity**: output changes are not proportional to input changes. For example $y = \beta x^N$ is non-linear, and fitting a line $y' = \alpha x$ to it would be inaccurate. Some SHAP models can model this correctly.
 
-In summary,
+## Method: SHAP
+SHAP stands for SHapley Additive exPlanations.
 
-- Feature contributions to a prediction are modelled as linear sum,
-- Helps build an intuition of how features affect the original model's behaviour,
-- Looks at the model as a black-box.
-
-Let's now look at popular methods of this kind, SHAP and LIME.
-
-## Shapley Additive Explanations (SHAP)
-
-The Shapley values $\phi_i$ result from an expensive combinatorial ([A value for n-person games][shap original], 1952). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
+The exact Shapley values $\phi_i$ result from an expensive combinatorial ([A value for n-person games][shap original], 1952). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
 
 - Assumption 1: Feature independence (implies non-multicollinearity).
     - Shapley sampling values method,
@@ -54,7 +42,7 @@ The Shapley values $\phi_i$ result from an expensive combinatorial ([A value for
 
 SHAP provides both global (average across inputs) and local (for a given input).
 
-## LIME
+## Method: LIME
 
 Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).[^1]
 
