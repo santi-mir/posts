@@ -8,24 +8,27 @@ There are many definitions of what explanations are in the context of explainabl
 
 In contrast to explainable models, black-box models share no insight about their operation or predictions.
 
-The questions and the answers depend on the _audience_, the _context_ and so forth; [for example][radiology]:
+## Multiple Dimensions
 
-> (...) there are two competing broad definitions of interpretability. Machine learning specialists seek to understand the mechanisms underlying their models, but doctors and other end-users simply want "human-style" explanations; the same sort of explanations they currently receive from other humans.
+The questions and the answers depend on the _audience_, the _context_ and other dimensions.
 
-They further say:
+One paper on [XAI for radiology][xai_rnn_radiology] found that doctors preferred __text outputs__ + __saliency maps__ to aid their decisions (in a sense, emulating doctor-to-doctor communication). The output was then evaluated by a clinician.
 
-> description is often post-hoc and may not accurately reflect the decision making process, it is the form of explanation that end-users currently expect and are satisfied with.
+Similarly, in synthetic chemistry, new candidates are vetted by expert chemists. Again, text can be a useful piece of information for the expert to work on, consider, evaluate. However, with no "human in the loop", this approach isn't enough.
 
-Doctors preferred an RNN's __text outputs__ &mdash;besides the saliency map&mdash; for any decision. The output was then evaluated by a clinician. Similarly, in synthetic chemistry, new candidates are vetted by expert chemists. Again, text can be a useful piece of information for the expert to work on, consider, evaluate. However, with no "human in the loop", this approach isn't enough.
+The list of explanation dimensions may be infinite. A few are:
 
-There are many dimensions to explanations, besides the _audience_:
-
-- Contexts: In areas of science, healthcare, finance, energy, weapons, and in general in large parts of automated decision-making. Critical due to transparency or ethical reasons.
+- Intend, Purpose, Stakes: such as transparency, trust, ethical reasons. Healthcare, finance, energy, military, general agentic-systems and automated decision-making.
     - Yet in other scenarios, explainability may not matter &mdash;but only the model's output, which a human expert could evaluate.
-- Audiences: scientists, ML practitioners, developers, non-expertsand so forth.
+- User Type / Audiences: Each audience has goals, risks, and preferences. Scientists, ML practitioners, developers, non-experts.
 - Stages: pre-modelling, modelling, post-modelling.
+- Kind: Visual, Textual, Formal. More below.
 
-## Characteristics
+Yet another dimension related to the explanation kind and its complexity is recalled in [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls]:
+
+> Belle and Papantonis (2021) provide four suggestions for creating explainability, including explanation by simplification, describing the contribution of each feature to the decisions, explaining an instance instead of in general, and using graphical visualization methods for explanations. At the same time, they also discuss the complexity of realizing such suggestions. Simplifications might not be correct, features can be interrelated, local explanations can fail to provide the complete picture, and graphical visualization requires assumptions about data that might not necessarily be true.
+
+### Disentangling Dimensions
 
 We can consider characteristics of explanations independent of the audience and context:
 
@@ -67,20 +70,22 @@ Let's now look at some actual methods.
 
 Sources:
 
-1. [A Unified Approach to Interpreting Model Predictions][SHAP values] (2017),
-2. [Explaining Explanations: An Overview of Interpretability of Machine Learning][XX] (2018),
+1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017),
+2. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 3. [Producing radiologist-quality reports for interpretable artificial intelligence][radiology] (2018),
-4. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][XAI4MAT] (2022),
-5. Blog Posts: [What is Explainable AI?][What is XAI] (2022) and from [IBM][XAI IBM],
+3. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021) this paper is a particularly short and amenable introduction;
+4. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
+5. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
 6. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
-[XAI4MAT]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
+[xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
-[XX]: http://arxiv.org/abs/1806.00069
-[SHAP values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[xx]: http://arxiv.org/abs/1806.00069
+[shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
-[What is XAI]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
-[XAI IBM]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
-[radiology]: https://arxiv.org/abs/1806.00340
+[what_is_xai]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
+[xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
+[xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
+[perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
