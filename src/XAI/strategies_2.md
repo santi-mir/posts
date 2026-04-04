@@ -12,6 +12,10 @@
 
 - **Validity Interval Analysis**: another technique fitting the NN behaviour to try to extract explanations.
 - **Dimensionality Reduction**: Principal Component Analysis, t-SNE, Dimensionality Reduction, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well.
+- **Anchors**: the authors of LIME also proposed this method, described by [Principles and practice of explainability in ML][principles_and_practice]:
+    > A similar technique, called anchors, can be found in (Ribeiro et al., 2018). Here the objective is again to approximate a model locally, but this time not by using a linear model. Instead, easy to understand "if-then" rules that anchor the model's decision are employed. The rules aim at capturing the essential features, omitting the rest, so it results in more sparse explanations.
+- **Counterfactuals**: The same paper as above describes:
+    > There has been considerable recent development in the socalled counterfactual explanations (Wachter et al., 2018). Here, the objective is to create instances as close as possible to the instance we wish to explain, but such that the model classifies the new instance in a different category.
 
 ## Explanation-producing Architectures
 
@@ -22,3 +26,4 @@ Architectures designed to make explaining part of their operation easier.
 - Dissentangled Representations: <q>Disentangled representations have individual dimensions that describe meaningful and independent factors of variation.</q> &mdash;[Explaining Explainability][XX] (2018). Examples of architectures are $\beta$-VAE, INFOGan, capsule networks.
 
 [XX]: http://arxiv.org/abs/1806.00069
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full

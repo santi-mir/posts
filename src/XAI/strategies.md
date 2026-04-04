@@ -18,13 +18,13 @@ Existing linear combination methods (e.g. SHAP, LIME) calculate $\phi_i$s differ
 
 The [Unified Framework][unified_framework_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
 
-Technicalities aside, the authors argue these coefficients are more intuitive for humans.
+The authors argue these properties lead to coefficients more intuitive for humans.
 
 ## Method: SHAP
 
 SHAP stands for SHapley Additive exPlanations.
 
-The exact Shapley values $\phi_i$ result from an expensive combinatorial ([A value for n-person games][shap original], 1952). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
+The exact Shapley values $\phi_i$ result from an expensive combinatorial (see sources at the end). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
 
 - Assumption 1: Feature independence (implies non-multicollinearity).
     - Shapley sampling values method,
@@ -36,7 +36,9 @@ SHAP provides both global (average across inputs) and local (for a given input).
 
 ## Method: LIME
 
-Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).[^1]
+Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
+
+> LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)
 
 For LIME, the coefficients $\phi_i$ are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.
 
@@ -64,7 +66,19 @@ These two methods (MIP, NMR) can be useful both in having a reliable sorting of 
 
 Let's now look at other methods.
 
+<details>
+<summary>Sources</summary>
+
+1. [A value for n-person games][shap original] (1952)
+1. [A Unified Approach to Interpreting Model Predictions][unified_framework_lcobf] (2017)
+1. [Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,
+1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.
+
+</details>
+
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [unified_framework_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 [shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
+
 [^1]: _Local_ in the name refers to being for a _particular input_, not _Global_ which would be general.
