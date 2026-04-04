@@ -15,11 +15,12 @@ Here the focus is on _some_ aspects of explanations (not of the model).
 __Complexity__: how hard it is to understand, operationally measured relative to a reference human or target audience.
 
 __Insight__: how much the explanation empowers users to understand the model, either intuitively or quantitatively.
+
 - Can we directionally predict using the explanation?
 - Does it fail in some specific cases? Does it lead to surprises or obvious contradictions?
 - Helps form an intuition of the model's workings?
 
-**Other variables**: local vs global; intrinsic vs extrinsic. This forms four categories: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations.
+__Other variables__: local vs global; intrinsic vs extrinsic. This forms four categories: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations.
 
 Given a category from the 4 above, we can think of explainability as $X_p = \frac{I}{C}$, that is, equals explanation-insight divided by explanation-complexity.
 
@@ -34,7 +35,7 @@ Explainability methods often aim to approximate or simplify these models and exp
 ## Taxonomy
 
 Let's now look at how XAI methods are categorized in practice.
-An interesting map using **Category, Principle, and Technique** is given in [Principles and practices][principles_and_practices] (2021); a modified (crop) of the image is reproduced below:
+An interesting map using __Category, Principle, and Technique__ is given in [Principles and practices][principles_and_practices] (2021); a modified (crop) of the image is reproduced below:
 
 <div class="center w25"> <!--other classes: w220, w420-->
     <a href="../assets/model_agnostic_explanations.png">
