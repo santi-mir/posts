@@ -1,82 +1,89 @@
 # Explainable AI - Concepts
 
-There are many definitions of what explanations are in the context of explainable AI, such as:
+There are many definitions of what XAI is. I like to define it as:
 
-> Explanations are _answers to questions about the model's predictions or operation_.
->
-> _How_ does it operate? _Why_ does it makes certain prediction? _What_ is the role of certain neuron or layer?
+> XAI aims to make a model's predictions and operation understandable to humans by providing insights into _why_ a prediction was made and _how_ the model uses input features.
 
-In contrast to explainable models, black-box models share no insight about their operation or predictions.
+<!-- trade-off between how empowering an explanation is and how complex it is. This is explored next. -->
 
-## Multiple Dimensions
+## Dimensions of interest
 
-The questions and the answers depend on the _audience_, the _context_ and other dimensions.
+Here the focus is on _some_ aspects of explanations _and_ of the model.
 
-One paper on [XAI for radiology][xai_rnn_radiology] found that doctors preferred __text outputs__ + __saliency maps__ to aid their decisions (in a sense, emulating doctor-to-doctor communication). The output was then evaluated by a clinician.
+**Insight of the explanation** : how much the it empowers users to understand the model, either intuitively or quantitatively. _How does the output change_ if we change this or that feature? _Does it fail in some specific cases_?
 
-Similarly, in synthetic chemistry, new candidates are vetted by expert chemists. Again, text can be a useful piece of information for the expert to work on, consider, evaluate. However, with no "human in the loop", this approach isn't enough.
+**Complexity of the explanation** : how hard or how much expertise is needed to understand it.
 
-The list of explanation dimensions may be infinite. A few are:
+**Accuracy of the model**: Accurate models such as DL models are usually complex with low intrinsic explainability; but they may allow for insightful extrinsic explanations. In the model, accuracy, predictive power and complexity are also inter-related.
 
-- Intend, Purpose, Stakes: such as transparency, trust, ethical reasons. Healthcare, finance, energy, military, general agentic-systems and automated decision-making.
-    - Yet in other scenarios, explainability may not matter &mdash;but only the model's output, which a human expert could evaluate.
-- User Type / Audiences: Each audience has goals, risks, and preferences. Scientists, ML practitioners, developers, non-experts.
-- Stages: pre-modelling, modelling, post-modelling.
-- Kind: Visual, Textual, Formal. More below.
-
-Yet another dimension related to the explanation kind and its complexity is recalled in [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls]:
-
-> Belle and Papantonis (2021) provide four suggestions for creating explainability, including explanation by simplification, describing the contribution of each feature to the decisions, explaining an instance instead of in general, and using graphical visualization methods for explanations. At the same time, they also discuss the complexity of realizing such suggestions. Simplifications might not be correct, features can be interrelated, local explanations can fail to provide the complete picture, and graphical visualization requires assumptions about data that might not necessarily be true.
-
-### Disentangling Dimensions
-
-We can consider characteristics of explanations independent of the audience and context:
-
-- __Simplicity__: how easy to understand the explanation is. (The opposite term, _complexity_, could be used as well.)
-    - This is correlated with how simple _the model itself_ is.
-- __Completeness__: how accurately it describes the model's behaviour.
-- __Level__ / __Mereological__: High level or lower level; coarse grained or detailed; selection of parts and functions.
-- __Internal__ or __external__
-
-<div class="w40 center">
-<a href="../assets/tradeoff.png">
-<img alt="graph looking like completeness is the inverse of simplitity." src="../assets/tradeoff.png"/>
-</a>
-<p>Completeness v. Simplicity tradeoff.</p>
-</div>
-
-This trade-off isn't universal but just a common case, particularly in deep learning; some other models are straightforward, in which case both characteristics can be high.
-
-## Predictive power
-
-__Predictive power__ is a characteristic of a _model_, not of an _explanation_ of a model. Yet, it is correlated to the characteristics given earlier: more predictive models tend to be more complex making harder to explain them.
-
-The reason to include it here is that _predictive power_ plays an important role deciding which model to use.
-
-In the image below, note that _understandability_ replaces _simplicity_, and _correctness_ replaces _predictive power_.
-
-<div class="center w40"> <!--other classes: w220, w420-->
-    <a href="../assets/radar_plot.png">
-    <img src="../assets/radar_plot.png" alt="Plot of the three dimensions"/>
+<div class="center w50">
+    <a href="../assets/radial_plot.jpeg">
+    <img src="../assets/radial_plot.jpeg" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
     </a>
     <p>
-    Image from <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-SA 4.0</a>
+    Radial plot showing examples of how this variables interrelate.
+    Original from <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>. The image was substantially changed.
     </p>
 </div>
 
-Let's now look at some actual methods.
+**Other variables**: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations. For a given category from the 4 above, we can think of explainability as $X_p = \frac{I}{C}$ or plain words: e**X**plainability equals **I**nsight divided by **C**omplexity.
+
+## Map of XAI
+
+An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021); and is reproduced below:
+
+<div class="center w50">
+    <a href="../assets/taxonomy.webp">
+    <img src="../assets/taxonomy.webp" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
+    </a>
+    <p>
+    Image from <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+    </p>
+</div>
+
+The <span style="padding:0.15rem; display: inline-block; border-radius:0.5rem; border:0.15rem dashed purple">dashed</span> **Model types** are classic ML models. These are _transparent_ (intrinsically explainable) but _may_ also benefit of post-hoc (post training) explanations, such as visualising it. When transparency is key and their predictions are accurate enough, these may be preferred.
+
+The focus here though, is in XAI methods for explaining _deep learning_ models rather than classic ML models. Complex DL models are usually _opaque_ or "_black-boxes_", but their predictive power is usually higher than classic ML models.
+
+In other words, there are use-cases for each classical and deep learning _models_.
+
+Regarding the explanation _methods_ the paper states:
+
+> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
+
+Which is very interesting!
+
+## Explanation kinds
+
+The survey [Principles and practise of explaining ML models][principles_and_practice] also includes a great table of **explanation kinds**.
+A modified version of the table is below:
+
+| Explanation         | Advantages    | Disadvantages | Question |
+|---------------------|---------------|---------------|----------|
+| **Local explanations** | Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. | Explanations do not generalize on a global scale. Small **perturbations** might result in very different explanations.| How do small perturbations affect the output / prediction? |
+| **Examples**      | Representative items for each class provide insights about the model's internal reasoning. | Examples require human selection. They do not explicitly state what parts of the example influence the model. | How do inputs from different classes compare? And same? |
+| **Feature relevance** | They operate on an instance level (some can operate globally). | Methods may make assumptions which do not hold (e.g. feature independence, linearity).| Which input features are most important? |
+| **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
+| **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
+
+Let's now look at methods.
 
 --------------------
 
-Sources:
+<details>
 
-1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017),
-2. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
-3. [Producing radiologist-quality reports for interpretable artificial intelligence][radiology] (2018),
-4. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021) this paper is a particularly short and amenable introduction;
-5. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
-6. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
-7. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+<summary>Sources</summary>
+
+1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
+1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
+1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
+1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;10 are a useful review of explainability methods. All images/tables are also good.
+1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
+1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
+1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
+1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+
+</details>
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
@@ -89,3 +96,4 @@ Sources:
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
 [perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
