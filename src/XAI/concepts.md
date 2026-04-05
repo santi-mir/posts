@@ -8,23 +8,32 @@ There are many definitions of what XAI is. I like to define it as:
 
 ## Dimensions of interest
 
-Here the focus is on _some_ aspects of explanations (not of the model).
+Here the focus is on _some_ aspects of explanations _and_ of the model.
 
-**Complexity**: how hard it is to understand, operationally measured relative to a reference human or target audience.
+**Insight of the explanation** : how much the it empowers users to understand the model, either intuitively or quantitatively. _How does the output change_ if we change this or that feature? _Does it fail in some specific cases_?
 
-**Insight**: how much the explanation empowers users to understand the model, either intuitively or quantitatively. _How does the output change_ if we change this or that feature? _Does it fail in some specific cases_?
+**Complexity of the explanation** : how hard or how much expertise is needed to understand it.
 
-**Other variables**: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations. Given a category from the 4 above, we can think of explainability as $X_p = \frac{I}{C}$, that is, equals explanation-insight divided by explanation-complexity.
-
-**Predictive power** is a property of the _model_, not of the explanation. Highly predictive models such as DL models are usually complex with low intrinsic explainability, but they may allow for insightful extrinsic explanations.
-
-## Taxonomy
-
-Let's now look at how XAI methods are categorized in practice.
-An interesting map using **Category, Principle, and Technique** is given in [Principles and practice of explainable ML][principles_and_practice] (2021); a modified (crop) of the image is reproduced below:
+**Accuracy of the model**: Accurate models such as DL models are usually complex with low intrinsic explainability; but they may allow for insightful extrinsic explanations. In the model, accuracy, predictive power and complexity are also inter-related.
 
 <div class="center w50"> <!--other classes: w220, w420-->
-    <a href="../assets/taxonomy.webp">
+    <a href="../assets/radial_plot.jpeg", target="_blank">
+    <img src="../assets/radial_plot.jpeg" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
+    </a>
+    <p>
+    Radial plot showing examples of how this variables interrelate.
+    Original from <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>. The image was substantially changed.
+    </p>
+</div>
+
+**Other variables**: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations. For a given category from the 4 above, we can think of explainability as $X_p = \frac{I}{C}$ or plain words: e**X**plainability equals **I**nsight divided by **C**omplexity.
+
+## Map of XAI
+
+An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021); and is reproduced below:
+
+<div class="center w50"> <!--other classes: w220, w420-->
+    <a href="../assets/taxonomy.webp", target="_blank">
     <img src="../assets/taxonomy.webp" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
     </a>
     <p>
@@ -32,17 +41,22 @@ An interesting map using **Category, Principle, and Technique** is given in [Pri
     </p>
 </div>
 
-The bracketed classic-ML models are _transparent_ (intrinsically explainable) but _may_ also benefit of post-hoc (post training) explanations, such as visualising it. When transparency is key and their predictions are accurate enough, these may be preferred.
+The <span style="padding:0.15rem; display: inline-block; border-radius:0.5rem; border:0.15rem dashed purple">dashed</span> **Model types** are classic ML models. These are _transparent_ (intrinsically explainable) but _may_ also benefit of post-hoc (post training) explanations, such as visualising it. When transparency is key and their predictions are accurate enough, these may be preferred.
 
 The focus here though, is in XAI methods for explaining _deep learning_ models rather than classic ML models. Complex DL models are usually _opaque_ or "_black-boxes_", but their predictive power is usually higher than classic ML models.
 
-In other words, there are use-cases for each those AI areas.
+In other words, there are use-cases for each classical and deep learning _models_.
 
-### Explanation kinds
+Regarding the explanation _methods_ the paper states:
 
-The paper cited above includes a great table of **explanation kinds**, which an LLM ported to markdown. The table's text is somewhat modified and I added the "Question" column.
+> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
 
-Advantages and disadvantages of the various kinds of explanations:
+Which is very interesting!
+
+## Explanation kinds
+
+The survey [Principles and practise of explaining ML models][principles_and_practice] also includes a great table of **explanation kinds**.
+A modified version of the table is below:
 
 | Explanation         | Advantages    | Disadvantages | Question |
 |---------------------|---------------|---------------|----------|
@@ -52,11 +66,7 @@ Advantages and disadvantages of the various kinds of explanations:
 | **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
 | **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
 
-They also suggest:
-
-> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
-
-Which is very interesting! Let's now look at methods.
+Let's now look at methods.
 
 --------------------
 
