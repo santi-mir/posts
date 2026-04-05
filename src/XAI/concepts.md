@@ -16,13 +16,13 @@ Here the focus is on _some_ aspects of explanations _and_ of the model.
 
 **Accuracy of the model**: Accurate models such as DL models are usually complex with low intrinsic explainability; but they may allow for insightful extrinsic explanations. In the model, accuracy, predictive power and complexity are also inter-related.
 
-<div class="center w50"> <!--other classes: w220, w420-->
-    <a href="../assets/radial_plot.jpeg", target="_blank">
+<div class="center w50">
+    <a href="../assets/radial_plot.jpeg">
     <img src="../assets/radial_plot.jpeg" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
     </a>
     <p>
     Radial plot showing examples of how this variables interrelate.
-    Original from <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>. The image was substantially changed.
+    Original from <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>. The image was substantially changed.
     </p>
 </div>
 
@@ -32,8 +32,8 @@ Here the focus is on _some_ aspects of explanations _and_ of the model.
 
 An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021); and is reproduced below:
 
-<div class="center w50"> <!--other classes: w220, w420-->
-    <a href="../assets/taxonomy.webp", target="_blank">
+<div class="center w50">
+    <a href="../assets/taxonomy.webp">
     <img src="../assets/taxonomy.webp" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
     </a>
     <p>
