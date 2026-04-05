@@ -32,11 +32,31 @@ An interesting map using __Category, Principle, and Technique__ is given in [Pri
     </p>
 </div>
 
-The bracketed classic-ML models are intrinsically explainable but _may_ also benefit of post-hoc (post training) explanations, such as visualising it.
+The bracketed classic-ML models are _transparent_ (intrinsically explainable) but _may_ also benefit of post-hoc (post training) explanations, such as visualising it. When transparency is key and their predictions are accurate enough, these may be preferred.
 
-The focus here though, is in explaining _deep learning_ models, not classical ML models, but many methods apply to both.
+The focus here though, is in XAI methods for explaining _deep learning_ models rather than classic ML models. Complex DL models are usually _opaque_ or "_black-boxes_", but their predictive power is usually higher than classic ML models.
 
-Let's now peek at methods.
+In other words, there are use-cases for each those AI areas.
+
+### Explanation kinds
+
+The paper cited above includes a great table of **explanation kinds**, which an LLM ported to markdown. The table's text is somewhat modified and I added the "Question" column.
+
+Advantages and disadvantages of the various kinds of explanations:
+
+| Explanation         | Advantages    | Disadvantages | Question |
+|---------------------|---------------|---------------|----------|
+| **Local explanations** | Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. | Explanations do not generalize on a global scale. Small **perturbations** might result in very different explanations.| How do small perturbations affect the output / prediction? |
+| **Examples**      | Representative items for each class provide insights about the model's internal reasoning. | Examples require human selection. They do not explicitly state what parts of the example influence the model. | How do inputs from different classes compare? And same? |
+| **Feature relevance** | They operate on an instance level (some can operate globally). | Methods may make assumptions which do not hold (e.g. feature independence, linearity).| Which input features are most important? |
+| **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
+| **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
+
+They also suggest:
+
+> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
+
+Which is very interesting! Let's now look at methods.
 
 --------------------
 
@@ -47,7 +67,7 @@ Let's now peek at methods.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
-1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): an interesting overview of many aspects of XAI,
+1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;10 are a useful review of explainability methods. All images/tables are also good.
 1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
 1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
