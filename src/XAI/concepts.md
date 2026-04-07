@@ -4,10 +4,9 @@ One focus of Explainable Artificial Intelligence (XAI) is _model explainability_
 
 > the degree to which humans can answer questions about a model's predictions or operation, either directly or using explainability methods.
 
-The difference between interpretability and explainability is usually that the former is
-The paper [Explanations in AI, section 2.1.3][explanations_social] states that <q>an explanation is an answer to a why-question</q> but then extends it to _why_, _what_ and _how_ questions. I purposely left this a bit loose ("questions"), at least for the moment.
+[Explanations in AI, section 2.1.3][explanations_social] includes _why_, _what_ and _how_ questions. The definition given above uses "questions" to include these cases.
 
-The answer to such questions, the explanation, is itself a hypothesis, and when there are many, we select the best that explains the data. Of course, it could be none of them is good enough.
+The answers to such questions &mdash;the explanations&mdash; are themselves hypotheses. And that which best explains the data is selected. Of course, it could be none of them is good enough.
 
 Note: This post assumes a scientific audience, and the methods are tools for explaining deep learning models to other scientists (or ourselves).
 
