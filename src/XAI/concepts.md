@@ -4,9 +4,9 @@ One focus of Explainable Artificial Intelligence (XAI) is _model explainability_
 
 > the degree to which humans can answer questions about a model's predictions or operation, either directly or using explainability methods.
 
-[Explanations in AI, section 2.1.3][explanations_social] includes _why_, _what_ and _how_ questions. The definition given above uses "questions" to include these cases.[^1]
+A similar definition is in [explanations in AI, section 2.1.3][explanations_social] which includes _why_/_what_/_how_-questions. The definition given above uses "questions" to include these cases.[^1]
 
-The answers to such questions &mdash;the explanations&mdash; are themselves hypotheses. And that which best explains the data is selected. Of course, it could be none of them is good enough.
+The answers to such questions &mdash;explanations&mdash; are themselves hypotheses. The one selected is that which best explains the data. Of course, it could be none of them is good enough.
 
 <small>Note: This post assumes a scientific audience, and the methods are tools for explaining deep learning models to other scientists (or ourselves).</small>
 
@@ -23,20 +23,18 @@ Complex and accurate models tend to be less explainable. This is referred to as 
 
 ## Gricean Maxims
 
-[Gricean Maxims][gricean_maxims] are observations about communication, particularly _good_ communication. We can use this rules as a guide for good _model explanations_ as well.
+[Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. We can use these rules as a guide for good _model explanations_ as well.
 
-1. Informative (Quantity): right amount of context and details,
-2. Truthful (Quality, or Fidelity): Try to make it true,
-3. Relevance (Relation): do not state things that aren't needed (provide insight),
-4. Manner (clarity): express it in elegant terms.
+1. **Informative** (Quantity): right amount of context and details,
+2. **Truthful** (Quality, or Fidelity): Try to make it true,
+3. **Relevance** (Relation): do not state things that aren't needed (provide insight),
+4. **Manner** (clarity): express it in elegant terms.
 
 These will vary depending on the audience.
 
-There is also a trade-off between truthfulness and model complexity: over-simplifications can stop being truthful (make things as simple as possible but not simpler).
+There is also a trade-off between truthfulness of an explanation (shown in the image earlier) and model complexity. Other dimensions will be specific of AI models:
 
-Other dimensions will be specific of AI models:
-
-- **Other variables**: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations. For a given category from the 4 above, we can think of explainability as $X_p = \frac{I}{C}$ or plain words: e**X**plainability equals **I**nsight divided by **C**omplexity.
+- **Other variables**: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations.
 
 ## Map of XAI
 
