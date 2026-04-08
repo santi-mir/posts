@@ -48,7 +48,6 @@ These are _transparent_ (intrinsically explainable) but _may_ benefit from post-
     </p>
 </div>
 
-
 The focus here though, is explaining _deep learning_ models. These are usually _opaque_ ("_black-box_") models, and their accuracy is usually higher than classic ML models.
 
 In other words, classical ML and DL models each have their use-cases.
