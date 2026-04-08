@@ -11,7 +11,7 @@ This post discusses explanations first, then arrives at a definition of explaina
 
 ### Causal Attribution
 
-An explanation / answer can be thought as the process of
+The _cognitive process_ of an explanation (hypothesis, answer) can be thought as the process of
 
 1. Hypothesis generation using abductive inference,
    - These will be _proposed_ causes/explanations/
