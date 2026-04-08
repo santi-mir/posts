@@ -4,11 +4,11 @@ One focus of Explainable Artificial Intelligence (XAI) is _model explainability_
 
 > the degree to which humans can answer questions about a model's predictions or operation, either directly or using explainability methods.
 
-[Explanations in AI, section 2.1.3][explanations_social] includes _why_, _what_ and _how_ questions. The definition given above uses "questions" to include these cases.
+[Explanations in AI, section 2.1.3][explanations_social] includes _why_, _what_ and _how_ questions. The definition given above uses "questions" to include these cases.[^1]
 
 The answers to such questions &mdash;the explanations&mdash; are themselves hypotheses. And that which best explains the data is selected. Of course, it could be none of them is good enough.
 
-Note: This post assumes a scientific audience, and the methods are tools for explaining deep learning models to other scientists (or ourselves).
+<small>Note: This post assumes a scientific audience, and the methods are tools for explaining deep learning models to other scientists (or ourselves).</small>
 
 ## A trade-off
 
@@ -21,29 +21,22 @@ Complex and accurate models tend to be less explainable. This is referred to as 
     <p>Model accuracy vs Model explainability tradeoff.</p>
 </div>
 
-## Dimensions of interest
+## Gricean Maxims
 
-Here, we emphasise two _explanation_ dimensions, and one _model_ dimension:[^1]
+[Gricean Maxims][gricean_maxims] are observations about communication, particularly _good_ communication. We can use this rules as a guide for good _model explanations_ as well.
 
-- **Complexity** : expertise is needed to understand the explanation,
-- **Insight** : degree to which an explanation enables prediction or conceptual understanding,
-- **Accuracy** (model): predictive performance of the underlying models.
+1. Informative (Quantity): right amount of context and details,
+2. Truthful (Quality, or Fidelity): Try to make it true,
+3. Relevance (Relation): do not state things that aren't needed (provide insight),
+4. Manner (clarity): express it in elegant terms.
 
-Complexity-Insight-Accuracy trade-off:
+These will vary depending on the audience.
 
-<div class="center w50">
-    <a href="../assets/radial_plot.jpeg">
-    <img src="../assets/radial_plot.jpeg" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
-    </a>
-    <p>
-    Dimensions of interest linked in a radial plot. The image was altered from <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
-    </p>
-</div>
+There is also a trade-off between truthfulness and model complexity: over-simplifications can stop being truthful (make things as simple as possible but not simpler).
 
-Other dimensions, that the posts do not focus on:
+Other dimensions will be specific of AI models:
 
 - **Other variables**: intrinsic-global, intrinsic-local, extrinsic-global, and extrinsic-local explanations. For a given category from the 4 above, we can think of explainability as $X_p = \frac{I}{C}$ or plain words: e**X**plainability equals **I**nsight divided by **C**omplexity.
-- **Fidelity**: how accurately the explanation reflects the true behaviour of the model.
 
 ## Map of XAI
 
@@ -172,16 +165,4 @@ It seems plausible that some explanations can't be simplified further without be
 [gricean_maxims]: https://effectiviology.com/principles-of-effective-communication/
 [wikipedia_gricean]: https://en.wikipedia.org/wiki/Cooperative_principle
 
-[^1]: **Insight** could be conceived, at least partially, as the [Gricean maxim][wikipedia_gricean] of relation (relevance). **Complexity**: If we think of a specific audience, we could remove this characteristic, because only explanations that are of quality and relevant should be considered, and that implies of the right level of complexity. There is also an issue: it may not be possible to explain a certain event without a certain level of complexity; in other words, the are constrains given by the social interaction and constrains given by the problem itself and the goals.
-
-<!--Parts I removed to keep it shorter.-->
-<!-- DL models are usually complex, and have low _intrinsic_ explainability. Yet, they may allow for insightful _extrinsic_ explanations. For a model, accuracy, predictive power and complexity are also inter-related. -->
-<!-- _How does the output change_ if we change this or that feature? _Does it fail in some specific cases_? -->
-<!-- how much the explanation empowers users to understand the model, either intuitively or quantitatively. -->
-
-<!-- > D is a collection of data (facts, observations, givens).\ -->
-<!-- > H explains D (would, if true, explain D).\ -->
-<!-- > No other hypothesis can explain D _as well as_ H does.\ -->
-<!-- > Therefore, H is probably true. -->
-
-<!-- This defines a kind of inference / logical reasoning, called _abduction_ (besides induction and deduction), which ends up in a hypothesis or explanation. The process is also referred to as _inference to the best explanation_ (or to the best hypothesis). The selection is based on _how well_ it explains the events. -->
+[^1]:  _Why X_ is either asking for _What is the cause of X_ (events leading to X) or _What is X for_ (the purpose, for designed items.) We are interested in the former sense. Hume's understood causes with _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
