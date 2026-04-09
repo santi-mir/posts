@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-63f57e92.js";
+            window.path_to_searchindex_js = "../searchindex-a1450343.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-40e02f6a.js"></script>
@@ -201,17 +201,17 @@
 <p>Dense vectors are useful because training will be faster (than a similar sparse version).</p>
 <h3 id="some-background-on-embeddings"><a class="header" href="#some-background-on-embeddings">Some Background on Embeddings</a></h3>
 <p>Embeddings for atoms were inspired by NLP models from the 2010s.</p>
-<p>One such example was learning <a href="https://arxiv.org/abs/1301.3781v3">continuous vector representations of words</a> (2013). They proposed an automated mechanism generate word-vectors by absorbing information from that word's environment (neighbouring words).</p>
+<p>One such example was learning <a href="https://arxiv.org/abs/1301.3781v3">continuous vector representations of words</a> (2013). They proposed an automated mechanism to generate word-vectors by absorbing information from that word's environment (neighbouring words).</p>
 <p>Materials science has exploited the same ideas, for example:</p>
 <ul>
 <li><q>properties of an atom can be inferred from the environments it lives in</q> (<a href="https://pnas.org/doi/full/10.1073/pnas.1801181115">Atom2Vec</a>, 2018),</li>
 <li><q>atoms are to compounds as words are to sentences</q> (<a href="https://www.nature.com/articles/s41524-022-00729-3">SkipAtom</a>, 2022),</li>
 </ul>
-<p>The surprise was that similar words (or atoms) produce similar vectors. The vectors also support semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:</p>
+<p>The surprise was that similar words (or atoms) end up with similar vectors. The vectors also support semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:</p>
 <pre><code class="language-txt">vector("Queen") = vector("King") - vector("Man") + vector("Woman")
 </code></pre>
 <h2 id="vectors-in-chemistry"><a class="header" href="#vectors-in-chemistry">Vectors in Chemistry</a></h2>
-<p>As dicussed earlier, atom vectors can be expert-designed or they can be <em>learnt</em> by an algorithm. Learning vectors yields more general-purpose vectors, and has won in popularity.</p>
+<p>As discussed earlier, atom vectors can be expert-designed or they can be <em>learnt</em> by an algorithm. Learning vectors yields more general-purpose vectors, and has won in popularity.</p>
 <p>Both <a href="https://pnas.org/doi/full/10.1073/pnas.1801181115">Atom2Vec</a> (2018) and <a href="https://www.nature.com/articles/s41524-022-00729-3">SkipAtom</a> (2022) are unsupervised algorithms that obtain their atom vectors from databases of compounds. Atom vectors can be combined into compound vectors, and used for downstream tasks like property-prediction.</p>
 <h3 id="classifications-and-featurisers"><a class="header" href="#classifications-and-featurisers">Classifications and Featurisers</a></h3>
 <p>The method used to generate our vectors is called a <em>featuriser</em> (we can use a featuriser or create our own). There are many common approaches:</p>

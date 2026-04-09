@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-63f57e92.js";
+            window.path_to_searchindex_js = "../searchindex-a1450343.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-40e02f6a.js"></script>
@@ -184,6 +184,7 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explaining-things"><a class="header" href="#explaining-things">Explaining Things</a></h1>
 <p>This post discusses explanations first, then arrives at a definition of explainable AI focusing on model explainability.</p>
+<p>Note: This post assumes a scientific audience, focuses on methods to make deep learning models explainable to other scientists (or ourselves). This allows us to focus on more technical aspects (later on called causal attribution or cognitive process).</p>
 <h2 id="what-is-an-explanation"><a class="header" href="#what-is-an-explanation">What is an explanation?</a></h2>
 <p><a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanations in AI, section 2.1.2</a> <strong>defines explanation</strong> as a 3-legged concept: a cognitive process, a product, a social process. This is itself an extension of previous work by Lombrozo on <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a>. Central to their model are the definitions:</p>
 <ul>
@@ -229,8 +230,6 @@ style C fill:#050
 <p>the degree to which humans can effectively answer questions about a model's predictions or operation, either directly or using explainability methods.</p>
 </blockquote>
 <p><em>Questions</em> includes more than just why-questions; <em>effectively</em> includes the social aspect of it.</p>
-<p>The next sections expand on selecting <em>good explanations</em> (next sections).</p>
-<p>Note: This post assumes a scientific audience, focuses on methods to make deep learning models explainable to other scientists (or ourselves). In a sense, that allows us to focus on the causal attribution / cognitive process.</p>
 <h3 id="model-complexity-v-explanation-fidelity"><a class="header" href="#model-complexity-v-explanation-fidelity">Model Complexity v. Explanation Fidelity</a></h3>
 <p>Complex and accurate models tend to be less explainable. This is not universal, but we could represent this common case as:</p>
 <div class="center w30">
@@ -245,7 +244,7 @@ style C fill:#050
 <h3 id="map-of-xai"><a class="header" href="#map-of-xai">Map of XAI</a></h3>
 <p>An interesting map of XAI is given in the survey <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> (2021).</p>
 <p>Most <em>classic ML</em> models are in the <span style="padding:0.15rem; display: inline-block; border-radius:0.5rem; border:0.15rem dashed purple">dashed</span> area under <strong>Model types</strong> column.</p>
-<p>These are <em>transparent</em> (intrinsically explainable) but <em>may</em> benefit from post-hoc (post training) explanations, such as visualising it. When transparency is key and the predictions are accurate enough, these may be preferred.</p>
+<p><em>Classic ML</em> models are usually <em>transparent</em> (intrinsically explainable) but <em>may</em> benefit from post-hoc (post training) explanations, such as visualising it. When transparency is key and the predictions are accurate enough, these may be preferred over DL models.</p>
 <div class="center w50">
     <a href="../assets/taxonomy.webp">
     <img src="../assets/taxonomy.webp" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP." />
@@ -279,12 +278,10 @@ style C fill:#050
 <blockquote>
 <p>Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),</p>
 </blockquote>
-<p>In the next post, we will look at methods.</p>
+<p>In the next posts, we will look at methods.</p>
 <hr><details>
-<summary>More on Communicating Explanations</summary>
+<summary>Aside: Methaphors</summary>
 <h3 id="the-machine-and-the-agent"><a class="header" href="#the-machine-and-the-agent">The Machine and The Agent</a></h3>
-<p>Let's assume we have a set of explanations at our disposal. The <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Gricean Observations</a> of effective communication can help us, if taken as a prescription.</p>
-<p>The maxims are that statements (such as explanations) during effective communication are <strong>true</strong> (quality, fidelity), <strong>informative</strong> (quantity, not too long or short), <strong>relevant</strong> (relation, filling audience gaps) and <strong>clear</strong> (manner, avoid ambiguity).</p>
 <p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>:</p>
 <ol>
 <li>They have parts, each with a function, a role,</li>
@@ -307,15 +304,15 @@ style C fill:#050
 </tbody>
 </table>
 </div>
-<p>So explanations are answers to <em>why-questions</em> but a <em>good</em> explanation is dependent on the audience (their expertise, expectations) and so forth.</p>
-<p>In a sense, I would be implicitly considering what are those <em>good</em> explanations, which in term is implicitly assuming a scientific audience looking for methods to explain models that <em>do not lose much fidelity to the original</em>.</p>
+<p>So explanations are answers to <em>why-questions</em>; <em>good</em> explanation is dependent on the audience (their expertise, expectations) and so forth.</p>
 <h3 id="constrains-on-explanations"><a class="header" href="#constrains-on-explanations">Constrains on explanations</a></h3>
-<p>It seems plausible that some explanations can't be simplified further without being misleading or false, hence being a constrain <em>of the problem itself</em>.</p>
+<p>Each audience will demand certain guarantees, and have expectations. For example, in scientific domains, we do not want lose much fidelity to the original model.</p>
+<p>Besides, it seems plausible that some explanations can't be simplified further without being misleading or false, hence being a constrain <em>of the problem itself</em> (make things as simple as possible, but not simpler).</p>
 </details>
 <details>
 <summary>Sources</summary>
 <ol>
-<li><a href="https://www.ijcai.org/Proceedings/73/Papers/017.pdf">On the mechanization of abductive logic</a> (1973). The relation to this post is a bit far fetched though: <em>abductive logic</em> is a key component of explanations. The first page is quite interesting.</li>
+<li><a href="https://www.ijcai.org/Proceedings/73/Papers/017.pdf">On the mechanization of abductive logic</a> (1973). The first page is quite interesting.</li>
 </ol>
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <ol>
