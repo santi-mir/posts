@@ -1,36 +1,57 @@
 # Explaining Things
 
-This post discusses explanations first, then arrives at a definition of explainable AI focusing on model explainability.
+The goals of the post are:
 
-Note: This post assumes a scientific audience, focuses on methods to make deep learning models explainable to other scientists (or ourselves). This allows us to focus on more technical aspects (later on called causal attribution or cognitive process).
+1. Discuss general aspects about explanations,
+2. Propose a definition of explainable AI focusing on _model explainability_.
+
+------------
 
 ## What is an explanation?
 
-[Explanations in AI, section 2.1.2][explanations_social] **defines explanation** as a 3-legged concept: a cognitive process, a product, a social process. This is itself an extension of previous work by Lombrozo on [The structure and function of explanations][lombrozo]. Central to their model are the definitions:
+To a first approximation, an explanation is
+> An answer to a why-question by referring to causes.
 
-- **Causal attribution**: Finding causes[^1], a cognitive process,
-- **Causal explanation**: Causal attribution (cognitive process) + Communicating it (social process).
+But there is more to it: _answering_ is a communication process, _why questions_ have a complex structure and not only _why questions_ can be asked. Let's explore these a bit further.
 
-### Causal Attribution
+[Explanations in AI, section 2.1.2][explanations_social] defines an _explanation_ as a 3-legged concept, extending previous work by Lombrozo on [The structure and function of explanations][lombrozo]. An _explanation_ (causal or contrastive), is:
 
-The _cognitive process_ of an explanation (hypothesis, answer) can be thought as the process of
+1. **Cognitive process**: involves finding the cause of an event, known as the causal attribution,
+   - Usually, the attribution implicitly answers a _contrastive question_ "Why P rather than Q?".
+   - _Contrast_ is an important component of the structure of _why-questions_, highlighted by the paper above.
+2. **Product**: The result of the cognitive process,
+3. **Social process**: communicating it.
 
-1. Hypothesis generation using abductive inference,
-   - These will be _proposed_ causes/explanations/
-2. Selection of the best hypothesis
+Let's zoom into the cognitive process part (`1.`) of explanations.
+
+### Cognitive process
+
+This process involves assigning _causes_ by _causal attribution_ and also _abductive reasoning_.
+
+Causes themselves were understood by Hume through _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
+
+As noted earlier _why-questions_ have a structure and normally a contrastive question _why P rather than Q_ is answered.
+
+Abductive inference is the generation of a hypothesis (candidate cause), and also the selection of the best one given the available evidence; in other words, a two step process:
+
+1. Hypothesis generation,
+   - These will be _proposed_ causes
+2. Selection of the best hypothesis (akin to _attribution_)
 
 ```mermaid
 flowchart TB
-A(Why W?) -- abduction -->B(H1: Because X)
-A -- abduction -->C(H2: Because Y)
-A -- abduction -->D(H3: Because Z)
+A(Why W?) -->B(H1: Because X)
+A -->C(H2: Because Y)
+A -->D(H3: Because Z)
 
 style C fill:#050
 ```
 
-Questions such as "Why X" can be rephrased as "What is the cause of / leads to X?" or for "What is the purpose of X". The former asks for a hypothetical cause.
+Since there isn't much to say on product (`2.`), we jump to `3`.
 
-### Causal Explanation / Good Explanations
+### Social or Communicative Process
+
+The causal-hypothesis must then be communicated, and there are expectations about it.
 
 [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. We can use these rules as a guide for good _model explanations_ as well.
 
@@ -39,25 +60,28 @@ Questions such as "Why X" can be rephrased as "What is the cause of / leads to X
 3. **Relevance** (Relation): do not state things that aren't needed (provide insight),
 4. **Manner** (clarity): express it in elegant terms.
 
-For our case, where the object to explain is the DL model, it also matters if the _model explanation_ is intrinsic-global, intrinsic-local, extrinsic-global or extrinsic-local. This is expanded later on.
-
 ## Explainable AI
 
-One focus of Explainable Artificial Intelligence (XAI) is _model explainability_, which we could narrowly defined as:
+Having defined _causal explanations_ we can define _model explainability_ &mdash; the focus of Explainable Artificial Intelligence&mdash as:
 
 > finding the causes underlying a model's predictions or operation,
 
-However, can a model be pragmatically considered explainable if it can not be communicated to the target audience?
+But can a model be pragmatically considered explainable if it can not be communicated to the target audience?
 
-We can adapt the definition to include the 3-legged concept of explanations given earlier (of primary focus of XAI):
+We can amend the definition of _model explainability_ to better fit the 3-legged definition of explanations given earlier:
 
 > the degree to which humans can effectively answer questions about a model's predictions or operation, either directly or using explainability methods.
 
-_Questions_ includes more than just why-questions; _effectively_ includes the social aspect of it.
+_Questions_ includes more than just why-questions; _effectively_ includes the social and communicational aspect of it (which Grice's Maxims aid).
 
-### Model Complexity v. Explanation Fidelity
+### Trade-off
 
-Complex and accurate models tend to be less explainable. This is not universal, but we could represent this common case as:
+One trade-off is that each audience will demand certain guarantees, and have expectations, and expertise, but we do not want lose much fidelity to the original model.
+
+Simplification loses fidelity. Care must be taken to make "things as simple as possible, but not simpler" or there is risk of **oversimplifying**. This is compounded by the fact that more complex and accurate models tend to be less explainable.
+
+This is not universal, but we could represent this common case as:
+
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff."/>
@@ -65,7 +89,7 @@ Complex and accurate models tend to be less explainable. This is not universal, 
     <p>Model accuracy vs Model explainability tradeoff.</p>
 </div>
 
-### Map of XAI
+## Map of XAI
 
 An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021).
 
@@ -102,14 +126,11 @@ We should remember that:
 
 > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
 
-In the next posts, we will look at methods.
+In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind.
 
---------------------
+### Aside: Methaphors
 
-<details>
-<summary>Aside: Methaphors</summary>
-
-### The Machine and The Agent
+<details><summary>The Machine and The Agent</summary>
 
 In the scientific and science-adjacent domains, models are conceptualised as _machines_:
 
@@ -130,17 +151,12 @@ The audiences' have different goals or expectations and expertise (which exists 
 
 So explanations are answers to _why-questions_; _good_ explanation is dependent on the audience (their expertise, expectations) and so forth.
 
-### Constrains on explanations
-
-Each audience will demand certain guarantees, and have expectations. For example, in scientific domains, we do not want lose much fidelity to the original model.
-
-Besides, it seems plausible that some explanations can't be simplified further without being misleading or false, hence being a constrain _of the problem itself_ (make things as simple as possible, but not simpler).
-
 </details>
 
-<details>
+------------
 
-<summary>Sources</summary>
+<details>
+<summary>List of sources used in this blogpost</summary>
 
 1. [On the mechanization of abductive logic][abductive_logic] (1973). The first page is quite interesting.
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
@@ -174,4 +190,4 @@ Besides, it seems plausible that some explanations can't be simplified further w
 [wikipedia_gricean]: https://en.wikipedia.org/wiki/Cooperative_principle
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
 
-[^1]:  _Why X_ is either asking for _What is the cause of X_ (events leading to X) or _What is X for_ (the purpose, for designed items.) We are interested in the former sense. Hume's understood causes with _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
+<!-- _Why X_ questions can be rephrased as either _What is X for_, its purpose, or _What is the cause of X_, that is, the events leading to X. These are different questions, and we are interested in the latter sense, in _causes_ rather than _purposes_. -->
