@@ -1,19 +1,27 @@
 # Explaining Things
 
-This post discusses explanations first, then arrives at a definition of explainable AI focusing on model explainability.
+The goals of the post are:
+1. Discuss general aspects about explanations,
+2. Propose a definition of explainable AI focusing on _model explainability_.
 
-Note: This post assumes a scientific audience, focuses on methods to make deep learning models explainable to other scientists (or ourselves). This allows us to focus on more technical aspects (later on called causal attribution or cognitive process).
+------------
 
 ## What is an explanation?
 
-[Explanations in AI, section 2.1.2][explanations_social] **defines explanation** as a 3-legged concept: a cognitive process, a product, a social process. This is itself an extension of previous work by Lombrozo on [The structure and function of explanations][lombrozo]. Central to their model are the definitions:
+[Explanations in AI, section 2.1.2][explanations_social] **defines explanation** as a 3-legged concept. This is itself an extension of previous work by Lombrozo on [The structure and function of explanations][lombrozo]. Central to their model are the definitions:
 
-- **Causal attribution**: Finding causes[^1], a cognitive process,
-- **Causal explanation**: Causal attribution (cognitive process) + Communicating it (social process).
+- **Causal explanation**: Or just _explanation_. Involves:
+    - Cognitive process: causal attribution[^1]; that is, finding the causes of an event,
+    - Product: The result,
+    - Social process: communicating it.
 
 ### Causal Attribution
 
-The _cognitive process_ of an explanation (hypothesis, answer) can be thought as the process of
+_Why X_ can be rephrased as either _What is X for_, its purpose, or _What is the cause of X_, that is, the events leading to X.
+
+We are interested in the latter. Hume understood causes with _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
+
+It normally involves an inference for the _best_ cause (best candidate hypothesis for cause), or in steps:
 
 1. Hypothesis generation using abductive inference,
    - These will be _proposed_ causes/explanations/
@@ -28,9 +36,9 @@ A -- abduction -->D(H3: Because Z)
 style C fill:#050
 ```
 
-Questions such as "Why X" can be rephrased as "What is the cause of / leads to X?" or for "What is the purpose of X". The former asks for a hypothetical cause.
-
 ### Causal Explanation / Good Explanations
+
+The causal-hypothesis must then be communicated, and there are expectations about it.
 
 [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. We can use these rules as a guide for good _model explanations_ as well.
 
@@ -39,25 +47,28 @@ Questions such as "Why X" can be rephrased as "What is the cause of / leads to X
 3. **Relevance** (Relation): do not state things that aren't needed (provide insight),
 4. **Manner** (clarity): express it in elegant terms.
 
-For our case, where the object to explain is the DL model, it also matters if the _model explanation_ is intrinsic-global, intrinsic-local, extrinsic-global or extrinsic-local. This is expanded later on.
-
 ## Explainable AI
 
-One focus of Explainable Artificial Intelligence (XAI) is _model explainability_, which we could narrowly defined as:
+Having defined _causal explanations_ we can define _model explainability_ &mdash; the focus of  Explainable Artificial Intelligence&mdash as:
 
 > finding the causes underlying a model's predictions or operation,
 
-However, can a model be pragmatically considered explainable if it can not be communicated to the target audience?
+But can a model be pragmatically considered explainable if it can not be communicated to the target audience?
 
-We can adapt the definition to include the 3-legged concept of explanations given earlier (of primary focus of XAI):
+We can amend the definition of _model explainability_ to better fit the 3-legged definition of explanations given earlier:
 
 > the degree to which humans can effectively answer questions about a model's predictions or operation, either directly or using explainability methods.
 
-_Questions_ includes more than just why-questions; _effectively_ includes the social aspect of it.
+_Questions_ includes more than just why-questions; _effectively_ includes the social and communicational aspect of it (which Grice's Maxims aid).
 
-### Model Complexity v. Explanation Fidelity
+### Trade-off
 
-Complex and accurate models tend to be less explainable. This is not universal, but we could represent this common case as:
+One trade-off is that each audience will demand certain guarantees, and have expectations, and expertise, but we do not want lose much fidelity to the original model.
+
+Simplification loses fidelity. Care must be taken to make "things as simple as possible, but not simpler" or there is risk of **oversimplifying**. This is compounded by the fact that more complex and accurate models tend to be less explainable.
+
+This is not universal, but we could represent this common case as:
+
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff."/>
@@ -65,7 +76,8 @@ Complex and accurate models tend to be less explainable. This is not universal, 
     <p>Model accuracy vs Model explainability tradeoff.</p>
 </div>
 
-### Map of XAI
+
+## Map of XAI
 
 An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021).
 
@@ -102,14 +114,14 @@ We should remember that:
 
 > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
 
-In the next posts, we will look at methods.
+In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind.
 
 --------------------
 
 <details>
 <summary>Aside: Methaphors</summary>
 
-### The Machine and The Agent
+## The Machine and The Agent
 
 In the scientific and science-adjacent domains, models are conceptualised as _machines_:
 
@@ -129,12 +141,6 @@ The audiences' have different goals or expectations and expertise (which exists 
 | **Human-facing** | Agent       | Intentional, narrative      | Users, stakeholders |
 
 So explanations are answers to _why-questions_; _good_ explanation is dependent on the audience (their expertise, expectations) and so forth.
-
-### Constrains on explanations
-
-Each audience will demand certain guarantees, and have expectations. For example, in scientific domains, we do not want lose much fidelity to the original model.
-
-Besides, it seems plausible that some explanations can't be simplified further without being misleading or false, hence being a constrain _of the problem itself_ (make things as simple as possible, but not simpler).
 
 </details>
 
@@ -173,5 +179,3 @@ Besides, it seems plausible that some explanations can't be simplified further w
 [gricean_maxims]: https://effectiviology.com/principles-of-effective-communication/
 [wikipedia_gricean]: https://en.wikipedia.org/wiki/Cooperative_principle
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
-
-[^1]:  _Why X_ is either asking for _What is the cause of X_ (events leading to X) or _What is X for_ (the purpose, for designed items.) We are interested in the former sense. Hume's understood causes with _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
