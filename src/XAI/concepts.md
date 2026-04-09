@@ -47,6 +47,8 @@ A -->D(H3: Because Z)
 style C fill:#050
 ```
 
+Since there isn't much to say on product (`2.`), we jump to `3`.
+
 ### Social or Communicative Process
 
 The causal-hypothesis must then be communicated, and there are expectations about it.
