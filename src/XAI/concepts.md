@@ -9,39 +9,39 @@ You open a drawer, and a conversation with a friend starts.
 > Friend: Why did the drawer slide out?\
 > You: Because I pulled it out? Had I not, the drawer wouldn't have slide.
 
-The answer is a mechanistic cause (efficient cause). Aristotle proposed 4 causes: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
+The answer is an _efficient_ cause. Aristotle proposed 4 causes: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
 
-Hume instead, understood causes through _counterfactuals_. The answer is also a _counterfactual_: the hypothesis that _without_ the event X, there wouldn't be the consequence Y. This makes X necessary for Y to happen (its cause).
+Hume instead, understood causes through _counterfactuals_. The answer is also a _counterfactual_: the hypothesis that _without_ the event X, there wouldn't be the consequence Y. In other words, X is necessary for Y to happen (its cause).
 
 > Friend: I _know_ that. But why does it slide _rather than_ opening like a lid?\
 > You: Oh! I see. The drawer sits on rails allowing it to slide.\
-> Friend: And why do rails let it slide?
 
 The _rather than ..._ is a contrast called _foil_. If the foil is absent, we may guess it, or ask for further clarifications. _Foils_ make answering easier.
 
-In Aristotelian terms, "You" gave a _formal_ cause, based on the form or shape. We could also ask: "Why did it burn? Because it's made of wood" (Material); or "Because they wanted to get rid of it" (Final)." These are all valid explanations.
-
 The friend may keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).
 
-Another aspect brought up here is the **social process**: we tried to guess the friend's actual _knowledge gap_ (first wrongly, he _knew_ that), and to emit relevant information. There are also other aspects that matter, such as testing the claim, finding a useful contrast, and so forth.
+Notice the **social process** involved: we tried to guess the friend's actual _knowledge gap_ (first wrongly, he _knew_ that), and to emit relevant information. There are also other aspects that matter, such as testing the claim, finding a useful contrast, and so forth.
 
-This complexity makes the boundaries defining an explanation quite fuzzy. Often taking examples as reference can help guide us.
 
-You may come back to this example after reading the rest.
+## Definition of Explanation
 
-## Definition
+We can start with an oversimplified definition, an _explanation_ is:
 
-One narrow and simple definition of an explanation is:
+> An answer to a why-question referring to the cause of an event, or see it as an instance of a general pattern. It is also expected that it does not contradict prior beliefs or knowledge.
 
-> An answer to a why-question that accounts for the cause of an event. It is also expected that it does not contradict prior beliefs or knowledge.
+Although not only _why-questions_ prompt explanations. Inferential reasoning (next section) plays an interesting role. Also class-membership can help explain events: "Light interferes because it is a wave.".
 
-Although not only _why-questions_ prompt explanations, and not only mechanistic _causal claims_ (Humean or Aristotelian) are expected. For example, "Light interferes because it is a wave, and waves interfere in certain conditions", just assigns instance to a class, without a mechanistic causal claim.
-
-[Explanation in artificial intelligence: insights from the social sciences][explanations_social]&mdash;section 2.1.2, characterises an explanation as:
+In section **2.1.2**, [Explanation in artificial intelligence: insights from the social sciences][explanations_social] characterises an explanation as:
 
 A **cognitive process**, which involves finding and assigning the cause of an event, known as _causal attribution_. A **product**, resulting from the cognitive process. A **social process**, which involves communicating the product.
 
-Let's expand on these characteristics.
+Another interesting aspect is the identification of what is explanatory relevant, and what is not. Consider two light beams interfering on a Sunday. The day _should_ be of little relevance (not always). We are disregarding a confounding factor.
+
+Beliefs, prior knowledge and assumptions play an important role in the generation of hypotheses. In a sense, the hypothesis generated (cause-candidate) is conditioned on knowledge. Here is a cute example from [The structure and function of explanations][lombrozo]:
+
+> explanations [hypotheses] can lead reasoners to override the influence of similarity. If told that herring and tuna have a disease, naive participants are more likely to extend the property to wolffish, the more similar item, than to dolphins. However, among fishing experts, who can generate an explanation for why the property might hold (e.g. tuna contract the disease by eating infected herring), similarity is less predictive of property extensions.
+
+Let's now expand on the _cognitive_ and _social_ processes of an explanation.
 
 ## Cognitive process
 
@@ -49,21 +49,24 @@ We now discuss _causes_, _causal attribution_ and _abductive reasoning_ in the c
 
 ### Causes
 
-Aristotle proposed 4 kinds of _causes_ that pick on different aspects to answer a _why-question_ (part of explaining): Efficient (a mechanism), Final (a purpose), Formal (structure or form), Material(constitution).
+We already mentioned Aristotle's 4 kinds of _causes_ that pick on different aspects to answer a _why-question_. These explanations are not always exclusive, they can be complementary.
 
-These explanations are not always exclusive, they can be complementary.
-
-Hume understood _causes_ through _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
+We also causes derived from _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
 
 _Are all Aristotelian causes Humean causes?_ The one that best fits the definition is the _efficient_ cause; the rest are not naturally understood as events so they don't easily fit as counterfactuals.
 
-In science, _effective causes_ and _counterfactuals_ are most useful. But in everyday life, all Aristotelian causes are used.
+In science, _effective causes_ and _counterfactuals_ are most common. But in everyday life, all Aristotelian causes are used.
 
 In addition, [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
 
-### Abductive Inference
+### Inference
 
-Causal attribution is closely related to abductive inference. Abduction is 3-step process, not too different from the scientific process itself:
+Inference can play an important role in explanations:
+- Deductive: Light is a wave; all waves interfere; then light beams interfere,
+- Inductive (generalisation): Bats are mammals; bats fly; maybe all mammals fly,
+- **Abductive**: Light shows interference patterns, waves interfere, maybe light is a wave. It proposes a hypothesis to explain a fact.
+
+Causal attribution is closely related to **abductive inference**. Abduction is 3-step process, not too different from the scientific process itself:
 
 1. Propose hypothetical causes (or chains of causes, meaning a series of causally connected events), this is a creative process
 2. Select the best given the available evidence; this filtering process is dependent upon prior knowledge,
@@ -78,6 +81,9 @@ A -->D(H3: Because Z)
 style C fill:#050
 ```
 
+The way we generate hypothesis is very complex. It may involve creativity, metaphors, analogies; we won't go further into this aspect.
+
+### Strength of a Hypothesis
 The plausibility of a hypothesis or causal claim is affected by different aspects, such as:
 
 - Its _simplicity_: if it involves a shorter chain of causes, it is preferred,
