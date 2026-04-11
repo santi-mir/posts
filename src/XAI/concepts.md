@@ -22,7 +22,6 @@ The friend may keep asking "Why" and eventually reject or accept the causal chai
 
 Notice the **social process** involved: we tried to guess the friend's actual _knowledge gap_ (first wrongly, he _knew_ that), and to emit relevant information. There are also other aspects that matter, such as testing the claim, finding a useful contrast, and so forth.
 
-
 ## Definition of Explanation
 
 We can start with an oversimplified definition, an _explanation_ is:
@@ -62,6 +61,7 @@ In addition, [Explanation in AI: insights from the social sciences][explanations
 ### Inference
 
 Inference can play an important role in explanations:
+
 - Deductive: Light is a wave; all waves interfere; then light beams interfere,
 - Inductive (generalisation): Bats are mammals; bats fly; maybe all mammals fly,
 - **Abductive**: Light shows interference patterns, waves interfere, maybe light is a wave. It proposes a hypothesis to explain a fact.
@@ -84,6 +84,7 @@ style C fill:#050
 The way we generate hypothesis is very complex. It may involve creativity, metaphors, analogies; we won't go further into this aspect.
 
 ### Strength of a Hypothesis
+
 The plausibility of a hypothesis or causal claim is affected by different aspects, such as:
 
 - Its _simplicity_: if it involves a shorter chain of causes, it is preferred,
