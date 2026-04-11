@@ -1,25 +1,29 @@
 # What is an explanation?
 
-Let's start with an example, bringing up concepts as we need them, and very minimally. They are expanded in the remaining sections.
+Let's start with an example. Concepts are expanded in the remaining sections.
 
-> (1) You open a drawer, and it slides out.\
-> (2) A friend asks: Why did the drawer slide out?\
-> (3) You: Because I pulled it out. Had I not, the drawer wouldn't have slide.\
-> (4) Friend: I know that. But why does it _slide_ rather than opening like a lid?\
-> (5) You: Oh! I see. The drawer sits on rails which allow it to slide out.\
-> (6) Friend: Why do rails let it slide?
+## Example
 
-`(3)` is a mechanistic cause (efficient cause). Aristotle proposed 4 of them: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
+You open a drawer, and a conversation with a friend starts.
 
-Hume understood causes through _counterfactuals_. `(3)` is also a _counterfactual_: A hypothetical claiming that without the previous event X, we don't expect the posterior event Y.
+> Friend: Why did the drawer slide out?\
+> You: Because I pulled it out? Had I not, the drawer wouldn't have slide.
 
-The addition after _rather than_ `(4)` is a contrast called _foil_. If the foil is absent, we may guess it, or ask further clarifications. _Foils_ make answering easier.
+The answer is a mechanistic cause (efficient cause). Aristotle proposed 4 of them: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
 
-In Aristotelian terms, `(4)` a _formal_ cause, based on the form. It is also a contrastive explanation (there is a foil). Other Aristotelian causes would be used in answers like "Why did it burn? Because it's made of wood (Material); or because they wanted to get rid of it (Final)."
+Hume understood causes through _counterfactuals_. The answer is also a _counterfactual_: the hypothesis that _without_ the event X, there wouldn't be the consequence Y. This makes X necessary for Y to happen (its cause).
 
-The friend may keep asking "Why" `(6)` and eventually reject or accept the causal chain (or remain sceptical).
+> Friend: I _know_ that. But why does it slide _rather than_ opening like a lid?\
+> You: Oh! I see. The drawer sits on rails allowing it to slide.\
+> Friend: And why do rails let it slide?
 
-Another aspect brought up here is the **social process**: we tried to guess the friend's actual _knowledge gap_, and to avoid repeating things the friend already knows. There are also other aspects that matter, such as testing the claim, finding a useful contrast, and so forth.
+The addition after _rather than_ is a contrast called _foil_. If the foil is absent, we may guess it, or ask further clarifications. _Foils_ make answering easier.
+
+In Aristotelian terms, "You" gave a _formal_ cause, based on the form or shape. We could also ask: "Why did it burn? Because it's made of wood" (Material); or "Because they wanted to get rid of it" (Final)." These are all valid explanations.
+
+The friend may keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).
+
+Another aspect brought up here is the **social process**: we tried to guess the friend's actual _knowledge gap_ (first wrongly, he _knew_ that), and to emit relevant information. There are also other aspects that matter, such as testing the claim, finding a useful contrast, and so forth.
 
 This complexity makes the boundaries defining an explanation quite fuzzy. Often taking examples as reference can help guide us.
 
@@ -29,9 +33,9 @@ You may come back to this example after reading the rest.
 
 One narrow and simple definition of an explanation is:
 
-> An answer to a why-question that accounts for the cause of an event.
+> An answer to a why-question that accounts for the cause of an event. It is also expected that it does not contradict prior beliefs or knowledge.
 
-Although not only _why-questions_ prompt explanations, and not only _causes_ (Humean or Aristotelian) are accepted as explanations. (This claim needs further development).
+Although not only _why-questions_ prompt explanations, and not only mechanistic _causal claims_ (Humean or Aristotelian) are expected. For example, "Light interferes because it is a wave, and waves interfere in certain conditions", just assigns instance to a class, without a mechanistic causal claim.
 
 [Explanation in artificial intelligence: insights from the social sciences][explanations_social]&mdash;section 2.1.2, characterises an explanation as:
 
@@ -78,9 +82,9 @@ The plausibility of a hypothesis or causal claim is affected by different aspect
 
 - Its _simplicity_: if it involves a shorter chain of causes, it is preferred,
 - Its _generality_: if it explains other cases, it is preferred,
-- Fits prior knowledge (or beliefs): if so it is preferred; if it contradicts many other patterns it may be rejected.
+- The role of _prior knowledge_ (or beliefs) generating and filtering hypotheses is quite important. An answer like "The drawer slides because it has a motor", may be ignored in different basis.
 
-Most inferences can be explanations: deductive (derivation from true propositions), abductive (a selected hypothesis, which may engulf _deduction_), inductive (sample$\rightarrow$population); also general category, which is similar to induction, such as "it is a kind of mammal hence ...".
+<!-- Most inferences can be explanations: deductive (derivation from true propositions), abductive (a selected hypothesis, which may engulf _deduction_), inductive (sample$\rightarrow$population); also general category, which is similar to induction, such as "it is a kind of mammal hence ...". -->
 
 I don't have much to say about _product_ (`2.`), so we jump to `3`.
 
@@ -129,7 +133,7 @@ Let's now use the concepts learnt to define Explainable AI.
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. The paper ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social] (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: [Gricean Maxims of Communication][gricean_maxims] (blog-post), or [Wikipedia's][wikipedia_gricean].
-   - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo].
+   - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
 1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
