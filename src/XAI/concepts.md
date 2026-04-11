@@ -9,15 +9,15 @@ You open a drawer, and a conversation with a friend starts.
 > Friend: Why did the drawer slide out?\
 > You: Because I pulled it out? Had I not, the drawer wouldn't have slide.
 
-The answer is a mechanistic cause (efficient cause). Aristotle proposed 4 of them: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
+The answer is a mechanistic cause (efficient cause). Aristotle proposed 4 causes: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
 
-Hume understood causes through _counterfactuals_. The answer is also a _counterfactual_: the hypothesis that _without_ the event X, there wouldn't be the consequence Y. This makes X necessary for Y to happen (its cause).
+Hume instead, understood causes through _counterfactuals_. The answer is also a _counterfactual_: the hypothesis that _without_ the event X, there wouldn't be the consequence Y. This makes X necessary for Y to happen (its cause).
 
 > Friend: I _know_ that. But why does it slide _rather than_ opening like a lid?\
 > You: Oh! I see. The drawer sits on rails allowing it to slide.\
 > Friend: And why do rails let it slide?
 
-The addition after _rather than_ is a contrast called _foil_. If the foil is absent, we may guess it, or ask further clarifications. _Foils_ make answering easier.
+The _rather than ..._ is a contrast called _foil_. If the foil is absent, we may guess it, or ask for further clarifications. _Foils_ make answering easier.
 
 In Aristotelian terms, "You" gave a _formal_ cause, based on the form or shape. We could also ask: "Why did it burn? Because it's made of wood" (Material); or "Because they wanted to get rid of it" (Final)." These are all valid explanations.
 
@@ -99,7 +99,9 @@ The causal-hypothesis must then be communicated, and there are expectations abou
 3. **Relevance** (Relation): do not state things that aren't needed (provide insight),
 4. **Manner** (clarity): express it in elegant terms.
 
-## Metaphors: The Machine and The Agent
+## Metaphors
+
+<details><summary>The Machine and The Agent (click to open)</summary>
 
 In the scientific and science-adjacent domains, models are conceptualised as _machines_:
 
@@ -120,7 +122,9 @@ We could also select more metaphors and more audiences, or make divisions within
 | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
 | **Human-facing** | Agent       | Intentional, narrative      | Users, stakeholders |
 
-Let's now use the concepts learnt to define Explainable AI.
+</details>
+
+In the next post we use our knowledge to define Explainable AI.
 
 ------------
 
