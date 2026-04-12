@@ -53,9 +53,9 @@ Inferring a cause (or positing a class membership) usually uses a logic inferenc
 2. Inductive (generalisation): Bats are mammals; bats fly; maybe all mammals fly,
 3. Abductive: Light shows interference patterns, waves interfere, maybe light is a wave. It proposes a hypothesis to explain a fact (closest to what is done in the science).
 
-The _inference to a cause_ is very important at sometimes not obvious. It is made obvious when we do it wrong. For example, imagine that the drawer (in the example) actually slides when we touch it, then our inferred cause was wrong.
+The _inference to a cause_ is very important and sometimes not obvious. It is made obvious when we do it wrong. For example, imagine that the drawer (in the example) actually slides when we touch it, then our inferred cause was wrong.
 
-Besides using prior knowledge, the way we come up with hypotheses may involve creativity, metaphors, analogies; this post won't go further into this aspect.
+Besides using prior knowledge, the way we come up with hypotheses may involve creativity, metaphors, analogies and be aided by methods or techniques; this post won't go further into this aspect.
 
 The idea above can be summarised in a graph:
 
