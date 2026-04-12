@@ -91,7 +91,6 @@ The plausibility of a hypothesis or causal claim is affected by different aspect
 
     - Aids selecting what seems causally / explanatory relevant from what is not. Consider two light beams interfering on a Sunday. The day is irrelevant (usually), we disregard a confounding factor.
 
-
 <!-- Most inferences can be explanations: deductive (derivation from true propositions), abductive (a selected hypothesis, which may engulf _deduction_), inductive (sample$\rightarrow$population); also general category, which is similar to induction, such as "it is a kind of mammal hence ...". -->
 
 I don't have much to say about _product_ (`2.`), so we jump to `3`.
