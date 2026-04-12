@@ -24,13 +24,15 @@ Notice the **social process** involved: we tried to guess the friend's actual _k
 
 ## A definition of Explanation
 
-We can start with an oversimplified definition of an _explanation_ (inspired by [1][lombrozo], [2][explanations_social], [3][hempel]):
+We can start with an oversimplified definition of an _explanation_ (inspired by [1][lombrozo], [2][explanations_social], [3][hempel], but quite different from all those):
 
-> An answer to a why-question that infers the cause of an event, or assigns the event to a class. Prior beliefs or knowledge are used to constrain acceptable answers.
+> An answer &mdash;usually a hypothesis or observation&mdash; that makes an event or relation between items expected or likely to the explainee (or to one-self). With this aim, explainers make use of causal inference, deduction accepted facts, comparison to a reference item, noting class membership and so forth. Prior beliefs or knowledge are used to constrain acceptable answers.
 
-The answer is usually a hypothetical cause of the event or a class-assignment such as "Light interferes because it is a wave."
+The _reference item_ is hinting to a _foil_. [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
 
-Importantly, not only _why-questions_ prompt explanations, but it is fine to a first approximation. In addition, [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
+The definition is abstract, here are some examples: non-causal answers are: "Light interferes because it is a wave." or "It chirps because it's a bird." or "It chirps because it's happy." (foil here is a human singing.); causal hypotheses may be mechanistic (such as "Because of a force/push").
+
+Importantly, not only _why-questions_ prompt explanations, but it is fine to a first approximation. Similarly, not only mechanistic causes are accepted as answer. In addition,
 
 In section **2.1.2**, the same paper characterises an explanation as: a **cognitive process** of finding a cause; a **product**, resulting from the cognitive process; a **social process**, which involves communicating the product.
 
@@ -42,6 +44,7 @@ The _cognitive process_ is similar to the scientific method:
 
 1. _Select_ what seems explanatory relevant (using prior knowledge),
 2. _Infer_ possible causes of an event, known as _causal attribution_,
+    - Or class membership etc.
 3. _Weight_ the likelihood of each hypotheses.
 4. _Accept_ until contradicted by experience or super-seeded (e.g. by a simpler explanation).
 
@@ -79,7 +82,7 @@ Now we expand on _causes_, _causal attribution_ and _abductive reasoning_ which 
 Aspects of causes already mentioned, but worth putting together, were:
 
 - The cognitive process involves _inferring a cause_.
-- Aristotle's proposed 4 kinds of _causes_ that pick on different aspects to answer a _why-question_. These explanations are not always exclusive, they can be complementary.
+- Aristotle's proposed 4 kinds of _causal_ answers to a _why-question_. These explanations are not always exclusive, they can be complementary.
 - Hume defined _causes_ as _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.
 
 _Are all Aristotelian causes Humean causes?_ Efficient causes can be seen as counterfactuals, and both are common in science. The remaining 3 causes are not naturally seen as counterfactuals.

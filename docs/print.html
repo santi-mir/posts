@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-c2f5b982.js";
+            window.path_to_searchindex_js = "searchindex-a66eabc4.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-e2ff8d5b.js"></script>
@@ -461,19 +461,24 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <p>The friend may keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).</p>
 <p>Notice the <strong>social process</strong> involved: we tried to guess the friend's actual <em>knowledge gap</em> (first wrongly, he <em>knew</em> that), and to emit relevant information. There are also other aspects that matter, such as testing the claim, suggesting a <em>foil</em>, and so forth.</p>
 <h2 id="a-definition-of-explanation"><a class="header" href="#a-definition-of-explanation">A definition of Explanation</a></h2>
-<p>We can start with an oversimplified definition of an <em>explanation</em> (inspired by <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">1</a>, <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">2</a>, <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">3</a>):</p>
+<p>We can start with an oversimplified definition of an <em>explanation</em> (inspired by <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">1</a>, <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">2</a>, <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">3</a>, but quite different from all those):</p>
 <blockquote>
-<p>An answer to a why-question that infers the cause of an event, or assigns the event to a class. Prior beliefs or knowledge are used to constrain acceptable answers.</p>
+<p>An answer —usually a hypothesis or observation— that makes an event or relation between items expected or likely to the explainee (or to one-self). With this aim, explainers make use of causal inference, deduction accepted facts, comparison to a reference item, noting class membership and so forth. Prior beliefs or knowledge are used to constrain acceptable answers.</p>
 </blockquote>
-<p>The answer is usually a hypothetical cause of the event or a class-assignment such as "Light interferes because it is a wave."</p>
-<p>Importantly, not only <em>why-questions</em> prompt explanations, but it is fine to a first approximation. In addition, <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in AI: insights from the social sciences</a> notes that <em>why-questions</em> are usually contrastive questions, phrased as <em>why P rather than Q</em> instead of <em>why P</em>. In this latter case, the <em>foil</em> (Q) is implicit.</p>
+<p>The <em>reference item</em> is hinting to a <em>foil</em>. <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in AI: insights from the social sciences</a> notes that <em>why-questions</em> are usually contrastive questions, phrased as <em>why P rather than Q</em> instead of <em>why P</em>. In this latter case, the <em>foil</em> (Q) is implicit.</p>
+<p>The definition is abstract, here are some examples: non-causal answers are: "Light interferes because it is a wave." or "It chirps because it's a bird." or "It chirps because it's happy." (foil here is a human singing.); causal hypotheses may be mechanistic (such as "Because of a force/push").</p>
+<p>Importantly, not only <em>why-questions</em> prompt explanations, but it is fine to a first approximation. Similarly, not only mechanistic causes are accepted as answer. In addition,</p>
 <p>In section <strong>2.1.2</strong>, the same paper characterises an explanation as: a <strong>cognitive process</strong> of finding a cause; a <strong>product</strong>, resulting from the cognitive process; a <strong>social process</strong>, which involves communicating the product.</p>
 <p>Let's now expand on the <em>cognitive</em> and <em>social</em> processes of an explanation (as I see them).</p>
 <h2 id="the-cognitive-process-of-explanations"><a class="header" href="#the-cognitive-process-of-explanations">The cognitive process of explanations</a></h2>
 <p>The <em>cognitive process</em> is similar to the scientific method:</p>
 <ol>
 <li><em>Select</em> what seems explanatory relevant (using prior knowledge),</li>
-<li><em>Infer</em> possible causes of an event, known as <em>causal attribution</em>,</li>
+<li><em>Infer</em> possible causes of an event, known as <em>causal attribution</em>,
+<ul>
+<li>Or class membership etc.</li>
+</ul>
+</li>
 <li><em>Weight</em> the likelihood of each hypotheses.</li>
 <li><em>Accept</em> until contradicted by experience or super-seeded (e.g. by a simpler explanation).</li>
 </ol>
@@ -505,7 +510,7 @@ hypotheses --select best--&gt; filtered
 <p>Aspects of causes already mentioned, but worth putting together, were:</p>
 <ul>
 <li>The cognitive process involves <em>inferring a cause</em>.</li>
-<li>Aristotle's proposed 4 kinds of <em>causes</em> that pick on different aspects to answer a <em>why-question</em>. These explanations are not always exclusive, they can be complementary.</li>
+<li>Aristotle's proposed 4 kinds of <em>causal</em> answers to a <em>why-question</em>. These explanations are not always exclusive, they can be complementary.</li>
 <li>Hume defined <em>causes</em> as <em>counterfactuals</em>: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern.</li>
 </ul>
 <p><em>Are all Aristotelian causes Humean causes?</em> Efficient causes can be seen as counterfactuals, and both are common in science. The remaining 3 causes are not naturally seen as counterfactuals.</p>
