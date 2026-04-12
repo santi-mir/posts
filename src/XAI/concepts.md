@@ -24,11 +24,9 @@ Notice the **social process** involved: we tried to guess the friend's actual _k
 
 ## A definition of Explanation
 
-An explanation is a statement that makes an event or situation expected or likely to the explainee (or to one-self).
+An explanation is an answer to _why_ or _how_ questions that make an event or situation expected or likely to the explainee (or to one-self).
 
-It usually answers a _why-question_, but not always (as in a _how-question_).
-
-The answer may use logic inference (abductive, deductive or inductive), comparison to a reference item, noting class membership and so forth. Prior beliefs or knowledge are also used to constrain acceptable answers.
+The answer may use causal inference, logic inference (abductive, deductive or inductive), comparison to a reference item, noting class membership and so forth. Prior beliefs or knowledge are also used to constrain acceptable answers.
 
 The _reference item_ above is hinting to a _foil_. [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
 
