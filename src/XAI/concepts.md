@@ -44,7 +44,7 @@ The _cognitive process_ is similar to the scientific method:
 
 1. _Select_ what seems explanatory relevant (using prior knowledge),
 2. _Infer_ possible causes of an event, known as _causal attribution_,
-    - Or class membership etc.
+   - Or class membership etc.
 3. _Weight_ the likelihood of each hypotheses.
 4. _Accept_ until contradicted by experience or super-seeded (e.g. by a simpler explanation).
 
