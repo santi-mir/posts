@@ -26,23 +26,33 @@ Notice also the **social process** involved. For example, we tried to guess the 
 
 Explanations can be split into an _explanandum_, which is a description of what is explained, and the _explanans_, which are the statements adduced to account for the phenomenon. These definitions are used in what follows.
 
-The [Studies in the logic of explanation][logic_of_expl_hempel] (1948) defines _causal explanation_ in different places, but one key part is (Part I, last sentence):
+### Logical Process
+The [Studies in the logic of explanation][logic_of_expl_hempel] (1948) defines scientific explanation in a few places. For example, with emphasis on the question:
+
+> To explain the phenomena in the world of our experience, to answer the question "why?" rather than only the question "what?" (...)
+
+Or the answer:
 
 > The decisive requirement for every sound explanation remains that it subsume the explanandum under general laws [or theories].
 
-They also append to it requirements in the form of _conditions of adequacy_ and predictive power, but we skip those details.
+They do require that the _explanans_ be testable, believed to be true to a high accuracy, and logically lead to the _explanandum_ by means  of general laws.
 
-A weaker statement, not restricting it to science, would be:
+### Filling the gaps
+On the opposite side, [Explanations, Predictions and Laws][Scriven] argues that no question word (_why_ or otherwise) is _necessary_ for an explanation.
 
-> An explanation is an answer to _why_ or _how_ questions that make an event or situation expected or likely to the explainee (or to one-self).
+The paper also highlights the social aspect of communication, by suggesting that _explanations_ are a kind of description aiming to fill a gap of understanding (or correct a misunderstanding) to an explainee. The questions then, are important but not the defining part.
 
-Where the answer may use causal inference, logic inference, comparison to a reference item, subsumption into a class, and so forth. Prior beliefs or knowledge are also used to constrain acceptable answers, and to omit what is considered obvious in the given context (or audience).
+This idea is the definition of explanation this post uses, even in the case of _scientific explanation_. However, the scientific context requires "filling the gap" to be rigorous (such as the conditions in the first definition).
+
+### Characteristics of explanations
+
+The description (or information or answer) may use causal inference, logic inference, comparison to a reference item, subsumption into a class, metaphors, analogy and so forth. Prior beliefs or knowledge are also used to evaluate answers, and to omit what is considered obvious in the given context (or audience).
 
 The _reference item_ above is hinting to a _foil_. [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
 
 Examples of answers are: "Light interferes because it is a wave." or "The sparrow chirps because it's a bird" or "It chirps because it's happy" or "The chirping is due to a vibration of its vocal strings".
 
-In section **2.1.2**, the paper cited above characterises an explanation as: a **cognitive process**, involving the generation of possible answers; a **product**, resulting from the cognitive process; a **social process**, which involves communicating the product.
+In section **2.1.2**, [Explanation in AI: insights from the social sciences][explanations_social] characterises an explanation as: a **cognitive process**, involving the generation of possible answers; a **product**, resulting from the cognitive process; a **social process**, which involves communicating the product.
 
 Let's now expand on the _cognitive_ and _social_ processes of an explanation (as I see them).
 
@@ -169,7 +179,8 @@ In the next post we use our knowledge to define Explainable AI.
 <details>
 <summary>List of sources used in this blogpost</summary>
 
-1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948). I just read the first few pages),
+1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948),
+1. [Explanations, Predictions and Laws][scriven] (1948),
 1. [On the mechanization of abductive logic][abductive_logic] (1973). The first page is quite interesting.
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
@@ -193,6 +204,7 @@ In the next post we use our knowledge to define Explainable AI.
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
 [perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
 [shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[scriven]: https://fitelson.org/woodward/scriven_epl.pdf
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 [wikipedia_gricean]: https://en.wikipedia.org/wiki/Cooperative_principle
