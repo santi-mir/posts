@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-e1acd331.js";
+            window.path_to_searchindex_js = "../searchindex-a62a1df3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-e2ff8d5b.js"></script>
@@ -199,19 +199,25 @@
 <p>Notice also the <strong>social process</strong> involved. For example, we tried to guess the friend's actual <em>knowledge gap</em> and be truthful. The friend may decide to keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).</p>
 <h2 id="definitions-of-explanation"><a class="header" href="#definitions-of-explanation">Definitions of Explanation</a></h2>
 <p>Explanations can be split into an <em>explanandum</em>, which is a description of what is explained, and the <em>explanans</em>, which are the statements adduced to account for the phenomenon. These definitions are used in what follows.</p>
-<p>The <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948) defines <em>causal explanation</em> in different places, but one key part is (Part I, last sentence):</p>
+<h3 id="logical-process"><a class="header" href="#logical-process">Logical Process</a></h3>
+<p>The <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948) defines scientific explanation in a few places. For example, with emphasis on the question:</p>
+<blockquote>
+<p>To explain the phenomena in the world of our experience, to answer the question "why?" rather than only the question "what?" (...)</p>
+</blockquote>
+<p>Or the answer:</p>
 <blockquote>
 <p>The decisive requirement for every sound explanation remains that it subsume the explanandum under general laws [or theories].</p>
 </blockquote>
-<p>They also append to it requirements in the form of <em>conditions of adequacy</em> and predictive power, but we skip those details.</p>
-<p>A weaker statement, not restricting it to science, would be:</p>
-<blockquote>
-<p>An explanation is an answer to <em>why</em> or <em>how</em> questions that make an event or situation expected or likely to the explainee (or to one-self).</p>
-</blockquote>
-<p>Where the answer may use causal inference, logic inference, comparison to a reference item, subsumption into a class, and so forth. Prior beliefs or knowledge are also used to constrain acceptable answers, and to omit what is considered obvious in the given context (or audience).</p>
+<p>They do require that the <em>explanans</em> be testable, believed to be true to a high accuracy, and logically lead to the <em>explanandum</em> by means  of general laws.</p>
+<h3 id="filling-the-gaps"><a class="header" href="#filling-the-gaps">Filling the gaps</a></h3>
+<p>On the opposite side, <a href="https://fitelson.org/woodward/scriven_epl.pdf">Explanations, Predictions and Laws</a> argues that no question word (<em>why</em> or otherwise) is <em>necessary</em> for an explanation.</p>
+<p>The paper also highlights the social aspect of communication, by suggesting that <em>explanations</em> are a kind of description aiming to fill a gap of understanding (or correct a misunderstanding) to an explainee. The questions then, are important but not the defining part.</p>
+<p>This idea is the definition of explanation this post uses, even in the case of <em>scientific explanation</em>. However, the scientific context requires "filling the gap" to be rigorous (such as the conditions in the first definition).</p>
+<h3 id="characteristics-of-explanations"><a class="header" href="#characteristics-of-explanations">Characteristics of explanations</a></h3>
+<p>The description (or information or answer) may use causal inference, logic inference, comparison to a reference item, subsumption into a class, metaphors, analogy and so forth. Prior beliefs or knowledge are also used to evaluate answers, and to omit what is considered obvious in the given context (or audience).</p>
 <p>The <em>reference item</em> above is hinting to a <em>foil</em>. <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in AI: insights from the social sciences</a> notes that <em>why-questions</em> are usually contrastive questions, phrased as <em>why P rather than Q</em> instead of <em>why P</em>. In this latter case, the <em>foil</em> (Q) is implicit.</p>
 <p>Examples of answers are: "Light interferes because it is a wave." or "The sparrow chirps because it's a bird" or "It chirps because it's happy" or "The chirping is due to a vibration of its vocal strings".</p>
-<p>In section <strong>2.1.2</strong>, the paper cited above characterises an explanation as: a <strong>cognitive process</strong>, involving the generation of possible answers; a <strong>product</strong>, resulting from the cognitive process; a <strong>social process</strong>, which involves communicating the product.</p>
+<p>In section <strong>2.1.2</strong>, <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in AI: insights from the social sciences</a> characterises an explanation as: a <strong>cognitive process</strong>, involving the generation of possible answers; a <strong>product</strong>, resulting from the cognitive process; a <strong>social process</strong>, which involves communicating the product.</p>
 <p>Let's now expand on the <em>cognitive</em> and <em>social</em> processes of an explanation (as I see them).</p>
 <h2 id="the-cognitive-process-of-explanations"><a class="header" href="#the-cognitive-process-of-explanations">The cognitive process of explanations</a></h2>
 <p>The <em>cognitive process</em> is similar to the scientific method:</p>
@@ -328,7 +334,8 @@ For example: Light shows interference patterns, waves interfere, maybe light is 
 <hr><details>
 <summary>List of sources used in this blogpost</summary>
 <ol>
-<li><a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948). I just read the first few pages),</li>
+<li><a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948),</li>
+<li><a href="https://fitelson.org/woodward/scriven_epl.pdf">Explanations, Predictions and Laws</a> (1948),</li>
 <li><a href="https://www.ijcai.org/Proceedings/73/Papers/017.pdf">On the mechanization of abductive logic</a> (1973). The first page is quite interesting.</li>
 </ol>
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->

@@ -27,6 +27,7 @@ Notice also the **social process** involved. For example, we tried to guess the 
 Explanations can be split into an _explanandum_, which is a description of what is explained, and the _explanans_, which are the statements adduced to account for the phenomenon. These definitions are used in what follows.
 
 ### Logical Process
+
 The [Studies in the logic of explanation][logic_of_expl_hempel] (1948) defines scientific explanation in a few places. For example, with emphasis on the question:
 
 > To explain the phenomena in the world of our experience, to answer the question "why?" rather than only the question "what?" (...)
@@ -35,9 +36,10 @@ Or the answer:
 
 > The decisive requirement for every sound explanation remains that it subsume the explanandum under general laws [or theories].
 
-They do require that the _explanans_ be testable, believed to be true to a high accuracy, and logically lead to the _explanandum_ by means  of general laws.
+They do require that the _explanans_ be testable, believed to be true to a high accuracy, and logically lead to the _explanandum_ by means of general laws.
 
 ### Filling the gaps
+
 On the opposite side, [Explanations, Predictions and Laws][Scriven] argues that no question word (_why_ or otherwise) is _necessary_ for an explanation.
 
 The paper also highlights the social aspect of communication, by suggesting that _explanations_ are a kind of description aiming to fill a gap of understanding (or correct a misunderstanding) to an explainee. The questions then, are important but not the defining part.
