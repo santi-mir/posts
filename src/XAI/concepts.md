@@ -60,8 +60,8 @@ These definitions are about what _counts_ as explanation. But we can also think 
 1. The explainer _filters_ aspects of the _explanandum_ deemed relevant (using prior knowledge),
 2. _Generates_ possible answers (through explanation techniques),
 3. _Weight_ the likelihood of each hypotheses,
-4. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation).
-5. Communicate it
+4. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),
+5. Communicate it.
 
 Mapping this to the framework proposed in the paper ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social], we have `1.`, `2.`, `3.` as part of the _cognitive process_, `4.` is the _product_ or result of it, and `5.` is a _social process.
 
@@ -71,10 +71,10 @@ If the answer is already known, only `5.` is needed.
 
 Generating answers is a complex task. We can consider abstract techniques for generating answers (which concrete methods may implement):
 
-- Subsumption into laws (first definition).
-- Causal inference through abduction or hypotheses,
-- Induction (generalisation),
-- Deduction from principles,
+- Subsumption into laws (first definition),
+- Abduction, or inferring a hypotheses,
+- Induction, involving generalisation,
+- Deduction, from premises and principles to conclusions,
 - Comparison to a reference item,
 - Metaphors, analogy and so forth.
 
@@ -234,4 +234,3 @@ In the next post we use our knowledge to define Explainable AI.
 <!-- hypotheses --select best--> filtered -->
 <!-- ``` -->
 
-<!-- A common explanation technique is logic inference, which includes induction (generalisation), deduction (from premises to conclusions) and abduction (selecting a hypothesis that _would_ if true, lead to the explanadum). -->
