@@ -233,4 +233,3 @@ In the next post we use our knowledge to define Explainable AI.
 <!-- A --suggest all (inferences)--> hypotheses -->
 <!-- hypotheses --select best--> filtered -->
 <!-- ``` -->
-
