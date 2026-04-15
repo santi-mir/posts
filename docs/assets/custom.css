@@ -12,18 +12,22 @@
     font-weight: 500;
     font-style: normal;
 }
+
 :root{
-  font-size:clamp(13px, 2vw, 22px)!important;
+  font-size:clamp(13px, 1.8vw, 20px)!important;
     --sidebar-target-width: max(20vw, 300px);
     --sidebar-width: min(var(--sidebar-target-width), 80vw);
 }
+
 html {
   font-family: Ubuntu, Roboto, system-ui, sans-serif;
 }
-h2,
-h3 {
-  margin-block-start: calc(3vw + 1.4rem);
-  margin-block-end:calc(0.2vw);
+h2
+ {
+  margin-block-start: calc(2vw + 1.2rem);
+}
+h3{
+  margin-block-start: calc(2vw + 0.6rem);
 }
 
 
@@ -103,3 +107,6 @@ div:has(>a>img) *, blockquote, q, nav#mdbook-sidebar ol>li.part-title{
   font-family: "cmu-concrete", "serif"
 }
 
+pre.mermaid {
+  text-align: center
+}

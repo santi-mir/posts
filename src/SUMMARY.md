@@ -9,22 +9,24 @@
 - [Introduction](./atom_vectors/intro.md)
 - [Atom2Vec](./atom_vectors/atom2vec.md)
 - [SkipAtom](./atom_vectors/skipatom.md)
+- [RCA](./atom_vectors/rca.md)
 - [Results](./atom_vectors/results.md)
 
 -----
 
 # Explainable AI
 
-- [Concepts](./XAI/concepts.md)
-- [Strategies](./XAI/strategies.md)
-- [Example: EHME](./XAI/example.md)
+- [What are explanations?](./XAI/concepts.md)
+- [What is XAI?](./XAI/concepts_2.md)
+- [Additive Features](./XAI/strategies.md)
+- [Visuals and Arch](./XAI/strategies_2.md)
 
 -----
 
-# AI for the Solid State
+# Discovering Solids
 
-- [Discovering Solids - Concepts](./DL_aided_exploration_inorg_solids_1.md)
-- [Discovering Solids - Workflow](./DL_aided_exploration_inorg_solids_2.md)
+- [Concepts](./DL_aided_exploration_inorg_solids_1.md)
+- [Workflow](./DL_aided_exploration_inorg_solids_2.md)
 
 -----
 

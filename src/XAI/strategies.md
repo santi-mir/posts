@@ -1,77 +1,88 @@
-# Explainable AI - Strategies
+# Additive Feature Attribution Methods
 
-Now let's get into strategies that can help explain models better.
-First, for Deep Learning, then the same is done for Classical Machine Learning.
+These set of methods are linear approximations ($g$) to the original model ($f$). Mathematically:
 
-## Deep Learning
+$$f(x) \approx g(z') = \phi_0 + \sum_{i=1} \phi_i z_i$$
 
-### Intrinsic or Representation Methods
+$\phi_i$s are the effect of each _binary_ feature $z_i$ in the output. Clarifications:
 
-These help us to interpret the learnt representations and data inside the model (intrinsic).
+1. $\phi_i$s do not belong to $f$, but to the approximation $g$,
+2. Two complex models $f_1$, $f_2$ trained with same data likely have different $\phi_i$s,
+3. Methods don't protect from a biased model.
 
-They help answer the question: _What information does the network contain?_
+_Note_: these could be called linear combination of binary features as well.
 
-They classify these at the level of Layer, Neuron, and Vector.
+## Best coefficients?
 
-- Role of Layers: for example, transfer learning, reusing output of some layers for another task.
-- Role of Units: "visualizations of the input patterns that maximize the response of a single unit or quantitatively, by testing the ability of a unit to solve a transfer problem" ([source][arxiv]).
-- Role of Vectors: for example using Concept Activation Vectors framework.
+Existing additive feature methods (e.g. SHAP, LIME) calculate $\phi_i$s differently, in turn yielding different coefficients. But...which one obtains the _best_ coefficients $\phi_i$? A definition of _best_ is needed.
 
-Another way is to introduce biases like symmetry considerations which can help interpretability.
+The [unified approach to interpret model predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
 
-### Extrinsic or Processing Methods
+The authors argue these properties lead to coefficients more intuitive for humans.
 
-These relate to how the model processes _an input_ (extrinsic) and in a way we look at the model as a black box.
+## Method: SHAP
 
-- Linear Proxy Models: fit a simpler model to the neighbourhood of an input (+ noise), i.e $g(z) \approx f(z)$ around some $z$. For example, LIME or Generalised Linear Models (GLMs).
+SHAP stands for SHapley Additive exPlanations, it is considered a feature attribution method rather than a simplification method. The [Principles and practice of explaining ML][principles_and_practice] states:
 
-- Salience Maps: aim to explain which portions of the computation (original model) are most important for different inputs.
+> The objective in this case is to build a linear model around the instance to be explained, and then interpret the coefficients as the feature’s importance. This idea is similar to LIME, in fact LIME and SHAP are closely related, but SHAP comes with a set of nice theoretical properties.
 
-- Validity Interval Analysis: another technique fitting the NN behaviour to try to extract explanations.
+The exact Shapley values $\phi_i$ result from an expensive combinatorial (see sources at the end). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
 
-- Principal Component Analysis, Independent Component Analysis, Non-negative Matrix Factorisation can all help as well. But in a way this is better done by architectures with disentangled representations.
+- Assumption 1: Feature independence (implies non-multicollinearity).
+    - Shapley sampling values method,
+    - Quantitative Input Influence,
+    - Plus assumption 2, model linearity: Kernel SHAP (LIME + Shapley values)
+- Assumption 2, model linearity: Shapley regression values.
 
-### Explanation-Producing systems
+SHAP provides both global (average across inputs) and local (for a given input).
 
-Architectures designed to make explaining part of their operation easier.
+## Method: LIME
 
-- Using Explicit Attention: An attention layer/mask learns how parts of an input embedding pay attention to other parts. The layer is somewhat interpretable. In chemistry, it could learn which atoms connect (or pay attention to) other atoms.
+Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
 
-- Dissentangled Representations: "Disentangled representations have individual dimensions that describe meaningful and independent factors of variation." ([source][arxiv]). Examples of architectures are Beta-VAE, INFOGan, capsule networks.
+> LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)
 
-## Classical Machine Learning
+It is considered a simplification method rather than a feature attribution method.
 
-### Intrinsic Methods
+For LIME, the coefficients $\phi_i$ are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.
 
-For an example of Classical ML think of Support Vector Regression, and other kinds of regressions.
+Assuming feature independence and model linearity, the objective function can be modified and the SHAP values obtained through weighted linear regression (no slow combinatorics). This is called **Kernel SHAP**, and obeys the 3 properties listed earlier.
 
-These focuses on the math (internal structure).
+## Fixes
 
-- Simplifying the model (when possible)
-    - Regularisation Approaches (SISSO, LASSO) can help by identifying the most important descriptors to use.
-    - LASSO: removes tightly correlated features (leaving the most helpful one).
+- Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering.
+- Modified Index Position, in the [paper's words][using_shap_lime]:
+    > [MIP] works similarly to NMR by iteratively removing the top feature and retraining and testing the model. Thereafter, it examines how the features are reordered in the model which implies the effect of collinearity.
 
-### Extrinsic Methods
+These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one &mdash;most stable&mdash; of several methods.
 
-These study the model's behaviour, as a black box. Most below, correlate changes in input-features with changes in outputs.
+## Definition of a few concepts
 
-- Partial Dependence Plots (PDPs). Though it masks possible correlations between features (if all are kept constant but one).
-- Individual Conditional Expectations (ICE) overcomes the limitation above.
-- Feature Importance methods: partial derivative of an output w.r.t some input feature.[^1]
-- Shapley Analysis: fits a linear model to nearby input-points.
-    - The coefficients of the linear fit quantify the contribution / effect of each input feature to the output value.
-    - We get insight on which features are locally relevant, by looking at the accompanying coefficients.
-    - Question: They fit different models to different areas of their input space, and then analyze the distribution of coefficients?
-- Counterfactual Analysis
+<details><summary>Aside: Collinearity and Non-linearity</summary>
 
-<div class="center w40"> <!--other classes: w220, w420-->
-    <a href="../assets/linear_model_and_shapley.jpeg">
-    <img src="../assets/linear_model_and_shapley.jpeg" alt="Linear Approximation Model (Generalised) and Shapley's contributions"/>
-    </a>
-    <p>
-    LGM ($g$ function) and Shapley's feature contribution. Image (cropped) from <a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-SA 4.0</a>
-    </p>
-</div>
+**Multicollinearity**: one feature is a linear combination of one or more other features. For example, $x_3 = \beta_2 x_2 + \beta_1 x_1 + \beta_0$; assuming linear independence would be an error. In the [paper's words][using_shap_lime]:
 
-[arxiv]: http://arxiv.org/abs/1806.00069
-[^1]:  This I think can be done also numerically, without actually calculating the derivative. See refs 20 and 21 in the paper for more detail.
+> Indeed, some features might be assigned a low score despite being significantly associated with the outcome. This is because they do not improve the model performance due to their collinearity with other features whose impact has already been accounted for.
+
+**Non-linearity**: output changes are not proportional to input changes. For example $y = \beta x^N$ is non-linear, and fitting a line $y' = \alpha x$ to it would be inaccurate. Some SHAP models can model this correctly.
+
+</details>
+
+Let's now look at other methods.
+
+<details>
+<summary>Sources</summary>
+
+1. [A value for n-person games][shap original] (1952)
+1. [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] (2017)
+1. [Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,
+1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.
+
+</details>
+
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
+[using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
+[unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
+
+[^1]: _Local_ in the name refers to being for a _particular input_, not _Global_ which would be general.
