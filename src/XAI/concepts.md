@@ -24,7 +24,6 @@ Notice also the **social process** involved. For example, we tried to guess the 
 
 ## Definitions of Explanation
 
-
 Explanations can be split into an _explanandum_, which is a description of what is explained, and the _explanans_, which are the statements adduced to account for the phenomenon. These definitions are used in what follows.
 
 ### An objective account
@@ -69,15 +68,21 @@ Mapping this to the framework proposed in the paper ["Explanation in artificial 
 If the answer is already known, only `5.` is needed.
 
 ### Cognitive process
-We can consider common techniques for generating answers alongside subsumption into laws (first definition). For example causal inference, logic inference (including deduction), comparison to a reference item, metaphors, analogy and so forth.
 
-These will depend on the context which defines what the gap is, what the explainee and explainer are familiar with, the level of detail needed and so forth.
+Generating answers is a complex task. We can consider abstract techniques for generating answers (which concrete methods may implement):
+
+- Subsumption into laws (first definition).
+- Causal inference through abduction or hypotheses,
+- Induction (generalisation),
+- Deduction from principles,
+- Comparison to a reference item,
+- Metaphors, analogy and so forth.
+
+These will depend on the context which defines what the gap is, what the explainee and explainer are familiar with, the level of detail needed and so forth. Some of these are actually aspects of the social process (next section).
 
 Prior beliefs or knowledge are also used to evaluate the answers, and to omit what is considered obvious in the given context (or audience).
 
 The _reference item_ above is hinting to a _foil_. [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
-
-Besides using prior knowledge, the way we come up with hypotheses may involve creativity, metaphors, analogies and be aided by methods or techniques; this post won't go further into this aspect.
 
 The _product_ can be skipper for now.
 
@@ -175,8 +180,7 @@ In the next post we use our knowledge to define Explainable AI.
 [xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
 [xx]: http://arxiv.org/abs/1806.00069
 
-
-
+<!--I've commented out huge parts which I think did not add much at all for our non-philosophical purposes.-->
 <!-- Next the topics of _causes_ and how are answers proposed are discussed, in the context of the _cognitive process_. -->
 
 <!-- ### Causes -->
@@ -231,20 +235,3 @@ In the next post we use our knowledge to define Explainable AI.
 <!-- ``` -->
 
 <!-- A common explanation technique is logic inference, which includes induction (generalisation), deduction (from premises to conclusions) and abduction (selecting a hypothesis that _would_ if true, lead to the explanadum). -->
-
-
-
-<!-- ## Explanation generation -->
-<!---->
-<!-- We can postulate that a process like this happens in the mind of an explainer: -->
-<!---->
-<!---->
-<!-- ## Explanation generation -->
-<!---->
-<!-- We can postulate that a process like this happens in the mind of an explainer: -->
-<!---->
-<!-- 1. _Filter_ aspects of the _explanandum_ deemed relevant (using prior knowledge), -->
-<!-- 2. _Propose_ different answers (through explanation techniques), -->
-<!-- 3. _Weight_ the likelihood of each hypotheses, -->
-<!-- 4. _Accept_ until contradicted by experience or super-seeded (e.g. by a simpler explanation). -->
-<!---->

@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-4cfe63f5.js";
+            window.path_to_searchindex_js = "searchindex-454ff810.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-e2ff8d5b.js"></script>
@@ -492,11 +492,18 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <p>Mapping this to the framework proposed in the paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a>, we have <code>1.</code>, <code>2.</code>, <code>3.</code> as part of the <em>cognitive process</em>, <code>4.</code> is the <em>product</em> or result of it, and <code>5.</code> is a _social process.</p>
 <p>If the answer is already known, only <code>5.</code> is needed.</p>
 <h3 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive process</a></h3>
-<p>We can consider common techniques for generating answers alongside subsumption into laws (first definition). For example causal inference, logic inference (including deduction), comparison to a reference item, metaphors, analogy and so forth.</p>
-<p>These will depend on the context which defines what the gap is, what the explainee and explainer are familiar with, the level of detail needed and so forth.</p>
+<p>Generating answers is a complex task. We can consider abstract techniques for generating answers (which concrete methods may implement):</p>
+<ul>
+<li>Subsumption into laws (first definition).</li>
+<li>Causal inference through abduction or hypotheses,</li>
+<li>Induction (generalisation),</li>
+<li>Deduction from principles,</li>
+<li>Comparison to a reference item,</li>
+<li>Metaphors, analogy and so forth.</li>
+</ul>
+<p>These will depend on the context which defines what the gap is, what the explainee and explainer are familiar with, the level of detail needed and so forth. Some of these are actually aspects of the social process (next section).</p>
 <p>Prior beliefs or knowledge are also used to evaluate the answers, and to omit what is considered obvious in the given context (or audience).</p>
 <p>The <em>reference item</em> above is hinting to a <em>foil</em>. <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in AI: insights from the social sciences</a> notes that <em>why-questions</em> are usually contrastive questions, phrased as <em>why P rather than Q</em> instead of <em>why P</em>. In this latter case, the <em>foil</em> (Q) is implicit.</p>
-<p>Besides using prior knowledge, the way we come up with hypotheses may involve creativity, metaphors, analogies and be aided by methods or techniques; this post won't go further into this aspect.</p>
 <p>The <em>product</em> can be skipper for now.</p>
 <h3 id="social-process"><a class="header" href="#social-process">Social Process</a></h3>
 <p>The answer must then be communicated, and there are expectations about it.</p>
@@ -583,6 +590,7 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
+<!--I've commented out huge parts which I think did not add much at all for our non-philosophical purposes.-->
 <!-- Next the topics of _causes_ and how are answers proposed are discussed, in the context of the _cognitive process_. -->
 <!-- ### Causes -->
 <!---->
@@ -633,20 +641,6 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <!-- hypotheses --select best--> filtered --&gt;
 <!-- ``` -->
 <!-- A common explanation technique is logic inference, which includes induction (generalisation), deduction (from premises to conclusions) and abduction (selecting a hypothesis that _would_ if true, lead to the explanadum). -->
-<!-- ## Explanation generation -->
-<!---->
-<!-- We can postulate that a process like this happens in the mind of an explainer: -->
-<!---->
-<!---->
-<!-- ## Explanation generation -->
-<!---->
-<!-- We can postulate that a process like this happens in the mind of an explainer: -->
-<!---->
-<!-- 1. _Filter_ aspects of the _explanandum_ deemed relevant (using prior knowledge), -->
-<!-- 2. _Propose_ different answers (through explanation techniques), -->
-<!-- 3. _Weight_ the likelihood of each hypotheses, -->
-<!-- 4. _Accept_ until contradicted by experience or super-seeded (e.g. by a simpler explanation). -->
-<!---->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explainable-ai"><a class="header" href="#explainable-ai">Explainable AI</a></h1>
 <p>Having defined <em>causal explanations</em> we can define <em>model explainability</em> —the focus of Explainable Artificial Intelligence— as:</p>
@@ -1322,6 +1316,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
