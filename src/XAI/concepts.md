@@ -1,3 +1,5 @@
+<!-- Should analyse at least 10 kinds of explanations -->
+
 # What is an explanation?
 
 Let's start with an example. Concepts are expanded in the remaining sections.
@@ -11,37 +13,46 @@ You open a drawer, and a conversation with a friend starts.
 
 The answer is an _efficient_ cause. Aristotle proposed 4 causes: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
 
-Hume instead, understood causes through _counterfactuals_: _had I not pulled, it wouldn't have slide_. Hence, _pulling_ is the cause.
+Hume instead, understood causes through _counterfactuals_ such as: _had I not pulled, it wouldn't have slide_. Hence, _pulling_ is the cause.
 
 > Friend: I _know_ that. But why does it slide _rather than_ opening like a lid?\
 > You: Oh! I misunderstood. The drawer sits on rails allowing it to slide.
 
 The "_rather than_ ..." is a contrast called _foil_, which may be implicit. _Foils_ make answering easier.
 
-The friend may keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).
+Notice also the **social process** involved. For example, we tried to guess the friend's actual _knowledge gap_ and be truthful. The friend may decide to keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).
 
-Notice the **social process** involved: we tried to guess the friend's actual _knowledge gap_ (first wrongly, he _knew_ that), and to emit relevant information. There are also other aspects that matter, such as testing the claim, suggesting a _foil_, and so forth.
+## Definitions of Explanation
 
-## A definition of Explanation
+Explanations can be split into an _explanandum_, which is a description of what is explained, and the _explanans_, which are the statements adduced to account for the phenomenon. These definitions are used in what follows.
 
-An explanation is an answer to _why_ or _how_ questions that make an event or situation expected or likely to the explainee (or to one-self).
+The [Studies in the logic of explanation][logic_of_expl_hempel] (1948) defines _causal explanation_ in different places, but one key part is (Part I, last sentence):
 
-The answer may use causal inference, logic inference, comparison to a reference item, noting class membership and so forth. Prior beliefs or knowledge are also used to constrain acceptable answers.
+> The decisive requirement for every sound explanation remains that it subsume the explanandum under general laws [or theories].
+
+They also append to it requirements in the form of _conditions of adequacy_ and predictive power, but we skip those details.
+
+A weaker statement, not restricting it to science, would be:
+
+> An explanation is an answer to _why_ or _how_ questions that make an event or situation expected or likely to the explainee (or to one-self).
+
+Where the answer may use causal inference, logic inference, comparison to a reference item, subsumption into a class, and so forth. Prior beliefs or knowledge are also used to constrain acceptable answers, and to omit what is considered obvious in the given context (or audience).
 
 The _reference item_ above is hinting to a _foil_. [Explanation in AI: insights from the social sciences][explanations_social] notes that _why-questions_ are usually contrastive questions, phrased as _why P rather than Q_ instead of _why P_. In this latter case, the _foil_ (Q) is implicit.
 
-Examples of non-causal answers are: "Light interferes because it is a wave." or "It chirps because it's a bird" or "It chirps because it's happy"; and of causal answers: "The chirping is due to a vibration of its vocal strings".
+Examples of answers are: "Light interferes because it is a wave." or "The sparrow chirps because it's a bird" or "It chirps because it's happy" or "The chirping is due to a vibration of its vocal strings".
 
-In section **2.1.2**, the same paper characterises an explanation as: a **cognitive process**, involving the generation of possible answers; a **product**, resulting from the cognitive process; a **social process**, which involves communicating the product.
+In section **2.1.2**, the paper cited above characterises an explanation as: a **cognitive process**, involving the generation of possible answers; a **product**, resulting from the cognitive process; a **social process**, which involves communicating the product.
 
 Let's now expand on the _cognitive_ and _social_ processes of an explanation (as I see them).
+
 
 ## The cognitive process of explanations
 
 The _cognitive process_ is similar to the scientific method:
 
-1. _Filter_ aspects of the explanandum deemed relevant (using prior knowledge),
-2. _Propose_ different answers, <!--or causes?-->
+1. _Filter_ aspects of the _explanandum_ deemed relevant (using prior knowledge),
+2. _Propose_ different answers,
 3. _Weight_ the likelihood of each hypotheses,
 4. _Accept_ until contradicted by experience or super-seeded (e.g. by a simpler explanation).
 
@@ -82,15 +93,21 @@ Talking about _necessary_ and _sufficient_ causes would've overloaded the exampl
 
 ### Logic Inference
 
-Often logic inference is used to propose an answer or a cause, for example:
+Often, _logic inference_ is used in the cognitive process (deriving a cause).
 
-- Deductive Logic: usually subsumes entities under general categories ("wave" below).
-    - Light is a wave; all waves interfere; then light beams interfere,
-    - The [Studies in the logic of explanation][logic_of_expl_hempel] (1948) use deductive logic in explanations, requiring testable claims and general deterministic laws for all cases. The usefulness depends on which "laws" are allowed.
-- Inductive: generalisation,
-    - Bats are mammals; bats fly; maybe all mammals fly,
-- Abductive: It proposes a hypothesis to explain a fact (closest to what is done in the science).
-    - Light shows interference patterns, waves interfere, maybe light is a wave.
+In a **deduction** the _explanans_ combine to yield the _explanandum_. [Studies in the logic of explanation][logic_of_expl_hempel] (1948) argues that, in scientific explanation, _explanans_ are testable conditions and general laws:
+> "Why does the phenomenon occur?" is construed as meaning "according to what general laws, and by virtue of what antecedent conditions does the phenomenon occur?"
+
+And it _should predict the explanandum, were it unknown_ (hence connecting _prediction_ and _explanation_):
+
+> It may be said, therefore, that an explanation of a particular event is not fully adequate unless its explanans, if taken account of in time, could have served as a basis for predicting the event in question.
+
+- Example: Light is a wave; all waves interfere; then light beams interfere.
+
+In an **induction** a claim is generalised; for example: Bats are mammals; bats fly; maybe all mammals fly.
+
+In an **abduction** a hypothesis is proposed which derives the explanandum. This is what is done in the science, and it is a _deduction_, but the difference is that it starts with a hypothesis.
+For example: Light shows interference patterns, waves interfere, maybe light is a wave.
 
 The _inference to a cause_ is very important and sometimes not obvious. It is made obvious when we do it wrong. For example, imagine that the drawer (in the example) actually slides when we touch it, then our inferred cause was wrong.
 
@@ -185,3 +202,6 @@ In the next post we use our knowledge to define Explainable AI.
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
 [xx]: http://arxiv.org/abs/1806.00069
+
+
+
