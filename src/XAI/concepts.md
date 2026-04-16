@@ -4,24 +4,6 @@
 
 Let's start with an example. Concepts are expanded in the remaining sections.
 
-## An explanation example
-
-You open a drawer, and a conversation with a friend starts.
-
-> Friend: Why did the drawer slide out?\
-> You: Because I pulled it out? Had I not, the drawer wouldn't have slide.
-
-The answer is an _efficient_ cause. Aristotle proposed 4 causes: _efficient_ (mechanism), _formal_ (form, shape), _material_ (properties), _final_ (purposes).
-
-Hume instead, understood causes through _counterfactuals_ such as: _had I not pulled, it wouldn't have slide_. Hence, _pulling_ is the cause.
-
-> Friend: I _know_ that. But why does it slide _rather than_ opening like a lid?\
-> You: Oh! I misunderstood. The drawer sits on rails allowing it to slide.
-
-The "_rather than_ ..." is a contrast called _foil_, which may be implicit. _Foils_ make answering easier.
-
-Notice also the **social process** involved. For example, we tried to guess the friend's actual _knowledge gap_ and be truthful. The friend may decide to keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical).
-
 ## Definitions of Explanation
 
 Explanations can be split into an _explanandum_, which is a description of what is explained, and the _explanans_, which are the statements adduced to account for the phenomenon. These definitions are used in what follows.
@@ -38,13 +20,23 @@ Or the answer:
 
 They do require that the _explanans_ be testable, believed to be true to a high accuracy, logically lead to the _explanandum_ by means of general laws.
 
+In a sense it is a "principled deduction".
+
+This definition rarely applies in everyday life, but it _is_ common in mathematics, physics and chemistry. Elsewhere, explanations can't live up to this high standard of "principled deduction" &mdash;and are seldom predictive&mdash; but they also play much wider role, sometimes providing information, or a link between things and so forth.
+
+Is there anything unifying all those cases?
+
 ### A subjective account
 
-On the opposite side, [Explanations, Predictions and Laws][Scriven] argues that no question word (_why_ or otherwise) is _necessary_ for an explanation.
+On the opposite side, [Explanations, Predictions and Laws][Scriven] argues that no "question word" (_why_ or otherwise) is _necessary_ to define an explanation.
 
-The paper also highlights the social aspect of communication, by suggesting that _explanations_ are a type of description aiming to fill a gap of understanding (or correct a misunderstanding) to an explainee.
+The paper highlights the social aspect of an explanation: _explanations_ are a description aiming to fill a gap of understanding (or correct a misunderstanding) to an explainee.
 
-The questions then help narrow down the _kind_ of answer expected, but are not a defining element.
+In the author's words:
+
+> What is it that needs explanation in a given context? It seems clear that it is those things which are not properly understood (by whomever the explanation is addressed to). Now, lack of understanding of a natural phenomenon may be due to the absence of certain information about the situation, to the presence of false beliefs about it, or to an inability to see the connections between what is understood and what is not understood.
+
+However, when there is a question, it helps to narrow down the _kind_ of description expected, but are not a defining element.
 
 This is closer to the idea of explanation this post uses.
 
@@ -63,7 +55,7 @@ These definitions are about what _counts_ as explanation. But we can also think 
 4. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),
 5. Communicate it.
 
-Mapping this to the framework proposed in the paper ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social], we have `1.`, `2.`, `3.` as part of the _cognitive process_, `4.` is the _product_ or result of it, and `5.` is a _social process.
+Mapping this to the framework proposed in the paper [Explanation in artificial intelligence: insights from the social sciences][explanations_social], we have `1.`, `2.`, `3.` as part of the _cognitive process_, `4.` is the _product_ or result of it, and `5.` is a _social process.
 
 If the answer is already known, only `5.` is needed.
 
@@ -179,57 +171,3 @@ In the next post we use our knowledge to define Explainable AI.
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
 [xx]: http://arxiv.org/abs/1806.00069
-
-<!--I've commented out huge parts which I think did not add much at all for our non-philosophical purposes.-->
-<!-- Next the topics of _causes_ and how are answers proposed are discussed, in the context of the _cognitive process_. -->
-
-<!-- ### Causes -->
-<!---->
-<!-- Aspects of causes already mentioned, but worth putting together, were: -->
-<!---->
-<!-- - The cognitive process may involve _inferring a cause_. -->
-<!-- - Aristotle's proposed 4 kinds of _causal_ answers to a _why-question_. These explanations are not always exclusive, they can be complementary. -->
-<!-- - Hume defined _causes_ as _counterfactuals_: A is the cause of B if, had A not happened, B wouldn't have happened. This view was formalised by Pearl and Halpern. -->
-<!---->
-<!-- _Are all Aristotelian causes Humean causes?_ Efficient causes can be seen as counterfactuals, and both are common in science. The remaining 3 causes are not naturally seen as counterfactuals. -->
-
-<!-- #### Necessary and sufficient -->
-<!---->
-<!-- Talking about _necessary_ and _sufficient_ causes would've overloaded the example. Briefly, _counterfactuals_ use the word _happen_, so it's an event rather than a condition: The spark of a lighter would be the _cause_ of a fire, but oxygen would still be a _necessary_ cause (or condition, or setting). -->
-<!---->
-<!-- ### Logic Inference -->
-<!---->
-<!-- Often, _logic inference_ is used in the cognitive process (deriving a cause). -->
-<!---->
-<!-- In a **deduction** the _explanans_ combine to yield the _explanandum_. [Studies in the logic of explanation][logic_of_expl_hempel] (1948) argues that, in scientific explanation, _explanans_ are testable conditions and general laws: -->
-<!-- > "Why does the phenomenon occur?" is construed as meaning "according to what general laws, and by virtue of what antecedent conditions does the phenomenon occur?" -->
-<!---->
-<!-- And it _should predict the explanandum, were it unknown_ (hence connecting _prediction_ and _explanation_): -->
-<!---->
-<!-- > It may be said, therefore, that an explanation of a particular event is not fully adequate unless its explanans, if taken account of in time, could have served as a basis for predicting the event in question. -->
-<!---->
-<!-- - Example: Light is a wave; all waves interfere; then light beams interfere. -->
-<!---->
-<!-- In an **induction** a claim is generalised; for example: Bats are mammals; bats fly; maybe all mammals fly. -->
-<!---->
-<!-- In an **abduction** a hypothesis is proposed which derives the explanandum. This is what is done in the science, and it is a _deduction_, but the difference is that it starts with a hypothesis. -->
-<!-- For example: Light shows interference patterns, waves interfere, maybe light is a wave. -->
-<!---->
-<!-- The _inference to a cause_ is very important and sometimes not obvious. It is made obvious when we do it wrong. For example, imagine that the drawer (in the example) actually slides when we touch it, then our inferred cause was wrong. -->
-
-<!-- The steps above can also be sketched in a graph: -->
-<!---->
-<!-- ```mermaid -->
-<!-- flowchart LR -->
-<!--     A(("Answer why-event")) -->
-<!--     subgraph hypotheses -->
-<!--     B("Caused by A") -->
-<!--     C("Caused by B") -->
-<!--     D("Assigned to class") -->
-<!--     end -->
-<!--     subgraph filtered -->
-<!--     E("Caused by B") -->
-<!--     end -->
-<!-- A --suggest all (inferences)--> hypotheses -->
-<!-- hypotheses --select best--> filtered -->
-<!-- ``` -->
