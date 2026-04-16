@@ -110,7 +110,6 @@
 <!-- Notice also the **social process** involved. For example, we tried to guess the friend's actual _knowledge gap_ and be truthful. The friend may decide to keep asking "Why" and eventually reject or accept the causal chain (or remain sceptical). -->
 <!---->
 
-
 <!-- Explanations can be split into an _explanandum_, which is a description of what is explained, and the _explanans_, which are the statements adduced to account for the phenomenon. These definitions are used in what follows. -->
 <!---->
 <!-- ## An objective account -->
@@ -147,7 +146,6 @@
 <!---->
 
 <!-- Should analyse at least 10 kinds of explanations -->
-
 
 <!-- ## Cognitive process -->
 <!---->
