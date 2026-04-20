@@ -14,7 +14,7 @@ The novel part of MEGNets are the MEGNet modules, and the addition of a global s
 
 ### MEGNet Modules
 
-The MEGNet modules map the attribute-vectors for each object in the graph: $(A, B, c)\mapto{}_{Graph Module}(A', B', c')$. Where $A$ are atom vectors (vertices in the graph) and $B$ bond vectors (edges) of the material and $c$ is a global state vector, or context.
+The MEGNet modules map the attribute-vectors for each object in the graph: $(A, B, c)\mapsto{}_{Graph Module}(A', B', c')$. Where $A$ are atom vectors (vertices in the graph) and $B$ bond vectors (edges) of the material and $c$ is a global state vector, or context.
 
 The mapping is done serially, in the following way (using `+` as concatenation of vectors):
 
