@@ -9,7 +9,6 @@ The goal is to explain a model, and do it to some audience (which could be ourse
 
 Explainability is made harder with more accurate models, since they tend to be more complex.
 
-
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff."/>

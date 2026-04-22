@@ -14,10 +14,10 @@ Explanations can be characterised as a:
   5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),
 2. _Product_: the answer, as in the prior definition,
 3. _Social process_: The answer must then be communicated, and there are expectations about it. [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. These rules can also be used as a guide for good _model explanations_:
-    - **Informative** (Quantity): right amount of context and details,
-    - **Truthful** (Quality, or Fidelity): Try to make it true,
-    - **Relevance** (Relation): do not state things that aren't needed (provide insight),
-    - **Manner** (clarity): express it in elegant terms.
+   - **Informative** (Quantity): right amount of context and details,
+   - **Truthful** (Quality, or Fidelity): Try to make it true,
+   - **Relevance** (Relation): do not state things that aren't needed (provide insight),
+   - **Manner** (clarity): express it in elegant terms.
 
 Which is a customised version of [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 

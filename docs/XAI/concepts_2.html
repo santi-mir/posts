@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-62b5705b.js";
+            window.path_to_searchindex_js = "../searchindex-6b8f2793.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-4392cbfe.js"></script>
@@ -182,10 +182,14 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="explainable-ai---ii"><a class="header" href="#explainable-ai---ii">Explainable AI - II</a></h1>
-<p>The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
-<p>It should be remembered that simplification loses fidelity; and should be made "as simple as possible, but not simpler" or avoid <strong>oversimplifying</strong>.</p>
-<p>This is compounded by the fact that more complex and accurate models tend to be less explainable. Without claiming universality, but we could represent this common case as:</p>
+<h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
+<p>Explanations were defined and characterised —in simple terms— in the previous post.</p>
+<p>In Explainable AI (XAI), what primarily needs explanation is the model. <em>Model explainability</em> can be defined as:</p>
+<blockquote>
+<p>The degree to which we can answer questions about the model's inner working and outputs.
+The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
+</blockquote>
+<p>Explainability is made harder with more accurate models, since they tend to be more complex.</p>
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
@@ -195,6 +199,7 @@
 
 </div>
 
+<p>Moreover, simple explanations can <strong>oversimplifying</strong> its operation, or lack <strong>generality</strong>.</p>
 <h2 id="overview-of-methods"><a class="header" href="#overview-of-methods">Overview of methods</a></h2>
 <p>Within the <em>cognitive process</em> of explanations, <em>model explainability</em> benefits from methods to identify causes or relevant properties.</p>
 <p>For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.</p>

@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-62b5705b.js";
+            window.path_to_searchindex_js = "../searchindex-6b8f2793.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-4392cbfe.js"></script>
@@ -182,35 +182,29 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="explainable-ai---i"><a class="header" href="#explainable-ai---i">Explainable AI - I</a></h1>
-<p>Explanations are usually defined as answers to a <em>why-question</em>, with certain properties and structure; there are also those who challenge the <em>question-type</em>, and are more flexible in terms of what counts as an answer.</p>
-<p>In Explainable AI (XAI), the central focus is <em>model explainability</em>. It can be defined as:</p>
-<blockquote>
-<p>The degree to which we can answer questions about the model's inner working and outputs.</p>
-</blockquote>
+<h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
+<p>Explanations are usually defined as answers to a <em>why-question</em>, with certain properties and structure. There are definitions extending the <em>question-type</em>, and more flexible in terms of what counts as an answer.</p>
 <h2 id="characteristics-of-explanations"><a class="header" href="#characteristics-of-explanations">Characteristics of explanations</a></h2>
-<p>We characterise explanations as a <em>cognitive process</em> (finding an answer), a product (the answer) and a <em>social process</em> (communicating it).
-This can be associated with a series of steps:</p>
-<ol start="0">
+<p>Explanations can be characterised as a:</p>
+<ol>
+<li><em>Cognitive process</em>: the process of finding an answer; we can expand it (if the answer is already known, only <code>5.</code> is needed):</li>
 <li>There is <em>something</em> to explain (<em>explanandum</em>),</li>
 <li>The explainer <em>filters</em> aspects of the <em>explanandum</em> deemed relevant (using prior knowledge),</li>
 <li><em>Generates</em> possible answers (through explanation techniques),</li>
 <li><em>Weight</em> the likelihood of each hypotheses,</li>
 <li>Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),</li>
-<li>Communicate it.</li>
-</ol>
-<p>Mapping this to the framework proposed in the paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>, we have <code>1.</code>, <code>2.</code>, <code>3.</code> as part of the <em>cognitive process</em>, <code>4.</code> is the <em>product</em> or result of it, and <code>5.</code> is a _social process.</p>
-<p>If the answer is already known, only <code>5.</code> is needed.</p>
-<p>The paper above notes that <em>why-questions</em> are usually contrastive questions, phrased as <em>why P rather than Q</em> instead of <em>why P</em>. In this latter case, the <em>foil</em> (Q) is implicit.</p>
-<h2 id="social-process"><a class="header" href="#social-process">Social Process</a></h2>
-<p>The answer must then be communicated, and there are expectations about it.</p>
-<p><a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> are rules observed in <em>good</em> communication. These rules can also be used as a guide for good <em>model explanations</em>.</p>
-<ol>
+<li><em>Product</em>: the answer, as in the prior definition,</li>
+<li><em>Social process</em>: The answer must then be communicated, and there are expectations about it. <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> are rules observed in <em>good</em> communication. These rules can also be used as a guide for good <em>model explanations</em>:
+<ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
 <li><strong>Truthful</strong> (Quality, or Fidelity): Try to make it true,</li>
 <li><strong>Relevance</strong> (Relation): do not state things that aren't needed (provide insight),</li>
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
+</ul>
+</li>
 </ol>
+<p>Which is a customised version of <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
+<p>Importantly, the paper above notes that <em>why-questions</em> are usually <strong>contrastive questions</strong> e.g. phrased as <em>why P rather than Q</em> instead of <em>why P</em>, where the <em>foil</em> (Q) is frequently implicit.</p>
 <h2 id="explanatory-success"><a class="header" href="#explanatory-success">Explanatory success</a></h2>
 <p>There are aspects that tend to make explanations more successful:</p>
 <ul>
@@ -263,7 +257,7 @@ This can be associated with a series of steps:</p>
 </details>
 <p>In the next post we use our knowledge to define Explainable AI.</p>
 <hr><details>
-<summary>List of sources used in this blogpost</summary>
+<summary>Interesting resources</summary>
 <ol>
 <li><a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948),</li>
 <li><a href="https://fitelson.org/woodward/scriven_epl.pdf">Explanations, Predictions and Laws</a> (1948),</li>
