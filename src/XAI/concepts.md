@@ -37,23 +37,19 @@ There are aspects that tend to make explanations more successful:
 
 I don't have much to say about _product_ (`2.`), so we jump to `3`.
 
+## Causal Inference
+
 ## Metaphors
 
 <details><summary>The Machine and The Agent (click to open)</summary>
 
-In the scientific and science-adjacent domains, models are conceptualised as _machines_:
+In the scientific and science-adjacent domains, models are conceptualised as _machines_: composed of parts, each with a function, a role.
 
-1. They have parts, each with a function, a role,
-2. They correspond with some aspect of the reality being modelled.
+Outside of science or the technical domain, they're conceptualised as _human-like agents_: explained in human terms, expected to be reliable, consistent.
 
-Outside of science or the technical domain, they're conceptualised as _human-like agents_:
+In summary, explanations are answers to _why-questions_; _good_ explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise). The metaphors can help think of an explanation-style a given audience.
 
-1. They tend to be explained in human terms,
-2. They are expected to be reliable, consistent, ...
-
-So explanations are answers to _why-questions_; _good_ explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise).
-
-The table below is a summary of the ideas above
+A table summary:
 
 | Perspective      | Model is a… | Preferred Explanation style           | Audience            |
 | ---------------- | ----------- | --------------------------- | ------------------- |
@@ -63,8 +59,6 @@ The table below is a summary of the ideas above
 Many other metaphors could be proposed.
 
 </details>
-
-In the next post we use our knowledge to define Explainable AI.
 
 ------------
 
