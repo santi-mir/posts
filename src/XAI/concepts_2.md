@@ -25,28 +25,26 @@ This framework is explained separately from methods to expand a bit more, but so
 
 ### A toy example
 
-Let's take an imaginary model and its predictions: $y = f(\mathbf{x})$. It is expected to be accurate and robust.
+Let's take an imaginary "probability of rain" model, $y = f(u)$, the variable $u$ being the proportion of people with an umbrella.
 
-Suppose this is modelling weather, and using whether people take an umbrella as input variable. It reaches high accuracy and we are happy.
+It reaches high accuracy and we are happy.
 
-If we wanted to answer, what if the persons didn't take the umbrella? It does still rain. Why? There may be different reasons:
+However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:
 
 1. The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
 2. The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
 
-Let's say we change it to use causal variables instead. In this case, we are implicitly adding a _causal model_.
+We change it to use causal variables instead, implicitly adding a _causal model_.
 
 But how do we know that we have _all_ the _causal inputs_? And how do we know it has built an accurate _and also robust_ model of the world?
 
-In some cases, a subset of variables will be enough to get a good approximation. We expect the causal models harder to create but also more robust for generalising out of distribution.
+An expert may pick known causes-effects pairs as inputs-outputs to train a model. A non-expert, may not know which are the causes and this _can_ be problematic (we may be building a correlation model).Finding this out is itself quite hard.
 
-So, getting to a causal model isn't easy, nor guaranteed to be complete. In some cases, we may even be just fine with a correlation model, but we should distinguish them.
-
-An expert may pick known causes-effects pairs as inputs-outputs to train a model. A non-expert, may not know which are the causes and this _can_ be problematic (we may be building a correlation model).
+That aside, a subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. (In some cases though, we may be just fine with a correlation model, but we should distinguish them.)
 
 ### Comparing
 
-So far, we dealt with _generalisation_, not with _explanation_ of a model. The reason is that generalisation out of distribution is connected to causal models &mdash;those going beyond correlation.
+We sketched that generalisation out of distribution is connected to causal models &mdash;those going beyond correlation.
 
 But how do we _explain_ such models? This is where counterfactuals can help. And more broadly, _comparing_ how different inputs and their outputs.
 

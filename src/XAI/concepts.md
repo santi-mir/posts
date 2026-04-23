@@ -10,7 +10,7 @@ Either way, an answer or explanation should have characteristics of its own, reg
 
 ## Characteristics of explanations
 
-Generating explanations involve a _cognitive_ and a _social_ process. Below I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
+Generating explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
 ### Cognitive Process
 
@@ -51,9 +51,7 @@ There are aspects that tend to make explanations (and the belief in a hypothesis
 
 I don't have much to say about _product_ (`2.`), so we jump to `3`.
 
-## Metaphors
-
-<details><summary>The Machine and The Agent (click to open)</summary>
+## Metaphors: The Machine and The Agent
 
 In the scientific and science-adjacent domains, models are conceptualised as _machines_: composed of parts, each with a function, a role.
 
@@ -70,9 +68,8 @@ A table summary:
 
 Many other metaphors could be proposed.
 
-</details>
+----------------
 
-------------
 
 <details>
 <summary>Interesting resources</summary>

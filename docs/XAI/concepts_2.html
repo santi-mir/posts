@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-63c72541.js";
+            window.path_to_searchindex_js = "../searchindex-5acca2c4.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-4392cbfe.js"></script>
@@ -203,20 +203,19 @@
 <h2 id="explaining-by-comparison"><a class="header" href="#explaining-by-comparison">Explaining by Comparison</a></h2>
 <p>This framework is explained separately from methods to expand a bit more, but some of the methods are based on this logic behind.</p>
 <h3 id="a-toy-example"><a class="header" href="#a-toy-example">A toy example</a></h3>
-<p>Let's take an imaginary model and its predictions: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathbf">x</span><span class="mclose">)</span></span></span></span>. It is expected to be accurate and robust.</p>
-<p>Suppose this is modelling weather, and using whether people take an umbrella as input variable. It reaches high accuracy and we are happy.</p>
-<p>If we wanted to answer, what if the persons didn't take the umbrella? It does still rain. Why? There may be different reasons:</p>
+<p>Let's take an imaginary "probability of rain" model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, the variable <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella.</p>
+<p>It reaches high accuracy and we are happy.</p>
+<p>However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:</p>
 <ol>
 <li>The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;</li>
 <li>The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).</li>
 </ol>
-<p>Let's say we change it to use causal variables instead. In this case, we are implicitly adding a <em>causal model</em>.</p>
+<p>We change it to use causal variables instead, implicitly adding a <em>causal model</em>.</p>
 <p>But how do we know that we have <em>all</em> the <em>causal inputs</em>? And how do we know it has built an accurate <em>and also robust</em> model of the world?</p>
-<p>In some cases, a subset of variables will be enough to get a good approximation. We expect the causal models harder to create but also more robust for generalising out of distribution.</p>
-<p>So, getting to a causal model isn't easy, nor guaranteed to be complete. In some cases, we may even be just fine with a correlation model, but we should distinguish them.</p>
-<p>An expert may pick known causes-effects pairs as inputs-outputs to train a model. A non-expert, may not know which are the causes and this <em>can</em> be problematic (we may be building a correlation model).</p>
+<p>An expert may pick known causes-effects pairs as inputs-outputs to train a model. A non-expert, may not know which are the causes and this <em>can</em> be problematic (we may be building a correlation model).Finding this out is itself quite hard.</p>
+<p>That aside, a subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. (In some cases though, we may be just fine with a correlation model, but we should distinguish them.)</p>
 <h3 id="comparing"><a class="header" href="#comparing">Comparing</a></h3>
-<p>So far, we dealt with <em>generalisation</em>, not with <em>explanation</em> of a model. The reason is that generalisation out of distribution is connected to causal models —those going beyond correlation.</p>
+<p>We sketched that generalisation out of distribution is connected to causal models —those going beyond correlation.</p>
 <p>But how do we <em>explain</em> such models? This is where counterfactuals can help. And more broadly, <em>comparing</em> how different inputs and their outputs.</p>
 <p><em>Counterfactuals</em> can be used for generating explanations: asking <em>what if this other input was used instead</em>, or what if one feature is changed slightly? Such are counterfactual-like questions (if the initial input is considered a fact). We can use counterfactuals either changing features of the input (even if this makes it novel), or comparing with reference inputs.</p>
 <p>Both of these are known techniques listed in the [overview of methods][overview-of-methods] (next section).</p>
@@ -306,6 +305,22 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
