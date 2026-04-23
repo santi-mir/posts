@@ -76,7 +76,7 @@ Importantly, the paper above notes that _why-questions_ are usually **contrastiv
 
 ## Explanatory success
 
-There are aspects that tend to make explanations (and the belief in a  hypothesis) more successful:
+There are aspects that tend to make explanations (and the belief in a hypothesis) more successful:
 
 - **Simplicity**: if it involves a shorter chain of causes, it is preferred,
 - **Generality**: if it explains other cases, it is preferred,

@@ -18,7 +18,7 @@ Explainability is made harder with more accurate models, since they tend to be m
 
 Moreover, simple explanations can **oversimplifying** its operation, or lack **generality**.
 
-### Relating Counterfactuals to XAI
+## Relating Counterfactuals to XAI
 
 How does the ladder of causation relate to explaining deep learning models? Does it even relate?
 
