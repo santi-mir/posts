@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-abde1fe5.js";
+            window.path_to_searchindex_js = "../searchindex-49545248.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-4392cbfe.js"></script>
@@ -186,9 +186,9 @@
 <p>Explanations were defined and characterised —in simple terms— in the previous post.</p>
 <p>In Explainable AI (XAI), what primarily needs explanation is the model. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
-<p>The degree to which we can answer questions about the model's inner working and outputs.
-The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
+<p>The degree to which we can answer questions about the model's inner working and outputs.</p>
 </blockquote>
+<p>The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
 <p>Explainability is made harder with more accurate models, since they tend to be more complex.</p>
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
@@ -202,6 +202,16 @@ The goal is to explain a model, and do it to some audience (which could be ourse
 <p>Moreover, simple explanations can <strong>oversimplifying</strong> its operation, or lack <strong>generality</strong>.</p>
 <h2 id="explaining-a-prediction-via-counterfactuals"><a class="header" href="#explaining-a-prediction-via-counterfactuals">Explaining a prediction via counterfactuals</a></h2>
 <p>This framework is explained separately from methods to expand a bit more, but some of the methods use counterfactual-like logic behind.</p>
+<details><summary>A toy example</summary>
+<p>Let's take an imaginary model and its predictions: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6389em;vertical-align:-0.1944em;"></span><span class="mord mathbf" style="margin-right:0.01597em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathbf">x</span><span class="mclose">)</span></span></span></span>. One expectation is that it's accurate. Suppose this is modelling weather, and using whether people take an umbrella as input variable. It reaches high accuracy and we are happy.</p>
+<p>If we wanted to answer, what if the persons didn't take the umbrella? It does still rain. Why? There may be different reasons:</p>
+<ol>
+<li>The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;</li>
+<li>The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).</li>
+</ol>
+<p>Let's say we change it to use causal variables instead. How do we know that we have <em>all</em> the <em>causal inputs</em>? And how do we know it has built an accurate <em>and also robust</em> model of the world?</p>
+<p>We expect these models to be useful in different cases, but the latter should be more robust.</p>
+</details>
 <p>An expert may frequently select inputs-outputs to a model which are <em>known causes-effects</em>, then the models fit the relation of one to the other.</p>
 <p>A non-expert know may not know which are the causes, which the effects. And in some cases it does not matter. This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.</p>
 <p>But when the model is already based on a causal graph (first case), a technique of <em>counterfactuals</em> can be used for generating explanations: asking <em>what if this other input was used instead</em>, or what if one feature is changed slightly? Such are counterfactual-like questions (if the initial input is considered a fact).</p>

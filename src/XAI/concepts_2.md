@@ -20,6 +20,7 @@ Explainability is made harder with more accurate models, since they tend to be m
 Moreover, simple explanations can **oversimplifying** its operation, or lack **generality**.
 
 ## Explaining a prediction via counterfactuals
+
 This framework is explained separately from methods to expand a bit more, but some of the methods use counterfactual-like logic behind.
 
 <details><summary>A toy example</summary>
