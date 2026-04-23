@@ -39,6 +39,34 @@ I don't have much to say about _product_ (`2.`), so we jump to `3`.
 
 ## Causal Inference
 
+Defining _cause_ has been a topic of debate.
+
+Two important definitions of _cause_ are usually attributed to Hume: regularity and counterfactual.
+
+- **Regularity**: things that occur together, or are always followed one after another. Confuses it with _correlation_.
+- **Counterfactuals**: imaginary situation negating (countering) the fact: _What would have happened with Y, had X not happened?_. In that case $X$ causes $Y$ (in a necessary or sufficient manner) if $Y$ is reduced.
+
+In statistics, one could say that $X$ causes $Y$ if $P(Y|X, k) > P(Y)$ i.e. it _increases_ its probability, keeping any other variables ($k$) constant. This and counterfactuals are common conceptions.
+
+The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes:
+
+1. Use a causal diagram: a graph made from prior causal knowledge, or find out doing an experiment,
+2. Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula.
+
+Briefly put, ladder's steps are:
+- _Association_: relating raw-data with no causal information.
+- _Intervention_: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as $P(Y|do(X))$, which is then translated into a statistics formula.
+- _Imagination_: involves counterfactual thinking, that is, thinking what would happen in the opposite world.[^1] What would have happened with his life expectancy, had Joe _not_ taken the drug?
+
+How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are _known causes-effects_. Then the models _do_ learn something like causal inference (though the graph is external in a sense).
+
+For a non-expert, how does him/her know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are _actual_ causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.
+
+That is where having a causal graph is relevant for modelling.
+
+Counterfactuals then, can be used in DL models as long as the inputs are known causes! This is in fact what counterfactual-methods for explainability: asking _what if this input was used instead_ and such counterfactual questions.
+
+
 ## Metaphors
 
 <details><summary>The Machine and The Agent (click to open)</summary>
@@ -99,3 +127,5 @@ Many other metaphors could be proposed.
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
 [xx]: http://arxiv.org/abs/1806.00069
+
+[^1]:  Since a fact is in the past, it is always retrospective thinking. Planning and predicting involves considering many possibilities, and both involve simulating situations. It's interesting to imagine future-situation thinking as synthesizing a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.)
