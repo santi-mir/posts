@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-f2ba990a.js";
+            window.path_to_searchindex_js = "searchindex-7d078132.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-4392cbfe.js"></script>
@@ -446,27 +446,66 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <p>It is computationally cheap, and can help screen large number of compounds as a first selection step.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p>Explanations are usually defined as answers to a <em>why-question</em>, with certain properties and structure. There are definitions extending the <em>question-type</em>, and more flexible in terms of what counts as an answer.</p>
+<p>Explanations are usually defined as answers to a <em>why-question</em>, with certain properties and structure.</p>
+<p>There are definitions extending the <em>question-type</em>, or considering that the <em>why-question</em> may be implicit, or analysing pieces of text (such as a lesson, which is an explanation) rather than the question.</p>
+<p>All these definitions have aspects considered here; for example, the question needn't be posed, but if it is or is inferred, it may help answering.</p>
+<p>Either way, an answer or explanation should have characteristics of its own, regardless of the question.</p>
 <h2 id="characteristics-of-explanations"><a class="header" href="#characteristics-of-explanations">Characteristics of explanations</a></h2>
-<p>Explanations can be characterised as a:</p>
+<p>Generating explanations involve a <em>cognitive</em> and a <em>social</em> process. Below I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
+<h3 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive Process</a></h3>
+<p>The <em>cognitive process</em> is the process of finding an answer, involving:</p>
 <ol>
-<li><em>Cognitive process</em>: the process of finding an answer; we can expand it (if the answer is already known, only <code>5.</code> is needed):</li>
 <li>There is <em>something</em> to explain (<em>explanandum</em>),</li>
-<li>The explainer <em>filters</em> aspects of the <em>explanandum</em> deemed relevant (using prior knowledge),</li>
+<li>The explainer <em>filters</em> aspects of the <em>explanandum</em> deemed relevant (using prior knowledge),
+<ul>
+<li>If the explanation is known, retrieve it and skip the rest.</li>
+</ul>
+</li>
 <li><em>Generates</em> possible answers (through explanation techniques),</li>
 <li><em>Weight</em> the likelihood of each hypotheses,</li>
-<li>Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),</li>
-<li><em>Product</em>: the answer, as in the prior definition,</li>
-<li><em>Social process</em>: The answer must then be communicated, and there are expectations about it. <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> are rules observed in <em>good</em> communication. These rules can also be used as a guide for good <em>model explanations</em>:
+<li>Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation).</li>
+</ol>
+<p><em>Finding an answer</em> involves creativity, and a separate matter. But there are desirable qualities for answers, depending on context, question, audience, we may expect a <em>cause</em>, that is <em>testable</em>, <em>general</em>. Let's expand on <em>causal inference</em>.</p>
+<h4 id="causal-inference"><a class="header" href="#causal-inference">Causal Inference</a></h4>
+<p>Defining <em>cause</em> has been a topic of debate.</p>
+<p>Two important definitions of <em>cause</em> are usually attributed to Hume: regularity and counterfactual.</p>
+<ul>
+<li><strong>Regularity</strong>: things that occur together, or are always followed one after another. Confuses it with <em>correlation</em>.</li>
+<li><strong>Counterfactuals</strong>: imaginary situation negating (countering) the fact: <em>What would have happened with Y, had X not happened?</em>. In that case <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> (in a necessary or sufficient manner) if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> is reduced.</li>
+</ul>
+<p>On the one hand, in statistics, one could say that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> i.e. it <em>increases</em> its probability, keeping any other variables (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>) constant. This and counterfactuals are common conceptions.</p>
+<p>On the other hand, a "binary view" is either a cause or not, without degrees. This is a deterministic view, the statistical one is not.</p>
+<p>The number of hunters will be a cause of success at hunting, but will be a matter of degree not a binary. Deterministic and statistical causes can be mixed as well.</p>
+<p>The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes:</p>
+<ol>
+<li>Use a causal diagram: a graph made from prior causal knowledge, or find out doing an experiment,</li>
+<li>Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula.</li>
+</ol>
+<p>Briefly put, ladder's steps are:</p>
+<ul>
+<li><em>Association</em>: relating raw-data with no causal information.</li>
+<li><em>Intervention</em>: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">))</span></span></span></span>, which is then translated into a statistics formula.</li>
+<li><em>Imagination</em>: involves counterfactual thinking, that is, thinking what would happen in the opposite world. What would have happened with his life expectancy, had Joe <em>not</em> taken the drug?
+<ul>
+<li>Since a fact is in the past, a counterfactual it is always retrospective thinking.</li>
+<li>Planning and predicting involves considering many possibilities, and both involve simulating situations, usually without retrospective thinking.</li>
+<li>Maybe humans synthesize a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.)</li>
+</ul>
+</li>
+</ul>
+<p>How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are <em>known causes-effects</em>. Then the models <em>do</em> learn something like causal inference (though the graph is external in a sense).</p>
+<p>But how does a non-expert know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are <em>actual</em> causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.</p>
+<p>This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.</p>
+<p>Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking <em>what if this input was used instead</em> and such counterfactual questions.</p>
+<p>(A logic-inference section could be added, but at the moment I don't see it adding much useful information.)</p>
+<h3 id="social-process"><a class="header" href="#social-process">Social Process</a></h3>
+<p>The <em>social process</em> involves communicating the answer, and there are expectations about it. <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> are rules observed in <em>good</em> communication. These rules can also be used as a guide for good <em>model explanations</em>:</p>
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
 <li><strong>Truthful</strong> (Quality, or Fidelity): Try to make it true,</li>
 <li><strong>Relevance</strong> (Relation): do not state things that aren't needed (provide insight),</li>
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
-</li>
-</ol>
-<p>Which is a customised version of <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <p>Importantly, the paper above notes that <em>why-questions</em> are usually <strong>contrastive questions</strong> e.g. phrased as <em>why P rather than Q</em> instead of <em>why P</em>, where the <em>foil</em> (Q) is frequently implicit.</p>
 <h2 id="explanatory-success"><a class="header" href="#explanatory-success">Explanatory success</a></h2>
 <p>There are aspects that tend to make explanations more successful:</p>
@@ -476,6 +515,9 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </li>
 <li>
 <p><strong>Generality</strong>: if it explains other cases, it is preferred,</p>
+</li>
+<li>
+<p><strong>Testable</strong>: Can we do hypothesis testing via an experiment?</p>
 </li>
 <li>
 <p><strong>Prior knowledge/beliefs</strong></p>
@@ -491,30 +533,6 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </li>
 </ul>
 <p>I don't have much to say about <em>product</em> (<code>2.</code>), so we jump to <code>3</code>.</p>
-<h2 id="causal-inference"><a class="header" href="#causal-inference">Causal Inference</a></h2>
-<p>Defining <em>cause</em> has been a topic of debate.</p>
-<p>Two important definitions of <em>cause</em> are usually attributed to Hume: regularity and counterfactual.</p>
-<ul>
-<li><strong>Regularity</strong>: things that occur together, or are always followed one after another. Confuses it with <em>correlation</em>.</li>
-<li><strong>Counterfactuals</strong>: imaginary situation negating (countering) the fact: <em>What would have happened with Y, had X not happened?</em>. In that case <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> (in a necessary or sufficient manner) if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> is reduced.</li>
-</ul>
-<p>In statistics, one could say that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> i.e. it <em>increases</em> its probability, keeping any other variables (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>) constant. This and counterfactuals are common conceptions.</p>
-<p>The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes:</p>
-<ol>
-<li>Use a causal diagram: a graph made from prior causal knowledge, or find out doing an experiment,</li>
-<li>Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula.</li>
-</ol>
-<p>Briefly put, ladder's steps are:</p>
-<ul>
-<li><em>Association</em>: relating raw-data with no causal information.</li>
-<li><em>Intervention</em>: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">))</span></span></span></span>, which is then translated into a statistics formula.</li>
-<li><em>Imagination</em>: involves counterfactual thinking, that is, thinking what would happen in the opposite world.<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> What would have happened with his life expectancy, had Joe <em>not</em> taken the drug?</li>
-</ul>
-<p>How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are <em>known causes-effects</em>. Then the models <em>do</em> learn something like causal inference (though the graph is external in a sense).</p>
-<p>But how does a non-expert know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are <em>actual</em> causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.</p>
-<p>This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.</p>
-<p>Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking <em>what if this input was used instead</em> and such counterfactual questions.</p>
-<p>(A logic-inference section could be added, but at the moment I don't see it adding much useful information.)</p>
 <h2 id="metaphors"><a class="header" href="#metaphors">Metaphors</a></h2>
 <details><summary>The Machine and The Agent (click to open)</summary>
 <p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>: composed of parts, each with a function, a role.</p>
@@ -559,12 +577,6 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-1-2">
-<p>Since a fact is in the past, it is always retrospective thinking. Planning and predicting involves considering many possibilities, and both involve simulating situations. It's interesting to imagine future-situation thinking as synthesizing a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.) <a href="#fr-1-1-2">↩</a></p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
 <p>Explanations were defined and characterised —in simple terms— in the previous post.</p>
@@ -665,7 +677,7 @@ The goal is to explain a model, and do it to some audience (which could be ourse
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="method-lime"><a class="header" href="#method-lime">Method: LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
+<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
@@ -702,8 +714,8 @@ The goal is to explain a model, and do it to some audience (which could be ourse
 </details>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-3">
-<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-3">↩</a></p>
+<li id="footnote-1-2">
+<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-2">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -927,7 +939,7 @@ E--prediction head--&gt;output
 <li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
 <ul>
 <li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-4"><a href="#footnote-1-4">1</a></sup> probe structure (this step is complex).
+<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> probe structure (this step is complex).
 Hints experimentalists of promising region.</li>
 </ul>
 </li>
@@ -951,8 +963,8 @@ style A fill:#123456,color:#f4f4f4,stroke-width:0px
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-4">
-<p>With respect to the convex hull. <a href="#fr-1-1-4">↩</a></p>
+<li id="footnote-1-3">
+<p>With respect to the convex hull. <a href="#fr-1-1-3">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
