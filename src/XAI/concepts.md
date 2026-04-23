@@ -61,11 +61,13 @@ Briefly put, ladder's steps are:
 
 How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are _known causes-effects_. Then the models _do_ learn something like causal inference (though the graph is external in a sense).
 
-For a non-expert, how does him/her know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are _actual_ causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.
+But how does a non-expert know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are _actual_ causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.
 
-That is where having a causal graph is relevant for modelling.
+This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.
 
-Counterfactuals then, can be used in DL models as long as the inputs are known causes! This is in fact what counterfactual-methods for explainability: asking _what if this input was used instead_ and such counterfactual questions.
+Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking _what if this input was used instead_ and such counterfactual questions.
+
+(A logic-inference section could be added, but at the moment I don't see it adding much useful information.)
 
 ## Metaphors
 
