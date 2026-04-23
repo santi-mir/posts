@@ -54,6 +54,7 @@ The AI researcher Judea Pearl, whose aim was to create thinking machines, propos
 2. Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula.
 
 Briefly put, ladder's steps are:
+
 - _Association_: relating raw-data with no causal information.
 - _Intervention_: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as $P(Y|do(X))$, which is then translated into a statistics formula.
 - _Imagination_: involves counterfactual thinking, that is, thinking what would happen in the opposite world.[^1] What would have happened with his life expectancy, had Joe _not_ taken the drug?
@@ -65,7 +66,6 @@ For a non-expert, how does him/her know which columns (say form CSV tables) are 
 That is where having a causal graph is relevant for modelling.
 
 Counterfactuals then, can be used in DL models as long as the inputs are known causes! This is in fact what counterfactual-methods for explainability: asking _what if this input was used instead_ and such counterfactual questions.
-
 
 ## Metaphors
 

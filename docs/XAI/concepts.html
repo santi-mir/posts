@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-96b70946.js";
+            window.path_to_searchindex_js = "../searchindex-09b7209a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-4392cbfe.js"></script>
@@ -229,6 +229,28 @@
 </ul>
 <p>I don't have much to say about <em>product</em> (<code>2.</code>), so we jump to <code>3</code>.</p>
 <h2 id="causal-inference"><a class="header" href="#causal-inference">Causal Inference</a></h2>
+<p>Defining <em>cause</em> has been a topic of debate.</p>
+<p>Two important definitions of <em>cause</em> are usually attributed to Hume: regularity and counterfactual.</p>
+<ul>
+<li><strong>Regularity</strong>: things that occur together, or are always followed one after another. Confuses it with <em>correlation</em>.</li>
+<li><strong>Counterfactuals</strong>: imaginary situation negating (countering) the fact: <em>What would have happened with Y, had X not happened?</em>. In that case <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> (in a necessary or sufficient manner) if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> is reduced.</li>
+</ul>
+<p>In statistics, one could say that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> i.e. it <em>increases</em> its probability, keeping any other variables (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>) constant. This and counterfactuals are common conceptions.</p>
+<p>The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes:</p>
+<ol>
+<li>Use a causal diagram: a graph made from prior causal knowledge, or find out doing an experiment,</li>
+<li>Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula.</li>
+</ol>
+<p>Briefly put, ladder's steps are:</p>
+<ul>
+<li><em>Association</em>: relating raw-data with no causal information.</li>
+<li><em>Intervention</em>: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">))</span></span></span></span>, which is then translated into a statistics formula.</li>
+<li><em>Imagination</em>: involves counterfactual thinking, that is, thinking what would happen in the opposite world.<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup> What would have happened with his life expectancy, had Joe <em>not</em> taken the drug?</li>
+</ul>
+<p>How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are <em>known causes-effects</em>. Then the models <em>do</em> learn something like causal inference (though the graph is external in a sense).</p>
+<p>For a non-expert, how does him/her know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are <em>actual</em> causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.</p>
+<p>That is where having a causal graph is relevant for modelling.</p>
+<p>Counterfactuals then, can be used in DL models as long as the inputs are known causes! This is in fact what counterfactual-methods for explainability: asking <em>what if this input was used instead</em> and such counterfactual questions.</p>
 <h2 id="metaphors"><a class="header" href="#metaphors">Metaphors</a></h2>
 <details><summary>The Machine and The Agent (click to open)</summary>
 <p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>: composed of parts, each with a function, a role.</p>
@@ -273,6 +295,12 @@
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>Since a fact is in the past, it is always retrospective thinking. Planning and predicting involves considering many possibilities, and both involve simulating situations. It's interesting to imagine future-situation thinking as synthesizing a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.) <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
 
                     </main>
 
