@@ -23,48 +23,47 @@ The _cognitive process_ is the process of finding an answer, involving:
 4. _Weight_ the likelihood of each hypotheses,
 5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation).
 
-_Finding an answer_ involves creativity, and a separate matter. But there are desirable qualities for answers, depending on context, question, audience, we may expect a _cause_, that is _testable_, _general_. Let's expand on _causal inference_.
+_Finding an answer_ involves creativity, and a separate matter. But there are desirable qualities for answers, depending on context, question, audience, we may expect a _cause_, that is _testable_, _general_. Let's expand on _causes_.
 
-#### Causal Inference
+#### Causes
 
 Defining _cause_ has been a topic of debate.
 
-Two important definitions of _cause_ are usually attributed to Hume: regularity and counterfactual.
+Two important definitions of _cause_ are usually attributed to David Hume: regularity and counterfactual.
 
-- **Regularity**: things that occur together, or are always followed one after another. Confuses it with _correlation_.
-- **Counterfactuals**: imaginary situation negating (countering) the fact: _What would have happened with Y, had X not happened?_. In that case $X$ causes $Y$ (in a necessary or sufficient manner) if $Y$ is reduced.
+**Regularity**: things that occur together, or are always followed one after another. Confuses it with _correlation_.
 
-On the one hand, in statistics, one could say that $X$ causes $Y$ if $P(Y|X, k) > P(Y)$ i.e. it _increases_ its probability, keeping any other variables ($k$) constant. This and counterfactuals are common conceptions.
+**Counterfactuals**: imaginary situation negating (countering) the fact: _What would have happened with Y, had X not happened?_. In that case $X$ causes $Y$ (in a necessary or sufficient manner) if $Y$ is reduced.
 
-On the other hand, a "binary view" is either a cause or not, without degrees. This is a deterministic view, the statistical one is not.
+We can also characterise causes in many ways. First, as probabilistic vs deterministic:
 
-The number of hunters will be a cause of success at hunting, but will be a matter of degree not a binary. Deterministic and statistical causes can be mixed as well.
+**Probabilistic**: $X$ causes $Y$ if $P(Y|X, k) > P(Y)$ i.e. it _increases_ its probability, keeping any other variables ($k$) constant. This and counterfactuals are common conceptions. The number of hunters will be a cause of success at hunting, and is non-deterministic.
+
+**Deterministic**: cause-effect is a binary relation, rather than probabilistic. The effect occurs with the cause, and does not without it.
+
+**Mixed**: Deterministic and probabistic causes can be mixed as well.
+
+Another dimension is _necessary_ and _sufficient_ causes which is skipped for now.
 
 The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes:
 
 1. Use a causal diagram: a graph made from prior causal knowledge, or find out doing an experiment,
 2. Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula.
 
-Briefly put, ladder's steps are:
+Robots could reach different levels of causal reasoning based on its actions (on the world)
 
-- _Association_: relating raw-data with no causal information.
-- _Intervention_: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as $P(Y|do(X))$, which is then translated into a statistics formula.
-- _Imagination_: involves counterfactual thinking, that is, thinking what would happen in the opposite world. What would have happened with his life expectancy, had Joe _not_ taken the drug?
-    - Since a fact is in the past, a counterfactual it is always retrospective thinking.
-    - Planning and predicting involves considering many possibilities, and both involve simulating situations, usually without retrospective thinking.
-    - Maybe humans synthesize a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.)
+1. _Association_: relating raw-data by observation. This aligns with the _regularity_ definition of causes (co-occurrences).
+2. _Intervention_: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as $P(Y|do(X))$, which is then translated into a statistics formula.
+3. _Imagination_: top of the ladder. Involves counterfactual thinking, that is, thinking what would happen in a different world, also called _What ifs_. What would have happened with his life expectancy, had Joe _not_ taken the drug?
 
-How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are _known causes-effects_. Then the models _do_ learn something like causal inference (though the graph is external in a sense).
+We can think of how far certain scientific models (including DL models), living organisms, reach in that ladder, but it's easiest to first read it thinking about robots.
 
-But how does a non-expert know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are _actual_ causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.
-
-This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.
-
-Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking _what if this input was used instead_ and such counterfactual questions.
-
-(A logic-inference section could be added, but at the moment I don't see it adding much useful information.)
+> [!Note]
+> Counterfactuals involve a fact, which is always in the past, hence a counterfactual it is always retrospective thinking. Planning / predicting are very similar, all involving simulating situations. For planning, humans may synthesize a reference-situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.)
 
 ### Social Process
+
+The _cognitive process_ and the specific case of inferring causes was described earlier. The remaining characteristic of explanations was a _social process_.
 
 The _social process_ involves communicating the answer, and there are expectations about it. [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. These rules can also be used as a guide for good _model explanations_:
 
@@ -77,7 +76,7 @@ Importantly, the paper above notes that _why-questions_ are usually **contrastiv
 
 ## Explanatory success
 
-There are aspects that tend to make explanations more successful:
+There are aspects that tend to make explanations (and the belief in a  hypothesis) more successful:
 
 - **Simplicity**: if it involves a shorter chain of causes, it is preferred,
 - **Generality**: if it explains other cases, it is preferred,

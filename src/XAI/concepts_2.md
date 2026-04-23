@@ -18,6 +18,20 @@ Explainability is made harder with more accurate models, since they tend to be m
 
 Moreover, simple explanations can **oversimplifying** its operation, or lack **generality**.
 
+### Relating Counterfactuals to XAI
+
+How does the ladder of causation relate to explaining deep learning models? Does it even relate?
+
+It was suggested that explanations usually involve _causal reasoning_. An expert may frequently select inputs-outputs to a model which are _known causes-effects_. Then the models _do_ learn something like causal inference (though the graph is external in a sense).
+
+But how does a non-expert know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are _actual_ causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.
+
+This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.
+
+Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking _what if this input was used instead_ and such counterfactual questions.
+
+(A logic-inference section could be added, but at the moment I don't see it adding much useful information.)
+
 ## Overview of methods
 
 Within the _cognitive process_ of explanations, _model explainability_ benefits from methods to identify causes or relevant properties.
