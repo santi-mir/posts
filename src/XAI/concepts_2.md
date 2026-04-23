@@ -18,17 +18,15 @@ Explainability is made harder with more accurate models, since they tend to be m
 
 Moreover, simple explanations can **oversimplifying** its operation, or lack **generality**.
 
-## Relating Counterfactuals to XAI
+## Explaining a prediction via counterfactuals
 
-How does the ladder of causation relate to explaining deep learning models? Does it even relate?
+This framework is explained separately from methods to expand a bit more, but some of the methods use counterfactual-like logic behind.
 
-It was suggested that explanations usually involve _causal reasoning_. An expert may frequently select inputs-outputs to a model which are _known causes-effects_. Then the models _do_ learn something like causal inference (though the graph is external in a sense).
+An expert may frequently select inputs-outputs to a model which are _known causes-effects_, then the models fit the relation of one to the other.
 
-But how does a non-expert know which columns (say form CSV tables) are inputs and which are outputs? Are those inputs are _actual_ causes and not just predictors? This can cause issues down the line, since knowing which are causes and effects is critical in many cases.
+A non-expert know may not know which are the causes, which the effects. And in some cases it does not matter. This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.
 
-This is where having a causal graph is relevant for modelling, to identify actual causes as inputs and effects as outputs.
-
-Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking _what if this input was used instead_ and such counterfactual questions.
+But when the model is already based on a causal graph (first case), a technique of _counterfactuals_ can be used for generating explanations: asking _what if this other input was used instead_, or what if one feature is changed slightly? Such are counterfactual-like questions (if the initial input is considered a fact).
 
 (A logic-inference section could be added, but at the moment I don't see it adding much useful information.)
 

@@ -161,4 +161,49 @@
 <!-- These will depend on the context which defines what the gap is, what the explainee and explainer are familiar with, the level of detail needed and so forth. Some of these are actually aspects of the social process (next section). -->
 <!---->
 <!-- Prior beliefs or knowledge are also used to evaluate the answers, and to omit what is considered obvious in the given context (or audience). -->
+
+
+<!-- #### Causes -->
+<!---->
+<!-- Defining _cause_ has been a topic of debate. -->
+<!---->
+<!-- Two important definitions of _cause_ are usually attributed to David Hume: regularity and counterfactual. -->
+<!---->
+<!-- **Regularity**: an event (cause) is regularly followed by another (effect). Confuses it with _correlation_. -->
+<!---->
+<!-- **Counterfactuals**: imaginary situation negating (countering) the fact: _What would have happened with Y, had X not happened?_. In that case $X$ causes $Y$ (in a necessary or sufficient manner) if $Y$ is reduced. -->
+<!---->
+<!-- We can also characterise causes in many ways. First, as probabilistic vs deterministic: -->
+<!---->
+<!-- **Probabilistic**: $X$ causes $Y$ if $P(Y|X, k) > P(Y)$ i.e. it _increases_ its probability, keeping any other variables ($k$) constant. This and counterfactuals are common conceptions. The number of hunters will be a cause of success at hunting, and is non-deterministic. -->
+<!---->
+<!-- **Deterministic**: cause-effect is a binary relation, rather than probabilistic. The effect occurs with the cause, and does not without it. -->
+<!---->
+<!-- **Mixed**: Deterministic and probabistic causes can be mixed as well. -->
+<!---->
+<!-- Another dimension is _necessary_ and _sufficient_ causes which is skipped for now. -->
+<!---->
+<!-- The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes: -->
+<!---->
+<!-- 1. Use a causal diagram: a graph made from prior causal knowledge, or find out doing an experiment, -->
+<!-- 2. Use a query language: a mathematical expression of what we want to know, which an engine then translates (using the diagram) into a statistics formula. -->
+<!---->
+<!-- Robots could reach different levels of causal reasoning based on its actions (on the world): 1. Association, 2. Intervention, 3. Imagination. Each level is explained below. -->
+<!---->
+<!-- An event is **associated** to another if observing one changes the likelihood of observing another, or _regularity_. -->
+<!---->
+<!-- Many questions can be answered with this information only, and it's the main area where statistics is used. However, this relates raw-data and in many cases there won't be any causal relationship, like predicting windows from the fact that there is a door, so prediction and causality are different, and in some problems prediction is what is required. -->
+<!---->
+<!-- For example: _Do taller people have larger feet?_ for example. Or the conditional probability $P(Tall | Large feet)$. But this does not show if there is a causal relation. -->
+<!-- Tool: To remove con-founders randomised control trial (RCT) can be used. However, the cause may be something they share rather than one or the other (like a gene). For a process unfolding in time, it will determine the cause. -->
+<!---->
+<!-- _Intervention_ second rung of the ladder. Involves changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as $P(Y|do(X))$, which is then translated into a statistics formula. -->
+<!---->
+<!-- _Imagination_ is the top of the ladder. Involves counterfactual thinking, that is, thinking what would happen in a different world, also called _What ifs_. -->
+<!--    - Example: What would have happened with his life expectancy, had Joe _not_ taken the drug? -->
+<!---->
+<!-- We can think of how far certain scientific models (including DL models), living organisms, reach in that ladder, but it's easiest to first read it thinking about robots. -->
+<!---->
+<!-- > [!Note] -->
+<!-- > Counterfactuals involve a fact, which is always in the past, hence a counterfactual it is always retrospective thinking. Planning / predicting are very similar, all involving simulating situations. For planning, humans may synthesize a reference-situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.) -->
 <!---->
