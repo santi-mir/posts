@@ -5,6 +5,7 @@ Explanations were defined and characterised &mdash;in simple terms&mdash; in the
 In Explainable AI (XAI), what primarily needs explanation is the model. _Model explainability_ can be defined as:
 
 > The degree to which we can answer questions about the model's inner working and outputs.
+
 The goal is to explain a model, and do it to some audience (which could be ourselves).
 
 Explainability is made harder with more accurate models, since they tend to be more complex.
@@ -19,8 +20,22 @@ Explainability is made harder with more accurate models, since they tend to be m
 Moreover, simple explanations can **oversimplifying** its operation, or lack **generality**.
 
 ## Explaining a prediction via counterfactuals
-
 This framework is explained separately from methods to expand a bit more, but some of the methods use counterfactual-like logic behind.
+
+<details><summary>A toy example</summary>
+
+Let's take an imaginary model and its predictions: $\mathbf{y} = f(\mathbf{x})$. One expectation is that it's accurate. Suppose this is modelling weather, and using whether people take an umbrella as input variable. It reaches high accuracy and we are happy.
+
+If we wanted to answer, what if the persons didn't take the umbrella? It does still rain. Why? There may be different reasons:
+
+1. The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
+2. The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
+
+Let's say we change it to use causal variables instead. How do we know that we have _all_ the _causal inputs_? And how do we know it has built an accurate _and also robust_ model of the world?
+
+We expect these models to be useful in different cases, but the latter should be more robust.
+
+</details>
 
 An expert may frequently select inputs-outputs to a model which are _known causes-effects_, then the models fit the relation of one to the other.
 

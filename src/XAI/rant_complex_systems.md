@@ -191,7 +191,7 @@
 <!---->
 <!-- An event is **associated** to another if observing one changes the likelihood of observing another, or _regularity_. -->
 <!---->
-<!-- Many questions can be answered with this information only, and it's the main area where statistics is used. However, this relates raw-data and in many cases there won't be any causal relationship, like predicting windows from the fact that there is a door, so prediction and causality are different, and in some problems prediction is what is required. -->
+<!-- Many questions can be answered (or events predicted) :_why-question_with this information only, and it's the main area where statistics is used. However, this relates raw-data and in many cases there won't be any causal relationship, like predicting windows from the fact that there is a door, so prediction and causality are different, and in some problems prediction is what is required. -->
 <!---->
 <!-- For example: _Do taller people have larger feet?_ for example. Or the conditional probability $P(Tall | Large feet)$. But this does not show if there is a causal relation. -->
 <!-- Tool: To remove con-founders randomised control trial (RCT) can be used. However, the cause may be something they share rather than one or the other (like a gene). For a process unfolding in time, it will determine the cause. -->
