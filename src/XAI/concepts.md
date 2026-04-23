@@ -1,43 +1,31 @@
 # Explanations
 
-Explanations are usually defined as answers to a _why-question_, with certain properties and structure. There are definitions extending the _question-type_, and more flexible in terms of what counts as an answer.
+Explanations are usually defined as answers to a _why-question_, with certain properties and structure.
+
+There are definitions extending the _question-type_, or considering that the _why-question_ may be implicit, or analysing pieces of text (such as a lesson, which is an explanation) rather than the question.
+
+All these definitions have aspects considered here; for example, the question needn't be posed, but if it is or is inferred, it may help answering.
+
+Either way, an answer or explanation should have characteristics of its own, regardless of the question.
 
 ## Characteristics of explanations
 
-Explanations can be characterised as a:
+Generating explanations involve a _cognitive_ and a _social_ process. Below I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-1. _Cognitive process_: the process of finding an answer; we can expand it (if the answer is already known, only `5.` is needed):
-  1. There is _something_ to explain (_explanandum_),
-  2. The explainer _filters_ aspects of the _explanandum_ deemed relevant (using prior knowledge),
-  3. _Generates_ possible answers (through explanation techniques),
-  4. _Weight_ the likelihood of each hypotheses,
-  5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),
-2. _Product_: the answer, as in the prior definition,
-3. _Social process_: The answer must then be communicated, and there are expectations about it. [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. These rules can also be used as a guide for good _model explanations_:
-   - **Informative** (Quantity): right amount of context and details,
-   - **Truthful** (Quality, or Fidelity): Try to make it true,
-   - **Relevance** (Relation): do not state things that aren't needed (provide insight),
-   - **Manner** (clarity): express it in elegant terms.
+### Cognitive Process
 
-Which is a customised version of [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
+The _cognitive process_ is the process of finding an answer, involving:
 
-Importantly, the paper above notes that _why-questions_ are usually **contrastive questions** e.g. phrased as _why P rather than Q_ instead of _why P_, where the _foil_ (Q) is frequently implicit.
+1. There is _something_ to explain (_explanandum_),
+2. The explainer _filters_ aspects of the _explanandum_ deemed relevant (using prior knowledge),
+   - If the explanation is known, retrieve it and skip the rest.
+3. _Generates_ possible answers (through explanation techniques),
+4. _Weight_ the likelihood of each hypotheses,
+5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation).
 
-## Explanatory success
+_Finding an answer_ involves creativity, and a separate matter. But there are desirable qualities for answers, depending on context, question, audience, we may expect a _cause_, that is _testable_, _general_. Let's expand on _causal inference_.
 
-There are aspects that tend to make explanations more successful:
-
-- **Simplicity**: if it involves a shorter chain of causes, it is preferred,
-- **Generality**: if it explains other cases, it is preferred,
-- **Prior knowledge/beliefs**
-    - Conditions generation and veto of hypotheses. For example, "The drawer slides because it wants." may be ignored in different basis. Another illustrative example from [The structure and function of explanations][lombrozo]:
-    > (...) If told that herring and tuna have a disease, naive participants are more likely to extend the property to wolffish, the more similar item, than to dolphins. However, among fishing experts, who can generate an explanation for why the property might hold (e.g. tuna contract the disease by eating infected herring), similarity is less predictive of property extensions. (...)
-
-    - Aids selecting what seems causally / explanatory relevant from what is not. Consider two light beams interfering on a Sunday. The day is irrelevant (usually), we disregard a confounding factor.
-
-I don't have much to say about _product_ (`2.`), so we jump to `3`.
-
-## Causal Inference
+#### Causal Inference
 
 Defining _cause_ has been a topic of debate.
 
@@ -46,7 +34,11 @@ Two important definitions of _cause_ are usually attributed to Hume: regularity 
 - **Regularity**: things that occur together, or are always followed one after another. Confuses it with _correlation_.
 - **Counterfactuals**: imaginary situation negating (countering) the fact: _What would have happened with Y, had X not happened?_. In that case $X$ causes $Y$ (in a necessary or sufficient manner) if $Y$ is reduced.
 
-In statistics, one could say that $X$ causes $Y$ if $P(Y|X, k) > P(Y)$ i.e. it _increases_ its probability, keeping any other variables ($k$) constant. This and counterfactuals are common conceptions.
+On the one hand, in statistics, one could say that $X$ causes $Y$ if $P(Y|X, k) > P(Y)$ i.e. it _increases_ its probability, keeping any other variables ($k$) constant. This and counterfactuals are common conceptions.
+
+On the other hand, a "binary view" is either a cause or not, without degrees. This is a deterministic view, the statistical one is not.
+
+The number of hunters will be a cause of success at hunting, but will be a matter of degree not a binary. Deterministic and statistical causes can be mixed as well.
 
 The AI researcher Judea Pearl, whose aim was to create thinking machines, proposed a framework to think about causes:
 
@@ -57,7 +49,10 @@ Briefly put, ladder's steps are:
 
 - _Association_: relating raw-data with no causal information.
 - _Intervention_: changing one variable to detect the causal relation , this is, doing an experiment. He wrote this as $P(Y|do(X))$, which is then translated into a statistics formula.
-- _Imagination_: involves counterfactual thinking, that is, thinking what would happen in the opposite world.[^1] What would have happened with his life expectancy, had Joe _not_ taken the drug?
+- _Imagination_: involves counterfactual thinking, that is, thinking what would happen in the opposite world. What would have happened with his life expectancy, had Joe _not_ taken the drug?
+    - Since a fact is in the past, a counterfactual it is always retrospective thinking.
+    - Planning and predicting involves considering many possibilities, and both involve simulating situations, usually without retrospective thinking.
+    - Maybe humans synthesize a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.)
 
 How does all this relate to science or deep learning? An expert may frequently select inputs-outputs to a model which are _known causes-effects_. Then the models _do_ learn something like causal inference (though the graph is external in a sense).
 
@@ -68,6 +63,32 @@ This is where having a causal graph is relevant for modelling, to identify actua
 Counterfactuals then, can be used in DL models as long as the inputs are known causes. This is in fact using counterfactual-methods for generating explanations: asking _what if this input was used instead_ and such counterfactual questions.
 
 (A logic-inference section could be added, but at the moment I don't see it adding much useful information.)
+
+### Social Process
+
+The _social process_ involves communicating the answer, and there are expectations about it. [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. These rules can also be used as a guide for good _model explanations_:
+
+- **Informative** (Quantity): right amount of context and details,
+- **Truthful** (Quality, or Fidelity): Try to make it true,
+- **Relevance** (Relation): do not state things that aren't needed (provide insight),
+- **Manner** (clarity): express it in elegant terms.
+
+Importantly, the paper above notes that _why-questions_ are usually **contrastive questions** e.g. phrased as _why P rather than Q_ instead of _why P_, where the _foil_ (Q) is frequently implicit.
+
+## Explanatory success
+
+There are aspects that tend to make explanations more successful:
+
+- **Simplicity**: if it involves a shorter chain of causes, it is preferred,
+- **Generality**: if it explains other cases, it is preferred,
+- **Testable**: Can we do hypothesis testing via an experiment?
+- **Prior knowledge/beliefs**
+    - Conditions generation and veto of hypotheses. For example, "The drawer slides because it wants." may be ignored in different basis. Another illustrative example from [The structure and function of explanations][lombrozo]:
+    > (...) If told that herring and tuna have a disease, naive participants are more likely to extend the property to wolffish, the more similar item, than to dolphins. However, among fishing experts, who can generate an explanation for why the property might hold (e.g. tuna contract the disease by eating infected herring), similarity is less predictive of property extensions. (...)
+
+    - Aids selecting what seems causally / explanatory relevant from what is not. Consider two light beams interfering on a Sunday. The day is irrelevant (usually), we disregard a confounding factor.
+
+I don't have much to say about _product_ (`2.`), so we jump to `3`.
 
 ## Metaphors
 
@@ -129,5 +150,3 @@ Many other metaphors could be proposed.
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
 [xx]: http://arxiv.org/abs/1806.00069
-
-[^1]:  Since a fact is in the past, it is always retrospective thinking. Planning and predicting involves considering many possibilities, and both involve simulating situations. It's interesting to imagine future-situation thinking as synthesizing a reference situation, and "counter-reference" to it as a tool for planning, predicting. For a robot though, the issue would be how to construct this initial situation (which will involve a lot of its history, past experience etc. maybe things like LLMs are good at this.)
