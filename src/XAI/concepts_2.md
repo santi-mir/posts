@@ -9,6 +9,7 @@ In Explainable AI (XAI), what primarily needs explanation is the model. _Model e
 The goal is to explain a model, and do it to some audience (which could be ourselves).
 
 ## Trade-offs
+
 In deep learning practice, explainability _tends to_ be harder with more accurate models, since they _tend to_ be more complex.
 
 <div class="center w30">
@@ -33,10 +34,10 @@ It reaches low evaluation error and everyone is happy.
 However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:
 
 1. The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
-    - With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.
-    - This _is_ useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.
+   - With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.
+   - This _is_ useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.
 2. The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
-    - Using causal models may help to overcome the problems highlighted in the previous point. It's _a bit like_ turning it into a law or theory expected to have found some deep structure that generates the data, even the unseen data.
+   - Using causal models may help to overcome the problems highlighted in the previous point. It's _a bit like_ turning it into a law or theory expected to have found some deep structure that generates the data, even the unseen data.
 
 The model is then modified to use causal variables instead (such as pressure and temperature), implicitly turning it into a _causal model_. But does it have _all_ the _causal inputs_?
 
