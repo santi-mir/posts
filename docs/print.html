@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-344ddc28.js";
+            window.path_to_searchindex_js = "searchindex-4bb87a07.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-4392cbfe.js"></script>
@@ -577,9 +577,10 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <p>An expert may pick known causes-effects pairs as inputs-outputs to train a model. A non-expert, may not know which are the causes and this <em>can</em> be problematic (we may be building a correlation model).Finding this out is itself quite hard.</p>
 <p>That aside, a subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. (In some cases though, we may be just fine with a correlation model, but we should distinguish them.)</p>
 <h3 id="comparing"><a class="header" href="#comparing">Comparing</a></h3>
-<p>We sketched that generalisation out of distribution is connected to causal models —those going beyond correlation.</p>
-<p>But how do we <em>explain</em> such models? This is where counterfactuals can help. And more broadly, <em>comparing</em> how different inputs and their outputs.</p>
-<p><em>Counterfactuals</em> can be used for generating explanations: asking <em>what if this other input was used instead</em>, or what if one feature is changed slightly? Such are counterfactual-like questions (if the initial input is considered a fact). We can use counterfactuals either changing features of the input (even if this makes it novel), or comparing with reference inputs.</p>
+<p>A model that does correlation is more likely to fail out of distribution, because it has not learnt the correlation. Causal models should in principle have less of this issue.</p>
+<p>To explain these causal models we can use counterfactuals which will likely be out of distribution, hence the causal model is favoured.</p>
+<p><em>Counterfactuals</em> ask <em>what would happen if this other input (fact) was used instead of the former one</em>, or if one feature is changed slightly?</p>
+<p>In a similar fashion to counterfactuals, we can compare with reference inputs.</p>
 <p>Both of these are known techniques listed in the next section.</p>
 <!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
 <h2 id="overview-of-methods"><a class="header" href="#overview-of-methods">Overview of methods</a></h2>
