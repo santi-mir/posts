@@ -18,16 +18,19 @@ Questions can be hint what _the gap_ is. _The gap_ though, oversimplifies learni
 
 Generating explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-### Cognitive Process
-
-The _cognitive process_ is the process of finding an answer, involving:
+The process of explaining involves:
 
 1. There is _something_ to explain (_explanandum_),
 2. The explainer _filters_ aspects of the _explanandum_ deemed relevant (using prior knowledge),
    - If the explanation is known, retrieve it and skip the rest.
 3. _Generates_ possible answers (through explanation techniques),
 4. _Weight_ the likelihood of each hypotheses,
-5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation).
+5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),
+6. Communicating it to an audience the _social process_
+
+2&ndash;5 are also the _cognitive process_ of an explanation, and may be called the process of _understanding_.
+
+Now let's expand on the last step, the _social process_.
 
 ### Social Process
 

@@ -12,7 +12,8 @@ Connectivism seems inspired by:
    - These both were from the start problems about networking; heterogeneous devices or resources linked together,
    - These technologies opened up access to a network of resources and people.
 2. The view of an individual as a network of neurons,
-3. The view of other systems as organisms, like organisations.
+3. The view of other systems as organisms, like organisations. The paper linked above states:
+    > The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.
 
 What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.
 
@@ -32,11 +33,14 @@ Here no _optimal_ characteristics will be listed, only questions, since the answ
 
 In a network, one node or link changing means much more has changed due to the ripple effects given by the links.
 
-The theory defines learning and knowledge as:
+The theory defines knowledge and learning as:
 
-**Learning**: from the inside, it is defined as a change of connections; this, from the outside, later on leads to appropriate responses (to a signal or stimuli.)
-
-**Knowledge** from the inside, it is stored distributed across the net (in nodes, edges) in a latent manner; it is evidenced, from the outside, as an appropriate response to an input signal or stimuli. It involves pattern recognition as well. Robustness and persistence may also be requirements for the response to be _knowledge_ (rather than chance).
+- **Knowledge**
+    - Network view: it is stored distributed across the net (in nodes, edges) in a latent manner.
+    - Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
+- **Learning**
+    - Network view: a change of network connections by exposure to experience and reasoning.
+    - Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
 
 ## Tempting cut-off
 
