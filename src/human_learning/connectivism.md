@@ -9,8 +9,8 @@ Theories of learning abound. Connectivism[^connectivism_siemens] seems to have n
 Connectivism seems inspired by:
 
 1. The Internet, and later on the World Wide Web,
-    - These both were from the start problems about networking; heterogeneous devices or resources linked together,
-    - These technologies opened up access to a network of resources and people.
+   - These both were from the start problems about networking; heterogeneous devices or resources linked together,
+   - These technologies opened up access to a network of resources and people.
 2. The view of an individual as a network of neurons,
 3. The view of other systems as organisms, like organisations.
 
@@ -19,6 +19,7 @@ What is considered a node is defined by us. It could be an individual, a group, 
 The first item (`1.`) seems most connected to the origin of the theory of connectivism: _the raise of a digital, interconnected world_.
 
 ## Characteristics of networks
+
 There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.
 
 These characteristics can help us raise a few questions regarding networked learning environments.
@@ -64,6 +65,7 @@ It appears of especial important in the digital, interconnected world; but also 
 An important idea here from connectivism is that learning isn't only intra-personal; networks of other kinds can learn, too (in the sense described further up this section).
 
 ## A human is a net (theory of mind)
+
 We also want to focus on the individuals. Can connectivism help?
 
 Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.
@@ -99,12 +101,11 @@ So networks of inanimate objects usually change via humans rearranging, adding a
 
 Hence, what will define if the networks learn is what kind of conditions are put to the kinds of stimuli / input signals, and what constitutes a behaviour or output signal.
 
-
 <details><summary>Resources</summary>
 
 1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-    - A more extensive work is at [Connectivism][connectivism_downes] (2021).
-    - Similarly, [Connectivism: a knowledge learning theory for the digital age?][connectivism_goldie] (2016)
+   - A more extensive work is at [Connectivism][connectivism_downes] (2021).
+   - Similarly, [Connectivism: a knowledge learning theory for the digital age?][connectivism_goldie] (2016)
 </details>
 
 [connectivism_siemens]: https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf

@@ -116,7 +116,7 @@ In other words, classical ML and DL models each have their use-cases.
 <summary>List of sources used in this blogpost</summary>
 
 1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-    - A more extensive work is at [Connectivism][connectivism_downes] (2021).
+   - A more extensive work is at [Connectivism][connectivism_downes] (2021).
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
 </details>
