@@ -57,6 +57,14 @@ Both of these are known techniques listed in the next section.
 
 <!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
 
+### Higher-Level Aspects of Networks
+
+The recognition of higher level patterns in graph can also span across methods.
+
+These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes.
+
+A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].
+
 ## Overview of methods
 
 Within the _cognitive process_ of explanations, _model explainability_ benefits from methods to identify causes or relevant properties.
@@ -107,9 +115,10 @@ In other words, classical ML and DL models each have their use-cases.
 <details>
 <summary>List of sources used in this blogpost</summary>
 
+1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+    - A more extensive work is at [Connectivism][connectivism_downes] (2021).
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
-2. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
-
+1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
 </details>
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
