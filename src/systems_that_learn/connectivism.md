@@ -28,15 +28,13 @@ There are types of nodes and edges (or links) with different properties. For exa
 
 The theory views knowledge and learning as properties of networks, and defines them as:
 
-**Knowledge**
+- **Knowledge**
+    - Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.
+    - Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
 
-- Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.
-- Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
-
-**Learning**
-
-- Network view: a change of network connections by exposure to experience and reasoning.
-- Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
+- **Learning**
+    - Network view: a change of network connections by exposure to experience and reasoning.
+    - Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
 
 In a network, one node or link changing means much more has changed due to the ripple effects given by the links.
 
