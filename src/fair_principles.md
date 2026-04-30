@@ -6,17 +6,15 @@ The paper states:
 
 > [good data management] is the key conduit leading to knowledge discovery and innovation.
 
-We can imagine each researcher solving a puzzle; if the data (the puzzle piece) is unfindable, untrustworthy (non-reproducible), inscrutable (non-accessible) then the research is harmed.
+We can imagine science as an activity of "solving the puzzle of knowledge together".
+Theories, observations, workflows, processing pipelines and algorithms, software and other data are the puzzle pieces. If the piece is unfindable, untrustworthy (non-reproducible), inscrutable (non-accessible) then the research is harmed.
 
-By complying with the opposite of those, researchers would earn citations by publishing the data objects, while enhancing transparency of discoveries.
-
-At the same time other researchers can build on the discoveries, and the fields' results themselves earn trust by being more tested, better reproduced.
-
-Here data includes also algorithms, tools, workflows and processing pipelines.
-Hence, software and tool-builders would get recognition for their published data-objects; it'd also enhance data-mining and have other benefits.
+By complying with the opposite of those, _researchers_ would earn citations through publishing data-objects. _Software developers_ can also get recognition for their published data-objects; _peer-researchers_ can then test and reuse the results, while enhancing data-mining and have other areas.
 
 ## For humans and machines
 
 Different from other frameworks, FAIR is concerned about how non-human agents and tools would discover, retrieve and be able to use the data.
+
+<!--How to identify which are independent data objects, and where to publish each kind?-->
 
 <!-- Metaphors as graph-learning tools? They help us see and remember relationships between nodes by overlapping graphs. -->
