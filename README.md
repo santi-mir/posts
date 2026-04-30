@@ -1,10 +1,10 @@
-# Blog
+# Notes
 
-Where I write my thoughts on topics related to AI for chemistry.
+Where I write my thoughts on topics related to AI, XAI, and AI for chemistry.
 
-The posts are normally very short, some of them in a few parts.
+The posts are normally short, some of them in a few parts.
 
-**URL**: <https://santi-mir.github.io/notes>.
+**URL**: <https://santi-mir.github.io/posts>.
 
 ## Build
 
