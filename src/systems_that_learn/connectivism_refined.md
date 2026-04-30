@@ -11,7 +11,8 @@ Different networks vary on:
 - The breath of signals they are responsive to,
 - The intensity of signals they are responsive to,
 - How varied their response is,
-- How much directionality there is to the process.
+- How much directionality there is to the process,
+- Possibly others (still thinking on it).
 
 The hypothesis is that, what we ordinarily call a _learning system_ maps to:
 
@@ -19,7 +20,13 @@ The hypothesis is that, what we ordinarily call a _learning system_ maps to:
 
 Usually, _networks of_ complex systems or of hybrid systems also change complex ways and will also be _learning systems_.
 
-On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered _learning systems_ even though the actual mechanism of learning is present.
+On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered _learning systems_.
+
+In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not _learning systems_.
+
+Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.
+
+We could say that there is a threshold of a binary function $f(Complexity,Degree_Adapt,Stores_Changes)$ were systems are considered at _learners_. There will also be, certainly, grey areas.
 
 ## With that, which one learns?
 
