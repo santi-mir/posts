@@ -2,6 +2,8 @@
 
 Theories of learning abound. Connectivism[^connectivism_siemens] seems to have never been fully fledged out, but it is an interesting case where the central object of the theory are **networks**.
 
+On this post, the idea isn't just presented but is further refined. It's still incomplete in my view.
+
 > **Networks**
 >
 > Collections of linked nodes or items.
@@ -11,6 +13,7 @@ Connectivism seems inspired by:
 1. The Internet, and later on the World Wide Web,
    - These both were from the start problems about networking; heterogeneous devices or resources linked together,
    - These technologies opened up access to a network of resources and people.
+   - The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.
 2. The view of an individual as a network of neurons,
 3. The view of other systems as organisms, like organisations. The paper linked above states:
     > The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.
@@ -42,16 +45,6 @@ The theory defines knowledge and learning as:
     - Network view: a change of network connections by exposure to experience and reasoning.
     - Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
 
-## Tempting cut-off
-
-It is tempting to say that only networks with agents will be considered as networks that learn.
-
-But what about artificial neural networks? And then, including those, it's hard to think of removing anything else.
-
-It seems more correct to assume there a range of stimuli or signals that networks and nodes are receptive to, and also a range of changes this can produce.
-
-At the same time, it does seem off to say that a colony of bacteria or a crystal that is growing is simply learning or stores knowledge.
-
 ## A human in the net
 
 Let's now turn to the first case given earlier `1)`.
@@ -77,33 +70,31 @@ So can parts of the brain, which are networks of neurons, and learning is later 
 
 You can think of distributed knowledge as "No node or edge is uniquely responsible many parts of the whole network" are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.
 
-## Do all nets learn?
+## Refining Connectivism
 
-Maybe a distinction could be made on whether the networks learn by noting whether they change and evolve left on their own upon a stimuli or signal, or whether changes in the nodes and edges are done by an external event directly.
+### Which one learns?
 
-If they can't do it by their own, they do not learn, there isn't a process or algorithm through which they change across the given inputs of interest.
+- _Do biological networks learn?_ It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built-in to the brain. E.g. Hebbian Learning in biological nets.
+- _Do artificial neural networks (ANNs) learn?_ During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. However, most ANNs only learn during this process. It is otherwise static and does not learn.
+- _Does a colony of insects learn?_ Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.
+    - But is this "reaction", or emergent behaviour, the same as learning?
+- _Does the world wide web, or a library learn?_ If we define learning systems as those which update themselves i.e. there is a mechanism of update within what is considered the system, then yes, otherwise no. So these systems only update when considered as hybrid, humans-web, or humans-library systems.
+    - The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them
+- _Or that the electric grid learns?_ Same as above.
+- _Does a molecule or a material, which can be represented as a graph, learn, as it evolves towards lower energy?_ Probably not, they change, but there is no sense in which they now respond appropriately, nor it is obvious the system has an update algorithm backed in.
+- _Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems(say a book), learn?_ Yes, especially if we consider a company, a community and so forth.
 
-Does a colony of insects learn in the same way? Does an artificial neural network learn? What do we mean exactly?
-
-Does the world wide web learns? Or that the electric grid learns? Or a library? Does a molecule or a material, which can be represented as a graph, learn?
-
-We can propose as paradigmatic the case of a biological neural network. It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways (Hebbian Learning in NNs to backpropagation in ANNs).
+So a distinction can be made on whether the networks learn by specifying whether the system includes an internal update mechanism. If they don't have a built in mechanism or process or updating algorithm, should they be understood as learners? The proposal here is that they don't.
 
 In general, the change depends on a stimuli, or signal propagated through the network first. It is possible that simulation and thinking can also do this to an extent, but we could still consider these as a kind of input.
 
-Certainly an ant colony, or a swarm of fish or birds can learn as a whole, which does depend on the learning of the items.
-
-However, we could imagine that any network of objects which is changed by the stimuli and retains or records a modification (maybe a network of magnets) will then behave differently, and even learn.
-
-In this sense, a lot of networks can learn, and store knowledge, both biological, artificial, and non-biological.
-
-One difference it seems, is the degree to which networks are sensitive to patterns outside of it, and how much they can adapt or change with it.
-
-In the case of a library, we can't even change the books (usually), and sometimes even getting access is hard. But other humans sort them and to the extent "the stimuli" or the input signal is a person searching for information (or a query), the network can route the person to a useful right resource, there may be a person mediating or simply other written instructions.
+### Other aspects that stand out
+Different networks vary on whether they response kind and intensity of signals, and how varied their response is.
 
 So networks of inanimate objects usually change via humans rearranging, adding and removing the objects. Some books which are never requested may be removed, for example.
 
 Hence, what will define if the networks learn is what kind of conditions are put to the kinds of stimuli / input signals, and what constitutes a behaviour or output signal.
+
 
 <details><summary>Resources</summary>
 
