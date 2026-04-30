@@ -32,7 +32,7 @@ The theory views knowledge and learning as properties of networks, and defines t
 
 **Knowledge**
 
-- Network view: it is stored distributed across the net (in nodes, edges) in a latent manner.
+- Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.
 - Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
 
 **Learning**
@@ -71,9 +71,8 @@ In the case of a classroom, this framework may aid us with questions such as:
 We also want to focus on the individuals. Can connectivism help?
 
 Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.
-So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.
 
-You can think of distributed knowledge as "No node or edge is uniquely responsible many parts of the whole network" are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.
+So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.
 
 <details><summary>Resources</summary>
 
