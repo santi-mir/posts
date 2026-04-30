@@ -89,12 +89,12 @@ So a distinction can be made on whether the networks learn by specifying whether
 In general, the change depends on a stimuli, or signal propagated through the network first. It is possible that simulation and thinking can also do this to an extent, but we could still consider these as a kind of input.
 
 ### Other aspects that stand out
+
 Different networks vary on whether they response kind and intensity of signals, and how varied their response is.
 
 So networks of inanimate objects usually change via humans rearranging, adding and removing the objects. Some books which are never requested may be removed, for example.
 
 Hence, what will define if the networks learn is what kind of conditions are put to the kinds of stimuli / input signals, and what constitutes a behaviour or output signal.
-
 
 <details><summary>Resources</summary>
 
