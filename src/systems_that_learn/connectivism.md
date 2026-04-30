@@ -26,18 +26,17 @@ What is considered a node is defined by us. It could be an individual, a group, 
 
 There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.
 
-### Knowledge and Learning
+## Knowledge and Learning
 
-The theory views knowledge and learning as properties of networks.
+The theory views knowledge and learning as properties of networks, and defines them as:
 
-The theory defines knowledge and learning as:
+**Knowledge**
+- Network view: it is stored distributed across the net (in nodes, edges) in a latent manner.
+- Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
 
-- **Knowledge**
-    - Network view: it is stored distributed across the net (in nodes, edges) in a latent manner.
-    - Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
-- **Learning**
-    - Network view: a change of network connections by exposure to experience and reasoning.
-    - Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
+**Learning**
+- Network view: a change of network connections by exposure to experience and reasoning.
+- Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
 
 In a network, one node or link changing means much more has changed due to the ripple effects given by the links.
 
@@ -53,7 +52,11 @@ Let's consider the case of a human or agent embedded in a wider network such as 
 
 This networks can be seen as an metaphorically organism, or just as a whole: when the connections and nodes change and so does the behaviour in response to input signals, which in certain cases will imply learning, and formation of knowledge.
 
-Think for example of the response of an organisation in the event of a fire or an emergency, how the input (fire alarm) ripples through the network as the nodes act and propagate activity: learning isn't _only_ intra-personal, the whole network can be said to have learnt in this example.
+### Example
+
+Think of the response of an organisation in the event of a fire or an emergency.
+
+The input (fire alarm) ripples through the network as the nodes act and propagate activity: learning isn't _only_ intra-personal, the whole network can be said to have learnt in this example.
 
 In the case of a classroom, this framework may aid us with questions such as:
 
