@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-f540e2af.js";
+            window.path_to_searchindex_js = "searchindex-298bd773.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-32a3ac59.js"></script>
+        <script src="toc-f620aed5.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -180,8 +180,8 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="blog-ai4chem"><a class="header" href="#blog-ai4chem">Blog AI4Chem</a></h1>
-<p>Welcome to the blog!</p>
+<h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
+<p>These are my thoughts on topics related to AI, XAI, AI for chemistry.</p>
 <h2 id="organisation"><a class="header" href="#organisation">Organisation</a></h2>
 <ul>
 <li>
@@ -201,35 +201,24 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom-vectors"><a class="header" href="#atom-vectors">Atom vectors</a></h1>
-<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
-<p>I thought about titling this <em>The quest for good representations</em> but it was too pretentious since the post is simply concerned with materials.</p>
-<p>However, there is an interesting aside I would like to make. In two different stories, the writer Jorge Luis Borges highlights aspects <em>contrary</em> to intelligence.</p>
-<p>One is "The Library of Babel", an infinite library which contains all possible books; the other, "Funes the memorious" where the character (Funes) records events <em>exactly</em> as they happen with unbearable detail.</p>
-<p>A similar theme can be found in John Searle's "Minds, Brains and Machines".</p>
-<p>A database or an infinitely large model, storing most compounds and properties, would answer all questions, but not about those unavailable.</p>
-<p>Compressing a wealth of information, selecting what matters for prediction are good characteristics of models and representations; of theories and laws within science.</p>
-<p>Good theories also tend to give more than it is put in, that is, lead to discoveries and new hypotheses.</p>
-<h2 id="representing-atoms"><a class="header" href="#representing-atoms">Representing atoms</a></h2>
-<p><em>Atom vectors</em> is a broad category. Narrower categories are:</p>
+<p>The quest for <em>machine representations of objects</em> is a long standing research theme.</p>
+<p><em>Vector representations</em> are one kind of machine representation, and may be further broken down in: <em>descriptors</em>, which are expert-designed vectors, and <em>embeddings</em>, which are machine-learnt vectors <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span>.</p>
+<p>This post focuses on <em>embeddings</em> since they require less human effort, and produce more general-purpose vectors.</p>
+<h2 id="characteristics-of-embeddings"><a class="header" href="#characteristics-of-embeddings">Characteristics of Embeddings</a></h2>
+<p><em>Embeddings</em> are usually real-valued, dense rather than sparse, non-human readable. They also form a structured vector-space, with semantically similar vectors close together, and meaningful vector-arithmetic.</p>
+<p>It is desirable, but not always possible that they:</p>
 <ul>
-<li><em>Descriptor</em>: used for expert-designed vectors,</li>
-<li><em>Embedding</em>: used for machine-learnt vectors.</li>
-</ul>
-<p>These vector representations are of interest because they can be useful inputs for training machine-learning models.<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
-<p>Here we are interested in methods that don't require human expertise, hence <em>descriptors</em> won't be discussed.</p>
-<h3 id="embeddings"><a class="header" href="#embeddings">Embeddings</a></h3>
-<p>Embeddings are <em>machine-learnt vectors <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span>.</em> Normally, they are also:</p>
+<li>Are interpretable,</li>
+<li>Can be generated with data scarce environments,
 <ul>
-<li>Dense rather than sparse i.e they have few zeros,</li>
-<li>Real-valued rather than discrete,</li>
-<li>Non-human-readable (though some parts may be interpretable),</li>
-<li>Belong to a structured vector space: semantically similar vectors are close together and allow for meaningful vector-arithmetic.</li>
+<li>Or are data-hungry but it is easily available,</li>
 </ul>
-<p>Dense vectors are useful because training will be faster (than a similar sparse version).</p>
-<h4 id="some-background-on-embeddings"><a class="header" href="#some-background-on-embeddings">Some Background on Embeddings</a></h4>
+</li>
+</ul>
+<h2 id="embeddings-for-atoms"><a class="header" href="#embeddings-for-atoms">Embeddings for Atoms</a></h2>
 <p>Embeddings for atoms were inspired by NLP models from the 2010s.</p>
 <p>One such example was learning <a href="https://arxiv.org/abs/1301.3781v3">continuous vector representations of words</a> (2013). They proposed an automated mechanism to generate word-vectors by absorbing information from that word's environment (neighbouring words).</p>
-<p>Materials science has exploited the same ideas, for example:</p>
+<p>In chemistry, embeddings can be used for downstream machine-learning tasks such as materials' property prediction, so they became popular in the field. Materials science has exploited the same ideas, for example:</p>
 <ul>
 <li><q>properties of an atom can be inferred from the environments it lives in</q> (<a href="https://pnas.org/doi/full/10.1073/pnas.1801181115">Atom2Vec</a>, 2018),</li>
 <li><q>atoms are to compounds as words are to sentences</q> (<a href="https://www.nature.com/articles/s41524-022-00729-3">SkipAtom</a>, 2022),</li>
@@ -237,10 +226,8 @@
 <p>The surprise was that similar words (or atoms) end up with similar vectors. The vectors also support semantically meaningful arithmetic operations, and became useful for downstream tasks. A classic example was:</p>
 <pre><code class="language-txt">vector("Queen") = vector("King") - vector("Man") + vector("Woman")
 </code></pre>
-<h3 id="vectors-in-chemistry"><a class="header" href="#vectors-in-chemistry">Vectors in Chemistry</a></h3>
-<p>As discussed earlier, atom vectors can be expert-designed or they can be <em>learnt</em> by an algorithm. Learning vectors yields more general-purpose vectors, and has won in popularity.</p>
 <p>Both <a href="https://pnas.org/doi/full/10.1073/pnas.1801181115">Atom2Vec</a> (2018) and <a href="https://www.nature.com/articles/s41524-022-00729-3">SkipAtom</a> (2022) are unsupervised algorithms that obtain their atom vectors from databases of compounds. Atom vectors can be combined into compound vectors, and used for downstream tasks like property-prediction.</p>
-<h4 id="classifications-and-featurisers"><a class="header" href="#classifications-and-featurisers">Classifications and Featurisers</a></h4>
+<h3 id="classifications-and-featurisers"><a class="header" href="#classifications-and-featurisers">Classifications and Featurisers</a></h3>
 <p>The method used to generate our vectors is called a <em>featuriser</em> (we can use a featuriser or create our own). There are many common approaches:</p>
 <ul>
 <li>Simple: like hot-encoded, random;</li>
@@ -248,7 +235,7 @@
 <li>Machine-learnt: embeddings, like SkipAtom.</li>
 </ul>
 <p>Atom-vectors can be combined to describe compounds. Examples of combination methods are concatenation into a long vector and pooling of vectors (e.g. summing them up).</p>
-<h4 id="comparing-representations"><a class="header" href="#comparing-representations">Comparing representations</a></h4>
+<h3 id="comparing-representations"><a class="header" href="#comparing-representations">Comparing representations</a></h3>
 <p>A performance-comparison of vector representations is carried out in <a href="https://www.researchgate.net/profile/Taylor-Sparks-2/publication/343926838_Is_Domain_Knowledge_Necessary_for_Machine_Learning_Materials_Properties">"Is domain knowledge necessary for machine learning materials properties?"</a> (2020).</p>
 <p>Their conclusion is: human-designed Composition Based Feature Vectors (CBFV like Jarvis and Olyinyk) outperform other methods if there isn't much data. This was prior to SkipAtom, but does include Atom2Vec.</p>
 <p>Otherwise, performance in downstream tasks is similar to hot-encoded or random vectors.</p>
@@ -260,20 +247,15 @@
 <p>Our method challenges this perception: we obtain excellent classifiers that are interpretable and based on a small amount of training data without using any domain knowledge: (...)</p>
 </blockquote>
 <p>They assert that one-hot encoded vectors can still achieve good results using small datasets, as long as the network is designed in the way they specify.</p>
-<h3 id="thoughts"><a class="header" href="#thoughts">Thoughts</a></h3>
-<p>Human-designed vectors are easier to interpret. Machine learnt vectors require more effort.
-Can we design machine-learnt interpretable vectors that are intrinsically interpretable?</p>
+<h2 id="thoughts"><a class="header" href="#thoughts">Thoughts</a></h2>
+<p>Human-designed vectors are easier to interpret.</p>
+<p>Machine-learnt vectors require less effort but usually require more data to generate quality vectors.</p>
+<p>Can we design machine-learnt interpretable vectors that are intrinsically interpretable?</p>
 <p>Attention-masks and disentangled representations are closer to this.</p>
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-1">
-<p>Machine Learning (ML) includes deep-learning and traditional methods like regression, support vector machines, random forests and so on. <a href="#fr-1-1">↩</a></p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
-<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
+<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -333,8 +315,8 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </blockquote>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-1">
-<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-1">↩</a></p>
+<li id="footnote-1">
+<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -730,7 +712,7 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="method-lime"><a class="header" href="#method-lime">Method: LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
+<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
@@ -767,8 +749,8 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </details>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-2">
-<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-2">↩</a></p>
+<li id="footnote-1-1">
+<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -876,6 +858,138 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 </details>
 <!-- [whatifs_wachter]: https://arxiv.org/pdf/1711.00399 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
+<p>Theories of learning abound. Connectivism<sup class="footnote-reference" id="fr-connectivism_siemens-1"><a href="#footnote-connectivism_siemens">1</a></sup> seems to have never been fully fledged out, but it is an interesting case where the central object of the theory are <strong>networks</strong>.</p>
+<p>On this post, the idea isn't just presented but is further refined. It's still incomplete in my view.</p>
+<blockquote>
+<p><strong>Networks</strong></p>
+<p>Collections of linked nodes or items.</p>
+</blockquote>
+<p>Connectivism seems inspired by:</p>
+<ol>
+<li>The Internet, and later on the World Wide Web,
+<ul>
+<li>These both were from the start problems about networking; heterogeneous devices or resources linked together,</li>
+<li>These technologies opened up access to a network of resources and people.</li>
+<li>The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.</li>
+</ul>
+</li>
+<li>The view of an individual as a network of neurons,</li>
+<li>The view of other systems as organisms, like organisations. The paper linked above states:
+<blockquote>
+<p>The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.</p>
+</blockquote>
+</li>
+</ol>
+<p>What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.</p>
+<p>The first item (<code>1.</code>) seems most connected to the origin of the theory of connectivism: <em>the raise of a digital, interconnected world</em>.</p>
+<h2 id="characteristics-of-networks"><a class="header" href="#characteristics-of-networks">Characteristics of networks</a></h2>
+<p>There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.</p>
+<p>These characteristics can help us raise a few questions regarding networked learning environments.</p>
+<ul>
+<li>Do we prefer a centralised network with a teacher, or a decentralised network? Should the teacher be more like a routing node?</li>
+<li>Are all items considered part of it, such as resources, or agents such as humans? Is it useful to split or join different networks?</li>
+<li>An open network where agents can change resources, or closed networks where they only have read permissions (if even so)?</li>
+</ul>
+<p>Here no <em>optimal</em> characteristics will be listed, only questions, since the answer may depend on the goals and context.</p>
+<p>In a network, one node or link changing means much more has changed due to the ripple effects given by the links.</p>
+<p>The theory defines knowledge and learning as:</p>
+<ul>
+<li><strong>Knowledge</strong>
+<ul>
+<li>Network view: it is stored distributed across the net (in nodes, edges) in a latent manner.</li>
+<li>Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.</li>
+</ul>
+</li>
+<li><strong>Learning</strong>
+<ul>
+<li>Network view: a change of network connections by exposure to experience and reasoning.</li>
+<li>Behavioural view: a persisting change in knowledge. Learning is evidenced through <em>a change</em> towards more appropriate behavioural responses (to a signal or stimuli.)</li>
+</ul>
+</li>
+</ul>
+<h2 id="a-human-in-the-net"><a class="header" href="#a-human-in-the-net">A human in the net</a></h2>
+<p>Let's now turn to the first case given earlier <code>1)</code>.</p>
+<p>Networks where humans or agents are embedded may be seen as an organism (e.g. classrooms, groups, communities, organisations).</p>
+<p>These networks can learn and store distributed knowledge as well: the connections and nodes change and so does the behaviour in response to input signals.</p>
+<p>For example, the response of an organisation in the event of a fire or an emergency.</p>
+<p>This seems a most-promising avenue of connectivism: a paradigm to think of human networks (or human-and-resources networks), how to organise them (or letting them self-organise), which properties make nodes and the net grow.</p>
+<p>It appears of especial important in the digital, interconnected world; but also classrooms, organisations, and social networks in general.</p>
+<p>An important idea here from connectivism is that learning isn't only intra-personal; networks of other kinds can learn, too (in the sense described further up this section).</p>
+<h2 id="a-human-is-a-net-theory-of-mind"><a class="header" href="#a-human-is-a-net-theory-of-mind">A human is a net (theory of mind)</a></h2>
+<p>We also want to focus on the individuals. Can connectivism help?</p>
+<p>Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.
+So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.</p>
+<p>You can think of distributed knowledge as "No node or edge is uniquely responsible many parts of the whole network" are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.</p>
+<details><summary>Resources</summary>
+<ol>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<ul>
+<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
+<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
+</ul>
+</li>
+</ol>
+</details>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-connectivism_siemens">
+<p>https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf <a href="#fr-connectivism_siemens-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="refining-connectivism"><a class="header" href="#refining-connectivism">Refining Connectivism</a></h1>
+<h2 id="do-all-networks-learn"><a class="header" href="#do-all-networks-learn">Do all networks learn?</a></h2>
+<p>The notion that all networks learn, just by virtue of being networks seems off. It does not correspond to what most of us would call <em>learning</em>.</p>
+<p>Is there some way to look at this, which makes more intuitive sense? Admittedly, there will be grey areas, but my view is that it <em>is</em> possible to conceptualise learning more clearly.</p>
+<p>Different networks vary on:</p>
+<ul>
+<li>The breath of signals they are responsive to,</li>
+<li>The intensity of signals they are responsive to,</li>
+<li>How varied their response is,</li>
+<li>How much directionality there is to the process,</li>
+<li>Possibly others (still thinking on it).</li>
+</ul>
+<p>The hypothesis is that, what we ordinarily call a <em>learning system</em> maps to:</p>
+<blockquote>
+<p>High-complexity systems that respond to a wide variety of input signals in a wide variety of ways, and change in a way that makes future reactions <em>appropriate</em> (which is left to intuition for the moment).</p>
+</blockquote>
+<p>Usually, <em>networks of</em> complex systems or of hybrid systems also change complex ways and will also be <em>learning systems</em>.</p>
+<p>On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered <em>learning systems</em>.</p>
+<p>In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not <em>learning systems</em>.</p>
+<p>Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.</p>
+<p>We could say that there is a threshold of a binary function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">re</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">pt</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">ore</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span> were systems are considered at <em>learners</em>. There will also be, certainly, grey areas.</p>
+<h2 id="with-that-which-one-learns"><a class="header" href="#with-that-which-one-learns">With that, which one learns?</a></h2>
+<p>We can apply the previous criteria to a large number of cases, and see whether we are satisfied:</p>
+<p><em>Do biological networks learn?</em></p>
+<p>It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built into the system (brain) e.g. by Hebbian learning. We can take this case as our paradigmatic <em>learning system</em>.</p>
+<p><em>Do artificial neural networks (ANNs) learn?</em></p>
+<p>During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. General-purpose process a wide variety of signals are are closer to <em>learning systems</em> than narrow AIs. Both only learn during training phase.</p>
+<p><em>Does a colony of insects learn?</em></p>
+<p>Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.</p>
+<p>But is this "reaction", or emergent behaviour, the same as learning? Only if the change is permanent. The variety of signals they process and the behaviours is quite varied and certainly are learning systems.</p>
+<p><em>Does the world wide web, or a library learn?</em></p>
+<p>The system will learn only if it is designed to do so. For example, after a certain event (like a query) a program may change the system to respond more appropriately in the future.</p>
+<p>When humans have designed them to adapt (say with software) these have limited learning ability and change in response to a narrow variety of events, and are not quite <em>learning systems</em>. Considered without the programs, these wouldn't have any learning at all.</p>
+<p>Hybrid systems such as humans-web, or humans-library systems certainly are <em>learning systems</em>.</p>
+<p>The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them</p>
+<p><em>Does the electric grid learns?</em> Same as above.</p>
+<p><em>Does a molecule or a material, which can be represented as a graph, learn?</em></p>
+<p>Signals can change them. But even if we define <em>appropriate</em> as increasing the likelihood to persist / survive, the ways in which it reacts and the number of stimuli it responds to are narrow, and won't be <em>learning systems</em>.</p>
+<p><em>Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems (say a book), learn?</em></p>
+<p>Yes, especially if we consider a company, a community and so forth.</p>
+<p>So all the different kinds may be considered to learning, if they permanently change in response to a stimuli and this adequately changes future responses.</p>
+<details><summary>Resources</summary>
+<ol>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<ul>
+<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
+<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
+</ul>
+</li>
+</ol>
+</details>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="discovering-inorganic-solids"><a class="header" href="#discovering-inorganic-solids">Discovering Inorganic Solids</a></h1>
 <p>These are some of my opinions and ideas after reading two papers by Rosseinsky group:</p>
 <ol>
@@ -883,7 +997,7 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <li><a href="https://www.nature.com/articles/s41467-021-25343-7">Element selection for crystalline inorganic solid discovery guided by unsupervised machine learning of experimentally explored chemistry</a> (2021)</li>
 </ol>
 <hr>
-<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>In solid-state chemistry, some elemental compositions (phase fields) are more likely to lead to isolable compounds than others.</p>
 <p>Deep learning models can help differentiate between these two groups, and lead researchers to the promising areas. The models can be trained for this task with data from ICSD, the Inorganic Crystal Structure Database.</p>
 <p>Such models would improve the allocation of resources when exploring new phase fields.</p>
@@ -931,7 +1045,7 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 <li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
 <ul>
 <li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> probe structure (this step is complex).
+<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> probe structure (this step is complex).
 Hints experimentalists of promising region.</li>
 </ul>
 </li>
@@ -955,8 +1069,8 @@ style A fill:#123456,color:#f4f4f4,stroke-width:0px
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-3">
-<p>With respect to the convex hull. <a href="#fr-1-1-3">↩</a></p>
+<li id="footnote-1-2">
+<p>With respect to the convex hull. <a href="#fr-1-1-2">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -1297,6 +1411,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

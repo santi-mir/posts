@@ -1,6 +1,6 @@
-# Blog AI4Chem
+# Notes
 
-Welcome to the blog!
+These are my thoughts on topics related to AI, XAI, AI for chemistry.
 
 ## Organisation
 
