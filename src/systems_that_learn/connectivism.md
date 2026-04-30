@@ -18,9 +18,7 @@ Connectivism seems inspired by:
 
 As said, networks are the main object of the theory, so let's briefly define them:
 
-> **Networks**
->
-> Collections of linked nodes or items.
+> **Networks**: collections of linked nodes or items.
 
 What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.
 
