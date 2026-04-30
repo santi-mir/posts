@@ -7,6 +7,7 @@ _Vector representations_ are one kind of machine representation, and may be furt
 This post focuses on _embeddings_ since they require less human effort, and produce more general-purpose vectors.
 
 ## Characteristics of Embeddings
+
 _Embeddings_ are usually real-valued, dense rather than sparse, non-human readable. They also form a structured vector-space, with semantically similar vectors close together, and meaningful vector-arithmetic.
 
 It is desirable, but not always possible that they:
@@ -75,4 +76,3 @@ Attention-masks and disentangled representations are closer to this.
 [word embeddings]: https://arxiv.org/abs/1301.3781v3
 [comparison]: https://www.researchgate.net/profile/Taylor-Sparks-2/publication/343926838_Is_Domain_Knowledge_Necessary_for_Machine_Learning_Materials_Properties
 [ehme]: https://www.fruct.org/files/publications/volume-38/fruct38/Urs.pdf
-

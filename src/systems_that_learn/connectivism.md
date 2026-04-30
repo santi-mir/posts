@@ -70,7 +70,6 @@ So can parts of the brain, which are networks of neurons, and learning is later 
 
 You can think of distributed knowledge as "No node or edge is uniquely responsible many parts of the whole network" are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.
 
-
 <details><summary>Resources</summary>
 
 1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
