@@ -31,10 +31,12 @@ There are types of nodes and edges (or links) with different properties. For exa
 The theory views knowledge and learning as properties of networks, and defines them as:
 
 **Knowledge**
+
 - Network view: it is stored distributed across the net (in nodes, edges) in a latent manner.
 - Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.
 
 **Learning**
+
 - Network view: a change of network connections by exposure to experience and reasoning.
 - Behavioural view: a persisting change in knowledge. Learning is evidenced through _a change_ towards more appropriate behavioural responses (to a signal or stimuli.)
 
