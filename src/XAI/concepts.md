@@ -1,35 +1,44 @@
 # Explanations
 
-Explanations are usually defined as answers to a _why-question_, with certain properties and structure. Others warn that the _why-question_ may be implicit, or include _how_, _what_ and other _question-types_ in the definition.
+Explanations can be defined as
 
-Yet others propose that lessons and books explain without any question, and that the important part is to fill-a-gap in imaginary or present askers.
+> Answers to a _why-question_[^logic_of_expl_hempel], with certain properties and structure.
 
-Certainly, questions can be pointers to the gap, and this will be exploited in some explanation techniques.
+The **caveats** include:
 
-All seem correct considerations.
+1. The _why-question_ may be implicit;
+2. Other _question-types_, e.g. _how_, _what_, should be included;
+3. Lessons and books explain _without_ any question, and that the important part is to fill-a-gap in imaginary or present askers.
 
-But, regardless of the question, an answer has characteristics of its own. This is discussed the next section.
+Questions can be hint what _the gap_ is. _The gap_ though, oversimplifies learning as transferring a missing piece of knowledge.
+
+<!-- Then be evaluated of behaviour, the individual process of changing neural connections, the environments that foster it. -->
 
 ## Characteristics of explanations
 
 Generating explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-### Cognitive Process
-
-The _cognitive process_ is the process of finding an answer, involving:
+The process of explaining involves:
 
 1. There is _something_ to explain (_explanandum_),
 2. The explainer _filters_ aspects of the _explanandum_ deemed relevant (using prior knowledge),
    - If the explanation is known, retrieve it and skip the rest.
 3. _Generates_ possible answers (through explanation techniques),
 4. _Weight_ the likelihood of each hypotheses,
-5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation).
+5. Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),
+6. Communicating it to an audience the _social process_
+
+2&ndash;5 are also the _cognitive process_ of an explanation, and may be called the process of _understanding_.
+
+Now let's expand on the last step, the _social process_.
 
 ### Social Process
 
-The _cognitive process_ and the specific case of inferring causes was described earlier. The remaining characteristic of explanations was a _social process_.
+The _cognitive process_ and the specific case of inferring causes was described earlier. The remaining characteristic of explanations is the _social process_: communicating the answer.
 
-The _social process_ involves communicating the answer, and there are expectations about it. [Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. These rules can also be used as a guide for good _model explanations_:
+When an explanation is communicated, the receiver may learn, adjust its knowledge, be more confused, reject it. For now though communication is considered independently of learning and knowledge.
+
+[Gricean Maxims][gricean_maxims] are rules observed in _good_ communication. These rules can also be used as a guide for good _model explanations_:
 
 - **Informative** (Quantity): right amount of context and details,
 - **Truthful** (Quality, or Fidelity): Try to make it true,
@@ -37,6 +46,8 @@ The _social process_ involves communicating the answer, and there are expectatio
 - **Manner** (clarity): express it in elegant terms.
 
 Importantly, the paper above notes that _why-questions_ are usually **contrastive questions** e.g. phrased as _why P rather than Q_ instead of _why P_, where the _foil_ (Q) is frequently implicit.
+
+Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.
 
 ### Explanatory success
 
@@ -79,6 +90,9 @@ Many other metaphors could be proposed.
 1. [Explanations, Predictions and Laws][scriven] (1948),
 1. [On the mechanization of abductive logic][abductive_logic] (1973). The first page is quite interesting.
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
+1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+   - A more extensive work is at [Connectivism][connectivism_downes] (2021).
+
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
@@ -94,13 +108,27 @@ Many other metaphors could be proposed.
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
 [abductive_logic]:https://www.ijcai.org/Proceedings/73/Papers/017.pdf
+
+[connectivism_siemens]: https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf
+
+[connectivism_downes]: https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368
+
 [explanations_social]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
+
 [gricean_maxims]: https://effectiviology.com/principles-of-effective-communication/
+
 [logic_of_expl_hempel]: https://fitelson.org/woodward/hempel_oppenheim.pdf
+
+[^logic_of_expl_hempel]: e.g. [Studies in the logic of explanations][logic_of_expl_hempel] (1948)
+
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
+
 [perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
+
 [shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+
 [scriven]: https://fitelson.org/woodward/scriven_epl.pdf
+
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 [wikipedia_gricean]: https://en.wikipedia.org/wiki/Cooperative_principle

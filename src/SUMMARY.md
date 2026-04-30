@@ -20,6 +20,8 @@
 - [XAI](./XAI/concepts_2.md)
 - [Additive Features](./XAI/strategies.md)
 - [Visuals and Arch](./XAI/strategies_2.md)
+- [Systems That Learn I](./systems_that_learn/connectivism.md)
+- [Systems That Learn II](./systems_that_learn/connectivism_refined.md)
 
 <!-- ----- -->
 <!---->
