@@ -38,18 +38,13 @@
 
 -----
 
-# Perspective
-
-- [ML Perspective (draft)](./machine_learning_perspective_2019.md)
-
------
-
 # Other
 
 - [Best Practices](./other/best_practices.md)
 - [Databases & Benchmarks](./other/databases_and_benchmarks.md)
 - [CompChem Map](./other/compchem_map.md)
 - [Visualising N-Dimensions](./other/visualising_high_dimensional_data.md)
+- [ML Perspective (bits)](./machine_learning_perspective_2019.md)
 - [Citing Research Objects](./other/research_objects.md)
 
 -----
