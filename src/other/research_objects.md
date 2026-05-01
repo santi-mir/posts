@@ -1,6 +1,7 @@
 # Research and Data Objects
 
 ## FAIR Principles
+
 The FAIR Guiding Principles are suggestions for improving data _reusability_. Also _reproducibility_ and _transparency_. Here the essence of it is described.
 
 ### The idea

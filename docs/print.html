@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-bc5084a6.js";
+            window.path_to_searchindex_js = "searchindex-d076676c.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-415e775b.js"></script>
+        <script src="toc-1b3bfa07.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1353,6 +1353,67 @@ A --&gt; Direct
 <li>t-SNE</li>
 </ul>
 <p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="research-and-data-objects"><a class="header" href="#research-and-data-objects">Research and Data Objects</a></h1>
+<h2 id="fair-principles"><a class="header" href="#fair-principles">FAIR Principles</a></h2>
+<p>The FAIR Guiding Principles are suggestions for improving data <em>reusability</em>. Also <em>reproducibility</em> and <em>transparency</em>. Here the essence of it is described.</p>
+<h3 id="the-idea"><a class="header" href="#the-idea">The idea</a></h3>
+<p>The paper states:</p>
+<blockquote>
+<p>[good data management] is the key conduit leading to knowledge discovery and innovation.</p>
+</blockquote>
+<p>We can imagine science as an activity of "solving the puzzle of knowledge together".
+Theories, observations, workflows, processing pipelines and algorithms, software and other data are the puzzle pieces. If the piece is (each term only briefly summarised, oversimplified):</p>
+<ul>
+<li>Findable: there is some place to query for it,</li>
+<li>Accessible: the object is explorable, downloadable,</li>
+<li>Interoperable: uses a common format rather than private,</li>
+<li>Reusable: contains permissive usage policies / license such that it can be reused in future research.</li>
+</ul>
+<h3 id="benefits"><a class="header" href="#benefits">Benefits</a></h3>
+<p>Sharing data objects has many benefits:</p>
+<ul>
+<li><em>Researchers</em> would earn citations through publishing data-objects.</li>
+<li><em>Software developers</em> can also get recognition for their published data-objects;</li>
+<li><em>Peer-researchers</em> can then test and reuse the results, while enhancing data-mining and have other areas.</li>
+</ul>
+<p>And so forth.</p>
+<h3 id="for-humans-and-machines"><a class="header" href="#for-humans-and-machines">For humans and machines</a></h3>
+<p>Different from other frameworks, FAIR is concerned about how non-human agents and tools would discover, retrieve and be able to use the data.</p>
+<h2 id="sharing-and-finding-data-objects"><a class="header" href="#sharing-and-finding-data-objects">Sharing and finding data objects</a></h2>
+<p>Common repositories used for scientific objects are of two kinds:</p>
+<ul>
+<li>Special-purpose: World Wide Protein Data Bank (wwPDB), NOMAD and Materials Cloud (for materials)</li>
+<li>General-purpose: FigShare, Zenodo (CERN), GitHub.</li>
+</ul>
+<p><strong>Importantly</strong>, GitHub does not produce DOIs nor guarantees that the item is preserved (it can easily be deleted).</p>
+<p>It's important to either inspect or create (for each case above) labels, description, license and other metadata.</p>
+<h2 id="citing-objects"><a class="header" href="#citing-objects">Citing Objects</a></h2>
+<p>The recommended practice is to link a dynamic DOI (that tracks versions), especially for software or datasets.</p>
+<p>Zenodo handily combines a <em>concept</em> and <em>version</em> DOIs, mapping to the software <em>project</em> and <em>version</em>, respectively.</p>
+<p>There are two issues, one on each side of the citation problem:</p>
+<ol>
+<li>Developers are burdened to update the DOI's version, say in the README.</li>
+<li>Researchers cite a paper DOI rather than dataset / software appears, or simply name the software.</li>
+</ol>
+<p>To solve <code>1.</code> <a href="https://arxiv.org/pdf/1911.00295">a 2019 paper</a> analysing citations of Zenodo objects suggests:</p>
+<blockquote>
+<p>[recommended identifier] ideally represents the whole software project, which is less prone to impermanence. This recommendation does not require maintenance effort on the developer (...)</p>
+</blockquote>
+<p>This is not the "recommended practice" of citing the version as well, but it is a first step. The next step would be to use and update the software DOI version.</p>
+<h3 id="thoughts-on-non-paper-citations"><a class="header" href="#thoughts-on-non-paper-citations">Thoughts on non-paper citations</a></h3>
+<p>A clear limitation is that software dependencies don't get any credits, only the top level.</p>
+<p>It seems common to also add a citation file format (<code>file.cff</code>) to GitHub repos which help when linking repository to Zenodo. Then we must add the Zenodo recommended citation choosing version or concept DOI, as described earlier.</p>
+<!--How to identify which are independent data objects, and where to publish each kind?-->
+<!-- Metaphors as graph-learning tools? They help us see and remember relationships between nodes by overlapping graphs. -->
+<details>
+<summary>Resources</summary>
+<ol>
+<li><a href="https://www.nature.com/articles/sdata201618">The FAIR Guiding Principles for scientific data management and stewardship</a> (2016),</li>
+<li><a href="https://www.nature.com/articles/s42004-024-01143-0">The rise of data repositories in materials chemistry</a> (2024); and the Supplementary Information. Missing: clarifying which repositories ensure preserving data by policy; comparison between repositories should use the same year for all publications,</li>
+<li><a href="https://arxiv.org/pdf/1911.00295">PRACTICE MEETS PRINCIPLE: TRACKING SOFTWARE AND DATA CITATIONS TO ZENODO DOIs</a> (2019).</li>
+</ol>
+</details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
 <ul>
