@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>ML Perspective (draft) - AI for Chemistry</title>
+        <title>ML Perspective (bits) - AI for Chemistry</title>
 
 
         <!-- Custom HTML head -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-561131de.js";
+            window.path_to_searchindex_js = "searchindex-a3eb6c7a.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-1b3bfa07.js"></script>
+        <script src="toc-feac8457.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -183,17 +183,17 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="machine-learning-for-molecular-and-materials-science"><a class="header" href="#machine-learning-for-molecular-and-materials-science">Machine learning for molecular and materials science</a></h1>
-<p>Useful snippets from the Perspective paper <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a>.</p>
+<p>Very compressed bits from the paper <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> (2018).</p>
 <h2 id="representations-of-atoms-molecules-materials"><a class="header" href="#representations-of-atoms-molecules-materials">Representations of atoms, molecules, materials</a></h2>
 <p>The process of converting raw data into a format more suitable for an algorithm is called <em>feature engineering</em>.</p>
 <blockquote>
 <p>The more suitable the representation of the input data, the more accurately can an algorithm map it to the output data.</p>
-<p>Selecting how best to represent the data may require insight into both the underlying scientific problem and the operation of the learning algorithm, since it is not always obvious which choice of representation will give the best performance</p>
+<p>Selecting how best to represent the data may require insight into both the underlying scientific problem and the operation of the learning algorithm, since it is not always obvious which choice of representation will give the best performance.</p>
 </blockquote>
-<p>Some representations:</p>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
 <ul>
 <li>Coulomb Matrix: atomic nuclear repulsion information.</li>
-<li>Graphs: connectivity of molecules.</li>
+<li>Graphs: Connectivity of molecules.</li>
 <li>String representations: SMILES, SELFIES,..</li>
 <li>Solid-state unit-cells: Representations based on radial distribution functions, Voronoi tessellations, and property-labelled materials fragments (...)
 <blockquote>
@@ -201,52 +201,18 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="areas"><a class="header" href="#areas">Areas</a></h2>
-<p>They see possible impact in a few areas:</p>
-<ul>
-<li>Synthesis: retrosynthesis, crystallisation predictions, etc.</li>
-<li>Characterisation: for example analysing images (CV)</li>
-<li>Modelling: reducing time and improving accuracy of calculations</li>
-<li>Drug discovery, Drug design, Inverse Design, Property Prediction,..</li>
-</ul>
-<h2 id="algorithms"><a class="header" href="#algorithms">Algorithms</a></h2>
-<ul>
-<li>Naive Bayes:
-<blockquote>
-<p>Bayes’ theorem provides a formal way to calculate the probability that a hypothesis is correct, given a set of existing data.</p>
-</blockquote>
-</li>
-<li>Nearest Neighbour:
-<blockquote>
-<p>In nearest neighbour (k-NN) methods the distances between samples and training data in a descriptor hyperspace are calculated. k-NN methods are so-called because the output value for a prediction relies on the values of the k nearest neighbours, where k is an integer.</p>
-</blockquote>
-</li>
-<li>Decision Trees:
-<blockquote>
-<p>are flowchart-like diagrams used to determine a course of action or outcomes. (...) with branches indicating that each option is mutually exclusive. (...) Both root and leaf nodes contain questions or criteria to be answered.</p>
-</blockquote>
-</li>
-<li>
-<blockquote>
-<p>Kernel methods are a class of algorithms; whose best known members are the support vector machine (SVM) and kernel ridge regression (KRR).</p>
-</blockquote>
-</li>
-<li>
-<blockquote>
-<p>Artificial neural networks (ANNs) and deep neural networks (DNNs). (...) Learning is the process of adjusting the weights so that the training data are reproduced as accurately as possible. (...) The values of internal variables (hyperparameters) are estimated beforehand using systematic and random searches, or heuristics.</p>
-</blockquote>
-</li>
-</ul>
+<h2 id="list-of-a-few-ml-algorithms"><a class="header" href="#list-of-a-few-ml-algorithms">List of a few ML algorithms</a></h2>
+<p>Naive Bayes, Nearest Neighbour, Decision Trees, Kernel methods, a family including support vector machine (SVM) and kernel ridge regression (KRR). Artificial neural networks (ANNs) and deep neural networks (DNNs).</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="DL_aided_exploration_inorg_solids_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="other/visualising_high_dimensional_data.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="other/best_practices.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="other/research_objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -256,11 +222,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="DL_aided_exploration_inorg_solids_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="other/visualising_high_dimensional_data.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="other/best_practices.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="other/research_objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

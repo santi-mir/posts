@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-561131de.js";
+            window.path_to_searchindex_js = "searchindex-a3eb6c7a.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-1b3bfa07.js"></script>
+        <script src="toc-feac8457.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1109,62 +1109,6 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 </div>
 
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="machine-learning-for-molecular-and-materials-science"><a class="header" href="#machine-learning-for-molecular-and-materials-science">Machine learning for molecular and materials science</a></h1>
-<p>Useful snippets from the Perspective paper <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a>.</p>
-<h2 id="representations-of-atoms-molecules-materials"><a class="header" href="#representations-of-atoms-molecules-materials">Representations of atoms, molecules, materials</a></h2>
-<p>The process of converting raw data into a format more suitable for an algorithm is called <em>feature engineering</em>.</p>
-<blockquote>
-<p>The more suitable the representation of the input data, the more accurately can an algorithm map it to the output data.</p>
-<p>Selecting how best to represent the data may require insight into both the underlying scientific problem and the operation of the learning algorithm, since it is not always obvious which choice of representation will give the best performance</p>
-</blockquote>
-<p>Some representations:</p>
-<ul>
-<li>Coulomb Matrix: atomic nuclear repulsion information.</li>
-<li>Graphs: connectivity of molecules.</li>
-<li>String representations: SMILES, SELFIES,..</li>
-<li>Solid-state unit-cells: Representations based on radial distribution functions, Voronoi tessellations, and property-labelled materials fragments (...)
-<blockquote>
-<p>In the solid-state, the conventional description of crystal structures by translation vectors and fractional coordinates of the atoms is <strong>not appropriate for ML</strong>, since a lattice can be represented in an infinite number of ways by choosing a different coordinate system.</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="areas"><a class="header" href="#areas">Areas</a></h2>
-<p>They see possible impact in a few areas:</p>
-<ul>
-<li>Synthesis: retrosynthesis, crystallisation predictions, etc.</li>
-<li>Characterisation: for example analysing images (CV)</li>
-<li>Modelling: reducing time and improving accuracy of calculations</li>
-<li>Drug discovery, Drug design, Inverse Design, Property Prediction,..</li>
-</ul>
-<h2 id="algorithms"><a class="header" href="#algorithms">Algorithms</a></h2>
-<ul>
-<li>Naive Bayes:
-<blockquote>
-<p>Bayes’ theorem provides a formal way to calculate the probability that a hypothesis is correct, given a set of existing data.</p>
-</blockquote>
-</li>
-<li>Nearest Neighbour:
-<blockquote>
-<p>In nearest neighbour (k-NN) methods the distances between samples and training data in a descriptor hyperspace are calculated. k-NN methods are so-called because the output value for a prediction relies on the values of the k nearest neighbours, where k is an integer.</p>
-</blockquote>
-</li>
-<li>Decision Trees:
-<blockquote>
-<p>are flowchart-like diagrams used to determine a course of action or outcomes. (...) with branches indicating that each option is mutually exclusive. (...) Both root and leaf nodes contain questions or criteria to be answered.</p>
-</blockquote>
-</li>
-<li>
-<blockquote>
-<p>Kernel methods are a class of algorithms; whose best known members are the support vector machine (SVM) and kernel ridge regression (KRR).</p>
-</blockquote>
-</li>
-<li>
-<blockquote>
-<p>Artificial neural networks (ANNs) and deep neural networks (DNNs). (...) Learning is the process of adjusting the weights so that the training data are reproduced as accurately as possible. (...) The values of internal variables (hyperparameters) are estimated beforehand using systematic and random searches, or heuristics.</p>
-</blockquote>
-</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h1>
 <p>TL;DR from the paper <a href="https://www.nature.com/articles/s41557-021-00716-z">"Best practices in machine learning for chemistry"</a> (2021), a very similar paper by the same authors is <a href="https://www.nature.com/articles/s41586-018-0337-2">"Machine learning for molecular and materials science"</a>.</p>
 <ul>
@@ -1353,6 +1297,28 @@ A --&gt; Direct
 <li>t-SNE</li>
 </ul>
 <p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="machine-learning-for-molecular-and-materials-science"><a class="header" href="#machine-learning-for-molecular-and-materials-science">Machine learning for molecular and materials science</a></h1>
+<p>Very compressed bits from the paper <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> (2018).</p>
+<h2 id="representations-of-atoms-molecules-materials"><a class="header" href="#representations-of-atoms-molecules-materials">Representations of atoms, molecules, materials</a></h2>
+<p>The process of converting raw data into a format more suitable for an algorithm is called <em>feature engineering</em>.</p>
+<blockquote>
+<p>The more suitable the representation of the input data, the more accurately can an algorithm map it to the output data.</p>
+<p>Selecting how best to represent the data may require insight into both the underlying scientific problem and the operation of the learning algorithm, since it is not always obvious which choice of representation will give the best performance.</p>
+</blockquote>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<ul>
+<li>Coulomb Matrix: atomic nuclear repulsion information.</li>
+<li>Graphs: Connectivity of molecules.</li>
+<li>String representations: SMILES, SELFIES,..</li>
+<li>Solid-state unit-cells: Representations based on radial distribution functions, Voronoi tessellations, and property-labelled materials fragments (...)
+<blockquote>
+<p>In the solid-state, the conventional description of crystal structures by translation vectors and fractional coordinates of the atoms is <strong>not appropriate for ML</strong>, since a lattice can be represented in an infinite number of ways by choosing a different coordinate system.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="list-of-a-few-ml-algorithms"><a class="header" href="#list-of-a-few-ml-algorithms">List of a few ML algorithms</a></h2>
+<p>Naive Bayes, Nearest Neighbour, Decision Trees, Kernel methods, a family including support vector machine (SVM) and kernel ridge regression (KRR). Artificial neural networks (ANNs) and deep neural networks (DNNs).</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="research-and-data-objects"><a class="header" href="#research-and-data-objects">Research and Data Objects</a></h1>
 <h2 id="fair-principles"><a class="header" href="#fair-principles">FAIR Principles</a></h2>
