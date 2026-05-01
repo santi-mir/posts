@@ -63,9 +63,9 @@ To solve `1.` [a 2019 paper][doi_citation_analysis] analysing citations of Zenod
 <details>
 <summary>Resources</summary>
 
-1. [The FAIR Guiding Principles for scientific data management and stewardship][fair] (2016)
-2. [The rise of data repositories in materials chemistry][repositories_and_citations_overview] (2024); and the Supplementary Information. Missing: clarifying which repositories ensure preserving data by policy; comparison between repositories should use the same year for all publications.
-3. [PRACTICE MEETS PRINCIPLE: TRACKING SOFTWARE AND  DATA CITATIONS TO ZENODO DOIs][doi_citation_analysis] (2019)
+1. [The FAIR Guiding Principles for scientific data management and stewardship][fair] (2016),
+2. [The rise of data repositories in materials chemistry][repositories_and_citations_overview] (2024); and the Supplementary Information. Missing: clarifying which repositories ensure preserving data by policy; comparison between repositories should use the same year for all publications,
+3. [PRACTICE MEETS PRINCIPLE: TRACKING SOFTWARE AND DATA CITATIONS TO ZENODO DOIs][doi_citation_analysis] (2019).
 
 </details>
 
