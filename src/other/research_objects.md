@@ -10,8 +10,7 @@ The paper states:
 
 > [good data management] is the key conduit leading to knowledge discovery and innovation.
 
-We can imagine science as an activity of "solving the puzzle of knowledge together".
-Theories, observations, workflows, processing pipelines and algorithms, software and other data are the puzzle pieces. If the piece is (each term only briefly summarised, oversimplified):
+We can imagine science as an activity of "solving the puzzle of knowledge together". Theories, observations, workflows, processing pipelines and algorithms, software and other data are the puzzle pieces. If the piece is (each term only briefly summarised, oversimplified):
 
 - Findable: there is some place to query for it,
 - Accessible: the object is explorable, downloadable,
@@ -39,9 +38,13 @@ Common repositories used for scientific objects are of two kinds:
 - Special-purpose: World Wide Protein Data Bank (wwPDB), NOMAD and Materials Cloud (for materials)
 - General-purpose: FigShare, Zenodo (CERN), GitHub.
 
-**Importantly**, GitHub does not produce DOIs nor guarantees that the item is preserved (it can easily be deleted).
+>[!Important]
+> GitHub does _not_ produce DOIs nor guarantees that the item is preserved (it can easily be deleted).
 
-It's important to either inspect or create (for each case above) labels, description, license and other metadata.
+>[!Tip]
+> 1. It's important to either inspect or create (for each case above) labels, description, license and other metadata.
+>
+> 2. There is a [**re**gistry of **re**search data **re**positories&mdash;re3data][re3data] which is a useful starting point for finding not datasets or software, but a repository (and metadata such as where it's located, who controls it and so forth)
 
 ## Citing Objects
 
@@ -82,3 +85,4 @@ It seems common to also add a citation file format (`file.cff`) to GitHub repos 
 [fair]: https://www.nature.com/articles/sdata201618
 [doi_citation_analysis]: https://arxiv.org/pdf/1911.00295
 [repositories_and_citations_overview]: https://www.nature.com/articles/s42004-024-01143-0
+[re3data]: https://www.re3data.org/
