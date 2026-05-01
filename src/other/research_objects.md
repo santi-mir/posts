@@ -42,6 +42,7 @@ Common repositories used for scientific objects are of two kinds:
 > GitHub does _not_ produce DOIs nor guarantees that the item is preserved (it can easily be deleted).
 
 >[!Tip]
+>
 > 1. It's important to either inspect or create (for each case above) labels, description, license and other metadata.
 >
 > 2. There is a [**re**gistry of **re**search data **re**positories&mdash;re3data][re3data] which is a useful starting point for finding not datasets or software, but a repository (and metadata such as where it's located, who controls it and so forth)
