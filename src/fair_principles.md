@@ -31,7 +31,7 @@ And so forth.
 Common repositories used for scientific objects are of two kinds:
 
 - Special-purpose: World Wide Protein Data Bank (wwPDB), NOMAD and Materials Cloud (for materials)
-- General-purpose: FigShare, Zenodo, GitHub.
+- General-purpose: FigShare, Zenodo (CERN), GitHub.
 
 **Importantly**, GitHub does not produce DOIs nor guarantees that the item is preserved (it can easily be deleted).
 
@@ -40,6 +40,21 @@ It's important to either inspect or create (for each case above) labels, descrip
 ## For humans and machines
 
 Different from other frameworks, FAIR is concerned about how non-human agents and tools would discover, retrieve and be able to use the data.
+
+## Citing
+
+The recommended practice is to link a dynamic DOI (that tracks versions), especially for software or datasets.
+
+Zenodo handily combines a _concept_ and _version_ DOIs, mapping to the software _project_ and _version_, respectively.
+
+There are two issues, one on each side of the citation problem:
+
+1. Developers are burdened to update the DOI's version, say in the README.
+2. Researchers cite a paper DOI rather than dataset / software appears, or simply name the software.
+
+To solve `1.` [a 2019 paper][doi_citation_analysis] analysing citations of Zenodo objects suggests:
+
+> As a practical implementation, developers should recommend to cite one persistent identifier that refers to the software. This identifier ideally represents the whole software project, which is less prone to impermanence. This recommendation does not require maintenance effort on the developer site, but ensures that the software project is cited directly in a trackable way.
 
 <!--How to identify which are independent data objects, and where to publish each kind?-->
 
@@ -50,6 +65,7 @@ Different from other frameworks, FAIR is concerned about how non-human agents an
 
 1. [The FAIR Guiding Principles for scientific data management and stewardship][fair] (2016)
 2. [The rise of data repositories in materials chemistry][repositories_and_citations_overview] (2024); and the Supplementary Information. Missing: clarifying which repositories ensure preserving data by policy; comparison between repositories should use the same year for all publications.
+3. [PRACTICE MEETS PRINCIPLE: TRACKING SOFTWARE AND  DATA CITATIONS TO ZENODO DOIs][doi_citation_analysis] (2019)
 
 </details>
 
