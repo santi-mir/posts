@@ -4,7 +4,7 @@
 
 -----
 
-## Atom Vectors
+# Atom Vectors
 
 - [Introduction](./atom_vectors/intro.md)
 - [Atom2Vec](./atom_vectors/atom2vec.md)
@@ -14,7 +14,7 @@
 
 -----
 
-## Explainable AI
+# Explainable AI
 
 - [Explanations](./XAI/concepts.md)
 - [XAI](./XAI/concepts_2.md)
@@ -31,25 +31,21 @@
 
 -----
 
-## Discovering Solids
+# Discovering Solids
 
 - [Concepts](./DL_aided_exploration_inorg_solids_1.md)
 - [Workflow](./DL_aided_exploration_inorg_solids_2.md)
 
 -----
 
-## Perspective
-
-- [ML Perspective (draft)](./machine_learning_perspective_2019.md)
-
------
-
-## Other
+# Other
 
 - [Best Practices](./other/best_practices.md)
 - [Databases & Benchmarks](./other/databases_and_benchmarks.md)
 - [CompChem Map](./other/compchem_map.md)
 - [Visualising N-Dimensions](./other/visualising_high_dimensional_data.md)
+- [ML Perspective (bits)](./machine_learning_perspective_2019.md)
+- [Citing Research Objects](./other/research_objects.md)
 
 -----
 
