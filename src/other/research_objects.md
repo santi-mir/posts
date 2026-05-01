@@ -1,8 +1,9 @@
-# FAIR
+# Research and Data Objects
 
+## FAIR Principles
 The FAIR Guiding Principles are suggestions for improving data _reusability_. Also _reproducibility_ and _transparency_. Here the essence of it is described.
 
-## The idea
+### The idea
 
 The paper states:
 
@@ -26,6 +27,10 @@ Sharing data objects has many benefits:
 
 And so forth.
 
+### For humans and machines
+
+Different from other frameworks, FAIR is concerned about how non-human agents and tools would discover, retrieve and be able to use the data.
+
 ## Sharing and finding data objects
 
 Common repositories used for scientific objects are of two kinds:
@@ -37,11 +42,7 @@ Common repositories used for scientific objects are of two kinds:
 
 It's important to either inspect or create (for each case above) labels, description, license and other metadata.
 
-## For humans and machines
-
-Different from other frameworks, FAIR is concerned about how non-human agents and tools would discover, retrieve and be able to use the data.
-
-## Citing
+## Citing Objects
 
 The recommended practice is to link a dynamic DOI (that tracks versions), especially for software or datasets.
 
@@ -54,7 +55,15 @@ There are two issues, one on each side of the citation problem:
 
 To solve `1.` [a 2019 paper][doi_citation_analysis] analysing citations of Zenodo objects suggests:
 
-> As a practical implementation, developers should recommend to cite one persistent identifier that refers to the software. This identifier ideally represents the whole software project, which is less prone to impermanence. This recommendation does not require maintenance effort on the developer site, but ensures that the software project is cited directly in a trackable way.
+> [recommended identifier] ideally represents the whole software project, which is less prone to impermanence. This recommendation does not require maintenance effort on the developer (...)
+
+This is not the "recommended practice" of citing the version as well, but it is a first step. The next step would be to use and update the software DOI version.
+
+### Thoughts on non-paper citations
+
+A clear limitation is that software dependencies don't get any credits, only the top level.
+
+It seems common to also add a citation file format (`file.cff`) to GitHub repos which help when linking repository to Zenodo. Then we must add the Zenodo recommended citation choosing version or concept DOI, as described earlier.
 
 <!--How to identify which are independent data objects, and where to publish each kind?-->
 

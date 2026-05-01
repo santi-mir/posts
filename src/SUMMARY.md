@@ -50,6 +50,7 @@
 - [Databases & Benchmarks](./other/databases_and_benchmarks.md)
 - [CompChem Map](./other/compchem_map.md)
 - [Visualising N-Dimensions](./other/visualising_high_dimensional_data.md)
+- [Citing Research Objects](./other/research_objects.md)
 
 -----
 
