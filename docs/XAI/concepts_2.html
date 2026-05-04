@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-56e190c4.js";
+            window.path_to_searchindex_js = "../searchindex-52132b8b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-35bff0e6.js"></script>
@@ -190,7 +190,7 @@
 </blockquote>
 <p>The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
 <h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
-<p>In deep learning practice, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
+<p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
@@ -275,15 +275,31 @@
 <p>The focus here though, is explaining <em>deep learning</em> models. These are usually <em>opaque</em> ("<em>black-box</em>") models, and their accuracy is usually higher than classic ML models.</p>
 <p>In other words, classical ML and DL models each have their use-cases.</p>
 <hr><details>
-<summary>List of sources used in this blogpost</summary>
+<summary>Resources</summary>
 <ol>
-<li>[elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read; here is an interesting paragraph:
 <ul>
-<li>A more extensive work is at [Connectivism][connectivism_downes] (2021).</li>
+<li>
+<blockquote>
+<p>Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (<em>simulatability</em>), at the level of individual components such as parameters (<em>decomposability</em>), and at the level of the training algorithm (<em>algorithmic transparency</em>).</p>
+</blockquote>
+</li>
+<li>The "components" could focus on weights, vectors, blocks,...</li>
 </ul>
 </li>
-<li><a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable machine-learning</a> (2021, 25 pages): Sections 8–11 are a useful review of explainability methods.</li>
+<li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</li>
+<li><a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</li>
+<li><a href="https://arxiv.org/abs/1806.00340">Producing radiologist-quality reports for interpretable artificial intelligence</a> (2018): a "case study",</li>
 <li><a href="https://en.wikipedia.org/wiki/The_Book_of_Why">The Book of Why</a> (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)</li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0740624X21001027">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</li>
+<li><a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022),</li>
+<li><a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable machine-learning</a> (2021, 25 pages): Sections 8–11 are a useful review of explainability methods.</li>
+<li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
