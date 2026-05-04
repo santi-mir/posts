@@ -33,7 +33,7 @@ It reaches low evaluation error and everyone is happy.
 
 However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:
 
-1. The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
+1. The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
    - With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.
    - This _is_ useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.
 2. The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).

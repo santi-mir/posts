@@ -63,13 +63,11 @@ They assert that one-hot encoded vectors can still achieve good results using sm
 
 ## Thoughts
 
-Human-designed vectors are easier to interpret.
+Human-designed vectors are easier to interpret; machine-learnt vectors require less effort but more data to train them.
 
-Machine-learnt vectors require less effort but usually require more data to generate quality vectors.
+Can we design machine-learnt interpretable vectors that are intrinsically interpretable? Attention-masks and disentangled representations are closer to this.
 
-Can we design machine-learnt interpretable vectors that are intrinsically interpretable?
-
-Attention-masks and disentangled representations are closer to this.
+Should the representation be just the simplest, and the network learn all that is needed for the given tasks?
 
 [SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3
 [Atom2Vec]: https://pnas.org/doi/full/10.1073/pnas.1801181115
