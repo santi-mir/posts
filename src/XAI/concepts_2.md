@@ -10,7 +10,7 @@ The goal is to explain a model, and do it to some audience (which could be ourse
 
 ## Trade-offs
 
-In deep learning practice, explainability _tends to_ be harder with more accurate models, since they _tend to_ be more complex.
+In deep learning practice, tradeoffs abound. For example, explainability _tends to_ be harder with more accurate models, since they _tend to_ be more complex.
 
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
@@ -113,15 +113,38 @@ In other words, classical ML and DL models each have their use-cases.
 -------------------
 
 <details>
-<summary>List of sources used in this blogpost</summary>
+<summary>Resources</summary>
 
-1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-   - A more extensive work is at [Connectivism][connectivism_downes] (2021).
-1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
+1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read; here is an interesting paragraph:
+   - > Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)
+   - > Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (_simulatability_), at the level of individual components such as parameters (_decomposability_), and at the level of the training algorithm (_algorithmic transparency_).
+   - The "components" could focus on weights, vectors, blocks,...
+1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
+1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
+1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
+1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
+1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
+1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
+1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 </details>
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
+[mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
+
+[perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
+
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
+
+[shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+
 [tbow]: https://en.wikipedia.org/wiki/The_Book_of_Why
+
+[using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
+
+[xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
+
+[xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
+
+[xx]: http://arxiv.org/abs/1806.00069
