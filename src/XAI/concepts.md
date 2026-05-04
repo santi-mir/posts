@@ -1,13 +1,12 @@
 # Explanations
 
-Explanations can be defined as
+## A definition
 
-> Answers to a _why-question_[^logic_of_expl_hempel], with certain properties and structure. Importantly, _why-questions_ are usually **contrastive questions** e.g. phrased as _why P rather than Q_ instead of _why P_, where the _foil_ (Q) is frequently implicit.
+> An explanation is an answer to a _why-question_, with certain properties and structure.[^logic_of_expl_hempel] Importantly, _why-questions_ are usually **contrastive questions** e.g. phrased as _why P rather than Q_ instead of _why P_, where the _foil_ (Q) is frequently implicit.
 
 The definition above fits scientific questions best. But it may also be considered that:
 
-- The _why-question_ may be implicit;
-- Other _question-types_, e.g. _how_, _what_, should be included;
+- The _why-question_ may be implicit, and other _question-types_, e.g. _how_, _what_, should be included;
 - An explanation may be considered independently of any question:
     - Notion of filling-a-gap in imaginary or present askers.
     - Lessons and books may count as explanations without defined questions.

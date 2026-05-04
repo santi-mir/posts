@@ -1,8 +1,16 @@
 # Atom vectors
 
-The quest for _machine representations of objects_ is a long standing research theme.
+The quest for _machine representations of objects_ is a long standing research theme. Here is a very narrow sample of the map:
 
-_Vector representations_ are one kind of machine representation, and may be further broken down in: _descriptors_, which are expert-designed vectors, and _embeddings_, which are machine-learnt vectors $\in \mathbb{R}^N$.
+```mermaid
+flowchart TB
+A(Machine representations
+of objects) --> B(Vector Representations)
+B --> C(Descriptors)
+B --> D(Embeddings)
+```
+
+_Descriptors_ are expert-designed vectors; _embeddings_ are machine-learnt vectors $\in \mathbb{R}^N$.
 
 This post focuses on _embeddings_ since they require less human effort, and produce more general-purpose vectors.
 

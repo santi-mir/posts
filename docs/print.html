@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-52132b8b.js";
+            window.path_to_searchindex_js = "searchindex-885ac739.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-35bff0e6.js"></script>
@@ -201,8 +201,15 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom-vectors"><a class="header" href="#atom-vectors">Atom vectors</a></h1>
-<p>The quest for <em>machine representations of objects</em> is a long standing research theme.</p>
-<p><em>Vector representations</em> are one kind of machine representation, and may be further broken down in: <em>descriptors</em>, which are expert-designed vectors, and <em>embeddings</em>, which are machine-learnt vectors <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span>.</p>
+<p>The quest for <em>machine representations of objects</em> is a long standing research theme. Here is a very narrow sample of the map:</p>
+<pre class="mermaid">flowchart TB
+A(Machine representations
+of objects) --&gt; B(Vector Representations)
+B --&gt; C(Descriptors)
+B --&gt; D(Embeddings)
+</pre>
+
+<p><em>Descriptors</em> are expert-designed vectors; <em>embeddings</em> are machine-learnt vectors <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span>.</p>
 <p>This post focuses on <em>embeddings</em> since they require less human effort, and produce more general-purpose vectors.</p>
 <h2 id="characteristics-of-embeddings"><a class="header" href="#characteristics-of-embeddings">Characteristics of Embeddings</a></h2>
 <p><em>Embeddings</em> are usually real-valued, dense rather than sparse, non-human readable. They also form a structured vector-space, with semantically similar vectors close together, and meaningful vector-arithmetic.</p>
@@ -436,14 +443,13 @@
 <p>It is computationally cheap, and can help screen large number of compounds as a first selection step.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p>Explanations can be defined as</p>
+<h2 id="a-definition"><a class="header" href="#a-definition">A definition</a></h2>
 <blockquote>
-<p>Answers to a <em>why-question</em><sup class="footnote-reference" id="fr-logic_of_expl_hempel-1"><a href="#footnote-logic_of_expl_hempel">1</a></sup>, with certain properties and structure. Importantly, <em>why-questions</em> are usually <strong>contrastive questions</strong> e.g. phrased as <em>why P rather than Q</em> instead of <em>why P</em>, where the <em>foil</em> (Q) is frequently implicit.</p>
+<p>An explanation is an answer to a <em>why-question</em>, with certain properties and structure.<sup class="footnote-reference" id="fr-logic_of_expl_hempel-1"><a href="#footnote-logic_of_expl_hempel">1</a></sup> Importantly, <em>why-questions</em> are usually <strong>contrastive questions</strong> e.g. phrased as <em>why P rather than Q</em> instead of <em>why P</em>, where the <em>foil</em> (Q) is frequently implicit.</p>
 </blockquote>
 <p>The definition above fits scientific questions best. But it may also be considered that:</p>
 <ul>
-<li>The <em>why-question</em> may be implicit;</li>
-<li>Other <em>question-types</em>, e.g. <em>how</em>, <em>what</em>, should be included;</li>
+<li>The <em>why-question</em> may be implicit, and other <em>question-types</em>, e.g. <em>how</em>, <em>what</em>, should be included;</li>
 <li>An explanation may be considered independently of any question:
 <ul>
 <li>Notion of filling-a-gap in imaginary or present askers.</li>
@@ -1407,6 +1413,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
