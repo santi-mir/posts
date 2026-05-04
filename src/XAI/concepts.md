@@ -93,9 +93,9 @@ Many other metaphors could be proposed.
 1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
    - A more extensive work is at [Connectivism][connectivism_downes] (2021).
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read; here is an interesting paragraph:
-    - > Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)
-    - > Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (_simulatability_), at the level of individual components such as parameters (_decomposability_), and at the level of the training algorithm (_algorithmic transparency_).
-    -  The "components" could focus on weights, vectors, blocks,...
+   - > Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)
+   - > Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (_simulatability_), at the level of individual components such as parameters (_decomposability_), and at the level of the training algorithm (_algorithmic transparency_).
+   - The "components" could focus on weights, vectors, blocks,...
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",

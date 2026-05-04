@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-a3eb6c7a.js";
+            window.path_to_searchindex_js = "searchindex-56e190c4.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-feac8457.js"></script>
+        <script src="toc-35bff0e6.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -248,10 +248,9 @@
 </blockquote>
 <p>They assert that one-hot encoded vectors can still achieve good results using small datasets, as long as the network is designed in the way they specify.</p>
 <h2 id="thoughts"><a class="header" href="#thoughts">Thoughts</a></h2>
-<p>Human-designed vectors are easier to interpret.</p>
-<p>Machine-learnt vectors require less effort but usually require more data to generate quality vectors.</p>
-<p>Can we design machine-learnt interpretable vectors that are intrinsically interpretable?</p>
-<p>Attention-masks and disentangled representations are closer to this.</p>
+<p>Human-designed vectors are easier to interpret; machine-learnt vectors require less effort but more data to train them.</p>
+<p>Can we design machine-learnt interpretable vectors that are intrinsically interpretable? Attention-masks and disentangled representations are closer to this.</p>
+<p>Should the representation be just the simplest, and the network learn all that is needed for the given tasks?</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
@@ -530,39 +529,38 @@
 </ol>
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <ol>
-<li>
-<p><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).</p>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
 <ul>
 <li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
 </ul>
 </li>
+<li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read; here is an interesting paragraph:
+<ul>
 <li>
-<p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</p>
+<blockquote>
+<p>Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)</p>
+</blockquote>
 </li>
 <li>
-<p><a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</p>
+<blockquote>
+<p>Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (<em>simulatability</em>), at the level of individual components such as parameters (<em>decomposability</em>), and at the level of the training algorithm (<em>algorithmic transparency</em>).</p>
+</blockquote>
 </li>
-<li>
-<p><a href="https://arxiv.org/abs/1806.00340">Producing radiologist-quality reports for interpretable artificial intelligence</a> (2018): a "case study",</p>
+<li>The "components" could focus on weights, vectors, blocks,...</li>
+</ul>
 </li>
-<li>
-<p>The paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims of Communication</a> (blog-post), or <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Wikipedia's</a>.</p>
+<li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</li>
+<li><a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</li>
+<li><a href="https://arxiv.org/abs/1806.00340">Producing radiologist-quality reports for interpretable artificial intelligence</a> (2018): a "case study",</li>
+<li>The paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims of Communication</a> (blog-post), or <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Wikipedia's</a>.
 <ul>
 <li>The definition of explanation extends previous work by Lombrozo on <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a> (2006).</li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S0740624X21001027">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</p>
-</li>
-<li>
-<p><a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022),</p>
-</li>
-<li>
-<p>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>,</p>
-</li>
-<li>
-<p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</p>
-</li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0740624X21001027">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</li>
+<li><a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022),</li>
+<li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>,</li>
+<li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
@@ -600,7 +598,7 @@
 <p>It reaches low evaluation error and everyone is happy.</p>
 <p>However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:</p>
 <ol>
-<li>The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
+<li>The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
 <ul>
 <li>With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.</li>
 <li>This <em>is</em> useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.</li>
@@ -858,139 +856,6 @@
 </details>
 <!-- [whatifs_wachter]: https://arxiv.org/pdf/1711.00399 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
-<p>Connectivism<sup class="footnote-reference" id="fr-connectivism_siemens-1"><a href="#footnote-connectivism_siemens">1</a></sup> is a learning theory where the central object of the theory are <strong>networks</strong>.</p>
-<p>On this post, a few key ideas are presented; in the next post, a different interpretation of the theory is proposed.</p>
-<h2 id="origins"><a class="header" href="#origins">Origins</a></h2>
-<p>Connectivism seems inspired by:</p>
-<ol>
-<li>The Internet, and later on the World Wide Web,
-<ul>
-<li>These both were from the start problems about networking; heterogeneous devices or resources linked together,</li>
-<li>These technologies opened up access to a network of resources and people.</li>
-<li>The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.</li>
-</ul>
-</li>
-<li>The view of an individual as a network of neurons,</li>
-<li>The view of other systems as organisms, like organisations. The paper linked above states:
-<blockquote>
-<p>The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.</p>
-</blockquote>
-</li>
-</ol>
-<p>As said, networks are the main object of the theory, so let's briefly define them:</p>
-<blockquote>
-<p><strong>Networks</strong>: collections of linked nodes or items.</p>
-</blockquote>
-<p>What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.</p>
-<p>There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.</p>
-<h2 id="knowledge-and-learning"><a class="header" href="#knowledge-and-learning">Knowledge and Learning</a></h2>
-<p>The theory views knowledge and learning as properties of networks, and defines them as:</p>
-<ul>
-<li>
-<p><strong>Knowledge</strong></p>
-<ul>
-<li>Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.</li>
-<li>Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.</li>
-</ul>
-</li>
-<li>
-<p><strong>Learning</strong></p>
-<ul>
-<li>Network view: a change of network connections by exposure to experience and reasoning.</li>
-<li>Behavioural view: a persisting change in knowledge. Learning is evidenced through <em>a change</em> towards more appropriate behavioural responses (to a signal or stimuli.)</li>
-</ul>
-</li>
-</ul>
-<p>In a network, one node or link changing means much more has changed due to the ripple effects given by the links.</p>
-<p>Discussion on whether <em>all</em> networks really learn are left for the next post. This one focuses on learning-human-networks and how the theory can help understand and design them.</p>
-<h2 id="a-human-in-the-net"><a class="header" href="#a-human-in-the-net">A human in the net</a></h2>
-<p>A promising area for connectivism is as a paradigm to think of human networks (or human-and-resources networks), how to organise them (or letting them self-organise), which properties make nodes and the net grow and so forth.</p>
-<p>It appears of especial important in the digital, interconnected world; but also classrooms, organisations, and social networks in general.</p>
-<p>Let's consider the case of a human or agent embedded in a wider network such as a classroom, a group, community, organisation.</p>
-<p>This networks can be seen as an metaphorically organism, or just as a whole: when the connections and nodes change and so does the behaviour in response to input signals, which in certain cases will imply learning, and formation of knowledge.</p>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
-<p>Think of the response of an organisation in the event of a fire or an emergency.</p>
-<p>The input (fire alarm) ripples through the network as the nodes act and propagate activity: learning isn't <em>only</em> intra-personal, the whole network can be said to have learnt in this example.</p>
-<p>In the case of a classroom, this framework may aid us with questions such as:</p>
-<ul>
-<li>Centralised human-learning-network guided by teacher or a decentralised network? Should the teacher be more like a routing node?</li>
-<li>Are all items considered part of it, such as resources, or agents such as humans? Is it useful to split or join different networks?</li>
-<li>An open network where agents can change resources, or closed networks where they only have read permissions (if even so)?</li>
-</ul>
-<h2 id="a-human-is-a-net-theory-of-mind"><a class="header" href="#a-human-is-a-net-theory-of-mind">A human is a net (theory of mind)</a></h2>
-<p>We also want to focus on the individuals. Can connectivism help?</p>
-<p>Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.</p>
-<p>So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.</p>
-<details><summary>Resources</summary>
-<ol>
-<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-<ul>
-<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
-<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
-</ul>
-</li>
-</ol>
-</details>
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-connectivism_siemens">
-<p>https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf <a href="#fr-connectivism_siemens-1">↩</a></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="refining-connectivism"><a class="header" href="#refining-connectivism">Refining Connectivism</a></h1>
-<h2 id="do-all-networks-learn"><a class="header" href="#do-all-networks-learn">Do all networks learn?</a></h2>
-<p>The notion that all networks learn, just by virtue of being networks seems off. It does not correspond to what most of us would call <em>learning</em>.</p>
-<p>Is there some way to look at this, which makes more intuitive sense? Admittedly, there will be grey areas, but my view is that it <em>is</em> possible to conceptualise learning more clearly.</p>
-<p>Different networks vary on:</p>
-<ul>
-<li>The breath of signals they are responsive to,</li>
-<li>The intensity of signals they are responsive to,</li>
-<li>How varied their response is,</li>
-<li>How much directionality there is to the process,</li>
-<li>Possibly others (still thinking on it).</li>
-</ul>
-<p>The hypothesis is that, what we ordinarily call a <em>learning system</em> maps to:</p>
-<blockquote>
-<p>High-complexity systems that respond to a wide variety of input signals in a wide variety of ways, and change in a way that makes future reactions <em>appropriate</em> (which is left to intuition for the moment).</p>
-</blockquote>
-<p>Usually, <em>networks of</em> complex systems or of hybrid systems also change complex ways and will also be <em>learning systems</em>.</p>
-<p>On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered <em>learning systems</em>.</p>
-<p>In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not <em>learning systems</em>.</p>
-<p>Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.</p>
-<p>We could say that there is a threshold of a binary function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">re</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">pt</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">ore</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span> were systems are considered at <em>learners</em>. There will also be, certainly, grey areas.</p>
-<h2 id="with-that-which-one-learns"><a class="header" href="#with-that-which-one-learns">With that, which one learns?</a></h2>
-<p>We can apply the previous criteria to a large number of cases, and see whether we are satisfied:</p>
-<p><em>Do biological networks learn?</em></p>
-<p>It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built into the system (brain) e.g. by Hebbian learning. We can take this case as our paradigmatic <em>learning system</em>.</p>
-<p><em>Do artificial neural networks (ANNs) learn?</em></p>
-<p>During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. General-purpose process a wide variety of signals are are closer to <em>learning systems</em> than narrow AIs. Both only learn during training phase.</p>
-<p><em>Does a colony of insects learn?</em></p>
-<p>Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.</p>
-<p>But is this "reaction", or emergent behaviour, the same as learning? Only if the change is permanent. The variety of signals they process and the behaviours is quite varied and certainly are learning systems.</p>
-<p><em>Does the world wide web, or a library learn?</em></p>
-<p>The system will learn only if it is designed to do so. For example, after a certain event (like a query) a program may change the system to respond more appropriately in the future.</p>
-<p>When humans have designed them to adapt (say with software) these have limited learning ability and change in response to a narrow variety of events, and are not quite <em>learning systems</em>. Considered without the programs, these wouldn't have any learning at all.</p>
-<p>Hybrid systems such as humans-web, or humans-library systems certainly are <em>learning systems</em>.</p>
-<p>The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them</p>
-<p><em>Does the electric grid learns?</em> Same as above.</p>
-<p><em>Does a molecule or a material, which can be represented as a graph, learn?</em></p>
-<p>Signals can change them. But even if we define <em>appropriate</em> as increasing the likelihood to persist / survive, the ways in which it reacts and the number of stimuli it responds to are narrow, and won't be <em>learning systems</em>.</p>
-<p><em>Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems (say a book), learn?</em></p>
-<p>Yes, especially if we consider a company, a community and so forth.</p>
-<p>So all the different kinds may be considered to learning, if they permanently change in response to a stimuli and this adequately changes future responses.</p>
-<details><summary>Resources</summary>
-<ol>
-<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-<ul>
-<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
-<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
-</ul>
-</li>
-</ol>
-</details>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="discovering-inorganic-solids"><a class="header" href="#discovering-inorganic-solids">Discovering Inorganic Solids</a></h1>
 <p>These are some of my opinions and ideas after reading two papers by Rosseinsky group:</p>
 <ol>
@@ -1159,7 +1024,7 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 <p>In all reports, remember to cite the methods and packages employed to ensure that the development community receive the recognition they deserve.</p>
 </blockquote>
 <p>They provide a great checklist but since the license is a mess I am not including it here.</p>
-<h2 id="example-1"><a class="header" href="#example-1">Example</a></h2>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
 <p>Take <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> as an example and go through the checklist.</p>
 <ul>
 <li><em>Database</em>:
@@ -1189,114 +1054,6 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 </ul>
 <p>The comparison would be improved if they also ran a deep learning model with human-made descriptors.</p>
 <p>They also included other useful statistics like inference time.</p>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="databases-and-benchmarks"><a class="header" href="#databases-and-benchmarks">Databases and Benchmarks</a></h1>
-<p>Bear in mind when using databases what this <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> states:</p>
-<blockquote>
-<p>Data may require initial pre-processing, during which missing or spurious elements are identified and handled.</p>
-<p>Identifying and removing such errors is essential if ML algorithms are not to be misled by their presence.</p>
-</blockquote>
-<ul>
-<li>The <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine Learning for molecular and materials science</a> aggregates many DBs and such in tables at the end</li>
-<li>Pillong, M. et al. A publicly available crystallisation data set and its application in machine learning. CrystEngComm (2017).</li>
-<li>ICSD: Inorganic Crystal Structure Dataset</li>
-<li>Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation.
-<ul>
-<li>The materials project database <a href="https://materialsproject.org/">https://materialsproject.org/</a></li>
-</ul>
-</li>
-<li>Benchmarking materials property prediction methods: the matbench test set and automatminer reference algorithm.
-<ul>
-<li>Matbench benchmark: <a href="https://hackingmaterials.lbl.gov/automatminer/datasets.html">https://hackingmaterials.lbl.gov/automatminer/datasets.html</a></li>
-</ul>
-</li>
-<li>Materials design and discovery with high-throughput density functional theory: the open quantum materials database (OQMD)</li>
-</ul>
-<p>Also <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> lists materials-and-properties' databases (experimentally observed and hypothetical):</p>
-<blockquote>
-<p>DFT calculations have offered opportunities for large-scale data collection such as the Open Quantum Materials Database (OQMD), the Automatic Flow of Materials Discovery Library (AFLOWLIB), the Materials Project, and the Novel Materials Discovery (NoMaD); they contain DFT computed properties of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> of experimentally-observed and hypothetical materials. In the past few decades, such materials datasets have led to the new data-driven paradigm of materials informatics</p>
-</blockquote>
-<p>ElemNet describes OQDM as well (bold is mine):</p>
-<blockquote>
-<p>OQMD is an extensive high-throughput DFT database, consisting of <strong>DFT computed</strong> crystallographic parameters and formation enthalpies of <strong>experimentally observed compounds</strong> taken from the Inorganic Crystal Structure Database (ICSD) <strong>and hypothetical structures</strong> created by decorating prototype structures from the ICSD with different compositions.</p>
-</blockquote>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="compchem-map"><a class="header" href="#compchem-map">CompChem Map</a></h1>
-<p>This is a draft of areas I'd like to organise in some taxonomy.</p>
-<h2 id="finding-useful-molecules"><a class="header" href="#finding-useful-molecules">Finding Useful Molecules</a></h2>
-<ul>
-<li>Get a Materials Database(s), either method</li>
-</ul>
-<h3 id="method-1-direct-compounds-to-properties"><a class="header" href="#method-1-direct-compounds-to-properties">Method 1: Direct (Compounds to Properties)</a></h3>
-<ul>
-<li>Use DFT to guide towards one that fits the requirements (slow if we have billions of compounds.),</li>
-<li><em>Or</em> use the DB to train a NN to make predictions (needs labelled data for training)</li>
-<li><em>Or</em> similarity metrics to find new (similar) molecules.</li>
-<li>...</li>
-</ul>
-<h3 id="method-2-inverse-properties-to-compounds"><a class="header" href="#method-2-inverse-properties-to-compounds">Method 2: Inverse (Properties to Compounds)</a></h3>
-<ol>
-<li>Use the gradient to update embedding.</li>
-<li>Maximise or Minimise the needed properties.</li>
-</ol>
-<p>The paper's approach is more towards a <strong>Direct</strong> method. It is a method to generate embeddings that can then be used to train a neural network to predict properties.</p>
-<p>This can be arranged (not very tidily) in a chart:</p>
-<pre class="mermaid">---
-config:
-    flowchart:
-        htmlLabels:false
----
-
-flowchart TB
-
-A[("Compounds Database")]
-
-subgraph Direct["`**Direct**`"]
-    direction LR
-    B("`Electronic Structure
-    Predictions`")
-    C("`Train NN on DB
-    (with labelled data)`")
-    D("`Use similarity metrics to
-        find nearby candidates`")
-end
-
-subgraph Inverse["`**Inverse**`"]
-    direction TB
-    E("`Train VAE to create
-    smooth surface`")
-    E --&gt; F("`Link MLP to
-        latent vector`")
-    F --&gt; G("`Minimise or Maximise pps.
-            by changing vector`")
-end
-
-A --&gt; Inverse
-A --&gt; Direct
-
-</pre>
-
-<h2 id="unsupervised-learning-of-representations-of-atoms"><a class="header" href="#unsupervised-learning-of-representations-of-atoms">Unsupervised-Learning of Representations of Atoms</a></h2>
-<p>Other investigations of unsupervised learning of machine representation of atoms are:</p>
-<ul>
-<li>Zhou, Q. et al. Learning atoms for materials discovery. (2018).</li>
-<li>Tshitoyan, V. et al. Unsupervised word embeddings capture latent knowledge from materials science literature. (2019).</li>
-<li>Chakravarti, S. K. Distributed representation of chemical fragments. (2018).</li>
-<li>Butler K. et al. Distributed Representations of Atoms and Materials for Machine Learning. (2022).</li>
-</ul>
-<h2 id="supervised-learning-of-representations-of-atoms"><a class="header" href="#supervised-learning-of-representations-of-atoms">Supervised-Learning of Representations of Atoms</a></h2>
-<ul>
-<li>Jha, D. et al. ElemNet: deep learning the chemistry of materials from only elemental composition. (2018).</li>
-<li>Goodall, R. E. &amp; Lee, A. A. Predicting materials properties without crystal structure: deep representation learning from stoichiometry. (2020).</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="visualising-high-dimensional-data"><a class="header" href="#visualising-high-dimensional-data">Visualising High Dimensional Data</a></h1>
-<ul>
-<li>PCA</li>
-<li>Dimensionality Reduction</li>
-<li>t-SNE</li>
-</ul>
-<p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="machine-learning-for-molecular-and-materials-science"><a class="header" href="#machine-learning-for-molecular-and-materials-science">Machine learning for molecular and materials science</a></h1>
 <p>Very compressed bits from the paper <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> (2018).</p>
@@ -1392,6 +1149,247 @@ A --&gt; Direct
 <li><a href="https://arxiv.org/pdf/1911.00295">PRACTICE MEETS PRINCIPLE: TRACKING SOFTWARE AND DATA CITATIONS TO ZENODO DOIs</a> (2019).</li>
 </ol>
 </details>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
+<p>Connectivism<sup class="footnote-reference" id="fr-connectivism_siemens-1"><a href="#footnote-connectivism_siemens">1</a></sup> is a learning theory where the central object of the theory are <strong>networks</strong>.</p>
+<p>On this post, a few key ideas are presented; in the next post, a different interpretation of the theory is proposed.</p>
+<h2 id="origins"><a class="header" href="#origins">Origins</a></h2>
+<p>Connectivism seems inspired by:</p>
+<ol>
+<li>The Internet, and later on the World Wide Web,
+<ul>
+<li>These both were from the start problems about networking; heterogeneous devices or resources linked together,</li>
+<li>These technologies opened up access to a network of resources and people.</li>
+<li>The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.</li>
+</ul>
+</li>
+<li>The view of an individual as a network of neurons,</li>
+<li>The view of other systems as organisms, like organisations. The paper linked above states:
+<blockquote>
+<p>The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.</p>
+</blockquote>
+</li>
+</ol>
+<p>As said, networks are the main object of the theory, so let's briefly define them:</p>
+<blockquote>
+<p><strong>Networks</strong>: collections of linked nodes or items.</p>
+</blockquote>
+<p>What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.</p>
+<p>There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.</p>
+<h2 id="knowledge-and-learning"><a class="header" href="#knowledge-and-learning">Knowledge and Learning</a></h2>
+<p>The theory views knowledge and learning as properties of networks, and defines them as:</p>
+<ul>
+<li>
+<p><strong>Knowledge</strong></p>
+<ul>
+<li>Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.</li>
+<li>Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.</li>
+</ul>
+</li>
+<li>
+<p><strong>Learning</strong></p>
+<ul>
+<li>Network view: a change of network connections by exposure to experience and reasoning.</li>
+<li>Behavioural view: a persisting change in knowledge. Learning is evidenced through <em>a change</em> towards more appropriate behavioural responses (to a signal or stimuli.)</li>
+</ul>
+</li>
+</ul>
+<p>In a network, one node or link changing means much more has changed due to the ripple effects given by the links.</p>
+<p>Discussion on whether <em>all</em> networks really learn are left for the next post. This one focuses on learning-human-networks and how the theory can help understand and design them.</p>
+<h2 id="a-human-in-the-net"><a class="header" href="#a-human-in-the-net">A human in the net</a></h2>
+<p>A promising area for connectivism is as a paradigm to think of human networks (or human-and-resources networks), how to organise them (or letting them self-organise), which properties make nodes and the net grow and so forth.</p>
+<p>It appears of especial important in the digital, interconnected world; but also classrooms, organisations, and social networks in general.</p>
+<p>Let's consider the case of a human or agent embedded in a wider network such as a classroom, a group, community, organisation.</p>
+<p>This networks can be seen as an metaphorically organism, or just as a whole: when the connections and nodes change and so does the behaviour in response to input signals, which in certain cases will imply learning, and formation of knowledge.</p>
+<h3 id="example-1"><a class="header" href="#example-1">Example</a></h3>
+<p>Think of the response of an organisation in the event of a fire or an emergency.</p>
+<p>The input (fire alarm) ripples through the network as the nodes act and propagate activity: learning isn't <em>only</em> intra-personal, the whole network can be said to have learnt in this example.</p>
+<p>In the case of a classroom, this framework may aid us with questions such as:</p>
+<ul>
+<li>Centralised human-learning-network guided by teacher or a decentralised network? Should the teacher be more like a routing node?</li>
+<li>Are all items considered part of it, such as resources, or agents such as humans? Is it useful to split or join different networks?</li>
+<li>An open network where agents can change resources, or closed networks where they only have read permissions (if even so)?</li>
+</ul>
+<h2 id="a-human-is-a-net-theory-of-mind"><a class="header" href="#a-human-is-a-net-theory-of-mind">A human is a net (theory of mind)</a></h2>
+<p>We also want to focus on the individuals. Can connectivism help?</p>
+<p>Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.</p>
+<p>So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.</p>
+<details><summary>Resources</summary>
+<ol>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<ul>
+<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
+<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
+</ul>
+</li>
+</ol>
+</details>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-connectivism_siemens">
+<p>https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf <a href="#fr-connectivism_siemens-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="refining-connectivism"><a class="header" href="#refining-connectivism">Refining Connectivism</a></h1>
+<h2 id="do-all-networks-learn"><a class="header" href="#do-all-networks-learn">Do all networks learn?</a></h2>
+<p>The notion that all networks learn, just by virtue of being networks seems off. It does not correspond to what most of us would call <em>learning</em>.</p>
+<p>Is there some way to look at this, which makes more intuitive sense? Admittedly, there will be grey areas, but my view is that it <em>is</em> possible to conceptualise learning more clearly.</p>
+<p>Different networks vary on:</p>
+<ul>
+<li>The breath of signals they are responsive to,</li>
+<li>The intensity of signals they are responsive to,</li>
+<li>How varied their response is,</li>
+<li>How much directionality there is to the process,</li>
+<li>Possibly others (still thinking on it).</li>
+</ul>
+<p>The hypothesis is that, what we ordinarily call a <em>learning system</em> maps to:</p>
+<blockquote>
+<p>High-complexity systems that respond to a wide variety of input signals in a wide variety of ways, and change in a way that makes future reactions <em>appropriate</em> (which is left to intuition for the moment).</p>
+</blockquote>
+<p>Usually, <em>networks of</em> complex systems or of hybrid systems also change complex ways and will also be <em>learning systems</em>.</p>
+<p>On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered <em>learning systems</em>.</p>
+<p>In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not <em>learning systems</em>.</p>
+<p>Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.</p>
+<p>We could say that there is a threshold of a binary function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">re</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">pt</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">ore</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span> were systems are considered at <em>learners</em>. There will also be, certainly, grey areas.</p>
+<h2 id="with-that-which-one-learns"><a class="header" href="#with-that-which-one-learns">With that, which one learns?</a></h2>
+<p>We can apply the previous criteria to a large number of cases, and see whether we are satisfied:</p>
+<p><em>Do biological networks learn?</em></p>
+<p>It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built into the system (brain) e.g. by Hebbian learning. We can take this case as our paradigmatic <em>learning system</em>.</p>
+<p><em>Do artificial neural networks (ANNs) learn?</em></p>
+<p>During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. General-purpose process a wide variety of signals are are closer to <em>learning systems</em> than narrow AIs. Both only learn during training phase.</p>
+<p><em>Does a colony of insects learn?</em></p>
+<p>Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.</p>
+<p>But is this "reaction", or emergent behaviour, the same as learning? Only if the change is permanent. The variety of signals they process and the behaviours is quite varied and certainly are learning systems.</p>
+<p><em>Does the world wide web, or a library learn?</em></p>
+<p>The system will learn only if it is designed to do so. For example, after a certain event (like a query) a program may change the system to respond more appropriately in the future.</p>
+<p>When humans have designed them to adapt (say with software) these have limited learning ability and change in response to a narrow variety of events, and are not quite <em>learning systems</em>. Considered without the programs, these wouldn't have any learning at all.</p>
+<p>Hybrid systems such as humans-web, or humans-library systems certainly are <em>learning systems</em>.</p>
+<p>The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them</p>
+<p><em>Does the electric grid learns?</em> Same as above.</p>
+<p><em>Does a molecule or a material, which can be represented as a graph, learn?</em></p>
+<p>Signals can change them. But even if we define <em>appropriate</em> as increasing the likelihood to persist / survive, the ways in which it reacts and the number of stimuli it responds to are narrow, and won't be <em>learning systems</em>.</p>
+<p><em>Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems (say a book), learn?</em></p>
+<p>Yes, especially if we consider a company, a community and so forth.</p>
+<p>So all the different kinds may be considered to learning, if they permanently change in response to a stimuli and this adequately changes future responses.</p>
+<details><summary>Resources</summary>
+<ol>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<ul>
+<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
+<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
+</ul>
+</li>
+</ol>
+</details>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="visualising-high-dimensional-data"><a class="header" href="#visualising-high-dimensional-data">Visualising High Dimensional Data</a></h1>
+<ul>
+<li>PCA</li>
+<li>Dimensionality Reduction</li>
+<li>t-SNE</li>
+</ul>
+<p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="compchem-map"><a class="header" href="#compchem-map">CompChem Map</a></h1>
+<p>This is a draft of areas I'd like to organise in some taxonomy.</p>
+<h2 id="finding-useful-molecules"><a class="header" href="#finding-useful-molecules">Finding Useful Molecules</a></h2>
+<ul>
+<li>Get a Materials Database(s), either method</li>
+</ul>
+<h3 id="method-1-direct-compounds-to-properties"><a class="header" href="#method-1-direct-compounds-to-properties">Method 1: Direct (Compounds to Properties)</a></h3>
+<ul>
+<li>Use DFT to guide towards one that fits the requirements (slow if we have billions of compounds.),</li>
+<li><em>Or</em> use the DB to train a NN to make predictions (needs labelled data for training)</li>
+<li><em>Or</em> similarity metrics to find new (similar) molecules.</li>
+<li>...</li>
+</ul>
+<h3 id="method-2-inverse-properties-to-compounds"><a class="header" href="#method-2-inverse-properties-to-compounds">Method 2: Inverse (Properties to Compounds)</a></h3>
+<ol>
+<li>Use the gradient to update embedding.</li>
+<li>Maximise or Minimise the needed properties.</li>
+</ol>
+<p>The paper's approach is more towards a <strong>Direct</strong> method. It is a method to generate embeddings that can then be used to train a neural network to predict properties.</p>
+<p>This can be arranged (not very tidily) in a chart:</p>
+<pre class="mermaid">---
+config:
+    flowchart:
+        htmlLabels:false
+---
+
+flowchart TB
+
+A[("Compounds Database")]
+
+subgraph Direct["`**Direct**`"]
+    direction LR
+    B("`Electronic Structure
+    Predictions`")
+    C("`Train NN on DB
+    (with labelled data)`")
+    D("`Use similarity metrics to
+        find nearby candidates`")
+end
+
+subgraph Inverse["`**Inverse**`"]
+    direction TB
+    E("`Train VAE to create
+    smooth surface`")
+    E --&gt; F("`Link MLP to
+        latent vector`")
+    F --&gt; G("`Minimise or Maximise pps.
+            by changing vector`")
+end
+
+A --&gt; Inverse
+A --&gt; Direct
+
+</pre>
+
+<h2 id="unsupervised-learning-of-representations-of-atoms"><a class="header" href="#unsupervised-learning-of-representations-of-atoms">Unsupervised-Learning of Representations of Atoms</a></h2>
+<p>Other investigations of unsupervised learning of machine representation of atoms are:</p>
+<ul>
+<li>Zhou, Q. et al. Learning atoms for materials discovery. (2018).</li>
+<li>Tshitoyan, V. et al. Unsupervised word embeddings capture latent knowledge from materials science literature. (2019).</li>
+<li>Chakravarti, S. K. Distributed representation of chemical fragments. (2018).</li>
+<li>Butler K. et al. Distributed Representations of Atoms and Materials for Machine Learning. (2022).</li>
+</ul>
+<h2 id="supervised-learning-of-representations-of-atoms"><a class="header" href="#supervised-learning-of-representations-of-atoms">Supervised-Learning of Representations of Atoms</a></h2>
+<ul>
+<li>Jha, D. et al. ElemNet: deep learning the chemistry of materials from only elemental composition. (2018).</li>
+<li>Goodall, R. E. &amp; Lee, A. A. Predicting materials properties without crystal structure: deep representation learning from stoichiometry. (2020).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="databases-and-benchmarks"><a class="header" href="#databases-and-benchmarks">Databases and Benchmarks</a></h1>
+<p>Bear in mind when using databases what this <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> states:</p>
+<blockquote>
+<p>Data may require initial pre-processing, during which missing or spurious elements are identified and handled.</p>
+<p>Identifying and removing such errors is essential if ML algorithms are not to be misled by their presence.</p>
+</blockquote>
+<ul>
+<li>The <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine Learning for molecular and materials science</a> aggregates many DBs and such in tables at the end</li>
+<li>Pillong, M. et al. A publicly available crystallisation data set and its application in machine learning. CrystEngComm (2017).</li>
+<li>ICSD: Inorganic Crystal Structure Dataset</li>
+<li>Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation.
+<ul>
+<li>The materials project database <a href="https://materialsproject.org/">https://materialsproject.org/</a></li>
+</ul>
+</li>
+<li>Benchmarking materials property prediction methods: the matbench test set and automatminer reference algorithm.
+<ul>
+<li>Matbench benchmark: <a href="https://hackingmaterials.lbl.gov/automatminer/datasets.html">https://hackingmaterials.lbl.gov/automatminer/datasets.html</a></li>
+</ul>
+</li>
+<li>Materials design and discovery with high-throughput density functional theory: the open quantum materials database (OQMD)</li>
+</ul>
+<p>Also <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> lists materials-and-properties' databases (experimentally observed and hypothetical):</p>
+<blockquote>
+<p>DFT calculations have offered opportunities for large-scale data collection such as the Open Quantum Materials Database (OQMD), the Automatic Flow of Materials Discovery Library (AFLOWLIB), the Materials Project, and the Novel Materials Discovery (NoMaD); they contain DFT computed properties of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> of experimentally-observed and hypothetical materials. In the past few decades, such materials datasets have led to the new data-driven paradigm of materials informatics</p>
+</blockquote>
+<p>ElemNet describes OQDM as well (bold is mine):</p>
+<blockquote>
+<p>OQMD is an extensive high-throughput DFT database, consisting of <strong>DFT computed</strong> crystallographic parameters and formation enthalpies of <strong>experimentally observed compounds</strong> taken from the Inorganic Crystal Structure Database (ICSD) <strong>and hypothetical structures</strong> created by decorating prototype structures from the ICSD with different compositions.</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
 <ul>
