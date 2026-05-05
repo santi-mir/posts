@@ -20,7 +20,7 @@ Generating explanations involve a _cognitive_ and a _social_ process. Below, I d
 
 ### Social Process
 
-When an explanation is communicated, the receiver may ask be question, accept or reject the answer. In any case, [gricean Maxims][gricean_maxims] can aid us towards _good_ communication.
+When an explanation is communicated, the receiver may ask be question, accept or reject the answer. The [Gricean Maxims][gricean_maxims] can aid us towards _good_ communication.
 
 <!-- These rules can also be used as a guide for good _model explanations_. -->
 
