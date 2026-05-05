@@ -8,14 +8,14 @@ In Explainable AI (XAI), what primarily needs explanation are the model and its 
 
 The goal is to explain a model, and do it to some audience (which could be ourselves).[^1]
 
-### Kinds of explainability
+## Kinds of explainability
+
 There are many kinds of model explainability used in different papers. To give a few examples:
 
 - Intrinsic vs Extrinsic
     - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
     - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
 - Global (valid for all inputs) vs local (for specific inputs)
-
 
 ## Trade-offs
 
@@ -129,8 +129,8 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 <summary>Resources</summary>
 
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
-    - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` simulatability or simplicity, `2.` decomposability or part-role mapping, and `2.` algorithmic training which focuses on error, loss, convergence.);
-    - _Post hoc_ interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.
+   - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` simulatability or simplicity, `2.` decomposability or part-role mapping, and `2.` algorithmic training which focuses on error, loss, convergence.);
+   - _Post hoc_ interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
