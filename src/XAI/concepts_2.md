@@ -1,12 +1,21 @@
 # Model Explainability
 
-Explanations were defined and characterised in the previous post.
+Explanations were defined and characterised in a [previous post](./concepts.md).
 
-In Explainable AI (XAI), what primarily needs explanation is the model. _Model explainability_ can be defined as:
+In Explainable AI (XAI), what primarily needs explanation are the model and its output. _Model explainability_ can be defined as:
 
 > The degree to which we can answer questions about the model's inner working and outputs.
 
-The goal is to explain a model, and do it to some audience (which could be ourselves).
+The goal is to explain a model, and do it to some audience (which could be ourselves).[^1]
+
+### Kinds of explainability
+There are many kinds of model explainability used in different papers. To give a few examples:
+
+- Intrinsic vs Extrinsic
+    - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
+    - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
+- Global (valid for all inputs) vs local (for specific inputs)
+
 
 ## Trade-offs
 
@@ -83,6 +92,8 @@ The survey [Principles and practise of explaining ML models][principles_and_prac
 | **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
 | **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
 
+A method not listed there are text explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).
+
 We should remember that:
 
 > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
@@ -106,19 +117,20 @@ _Classic ML_ models are usually _transparent_ (intrinsically explainable) but _m
     </p>
 </div>
 
+To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.
+
 The focus here though, is explaining _deep learning_ models. These are usually _opaque_ ("_black-box_") models, and their accuracy is usually higher than classic ML models.
 
-In other words, classical ML and DL models each have their use-cases.
+<!-- In other words, classical ML and DL models each have their use-cases. -->
 
 -------------------
 
 <details>
 <summary>Resources</summary>
 
-1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read; here is an interesting paragraph:
-   - > Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)
-   - > Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (_simulatability_), at the level of individual components such as parameters (_decomposability_), and at the level of the training algorithm (_algorithmic transparency_).
-   - The "components" could focus on weights, vectors, blocks,...
+1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
+    - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` simulatability or simplicity, `2.` decomposability or part-role mapping, and `2.` algorithmic training which focuses on error, loss, convergence.);
+    - _Post hoc_ interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
@@ -148,3 +160,5 @@ In other words, classical ML and DL models each have their use-cases.
 [xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 
 [xx]: http://arxiv.org/abs/1806.00069
+
+[^1]: I consider _interpretability_ and _understandability_ synonyms to _explainability_.

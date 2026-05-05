@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-885ac739.js";
+            window.path_to_searchindex_js = "../searchindex-83ed0f22.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-35bff0e6.js"></script>
@@ -183,12 +183,23 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>Explanations were defined and characterised in the previous post.</p>
-<p>In Explainable AI (XAI), what primarily needs explanation is the model. <em>Model explainability</em> can be defined as:</p>
+<p>Explanations were defined and characterised in a <a href="./concepts.html">previous post</a>.</p>
+<p>In Explainable AI (XAI), what primarily needs explanation are the model and its output. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about the model's inner working and outputs.</p>
 </blockquote>
-<p>The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
+<p>The goal is to explain a model, and do it to some audience (which could be ourselves).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<h3 id="kinds-of-explainability"><a class="header" href="#kinds-of-explainability">Kinds of explainability</a></h3>
+<p>There are many kinds of model explainability used in different papers. To give a few examples:</p>
+<ul>
+<li>Intrinsic vs Extrinsic
+<ul>
+<li>Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.</li>
+<li>Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.</li>
+</ul>
+</li>
+<li>Global (valid for all inputs) vs local (for specific inputs)</li>
+</ul>
 <h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
 <p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
 <div class="center w30">
@@ -252,6 +263,7 @@
 </tbody>
 </table>
 </div>
+<p>A method not listed there are text explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).</p>
 <p>We should remember that:</p>
 <blockquote>
 <p>Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),</p>
@@ -272,24 +284,16 @@
 
 </div>
 
+<p>To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.</p>
 <p>The focus here though, is explaining <em>deep learning</em> models. These are usually <em>opaque</em> ("<em>black-box</em>") models, and their accuracy is usually higher than classic ML models.</p>
-<p>In other words, classical ML and DL models each have their use-cases.</p>
+<!-- In other words, classical ML and DL models each have their use-cases. -->
 <hr><details>
 <summary>Resources</summary>
 <ol>
-<li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read; here is an interesting paragraph:
+<li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read. They consider two interpretability strategies:
 <ul>
-<li>
-<blockquote>
-<p>Let;s now consider the techniques and model properties that are proposed to confer interpretability. These fall broadly into two categories. The first relates to transparency (i.e., how does the model work?). The second consists of post hoc explanations (i.e., what else can the model tell me?)</p>
-</blockquote>
-</li>
-<li>
-<blockquote>
-<p>Informally, transparency is the opposite of opacity or "black-boxness." It connotes some sense of understanding the mechanism by which the model works. Transparency is considered here at the level of the entire model (<em>simulatability</em>), at the level of individual components such as parameters (<em>decomposability</em>), and at the level of the training algorithm (<em>algorithmic transparency</em>).</p>
-</blockquote>
-</li>
-<li>The "components" could focus on weights, vectors, blocks,...</li>
+<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> simulatability or simplicity, <code>2.</code> decomposability or part-role mapping, and <code>2.</code> algorithmic training which focuses on error, loss, convergence.);</li>
+<li><em>Post hoc</em> interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.</li>
 </ul>
 </li>
 <li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</li>
@@ -303,6 +307,12 @@
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>I consider <em>interpretability</em> and <em>understandability</em> synonyms to <em>explainability</em>. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
 
                     </main>
 
@@ -339,6 +349,22 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
