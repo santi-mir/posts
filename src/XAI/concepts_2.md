@@ -8,9 +8,7 @@ In Explainable AI (XAI), what primarily needs explanation are the model and its 
 
 The goal is to explain a model, and do it to some audience (which could be ourselves).[^1]
 
-## Kinds of explainability
-
-There are many kinds of model explainability used in different papers. To give a few examples:
+Model explainability can be achieved within different explainability framings:
 
 - Intrinsic vs Extrinsic
     - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
