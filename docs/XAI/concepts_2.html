@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-a3eb6c7a.js";
+            window.path_to_searchindex_js = "../searchindex-48129d98.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-feac8457.js"></script>
+        <script src="../toc-c4a3be83.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -183,14 +183,25 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>Explanations were defined and characterised in the previous post.</p>
-<p>In Explainable AI (XAI), what primarily needs explanation is the model. <em>Model explainability</em> can be defined as:</p>
+<p>Explanations were defined and characterised in a <a href="./concepts.html">previous post</a>.</p>
+<p>In Explainable AI (XAI), what primarily needs explanation are the model and its output. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about the model's inner working and outputs.</p>
 </blockquote>
-<p>The goal is to explain a model, and do it to some audience (which could be ourselves).</p>
+<p>The goal is to explain a model, and do it to some audience (which could be ourselves).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<h2 id="kinds-of-explainability"><a class="header" href="#kinds-of-explainability">Kinds of explainability</a></h2>
+<p>There are many kinds of model explainability used in different papers. To give a few examples:</p>
+<ul>
+<li>Intrinsic vs Extrinsic
+<ul>
+<li>Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.</li>
+<li>Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.</li>
+</ul>
+</li>
+<li>Global (valid for all inputs) vs local (for specific inputs)</li>
+</ul>
 <h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
-<p>In deep learning practice, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
+<p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
@@ -208,7 +219,7 @@
 <p>It reaches low evaluation error and everyone is happy.</p>
 <p>However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:</p>
 <ol>
-<li>The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
+<li>The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
 <ul>
 <li>With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.</li>
 <li>This <em>is</em> useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.</li>
@@ -252,6 +263,7 @@
 </tbody>
 </table>
 </div>
+<p>A method not listed there are text explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).</p>
 <p>We should remember that:</p>
 <blockquote>
 <p>Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),</p>
@@ -272,21 +284,35 @@
 
 </div>
 
+<p>To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.</p>
 <p>The focus here though, is explaining <em>deep learning</em> models. These are usually <em>opaque</em> ("<em>black-box</em>") models, and their accuracy is usually higher than classic ML models.</p>
-<p>In other words, classical ML and DL models each have their use-cases.</p>
+<!-- In other words, classical ML and DL models each have their use-cases. -->
 <hr><details>
-<summary>List of sources used in this blogpost</summary>
+<summary>Resources</summary>
 <ol>
-<li>[elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read. They consider two interpretability strategies:
 <ul>
-<li>A more extensive work is at [Connectivism][connectivism_downes] (2021).</li>
+<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> simulatability or simplicity, <code>2.</code> decomposability or part-role mapping, and <code>2.</code> algorithmic training which focuses on error, loss, convergence.);</li>
+<li><em>Post hoc</em> interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.</li>
 </ul>
 </li>
-<li><a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable machine-learning</a> (2021, 25 pages): Sections 8–11 are a useful review of explainability methods.</li>
+<li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</li>
+<li><a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</li>
+<li><a href="https://arxiv.org/abs/1806.00340">Producing radiologist-quality reports for interpretable artificial intelligence</a> (2018): a "case study",</li>
 <li><a href="https://en.wikipedia.org/wiki/The_Book_of_Why">The Book of Why</a> (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)</li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0740624X21001027">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</li>
+<li><a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022),</li>
+<li><a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable machine-learning</a> (2021, 25 pages): Sections 8–11 are a useful review of explainability methods.</li>
+<li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>I consider <em>interpretability</em> and <em>understandability</em> synonyms to <em>explainability</em>. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
 
                     </main>
 

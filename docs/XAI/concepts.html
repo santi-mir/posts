@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-a3eb6c7a.js";
+            window.path_to_searchindex_js = "../searchindex-48129d98.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-feac8457.js"></script>
+        <script src="../toc-c4a3be83.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -183,72 +183,39 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p>Explanations can be defined as</p>
+<h2 id="a-definition"><a class="header" href="#a-definition">A definition</a></h2>
 <blockquote>
-<p>Answers to a <em>why-question</em><sup class="footnote-reference" id="fr-logic_of_expl_hempel-1"><a href="#footnote-logic_of_expl_hempel">1</a></sup>, with certain properties and structure.</p>
+<p>An explanation is an answer to a <em>why-question</em>, with certain properties and structure.<sup class="footnote-reference" id="fr-logic_of_expl_hempel-1"><a href="#footnote-logic_of_expl_hempel">1</a></sup> Importantly, <em>why-questions</em> are usually <strong>contrastive questions</strong> e.g. phrased as <em>why P rather than Q</em> instead of <em>why P</em>, where the <em>foil</em> (Q) is frequently implicit.</p>
 </blockquote>
-<p>The <strong>caveats</strong> include:</p>
-<ol>
-<li>The <em>why-question</em> may be implicit;</li>
-<li>Other <em>question-types</em>, e.g. <em>how</em>, <em>what</em>, should be included;</li>
-<li>Lessons and books explain <em>without</em> any question, and that the important part is to fill-a-gap in imaginary or present askers.</li>
-</ol>
-<p>Questions can be hint what <em>the gap</em> is. <em>The gap</em> though, oversimplifies learning as transferring a missing piece of knowledge.</p>
-<!-- Then be evaluated of behaviour, the individual process of changing neural connections, the environments that foster it. -->
-<h2 id="characteristics-of-explanations"><a class="header" href="#characteristics-of-explanations">Characteristics of explanations</a></h2>
-<p>Generating explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
-<p>The process of explaining involves:</p>
-<ol>
-<li>There is <em>something</em> to explain (<em>explanandum</em>),</li>
-<li>The explainer <em>filters</em> aspects of the <em>explanandum</em> deemed relevant (using prior knowledge),
+<p>The definition above fits scientific questions best. But it may also be considered that:</p>
 <ul>
-<li>If the explanation is known, retrieve it and skip the rest.</li>
+<li>The <em>why-question</em> may be implicit, and other <em>question-types</em>, e.g. <em>how</em>, <em>what</em>, should be included;</li>
+<li>An explanation may be considered independently of any question:
+<ul>
+<li>Notion of filling-a-gap in imaginary or present askers.</li>
+<li>Lessons and books may count as explanations without defined questions.</li>
 </ul>
 </li>
-<li><em>Generates</em> possible answers (through explanation techniques),</li>
-<li><em>Weight</em> the likelihood of each hypotheses,</li>
-<li>Possibly selecting the most likely until contradicted by experience or super-seeded (e.g. by a simpler explanation),</li>
-<li>Communicating it to an audience the <em>social process</em></li>
+<li>Explanations frequently occur as part of <em>conversations</em>, where social aspects play an important role (such as feedback during it).</li>
+</ul>
+<p>Questions and behaviours though, can act like direction-signs in the journey towards an explanation.</p>
+<h2 id="characteristics-of-explanations"><a class="header" href="#characteristics-of-explanations">Characteristics of explanations</a></h2>
+<p>Generating explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
+<ol>
+<li>During the <em>cognitive process</em>, hypotheses / answers are retrieved or generated, for whatever is to be explained (<em>explanandum</em>).</li>
+<li>Answers are compared, and one may be selected until contradicted by experience or super-seeded (e.g. by a simpler explanation). All things equal, <strong>simple</strong> (shorter) and <strong>general</strong> (wider applicability) hypotheses tend to be preferred.</li>
+<li>The answer is communicated to an audience in the <em>social process</em>.</li>
 </ol>
-<p>2–5 are also the <em>cognitive process</em> of an explanation, and may be called the process of <em>understanding</em>.</p>
-<p>Now let's expand on the last step, the <em>social process</em>.</p>
 <h3 id="social-process"><a class="header" href="#social-process">Social Process</a></h3>
-<p>The <em>cognitive process</em> and the specific case of inferring causes was described earlier. The remaining characteristic of explanations is the <em>social process</em>: communicating the answer.</p>
-<p>When an explanation is communicated, the receiver may learn, adjust its knowledge, be more confused, reject it. For now though communication is considered independently of learning and knowledge.</p>
-<p><a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> are rules observed in <em>good</em> communication. These rules can also be used as a guide for good <em>model explanations</em>:</p>
+<p>When an explanation is communicated, the receiver may ask be question, accept or reject the answer. In any case, <a href="https://effectiviology.com/principles-of-effective-communication/">gricean Maxims</a> can aid us towards <em>good</em> communication.</p>
+<!-- These rules can also be used as a guide for good _model explanations_. -->
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
 <li><strong>Truthful</strong> (Quality, or Fidelity): Try to make it true,</li>
 <li><strong>Relevance</strong> (Relation): do not state things that aren't needed (provide insight),</li>
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
-<p>Importantly, the paper above notes that <em>why-questions</em> are usually <strong>contrastive questions</strong> e.g. phrased as <em>why P rather than Q</em> instead of <em>why P</em>, where the <em>foil</em> (Q) is frequently implicit.</p>
 <p>Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.</p>
-<h3 id="explanatory-success"><a class="header" href="#explanatory-success">Explanatory success</a></h3>
-<p>There are aspects that tend to make explanations (and the belief in a hypothesis) more successful:</p>
-<ul>
-<li>
-<p><strong>Simplicity</strong>: if it involves a shorter chain of causes, it is preferred,</p>
-</li>
-<li>
-<p><strong>Generality</strong>: if it explains other cases, it is preferred,</p>
-</li>
-<li>
-<p><strong>Testable</strong>: Can we do hypothesis testing via an experiment?</p>
-</li>
-<li>
-<p><strong>Prior knowledge/beliefs</strong></p>
-<ul>
-<li>Conditions generation and veto of hypotheses. For example, "The drawer slides because it wants." may be ignored in different basis. Another illustrative example from <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a>:</li>
-</ul>
-<blockquote>
-<p>(...) If told that herring and tuna have a disease, naive participants are more likely to extend the property to wolffish, the more similar item, than to dolphins. However, among fishing experts, who can generate an explanation for why the property might hold (e.g. tuna contract the disease by eating infected herring), similarity is less predictive of property extensions. (...)</p>
-</blockquote>
-<ul>
-<li>Aids selecting what seems causally / explanatory relevant from what is not. Consider two light beams interfering on a Sunday. The day is irrelevant (usually), we disregard a confounding factor.</li>
-</ul>
-</li>
-</ul>
 <h3 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h3>
 <p>These are metaphors different audiences use to understand models, and can help generate explanations for them.</p>
 <p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>: composed of parts, each with a function, a role.</p>
@@ -276,39 +243,12 @@
 </ol>
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <ol>
-<li>
-<p><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).</p>
-<ul>
-<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
-</ul>
-</li>
-<li>
-<p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</p>
-</li>
-<li>
-<p><a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</p>
-</li>
-<li>
-<p><a href="https://arxiv.org/abs/1806.00340">Producing radiologist-quality reports for interpretable artificial intelligence</a> (2018): a "case study",</p>
-</li>
-<li>
-<p>The paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims of Communication</a> (blog-post), or <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Wikipedia's</a>.</p>
+<li>The paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims of Communication</a> (blog-post), or <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Wikipedia's</a>.
 <ul>
 <li>The definition of explanation extends previous work by Lombrozo on <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a> (2006).</li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S0740624X21001027">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</p>
-</li>
-<li>
-<p><a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022),</p>
-</li>
-<li>
-<p>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>,</p>
-</li>
-<li>
-<p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</p>
-</li>
+<li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>,</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
@@ -324,7 +264,7 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../atom_vectors/results.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../welcome.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
@@ -338,7 +278,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../atom_vectors/results.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../welcome.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 

@@ -1,16 +1,25 @@
 # Model Explainability
 
-Explanations were defined and characterised in the previous post.
+Explanations were defined and characterised in a [previous post](./concepts.md).
 
-In Explainable AI (XAI), what primarily needs explanation is the model. _Model explainability_ can be defined as:
+In Explainable AI (XAI), what primarily needs explanation are the model and its output. _Model explainability_ can be defined as:
 
 > The degree to which we can answer questions about the model's inner working and outputs.
 
-The goal is to explain a model, and do it to some audience (which could be ourselves).
+The goal is to explain a model, and do it to some audience (which could be ourselves).[^1]
+
+## Kinds of explainability
+
+There are many kinds of model explainability used in different papers. To give a few examples:
+
+- Intrinsic vs Extrinsic
+    - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
+    - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
+- Global (valid for all inputs) vs local (for specific inputs)
 
 ## Trade-offs
 
-In deep learning practice, explainability _tends to_ be harder with more accurate models, since they _tend to_ be more complex.
+In deep learning practice, tradeoffs abound. For example, explainability _tends to_ be harder with more accurate models, since they _tend to_ be more complex.
 
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
@@ -33,7 +42,7 @@ It reaches low evaluation error and everyone is happy.
 
 However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:
 
-1. The model is doing correlation/association, but there wasn't correlation data available for such an event, so the predictions bad;
+1. The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
    - With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.
    - This _is_ useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.
 2. The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
@@ -83,6 +92,8 @@ The survey [Principles and practise of explaining ML models][principles_and_prac
 | **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
 | **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
 
+A method not listed there are text explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).
+
 We should remember that:
 
 > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
@@ -106,22 +117,48 @@ _Classic ML_ models are usually _transparent_ (intrinsically explainable) but _m
     </p>
 </div>
 
+To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.
+
 The focus here though, is explaining _deep learning_ models. These are usually _opaque_ ("_black-box_") models, and their accuracy is usually higher than classic ML models.
 
-In other words, classical ML and DL models each have their use-cases.
+<!-- In other words, classical ML and DL models each have their use-cases. -->
 
 -------------------
 
 <details>
-<summary>List of sources used in this blogpost</summary>
+<summary>Resources</summary>
 
-1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-   - A more extensive work is at [Connectivism][connectivism_downes] (2021).
-1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
+1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
+   - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` simulatability or simplicity, `2.` decomposability or part-role mapping, and `2.` algorithmic training which focuses on error, loss, convergence.);
+   - _Post hoc_ interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.
+1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
+1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
+1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
+1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
+1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
+1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
+1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 </details>
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
+[mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
+
+[perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
+
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
+
+[shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+
 [tbow]: https://en.wikipedia.org/wiki/The_Book_of_Why
+
+[using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
+
+[xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
+
+[xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
+
+[xx]: http://arxiv.org/abs/1806.00069
+
+[^1]: I consider _interpretability_ and _understandability_ synonyms to _explainability_.

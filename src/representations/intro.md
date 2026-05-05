@@ -1,8 +1,16 @@
 # Atom vectors
 
-The quest for _machine representations of objects_ is a long standing research theme.
+The quest for _machine representations of objects_ is a long standing research theme. Here is a very narrow sample of the map:
 
-_Vector representations_ are one kind of machine representation, and may be further broken down in: _descriptors_, which are expert-designed vectors, and _embeddings_, which are machine-learnt vectors $\in \mathbb{R}^N$.
+```mermaid
+flowchart TB
+A(Machine representations
+of objects) --> B(Vector Representations)
+B --> C(Descriptors)
+B --> D(Embeddings)
+```
+
+_Descriptors_ are expert-designed vectors; _embeddings_ are machine-learnt vectors $\in \mathbb{R}^N$.
 
 This post focuses on _embeddings_ since they require less human effort, and produce more general-purpose vectors.
 
@@ -63,13 +71,11 @@ They assert that one-hot encoded vectors can still achieve good results using sm
 
 ## Thoughts
 
-Human-designed vectors are easier to interpret.
+Human-designed vectors are easier to interpret; machine-learnt vectors require less effort but more data to train them.
 
-Machine-learnt vectors require less effort but usually require more data to generate quality vectors.
+Can we design machine-learnt interpretable vectors that are intrinsically interpretable? Attention-masks and disentangled representations are closer to this.
 
-Can we design machine-learnt interpretable vectors that are intrinsically interpretable?
-
-Attention-masks and disentangled representations are closer to this.
+Should the representation be just the simplest, and the network learn all that is needed for the given tasks?
 
 [SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3
 [Atom2Vec]: https://pnas.org/doi/full/10.1073/pnas.1801181115
