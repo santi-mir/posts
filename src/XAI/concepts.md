@@ -4,15 +4,11 @@
 
 > An explanation is an answer to a _why-question_, with certain properties and structure.[^logic_of_expl_hempel] _Why-questions_ are usually _contrastive_ questions phrased as _why P rather than Q_ instead of _why P_. The _foil_ (Q) may also be implicit.
 
-The definition above fits scientific questions best. But it may also be considered that:
+Some argue that _how_, _what_ and other questions may also prompt an explanation, and even no question at all. For example, lessons or books which may count as explanations without defined questions.
 
-- Other _question-types_, e.g. _how_, _what_, are also used;
-- An explanation may be considered independently of any question:
-    - Notion of filling-a-gap in imaginary or present askers.
-    - Lessons and books may count as explanations without defined questions.
-- Explanations frequently occur as part of _conversations_, where social aspects play an important role (such as feedback during it).
+From the answerer point of view, the notion of filling-a-gap (in imaginary or present askers) may be added, though it's an oversimplified view of the learning process.
 
-Questions and behaviours though, can act like direction-signs in the journey towards an explanation.
+Finally, explanations frequently occur as part of _conversations_, where social aspects play an important role. For example, follow up questions and behaviours can act like direction-signs in the journey towards an explanation.
 
 ## Characteristics of explanations
 
