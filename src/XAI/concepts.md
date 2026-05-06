@@ -20,7 +20,6 @@ The different question types, the _contrastive_ consideration, and the social as
 >
 > Explanations may be part of a _communication process_ in which feedback and other queues refine both the questions and the answers.
 
-
 ## Characteristics of explanations
 
 Generating explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
@@ -85,8 +84,6 @@ Many other metaphors could be proposed.
 [gricean_maxims]: https://effectiviology.com/principles-of-effective-communication/
 
 [logic_of_expl_hempel]: https://fitelson.org/woodward/hempel_oppenheim.pdf
-
-[^logic_of_expl_hempel]: e.g. [Studies in the logic of explanations][logic_of_expl_hempel] (1948)
 
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
 
