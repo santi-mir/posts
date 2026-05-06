@@ -1,14 +1,25 @@
 # Explanations
 
-## A definition
+Let's start with a simplified definition of an _explanation_, which is then refined:
 
-> An explanation is an answer to a _why-question_, with certain properties and structure.[^logic_of_expl_hempel] _Why-questions_ are usually _contrastive_ questions phrased as _why P rather than Q_ instead of _why P_. The _foil_ (Q) may also be implicit.
+> An explanation is an answer to a _why-question_.
 
-Some argue that _how_, _what_ and other questions may also prompt an explanation, and even no question at all. For example, lessons or books which may count as explanations without defined questions.
+Other questions (e.g. _how_, _what_) &mdash;and even no question&mdash; may also prompt an explanation. For example, lessons or books which may count as explanations without defined questions.
 
-From the answerer point of view, the notion of filling-a-gap (in imaginary or present askers) may be added, though it's an oversimplified view of the learning process.
+_Why-questions_ tend to be _contrastive_, that is, phrased as _why P rather than Q_ instead of _why P_. The _foil_ (Q) may also be implicit.
+
+Another way to think of explanations is of filling-a-gap (in imaginary or present askers), though it's an oversimplified view of the learning process.
 
 Finally, explanations frequently occur as part of _conversations_, where social aspects play an important role. For example, follow up questions and behaviours can act like direction-signs in the journey towards an explanation.
+
+The different question types, the _contrastive_ consideration, and the social aspects may be included in an extended definition:
+
+> Explanations are commonly answers to _what_, _how_ and _why_ questions aiming to fill-a-gap in someone's perspective. The question may question may be implicit, requiring us to infer it.
+>
+> Frequently, _contrastive questions_ are successful explanation-generators because the answer can be simplified.
+>
+> Explanations may be part of a _communication process_ in which feedback and other queues refine both the questions and the answers.
+
 
 ## Characteristics of explanations
 
