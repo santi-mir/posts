@@ -4,11 +4,11 @@ Explanations were defined and characterised in a [previous post](./explanation.m
 
 Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. _Model explainability_ can be defined as:
 
-> The degree to which one can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
+> The degree to which we can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
 As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_.
 
-The model and the answers are ticking some desiderata which the context and audience need. In some cases, the desiderata will constrain which models are desired or allowed.
+The model and the answers are ticking some desiderata which the context and audience sets. In some cases, the desiderata will constrain which models are desired or allowed.
 
 > [!NOTE]
 > _Interpretability_ and _transparency_ usually "peek inside the black box". _Explainability_ includes those, and methods to analyse opaque, or black-box models. This post uses only the term _explainability_ and simply states any specifics on each analysis (An example is given just below).
