@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-c0ab3837.js";
+            window.path_to_searchindex_js = "searchindex-2ac90f60.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-2f94db08.js"></script>
@@ -271,18 +271,14 @@
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>. In essence, explanations involve a <em>cognitive process</em> (understanding) and <em>social process</em> (communication).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
 <p>Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about the model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
 </blockquote>
+<p>Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can be explained by an expert to an audience.</p>
 <p>As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a <em>contrastive why-question</em>.</p>
-<p>The model and the answers are ticking some desiderata which the context and audience sets. In some cases, the desiderata will constrain which models are desired or allowed.</p>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p><em>Interpretability</em> and <em>transparency</em> usually "peek inside the black box". <em>Explainability</em> includes those, and methods to analyse opaque, or black-box models. This post uses only the term <em>explainability</em> and simply states any specifics on each analysis (An example is given just below).</p>
-</blockquote>
-<p>Model explainability can be achieved within different explainability framings:</p>
+<p>Model explainability <em>includes</em> terms like interpretability and transparency (which look inside the model) but also methods to analyse black-box models. Here is one possible classification:</p>
 <ul>
 <li>Intrinsic vs Extrinsic
 <ul>
@@ -292,6 +288,10 @@
 </li>
 <li>Global (valid for all inputs) vs local (for specific inputs)</li>
 </ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the <em>cognitive process</em>, prior to any communication. However, it certainly seems more complex.</p>
+</blockquote>
 <h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
 <p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
 <div class="center w30">
@@ -399,12 +399,6 @@
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-1">
-<p>The <em>social process</em> may not always be involved, such as when it's just us. But most often understanding the model means explaining it to ourselves. So we can use always use "explainability", even for us trying to <em>understand</em> the model. <a href="#fr-1-1">↩</a></p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
@@ -438,7 +432,7 @@
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="method-lime"><a class="header" href="#method-lime">Method: LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
+<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
@@ -475,8 +469,8 @@
 </details>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-1">
-<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-1">↩</a></p>
+<li id="footnote-1">
+<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -645,7 +639,7 @@ B --&gt; D(Embeddings)
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
-<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup></p>
+<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -705,8 +699,8 @@ B --&gt; D(Embeddings)
 </blockquote>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-2">
-<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-2">↩</a></p>
+<li id="footnote-1-1">
+<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -881,7 +875,7 @@ B --&gt; D(Embeddings)
 <li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
 <ul>
 <li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> probe structure (this step is complex).
+<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> probe structure (this step is complex).
 Hints experimentalists of promising region.</li>
 </ul>
 </li>
@@ -905,8 +899,8 @@ style A fill:#123456,color:#f4f4f4,stroke-width:0px
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-3">
-<p>With respect to the convex hull. <a href="#fr-1-1-3">↩</a></p>
+<li id="footnote-1-2">
+<p>With respect to the convex hull. <a href="#fr-1-1-2">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">

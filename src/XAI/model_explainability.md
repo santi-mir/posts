@@ -17,7 +17,6 @@ Model explainability _includes_ terms like interpretability and transparency (wh
     - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
 - Global (valid for all inputs) vs local (for specific inputs)
 
-
 > [!NOTE]
 > Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the _cognitive process_, prior to any communication. However, it certainly seems more complex.
 
