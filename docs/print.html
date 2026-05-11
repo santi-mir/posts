@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-1c52a4fe.js";
+            window.path_to_searchindex_js = "searchindex-ec914cf3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-0294859a.js"></script>
+        <script src="toc-2f94db08.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -271,12 +271,17 @@
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
-<p>In Explainable AI (XAI), what primarily needs explanation are the model and its output. <em>Model explainability</em> can be defined as:</p>
+<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>. In essence, explanations involve a <em>cognitive process</em> (understanding) and <em>social process</em> (communication).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
-<p>The degree to which we can answer questions about the model's inner working and outputs.</p>
+<p>The degree to which one can answer questions about the model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
 </blockquote>
-<p>The goal is to explain a model, and do it to some audience (which could be ourselves).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a <em>contrastive why-question</em>.</p>
+<p>The model and the answers are ticking some desiderata which the context and audience need. In some cases, the desiderata will constrain which models are desired or allowed.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p><em>Interpretability</em> and <em>transparency</em> usually "peek inside the black box". <em>Explainability</em> includes those, and methods to analyse opaque, or black-box models. This post uses only the term <em>explainability</em> and simply states any specifics on each analysis (An example is given just below).</p>
+</blockquote>
 <p>Model explainability can be achieved within different explainability framings:</p>
 <ul>
 <li>Intrinsic vs Extrinsic
@@ -379,7 +384,7 @@
 <ol>
 <li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read. They consider two interpretability strategies:
 <ul>
-<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> simulatability or simplicity, <code>2.</code> decomposability or part-role mapping, and <code>2.</code> algorithmic training which focuses on error, loss, convergence.);</li>
+<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> <em>simulatability</em> or simplicity, <code>2.</code> <em>decomposability</em> or part-role mapping, and <code>3.</code> <em>algorithmic training</em> which focuses on error, loss, convergence.);</li>
 <li><em>Post hoc</em> interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.</li>
 </ul>
 </li>
@@ -397,7 +402,7 @@
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-1">
-<p>I consider <em>interpretability</em> and <em>understandability</em> synonyms to <em>explainability</em>. <a href="#fr-1-1">↩</a></p>
+<p>The <em>social process</em> may not always be involved, such as when it's just us. But most often understanding the model means explaining it to ourselves. So we can use always use "explainability", even for us trying to <em>understand</em> the model. <a href="#fr-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
