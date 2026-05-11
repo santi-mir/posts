@@ -1,24 +1,25 @@
 # Model Explainability
 
-Explanations were defined and characterised in a [previous post](./explanation.md). In essence, explanations involve a _cognitive process_ (understanding) and _social process_ (communication).[^1]
+Explanations were defined and characterised in a [previous post](./explanation.md).
 
 Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. _Model explainability_ can be defined as:
 
 > The degree to which we can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
+Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can be explained by an expert to an audience.
+
 As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_.
 
-The model and the answers are ticking some desiderata which the context and audience sets. In some cases, the desiderata will constrain which models are desired or allowed.
-
-> [!NOTE]
-> _Interpretability_ and _transparency_ usually "peek inside the black box". _Explainability_ includes those, and methods to analyse opaque, or black-box models. This post uses only the term _explainability_ and simply states any specifics on each analysis (An example is given just below).
-
-Model explainability can be achieved within different explainability framings:
+Model explainability _includes_ terms like interpretability and transparency (which look inside the model) but also methods to analyse black-box models. Here is one possible classification:
 
 - Intrinsic vs Extrinsic
     - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
     - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
 - Global (valid for all inputs) vs local (for specific inputs)
+
+
+> [!NOTE]
+> Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the _cognitive process_, prior to any communication. However, it certainly seems more complex.
 
 ## Trade-offs
 
@@ -163,5 +164,3 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 [xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 
 [xx]: http://arxiv.org/abs/1806.00069
-
-[^1]: The _social process_ may not always be involved, such as when it's just us. But most often understanding the model means explaining it to ourselves. So we can use always use "explainability", even for us trying to _understand_ the model.
