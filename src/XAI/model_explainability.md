@@ -1,12 +1,17 @@
 # Model Explainability
 
-Explanations were defined and characterised in a [previous post](./concepts.md).
+Explanations were defined and characterised in a [previous post](./explanation.md). In essence, explanations involve a _cognitive process_ (understanding) and _social process_ (communication).[^1]
 
-In Explainable AI (XAI), what primarily needs explanation are the model and its output. _Model explainability_ can be defined as:
+Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. _Model explainability_ can be defined as:
 
-> The degree to which we can answer questions about the model's inner working and outputs.
+> The degree to which one can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
-The goal is to explain a model, and do it to some audience (which could be ourselves).[^1]
+As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_.
+
+The model and the answers are ticking some desiderata which the context and audience need. In some cases, the desiderata will constrain which models are desired or allowed.
+
+> [!NOTE]
+> _Interpretability_ and _transparency_ usually "peek inside the black box". _Explainability_ includes those, and methods to analyse opaque, or black-box models. This post uses only the term _explainability_ and simply states any specifics on each analysis (An example is given just below).
 
 Model explainability can be achieved within different explainability framings:
 
@@ -127,7 +132,7 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 <summary>Resources</summary>
 
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
-   - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` simulatability or simplicity, `2.` decomposability or part-role mapping, and `2.` algorithmic training which focuses on error, loss, convergence.);
+   - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` _simulatability_ or simplicity, `2.` _decomposability_ or part-role mapping, and `3.` _algorithmic training_ which focuses on error, loss, convergence.);
    - _Post hoc_ interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
@@ -159,4 +164,4 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 
 [xx]: http://arxiv.org/abs/1806.00069
 
-[^1]: I consider _interpretability_ and _understandability_ synonyms to _explainability_.
+[^1]: The _social process_ may not always be involved, such as when it's just us. But most often understanding the model means explaining it to ourselves. So we can use always use "explainability", even for us trying to _understand_ the model.
