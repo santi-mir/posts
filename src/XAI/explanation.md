@@ -63,7 +63,7 @@ Many other metaphors could be proposed.
 <details>
 <summary>Interesting resources</summary>
 
-1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948), Their hypothetico-deductive, or logico-deductive model isn't how explanations are conceived any more, but it is a historically important paper.
+1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948), Their _logically deductive_ model, and the related _covariation_ model (Kelley, 1967) isn't how human explanations are considered in social and cognitive sciences any more. However, these are important historical background.
 1. [Explanations, Predictions and Laws][scriven] (1948),
 1. [On the mechanization of abductive logic][abductive_logic] (1973). The first page is quite interesting.
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
