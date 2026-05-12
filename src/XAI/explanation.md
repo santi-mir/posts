@@ -1,28 +1,26 @@
 # Explanations
 
-Let's start with a simplified definition of an _explanation_, which is then refined:
+> Explanations are answers to implicit or explicit questions &mdash;such as _what_, _how_ and _why_&mdash; and to "_fill-a-gap_" in someone's perspective.
 
-> An explanation is an answer to a _why-question_.
+It should also be considered that:
 
-Other questions (e.g. _how_, _what_) &mdash;and even no question&mdash; may also prompt an explanation. For example, lessons or books which may count as explanations without defined questions.
+- Some researchers characterise explanations independently of any question. For example, lessons or books which may count as explanations without defined questions.
+- Explanations are usually part of a _communication process_ in which feedback such as other questions and behaviour act like direction-signs in the journey towards an explanation.
 
-_Why-questions_ tend to be _contrastive_, that is, phrased as _why P rather than Q_ instead of _why P_. The _foil_ (Q) may also be implicit.
+We could argue that the explainer is modelling what the explainer doesn't know, and is aided by behavioural queues, and follow-up questions and other feedback. In this sense, explaining is similar to teaching, and to learning.
 
-Another way to think of explanations is of filling-a-gap (in imaginary or present askers), though it's an oversimplified view of the learning process.
+## Why-Question
 
-Finally, explanations frequently occur as part of _conversations_, where social aspects play an important role. For example, follow up questions and behaviours can act like direction-signs in the journey towards an explanation.
+Research has shown that _why-questions_ are usually _contrastive_. That, is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_.
 
-The different question types, the _contrastive_ consideration, and the social aspects may be included in an extended definition:
+In the example above, the _foil_ (Q), may also be implicit, and represents the case that was expected. The foil can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.
 
-> Explanations are commonly answers to _what_, _how_ and _why_ questions aiming to fill-a-gap in someone's perspective. The question may question may be implicit, requiring us to infer it.
->
-> Frequently, _contrastive questions_ are successful explanation-generators because the answer can be simplified.
->
-> Explanations may be part of a _communication process_ in which feedback and other queues refine both the questions and the answers.
+As [Section 3-1][beware_inmates_asylum] states:
+> For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-## Characteristics of explanations
+## The explanation process
 
-Generating explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
+Explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
 1. During the _cognitive process_, hypotheses / answers are retrieved or generated, for whatever is to be explained (_explanandum_).
 2. Answers are compared, and one may be selected until contradicted by experience or super-seeded (e.g. by a simpler explanation). All things equal, **simple** (shorter) and **general** (wider applicability) hypotheses tend to be preferred.
@@ -65,11 +63,13 @@ Many other metaphors could be proposed.
 <details>
 <summary>Interesting resources</summary>
 
-1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948), all the conceptual, i.e. non algebraic/logical analysis, is interesting.
+1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948), Their hypothetico-deductive, or logico-deductive model isn't how explanations are conceived any more, but it is a historically important paper.
 1. [Explanations, Predictions and Laws][scriven] (1948),
 1. [On the mechanization of abductive logic][abductive_logic] (1973). The first page is quite interesting.
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
-1. The paper ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social] (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: [Gricean Maxims of Communication][gricean_maxims] (blog-post), or [Wikipedia's][wikipedia_gricean].
+1. The paper ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social] (2019, 38 pages).
+   - Also S-3 of this paper by the same author: [Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences][beware_inmates_asylum] (2017)
+   - Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: [Gricean Maxims of Communication][gricean_maxims] (blog-post), or [Wikipedia's][wikipedia_gricean].
    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm],
 
@@ -78,6 +78,8 @@ Many other metaphors could be proposed.
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
 [abductive_logic]:https://www.ijcai.org/Proceedings/73/Papers/017.pdf
+
+[beware_inmates_asylum]: http://arxiv.org/abs/1712.00547
 
 [explanations_social]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
 
