@@ -9,15 +9,6 @@ It should also be considered that:
 
 We could argue that the explainer is modelling what the explainer doesn't know, and is aided by behavioural queues, and follow-up questions and other feedback. In this sense, explaining is similar to teaching, and to learning.
 
-## Why-Question
-
-Research has shown that _why-questions_ are usually _contrastive_. That, is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_.
-
-In the example above, the _foil_ (Q), may also be implicit, and represents the case that was expected. The foil can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.
-
-As [Section 3-1][beware_inmates_asylum] states:
-> For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
-
 ## The explanation process
 
 Explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
@@ -39,7 +30,45 @@ When an explanation is communicated, the receiver may ask be question, accept or
 
 Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.
 
-### Metaphors: The Machine and The Agent
+## What do people want?
+
+We need some narrowing down of what kind of explanations are preferred by people. This section digs a bit into that.
+
+### Understanding the difference
+
+Research has shown that _why-questions_ are usually _contrastive_. That, is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
+
+The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents the case that was expected&mdash;which may also be implicit. The _foil_ can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.
+
+As [Section 3-1][beware_inmates_asylum] states:
+> For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
+
+### Attributing Causes
+As [Miller et al. state][beware_inmates_asylum]:
+
+> Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
+
+_Causal attribution_ and _explanation selection_ are summarised below (based on the same paper).
+
+Humans **attribute causes** using an:
+- Agent-like model, using intentions, which are more relevant in agent-like AI,
+- A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the _foil_.)
+
+_But which events to undo or change?_ Social research indicates that we prefer:
+
+- Proximal over distal causes (in the causal chain of events);
+- Focus on abnormal events and human intervention (in both cases they also may go farther in the distance axis);
+- Focus on _controllable_ events.
+
+These heuristics can be used to simplify and/or prioritise explanations.
+
+### I like THIS explanation (evaluation)
+
+Sadly, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
+
+
+
+## Metaphors: The Machine and The Agent
 
 These are metaphors different audiences use to understand models, and can help generate explanations for them.
 
