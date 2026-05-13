@@ -2,12 +2,13 @@
 
 > Explanations are answers to implicit or explicit questions &mdash;such as _what_, _how_ and _why_&mdash;which guide the receiver through the learning process.
 
-
 It should be noted that:
+
 - Some researchers characterise explanations independently of any question. For example, lessons or books which may count as explanations without defined questions.
 - Explanations are usually part of a _communication process_ in which feedback such as other questions and behaviour act like direction-signs in the journey towards an explanation.
 
 ## Aside on Pedagogy
+
 We could argue that the explainer is modelling what the explainer doesn't know, and is aided by behavioural queues, and follow-up questions and other feedback. In this sense, explaining is similar to teaching, and to learning.
 
 We could say "Filling a gap" instead of "guiding" but this is just a pedagogy-wise outdated view of the learning process, based on _knowledge transfer_.
