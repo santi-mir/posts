@@ -44,6 +44,7 @@ As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
 ### Attributing Causes
+
 As [Miller et al. state][beware_inmates_asylum]:
 
 > Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
@@ -51,6 +52,7 @@ As [Miller et al. state][beware_inmates_asylum]:
 _Causal attribution_ and _explanation selection_ are summarised below (based on the same paper).
 
 Humans **attribute causes** using an:
+
 - Agent-like model, using intentions, which are more relevant in agent-like AI,
 - A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the _foil_.)
 
@@ -65,8 +67,6 @@ These heuristics can be used to simplify and/or prioritise explanations.
 ### I like THIS explanation (evaluation)
 
 Sadly, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
-
-
 
 ## Metaphors: The Machine and The Agent
 

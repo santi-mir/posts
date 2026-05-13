@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-c17a007f.js";
+            window.path_to_searchindex_js = "../searchindex-9c5662dc.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-2f94db08.js"></script>
@@ -192,13 +192,6 @@
 <li>Explanations are usually part of a <em>communication process</em> in which feedback such as other questions and behaviour act like direction-signs in the journey towards an explanation.</li>
 </ul>
 <p>We could argue that the explainer is modelling what the explainer doesn't know, and is aided by behavioural queues, and follow-up questions and other feedback. In this sense, explaining is similar to teaching, and to learning.</p>
-<h2 id="why-question"><a class="header" href="#why-question">Why-Question</a></h2>
-<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That, is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>.</p>
-<p>In the example above, the <em>foil</em> (Q), may also be implicit, and represents the case that was expected. The foil can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.</p>
-<p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
-<blockquote>
-<p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
-</blockquote>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
@@ -216,7 +209,36 @@
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
 <p>Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.</p>
-<h3 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h3>
+<h2 id="what-do-people-want"><a class="header" href="#what-do-people-want">What do people want?</a></h2>
+<p>We need some narrowing down of what kind of explanations are preferred by people. This section digs a bit into that.</p>
+<h3 id="understanding-the-difference"><a class="header" href="#understanding-the-difference">Understanding the difference</a></h3>
+<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That, is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
+<p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected—which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.</p>
+<p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
+<blockquote>
+<p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
+</blockquote>
+<h3 id="attributing-causes"><a class="header" href="#attributing-causes">Attributing Causes</a></h3>
+<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
+<blockquote>
+<p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
+</blockquote>
+<p><em>Causal attribution</em> and <em>explanation selection</em> are summarised below (based on the same paper).</p>
+<p>Humans <strong>attribute causes</strong> using an:</p>
+<ul>
+<li>Agent-like model, using intentions, which are more relevant in agent-like AI,</li>
+<li>A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the <em>foil</em>.)</li>
+</ul>
+<p><em>But which events to undo or change?</em> Social research indicates that we prefer:</p>
+<ul>
+<li>Proximal over distal causes (in the causal chain of events);</li>
+<li>Focus on abnormal events and human intervention (in both cases they also may go farther in the distance axis);</li>
+<li>Focus on <em>controllable</em> events.</li>
+</ul>
+<p>These heuristics can be used to simplify and/or prioritise explanations.</p>
+<h3 id="i-like-this-explanation-evaluation"><a class="header" href="#i-like-this-explanation-evaluation">I like THIS explanation (evaluation)</a></h3>
+<p>Sadly, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.</p>
+<h2 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h2>
 <p>These are metaphors different audiences use to understand models, and can help generate explanations for them.</p>
 <p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>: composed of parts, each with a function, a role.</p>
 <p>Outside of science or the technical domain, they're conceptualised as <em>human-like agents</em>: explained in human terms, expected to be reliable, consistent.</p>
