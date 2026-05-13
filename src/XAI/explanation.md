@@ -1,54 +1,54 @@
 # Explanations
 
-> Explanations are answers to implicit or explicit questions &mdash;such as _what_, _how_ and _why_&mdash;which guide the receiver through the learning process.
+> Explanations are answers to implicit or explicit questions (such as _what_, _how_ and _why_) which guide the explainee through the process.
 
 It should be noted that:
 
 - Some researchers characterise explanations independently of any question. For example, lessons or books which may count as explanations without defined questions.
-- Explanations are usually part of a _communication process_ in which feedback such as other questions and behaviour act like direction-signs in the journey towards an explanation.
+- Explanations are usually part of a _social, communicative process_ in which feedback such as other questions and behaviour act like road signs in the journey towards an explanation.
 
-## Aside on Pedagogy
+## Explaining, teaching and learning
 
-We could argue that the explainer is modelling what the explainer doesn't know, and is aided by behavioural queues, and follow-up questions and other feedback. In this sense, explaining is similar to teaching, and to learning.
+We could argue that the explainer is modelling what the explainee doesn't know, aided by behavioural cues, follow-up questions and other forms of feedback. In this sense, explaining is similar to both teaching and learning.
 
-We could say "Filling a gap" instead of "guiding" but this is just a pedagogy-wise outdated view of the learning process, based on _knowledge transfer_.
+We could say "_filling a gap_" instead of "_guide_" but this comes from an outdated pedagogical view of the learning process (which explanations may involve), based on _knowledge transfer_.
 
 Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong kindergarten") where the learning process is _active_ and goes through _accommodation_.
 
-More modern views include as _connectivism_ (based on connectionism).
+More modern views include _connectivism_ (based on connectionism).
 
-Although very interesting, neither of these nor learning is evaluated are discussed here.
+Although very interesting, neither of these perspectives nor learning itself are discussed here.
 
 ## The explanation process
 
 Explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-1. During the _cognitive process_, hypotheses / answers are retrieved or generated, for whatever is to be explained (_explanandum_).
-2. Answers are compared, and one may be selected until contradicted by experience or super-seeded (e.g. by a simpler explanation). All things equal, **simple** (shorter) and **general** (wider applicability) hypotheses tend to be preferred.
+1. During the _cognitive process_, hypotheses / answers are retrieved or generated, for the phenomenon to be explained (the explanandum).
+2. Answers are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation). All else being equal, **simple** (shorter) and **general** (wider applicability) hypotheses tend to be preferred.
 3. The answer is communicated to an audience in the _social process_.
 
 ### Social Process
 
-When an explanation is communicated, the receiver may ask be question, accept or reject the answer. The [Gricean Maxims][gricean_maxims] can aid us towards _good_ communication.
+When an explanation is communicated, the receiver may ask a question, accept or reject the answer. The [Gricean Maxims][gricean_maxims] can aid us towards _good_ communication.
 
 <!-- These rules can also be used as a guide for good _model explanations_. -->
 
 - **Informative** (Quantity): right amount of context and details,
-- **Truthful** (Quality, or Fidelity): Try to make it true,
-- **Relevance** (Relation): do not state things that aren't needed (provide insight),
+- **Truthful** (Quality, or Fidelity): the explanation should be true,
+- **Relevance** (Relation): avoid irrelevant details, focus on what provides insight,
 - **Manner** (clarity): express it in elegant terms.
 
 Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.
 
 ## What do people want?
 
-We need some narrowing down of what kind of explanations are preferred by people. This section digs a bit into that.
+We need some narrowing down of what kind of explanations are preferred by people in practice. This section explores that questionexplores that question.
 
 ### Understanding the difference
 
-Research has shown that _why-questions_ are usually _contrastive_. That, is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
+Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
 
-The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents the case that was expected&mdash;which may also be implicit. The _foil_ can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.
+The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents the case that was expected &mdash;which may also be implicit. The _foil_ can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.
 
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
@@ -61,7 +61,7 @@ As [Miller et al. state][beware_inmates_asylum]:
 
 _Causal attribution_ and _explanation selection_ are summarised below (based on the same paper).
 
-Humans **attribute causes** using an:
+Humans **attribute causes** using either:
 
 - Agent-like model, using intentions, which are more relevant in agent-like AI,
 - A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the _foil_.)
@@ -69,14 +69,14 @@ Humans **attribute causes** using an:
 _But which events to undo or change?_ Social research indicates that we prefer:
 
 - Proximal over distal causes (in the causal chain of events);
-- Focus on abnormal events and human intervention (in both cases they also may go farther in the distance axis);
+- Focus on abnormal events and human intervention (these may be more distal in this causal chain);
 - Focus on _controllable_ events.
 
 These heuristics can be used to simplify and/or prioritise explanations.
 
 ### I like THIS explanation (evaluation)
 
-Sadly, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
+Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
 
 ## Metaphors: The Machine and The Agent
 
@@ -86,7 +86,7 @@ In the scientific and science-adjacent domains, models are conceptualised as _ma
 
 Outside of science or the technical domain, they're conceptualised as _human-like agents_: explained in human terms, expected to be reliable, consistent.
 
-In summary, explanations are answers to _why-questions_; _good_ explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise). The metaphors can help think of an explanation-style a given audience.
+In summary, explanations are often answers to _why-questions_; _good_ explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise). The metaphors can help think of an explanation style a given audience.
 
 A table summary:
 
