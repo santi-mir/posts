@@ -4,10 +4,10 @@
 
 -----
 
-## Explainable AI
+# Explainable AI
 
-- [Explanations](./XAI/concepts.md)
-- [XAI](./XAI/concepts_2.md)
+- [Explanations](./XAI/explanation.md)
+- [XAI](./XAI/model_explainability.md)
 - [Additive Features](./XAI/strategies.md)
 - [Visuals and Arch](./XAI/strategies_2.md)
 
@@ -19,7 +19,7 @@
 
 -----
 
-## Atom Vectors
+# Atom Vectors
 
 - [Introduction](./representations/intro.md)
 - [Atom2Vec](./representations/atom2vec.md)
@@ -29,14 +29,14 @@
 
 -----
 
-## Discovering Solids
+# Discovering Solids
 
 - [Concepts](./DL_aided_exploration_inorg_solids_1.md)
 - [Workflow](./DL_aided_exploration_inorg_solids_2.md)
 
 -----
 
-## Other
+# Other
 
 - [ML Best Practices](./other/best_practices.md)
 - [ML Perspective (bits)](./machine_learning_perspective_2019.md)

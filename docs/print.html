@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-933d3d7c.js";
+            window.path_to_searchindex_js = "searchindex-9c5662dc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-c4a3be83.js"></script>
+        <script src="toc-2f94db08.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -201,31 +201,24 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<h2 id="a-definition"><a class="header" href="#a-definition">A definition</a></h2>
 <blockquote>
-<p>An explanation is an answer to a <em>why-question</em>, with certain properties and structure.<sup class="footnote-reference" id="fr-logic_of_expl_hempel-1"><a href="#footnote-logic_of_expl_hempel">1</a></sup> <em>Why-questions</em> are usually <em>contrastive</em> questions phrased as <em>why P rather than Q</em> instead of <em>why P</em>. The <em>foil</em> (Q) may also be implicit.</p>
+<p>Explanations are answers to implicit or explicit questions —such as <em>what</em>, <em>how</em> and <em>why</em>— and to "<em>fill-a-gap</em>" in someone's perspective.</p>
 </blockquote>
-<p>The definition above fits scientific questions best. But it may also be considered that:</p>
+<p>It should also be considered that:</p>
 <ul>
-<li>Other <em>question-types</em>, e.g. <em>how</em>, <em>what</em>, are also used;</li>
-<li>An explanation may be considered independently of any question:
-<ul>
-<li>Notion of filling-a-gap in imaginary or present askers.</li>
-<li>Lessons and books may count as explanations without defined questions.</li>
+<li>Some researchers characterise explanations independently of any question. For example, lessons or books which may count as explanations without defined questions.</li>
+<li>Explanations are usually part of a <em>communication process</em> in which feedback such as other questions and behaviour act like direction-signs in the journey towards an explanation.</li>
 </ul>
-</li>
-<li>Explanations frequently occur as part of <em>conversations</em>, where social aspects play an important role (such as feedback during it).</li>
-</ul>
-<p>Questions and behaviours though, can act like direction-signs in the journey towards an explanation.</p>
-<h2 id="characteristics-of-explanations"><a class="header" href="#characteristics-of-explanations">Characteristics of explanations</a></h2>
-<p>Generating explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
+<p>We could argue that the explainer is modelling what the explainer doesn't know, and is aided by behavioural queues, and follow-up questions and other feedback. In this sense, explaining is similar to teaching, and to learning.</p>
+<h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
+<p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
 <li>During the <em>cognitive process</em>, hypotheses / answers are retrieved or generated, for whatever is to be explained (<em>explanandum</em>).</li>
 <li>Answers are compared, and one may be selected until contradicted by experience or super-seeded (e.g. by a simpler explanation). All things equal, <strong>simple</strong> (shorter) and <strong>general</strong> (wider applicability) hypotheses tend to be preferred.</li>
 <li>The answer is communicated to an audience in the <em>social process</em>.</li>
 </ol>
 <h3 id="social-process"><a class="header" href="#social-process">Social Process</a></h3>
-<p>When an explanation is communicated, the receiver may ask be question, accept or reject the answer. In any case, <a href="https://effectiviology.com/principles-of-effective-communication/">gricean Maxims</a> can aid us towards <em>good</em> communication.</p>
+<p>When an explanation is communicated, the receiver may ask be question, accept or reject the answer. The <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> can aid us towards <em>good</em> communication.</p>
 <!-- These rules can also be used as a guide for good _model explanations_. -->
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
@@ -234,7 +227,36 @@
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
 <p>Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.</p>
-<h3 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h3>
+<h2 id="what-do-people-want"><a class="header" href="#what-do-people-want">What do people want?</a></h2>
+<p>We need some narrowing down of what kind of explanations are preferred by people. This section digs a bit into that.</p>
+<h3 id="understanding-the-difference"><a class="header" href="#understanding-the-difference">Understanding the difference</a></h3>
+<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That, is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
+<p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected—which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.</p>
+<p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
+<blockquote>
+<p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
+</blockquote>
+<h3 id="attributing-causes"><a class="header" href="#attributing-causes">Attributing Causes</a></h3>
+<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
+<blockquote>
+<p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
+</blockquote>
+<p><em>Causal attribution</em> and <em>explanation selection</em> are summarised below (based on the same paper).</p>
+<p>Humans <strong>attribute causes</strong> using an:</p>
+<ul>
+<li>Agent-like model, using intentions, which are more relevant in agent-like AI,</li>
+<li>A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the <em>foil</em>.)</li>
+</ul>
+<p><em>But which events to undo or change?</em> Social research indicates that we prefer:</p>
+<ul>
+<li>Proximal over distal causes (in the causal chain of events);</li>
+<li>Focus on abnormal events and human intervention (in both cases they also may go farther in the distance axis);</li>
+<li>Focus on <em>controllable</em> events.</li>
+</ul>
+<p>These heuristics can be used to simplify and/or prioritise explanations.</p>
+<h3 id="i-like-this-explanation-evaluation"><a class="header" href="#i-like-this-explanation-evaluation">I like THIS explanation (evaluation)</a></h3>
+<p>Sadly, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.</p>
+<h2 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h2>
 <p>These are metaphors different audiences use to understand models, and can help generate explanations for them.</p>
 <p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>: composed of parts, each with a function, a role.</p>
 <p>Outside of science or the technical domain, they're conceptualised as <em>human-like agents</em>: explained in human terms, expected to be reliable, consistent.</p>
@@ -255,14 +277,16 @@
 <hr><details>
 <summary>Interesting resources</summary>
 <ol>
-<li><a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948), all the conceptual, i.e. non algebraic/logical analysis, is interesting.</li>
+<li><a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948), Their <em>logically deductive</em> model, and the related <em>covariation</em> model (Kelley, 1967) isn't how human explanations are considered in social and cognitive sciences any more. However, these are important historical background.</li>
 <li><a href="https://fitelson.org/woodward/scriven_epl.pdf">Explanations, Predictions and Laws</a> (1948),</li>
 <li><a href="https://www.ijcai.org/Proceedings/73/Papers/017.pdf">On the mechanization of abductive logic</a> (1973). The first page is quite interesting.</li>
 </ol>
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <ol>
-<li>The paper <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages). Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims of Communication</a> (blog-post), or <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Wikipedia's</a>.
+<li><a href="http://arxiv.org/abs/1712.00547">Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences</a> (2017): Section 1 describes what the wrong approach is: building explanation models with an idea of explanation that only applies to experts. Section 2 surveys papers and notes almost none uses insights from social science of explanation to build their XAI algorithms, and even less evaluate them on humans. Section 3 is the most useful, and describes <strong>which insights from social sciences could be used</strong> (and points to research).
 <ul>
+<li>And an extension of that work <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages).</li>
+<li>Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims of Communication</a> (blog-post), or <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Wikipedia's</a>.</li>
 <li>The definition of explanation extends previous work by Lombrozo on <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a> (2006).</li>
 </ul>
 </li>
@@ -271,22 +295,16 @@
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-logic_of_expl_hempel">
-<p>e.g. <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanations</a> (1948) <a href="#fr-logic_of_expl_hempel-1">↩</a></p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
 <p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
-<p>In Explainable AI (XAI), what primarily needs explanation are the model and its output. <em>Model explainability</em> can be defined as:</p>
+<p>Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
-<p>The degree to which we can answer questions about the model's inner working and outputs.</p>
+<p>The degree to which we can answer questions about the model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
 </blockquote>
-<p>The goal is to explain a model, and do it to some audience (which could be ourselves).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
-<h2 id="kinds-of-explainability"><a class="header" href="#kinds-of-explainability">Kinds of explainability</a></h2>
-<p>There are many kinds of model explainability used in different papers. To give a few examples:</p>
+<p>Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can be explained by an expert to an audience.</p>
+<p>As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a <em>contrastive why-question</em>.</p>
+<p>Model explainability <em>includes</em> terms like interpretability and transparency (which look inside the model) but also methods to analyse black-box models. Here is one possible classification:</p>
 <ul>
 <li>Intrinsic vs Extrinsic
 <ul>
@@ -296,6 +314,10 @@
 </li>
 <li>Global (valid for all inputs) vs local (for specific inputs)</li>
 </ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the <em>cognitive process</em>, prior to any communication. However, it certainly seems more complex.</p>
+</blockquote>
 <h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
 <p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
 <div class="center w30">
@@ -388,7 +410,7 @@
 <ol>
 <li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read. They consider two interpretability strategies:
 <ul>
-<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> simulatability or simplicity, <code>2.</code> decomposability or part-role mapping, and <code>2.</code> algorithmic training which focuses on error, loss, convergence.);</li>
+<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> <em>simulatability</em> or simplicity, <code>2.</code> <em>decomposability</em> or part-role mapping, and <code>3.</code> <em>algorithmic training</em> which focuses on error, loss, convergence.);</li>
 <li><em>Post hoc</em> interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.</li>
 </ul>
 </li>
@@ -403,12 +425,6 @@
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-1">
-<p>I consider <em>interpretability</em> and <em>understandability</em> synonyms to <em>explainability</em>. <a href="#fr-1-1">↩</a></p>
-</li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
@@ -442,7 +458,7 @@
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="method-lime"><a class="header" href="#method-lime">Method: LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
+<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
@@ -479,8 +495,8 @@
 </details>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-1">
-<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-1">↩</a></p>
+<li id="footnote-1">
+<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -649,7 +665,7 @@ B --&gt; D(Embeddings)
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
-<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup></p>
+<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -709,8 +725,8 @@ B --&gt; D(Embeddings)
 </blockquote>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-2">
-<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-2">↩</a></p>
+<li id="footnote-1-1">
+<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -885,7 +901,7 @@ B --&gt; D(Embeddings)
 <li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
 <ul>
 <li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> probe structure (this step is complex).
+<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> probe structure (this step is complex).
 Hints experimentalists of promising region.</li>
 </ul>
 </li>
@@ -909,8 +925,8 @@ style A fill:#123456,color:#f4f4f4,stroke-width:0px
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-3">
-<p>With respect to the convex hull. <a href="#fr-1-1-3">↩</a></p>
+<li id="footnote-1-2">
+<p>With respect to the convex hull. <a href="#fr-1-1-2">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
