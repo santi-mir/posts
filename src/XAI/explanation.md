@@ -10,7 +10,7 @@ _What is the goal here? The goal is to describe ideas about "explanations" from 
 
 Explanations may be _interactive_ (e.g. in a conversation), _static_ (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.
 
-- In most explanations, there is _that which that needs clarification_, called the _explanandum_.
+- In most explanations there is _that which needs clarification_, called the _explanandum_.
 - _Static explanations_ are descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
 - _Interactive explanations_ are a conversation where a communicator and an audience aim to resolve _what_, _how_ or _why_ questions posed by the audience.
 
