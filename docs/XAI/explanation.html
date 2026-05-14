@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-28f51d6f.js";
+            window.path_to_searchindex_js = "../searchindex-fa4ef3ea.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-2f94db08.js"></script>
@@ -183,20 +183,18 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<blockquote>
-<p>Explanations are answers to implicit or explicit questions (such as <em>what</em>, <em>how</em> and <em>why</em>) which guide the explainee through the process.</p>
-</blockquote>
-<p>It should be noted that:</p>
+<p><em>What is the goal here? The goal is to describe ideas about explanations from the social sciences. Then, in future posts, to use these ideas to analyse and build explanation-tools for researchers, and ordinary people.</em></p>
+<!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
+<hr>
+<h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
+<p>Explanations may be <em>interactive</em> (e.g. in a conversation), <em>static</em> (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.</p>
 <ul>
-<li>Some researchers characterise explanations independently of any question. For example, lessons or books which may count as explanations without defined questions.</li>
-<li>Explanations are usually part of a <em>social, communicative process</em> in which feedback such as other questions and behaviour act like road signs in the journey towards an explanation.</li>
+<li>In most explanations, there is an object that needs clarification, called the <em>explanandum</em>.</li>
+<li><em>Static explanations</em> are descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</li>
+<li><em>Interactive explanations</em> are a conversation where a communicator and an audience aim to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
 </ul>
-<h2 id="explaining-teaching-and-learning"><a class="header" href="#explaining-teaching-and-learning">Explaining, teaching and learning</a></h2>
-<p>We could argue that the explainer is modelling what the explainee doesn't know, aided by behavioural cues, follow-up questions and other forms of feedback. In this sense, explaining is similar to both teaching and learning.</p>
-<p>We could say "<em>filling a gap</em>" instead of "<em>guide</em>" but this comes from an outdated pedagogical view of the learning process (which explanations may involve), based on <em>knowledge transfer</em>.</p>
-<p>Other views come from <em>constructivism</em> (Piaget) or <em>constructionism</em> (Papert e.g. "Mindstorms", Resnick "Lifelong kindergarten") where the learning process is <em>active</em> and goes through <em>accommodation</em>.</p>
-<p>More modern views include <em>connectivism</em> (based on connectionism).</p>
-<p>Although very interesting, neither of these perspectives nor learning itself are discussed here.</p>
+<p>We may consider that interactive explanations are static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.</p>
+<p>The success of an explanation depends on audience (e.g. prior knowledge, interests, needs given by the context, and so forth). Even though there are general characteristics, we should remember that explanations are for an audience, and in some context.</p>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
@@ -204,26 +202,16 @@
 <li>Answers are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation). All else being equal, <strong>simple</strong> (shorter) and <strong>general</strong> (wider applicability) hypotheses tend to be preferred.</li>
 <li>The answer is communicated to an audience in the <em>social process</em>.</li>
 </ol>
-<h3 id="social-process"><a class="header" href="#social-process">Social Process</a></h3>
-<p>When an explanation is communicated, the receiver may ask a question, accept or reject the answer. The <a href="https://effectiviology.com/principles-of-effective-communication/">Gricean Maxims</a> can aid us towards <em>good</em> communication.</p>
-<!-- These rules can also be used as a guide for good _model explanations_. -->
-<ul>
-<li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
-<li><strong>Truthful</strong> (Quality, or Fidelity): the explanation should be true,</li>
-<li><strong>Relevance</strong> (Relation): avoid irrelevant details, focus on what provides insight,</li>
-<li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
-</ul>
-<p>Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.</p>
-<h2 id="what-do-people-want"><a class="header" href="#what-do-people-want">What do people want?</a></h2>
-<p>We need some narrowing down of what kind of explanations are preferred by people in practice. This section explores that questionexplores that question.</p>
-<h3 id="understanding-the-difference"><a class="header" href="#understanding-the-difference">Understanding the difference</a></h3>
+<h2 id="explanation-success"><a class="header" href="#explanation-success">Explanation success</a></h2>
+<p>This section explores certain aspects of explanations that are usually preferred by most audiences.</p>
+<h3 id="differences-contrastive-explanations"><a class="header" href="#differences-contrastive-explanations">Differences (contrastive explanations)</a></h3>
 <p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
 <p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected —which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.</p>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
-<h3 id="attributing-causes"><a class="header" href="#attributing-causes">Attributing Causes</a></h3>
+<h3 id="who-did-this-attribution-theory"><a class="header" href="#who-did-this-attribution-theory">Who did this? (Attribution Theory)</a></h3>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
 <blockquote>
 <p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
@@ -231,8 +219,8 @@
 <p><em>Causal attribution</em> and <em>explanation selection</em> are summarised below (based on the same paper).</p>
 <p>Humans <strong>attribute causes</strong> using either:</p>
 <ul>
-<li>Agent-like model, using intentions, which are more relevant in agent-like AI,</li>
-<li>A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the <em>foil</em>.)</li>
+<li><strong>Agent-like model</strong> involving intentions, goals, motives,</li>
+<li><strong>General causal model</strong> involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the <em>foil</em>.)</li>
 </ul>
 <p><em>But which events to undo or change?</em> Social research indicates that we prefer:</p>
 <ul>
@@ -241,12 +229,32 @@
 <li>Focus on <em>controllable</em> events.</li>
 </ul>
 <p>These heuristics can be used to simplify and/or prioritise explanations.</p>
-<h3 id="i-like-this-explanation-evaluation"><a class="header" href="#i-like-this-explanation-evaluation">I like THIS explanation (evaluation)</a></h3>
-<p>Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.</p>
-<h2 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h2>
-<p>These are metaphors different audiences use to understand models, and can help generate explanations for them.</p>
-<p>In the scientific and science-adjacent domains, models are conceptualised as <em>machines</em>: composed of parts, each with a function, a role.</p>
-<p>Outside of science or the technical domain, they're conceptualised as <em>human-like agents</em>: explained in human terms, expected to be reliable, consistent.</p>
+<h3 id="the-downfall-of-truth-evaluation"><a class="header" href="#the-downfall-of-truth-evaluation">The Downfall of Truth (evaluation)</a></h3>
+<p>Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
+<p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
+<h3 id="social-process-communication"><a class="header" href="#social-process-communication">Social Process (communication)</a></h3>
+<p>The communication process can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
+<ul>
+<li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
+<li><strong>Truthful</strong> (Quality, or Fidelity): the explanation should be true,</li>
+<li><strong>Relevance</strong> (Relation): avoid irrelevant details, focus on what provides insight,</li>
+<li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
+</ul>
+<p>Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.</p>
+<h2 id="explaining-teaching-and-learning"><a class="header" href="#explaining-teaching-and-learning">Explaining, teaching and learning</a></h2>
+<p>We could argue that the explainer is modelling what the explainee doesn't know, aided by behavioural cues, follow-up questions and other forms of feedback. In this sense, explaining is similar to both teaching and learning.</p>
+<p>We could say "<em>filling a gap</em>" instead of "<em>guide</em>" but this comes from an outdated pedagogical view of the learning process (which explanations may involve), based on <em>knowledge transfer</em>.</p>
+<p>Other views come from <em>constructivism</em> (Piaget) or <em>constructionism</em> (Papert e.g. "Mindstorms", Resnick "Lifelong kindergarten") where the learning process is <em>active</em> and goes through <em>accommodation</em>.</p>
+<p>More modern views include <em>connectivism</em> (based on connectionism).</p>
+<p>Neither of these perspectives nor learning itself are discussed here, but it may be added in a future post.</p>
+<h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
+<p>These are metaphors different audiences use to understand complex systems, and can help generate explanations for them.</p>
+<p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as graphs.</p>
+<p>Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.</p>
+<p>This idea is very similar to <em>social</em> versus <em>general</em> causal attribution. It is also similar to what <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">researchers hypothesise</a>:</p>
+<blockquote>
+<p>For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans; and they will expect AIS [Autonomous Intelligent System] to apply this framework as well. There may be a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.</p>
+</blockquote>
 <p>In summary, explanations are often answers to <em>why-questions</em>; <em>good</em> explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise). The metaphors can help think of an explanation style a given audience.</p>
 <p>A table summary:</p>
 <div class="table-wrapper">
@@ -277,7 +285,8 @@
 <li>The definition of explanation extends previous work by Lombrozo on <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a> (2006).</li>
 </ul>
 </li>
-<li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>,</li>
+<li><a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a> (2017),</li>
+<li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>.</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
