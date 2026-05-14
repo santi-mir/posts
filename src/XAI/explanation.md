@@ -30,7 +30,7 @@ Explanations involve a _cognitive_ and a _social_ process. Below, I describe a v
 
 This section explores certain aspects of explanations that are usually preferred by most audiences.
 
-### Understanding the difference
+### Differences (contrastive explanations)
 
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
 
@@ -39,7 +39,7 @@ The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents t
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-### Attributing Causes
+### Who did this? (Attribution Theory)
 
 As [Miller et al. state][beware_inmates_asylum]:
 
@@ -60,7 +60,7 @@ _But which events to undo or change?_ Social research indicates that we prefer:
 
 These heuristics can be used to simplify and/or prioritise explanations.
 
-### I like THIS explanation (evaluation)
+### The Downfall of Truth (evaluation)
 
 Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
 
