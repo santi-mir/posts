@@ -1,6 +1,6 @@
 # Explanations
 
-_What is the goal here? The goal is to describe ideas about explanations from the social sciences. Then, in future posts, to use these ideas to analyse and build explanation-tools for researchers, and ordinary people._
+_What is the goal here? The goal is to describe ideas about "explanations" from the social sciences. Then, in future posts, to use these ideas to analyse and build explanation-tools for researchers, and ordinary people._
 
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 
@@ -10,21 +10,20 @@ _What is the goal here? The goal is to describe ideas about explanations from th
 
 Explanations may be _interactive_ (e.g. in a conversation), _static_ (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.
 
-- In most explanations, there is an object that needs clarification, called the _explanandum_.
+- In most explanations, there is _that which that needs clarification_, called the _explanandum_.
 - _Static explanations_ are descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
 - _Interactive explanations_ are a conversation where a communicator and an audience aim to resolve _what_, _how_ or _why_ questions posed by the audience.
 
 We may consider that interactive explanations are static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.
-
-The success of an explanation depends on audience (e.g. prior knowledge, interests, needs given by the context, and so forth). Even though there are general characteristics, we should remember that explanations are for an audience, and in some context.
-
+ 
 ## The explanation process
 
 Explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-1. During the _cognitive process_, hypotheses / answers are retrieved or generated, for the phenomenon to be explained (the explanandum).
-2. Answers are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation). All else being equal, **simple** (shorter) and **general** (wider applicability) hypotheses tend to be preferred.
-3. The answer is communicated to an audience in the _social process_.
+1. During the _cognitive process_, hypotheses are generated aiming to clafify the explanandum.
+2. They are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
+3. The answer is communicated to an audience (_social process_).
+4. The process may also repeat, or answer updated, for example if the question is reframed.
 
 ## Explanation success
 
