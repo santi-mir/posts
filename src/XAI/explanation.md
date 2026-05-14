@@ -49,8 +49,8 @@ _Causal attribution_ and _explanation selection_ are summarised below (based on 
 
 Humans **attribute causes** using either:
 
-- Agent-like model, using intentions, which are more relevant in agent-like AI,
-- A general causal model, involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the _foil_.)
+- **Agent-like model** involving intentions, goals, motives,
+- **General causal model** involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the _foil_.)
 
 _But which events to undo or change?_ Social research indicates that we prefer:
 
