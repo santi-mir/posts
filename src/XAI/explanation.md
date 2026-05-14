@@ -64,7 +64,7 @@ These heuristics can be used to simplify and/or prioritise explanations.
 
 Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
 
-## Social Process (communication)
+### Social Process (communication)
 
 The communication process can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
 
