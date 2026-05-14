@@ -1,6 +1,5 @@
 # Explanations
 
-
 _What is the goal here? The goal is use ideas about explanations from the social sciences (this post) to analyse and build explanation-tools for other researchers, and for ordinary people (following posts)._
 
 <!-- _What is the goal here?_ The idea is, first, to build a foundation on general aspects of explanations; second, to use these insights to explain classic and deep learning algorithms; and third to enable us to analyse &mdash;and even build&mdash; explanation tools for other researchers, and for ordinary people). -->
@@ -119,7 +118,7 @@ A table summary:
 
 Many other metaphors could be proposed.
 
-----------------
+--------------
 
 <details>
 <summary>Interesting resources</summary>
@@ -131,7 +130,7 @@ Many other metaphors could be proposed.
 1. [Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences][beware_inmates_asylum] (2017): Section 1 describes what the wrong approach is: building explanation models with an idea of explanation that only applies to experts. Section 2 surveys papers and notes almost none uses insights from social science of explanation to build their XAI algorithms, and even less evaluate them on humans. Section 3 is the most useful, and describes **which insights from social sciences could be used** (and points to research).
    - And an extension of that work ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social] (2019, 38 pages).
    - Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: [Gricean Maxims of Communication][gricean_maxims] (blog-post), or [Wikipedia's][wikipedia_gricean].
-    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
+   - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017),
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm].
 
