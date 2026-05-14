@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-8005e859.js";
+            window.path_to_searchindex_js = "../searchindex-7621b7c1.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-2f94db08.js"></script>
@@ -183,19 +183,17 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p><em>What is the goal here? The goal is use ideas about explanations from the social sciences (this post) to analyse and build explanation-tools for other researchers, and for ordinary people (following posts).</em></p>
-<!-- _What is the goal here?_ The idea is, first, to build a foundation on general aspects of explanations; second, to use these insights to explain classic and deep learning algorithms; and third to enable us to analyse &mdash;and even build&mdash; explanation tools for other researchers, and for ordinary people). -->
-<!---->
+<p><em>What is the goal here? The goal is to describe ideas about explanations from the social sciences. Then, in future posts, to use these ideas to analyse and build explanation-tools for researchers, and ordinary people.</em></p>
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
-<!-- All these questions serve us in creating new tools and ideas for explaining deep-learning models for different audiences (with different needs, prior knowledge, and so forth). -->
 <hr>
 <p>In most explanations, there is an object that needs clarification, called the <em>explanandum</em>.</p>
 <p>Explanations may be <em>interactive</em> (e.g. in a conversation), <em>static</em> (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.</p>
-<p><em>Static explanations</em> are descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</p>
-<p><em>Interactive explanations</em> are a communication process in which an communicator interacts with an audience, with the objective of resolving <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</p>
+<ul>
+<li><em>Static explanations</em> are descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</li>
+<li><em>Interactive explanations</em> are a conversation where a communicator and an audience aim to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
+</ul>
 <p>We may consider that interactive explanations are static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.</p>
-<p>The success of an explanation depends on audience (e.g. prior knowledge, interests, needs given by the context, and so forth).</p>
-<p>Even though there are general characteristics, we should remember that explanations are for an audience, and in some context.</p>
+<p>The success of an explanation depends on audience (e.g. prior knowledge, interests, needs given by the context, and so forth). Even though there are general characteristics, we should remember that explanations are for an audience, and in some context.</p>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
@@ -328,6 +326,22 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
