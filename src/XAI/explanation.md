@@ -62,7 +62,9 @@ These heuristics can be used to simplify and/or prioritise explanations.
 
 ### The Downfall of Truth (evaluation)
 
-Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are. Many of these results come from work by Tania Lombrozo.
+Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
+
+Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
 
 ### Social Process (communication)
 
