@@ -1,6 +1,8 @@
 # Explanations
 
-_What is the goal here? The goal is to describe ideas about "explanations" from the social sciences. Then, in future posts, to use these ideas to analyse and build explanation-tools for researchers, and ordinary people._
+_What is the goal here? The goal is to describe ideas about "explanations" from the social sciences._
+
+In future posts, explanation-tools for two different audiences &mdash;researchers and ordinary people&mdash; will be analysed.
 
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 
