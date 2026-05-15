@@ -4,28 +4,16 @@ Short posts on topics related to AI, XAI, and AI for chemistry.
 
 **URL**: <https://santi-mir.github.io/posts>.
 
-## Build
+## Details
 
-The repo contains the built html-book in `./docs`, it makes publishing faster than using actions.
+-  **Build**: it builds on `./docs`. The packages needed for building from the source markdown files are:
+   ```bash
+   cargo install mdbook mdbook-mermaid mdbook-katex
+   ```
 
-The packages needed for building from the source markdown files are:
-
-```bash
-cargo install mdbook mdbook-mermaid mdbook-katex
-```
-
-## License
-
-All the content here is under [CC BY 4.0], except for quotations which may share the license of the source.
-
-## Contributions
-
-Contributions are taken under the same license, [CC BY 4.0].
-
-## Tools Used
-
-- [mdbook]: a Rust crate to render html from markdown.
-- [mermaid]: NPM package to draw basic charts.
+- **License**: All the content here is under [CC BY 4.0], except for quotations which may share the license of the source.
+- **Contributions**: Contributions are taken under the same license, [CC BY 4.0].
+- **Tools**: [`mdbook.rs`][mdbook] builds the book and [`mdbook-mermaid.rs`][mermaid] a plugin to insert graphs.
 
 ## Development
 
