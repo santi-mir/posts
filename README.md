@@ -16,9 +16,27 @@ The packages needed for building from the source markdown files are:
 cargo install mdbook mdbook-mermaid mdbook-katex
 ```
 
+## License
+
+All the content here is under [CC BY 4.0], except for quotations which may share the license of the source.
+
+## Contributions
+
+Contributions are taken under the same license, [CC BY 4.0].
+
+## Tools Used
+
+- [mdbook]: a Rust crate to render html from markdown.
+- [mermaid]: NPM package to draw basic charts.
+
 ## Development
 
-Besides the build-apps, install:
+<details>
+  <summary>
+    Steps
+  </summary>
+  
+  Besides the build-apps, install:
 
 ```text
 cargo install lychee rumdl caesiumclt
@@ -42,18 +60,7 @@ caesiumclt --lossless -O bigger src/assets/*.{jpg,jpeg,png} --same-folder-as-inp
 
 Then do `chmod +x .git/hooks/{pre-push,pre-commit}`
 
-## License
-
-All the content here is under [CC BY 4.0], except for quotations which may share the license of the source.
-
-## Contributions
-
-Contributions are taken under the same license, [CC BY 4.0].
-
-## Tools Used
-
-- [mdbook]: a Rust crate to render html from markdown.
-- [mermaid]: NPM package to draw basic charts.
+</details>
 
 [mdbook]: https://github.com/rust-lang/mdBook
 [mermaid]: https://github.com/orgs/mermaid-js
