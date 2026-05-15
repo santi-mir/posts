@@ -11,10 +11,10 @@ _What is the goal here? The goal is to describe ideas about "explanations" from 
 Explanations may be _interactive_ (e.g. in a conversation), _static_ (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.
 
 - In most explanations there is _that which needs clarification_, called the _explanandum_.
-- _Static explanations_: descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
-- _Interactive explanations_: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience.
+- **Static explanations**: descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
+- **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience.
 
-Interactive explanations are similar to static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.
+Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback.
 
 ## The explanation process
 
@@ -66,16 +66,14 @@ _But which events to undo or change?_ Social research indicates that we prefer:
 
 These heuristics can be used to simplify and/or prioritise explanations.
 
-### Social Process (communication)
+### Communication (Social Process)
 
-The communication process can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
+The communication can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
 
 - **Informative** (Quantity): right amount of context and details,
 - **Truthful** (Quality, or Fidelity): the explanation should be true,
 - **Relevance** (Relation): avoid irrelevant details, focus on what provides insight,
 - **Manner** (clarity): express it in elegant terms.
-
-Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.
 
 ## Explaining is Teaching
 
