@@ -11,19 +11,20 @@ _What is the goal here? The goal is to describe ideas about "explanations" from 
 Explanations may be _interactive_ (e.g. in a conversation), _static_ (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.
 
 - In most explanations there is _that which needs clarification_, called the _explanandum_.
-- _Static explanations_ are descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
-- _Interactive explanations_ are a conversation where a communicator and an audience aim to resolve _what_, _how_ or _why_ questions posed by the audience.
+- _Static explanations_: descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
+- _Interactive explanations_: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience.
 
-We may consider that interactive explanations are static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.
- 
+Interactive explanations are similar to static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.
+
 ## The explanation process
 
-Explanations involve a _cognitive_ and a _social_ process. Below, I describe a version inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
+Explanations involve a _cognitive_ and a _social_ process. The version below was inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-1. During the _cognitive process_, hypotheses are generated aiming to clafify the explanandum.
-2. They are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
+1. During the _cognitive process_, hypotheses are generated aiming to clarify the _explanandum_.
+2. Hypotheses are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
 3. The answer is communicated to an audience (_social process_).
-4. The process may also repeat, or answer updated, for example if the question is reframed.
+
+The process usually iterates and updates during the interaction (or not, in a static explanation).
 
 ## Explanation success
 
@@ -37,6 +38,12 @@ The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents t
 
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
+
+### Pragmatism (evaluation)
+
+Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
+
+Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
 
 ### Who did this? (Attribution Theory)
 
@@ -59,12 +66,6 @@ _But which events to undo or change?_ Social research indicates that we prefer:
 
 These heuristics can be used to simplify and/or prioritise explanations.
 
-### The Downfall of Truth (evaluation)
-
-Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
-
-Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
-
 ### Social Process (communication)
 
 The communication process can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
@@ -76,17 +77,17 @@ The communication process can be aided by the [gricean maxims][gricean_maxims]: 
 
 Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.
 
-## Explaining, teaching and learning
+## Explaining is Teaching
 
-We could argue that the explainer is modelling what the explainee doesn't know, aided by behavioural cues, follow-up questions and other forms of feedback. In this sense, explaining is similar to both teaching and learning.
+The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.)
 
-We could say "_filling a gap_" instead of "_guide_" but this comes from an outdated pedagogical view of the learning process (which explanations may involve), based on _knowledge transfer_.
+The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.)
 
-Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong kindergarten") where the learning process is _active_ and goes through _accommodation_.
+Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_.
 
 More modern views include _connectivism_ (based on connectionism).
 
-Neither of these perspectives nor learning itself are discussed here, but it may be added in a future post.
+This is a fascinating and related topic, but currently not discussed in the posts.
 
 ## Metaphors: The Machine and The Person
 
@@ -107,7 +108,7 @@ A table summary:
 | Perspective      | Model is a… | Preferred Explanation style           | Audience            |
 | ---------------- | ----------- | --------------------------- | ------------------- |
 | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
-| **Human-facing** | Agent       | Intentional, narrative      | Users, stakeholders |
+| **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
 
 Many other metaphors could be proposed.
 
