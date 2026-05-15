@@ -113,7 +113,7 @@ Many other metaphors could be proposed.
 --------------
 
 <details>
-<summary>Interesting resources</summary>
+<summary>Sources</summary>
 
 1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948), Their _logically deductive_ model, and the related _covariation_ model (Kelley, 1967) isn't how human explanations are considered in social and cognitive sciences any more. However, these are important historical background.
 1. [Explanations, Predictions and Laws][scriven] (1948),
