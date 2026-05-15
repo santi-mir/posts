@@ -129,7 +129,7 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 -------------------
 
 <details>
-<summary>Resources</summary>
+<summary>Sources</summary>
 
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
    - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` _simulatability_ or simplicity, `2.` _decomposability_ or part-role mapping, and `3.` _algorithmic training_ which focuses on error, loss, convergence.);
