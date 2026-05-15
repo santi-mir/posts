@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-3024ddfa.js";
+            window.path_to_searchindex_js = "../searchindex-0fd9e806.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-2f94db08.js"></script>
@@ -190,18 +190,18 @@
 <p>Explanations may be <em>interactive</em> (e.g. in a conversation), <em>static</em> (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.</p>
 <ul>
 <li>In most explanations there is <em>that which needs clarification</em>, called the <em>explanandum</em>.</li>
-<li><em>Static explanations</em> are descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</li>
-<li><em>Interactive explanations</em> are a conversation where a communicator and an audience aim to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
+<li><em>Static explanations</em>: descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</li>
+<li><em>Interactive explanations</em>: a communicator and an audience interact aiming to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
 </ul>
-<p>We may consider that interactive explanations are static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.</p>
+<p>Interactive explanations are similar to static explanations updated in real time by follow-up questions, behaviour, and other kind of feedback.</p>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
-<p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. Below, I describe a version inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
+<p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. The version below was inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
-<li>During the <em>cognitive process</em>, hypotheses are generated aiming to clafify the explanandum.</li>
-<li>They are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).</li>
+<li>During the <em>cognitive process</em>, hypotheses are generated aiming to clarify the <em>explanandum</em>.</li>
+<li>Hypotheses are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).</li>
 <li>The answer is communicated to an audience (<em>social process</em>).</li>
-<li>The process may also repeat, or answer updated, for example if the question is reframed.</li>
 </ol>
+<p>The process usually iterates and updates during the interaction (or not, in a static explanation).</p>
 <h2 id="explanation-success"><a class="header" href="#explanation-success">Explanation success</a></h2>
 <p>This section explores certain aspects of explanations that are usually preferred by most audiences.</p>
 <h3 id="differences-contrastive-explanations"><a class="header" href="#differences-contrastive-explanations">Differences (contrastive explanations)</a></h3>
@@ -211,6 +211,9 @@
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
+<h3 id="pragmatism-evaluation"><a class="header" href="#pragmatism-evaluation">Pragmatism (evaluation)</a></h3>
+<p>Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
+<p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
 <h3 id="who-did-this-attribution-theory"><a class="header" href="#who-did-this-attribution-theory">Who did this? (Attribution Theory)</a></h3>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
 <blockquote>
@@ -229,9 +232,6 @@
 <li>Focus on <em>controllable</em> events.</li>
 </ul>
 <p>These heuristics can be used to simplify and/or prioritise explanations.</p>
-<h3 id="the-downfall-of-truth-evaluation"><a class="header" href="#the-downfall-of-truth-evaluation">The Downfall of Truth (evaluation)</a></h3>
-<p>Notably, truth isn't always preferred; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
-<p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
 <h3 id="social-process-communication"><a class="header" href="#social-process-communication">Social Process (communication)</a></h3>
 <p>The communication process can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
 <ul>
@@ -241,12 +241,12 @@
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
 <p>Beyond these general aspects, any particular situation involves the asker acquiring certain knowledge, which is a learning process occurring inside the person. This isn't discussed here.</p>
-<h2 id="explaining-teaching-and-learning"><a class="header" href="#explaining-teaching-and-learning">Explaining, teaching and learning</a></h2>
-<p>We could argue that the explainer is modelling what the explainee doesn't know, aided by behavioural cues, follow-up questions and other forms of feedback. In this sense, explaining is similar to both teaching and learning.</p>
-<p>We could say "<em>filling a gap</em>" instead of "<em>guide</em>" but this comes from an outdated pedagogical view of the learning process (which explanations may involve), based on <em>knowledge transfer</em>.</p>
-<p>Other views come from <em>constructivism</em> (Piaget) or <em>constructionism</em> (Papert e.g. "Mindstorms", Resnick "Lifelong kindergarten") where the learning process is <em>active</em> and goes through <em>accommodation</em>.</p>
+<h2 id="explaining-is-teaching"><a class="header" href="#explaining-is-teaching">Explaining is Teaching</a></h2>
+<p>The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.)</p>
+<p>The communication process is at times like "<em>filling a gap</em>" in the audience's understanding. (An outdated pedagogical view of the learning process based on <em>knowledge transfer</em>.)</p>
+<p>Other views come from <em>constructivism</em> (Piaget) or <em>constructionism</em> (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is <em>active</em> and goes through <em>accommodation</em>.</p>
 <p>More modern views include <em>connectivism</em> (based on connectionism).</p>
-<p>Neither of these perspectives nor learning itself are discussed here, but it may be added in a future post.</p>
+<p>This is a fascinating and related topic, but currently not discussed in the posts.</p>
 <h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
 <p>These are metaphors different audiences use to understand complex systems, and can help generate explanations for them.</p>
 <p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as graphs.</p>
@@ -264,7 +264,7 @@
 </thead>
 <tbody>
 <tr><td><strong>Scientific</strong></td><td>Machine</td><td>Mechanistic, causal, formal</td><td>Experts</td></tr>
-<tr><td><strong>Human-facing</strong></td><td>Agent</td><td>Intentional, narrative</td><td>Users, stakeholders</td></tr>
+<tr><td><strong>Human-facing</strong></td><td>Agent/Person</td><td>Intentional, narrative</td><td>Users, stakeholders</td></tr>
 </tbody>
 </table>
 </div>
@@ -327,22 +327,6 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>
