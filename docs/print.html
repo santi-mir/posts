@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-b6792715.js";
+            window.path_to_searchindex_js = "searchindex-91b98624.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-2f94db08.js"></script>
@@ -201,7 +201,7 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p><em>What is the goal here? The goal is to describe ideas about "explanations" from the social sciences.</em></p>
+<p><em>What is the goal of this post? The goal is to describe ideas about "explanations" from the social sciences.</em></p>
 <p>In future posts, explanation-tools for two different audiences —researchers and ordinary people— will be analysed.</p>
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 <hr>
@@ -223,34 +223,24 @@
 <p>The process usually iterates and updates during the interaction (or not, in a static explanation).</p>
 <h2 id="explanation-success"><a class="header" href="#explanation-success">Explanation success</a></h2>
 <p>This section explores certain aspects of explanations that are usually preferred by most audiences.</p>
-<h3 id="differences-contrastive-explanations"><a class="header" href="#differences-contrastive-explanations">Differences (contrastive explanations)</a></h3>
+<h3 id="prefer-differences"><a class="header" href="#prefer-differences">Prefer Differences</a></h3>
 <p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
 <p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected —which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.</p>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
-<h3 id="pragmatism-evaluation"><a class="header" href="#pragmatism-evaluation">Pragmatism (evaluation)</a></h3>
-<p>Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
-<p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
-<h3 id="who-did-this-attribution-theory"><a class="header" href="#who-did-this-attribution-theory">Who did this? (Attribution Theory)</a></h3>
-<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
-<blockquote>
-<p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
-</blockquote>
-<p><em>Causal attribution</em> and <em>explanation selection</em> are summarised below (based on the same paper).</p>
-<p>Humans <strong>attribute causes</strong> using either:</p>
-<ul>
-<li><strong>Agent-like model</strong> involving intentions, goals, motives,</li>
-<li><strong>General causal model</strong> involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the <em>foil</em>.)</li>
-</ul>
 <p><em>But which events to undo or change?</em> Social research indicates that we prefer:</p>
 <ul>
 <li>Proximal over distal causes (in the causal chain of events);</li>
 <li>Focus on abnormal events and human intervention (these may be more distal in this causal chain);</li>
 <li>Focus on <em>controllable</em> events.</li>
+<li>Detailed (or concrete) over abstract ones.</li>
 </ul>
-<p>These heuristics can be used to simplify and/or prioritise explanations.</p>
+<p>In general, people <strong>do not</strong> want a complete causal chain, but a small-enough one that explains the event in question (this is the <em>causal selection problem</em>).</p>
+<h3 id="be-pragmatic"><a class="header" href="#be-pragmatic">Be Pragmatic</a></h3>
+<p>Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
+<p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
 <h3 id="communication-social-process"><a class="header" href="#communication-social-process">Communication (Social Process)</a></h3>
 <p>The communication can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
 <ul>
@@ -259,6 +249,11 @@
 <li><strong>Relevance</strong> (Relation): avoid irrelevant details, focus on what provides insight,</li>
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
+<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as  [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:</p>
+<blockquote>
+<p>How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).</p>
+</blockquote>
+<p>It is also closely related to using <em>contrastive explanations</em> which take care of many of these aspects automatically.</p>
 <h2 id="explaining-is-teaching"><a class="header" href="#explaining-is-teaching">Explaining is Teaching</a></h2>
 <p>The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.)</p>
 <p>The communication process is at times like "<em>filling a gap</em>" in the audience's understanding. (An outdated pedagogical view of the learning process based on <em>knowledge transfer</em>.)</p>
@@ -266,15 +261,26 @@
 <p>More modern views include <em>connectivism</em> (based on connectionism).</p>
 <p>This is a fascinating and related topic, but currently not discussed in the posts.</p>
 <h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
-<p>These are metaphors different audiences use to understand complex systems, and can help generate explanations for them.</p>
+<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
+<blockquote>
+<p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
+</blockquote>
+<p>Humans <strong>attribute causes</strong> using either:</p>
+<ul>
+<li><strong>Agent-like model</strong> explain outcomes/actions using intentions, goals, motives, not uncommon in social sciences, economy, biology,
+<ul>
+<li>For <em>intentional</em> behaviour.</li>
+<li><em>Unintentional</em> is usually explained using the next type.</li>
+</ul>
+</li>
+<li><strong>General causal model</strong> explain outcomes by counterfactual reasoning or contrastive explanations.</li>
+</ul>
 <p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as graphs.</p>
 <p>Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.</p>
-<p>This idea is very similar to <em>social</em> versus <em>general</em> causal attribution. It is also similar to what <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">researchers hypothesise</a>:</p>
+<p>This is similar to what <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">researchers hypothesise</a>:</p>
 <blockquote>
-<p>For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans; and they will expect AIS [Autonomous Intelligent System] to apply this framework as well. There may be a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.</p>
+<p>For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.</p>
 </blockquote>
-<p>In summary, explanations are often answers to <em>why-questions</em>; <em>good</em> explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise). The metaphors can help think of an explanation style a given audience.</p>
-<p>A table summary:</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -286,7 +292,7 @@
 </tbody>
 </table>
 </div>
-<p>Many other metaphors could be proposed.</p>
+<p>Other metaphors could be proposed.</p>
 <hr><details>
 <summary>Sources</summary>
 <ol>
@@ -311,6 +317,8 @@
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
+<p>The focus here <em>is not</em> on agents that explain themselves. Instead, the focus will be on: <code>1.</code> Models that are intrinsically explainable, <code>2.</code> Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, <code>3.</code> Use Language Models to translate model's behaviour / output to a linguistic explanation.</p>
+<hr>
 <p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
 <p>Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. <em>Model explainability</em> can be defined as:</p>
 <blockquote>

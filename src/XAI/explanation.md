@@ -4,7 +4,6 @@ _What is the goal of this post? The goal is to describe ideas about "explanation
 
 In future posts, explanation-tools for two different audiences &mdash;researchers and ordinary people&mdash; will be analysed.
 
-
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 
 --------------
@@ -66,12 +65,11 @@ The communication can be aided by the [gricean maxims][gricean_maxims]: rules of
 - **Relevance** (Relation): avoid irrelevant details, focus on what provides insight,
 - **Manner** (clarity): express it in elegant terms.
 
-_Relevance_ is primarily related to the _causal selection problem_, as  [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:
+_Relevance_ is primarily related to the _causal selection problem_, as [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:
 
 > How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
 
 It is also closely related to using _contrastive explanations_ which take care of many of these aspects automatically.
-
 
 ## Explaining is Teaching
 
@@ -105,7 +103,6 @@ Ordinary people conceptualise certain kinds of complex systems as humans or agen
 This is similar to what [researchers hypothesise][autonomous_intelligent_systems]:
 
 > For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
-
 
 | Perspective      | Model is a… | Preferred Explanation style           | Audience            |
 | ---------------- | ----------- | --------------------------- | ------------------- |
