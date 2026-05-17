@@ -43,9 +43,10 @@ The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents t
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-#### Kinds of differences and focus
 
-In many cases we use "a cause" even though there are many (not only a spark causes a fire). _How do people select one, from the myriad of causes?_Social research shows that we give more importance to:
+#### Which cause is favoured?
+
+In many cases we use "a cause" even though there are many necessary conditions. Social research shows that we give more importance to:
 
 - Proximal over Distal events (in the causal chain of events),
     - Like the event immediately preceding the effect to explain.
@@ -53,9 +54,16 @@ In many cases we use "a cause" even though there are many (not only a spark caus
     -  The normal (objective) or expected (subjective) event is usually the _foil_.
 - Controllable events,
 - Deviation from theoretical ideals, model, or prototype,
-- Other criteria are: replaceability, predictive power, responsibility (see [Hesslow][causal_selection_problem])
+- Other criteria are: predictive power, responsibility and so forth.
 
 In general, people **do not** want a complete causal chain, but a small-enough one that explains the event in question (this is the _causal selection problem_).
+
+Most causes above are contained in _contrastive questions_, which involve a comparison with a reference situation or object (see [Hesslow][causal_selection_problem]):
+
+> Many of the selection criteria listed in Section 3 can be construed as the result of choosing different objects of comparison or reference classes. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of abnormal conditions can be viewed as the result of comparing the explanandum object with a normal object.
+>
+> Other criteria may be treated similarly. If we were comparing the barn that caught fire with the same barn before it caught fire, we would have to use a condition which was explanatorily relevant to the difference between this barn now and this barn yesterday, i.e. we would be selecting a precipitating cause [proximal in the list above]. Selection of the unexpected may be viewed as the result of explaining the difference between an expected and an actual outcome. Selection according to responsibility follows from a comparison between actual and morally ideal behaviour. Selection of conditions which cause a deviation from a theoretical ideal involves a comparison between an actual and a theoretically ideal situation, and so on (cf. Hesslow, 1983).
+
 
 ### Pragmatism
 
