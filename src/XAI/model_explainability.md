@@ -1,5 +1,9 @@
 # Model Explainability
 
+The focus here _is not_ on agents that explain themselves. Instead, the focus will be on: `1.` Models that are intrinsically explainable, `2.` Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, `3.` Use Language Models to translate model's behaviour / output to a linguistic explanation.
+
+-------------------
+
 Explanations were defined and characterised in a [previous post](./explanation.md).
 
 Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. _Model explainability_ can be defined as:

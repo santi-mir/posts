@@ -1,8 +1,9 @@
 # Explanations
 
-_What is the goal here? The goal is to describe ideas about "explanations" from the social sciences._
+_What is the goal of this post? The goal is to describe ideas about "explanations" from the social sciences._
 
 In future posts, explanation-tools for two different audiences &mdash;researchers and ordinary people&mdash; will be analysed.
+
 
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 
@@ -32,7 +33,7 @@ The process usually iterates and updates during the interaction (or not, in a st
 
 This section explores certain aspects of explanations that are usually preferred by most audiences.
 
-### Differences (contrastive explanations)
+### Prefer Differences
 
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
 
@@ -41,32 +42,20 @@ The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents t
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-### Pragmatism (evaluation)
-
-Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
-
-Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
-
-### Who did this? (Attribution Theory)
-
-As [Miller et al. state][beware_inmates_asylum]:
-
-> Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
-
-_Causal attribution_ and _explanation selection_ are summarised below (based on the same paper).
-
-Humans **attribute causes** using either:
-
-- **Agent-like model** involving intentions, goals, motives,
-- **General causal model** involving counterfactual reasoning (what would have happened in an alternative case, usually evidenced by the _foil_.)
-
 _But which events to undo or change?_ Social research indicates that we prefer:
 
 - Proximal over distal causes (in the causal chain of events);
 - Focus on abnormal events and human intervention (these may be more distal in this causal chain);
 - Focus on _controllable_ events.
+- Detailed (or concrete) over abstract ones.
 
-These heuristics can be used to simplify and/or prioritise explanations.
+In general, people **do not** want a complete causal chain, but a small-enough one that explains the event in question (this is the _causal selection problem_).
+
+### Be Pragmatic
+
+Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
+
+Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
 
 ### Communication (Social Process)
 
@@ -76,6 +65,13 @@ The communication can be aided by the [gricean maxims][gricean_maxims]: rules of
 - **Truthful** (Quality, or Fidelity): the explanation should be true,
 - **Relevance** (Relation): avoid irrelevant details, focus on what provides insight,
 - **Manner** (clarity): express it in elegant terms.
+
+_Relevance_ is primarily related to the _causal selection problem_, as  [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:
+
+> How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
+
+It is also closely related to using _contrastive explanations_ which take care of many of these aspects automatically.
+
 
 ## Explaining is Teaching
 
@@ -91,26 +87,32 @@ This is a fascinating and related topic, but currently not discussed in the post
 
 ## Metaphors: The Machine and The Person
 
-These are metaphors different audiences use to understand complex systems, and can help generate explanations for them.
+As [Miller et al. state][beware_inmates_asylum]:
+
+> Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
+
+Humans **attribute causes** using either:
+
+- **Agent-like model** explain outcomes/actions using intentions, goals, motives, not uncommon in social sciences, economy, biology,
+    - For _intentional_ behaviour.
+    - _Unintentional_ is usually explained using the next type.
+- **General causal model** explain outcomes by counterfactual reasoning or contrastive explanations.
 
 In technical fields, many complex systems are conceptualised as _machines_: composed of parts, each with a function, a role. Many are also conceptualised as graphs.
 
 Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.
 
-This idea is very similar to _social_ versus _general_ causal attribution. It is also similar to what [researchers hypothesise][autonomous_intelligent_systems]:
+This is similar to what [researchers hypothesise][autonomous_intelligent_systems]:
 
-> For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans; and they will expect AIS [Autonomous Intelligent System] to apply this framework as well. There may be a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
+> For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
 
-In summary, explanations are often answers to _why-questions_; _good_ explanations respect the Gricean maxims, and will be dependent on the audience (their preferred style, expectations, expertise). The metaphors can help think of an explanation style a given audience.
-
-A table summary:
 
 | Perspective      | Model is a… | Preferred Explanation style           | Audience            |
 | ---------------- | ----------- | --------------------------- | ------------------- |
 | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
 | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
 
-Many other metaphors could be proposed.
+Other metaphors could be proposed.
 
 --------------
 
