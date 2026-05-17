@@ -22,17 +22,19 @@ Interactive explanations are similar to static explanations, just updated in rea
 
 Explanations involve a _cognitive_ and a _social_ process. The version below was inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-1. During the _cognitive process_, hypotheses are generated aiming to clarify the _explanandum_.
+1. During the _cognitive process_, hypotheses (e.g. causal connections, the connection problem) are generated aiming to clarify the _explanandum_.
 2. Hypotheses are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
 3. The answer is communicated to an audience (_social process_).
 
 The process usually iterates and updates during the interaction (or not, in a static explanation).
 
+Note: the problem of _causal connection_ and _causal selection_ is a well known problem in psychology.
+
 ## Explanation success
 
 This section explores certain aspects of explanations that are usually preferred by most audiences.
 
-### Prefer Differences
+### Using Differences
 
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
 
@@ -41,18 +43,21 @@ The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents t
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-#### But which differences?
+#### Kinds of differences and focus
 
-_But which events to undo or change?_ (in counterfactuals and contrast) Social research indicates that we prefer:
+In many cases we use "a cause" even though there are many (not only a spark causes a fire). _How do people select one, from the myriad of causes?_Social research shows that we give more importance to:
 
-- Proximal over distal causes (in the causal chain of events);
-- Focus on abnormal events and human intervention (these may be more distal in this causal chain);
-- Focus on _controllable_ events.
-- Detailed (or concrete) over abstract ones.
+- Proximal over Distal events (in the causal chain of events),
+    - Like the event immediately preceding the effect to explain.
+- Abnormal or unexpected events and human intervention (these may be more distal in this causal chain),
+    -  The normal (objective) or expected (subjective) event is usually the _foil_.
+- Controllable events,
+- Deviation from theoretical ideals, model, or prototype,
+- Other criteria are: replaceability, predictive power, responsibility (see [Hesslow][causal_selection_problem])
 
 In general, people **do not** want a complete causal chain, but a small-enough one that explains the event in question (this is the _causal selection problem_).
 
-### Be Pragmatic
+### Pragmatism
 
 Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
 
@@ -64,8 +69,11 @@ The communication can be aided by the [gricean maxims][gricean_maxims]: rules of
 
 - **Informative** (Quantity): right amount of context and details,
 - **Truthful** (Quality, or Fidelity): the explanation should be true,
-- **Relevance** (Relation): avoid irrelevant details, focus on what provides insight,
+- **Relevance** (Relation): avoid presumed-known or superfluous details, focus on what provides insight,
+    - One example given earlier is to focus on unexpected events, whilst ignoring what is presumed to be known by the listener.
 - **Manner** (clarity): express it in elegant terms.
+
+In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.
 
 _Relevance_ is primarily related to the _causal selection problem_, as [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:
 
@@ -73,6 +81,8 @@ _Relevance_ is primarily related to the _causal selection problem_, as [how-peop
 
 _Contrastive explanations_ take care of many of these aspects automatically.
 
+## Other preferences
+- Detailed (or concrete) over abstract ones.
 ## Metaphors: The Machine and The Person
 
 As [Miller et al. state][beware_inmates_asylum]:
@@ -123,6 +133,7 @@ Other metaphors could be proposed.
 1. [Studies in the logic of explanation][logic_of_expl_hempel] (1948), Their _logically deductive_ model, and the related _covariation_ model (Kelley, 1967) isn't how human explanations are considered in social and cognitive sciences any more. However, these are important historical background.
 1. [Explanations, Predictions and Laws][scriven] (1948),
 1. [On the mechanization of abductive logic][abductive_logic] (1973). The first page is quite interesting.
+1. [The Problem of Causal Selection][causal_selection_problem] (1988) fascinating and easy-to-read article.
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 1. [Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences][beware_inmates_asylum] (2017): Section 1 describes what the wrong approach is: building explanation models with an idea of explanation that only applies to experts. Section 2 surveys papers and notes almost none uses insights from social science of explanation to build their XAI algorithms, and even less evaluate them on humans. Section 3 is the most useful, and describes **which insights from social sciences could be used** (and points to research).
    - And an extension of that work ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social] (2019, 38 pages).
@@ -140,6 +151,8 @@ Other metaphors could be proposed.
 [autonomous_intelligent_systems]: https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/
 
 [beware_inmates_asylum]: http://arxiv.org/abs/1712.00547
+
+[causal_selection_problem]: https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection
 
 [explanations_social]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
 
