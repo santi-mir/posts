@@ -41,7 +41,8 @@ The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents t
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-_But which events to undo or change?_ Social research indicates that we prefer:
+#### But which differences?
+_But which events to undo or change?_ (in counterfactuals and contrast) Social research indicates that we prefer:
 
 - Proximal over distal causes (in the causal chain of events);
 - Focus on abnormal events and human intervention (these may be more distal in this causal chain);
@@ -69,7 +70,7 @@ _Relevance_ is primarily related to the _causal selection problem_, as [how-peop
 
 > How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
 
-It is also closely related to using _contrastive explanations_ which take care of many of these aspects automatically.
+_Contrastive explanations_ take care of many of these aspects automatically.
 
 ## Explaining is Teaching
 
@@ -91,10 +92,11 @@ As [Miller et al. state][beware_inmates_asylum]:
 
 Humans **attribute causes** using either:
 
-- **Agent-like model** explain outcomes/actions using intentions, goals, motives, not uncommon in social sciences, economy, biology,
-    - For _intentional_ behaviour.
-    - _Unintentional_ is usually explained using the next type.
+- **Agent-like model** Explanation uses goals, motives, duties to justify intentional actions or behaviour.
+    - _Unintentional_ behaviour is usually explained using the next type.
 - **General causal model** explain outcomes by counterfactual reasoning or contrastive explanations.
+
+These basically define _modes_ of explanation.
 
 In technical fields, many complex systems are conceptualised as _machines_: composed of parts, each with a function, a role. Many are also conceptualised as graphs.
 
