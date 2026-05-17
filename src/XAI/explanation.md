@@ -82,7 +82,9 @@ _Relevance_ is primarily related to the _causal selection problem_, as [how-peop
 _Contrastive explanations_ take care of many of these aspects automatically.
 
 ## Other preferences
+
 - Detailed (or concrete) over abstract ones.
+
 ## Metaphors: The Machine and The Person
 
 As [Miller et al. state][beware_inmates_asylum]:

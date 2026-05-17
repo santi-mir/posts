@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-ccf7f6cd.js";
+            window.path_to_searchindex_js = "searchindex-f774f6cc.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-2f94db08.js"></script>
@@ -216,30 +216,40 @@
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. The version below was inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
-<li>During the <em>cognitive process</em>, hypotheses are generated aiming to clarify the <em>explanandum</em>.</li>
+<li>During the <em>cognitive process</em>, hypotheses (e.g. causal connections, the connection problem) are generated aiming to clarify the <em>explanandum</em>.</li>
 <li>Hypotheses are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).</li>
 <li>The answer is communicated to an audience (<em>social process</em>).</li>
 </ol>
 <p>The process usually iterates and updates during the interaction (or not, in a static explanation).</p>
+<p>Note: the problem of <em>causal connection</em> and <em>causal selection</em> is a well known problem in psychology.</p>
 <h2 id="explanation-success"><a class="header" href="#explanation-success">Explanation success</a></h2>
 <p>This section explores certain aspects of explanations that are usually preferred by most audiences.</p>
-<h3 id="prefer-differences"><a class="header" href="#prefer-differences">Prefer Differences</a></h3>
+<h3 id="using-differences"><a class="header" href="#using-differences">Using Differences</a></h3>
 <p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
 <p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected —which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.</p>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
-<h4 id="but-which-differences"><a class="header" href="#but-which-differences">But which differences?</a></h4>
-<p><em>But which events to undo or change?</em> (in counterfactuals and contrast) Social research indicates that we prefer:</p>
+<h4 id="kinds-of-differences-and-focus"><a class="header" href="#kinds-of-differences-and-focus">Kinds of differences and focus</a></h4>
+<p>In many cases we use "a cause" even though there are many (not only a spark causes a fire). _How do people select one, from the myriad of causes?_Social research shows that we give more importance to:</p>
 <ul>
-<li>Proximal over distal causes (in the causal chain of events);</li>
-<li>Focus on abnormal events and human intervention (these may be more distal in this causal chain);</li>
-<li>Focus on <em>controllable</em> events.</li>
-<li>Detailed (or concrete) over abstract ones.</li>
+<li>Proximal over Distal events (in the causal chain of events),
+<ul>
+<li>Like the event immediately preceding the effect to explain.</li>
+</ul>
+</li>
+<li>Abnormal or unexpected events and human intervention (these may be more distal in this causal chain),
+<ul>
+<li>The normal (objective) or expected (subjective) event is usually the <em>foil</em>.</li>
+</ul>
+</li>
+<li>Controllable events,</li>
+<li>Deviation from theoretical ideals, model, or prototype,</li>
+<li>Other criteria are: replaceability, predictive power, responsibility (see <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a>)</li>
 </ul>
 <p>In general, people <strong>do not</strong> want a complete causal chain, but a small-enough one that explains the event in question (this is the <em>causal selection problem</em>).</p>
-<h3 id="be-pragmatic"><a class="header" href="#be-pragmatic">Be Pragmatic</a></h3>
+<h3 id="pragmatism"><a class="header" href="#pragmatism">Pragmatism</a></h3>
 <p>Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
 <p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
 <h3 id="communication-social-process"><a class="header" href="#communication-social-process">Communication (Social Process)</a></h3>
@@ -247,14 +257,23 @@
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
 <li><strong>Truthful</strong> (Quality, or Fidelity): the explanation should be true,</li>
-<li><strong>Relevance</strong> (Relation): avoid irrelevant details, focus on what provides insight,</li>
+<li><strong>Relevance</strong> (Relation): avoid presumed-known or superfluous details, focus on what provides insight,
+<ul>
+<li>One example given earlier is to focus on unexpected events, whilst ignoring what is presumed to be known by the listener.</li>
+</ul>
+</li>
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
+<p>In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.</p>
 <p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:</p>
 <blockquote>
 <p>How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).</p>
 </blockquote>
 <p><em>Contrastive explanations</em> take care of many of these aspects automatically.</p>
+<h2 id="other-preferences"><a class="header" href="#other-preferences">Other preferences</a></h2>
+<ul>
+<li>Detailed (or concrete) over abstract ones.</li>
+</ul>
 <h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
 <blockquote>
@@ -306,6 +325,7 @@
 <li><a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in the logic of explanation</a> (1948), Their <em>logically deductive</em> model, and the related <em>covariation</em> model (Kelley, 1967) isn't how human explanations are considered in social and cognitive sciences any more. However, these are important historical background.</li>
 <li><a href="https://fitelson.org/woodward/scriven_epl.pdf">Explanations, Predictions and Laws</a> (1948),</li>
 <li><a href="https://www.ijcai.org/Proceedings/73/Papers/017.pdf">On the mechanization of abductive logic</a> (1973). The first page is quite interesting.</li>
+<li><a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">The Problem of Causal Selection</a> (1988) fascinating and easy-to-read article.</li>
 </ol>
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <ol>
