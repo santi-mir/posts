@@ -73,18 +73,6 @@ _Relevance_ is primarily related to the _causal selection problem_, as [how-peop
 
 _Contrastive explanations_ take care of many of these aspects automatically.
 
-## Explaining is Teaching
-
-The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.)
-
-The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.)
-
-Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_.
-
-More modern views include _connectivism_ (based on connectionism).
-
-This is a fascinating and related topic, but currently not discussed in the posts.
-
 ## Metaphors: The Machine and The Person
 
 As [Miller et al. state][beware_inmates_asylum]:
@@ -113,6 +101,19 @@ This is similar to what [researchers hypothesise][autonomous_intelligent_systems
 | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
 
 Other metaphors could be proposed.
+
+<!-- ## Explaining is Teaching -->
+<!---->
+<!-- The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.) -->
+<!---->
+<!-- The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.) -->
+<!---->
+<!-- Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_. -->
+<!---->
+<!-- More modern views include _connectivism_ (based on connectionism). -->
+<!---->
+<!-- This is a fascinating and related topic, but currently not discussed in the posts. -->
+<!---->
 
 --------------
 
