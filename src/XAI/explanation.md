@@ -42,6 +42,7 @@ As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
 #### But which differences?
+
 _But which events to undo or change?_ (in counterfactuals and contrast) Social research indicates that we prefer:
 
 - Proximal over distal causes (in the causal chain of events);
