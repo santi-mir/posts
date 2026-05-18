@@ -8,14 +8,14 @@
 }
 @font-face {
     font-family: 'cmu-concrete';
-    src: url('/blog_ai4chem/fonts/cmuconcrete_roman_macroman/cmunorm-webfont.woff') format('woff'),
+    src: url('/posts/fonts/cmuconcrete_roman_macroman/cmunorm-webfont.woff') format('woff'),
     font-weight: 500;
     font-style: normal;
 }
 
 :root{
-  font-size:clamp(13px, 1.8vw, 20px)!important;
-    --sidebar-target-width: max(20vw, 300px);
+  font-size:clamp(13px, 1.8vw, 18px)!important;
+    --sidebar-target-width: max(18vw, 300px);
     --sidebar-width: min(var(--sidebar-target-width), 80vw);
 }
 

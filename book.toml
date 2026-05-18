@@ -1,7 +1,7 @@
 [book]
-title = "AI for Chemistry"
+title = "Thoughts on AI"
 authors = ["Santiago Miranda"]
-description = "Blogging about AI for chemistry."
+description = "Thoughts on Artificial Intelligence."
 language = "en"
 src = "src"
 
@@ -13,8 +13,8 @@ create-missing = false
 edition = "2024"
 
 [output.html]
-git-repository-url = "https://github.com/santi-mir/blog_ai4chem/"
-edit-url-template = "https://github.com/santi-mir/blog_ai4chem/edit/main/book/{path}"
+git-repository-url = "https://github.com/santi-mir/posts/"
+# edit-url-template = "https://github.com/santi-mir/posts/edit/main/src/{path}"
 # default was "light"
 default-theme = "dark"
 # default was "navy"

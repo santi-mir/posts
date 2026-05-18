@@ -6,7 +6,8 @@ Short posts on topics related to AI, XAI, and AI for chemistry.
 
 ## Details
 
--  **Build**: it builds on `./docs`. The packages needed for building from the source markdown files are:
+- **Build**: it builds on `./docs`. The packages needed for building from the source markdown files are:
+
    ```bash
    cargo install mdbook mdbook-mermaid mdbook-katex
    ```
@@ -21,7 +22,7 @@ Short posts on topics related to AI, XAI, and AI for chemistry.
   <summary>
     Steps
   </summary>
-  
+
   Besides the build-apps, install:
 
 ```text

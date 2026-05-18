@@ -1,5 +1,9 @@
 # Model Explainability
 
+The focus here _is not_ on agents that explain themselves. Instead, the focus will be on: `1.` Models that are intrinsically explainable, `2.` Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, `3.` Use Language Models to translate model's behaviour / output to a linguistic explanation.
+
+-------------------
+
 Explanations were defined and characterised in a [previous post](./explanation.md).
 
 Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. _Model explainability_ can be defined as:
@@ -129,7 +133,7 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 -------------------
 
 <details>
-<summary>Resources</summary>
+<summary>Sources</summary>
 
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
    - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` _simulatability_ or simplicity, `2.` _decomposability_ or part-role mapping, and `3.` _algorithmic training_ which focuses on error, loss, convergence.);
