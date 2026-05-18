@@ -1,7 +1,7 @@
 [book]
-title = "AI for Chemistry"
+title = "Thoughts on AI"
 authors = ["Santiago Miranda"]
-description = "Blogging about AI for chemistry."
+description = "Thoughts on Artificial Intelligence."
 language = "en"
 src = "src"
 
