@@ -10,29 +10,27 @@ In future posts, explanation-tools for two different audiences &mdash;researcher
 
 ## Definitions
 
-Explanations may be _interactive_ (e.g. in a conversation), _static_ (a book), or a mix of both. For the latter, consider machines with pre-set questions and answers stored, where the audience can't always ask what it needs.
+Explanations may be _interactive_ (a conversation), _static_ (a book), or a mix of both. In most explanations there is _that which needs clarification_, called the _explanandum_.
 
-- In most explanations there is _that which needs clarification_, called the _explanandum_.
 - **Static explanations**: descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
 - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience.
+- **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs.
 
-Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback.
+<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
 
 ## The explanation process
 
 Explanations involve a _cognitive_ and a _social_ process. The version below was inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
-1. During the _cognitive process_, hypotheses (e.g. causal connections, the connection problem) are generated aiming to clarify the _explanandum_.
-2. Hypotheses are compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
-3. The answer is communicated to an audience (_social process_).
+1. During the _cognitive process_, hypotheses (e.g. causal connections) are generated aiming to clarify the _explanandum_.
+    - Hypotheses are then compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
+2. During the _social process_, the answer is communicated to an audience.
 
-The process usually iterates and updates during the interaction (or not, in a static explanation).
+The process may iterate and update during the interaction (or not, in a static explanation). For example, the _explanandum_ may be refined.
 
-Note: the problem of _causal connection_ and _causal selection_ is a well known problem in psychology.
+Note: the problems of causal _connection_ and _selection_ (`1.`) are well known in psychology.
 
-## Cognitive Process
-
-### Construing the explanandum
+## Contrastive Questions
 
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
 
