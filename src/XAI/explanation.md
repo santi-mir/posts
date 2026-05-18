@@ -23,7 +23,7 @@ Explanations may be _interactive_ (a conversation), _static_ (a book), or a mix 
 Explanations involve a _cognitive_ and a _social_ process. The version below was inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
 1. During the _cognitive process_, hypotheses (e.g. causal connections) are generated aiming to clarify the _explanandum_.
-    - Hypotheses are then compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
+   - Hypotheses are then compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
 2. During the _social process_, the answer is communicated to an audience.
 
 The process may iterate and update during the interaction (or not, in a static explanation). For example, the _explanandum_ may be refined.
