@@ -30,38 +30,38 @@ The process usually iterates and updates during the interaction (or not, in a st
 
 Note: the problem of _causal connection_ and _causal selection_ is a well known problem in psychology.
 
-## Explanation success
 
-This section explores certain aspects of explanations that are usually preferred by most audiences.
+## Cognitive Process
 
-### Using Differences
+### Construing the explanandum
 
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
 
-The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents the case that was expected &mdash;which may also be implicit. The _foil_ can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier.
+The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents the case that was expected &mdash;which may also be implicit. The _foil_ can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier to answer than the case separately.
 
 As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-#### Which cause is favoured?
+Another way to state this by [Hesslow][causal_selection_problem]:
 
-In many cases we use "a cause" even though there are many necessary conditions. Social research shows that we give more importance to:
+> What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an _object a_, an _object of comparison b_ and an _explanandum property E_ which a has and b does not have.
 
-- Proximal over Distal events (in the causal chain of events),
-    - Like the event immediately preceding the effect to explain.
-- Abnormal or unexpected events and human intervention (these may be more distal in this causal chain),
-    -  The normal (objective) or expected (subjective) event is usually the _foil_.
-- Controllable events,
-- Deviation from theoretical ideals, model, or prototype,
-- Other criteria are: predictive power, responsibility and so forth.
+### Relevant Causes
 
 In general, people **do not** want a complete causal chain, but a small-enough one that explains the event in question (this is the _causal selection problem_).
 
-Most causes above are contained in _contrastive questions_, which involve a comparison with a reference situation or object (see [Hesslow][causal_selection_problem]):
+Researchers have pointer out many heuristics used: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, or prototype, predictive power, responsibility and so forth.
 
-> Many of the selection criteria listed in Section 3 can be construed as the result of choosing different objects of comparison or reference classes. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of abnormal conditions can be viewed as the result of comparing the explanandum object with a normal object.
+However, most relevant causes are already selected within the _contrastive why-question_, comparing to a reference object (like a particular instance), situation, or a general class (see [Hesslow][causal_selection_problem], bold is mine):
+
+> Many of the selection criteria listed in Section 3 can be construed as the result of choosing different objects of comparison or reference classes. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of **abnormal conditions** can be viewed as the result of comparing the explanandum object with a normal object.
 >
-> Other criteria may be treated similarly. If we were comparing the barn that caught fire with the same barn before it caught fire, we would have to use a condition which was explanatorily relevant to the difference between this barn now and this barn yesterday, i.e. we would be selecting a precipitating cause [proximal in the list above]. Selection of the unexpected may be viewed as the result of explaining the difference between an expected and an actual outcome. Selection according to responsibility follows from a comparison between actual and morally ideal behaviour. Selection of conditions which cause a deviation from a theoretical ideal involves a comparison between an actual and a theoretically ideal situation, and so on (cf. Hesslow, 1983).
+> (...) the difference between this barn now and this barn yesterday, i.e. we would be selecting a **precipitating** cause [proximal in the list above]. Selection of the **unexpected** may be viewed as the result of explaining the difference between an expected and an actual outcome. Selection according to **responsibility** follows from a comparison between actual and morally ideal behaviour. Selection of conditions which cause a **deviation from a theoretical ideal** involves a comparison between an actual and a theoretically ideal situation, and so on (cf. Hesslow, 1983).
+
+Here is another illustration by Hesslow, of how contrasts cases narrow down possible causes:
+
+> For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.
+
 
 ### Pragmatism
 
@@ -69,7 +69,7 @@ Notably, accuracy may not be preferred in an explanation; rather, usefulness, si
 
 Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
 
-### Communication (Social Process)
+## Social Process (Communication)
 
 The communication can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
 
@@ -86,10 +86,6 @@ _Relevance_ is primarily related to the _causal selection problem_, as [how-peop
 > How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
 
 _Contrastive explanations_ take care of many of these aspects automatically.
-
-## Other preferences
-
-- Detailed (or concrete) over abstract ones.
 
 ## Metaphors: The Machine and The Person
 
