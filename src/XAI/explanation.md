@@ -45,17 +45,19 @@ Another way to state this by [Hesslow][causal_selection_problem]:
 
 ### Relevant Causes
 
-In general, people **do not** want a complete causal chain, but a small-enough one that explains the event in question (this is the _causal selection problem_).
+We never provide causal chains (it's infinite), but a small-enough one that explains the event in question (this is the _causal selection problem_).
 
-Researchers have pointer out many heuristics used: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, or prototype, predictive power, responsibility and so forth.
+Researchers have pointed out many heuristics used: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.
 
-However, most relevant causes are already selected within the _contrastive why-question_, comparing to a reference object (like a particular instance), situation, or a general class (see [Hesslow][causal_selection_problem], bold is mine):
+But those are taken care of by _contrastive why-questions_ which compare the event to be explained to a reference case (particular instance or general case). In this regard, [Hesslow][causal_selection_problem] states (bold is mine):
 
-> Many of the selection criteria listed in Section 3 can be construed as the result of choosing different objects of comparison or reference classes. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of **abnormal conditions** can be viewed as the result of comparing the explanandum object with a normal object.
->
+> Many of the selection criteria listed in Section 3 can be construed as the result of **choosing different objects of comparison or reference classes**. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of **abnormal conditions** can be viewed as the result of comparing the explanandum object with a normal object.
+
+And also most other causal selections are contained:
+
 > (...) the difference between this barn now and this barn yesterday, i.e. we would be selecting a **precipitating** cause [proximal in the list above]. Selection of the **unexpected** may be viewed as the result of explaining the difference between an expected and an actual outcome. Selection according to **responsibility** follows from a comparison between actual and morally ideal behaviour. Selection of conditions which cause a **deviation from a theoretical ideal** involves a comparison between an actual and a theoretically ideal situation, and so on (cf. Hesslow, 1983).
 
-Here is another illustration by Hesslow, of how contrasts cases narrow down possible causes:
+Here is yet another illustration by Hesslow, of how contrasts cases narrow down possible causes:
 
 > For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.
 
