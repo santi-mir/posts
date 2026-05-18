@@ -30,7 +30,6 @@ The process usually iterates and updates during the interaction (or not, in a st
 
 Note: the problem of _causal connection_ and _causal selection_ is a well known problem in psychology.
 
-
 ## Cognitive Process
 
 ### Construing the explanandum
@@ -61,7 +60,6 @@ However, most relevant causes are already selected within the _contrastive why-q
 Here is another illustration by Hesslow, of how contrasts cases narrow down possible causes:
 
 > For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.
-
 
 ### Pragmatism
 
