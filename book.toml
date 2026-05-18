@@ -14,7 +14,7 @@ edition = "2024"
 
 [output.html]
 git-repository-url = "https://github.com/santi-mir/posts/"
-edit-url-template = "https://github.com/santi-mir/posts/edit/main/book/{path}"
+edit-url-template = "https://github.com/santi-mir/posts/edit/main/src/{path}"
 # default was "light"
 default-theme = "dark"
 # default was "navy"
