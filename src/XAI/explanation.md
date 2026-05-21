@@ -170,5 +170,4 @@ Other metaphors could be proposed.
 [what_is_xai]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 
-
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
