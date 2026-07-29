@@ -1,6 +1,6 @@
 # Model Explainability
 
-The focus here _is not_ on agents that explain themselves. Instead, the focus will be on: `1.` Models that are intrinsically explainable, `2.` Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, `3.` Use Language Models to translate model's behaviour / output to a linguistic explanation.
+The focus here _is not_ on ML models that explain themselves. Instead, the focus will be on: `1.` Models that are intrinsically explainable, `2.` Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, `3.` Use Language Models to translate model's behaviour / output to a linguistic explanation.
 
 -------------------
 
@@ -10,7 +10,7 @@ Explainable AI (XAI) is primarily about explaining the model and its output, alt
 
 > The degree to which we can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
-Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can be explained by an expert to an audience.
+Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can ae explained by an expert to an audience.
 
 As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_.
 
