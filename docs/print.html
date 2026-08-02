@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-a93e0f0c.js";
+            window.path_to_searchindex_js = "searchindex-bf06d67b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-68ba7e95.js"></script>
+        <script src="toc-397fa369.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -201,48 +201,57 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p><em>What is the goal of this post? The goal is to describe ideas about "explanations" from the social sciences.</em></p>
-<p>In future posts, explanation-tools for two different audiences —researchers and ordinary people— will be analysed.</p>
+<p>This post describes ideas about what <em>explanations</em> are and how they work in the human world. This will form a basis for explanations in AI.</p>
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 <hr>
 <h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
-<p>Explanations may be <em>interactive</em> (a conversation), <em>static</em> (a book), or a mix of both. In most explanations there is <em>that which needs clarification</em>, called the <em>explanandum</em>.</p>
+<p>Explanations may be <em>interactive</em> (a conversation), <em>static</em> (a book), or a mix of both.</p>
 <ul>
-<li><strong>Static explanations</strong>: descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</li>
 <li><strong>Interactive explanations</strong>: a communicator and an audience interact aiming to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
-<li><strong>Mix</strong>: consider machines with pre-set questions and answers, where the audience can't always ask what it needs.</li>
+<li><strong>Static explanations</strong>: Same as above, but they are non-interactive.</li>
+<li><strong>Mix</strong>: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to.</li>
 </ul>
+<p>In the rest of this post, the term <em>explanandum</em> defines <em>that which needs clarification</em>.</p>
 <!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>Understanding is having a theory or idea about how something works. Usually we refine these with experience. So it is a prerequisite for an explanation.</p>
+<p><strong>Relation of Explanation to Understanding</strong></p>
+<p>Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the <em>cognitive process</em> explained in the next section.</p>
 </blockquote>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. The version below was inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
 <li>During the <em>cognitive process</em>, hypotheses (e.g. causal connections) are generated aiming to clarify the <em>explanandum</em>.
 <ul>
-<li>Hypotheses are then compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).</li>
+<li>Hypotheses are then compared, and one may be selected until contradicted by experience or superseded (e.g. by a simpler explanation, by being disproved, or shown to be inconsistent).</li>
 </ul>
 </li>
 <li>During the <em>social process</em>, the answer is communicated to an audience.</li>
 </ol>
-<p>The process may iterate and update during the interaction (or not, in a static explanation). For example, the <em>explanandum</em> may be refined.</p>
-<p>Note: the problems of causal <em>connection</em> and <em>selection</em> (<code>1.</code>) are well known in psychology.</p>
+<p>The process may iterate and update during the interaction (or not, in a static explanation).</p>
+<ul>
+<li>Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!</li>
+<li>Also, the <em>explanandum</em> may be refined just as a photo-camera may gain focus with increased exposure.</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>The problem of causal <em>connection</em> and <em>selection</em> (<code>1.</code>) are well known, complex problems in psychology.</p>
+</blockquote>
 <h2 id="contrastive-questions"><a class="header" href="#contrastive-questions">Contrastive Questions</a></h2>
-<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
-<p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected —which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier to answer than the case separately.</p>
-<p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
+<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em> Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.</p>
+<p>As the paper <a href="http://arxiv.org/abs/1712.00547">Beware of Inmates Running the Asylum</a> states:</p>
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
-<p>Another way to state this by <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a>:</p>
+<p>The <em>foil</em> focuses the explanation on the differences between the two cases (ignoring similarities). This is usually easier to explain than the standalone fact. It can also reduce confusion.</p>
+<p><a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a> states this idea in a concise way:</p>
 <blockquote>
 <p>What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an <em>object a</em>, an <em>object of comparison b</em> and an <em>explanandum property E</em> which a has and b does not have.</p>
 </blockquote>
+<p>The complexity, of course, lies on knowing <em>which differences</em> matter.</p>
 <h3 id="relevant-causes"><a class="header" href="#relevant-causes">Relevant Causes</a></h3>
-<p>We never provide causal chains (it's infinite), but a small-enough one that explains the event in question (this is the <em>causal selection problem</em>).</p>
-<p>Researchers have pointed out many heuristics used: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.</p>
+<p>We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the <em>causal selection problem</em>).</p>
+<p>Researchers have pointed out many heuristics used by humans to favour some candidate causes (causal hypotheses) over others: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.</p>
 <p>But those are taken care of by <em>contrastive why-questions</em> which compare the event to be explained to a reference case (particular instance or general case). In this regard, <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a> states (bold is mine):</p>
 <blockquote>
 <p>Many of the selection criteria listed in Section 3 can be construed as the result of <strong>choosing different objects of comparison or reference classes</strong>. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of <strong>abnormal conditions</strong> can be viewed as the result of comparing the explanandum object with a normal object.</p>
@@ -259,6 +268,7 @@
 <p>Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
 <p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
 <h2 id="social-process-communication"><a class="header" href="#social-process-communication">Social Process (Communication)</a></h2>
+<p>We have gone through the <em>cognitive process</em> and how contrastive questions can aid the generation and selection of a hypothesis or a cause. The second process is that of commucation.</p>
 <p>The communication can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
@@ -271,11 +281,11 @@
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
 <p>In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.</p>
-<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:</p>
+<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">Malle et al state</a>:</p>
 <blockquote>
 <p>How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).</p>
 </blockquote>
-<p><em>Contrastive explanations</em> take care of many of these aspects automatically.</p>
+<p><em>Contrastive explanations</em> can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.</p>
 <h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
 <p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
 <blockquote>
@@ -343,8 +353,10 @@
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
+<h1 id="explainable-ai"><a class="header" href="#explainable-ai">Explainable AI</a></h1>
+<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>. This post discusses ideas of how to explain deep learning models.</p>
+<hr>
+<h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
 <p>Explainable AI (XAI) is primarily about explaining the model and its output. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about the model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
@@ -359,7 +371,7 @@
 </li>
 <li>Global (valid for all inputs) vs Local (for specific inputs)</li>
 </ul>
-<h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
+<h3 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h3>
 <p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.</p>
 <div class="center w30">
     <a href="assets/tradeoff.webp">
@@ -381,7 +393,7 @@
 <p>More carefully selected causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, turn it into a <em>causal model</em> which is likely to be more accurate. Causal information also usually makes them more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect to work out of distribution, though?</p>
 <blockquote>
 <p>For all cases, it is expected that a model that has not seen data in some area, will likely still fail in this area.
-This may require some learn-on-the-fly mechanism, but they are being developed (2026).</p>
+This may require some learn-on-the-fly mechanism (e.g. shot-learning, but also there are newer methods appearing in 2026).</p>
 </blockquote>
 <p>An expert may pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
 <p>A subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
@@ -461,16 +473,16 @@ This may require some learn-on-the-fly mechanism, but they are being developed (
 <!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="the-explanation-spectrum"><a class="header" href="#the-explanation-spectrum">The Explanation Spectrum</a></h1>
-<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent.</p>
+<h1 id="the-explanability-spectrum"><a class="header" href="#the-explanability-spectrum">The Explanability Spectrum</a></h1>
+<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent. It also introduces the concept of "The Explanation Spectrum".</p>
 <hr>
-<h2 id="human-to-human"><a class="header" href="#human-to-human">Human To Human</a></h2>
+<h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
 <p>How do humans explain things to each other? At which level of description do they do it?</p>
 <p>We have explored the first of those questions; important aspects being <em>contrastive explanations</em>, comparison, and logical deduction.</p>
 <p>Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.</p>
-<p>We may say that the brain uses "communication" processes that possibly "look at" decision processes (see Marvin Minsky, [The Emotion Machine][minsky]). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
-<h2 id="dl-models-as-scientific-models"><a class="header" href="#dl-models-as-scientific-models">DL Models as Scientific Models</a></h2>
-<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms.</p>
+<p>We may say that the brain uses communication processes that "look at" decision processes (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
+<h2 id="explaining-dl-models-as-scientific-models"><a class="header" href="#explaining-dl-models-as-scientific-models">Explaining DL Models (as Scientific Models)</a></h2>
+<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms. Similarly, if we use the "Models as Machines" metaphor, we expect them to be explainable in terms of their parts and how they interact.</p>
 <p>There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).</p>
 <p>In this case, for simple, or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
 <p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
@@ -478,7 +490,7 @@ This may require some learn-on-the-fly mechanism, but they are being developed (
 <h2 id="dl-models-as-scientists"><a class="header" href="#dl-models-as-scientists">DL Models as Scientists</a></h2>
 <p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, or even a category error. We may still learn from them, but a detailed explanation process could be as hard to extract as it is from a brain.</p>
 <p>So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.</p>
-<h2 id="the-explanation-spectrum-1"><a class="header" href="#the-explanation-spectrum-1">The Explanation Spectrum</a></h2>
+<h2 id="the-idea"><a class="header" href="#the-idea">The Idea</a></h2>
 <p>It is possible that DL models will fill the whole spectrum from scientific models and theories to <em>generators</em> of scientific models and theories (just as humans are).</p>
 <p>With this in mind, we could suggest the concept of an <em>explainability spectrum</em>.</p>
 <ul>
@@ -488,11 +500,13 @@ This may require some learn-on-the-fly mechanism, but they are being developed (
 </ul>
 <p>This isn't necessarily a fixed spectrum. As science advances, some models may become more explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).</p>
 <p>In both cases, an architecture of how humans explain subjects, what the expectations are for a context, audience and even a model-kind, should be useful.</p>
-<details>
+<p>Now we go back to common methods used to explain mostly narrow AI algorighms.</p>
+<hr><details>
 <summary>Sources</summary>
-1. [The Emotion Machine][minsky] — Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work.
+<ol>
+<li><a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a> (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.</li>
+</ol>
 </details>
-[minsky]: https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
@@ -673,7 +687,7 @@ This may require some learn-on-the-fly mechanism, but they are being developed (
 <!-- [whatifs_wachter]: https://arxiv.org/pdf/1711.00399 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="xai4chem-contrastive-explanations"><a class="header" href="#xai4chem-contrastive-explanations">XAI4Chem: Contrastive explanations</a></h1>
-<p>Previous posts have discussed <a href="#explanations">explanations</a> and <a href="#model-explainability">model explainability</a>.</p>
+<p>Previous posts have discussed <a href="#explanations">explanations</a> and <a href="#explainable-ai">model explainability</a>.</p>
 <p>One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties.</p>
 <p>Here is an example, from the paper "<a href="https://www.sciencedirect.com/science/article/pii/S1359644621005043">Enhancing preclinical drug discovery with artificial intelligence</a>" (the references were edited out, and can be found in the original article):</p>
 <blockquote>
@@ -1177,7 +1191,7 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 <h1 id="research-and-data-objects"><a class="header" href="#research-and-data-objects">Research and Data Objects</a></h1>
 <h2 id="fair-principles"><a class="header" href="#fair-principles">FAIR Principles</a></h2>
 <p>The FAIR Guiding Principles are suggestions for improving data <em>reusability</em>. Also <em>reproducibility</em> and <em>transparency</em>. Here the essence of it is described.</p>
-<h3 id="the-idea"><a class="header" href="#the-idea">The idea</a></h3>
+<h3 id="the-idea-1"><a class="header" href="#the-idea-1">The idea</a></h3>
 <p>The paper states:</p>
 <blockquote>
 <p>[good data management] is the key conduit leading to knowledge discovery and innovation.</p>
@@ -1547,6 +1561,22 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

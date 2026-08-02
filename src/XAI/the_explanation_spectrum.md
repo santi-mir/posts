@@ -1,10 +1,10 @@
-# The Explanation Spectrum
+# The Explanability Spectrum
 
-This post just explores what kind of explanations we can expect based on the complexity of a model or agent.
+This post just explores what kind of explanations we can expect based on the complexity of a model or agent. It also introduces the concept of "The Explanation Spectrum".
 
 -------------------
 
-## Human To Human
+## Human To Human Explanations
 
 How do humans explain things to each other? At which level of description do they do it?
 
@@ -12,11 +12,11 @@ We have explored the first of those questions; important aspects being _contrast
 
 Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.
 
-We may say that the brain uses "communication" processes that possibly "look at" decision processes (see Marvin Minsky, [The Emotion Machine][minsky]). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.
+We may say that the brain uses communication processes that "look at" decision processes (see Marvin Minsky, [The Emotion Machine][minsky]). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.
 
-## DL Models as Scientific Models
+## Explaining DL Models (as Scientific Models)
 
-DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms.
+DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms. Similarly, if we use the "Models as Machines" metaphor, we expect them to be explainable in terms of their parts and how they interact.
 
 There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).
 
@@ -32,7 +32,7 @@ General-purpose models may explain decisions in a human-like way, and be as hard
 
 So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.
 
-## The Explanation Spectrum
+## The Idea
 
 It is possible that DL models will fill the whole spectrum from scientific models and theories to _generators_ of scientific models and theories (just as humans are).
 
@@ -46,8 +46,16 @@ This isn't necessarily a fixed spectrum. As science advances, some models may be
 
 In both cases, an architecture of how humans explain subjects, what the expectations are for a context, audience and even a model-kind, should be useful.
 
+Now we go back to common methods used to explain mostly narrow AI algorighms.
+
+------------------
+
+
 <details>
 <summary>Sources</summary>
-1. [The Emotion Machine][minsky] &mdash; Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work.
+
+1. [The Emotion Machine][minsky] (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.
+
 </details>
+
 [minsky]: https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html

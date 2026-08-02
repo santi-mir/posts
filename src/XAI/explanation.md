@@ -1,8 +1,6 @@
 # Explanations
 
-_What is the goal of this post? The goal is to describe ideas about "explanations" from the social sciences._
-
-In future posts, explanation-tools for two different audiences &mdash;researchers and ordinary people&mdash; will be analysed.
+This post describes ideas about what _explanations_ are and how they work in the human world. This will form a basis for explanations in AI.
 
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 
@@ -10,47 +8,57 @@ In future posts, explanation-tools for two different audiences &mdash;researcher
 
 ## Definitions
 
-Explanations may be _interactive_ (a conversation), _static_ (a book), or a mix of both. In most explanations there is _that which needs clarification_, called the _explanandum_.
+Explanations may be _interactive_ (a conversation), _static_ (a book), or a mix of both.
 
-- **Static explanations**: descriptions aiming to clarify the _explanandum_, and may be found as written text, videos or other formats.
 - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience.
-- **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs.
+- **Static explanations**: Same as above, but they are non-interactive.
+- **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to.
+
+In the rest of this post, the term _explanandum_ defines _that which needs clarification_.
 
 <!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
 
 > [!NOTE]
-> Understanding is having a theory or idea about how something works. Usually we refine these with experience. So it is a prerequisite for an explanation.
+> **Relation of Explanation to Understanding**
+>
+> Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the _cognitive process_ explained in the next section.
 
 ## The explanation process
 
 Explanations involve a _cognitive_ and a _social_ process. The version below was inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].
 
 1. During the _cognitive process_, hypotheses (e.g. causal connections) are generated aiming to clarify the _explanandum_.
-   - Hypotheses are then compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).
+   - Hypotheses are then compared, and one may be selected until contradicted by experience or superseded (e.g. by a simpler explanation, by being disproved, or shown to be inconsistent).
 2. During the _social process_, the answer is communicated to an audience.
 
-The process may iterate and update during the interaction (or not, in a static explanation). For example, the _explanandum_ may be refined.
+The process may iterate and update during the interaction (or not, in a static explanation).
+- Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!
+- Also, the _explanandum_ may be refined just as a photo-camera may gain focus with increased exposure.
 
-Note: the problems of causal _connection_ and _selection_ (`1.`) are well known in psychology.
+>[!NOTE]
+> The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology.
 
 ## Contrastive Questions
 
-Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_. It's easy to remember it as a "reality (P) vs expectation (Q)" case.
+Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
 
-The _fact_ that requires explanation is "P"; the _foil_ is "Q", and represents the case that was expected &mdash;which may also be implicit. The _foil_ can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier to answer than the case separately.
+As the paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] states:
 
-As [Section 3-1][beware_inmates_asylum] states:
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-Another way to state this by [Hesslow][causal_selection_problem]:
+The _foil_ focuses the explanation on the differences between the two cases (ignoring similarities). This is usually easier to explain than the standalone fact. It can also reduce confusion.
+
+[Hesslow][causal_selection_problem] states this idea in a concise way:
 
 > What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an _object a_, an _object of comparison b_ and an _explanandum property E_ which a has and b does not have.
 
+The complexity, of course, lies on knowing _which differences_ matter.
+
 ### Relevant Causes
 
-We never provide causal chains (it's infinite), but a small-enough one that explains the event in question (this is the _causal selection problem_).
+We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the _causal selection problem_).
 
-Researchers have pointed out many heuristics used: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.
+Researchers have pointed out many heuristics used by humans to favour some candidate causes (causal hypotheses) over others: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.
 
 But those are taken care of by _contrastive why-questions_ which compare the event to be explained to a reference case (particular instance or general case). In this regard, [Hesslow][causal_selection_problem] states (bold is mine):
 
@@ -72,6 +80,8 @@ Many of these results come from work by Tania Lombrozo. (This section will event
 
 ## Social Process (Communication)
 
+We have gone through the _cognitive process_ and how contrastive questions can aid the generation and selection of a hypothesis or a cause. The second process is that of commucation.
+
 The communication can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
 
 - **Informative** (Quantity): right amount of context and details,
@@ -82,11 +92,11 @@ The communication can be aided by the [gricean maxims][gricean_maxims]: rules of
 
 In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.
 
-_Relevance_ is primarily related to the _causal selection problem_, as [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:
+_Relevance_ is primarily related to the _causal selection problem_, as [Malle et al state][autonomous_intelligent_systems]:
 
 > How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
 
-_Contrastive explanations_ take care of many of these aspects automatically.
+_Contrastive explanations_ can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.
 
 ## Metaphors: The Machine and The Person
 

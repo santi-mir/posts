@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-a93e0f0c.js";
+            window.path_to_searchindex_js = "../searchindex-bf06d67b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-68ba7e95.js"></script>
+        <script src="../toc-397fa369.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,16 +179,16 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="the-explanation-spectrum"><a class="header" href="#the-explanation-spectrum">The Explanation Spectrum</a></h1>
-<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent.</p>
+<h1 id="the-explanability-spectrum"><a class="header" href="#the-explanability-spectrum">The Explanability Spectrum</a></h1>
+<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent. It also introduces the concept of "The Explanation Spectrum".</p>
 <hr>
-<h2 id="human-to-human"><a class="header" href="#human-to-human">Human To Human</a></h2>
+<h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
 <p>How do humans explain things to each other? At which level of description do they do it?</p>
 <p>We have explored the first of those questions; important aspects being <em>contrastive explanations</em>, comparison, and logical deduction.</p>
 <p>Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.</p>
-<p>We may say that the brain uses "communication" processes that possibly "look at" decision processes (see Marvin Minsky, [The Emotion Machine][minsky]). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
-<h2 id="dl-models-as-scientific-models"><a class="header" href="#dl-models-as-scientific-models">DL Models as Scientific Models</a></h2>
-<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms.</p>
+<p>We may say that the brain uses communication processes that "look at" decision processes (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
+<h2 id="explaining-dl-models-as-scientific-models"><a class="header" href="#explaining-dl-models-as-scientific-models">Explaining DL Models (as Scientific Models)</a></h2>
+<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms. Similarly, if we use the "Models as Machines" metaphor, we expect them to be explainable in terms of their parts and how they interact.</p>
 <p>There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).</p>
 <p>In this case, for simple, or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
 <p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
@@ -196,7 +196,7 @@
 <h2 id="dl-models-as-scientists"><a class="header" href="#dl-models-as-scientists">DL Models as Scientists</a></h2>
 <p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, or even a category error. We may still learn from them, but a detailed explanation process could be as hard to extract as it is from a brain.</p>
 <p>So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.</p>
-<h2 id="the-explanation-spectrum-1"><a class="header" href="#the-explanation-spectrum-1">The Explanation Spectrum</a></h2>
+<h2 id="the-idea"><a class="header" href="#the-idea">The Idea</a></h2>
 <p>It is possible that DL models will fill the whole spectrum from scientific models and theories to <em>generators</em> of scientific models and theories (just as humans are).</p>
 <p>With this in mind, we could suggest the concept of an <em>explainability spectrum</em>.</p>
 <ul>
@@ -206,11 +206,13 @@
 </ul>
 <p>This isn't necessarily a fixed spectrum. As science advances, some models may become more explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).</p>
 <p>In both cases, an architecture of how humans explain subjects, what the expectations are for a context, audience and even a model-kind, should be useful.</p>
-<details>
+<p>Now we go back to common methods used to explain mostly narrow AI algorighms.</p>
+<hr><details>
 <summary>Sources</summary>
-1. [The Emotion Machine][minsky] — Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work.
+<ol>
+<li><a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a> (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.</li>
+</ol>
 </details>
-[minsky]: https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html
 
                     </main>
 
@@ -247,6 +249,22 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

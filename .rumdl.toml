@@ -1,5 +1,7 @@
 [global]
  disable = [
+ # Multiple top level headings
+ "MD001",
  # Allow long lines
   "MD013",
  # Fails with admonitions otherwise

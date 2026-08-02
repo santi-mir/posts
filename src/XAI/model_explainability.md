@@ -1,6 +1,10 @@
-# Model Explainability
+# Explainable AI
 
-Explanations were defined and characterised in a [previous post](./explanation.md).
+Explanations were defined and characterised in a [previous post](./explanation.md). This post discusses ideas of how to explain deep learning models.
+
+----------------
+
+## Model Explainability
 
 Explainable AI (XAI) is primarily about explaining the model and its output. _Model explainability_ can be defined as:
 
@@ -13,7 +17,7 @@ Examples of classifications of model explanations are:
     - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
 - Global (valid for all inputs) vs Local (for specific inputs)
 
-## Trade-offs
+### Trade-offs
 
 In deep learning practice, tradeoffs abound. For example, explainability _tends to_ decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.
 
@@ -39,7 +43,7 @@ One reason may be that the model does statistical associations and does not gene
 More carefully selected causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, turn it into a _causal model_ which is likely to be more accurate. Causal information also usually makes them more explainable. But does it have _all_ the _causal inputs_? Why do we expect to work out of distribution, though?
 
 > For all cases, it is expected that a model that has not seen data in some area, will likely still fail in this area.
-This may require some learn-on-the-fly mechanism, but they are being developed (2026).
+This may require some learn-on-the-fly mechanism (e.g. shot-learning, but also there are newer methods appearing in 2026).
 
 An expert may pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
 
@@ -114,7 +118,7 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
--------------------
+----------------
 
 <details>
 <summary>Sources</summary>
