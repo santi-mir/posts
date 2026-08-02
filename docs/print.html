@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-9b8f9c3d.js";
+            window.path_to_searchindex_js = "searchindex-a93e0f0c.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-d34aa570.js"></script>
+        <script src="toc-68ba7e95.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -395,10 +395,6 @@ This may require some learn-on-the-fly mechanism, but they are being developed (
 <p>The recognition of higher level patterns in graph can also span across methods.</p>
 <p>These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes.</p>
 <p>A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].</p>
-<h3 id="humans-and-models"><a class="header" href="#humans-and-models">Humans and Models</a></h3>
-<p>On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).</p>
-<p>On the other hand; scientific models and theories <em>are not</em> humans. These are ideas, and it is expected that they can be communicated.</p>
-<p>Which of these categories do Deep Learning Models fall in? It is possible that these models will fill the whole spectrum in between. General purpose models may explain in human-like way. More narrow models may be expected to be decomposable in domain-level concepts (just as a theory is).</p>
 <h2 id="overview-of-methods"><a class="header" href="#overview-of-methods">Overview of methods</a></h2>
 <p>Within the <em>cognitive process</em> of explanations, <em>model explainability</em> benefits from methods to identify causes or relevant properties.</p>
 <p>For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.</p>
@@ -464,6 +460,39 @@ This may require some learn-on-the-fly mechanism, but they are being developed (
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-explanation-spectrum"><a class="header" href="#the-explanation-spectrum">The Explanation Spectrum</a></h1>
+<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent.</p>
+<hr>
+<h2 id="human-to-human"><a class="header" href="#human-to-human">Human To Human</a></h2>
+<p>How do humans explain things to each other? At which level of description do they do it?</p>
+<p>We have explored the first of those questions; important aspects being <em>contrastive explanations</em>, comparison, and logical deduction.</p>
+<p>Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.</p>
+<p>We may say that the brain uses "communication" processes that possibly "look at" decision processes (see Marvin Minsky, [The Emotion Machine][minsky]). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
+<h2 id="dl-models-as-scientific-models"><a class="header" href="#dl-models-as-scientific-models">DL Models as Scientific Models</a></h2>
+<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms.</p>
+<p>There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).</p>
+<p>In this case, for simple, or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
+<p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
+<p>In other words, we want to answer: <em>What did it learn? Which concepts is the network using for their decision making?</em></p>
+<h2 id="dl-models-as-scientists"><a class="header" href="#dl-models-as-scientists">DL Models as Scientists</a></h2>
+<p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, or even a category error. We may still learn from them, but a detailed explanation process could be as hard to extract as it is from a brain.</p>
+<p>So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.</p>
+<h2 id="the-explanation-spectrum-1"><a class="header" href="#the-explanation-spectrum-1">The Explanation Spectrum</a></h2>
+<p>It is possible that DL models will fill the whole spectrum from scientific models and theories to <em>generators</em> of scientific models and theories (just as humans are).</p>
+<p>With this in mind, we could suggest the concept of an <em>explainability spectrum</em>.</p>
+<ul>
+<li>On one end, it has agents that can't explain their inner workings in detail, but can still output a certain explanation (e.g. humans).</li>
+<li>Near the middle models that can't give reasons, but we can study as black boxes.</li>
+<li>On the opposite end models that can give reasons and we can both study as black boxes, and also see what they learnt internally (a bit like CNNs' layers).</li>
+</ul>
+<p>This isn't necessarily a fixed spectrum. As science advances, some models may become more explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).</p>
+<p>In both cases, an architecture of how humans explain subjects, what the expectations are for a context, audience and even a model-kind, should be useful.</p>
+<details>
+<summary>Sources</summary>
+1. [The Emotion Machine][minsky] — Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work.
+</details>
+[minsky]: https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
