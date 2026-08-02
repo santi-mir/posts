@@ -70,6 +70,22 @@ These can even be inspired by other networks or graphs; for example, insect colo
 
 A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].
 
+### Humans and Models
+
+On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).
+
+On the other hand; scientific models and theories _are not_ humans. These are ideas, and it is expected that they can be communicated.
+
+Which of these categories do Deep Learning Models fall in? It is possible that these models will fill the whole spectrum in between. General purpose models may explain in human-like way. More narrow models may be expected to be decomposable in domain-level concepts (just as a theory is).
+
+## Humans and Models
+
+On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).
+
+On the other hand; scientific models and theories _are not_ humans. These are ideas, and it is expected that they can be communicated.
+
+Which of these categories do Deep Learning Models fall in? It is possible that these models will fill the whole spectrum in between. General purpose models may explain in human-like way. More narrow models may be expected to be decomposable in domain-level concepts (just as a theory is).
+
 ## Overview of methods
 
 Within the _cognitive process_ of explanations, _model explainability_ benefits from methods to identify causes or relevant properties.
