@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-4b9255d0.js";
+            window.path_to_searchindex_js = "searchindex-5202a5b5.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-a0991845.js"></script>
+        <script src="toc-d34aa570.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -213,6 +213,11 @@
 <li><strong>Mix</strong>: consider machines with pre-set questions and answers, where the audience can't always ask what it needs.</li>
 </ul>
 <!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Understanding is having a theory or idea about how something works. Usually we refine these with experience. So it is a prerequisite for an explanation.</p>
+</blockquote>
+<p>It is also interesting to note that humans explain phenomena in the world, but don't have access to our brain's detailed processes, nor do others. Maybe this is an interesting heuristic to apply to non-human agents.</p>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. The version below was inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
@@ -340,16 +345,12 @@
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>The focus here <em>is not</em> on ML models that explain themselves. Instead, the focus will be on: <code>1.</code> Models that are intrinsically explainable, <code>2.</code> Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, <code>3.</code> Use Language Models to translate model's behaviour / output to a linguistic explanation.</p>
-<hr>
 <p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
-<p>Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. <em>Model explainability</em> can be defined as:</p>
+<p>Explainable AI (XAI) is primarily about explaining the model and its output. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about the model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
 </blockquote>
-<p>Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can ae explained by an expert to an audience.</p>
-<p>As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a <em>contrastive why-question</em>.</p>
-<p>Model explainability <em>includes</em> terms like interpretability and transparency (which look inside the model) but also methods to analyse black-box models. Here is one possible classification:</p>
+<p>Examples of classifications of model explanations are:</p>
 <ul>
 <li>Intrinsic vs Extrinsic
 <ul>
@@ -357,14 +358,10 @@
 <li>Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.</li>
 </ul>
 </li>
-<li>Global (valid for all inputs) vs local (for specific inputs)</li>
+<li>Global (valid for all inputs) vs Local (for specific inputs)</li>
 </ul>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the <em>cognitive process</em>, prior to any communication. However, it certainly seems more complex.</p>
-</blockquote>
 <h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
-<p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
+<p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.</p>
 <div class="center w30">
     <a href="assets/tradeoff.webp">
     <img src="assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
@@ -470,6 +467,8 @@
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
+<!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
@@ -648,6 +647,41 @@
 </ol>
 </details>
 <!-- [whatifs_wachter]: https://arxiv.org/pdf/1711.00399 -->
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="xai4chem-contrastive-explanations"><a class="header" href="#xai4chem-contrastive-explanations">XAI4Chem: Contrastive explanations</a></h1>
+<p>Previous posts have discussed <a href="XAI/explanations.html">explanations</a> and <a href="#model-explainability">model explainability</a>.</p>
+<p>One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties.</p>
+<p>Here is an example, from the paper "<a href="https://www.sciencedirect.com/science/article/pii/S1359644621005043">Enhancing preclinical drug discovery with artificial intelligence</a>" (the references were edited out, and can be found in the original article):</p>
+<blockquote>
+<p>(...) many successful applications of QSAR-based VS workflows for hit identification have been reported. Zhang et al. described the successful implementation of an ML-based QSAR workflow for VS that led to the discovery of novel antimalarial agents.</p>
+</blockquote>
+<p>The ML algorithms were trained on a small dataset of antimalarial drugs. The authors continue:</p>
+<blockquote>
+<p>The QSAR models were used to carry out VS against the ChemBridge database and resulted in the selection of 174 compounds for a follow-up screening in Plasmodium falciparum growth inhibition and cellular assays. Experimental validation revealed 25 of the selected compounds to be active, yielding a hit rate of 14.2%, with the most potent hit having an EC50 value of 95.6 nM. Subsequently, many studies have reported the application of ML and DL-based QSAR workflows as promising VS tools.</p>
+</blockquote>
+<p>That sound cool and useful. A human expert may be able to detect a pattern on those structures.</p>
+<ul>
+<li>
+<p>But can we figure out an evaluation mechanism that singles out which fragments are most important?</p>
+</li>
+<li>
+<p>At the same time, isolated fragments may be misleading, because the shape of the molecule is also as important. Maybe a "fragments vs shape" could make up a directionally useful plot?</p>
+</li>
+</ul>
+<h2 id="paper-idea"><a class="header" href="#paper-idea">Paper Idea</a></h2>
+<p>Feature Attribution Methods, such as SHAP and LIME help answer the question "<em>Why was P obtained?</em>".</p>
+<p>On the other hand, contrastive explanations answer the question "<em>Why P rather than Q</em>?".</p>
+<p>Here, "Q" is the <em>foil</em> (an alternative event), and it's an important tool to make explanations simpler: the aspects that are similar do not need to be explained, it is the differences that count towards explaining "Why P rather than Q".</p>
+<p>The paper "[xai4chem][Contrastive explanations for machine learning predictions in chemistry]" (2025) develops a framework called MolCE for:</p>
+<blockquote>
+<p>deriving contrastive explanations for machine learning models in chemistry to systematically generate intuitive explanations of predictions in high-dimensional feature spaces.</p>
+</blockquote>
+<details>
+<summary>Sources</summary>
+<ol>
+<li>[xai4chem][Contrastive explanations for machine learning predictions in chemistry]</li>
+</ol>
+</details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom-vectors"><a class="header" href="#atom-vectors">Atom vectors</a></h1>
 <p>In the [Future of AI Technology] (1992), Marvin Minsky said:</p>

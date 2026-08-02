@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Systems That Learn II - Thoughts on AI</title>
+        <title>XAI in Chemistry (draft) - Thoughts on AI</title>
 
 
         <!-- Custom HTML head -->
@@ -179,55 +179,38 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="refining-connectivism"><a class="header" href="#refining-connectivism">Refining Connectivism</a></h1>
-<h2 id="do-all-networks-learn"><a class="header" href="#do-all-networks-learn">Do all networks learn?</a></h2>
-<p>The notion that all networks learn, just by virtue of being networks seems off. It does not correspond to what most of us would call <em>learning</em>.</p>
-<p>Is there some way to look at this, which makes more intuitive sense? Admittedly, there will be grey areas, but my view is that it <em>is</em> possible to conceptualise learning more clearly.</p>
-<p>Different networks vary on:</p>
-<ul>
-<li>The breath of signals they are responsive to,</li>
-<li>The intensity of signals they are responsive to,</li>
-<li>How varied their response is,</li>
-<li>How much directionality there is to the process,</li>
-<li>Possibly others (still thinking on it).</li>
-</ul>
-<p>The hypothesis is that, what we ordinarily call a <em>learning system</em> maps to:</p>
+<h1 id="xai4chem-contrastive-explanations"><a class="header" href="#xai4chem-contrastive-explanations">XAI4Chem: Contrastive explanations</a></h1>
+<p>Previous posts have discussed <a href="./explanations.html">explanations</a> and <a href="./model_explainability.html">model explainability</a>.</p>
+<p>One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties.</p>
+<p>Here is an example, from the paper "<a href="https://www.sciencedirect.com/science/article/pii/S1359644621005043">Enhancing preclinical drug discovery with artificial intelligence</a>" (the references were edited out, and can be found in the original article):</p>
 <blockquote>
-<p>High-complexity systems that respond to a wide variety of input signals in a wide variety of ways, and change in a way that makes future reactions <em>appropriate</em> (which is left to intuition for the moment).</p>
+<p>(...) many successful applications of QSAR-based VS workflows for hit identification have been reported. Zhang et al. described the successful implementation of an ML-based QSAR workflow for VS that led to the discovery of novel antimalarial agents.</p>
 </blockquote>
-<p>Usually, <em>networks of</em> complex systems or of hybrid systems also change complex ways and will also be <em>learning systems</em>.</p>
-<p>On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered <em>learning systems</em>.</p>
-<p>In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not <em>learning systems</em>.</p>
-<p>Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.</p>
-<p>We could say that there is a threshold of a binary function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">re</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">pt</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">ore</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span> were systems are considered at <em>learners</em>. There will also be, certainly, grey areas.</p>
-<h2 id="with-that-which-one-learns"><a class="header" href="#with-that-which-one-learns">With that, which one learns?</a></h2>
-<p>We can apply the previous criteria to a large number of cases, and see whether we are satisfied:</p>
-<p><em>Do biological networks learn?</em></p>
-<p>It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built into the system (brain) e.g. by Hebbian learning. We can take this case as our paradigmatic <em>learning system</em>.</p>
-<p><em>Do artificial neural networks (ANNs) learn?</em></p>
-<p>During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. General-purpose process a wide variety of signals are are closer to <em>learning systems</em> than narrow AIs. Both only learn during training phase.</p>
-<p><em>Does a colony of insects learn?</em></p>
-<p>Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.</p>
-<p>But is this "reaction", or emergent behaviour, the same as learning? Only if the change is permanent. The variety of signals they process and the behaviours is quite varied and certainly are learning systems.</p>
-<p><em>Does the world wide web, or a library learn?</em></p>
-<p>The system will learn only if it is designed to do so. For example, after a certain event (like a query) a program may change the system to respond more appropriately in the future.</p>
-<p>When humans have designed them to adapt (say with software) these have limited learning ability and change in response to a narrow variety of events, and are not quite <em>learning systems</em>. Considered without the programs, these wouldn't have any learning at all.</p>
-<p>Hybrid systems such as humans-web, or humans-library systems certainly are <em>learning systems</em>.</p>
-<p>The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them</p>
-<p><em>Does the electric grid learns?</em> Same as above.</p>
-<p><em>Does a molecule or a material, which can be represented as a graph, learn?</em></p>
-<p>Signals can change them. But even if we define <em>appropriate</em> as increasing the likelihood to persist / survive, the ways in which it reacts and the number of stimuli it responds to are narrow, and won't be <em>learning systems</em>.</p>
-<p><em>Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems (say a book), learn?</em></p>
-<p>Yes, especially if we consider a company, a community and so forth.</p>
-<p>So all the different kinds may be considered to learning, if they permanently change in response to a stimuli and this adequately changes future responses.</p>
-<details><summary>Resources</summary>
-<ol>
-<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<p>The ML algorithms were trained on a small dataset of antimalarial drugs. The authors continue:</p>
+<blockquote>
+<p>The QSAR models were used to carry out VS against the ChemBridge database and resulted in the selection of 174 compounds for a follow-up screening in Plasmodium falciparum growth inhibition and cellular assays. Experimental validation revealed 25 of the selected compounds to be active, yielding a hit rate of 14.2%, with the most potent hit having an EC50 value of 95.6 nM. Subsequently, many studies have reported the application of ML and DL-based QSAR workflows as promising VS tools.</p>
+</blockquote>
+<p>That sound cool and useful. A human expert may be able to detect a pattern on those structures.</p>
 <ul>
-<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
-<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
-</ul>
+<li>
+<p>But can we figure out an evaluation mechanism that singles out which fragments are most important?</p>
 </li>
+<li>
+<p>At the same time, isolated fragments may be misleading, because the shape of the molecule is also as important. Maybe a "fragments vs shape" could make up a directionally useful plot?</p>
+</li>
+</ul>
+<h2 id="paper-idea"><a class="header" href="#paper-idea">Paper Idea</a></h2>
+<p>Feature Attribution Methods, such as SHAP and LIME help answer the question "<em>Why was P obtained?</em>".</p>
+<p>On the other hand, contrastive explanations answer the question "<em>Why P rather than Q</em>?".</p>
+<p>Here, "Q" is the <em>foil</em> (an alternative event), and it's an important tool to make explanations simpler: the aspects that are similar do not need to be explained, it is the differences that count towards explaining "Why P rather than Q".</p>
+<p>The paper "[xai4chem][Contrastive explanations for machine learning predictions in chemistry]" (2025) develops a framework called MolCE for:</p>
+<blockquote>
+<p>deriving contrastive explanations for machine learning models in chemistry to systematically generate intuitive explanations of predictions in high-dimensional feature spaces.</p>
+</blockquote>
+<details>
+<summary>Sources</summary>
+<ol>
+<li>[xai4chem][Contrastive explanations for machine learning predictions in chemistry]</li>
 </ol>
 </details>
 
@@ -235,11 +218,11 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../systems_that_learn/connectivism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../XAI/strategies_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../other/visualising_high_dimensional_data.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../representations/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -249,11 +232,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../systems_that_learn/connectivism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../XAI/strategies_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../other/visualising_high_dimensional_data.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../representations/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
