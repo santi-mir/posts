@@ -1,6 +1,6 @@
-# The Explanability Spectrum
+# Explanability Cases
 
-This post just explores what kind of explanations we can expect based on the complexity of a model or agent. It also introduces the concept of "The Explanation Spectrum".
+This post just explores what kind of explanations we can expect based on the complexity of a model or agent.
 
 -------------------
 
@@ -32,21 +32,17 @@ General-purpose models may explain decisions in a human-like way, and be as hard
 
 So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.
 
-## The Idea
+## A Few Important Cases
 
-It is possible that DL models will fill the whole spectrum from scientific models and theories to _generators_ of scientific models and theories (just as humans are).
+It is possible that DL models will fill the whole spectrum from scientific models and theories to _generators_ of scientific models and theories (just as humans are). Here are 3 examples:
 
-With this in mind, we could suggest the concept of an _explainability spectrum_.
+1. Models/Agents that can't explain their inner workings in detail, but can still output a certain explanation (e.g. humans).
+2. Models that can't give reasons but we can study as black boxes.
+3. Models that can give reasons and we can both study as black boxes, and also see what they learnt internally (a bit like CNNs' layers).
 
-- On one end, it has agents that can't explain their inner workings in detail, but can still output a certain explanation (e.g. humans).
-- Near the middle models that can't give reasons, but we can study as black boxes.
-- On the opposite end models that can give reasons and we can both study as black boxes, and also see what they learnt internally (a bit like CNNs' layers).
+As science advances, some models become explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).
 
-This isn't necessarily a fixed spectrum. As science advances, some models may become more explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).
-
-In both cases, an architecture of how humans explain subjects, what the expectations are for a context, audience and even a model-kind, should be useful.
-
-Now we go back to common methods used to explain mostly narrow AI algorighms.
+Now we go back to common methods used to explain mostly narrow AI algorithms.
 
 ------------------
 
