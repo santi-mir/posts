@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-1b5a4686.js";
+            window.path_to_searchindex_js = "../searchindex-9b8f9c3d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d34aa570.js"></script>
@@ -180,7 +180,7 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="xai4chem-contrastive-explanations"><a class="header" href="#xai4chem-contrastive-explanations">XAI4Chem: Contrastive explanations</a></h1>
-<p>Previous posts have discussed <a href="./explanations.html">explanations</a> and <a href="./model_explainability.html">model explainability</a>.</p>
+<p>Previous posts have discussed <a href="./explanation.html">explanations</a> and <a href="./model_explainability.html">model explainability</a>.</p>
 <p>One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties.</p>
 <p>Here is an example, from the paper "<a href="https://www.sciencedirect.com/science/article/pii/S1359644621005043">Enhancing preclinical drug discovery with artificial intelligence</a>" (the references were edited out, and can be found in the original article):</p>
 <blockquote>
@@ -203,7 +203,7 @@
 <p>Feature Attribution Methods, such as SHAP and LIME help answer the question "<em>Why was P obtained?</em>".</p>
 <p>On the other hand, contrastive explanations answer the question "<em>Why P rather than Q</em>?".</p>
 <p>Here, "Q" is the <em>foil</em> (an alternative event), and it's an important tool to make explanations simpler: the aspects that are similar do not need to be explained, it is the differences that count towards explaining "Why P rather than Q".</p>
-<p>The paper "[xai4chem][Contrastive explanations for machine learning predictions in chemistry]" (2025) develops a framework called MolCE for:</p>
+<p>The paper "<a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-01100-6">Contrastive explanations for machine learning predictions in chemistry</a>" (2025) develops a framework called MolCE for:</p>
 <blockquote>
 <p>deriving contrastive explanations for machine learning models in chemistry to systematically generate intuitive explanations of predictions in high-dimensional feature spaces.</p>
 </blockquote>
