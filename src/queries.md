@@ -21,5 +21,4 @@
        - formation energy,
        - energy band-gap
 
-
-[Future of AI Technology]: https://philpapers.org/rec/MINFOA
+<!-- [Future of AI Technology]: https://philpapers.org/rec/MINFOA -->

@@ -54,7 +54,7 @@ The ML-aided exploratory-search involves:
 2. Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. $\mathrm{Li_3SnS_3Cl}$.
    - Can use physical constraints (like max n of atoms).
    - Calculate thermodynamically stable[^1] probe structure (this step is complex).
-      Hints experimentalists of promising region.
+     Hints experimentalists of promising region.
 3. Try synthesis, and find somewhat similar structures to the computationally suggested one.
 
 We can describe the exploration steps as a flow as well:

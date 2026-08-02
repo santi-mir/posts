@@ -14,7 +14,7 @@ Connectivism seems inspired by:
    - The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.
 2. The view of an individual as a network of neurons,
 3. The view of other systems as organisms, like organisations. The paper linked above states:
-    > The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.
+   > The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.
 
 As said, networks are the main object of the theory, so let's briefly define them:
 
@@ -79,7 +79,7 @@ So can parts of the brain, which are networks of neurons, and learning is later 
 
 [connectivism_siemens]: https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf
 
-[^connectivism_siemens]: https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf
+[^connectivism_siemens]: <https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf>
 
 [connectivism_downes]: https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368
 

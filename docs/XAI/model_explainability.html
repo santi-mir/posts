@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-5dbaa679.js";
+            window.path_to_searchindex_js = "../searchindex-1b5a4686.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d34aa570.js"></script>
@@ -207,43 +207,31 @@
 </div>
 
 <p>Moreover, simple explanations can <strong>oversimplify</strong> its operation, or lack <strong>generality</strong>.</p>
-<h2 id="explaining-by-comparison"><a class="header" href="#explaining-by-comparison">Explaining by Comparison</a></h2>
-<p>This framework is explained separately from methods to expand a bit more, but some of the methods are based on this logic behind.</p>
-<h3 id="will-it-rain-today"><a class="header" href="#will-it-rain-today">Will it rain today?</a></h3>
-<p>Let's take an imaginary model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, the variable <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> the model and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain.</p>
-<p>It reaches low evaluation error and everyone is happy.</p>
-<p>However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:</p>
-<ol>
-<li>The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
-<ul>
-<li>With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.</li>
-<li>This <em>is</em> useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.</li>
-</ul>
-</li>
-<li>The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
-<ul>
-<li>Using causal models may help to overcome the problems highlighted in the previous point. It's <em>a bit like</em> turning it into a law or theory expected to have found some deep structure that generates the data, even the unseen data.</li>
-</ul>
-</li>
-</ol>
-<p>The model is then modified to use causal variables instead (such as pressure and temperature), implicitly turning it into a <em>causal model</em>. But does it have <em>all</em> the <em>causal inputs</em>?</p>
+<h2 id="from-association-to-causation"><a class="header" href="#from-association-to-causation">From Association to Causation</a></h2>
+<p>Let's take an imaginary model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, the variable <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> the model and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain. It reaches low evaluation error and everyone is happy.</p>
+<p>However, it is sometimes found that if the people don't take the umbrella it may still rain. Why?</p>
+<p>One reason may be that the model does statistical associations and does not generalise out of training distribution ( restricting discoveries to certain interpolations).</p>
+<blockquote>
+<p>Could metaphors and analogies (from experience) be the missing ingredient of this to succceed? Could using causal models help to overcome these problems?</p>
+</blockquote>
+<p>More carefully selected causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, turn it into a <em>causal model</em> which is likely to be more accurate. Causal information also usually makes them more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect to work out of distribution, though?</p>
+<blockquote>
+<p>For all cases, it is expected that a model that has not seen data in some area, will likely still fail in this area.
+This may require some learn-on-the-fly mechanism, but they are being developed (2026).</p>
+</blockquote>
 <p>An expert may pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
 <p>A subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
-<h3 id="what-if"><a class="header" href="#what-if">What if...?</a></h3>
-<p>A model that does correlation is more likely to fail out of distribution, because it has not learnt the correlation. Causal models should in principle have less of this issue.</p>
-<p><em>Counterfactuals</em> ask <em>What would happen if this other input (fact) was used instead of the former one</em>, or if one feature is changed slightly? They are also similar to <em>What ifs</em> (as the question shows).</p>
-<p>For a model, <em>counterfactuals</em> yet another prediction, but the question is helpful because that is one way humans explain things. In a similar fashion to counterfactuals, we can compare with reference inputs.</p>
-<p>Both of these are known techniques listed in the next section.</p>
+<h2 id="comparisons"><a class="header" href="#comparisons">Comparisons</a></h2>
+<p>How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).</p>
+<p><em>Counterfactuals</em> ask <em>What would happen if this other input (fact) were used instead of the former one</em>, or if one feature is changed slightly? They are also similar to <em>What ifs</em> (as the question shows).</p>
+<p>For a model, <em>counterfactuals</em> are yet another prediction, but the question is helpful because that is one way humans explain things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).</p>
+<p>In a similar fashion to counterfactuals, we can compare with reference inputs.</p>
 <!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
-<h3 id="higher-level-aspects-of-networks"><a class="header" href="#higher-level-aspects-of-networks">Higher-Level Aspects of Networks</a></h3>
+<h2 id="higher-level-aspects-of-networks"><a class="header" href="#higher-level-aspects-of-networks">Higher-Level Aspects of Networks</a></h2>
 <p>The recognition of higher level patterns in graph can also span across methods.</p>
 <p>These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes.</p>
 <p>A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].</p>
 <h3 id="humans-and-models"><a class="header" href="#humans-and-models">Humans and Models</a></h3>
-<p>On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).</p>
-<p>On the other hand; scientific models and theories <em>are not</em> humans. These are ideas, and it is expected that they can be communicated.</p>
-<p>Which of these categories do Deep Learning Models fall in? It is possible that these models will fill the whole spectrum in between. General purpose models may explain in human-like way. More narrow models may be expected to be decomposable in domain-level concepts (just as a theory is).</p>
-<h2 id="humans-and-models-1"><a class="header" href="#humans-and-models-1">Humans and Models</a></h2>
 <p>On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).</p>
 <p>On the other hand; scientific models and theories <em>are not</em> humans. These are ideas, and it is expected that they can be communicated.</p>
 <p>Which of these categories do Deep Learning Models fall in? It is possible that these models will fill the whole spectrum in between. General purpose models may explain in human-like way. More narrow models may be expected to be decomposable in domain-level concepts (just as a theory is).</p>

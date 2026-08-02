@@ -16,7 +16,7 @@ The process of converting raw data into a format more suitable for an algorithm 
 - Graphs: Connectivity of molecules.
 - String representations: SMILES, SELFIES,..
 - Solid-state unit-cells: Representations based on radial distribution functions, Voronoi tessellations, and property-labelled materials fragments (...)
-    > In the solid-state, the conventional description of crystal structures by translation vectors and fractional coordinates of the atoms is **not appropriate for ML**, since a lattice can be represented in an infinite number of ways by choosing a different coordinate system.
+  > In the solid-state, the conventional description of crystal structures by translation vectors and fractional coordinates of the atoms is **not appropriate for ML**, since a lattice can be represented in an infinite number of ways by choosing a different coordinate system.
 
 ## List of a few ML algorithms
 

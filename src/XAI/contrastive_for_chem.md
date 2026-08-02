@@ -26,7 +26,7 @@ On the other hand, contrastive explanations answer the question "_Why P rather t
 
 Here, "Q" is the _foil_ (an alternative event), and it's an important tool to make explanations simpler: the aspects that are similar do not need to be explained, it is the differences that count towards explaining "Why P rather than Q".
 
-The paper "[xai4chem][Contrastive explanations for machine learning predictions in chemistry]" (2025) develops a framework called MolCE for:
+The paper "[Contrastive explanations for machine learning predictions in chemistry][xai4chem]" (2025) develops a framework called MolCE for:
 
 > deriving contrastive explanations for machine learning models in chemistry to systematically generate intuitive explanations of predictions in high-dimensional feature spaces.
 
@@ -39,5 +39,5 @@ The paper "[xai4chem][Contrastive explanations for machine learning predictions 
 
 [ai4dd]: https://www.sciencedirect.com/science/article/pii/S1359644621005043
 [xai4chem]: https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-01100-6
-[explanations]: ./explanations.md
+[explanations]: ./explanation.md
 [model explainability]: ./model_explainability.md
