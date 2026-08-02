@@ -18,6 +18,11 @@ Explanations may be _interactive_ (a conversation), _static_ (a book), or a mix 
 
 <!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
 
+> [!NOTE]
+> Understanding is having a theory or idea about how something works. Usually we refine these with experience. So it is a prerequisite for an explanation.
+
+It is also interesting to note that humans explain phenomena in the world, but don't have access to our brain's detailed processes, nor do others. Maybe this is an interesting heuristic to apply to non-human agents.
+
 ## The explanation process
 
 Explanations involve a _cognitive_ and a _social_ process. The version below was inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social].

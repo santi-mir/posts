@@ -1,32 +1,21 @@
 # Model Explainability
 
-The focus here _is not_ on ML models that explain themselves. Instead, the focus will be on: `1.` Models that are intrinsically explainable, `2.` Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, `3.` Use Language Models to translate model's behaviour / output to a linguistic explanation.
-
--------------------
-
 Explanations were defined and characterised in a [previous post](./explanation.md).
 
-Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. _Model explainability_ can be defined as:
+Explainable AI (XAI) is primarily about explaining the model and its output. _Model explainability_ can be defined as:
 
 > The degree to which we can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
-Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can ae explained by an expert to an audience.
-
-As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_.
-
-Model explainability _includes_ terms like interpretability and transparency (which look inside the model) but also methods to analyse black-box models. Here is one possible classification:
+Examples of classifications of model explanations are:
 
 - Intrinsic vs Extrinsic
     - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
     - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
-- Global (valid for all inputs) vs local (for specific inputs)
-
-> [!NOTE]
-> Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the _cognitive process_, prior to any communication. However, it certainly seems more complex.
+- Global (valid for all inputs) vs Local (for specific inputs)
 
 ## Trade-offs
 
-In deep learning practice, tradeoffs abound. For example, explainability _tends to_ be harder with more accurate models, since they _tend to_ be more complex.
+In deep learning practice, tradeoffs abound. For example, explainability _tends to_ decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.
 
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
@@ -167,3 +156,7 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 [xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
 
 [xx]: http://arxiv.org/abs/1806.00069
+
+<!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
+
+<!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
