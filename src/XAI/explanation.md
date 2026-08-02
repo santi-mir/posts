@@ -32,6 +32,7 @@ Explanations involve a _cognitive_ and a _social_ process. The version below was
 2. During the _social process_, the answer is communicated to an audience.
 
 The process may iterate and update during the interaction (or not, in a static explanation).
+
 - Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!
 - Also, the _explanandum_ may be refined just as a photo-camera may gain focus with increased exposure.
 
@@ -41,6 +42,7 @@ The process may iterate and update during the interaction (or not, in a static e
 ## Cognitive Process
 
 ### Contrastive Questions
+
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
 
 As the paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] states:

@@ -38,7 +38,7 @@ However, the model consistently fails to predict rains when people didn't take t
 
 One reason could be that the model underfitted, the dataset was too complex, and we may need a better model.
 
-Another reason could be that the dataset is incomplete, and the model  generalise out of training distribution. Can it be fixed if we don't have those datapoints?
+Another reason could be that the dataset is incomplete, and the model generalise out of training distribution. Can it be fixed if we don't have those datapoints?
 
 Selecting causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^1]
 

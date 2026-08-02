@@ -44,8 +44,7 @@ As science advances, some models become explainable, or an architecture that is 
 
 Now we go back to common methods used to explain mostly narrow AI algorithms.
 
-------------------
-
+-------------------
 
 <details>
 <summary>Sources</summary>
