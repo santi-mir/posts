@@ -54,7 +54,11 @@ The _foil_ focuses the explanation on the differences between the two cases (ign
 
 The complexity, of course, lies on knowing _which differences_ matter.
 
-### Relevant Causes
+### Attributing Causes
+
+As [Miller et al. state][beware_inmates_asylum]:
+
+> Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
 
 We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the _causal selection problem_).
 
@@ -100,15 +104,11 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 
 ## Metaphors: The Machine and The Person
 
-As [Miller et al. state][beware_inmates_asylum]:
-
-> Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
-
-Humans **attribute causes** using either:
+There is another framework that humans seem to use when explaining things, that of Agents or Machines.
 
 - **Agent-like model** Explanation uses goals, motives, duties to justify intentional actions or behaviour.
     - _Unintentional_ behaviour is usually explained using the next type.
-- **General causal model** explain outcomes by counterfactual reasoning or contrastive explanations.
+- **Machine-like model** explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
 
 These basically define _modes_ of explanation.
 
