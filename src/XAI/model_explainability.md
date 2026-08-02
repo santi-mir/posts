@@ -26,43 +26,38 @@ In deep learning practice, tradeoffs abound. For example, explainability _tends 
 
 Moreover, simple explanations can **oversimplify** its operation, or lack **generality**.
 
-## Explaining by Comparison
+## From Association to Causation
 
-This framework is explained separately from methods to expand a bit more, but some of the methods are based on this logic behind.
+Let's take an imaginary model, $y = f(u)$, the variable $u$ being the proportion of people with an umbrella, $f$ the model and $y$ the probability of rain. It reaches low evaluation error and everyone is happy.
 
-### Will it rain today?
+However, it is sometimes found that if the people don't take the umbrella it may still rain. Why?
 
-Let's take an imaginary model, $y = f(u)$, the variable $u$ being the proportion of people with an umbrella, $f$ the model and $y$ the probability of rain.
+One reason may be that the model does statistical associations and does not generalise out of training distribution ( restricting discoveries to certain interpolations).
 
-It reaches low evaluation error and everyone is happy.
+> Could metaphors and analogies (from experience) be the missing ingredient of this to succceed? Could using causal models help to overcome these problems?
 
-However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:
+More carefully selected causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, turn it into a _causal model_ which is likely to be more accurate. Causal information also usually makes them more explainable. But does it have _all_ the _causal inputs_? Why do we expect to work out of distribution, though?
 
-1. The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
-   - With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.
-   - This _is_ useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.
-2. The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
-   - Using causal models may help to overcome the problems highlighted in the previous point. It's _a bit like_ turning it into a law or theory expected to have found some deep structure that generates the data, even the unseen data.
-
-The model is then modified to use causal variables instead (such as pressure and temperature), implicitly turning it into a _causal model_. But does it have _all_ the _causal inputs_?
+> For all cases, it is expected that a model that has not seen data in some area, will likely still fail in this area.
+This may require some learn-on-the-fly mechanism, but they are being developed (2026).
 
 An expert may pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
 
 A subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
-### What if...?
+## Comparisons
 
-A model that does correlation is more likely to fail out of distribution, because it has not learnt the correlation. Causal models should in principle have less of this issue.
+How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).
 
-_Counterfactuals_ ask _What would happen if this other input (fact) was used instead of the former one_, or if one feature is changed slightly? They are also similar to _What ifs_ (as the question shows).
+_Counterfactuals_ ask _What would happen if this other input (fact) were used instead of the former one_, or if one feature is changed slightly? They are also similar to _What ifs_ (as the question shows).
 
-For a model, _counterfactuals_ yet another prediction, but the question is helpful because that is one way humans explain things. In a similar fashion to counterfactuals, we can compare with reference inputs.
+For a model, _counterfactuals_ are yet another prediction, but the question is helpful because that is one way humans explain things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).
 
-Both of these are known techniques listed in the next section.
+In a similar fashion to counterfactuals, we can compare with reference inputs.
 
 <!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
 
-### Higher-Level Aspects of Networks
+## Higher-Level Aspects of Networks
 
 The recognition of higher level patterns in graph can also span across methods.
 
@@ -71,14 +66,6 @@ These can even be inspired by other networks or graphs; for example, insect colo
 A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].
 
 ### Humans and Models
-
-On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).
-
-On the other hand; scientific models and theories _are not_ humans. These are ideas, and it is expected that they can be communicated.
-
-Which of these categories do Deep Learning Models fall in? It is possible that these models will fill the whole spectrum in between. General purpose models may explain in human-like way. More narrow models may be expected to be decomposable in domain-level concepts (just as a theory is).
-
-## Humans and Models
 
 On the one hand, humans can explain phenomena in the world to each other; but it's not required to get access to the brain's processes. The process is rather communication and then testing or comparing to other previous statements that we consider true (logically).
 
