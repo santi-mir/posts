@@ -1,14 +1,14 @@
 # Explainable AI
 
-Explanations were defined and characterised in a [previous post](./explanation.md). This post discusses ideas of how to explain deep learning models.
+Explanations were defined and characterised in [explanations](./explanation.md). This post explores the connection of _explanations_ to _deep learning models_.
 
 ----------------
 
 ## Model Explainability
 
-Explainable AI (XAI) is primarily about explaining the model and its output. _Model explainability_ can be defined as:
+Explainable AI (XAI) is primarily about explaining models and their outputs. _Model explainability_ can be defined as:
 
-> The degree to which we can answer questions about the model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
+> The degree to which we can answer questions about a model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
 Examples of classifications of model explanations are:
 
@@ -30,30 +30,31 @@ In deep learning practice, tradeoffs abound. For example, explainability _tends 
 
 Moreover, simple explanations can **oversimplify** its operation, or lack **generality**.
 
-## From Association to Causation
+## Out of Distribution
 
-Let's take an imaginary model, $y = f(u)$, the variable $u$ being the proportion of people with an umbrella, $f$ the model and $y$ the probability of rain. It reaches low evaluation error and everyone is happy.
+Let's take an imaginary model, $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
 
-However, it is sometimes found that if the people don't take the umbrella it may still rain. Why?
+However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen?
 
-One reason may be that the model does statistical associations and does not generalise out of training distribution ( restricting discoveries to certain interpolations).
+One reason could be that the model underfitted, the dataset was too complex, and we may need a better model.
 
-> Could metaphors and analogies (from experience) be the missing ingredient of this to succceed? Could using causal models help to overcome these problems?
+Another reason could be that the dataset is incomplete, and the model  generalise out of training distribution. Can it be fixed if we don't have those datapoints?
 
-More carefully selected causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, turn it into a _causal model_ which is likely to be more accurate. Causal information also usually makes them more explainable. But does it have _all_ the _causal inputs_? Why do we expect to work out of distribution, though?
+Selecting causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^1]
 
-> For all cases, it is expected that a model that has not seen data in some area, will likely still fail in this area.
-This may require some learn-on-the-fly mechanism (e.g. shot-learning, but also there are newer methods appearing in 2026).
+A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
-An expert may pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
+Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
 
-A subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
+> It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.
 
-## Comparisons
+## Model Insights from Comparisons
 
 How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).
 
 _Counterfactuals_ ask _What would happen if this other input (fact) were used instead of the former one_, or if one feature is changed slightly? They are also similar to _What ifs_ (as the question shows).
+
+Counterfacturals and other comparisons can help to explain models without opening the box.
 
 For a model, _counterfactuals_ are yet another prediction, but the question is helpful because that is one way humans explain things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).
 
@@ -61,17 +62,17 @@ In a similar fashion to counterfactuals, we can compare with reference inputs.
 
 <!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
 
-## Higher-Level Aspects of Networks
-
-The recognition of higher level patterns in graph can also span across methods.
-
-These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes.
-
-A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].
+<!-- ## Higher-Level Aspects of Networks -->
+<!---->
+<!-- The recognition of higher level patterns in graph can also span across methods. -->
+<!---->
+<!-- These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes. -->
+<!---->
+<!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
 
 ## Overview of methods
 
-Within the _cognitive process_ of explanations, _model explainability_ benefits from methods to identify causes or relevant properties.
+There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison, in the same sense as used in our previous section.
 
 For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.
 
@@ -159,3 +160,5 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 <!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
+
+[^1]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
