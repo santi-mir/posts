@@ -1,6 +1,6 @@
 # Explanations
 
-This post describes ideas about what _explanations_ are and how they work in the human world. This will form a basis for explanations in AI.
+This post describes what explanations are, and forms a basis for understanding how to explain artificial intelligent systems.
 
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 
@@ -35,11 +35,12 @@ The process may iterate and update during the interaction (or not, in a static e
 - Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!
 - Also, the _explanandum_ may be refined just as a photo-camera may gain focus with increased exposure.
 
->[!NOTE]
-> The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology.
+<!-- >[!NOTE] -->
+<!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
 
-## Contrastive Questions
+## Cognitive Process
 
+### Contrastive Questions
 Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
 
 As the paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] states:
