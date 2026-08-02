@@ -8,6 +8,7 @@
 
 - [Explanations](./XAI/explanation.md)
 - [XAI](./XAI/model_explainability.md)
+- [The XAI Spectrum](./XAI/the_explanation_spectrum.md)
 - [Additive Features](./XAI/strategies.md)
 - [Visuals and Arch](./XAI/strategies_2.md)
 - [XAI in Chemistry (draft)](./XAI/contrastive_for_chem.md)
