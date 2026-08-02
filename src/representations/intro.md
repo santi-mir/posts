@@ -1,6 +1,10 @@
 # Atom vectors
 
-The quest for _machine representations of objects_ is a long standing research theme. Here is a very narrow sample of the map:
+In the [Future of AI Technology] (1992), Marvin Minsky said:
+
+> First we'll have to change some present-day ideas. For example, many students like to ask, "Is it better to represent knowledge with Neural Nets, Logical Deduction, Semantic Networks, Frames, Scripts, Rule-Based Systems or Natural Language?" My teaching method is to try to get them to ask a different kind of question. "First decide what kinds of reasoning might be best for each different kind of problem -- and then find out which combination of representations might work well in each case."
+
+The quest for _machine representations of objects_ is a long-standing research theme. For example, we have vector representations:
 
 ```mermaid
 flowchart TB
@@ -12,7 +16,7 @@ B --> D(Embeddings)
 
 _Descriptors_ are expert-designed vectors; _embeddings_ are machine-learnt vectors $\in \mathbb{R}^N$.
 
-This post focuses on _embeddings_ since they require less human effort, and produce more general-purpose vectors.
+This post focuses on _embeddings_ because they require less human effort, and produce more general-purpose vectors.
 
 ## Characteristics of Embeddings
 

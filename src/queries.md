@@ -20,3 +20,5 @@
        - geometries,
        - formation energy,
        - energy band-gap
+
+<!-- [Future of AI Technology]: https://philpapers.org/rec/MINFOA -->

@@ -16,8 +16,8 @@
         <link rel="icon" href="favicon-de23e50b.svg">
         <link rel="shortcut icon" href="favicon-8114d1fc.png">
         <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-2459343d.css">
-        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
         <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-115383cf.js";
+            window.path_to_searchindex_js = "searchindex-b32ce39b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-2f94db08.js"></script>
+        <script src="toc-b017aed8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -201,44 +201,60 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
-<p><em>What is the goal of this post? The goal is to describe ideas about "explanations" from the social sciences.</em></p>
-<p>In future posts, explanation-tools for two different audiences —researchers and ordinary people— will be analysed.</p>
+<p>This post describes what explanations are, and forms a basis for understanding how to explain artificial intelligent systems.</p>
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 <hr>
 <h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
-<p>Explanations may be <em>interactive</em> (a conversation), <em>static</em> (a book), or a mix of both. In most explanations there is <em>that which needs clarification</em>, called the <em>explanandum</em>.</p>
+<p>Explanations may be <em>interactive</em> (a conversation), <em>static</em> (a book), or a mix of both.</p>
 <ul>
-<li><strong>Static explanations</strong>: descriptions aiming to clarify the <em>explanandum</em>, and may be found as written text, videos or other formats.</li>
 <li><strong>Interactive explanations</strong>: a communicator and an audience interact aiming to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
-<li><strong>Mix</strong>: consider machines with pre-set questions and answers, where the audience can't always ask what it needs.</li>
+<li><strong>Static explanations</strong>: Same as above, but they are non-interactive.</li>
+<li><strong>Mix</strong>: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to.</li>
 </ul>
+<p>In the rest of this post, the term <em>explanandum</em> defines <em>that which needs clarification</em>.</p>
 <!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p><strong>Relation of Explanation to Understanding</strong></p>
+<p>Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the <em>cognitive process</em> explained in the next section.</p>
+</blockquote>
 <h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
 <p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. The version below was inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
 <ol>
 <li>During the <em>cognitive process</em>, hypotheses (e.g. causal connections) are generated aiming to clarify the <em>explanandum</em>.
 <ul>
-<li>Hypotheses are then compared, and one may be selected until contradicted by experience or superseeded (e.g. by a simpler explanation).</li>
+<li>Hypotheses are then compared, and one may be selected until contradicted by experience or superseded (e.g. by a simpler explanation, by being disproved, or shown to be inconsistent).</li>
 </ul>
 </li>
 <li>During the <em>social process</em>, the answer is communicated to an audience.</li>
 </ol>
-<p>The process may iterate and update during the interaction (or not, in a static explanation). For example, the <em>explanandum</em> may be refined.</p>
-<p>Note: the problems of causal <em>connection</em> and <em>selection</em> (<code>1.</code>) are well known in psychology.</p>
-<h2 id="contrastive-questions"><a class="header" href="#contrastive-questions">Contrastive Questions</a></h2>
-<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em>. It's easy to remember it as a "reality (P) vs expectation (Q)" case.</p>
-<p>The <em>fact</em> that requires explanation is "P"; the <em>foil</em> is "Q", and represents the case that was expected —which may also be implicit. The <em>foil</em> can aid explanation-generation. The reason for this is that answering a contrastive question can focus on the difference between the two cases, which is usually easier to answer than the case separately.</p>
-<p>As <a href="http://arxiv.org/abs/1712.00547">Section 3-1</a> states:</p>
+<p>The process may iterate and update during the interaction (or not, in a static explanation).</p>
+<ul>
+<li>Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!</li>
+<li>Also, the <em>explanandum</em> may be refined just as a photo-camera may gain focus with increased exposure.</li>
+</ul>
+<!-- >[!NOTE] -->
+<!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
+<h2 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive Process</a></h2>
+<h3 id="contrastive-questions"><a class="header" href="#contrastive-questions">Contrastive Questions</a></h3>
+<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em> Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.</p>
+<p>As the paper <a href="http://arxiv.org/abs/1712.00547">Beware of Inmates Running the Asylum</a> states:</p>
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
-<p>Another way to state this by <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a>:</p>
+<p>The <em>foil</em> focuses the explanation on the differences between the two cases (ignoring similarities). This is usually easier to explain than the standalone fact. It can also reduce confusion.</p>
+<p><a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a> states this idea in a concise way:</p>
 <blockquote>
 <p>What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an <em>object a</em>, an <em>object of comparison b</em> and an <em>explanandum property E</em> which a has and b does not have.</p>
 </blockquote>
-<h3 id="relevant-causes"><a class="header" href="#relevant-causes">Relevant Causes</a></h3>
-<p>We never provide causal chains (it's infinite), but a small-enough one that explains the event in question (this is the <em>causal selection problem</em>).</p>
-<p>Researchers have pointed out many heuristics used: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.</p>
+<p>The complexity, of course, lies on knowing <em>which differences</em> matter.</p>
+<h3 id="attributing-causes"><a class="header" href="#attributing-causes">Attributing Causes</a></h3>
+<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
+<blockquote>
+<p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
+</blockquote>
+<p>We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the <em>causal selection problem</em>).</p>
+<p>Researchers have pointed out many heuristics used by humans to favour some candidate causes (causal hypotheses) over others: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.</p>
 <p>But those are taken care of by <em>contrastive why-questions</em> which compare the event to be explained to a reference case (particular instance or general case). In this regard, <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a> states (bold is mine):</p>
 <blockquote>
 <p>Many of the selection criteria listed in Section 3 can be construed as the result of <strong>choosing different objects of comparison or reference classes</strong>. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of <strong>abnormal conditions</strong> can be viewed as the result of comparing the explanandum object with a normal object.</p>
@@ -255,6 +271,7 @@
 <p>Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.</p>
 <p>Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)</p>
 <h2 id="social-process-communication"><a class="header" href="#social-process-communication">Social Process (Communication)</a></h2>
+<p>We have gone through the <em>cognitive process</em> and how contrastive questions can aid the generation and selection of a hypothesis or a cause. The second process is that of commucation.</p>
 <p>The communication can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
@@ -267,24 +284,20 @@
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
 <p>In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.</p>
-<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as [how-people-explain-action-and-autonomous-intelligent-systems-should-too][Malle et al state]:</p>
+<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">Malle et al state</a>:</p>
 <blockquote>
 <p>How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).</p>
 </blockquote>
-<p><em>Contrastive explanations</em> take care of many of these aspects automatically.</p>
+<p><em>Contrastive explanations</em> can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.</p>
 <h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
-<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
-<blockquote>
-<p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
-</blockquote>
-<p>Humans <strong>attribute causes</strong> using either:</p>
+<p>There is another framework that humans seem to use when explaining things, that of Agents or Machines.</p>
 <ul>
 <li><strong>Agent-like model</strong> Explanation uses goals, motives, duties to justify intentional actions or behaviour.
 <ul>
 <li><em>Unintentional</em> behaviour is usually explained using the next type.</li>
 </ul>
 </li>
-<li><strong>General causal model</strong> explain outcomes by counterfactual reasoning or contrastive explanations.</li>
+<li><strong>Machine-like model</strong> explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).</li>
 </ul>
 <p>These basically define <em>modes</em> of explanation.</p>
 <p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as graphs.</p>
@@ -324,9 +337,6 @@
 <li><a href="https://fitelson.org/woodward/scriven_epl.pdf">Explanations, Predictions and Laws</a> (1948),</li>
 <li><a href="https://www.ijcai.org/Proceedings/73/Papers/017.pdf">On the mechanization of abductive logic</a> (1973). The first page is quite interesting.</li>
 <li><a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">The Problem of Causal Selection</a> (1988) fascinating and easy-to-read article.</li>
-</ol>
-<!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
-<ol>
 <li><a href="http://arxiv.org/abs/1712.00547">Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences</a> (2017): Section 1 describes what the wrong approach is: building explanation models with an idea of explanation that only applies to experts. Section 2 surveys papers and notes almost none uses insights from social science of explanation to build their XAI algorithms, and even less evaluate them on humans. Section 3 is the most useful, and describes <strong>which insights from social sciences could be used</strong> (and points to research).
 <ul>
 <li>And an extension of that work <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">"Explanation in artificial intelligence: insights from the social sciences"</a> (2019, 38 pages).</li>
@@ -340,18 +350,17 @@
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
+<!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h1>
-<p>The focus here <em>is not</em> on agents that explain themselves. Instead, the focus will be on: <code>1.</code> Models that are intrinsically explainable, <code>2.</code> Techniques to make the model's outputs or internals meaningful beyond the mathematical operation, <code>3.</code> Use Language Models to translate model's behaviour / output to a linguistic explanation.</p>
+<h1 id="explainable-ai"><a class="header" href="#explainable-ai">Explainable AI</a></h1>
+<p>Explanations were defined and characterised in <a href="#explanations">explanations</a>. This post explores the connection of <em>explanations</em> to <em>deep learning models</em>.</p>
 <hr>
-<p>Explanations were defined and characterised in a <a href="#explanations">previous post</a>.</p>
-<p>Explainable AI (XAI) is primarily about explaining the model and its output, although it may include other aspects. <em>Model explainability</em> can be defined as:</p>
+<h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
+<p>Explainable AI (XAI) is primarily about explaining models and their outputs. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
-<p>The degree to which we can answer questions about the model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
+<p>The degree to which we can answer questions about a model and its output. The <em>answers</em> are audience and context dependent. The audience, in some cases, may be ourselves.</p>
 </blockquote>
-<p>Some systems may require that we, as operators, understand the decisions (explain to ourselves), or that the system can be explained by an expert to an audience.</p>
-<p>As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a <em>contrastive why-question</em>.</p>
-<p>Model explainability <em>includes</em> terms like interpretability and transparency (which look inside the model) but also methods to analyse black-box models. Here is one possible classification:</p>
+<p>Examples of classifications of model explanations are:</p>
 <ul>
 <li>Intrinsic vs Extrinsic
 <ul>
@@ -359,14 +368,10 @@
 <li>Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.</li>
 </ul>
 </li>
-<li>Global (valid for all inputs) vs local (for specific inputs)</li>
+<li>Global (valid for all inputs) vs Local (for specific inputs)</li>
 </ul>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>Explaining and understanding can be mixed up, because the latter also involves some internal conversation or reflection. Here understanding, with or without that monologue, is equated to the <em>cognitive process</em>, prior to any communication. However, it certainly seems more complex.</p>
-</blockquote>
-<h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h2>
-<p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> be harder with more accurate models, since they <em>tend to</em> be more complex.</p>
+<h3 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h3>
+<p>In deep learning practice, tradeoffs abound. For example, explainability <em>tends to</em> decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.</p>
 <div class="center w30">
     <a href="assets/tradeoff.webp">
     <img src="assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
@@ -377,40 +382,33 @@
 </div>
 
 <p>Moreover, simple explanations can <strong>oversimplify</strong> its operation, or lack <strong>generality</strong>.</p>
-<h2 id="explaining-by-comparison"><a class="header" href="#explaining-by-comparison">Explaining by Comparison</a></h2>
-<p>This framework is explained separately from methods to expand a bit more, but some of the methods are based on this logic behind.</p>
-<h3 id="will-it-rain-today"><a class="header" href="#will-it-rain-today">Will it rain today?</a></h3>
-<p>Let's take an imaginary model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, the variable <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> the model and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain.</p>
-<p>It reaches low evaluation error and everyone is happy.</p>
-<p>However, it is sometimes found that if the people don't take the umbrella it may still rain. Why? There may be different reasons:</p>
-<ol>
-<li>The model is doing correlation / association, but there wasn't correlation data available for such an event, so the predictions bad;
-<ul>
-<li>With a large and diverse possible dataset, most questions may be answerable; but may not generalise out of distribution, restricting discoveries to certain interpolations.</li>
-<li>This <em>is</em> useful and discoveries have been made this way, but it clearly limits them to interpolation, and low success out of distribution.</li>
-</ul>
-</li>
-<li>The model does not use causal information, like a weather forecast model would (not taking an umbrella doesn't make raining impossible).
-<ul>
-<li>Using causal models may help to overcome the problems highlighted in the previous point. It's <em>a bit like</em> turning it into a law or theory expected to have found some deep structure that generates the data, even the unseen data.</li>
-</ul>
-</li>
-</ol>
-<p>The model is then modified to use causal variables instead (such as pressure and temperature), implicitly turning it into a <em>causal model</em>. But does it have <em>all</em> the <em>causal inputs</em>?</p>
-<p>An expert may pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
-<p>A subset of causal-variables may do for a good-enough approximation, and likely be robust for generalising out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
-<h3 id="what-if"><a class="header" href="#what-if">What if...?</a></h3>
-<p>A model that does correlation is more likely to fail out of distribution, because it has not learnt the correlation. Causal models should in principle have less of this issue.</p>
-<p><em>Counterfactuals</em> ask <em>What would happen if this other input (fact) was used instead of the former one</em>, or if one feature is changed slightly? They are also similar to <em>What ifs</em> (as the question shows).</p>
-<p>For a model, <em>counterfactuals</em> yet another prediction, but the question is helpful because that is one way humans explain things. In a similar fashion to counterfactuals, we can compare with reference inputs.</p>
-<p>Both of these are known techniques listed in the next section.</p>
+<h2 id="out-of-distribution"><a class="header" href="#out-of-distribution">Out of Distribution</a></h2>
+<p>Let's take an imaginary model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> being the model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain. The model reaches low evaluation error and everyone is happy.</p>
+<p>However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen?</p>
+<p>One reason could be that the model underfitted, the dataset was too complex, and we may need a better model.</p>
+<p>Another reason could be that the dataset is incomplete, and the model generalise out of training distribution. Can it be fixed if we don't have those datapoints?</p>
+<p>Selecting causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
+<p>Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
+<blockquote>
+<p>It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.</p>
+</blockquote>
+<h2 id="model-insights-from-comparisons"><a class="header" href="#model-insights-from-comparisons">Model Insights from Comparisons</a></h2>
+<p>How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).</p>
+<p><em>Counterfactuals</em> ask <em>What would happen if this other input (fact) were used instead of the former one</em>, or if one feature is changed slightly? They are also similar to <em>What ifs</em> (as the question shows).</p>
+<p>Counterfacturals and other comparisons can help to explain models without opening the box.</p>
+<p>For a model, <em>counterfactuals</em> are yet another prediction, but the question is helpful because that is one way humans explain things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).</p>
+<p>In a similar fashion to counterfactuals, we can compare with reference inputs.</p>
 <!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
-<h3 id="higher-level-aspects-of-networks"><a class="header" href="#higher-level-aspects-of-networks">Higher-Level Aspects of Networks</a></h3>
-<p>The recognition of higher level patterns in graph can also span across methods.</p>
-<p>These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes.</p>
-<p>A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes].</p>
+<!-- ## Higher-Level Aspects of Networks -->
+<!---->
+<!-- The recognition of higher level patterns in graph can also span across methods. -->
+<!---->
+<!-- These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes. -->
+<!---->
+<!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
 <h2 id="overview-of-methods"><a class="header" href="#overview-of-methods">Overview of methods</a></h2>
-<p>Within the <em>cognitive process</em> of explanations, <em>model explainability</em> benefits from methods to identify causes or relevant properties.</p>
+<p>There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison, in the same sense as used in our previous section.</p>
 <p>For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.</p>
 <h3 id="kinds-of-methods"><a class="header" href="#kinds-of-methods">Kinds of Methods</a></h3>
 <p>The survey <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practise of explaining ML models</a> includes a table of <strong>method kinds</strong>. A modified version of the table is below:</p>
@@ -472,6 +470,47 @@
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
+<!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies? <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="explanability-cases"><a class="header" href="#explanability-cases">Explanability Cases</a></h1>
+<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent.</p>
+<hr>
+<h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
+<p>How do humans explain things to each other? At which level of description do they do it?</p>
+<p>We have explored the first of those questions; important aspects being <em>contrastive explanations</em>, comparison, and logical deduction.</p>
+<p>Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.</p>
+<p>We may say that the brain uses communication processes that "look at" decision processes (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
+<h2 id="explaining-dl-models-as-scientific-models"><a class="header" href="#explaining-dl-models-as-scientific-models">Explaining DL Models (as Scientific Models)</a></h2>
+<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms. Similarly, if we use the "Models as Machines" metaphor, we expect them to be explainable in terms of their parts and how they interact.</p>
+<p>There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).</p>
+<p>In this case, for simple, or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
+<p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
+<p>In other words, we want to answer: <em>What did it learn? Which concepts is the network using for their decision making?</em></p>
+<h2 id="dl-models-as-scientists"><a class="header" href="#dl-models-as-scientists">DL Models as Scientists</a></h2>
+<p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, or even a category error. We may still learn from them, but a detailed explanation process could be as hard to extract as it is from a brain.</p>
+<p>So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.</p>
+<h2 id="a-few-important-cases"><a class="header" href="#a-few-important-cases">A Few Important Cases</a></h2>
+<p>It is possible that DL models will fill the whole spectrum from scientific models and theories to <em>generators</em> of scientific models and theories (just as humans are). Here are 3 examples:</p>
+<ol>
+<li>Models/Agents that can't explain their inner workings in detail, but can still output a certain explanation (e.g. humans).</li>
+<li>Models that can't give reasons but we can study as black boxes.</li>
+<li>Models that can give reasons and we can both study as black boxes, and also see what they learnt internally (a bit like CNNs' layers).</li>
+</ol>
+<p>As science advances, some models become explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).</p>
+<p>Now we go back to common methods used to explain mostly narrow AI algorithms.</p>
+<hr><details>
+<summary>Sources</summary>
+<ol>
+<li><a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a> (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.</li>
+</ol>
+</details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
@@ -505,7 +544,7 @@
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="method-lime"><a class="header" href="#method-lime">Method: LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
+<p>Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
@@ -542,8 +581,8 @@
 </details>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1">
-<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1">↩</a></p>
+<li id="footnote-1-1">
+<p><em>Local</em> in the name refers to being for a <em>particular input</em>, not <em>Global</em> which would be general. <a href="#fr-1-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -651,8 +690,47 @@
 </details>
 <!-- [whatifs_wachter]: https://arxiv.org/pdf/1711.00399 -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="xai4chem-contrastive-explanations"><a class="header" href="#xai4chem-contrastive-explanations">XAI4Chem: Contrastive explanations</a></h1>
+<p>Previous posts have discussed <a href="#explanations">explanations</a> and <a href="#explainable-ai">model explainability</a>.</p>
+<p>One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties.</p>
+<p>Here is an example, from the paper "<a href="https://www.sciencedirect.com/science/article/pii/S1359644621005043">Enhancing preclinical drug discovery with artificial intelligence</a>" (the references were edited out, and can be found in the original article):</p>
+<blockquote>
+<p>(...) many successful applications of QSAR-based VS workflows for hit identification have been reported. Zhang et al. described the successful implementation of an ML-based QSAR workflow for VS that led to the discovery of novel antimalarial agents.</p>
+</blockquote>
+<p>The ML algorithms were trained on a small dataset of antimalarial drugs. The authors continue:</p>
+<blockquote>
+<p>The QSAR models were used to carry out VS against the ChemBridge database and resulted in the selection of 174 compounds for a follow-up screening in Plasmodium falciparum growth inhibition and cellular assays. Experimental validation revealed 25 of the selected compounds to be active, yielding a hit rate of 14.2%, with the most potent hit having an EC50 value of 95.6 nM. Subsequently, many studies have reported the application of ML and DL-based QSAR workflows as promising VS tools.</p>
+</blockquote>
+<p>That sound cool and useful. A human expert may be able to detect a pattern on those structures.</p>
+<ul>
+<li>
+<p>But can we figure out an evaluation mechanism that singles out which fragments are most important?</p>
+</li>
+<li>
+<p>At the same time, isolated fragments may be misleading, because the shape of the molecule is also as important. Maybe a "fragments vs shape" could make up a directionally useful plot?</p>
+</li>
+</ul>
+<h2 id="paper-idea"><a class="header" href="#paper-idea">Paper Idea</a></h2>
+<p>Feature Attribution Methods, such as SHAP and LIME help answer the question "<em>Why was P obtained?</em>".</p>
+<p>On the other hand, contrastive explanations answer the question "<em>Why P rather than Q</em>?".</p>
+<p>Here, "Q" is the <em>foil</em> (an alternative event), and it's an important tool to make explanations simpler: the aspects that are similar do not need to be explained, it is the differences that count towards explaining "Why P rather than Q".</p>
+<p>The paper "<a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-01100-6">Contrastive explanations for machine learning predictions in chemistry</a>" (2025) develops a framework called MolCE for:</p>
+<blockquote>
+<p>deriving contrastive explanations for machine learning models in chemistry to systematically generate intuitive explanations of predictions in high-dimensional feature spaces.</p>
+</blockquote>
+<details>
+<summary>Sources</summary>
+<ol>
+<li>[xai4chem][Contrastive explanations for machine learning predictions in chemistry]</li>
+</ol>
+</details>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom-vectors"><a class="header" href="#atom-vectors">Atom vectors</a></h1>
-<p>The quest for <em>machine representations of objects</em> is a long standing research theme. Here is a very narrow sample of the map:</p>
+<p>In the [Future of AI Technology] (1992), Marvin Minsky said:</p>
+<blockquote>
+<p>First we'll have to change some present-day ideas. For example, many students like to ask, "Is it better to represent knowledge with Neural Nets, Logical Deduction, Semantic Networks, Frames, Scripts, Rule-Based Systems or Natural Language?" My teaching method is to try to get them to ask a different kind of question. "First decide what kinds of reasoning might be best for each different kind of problem -- and then find out which combination of representations might work well in each case."</p>
+</blockquote>
+<p>The quest for <em>machine representations of objects</em> is a long-standing research theme. For example, we have vector representations:</p>
 <pre class="mermaid">flowchart TB
 A(Machine representations
 of objects) --&gt; B(Vector Representations)
@@ -661,7 +739,7 @@ B --&gt; D(Embeddings)
 </pre>
 
 <p><em>Descriptors</em> are expert-designed vectors; <em>embeddings</em> are machine-learnt vectors <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span>.</p>
-<p>This post focuses on <em>embeddings</em> since they require less human effort, and produce more general-purpose vectors.</p>
+<p>This post focuses on <em>embeddings</em> because they require less human effort, and produce more general-purpose vectors.</p>
 <h2 id="characteristics-of-embeddings"><a class="header" href="#characteristics-of-embeddings">Characteristics of Embeddings</a></h2>
 <p><em>Embeddings</em> are usually real-valued, dense rather than sparse, non-human readable. They also form a structured vector-space, with semantically similar vectors close together, and meaningful vector-arithmetic.</p>
 <p>It is desirable, but not always possible that they:</p>
@@ -712,7 +790,7 @@ B --&gt; D(Embeddings)
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
-<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
+<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup></p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -772,8 +850,8 @@ B --&gt; D(Embeddings)
 </blockquote>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-1">
-<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-1">↩</a></p>
+<li id="footnote-1-2">
+<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-2">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -948,7 +1026,7 @@ B --&gt; D(Embeddings)
 <li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
 <ul>
 <li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup> probe structure (this step is complex).
+<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-3"><a href="#footnote-1-3">1</a></sup> probe structure (this step is complex).
 Hints experimentalists of promising region.</li>
 </ul>
 </li>
@@ -972,8 +1050,8 @@ style A fill:#123456,color:#f4f4f4,stroke-width:0px
 
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-2">
-<p>With respect to the convex hull. <a href="#fr-1-1-2">↩</a></p>
+<li id="footnote-1-3">
+<p>With respect to the convex hull. <a href="#fr-1-1-3">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -1264,7 +1342,7 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-connectivism_siemens">
-<p>https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf <a href="#fr-connectivism_siemens-1">↩</a></p>
+<p><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf</a> <a href="#fr-connectivism_siemens-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -1462,6 +1540,7 @@ A --&gt; Direct
 </ol>
 </li>
 </ul>
+<!-- [Future of AI Technology]: https://philpapers.org/rec/MINFOA -->
 
                     </main>
 
@@ -1495,11 +1574,11 @@ A --&gt; Direct
 
         <script src="elasticlunr-ef4e11c1.min.js"></script>
         <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-c2a407aa.js"></script>
+        <script src="searcher-09f2665d.js"></script>
 
         <script src="clipboard-1626706a.min.js"></script>
         <script src="highlight-abc7f01d.js"></script>
-        <script src="book-a0b12cfe.js"></script>
+        <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
         <script src="./src/assets/mermaid.min.js"></script>
