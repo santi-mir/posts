@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-b32ce39b.js";
+            window.path_to_searchindex_js = "searchindex-936abba3.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-b017aed8.js"></script>
+        <script src="toc-bfe0c0c9.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -479,31 +479,41 @@
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="explanability-cases"><a class="header" href="#explanability-cases">Explanability Cases</a></h1>
-<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent.</p>
+<h1 id="explainability-cases"><a class="header" href="#explainability-cases">Explainability Cases</a></h1>
+<p>One of the main questions explored is: Should we accept DL models' predictions without "peeking into the black box", just as we do with another human statement (without peeking into their brain)? If so, when?</p>
 <hr>
 <h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
-<p>How do humans explain things to each other? At which level of description do they do it?</p>
-<p>We have explored the first of those questions; important aspects being <em>contrastive explanations</em>, comparison, and logical deduction.</p>
-<p>Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.</p>
-<p>We may say that the brain uses communication processes that "look at" decision processes (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
-<h2 id="explaining-dl-models-as-scientific-models"><a class="header" href="#explaining-dl-models-as-scientific-models">Explaining DL Models (as Scientific Models)</a></h2>
-<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms. Similarly, if we use the "Models as Machines" metaphor, we expect them to be explainable in terms of their parts and how they interact.</p>
-<p>There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).</p>
-<p>In this case, for simple, or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
+<!-- How do humans explain things to each other? Which level of description do they expect? -->
+<!---->
+<!-- We have explored the first of those questions in previous posts, where the explanation process was described. -->
+<p>When humans explain phenomena to each other they use language, pictures and other media. But we don't get access to each others' brain processes (to a large extent, not even our own); and even if we did, the task wouldn't be trivial.</p>
+<p>A brain may use "communication processes" that <em>look at</em> "decision processes" (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is exchanged and interpreted by another agent. The statement can be tested against reality, or for inconsistencies or compared to other statements.</p>
+<p>In other words, we largely treat brains as black boxes.</p>
+<p>Should we treat DL models the same, and accept predictions without "peeking into the black box", just as we do with humans? If so, under which circumstances?</p>
+<p>The idea of this post is that there will be a level of complexity and utility at which this will also happen for DL models.</p>
+<h2 id="dl-models-are-scientific-models"><a class="header" href="#dl-models-are-scientific-models">DL Models are Scientific Models</a></h2>
+<p>DL models are mathematical functions. Both the architecture and the trained model can be considered scientific models or theories. In this case, they should be explainable. Here there is an underlying metaphor of "DL models as machines" and we expect them to be explainable in terms of their parts and how they interact.</p>
+<p>There are also societal reasons for this expectation: many models are used on decision making and high-stakes scenarios, so we expect explanations or justifications for their decisions, just as we expect from humans making decisions.</p>
+<p>For simple or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
 <p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
 <p>In other words, we want to answer: <em>What did it learn? Which concepts is the network using for their decision making?</em></p>
-<h2 id="dl-models-as-scientists"><a class="header" href="#dl-models-as-scientists">DL Models as Scientists</a></h2>
-<p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, or even a category error. We may still learn from them, but a detailed explanation process could be as hard to extract as it is from a brain.</p>
-<p>So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.</p>
-<h2 id="a-few-important-cases"><a class="header" href="#a-few-important-cases">A Few Important Cases</a></h2>
-<p>It is possible that DL models will fill the whole spectrum from scientific models and theories to <em>generators</em> of scientific models and theories (just as humans are). Here are 3 examples:</p>
+<p><em>But, what if the metaphor used for a complex DL model is that of a scientist, or a human, rather than a machine?</em></p>
+<h2 id="dl-models-are-scientists"><a class="header" href="#dl-models-are-scientists">DL Models are Scientists</a></h2>
+<p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, and even a category error.</p>
+<p>In this case, a detailed explanation process could be as hard to extract as it is from a brain.</p>
+<p>So what do we do? In this case, it may be better to expect what we expect from a human: Take an explanation in natural language and test it and compare it to other established statements.</p>
+<p>In other words, we would treat it as a black box.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>We have explored two metaphors "DL models as Agents / Scientists" and "DL Models as Scientific Models", and the expectations for each case:</p>
 <ol>
-<li>Models/Agents that can't explain their inner workings in detail, but can still output a certain explanation (e.g. humans).</li>
-<li>Models that can't give reasons but we can study as black boxes.</li>
-<li>Models that can give reasons and we can both study as black boxes, and also see what they learnt internally (a bit like CNNs' layers).</li>
+<li>As Scientific Models: We can study them as black boxes, and also internal mechanisms,</li>
+<li>As Scientists: We can only study them as black boxes,
+<ol>
+<li>This includes Agents that can output a certain explanation (e.g. humans).</li>
 </ol>
-<p>As science advances, some models become explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).</p>
+</li>
+</ol>
+<p>As science advances, some models may become explainable. Similarly, intrinsically explainable architectures may be designed, and could be preferred over black box architectures (e.g. Capsule Networks were an effort in this direction).</p>
 <p>Now we go back to common methods used to explain mostly narrow AI algorithms.</p>
 <hr><details>
 <summary>Sources</summary>
