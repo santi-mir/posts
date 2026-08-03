@@ -8,7 +8,7 @@
 
 - [Explanations](./XAI/explanation.md)
 - [XAI](./XAI/model_explainability.md)
-- [Three Model Kinds](./XAI/three_model_kinds.md)
+- [Models or Agents?](./XAI/model_or_agent.md)
 - [XAI Methods I](./XAI/strategies.md)
 - [XAI Methods II](./XAI/strategies_2.md)
 - [XAI in Chemistry (draft)](./XAI/contrastive_for_chem.md)
