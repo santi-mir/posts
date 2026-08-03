@@ -127,8 +127,9 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 <summary>Sources</summary>
 
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
-   - _Transparency_ (intrinsic explainability), divided into 3 levels `1.` _simulatability_ or simplicity, `2.` _decomposability_ or part-role mapping, and `3.` _algorithmic training_ which focuses on error, loss, convergence.);
-   - _Post hoc_ interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.
+   - _Transparency_ (intrinsic explainability) can refer to: `1.` _simulatability_ i.e. can mentally run the model, `2.` _decomposability_ i.e. each part of the model admits an intuitive explanation, and `3.` _algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
+   - _Post hoc_ interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as textual explanations using RNNs, visual explanations of learned representations (e.g. t-SNE or other dimensionality reduction method), local, by example / comparison and so forth. This is the sort of interpretability/explainability that applies to humans (which are otherwise black boxes).
+   - Another takeaway is that obsessing about model transparency can harm accuracy and capability of a model, so it is important to consider this aspect.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",

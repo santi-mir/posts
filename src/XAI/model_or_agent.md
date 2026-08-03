@@ -43,6 +43,10 @@ In this case, a detailed explanation process could be as hard to extract as it i
 
 So what do we do? In this case, it may be better to expect what we expect from a human: Take an explanation in natural language and test it and compare it to other established statements.
 
+This is what the paper [The Mythos of Model Interpretability][mythos] describes, in the section about post-hoc textual explanations:
+
+> Humans often justify decisions verbally. Similarly, one model might be trained to generate predictions, and a separate model, such as a recurrent neural network language model, to generate an explanation.
+
 In other words, we would treat it as a black box.
 
 ## Summary
