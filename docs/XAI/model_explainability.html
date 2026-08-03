@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-dc69bc38.js";
+            window.path_to_searchindex_js = "../searchindex-e7e91563.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-bfe0c0c9.js"></script>
@@ -286,8 +286,9 @@
 <ol>
 <li><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018), excellent and easy-to-read. They consider two interpretability strategies:
 <ul>
-<li><em>Transparency</em> (intrinsic explainability), divided into 3 levels <code>1.</code> <em>simulatability</em> or simplicity, <code>2.</code> <em>decomposability</em> or part-role mapping, and <code>3.</code> <em>algorithmic training</em> which focuses on error, loss, convergence.);</li>
-<li><em>Post hoc</em> interpretability (black box / extrinsic explainability): breaks down techniques such as textual explanations using RNNs, visual explanations, local, by example and so forth.</li>
+<li><em>Transparency</em> (intrinsic explainability) can refer to: <code>1.</code> <em>simulatability</em> i.e. can mentally run the model, <code>2.</code> <em>decomposability</em> i.e. each part of the model admits an intuitive explanation, and <code>3.</code> <em>algorithmic training</em> which focuses on global vs local minimum, error and loss, guaranteed convergence.;</li>
+<li><em>Post hoc</em> interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as textual explanations using RNNs, visual explanations of learned representations (e.g. t-SNE or other dimensionality reduction method), local, by example / comparison and so forth. This is the sort of interpretability/explainability that applies to humans (which are otherwise black boxes).</li>
+<li>Another takeaway is that obsessing about model transparency can harm accuracy and capability of a model, so it is important to consider this aspect.</li>
 </ul>
 </li>
 <li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</li>

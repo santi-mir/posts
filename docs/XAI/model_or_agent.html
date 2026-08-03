@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-dc69bc38.js";
+            window.path_to_searchindex_js = "../searchindex-e7e91563.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-bfe0c0c9.js"></script>
@@ -202,6 +202,10 @@
 <p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, and even a category error.</p>
 <p>In this case, a detailed explanation process could be as hard to extract as it is from a brain.</p>
 <p>So what do we do? In this case, it may be better to expect what we expect from a human: Take an explanation in natural language and test it and compare it to other established statements.</p>
+<p>This is what the paper [The Mythos of Model Interpretability][mythos] describes, in the section about post-hoc textual explanations:</p>
+<blockquote>
+<p>Humans often justify decisions verbally. Similarly, one model might be trained to generate predictions, and a separate model, such as a recurrent neural network language model, to generate an explanation.</p>
+</blockquote>
 <p>In other words, we would treat it as a black box.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <p>We have explored two metaphors "DL models as Agents / Scientists" and "DL Models as Scientific Models", and the expectations for each case:</p>
