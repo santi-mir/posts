@@ -10,11 +10,13 @@ Explainable AI (XAI) is primarily about explaining models and their outputs. _Mo
 
 > The degree to which we can answer questions about a model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
+Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve.
+
 Examples of classifications of model explanations are:
 
 - Intrinsic vs Extrinsic
-    - Intrinsic or Transparency: looks at the internal mechanics and roles of layers, neurons, weights; also at the complexity of the model, training process, and so forth.
-    - Extrinsic or Post Hoc (aka opaque or black box): looks at input-outputs relations.
+    - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; also at the complexity of the model and the input types.
+    - Extrinsic or "Black Boxness"[^2]: looks at input-outputs relations, may also use clustering and visualisation techniques.
 - Global (valid for all inputs) vs Local (for specific inputs)
 
 ### Trade-offs
@@ -34,13 +36,13 @@ Moreover, simple explanations can **oversimplify** its operation, or lack **gene
 
 Let's take an imaginary model, $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
 
-However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen?
+However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
 
-One reason could be that the model underfitted, the dataset was too complex, and we may need a better model.
+1. The model _undefitted_ the data, and we may need a better model.
+1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints?
+1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
-Another reason could be that the dataset is incomplete, and the model generalise out of training distribution. Can it be fixed if we don't have those datapoints?
-
-Selecting causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^1]
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^1]
 
 A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
@@ -162,3 +164,4 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
 [^1]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+[^2]: Also post-hoc explainability, opaqueness.

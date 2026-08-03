@@ -20,6 +20,7 @@ Should we treat DL models the same, and accept predictions without "peeking into
 
 The idea of this post is that there will be a level of complexity and utility at which this will also happen for DL models.
 
+
 ## DL Models are Scientific Models
 
 DL models are mathematical functions. Both the architecture and the trained model can be considered scientific models or theories. In this case, they should be explainable. Here there is an underlying metaphor of "DL models as machines" and we expect them to be explainable in terms of their parts and how they interact.
