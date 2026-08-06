@@ -105,30 +105,52 @@ _Relevance_ is primarily related to the _causal selection problem_, as [Malle et
 
 _Contrastive explanations_ can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.
 
-## Metaphors: The Machine and The Person
 
-There is another framework that humans seem to use when explaining things, that of Agents or Machines.
+## Metaphors: The Machine and The Agent
 
-- **Agent-like model** Explanation uses goals, motives, duties to justify intentional actions or behaviour.
-    - _Unintentional_ behaviour is usually explained using the next type.
-- **Machine-like model** explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
+Humans often use explanatory stances, as noted by Daniel Dennett. There are three common ones:
 
-These basically define _modes_ of explanation.
+1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
+    - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
+2. *Design* stance, this has different interpretations. One is of the perceived _purpose_ of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).
+3. *Intentional* stance (which I call "Agent Metaphor/Model").
+    - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
+    - _Unintentional_ behaviour is usually explained using the machine metaphor.
 
-In technical fields, many complex systems are conceptualised as _machines_: composed of parts, each with a function, a role. Many are also conceptualised as graphs.
+As c.f. [Byrne][byrne_human_explanations] says:
+
+> Notably, each explanatory stance can be applied to explain the same device or action, but they have different consequences for understanding it. Each stance can lead to different kinds of insights, and to different kinds of erroneous inferences. The atypical application of a particular stance, say, a mechanical stance to explain an action more typically understood from an intentional stance, such as explaining travelers in a crowded airport as like pinballs careening around a pinball machine, may be interpreted analogically to yield new inferences [Keil, 2006].
+
+In technical fields, many complex systems are conceptualised as _machines_: composed of parts, each with a function, a role. Many are also conceptualised as _graphs_.
 
 Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.
+
+What seems here most fundamental than the particular stances is the selection of a metaphor to structure thinking and obtaining insights.
+
+Other metaphors and analogies could be proposed for specific problems.
 
 This is similar to what [researchers hypothesise][autonomous_intelligent_systems]:
 
 > For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
 
-| Perspective      | Model is a… | Preferred Explanation style           | Audience            |
+And much more recently, [Byrne][byrne_human_explanations]:
+
+> People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].
+
+
+We can summarise some of these ideas (including a standard audience) in a brief table:
+
+| Perspective      | Model is a… | Preferred Explanation style | Audience            |
 | ---------------- | ----------- | --------------------------- | ------------------- |
 | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
 | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
 
-Other metaphors could be proposed.
+
+The post on [explanatory stances](./explanatory_stances) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
+
+
+<!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
+
 
 <!-- ## Explaining is Teaching -->
 <!---->
@@ -158,6 +180,8 @@ Other metaphors could be proposed.
    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017),
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm].
+1. [Good Explanations in Explainable Artificial Intelligence (XAI):  Evidence from Human Explanatory Reasoning][byrne_human_explanations] (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.
+
 
 </details>
 
@@ -168,6 +192,8 @@ Other metaphors could be proposed.
 [autonomous_intelligent_systems]: https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/
 
 [beware_inmates_asylum]: http://arxiv.org/abs/1712.00547
+
+[byrne_human_explanations]: https://doi.org/10.24963/ijcai.2023/733
 
 [causal_selection_problem]: https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection
 

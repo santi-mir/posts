@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-b32ce39b.js";
+            window.path_to_searchindex_js = "../searchindex-a7164ced.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-b017aed8.js"></script>
+        <script src="../toc-18a239df.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -268,23 +268,39 @@
 <p>How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).</p>
 </blockquote>
 <p><em>Contrastive explanations</em> can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.</p>
-<h2 id="metaphors-the-machine-and-the-person"><a class="header" href="#metaphors-the-machine-and-the-person">Metaphors: The Machine and The Person</a></h2>
-<p>There is another framework that humans seem to use when explaining things, that of Agents or Machines.</p>
+<h2 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h2>
+<p>Humans often use explanatory stances, as noted by Daniel Dennett. There are three common ones:</p>
+<ol>
+<li><em>Mechanical</em> stance (which I call "Machine Metaphor/Model"),
 <ul>
-<li><strong>Agent-like model</strong> Explanation uses goals, motives, duties to justify intentional actions or behaviour.
-<ul>
-<li><em>Unintentional</em> behaviour is usually explained using the next type.</li>
+<li>Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).</li>
 </ul>
 </li>
-<li><strong>Machine-like model</strong> explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).</li>
+<li><em>Design</em> stance, this has different interpretations. One is of the perceived <em>purpose</em> of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).</li>
+<li><em>Intentional</em> stance (which I call "Agent Metaphor/Model").
+<ul>
+<li>Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.</li>
+<li><em>Unintentional</em> behaviour is usually explained using the machine metaphor.</li>
 </ul>
-<p>These basically define <em>modes</em> of explanation.</p>
-<p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as graphs.</p>
+</li>
+</ol>
+<p>As c.f. <a href="https://doi.org/10.24963/ijcai.2023/733">Byrne</a> says:</p>
+<blockquote>
+<p>Notably, each explanatory stance can be applied to explain the same device or action, but they have different consequences for understanding it. Each stance can lead to different kinds of insights, and to different kinds of erroneous inferences. The atypical application of a particular stance, say, a mechanical stance to explain an action more typically understood from an intentional stance, such as explaining travelers in a crowded airport as like pinballs careening around a pinball machine, may be interpreted analogically to yield new inferences [Keil, 2006].</p>
+</blockquote>
+<p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as <em>graphs</em>.</p>
 <p>Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.</p>
+<p>What seems here most fundamental than the particular stances is the selection of a metaphor to structure thinking and obtaining insights.</p>
+<p>Other metaphors and analogies could be proposed for specific problems.</p>
 <p>This is similar to what <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">researchers hypothesise</a>:</p>
 <blockquote>
 <p>For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.</p>
 </blockquote>
+<p>And much more recently, <a href="https://doi.org/10.24963/ijcai.2023/733">Byrne</a>:</p>
+<blockquote>
+<p>People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].</p>
+</blockquote>
+<p>We can summarise some of these ideas (including a standard audience) in a brief table:</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -296,7 +312,8 @@
 </tbody>
 </table>
 </div>
-<p>Other metaphors could be proposed.</p>
+<p>The post on <a href="./explanatory_stances">explanatory stances</a> continues this line of reasoning and connects them with <em>how we explain humans and deep learning models</em>.</p>
+<!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
 <!-- ## Explaining is Teaching -->
 <!---->
 <!-- The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.) -->
@@ -325,6 +342,7 @@
 </li>
 <li><a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a> (2017),</li>
 <li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>.</li>
+<li><a href="https://doi.org/10.24963/ijcai.2023/733">Good Explanations in Explainable Artificial Intelligence (XAI):  Evidence from Human Explanatory Reasoning</a> (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
@@ -339,7 +357,7 @@
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../XAI/model_explainability.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../XAI/explanatory_stances.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -353,7 +371,7 @@
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../XAI/model_explainability.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../XAI/explanatory_stances.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Three Model Kinds - Thoughts on AI</title>
+        <title>Pharma - Thoughts on AI</title>
 
 
         <!-- Custom HTML head -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-b32ce39b.js";
+            window.path_to_searchindex_js = "../searchindex-a7164ced.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-b017aed8.js"></script>
+        <script src="../toc-18a239df.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,48 +179,25 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="explanability-cases"><a class="header" href="#explanability-cases">Explanability Cases</a></h1>
-<p>This post just explores what kind of explanations we can expect based on the complexity of a model or agent.</p>
-<hr>
-<h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
-<p>How do humans explain things to each other? At which level of description do they do it?</p>
-<p>We have explored the first of those questions; important aspects being <em>contrastive explanations</em>, comparison, and logical deduction.</p>
-<p>Humans can explain phenomena to each other, it is not required that we get access to each others' brain processes. And we ourselves do not have that level of detail accessible by introspection.</p>
-<p>We may say that the brain uses communication processes that "look at" decision processes (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is interpreted by another agent and it can be tested, or compared to other previous statements that we consider true, searching for inconsistencies or contradictions.</p>
-<h2 id="explaining-dl-models-as-scientific-models"><a class="header" href="#explaining-dl-models-as-scientific-models">Explaining DL Models (as Scientific Models)</a></h2>
-<p>DL models are mathematical functions. Both the architecture, or the trained model can be considered scientific models or theories. In this case, it may be expected that they can be communicated and described in certain domain-local terms. Similarly, if we use the "Models as Machines" metaphor, we expect them to be explainable in terms of their parts and how they interact.</p>
-<p>There are also societal reasons for this expectation (since many models are used on decision making and high-stakes scenarios).</p>
-<p>In this case, for simple, or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
-<p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
-<p>In other words, we want to answer: <em>What did it learn? Which concepts is the network using for their decision making?</em></p>
-<h2 id="dl-models-as-scientists"><a class="header" href="#dl-models-as-scientists">DL Models as Scientists</a></h2>
-<p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, or even a category error. We may still learn from them, but a detailed explanation process could be as hard to extract as it is from a brain.</p>
-<p>So how can we do it? In this case, it may be better to expect what we expect from a human. Take an explanation in natural language and test it and compare it to other established statements.</p>
-<h2 id="a-few-important-cases"><a class="header" href="#a-few-important-cases">A Few Important Cases</a></h2>
-<p>It is possible that DL models will fill the whole spectrum from scientific models and theories to <em>generators</em> of scientific models and theories (just as humans are). Here are 3 examples:</p>
+<h1 id="ai-in-pharma"><a class="header" href="#ai-in-pharma">AI in Pharma</a></h1>
+<p>The paper <a href="https://www.sciencedirect.com/science/article/pii/S1359644621005043">Enhancing preclinical drug discovery with artificial intelligence</a> discusses all the areas in which Artificial Intelligence models can improve the Drug Discovery Pipeline.</p>
+<p>The steps in which AI can help include:</p>
 <ol>
-<li>Models/Agents that can't explain their inner workings in detail, but can still output a certain explanation (e.g. humans).</li>
-<li>Models that can't give reasons but we can study as black boxes.</li>
-<li>Models that can give reasons and we can both study as black boxes, and also see what they learnt internally (a bit like CNNs' layers).</li>
+<li>Target Identification,</li>
+<li>Hit Identification,</li>
+<li>Lead Optimisation,</li>
+<li>Addressing the low preclinical-to-clinical success rate.</li>
 </ol>
-<p>As science advances, some models become explainable, or an architecture that is much more explainable will be found (Capsule Networks were an effort in this direction).</p>
-<p>Now we go back to common methods used to explain mostly narrow AI algorithms.</p>
-<hr><details>
-<summary>Sources</summary>
-<ol>
-<li><a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a> (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.</li>
-</ol>
-</details>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../XAI/model_explainability.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../other/databases_and_benchmarks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../XAI/strategies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../queries.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -230,11 +207,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../XAI/model_explainability.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../other/databases_and_benchmarks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../XAI/strategies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../queries.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

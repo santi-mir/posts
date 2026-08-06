@@ -7,8 +7,8 @@
 # Explainable AI
 
 - [Explanations](./XAI/explanation.md)
+- [Explanatory Stances](./XAI/explanatory_stances.md)
 - [XAI](./XAI/model_explainability.md)
-- [Three Model Kinds](./XAI/three_model_kinds.md)
 - [XAI Methods I](./XAI/strategies.md)
 - [XAI Methods II](./XAI/strategies_2.md)
 - [XAI in Chemistry (draft)](./XAI/contrastive_for_chem.md)
@@ -48,6 +48,9 @@
 - [Visualising N-D vectors](./other/visualising_high_dimensional_data.md)
 - [CompChem Map](./other/compchem_map.md)
 - [Databases & Benchmarks](./other/databases_and_benchmarks.md)
+- [Pharma](./other/pharma.md)
+<!-- - [Milestones in AI (To-Do)]() -->
+<!-- - [Milestones in XAI (To-Do)]() -->
 
 -----
 
