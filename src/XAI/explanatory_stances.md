@@ -1,8 +1,35 @@
-# Explainability Cases
+# Explanatory Modes
 
-One of the main questions explored is: Should we accept DL models' predictions without "peeking into the black box", just as we do with another human statement (without peeking into their brain)? If so, when?
+This post explores different metaphors humans use to explain objects and processes.
+
+One question asked is: Should we explain DL models or teach them to explain themselves? The answer, to some extent, is: it depends.
 
 -------------------
+
+## Explanatory Stances
+In the [previous post](./explanation.md) explanatory metaphors, or as Dennett calls them "stances" were described. The summary is:
+
+1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
+    - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
+2. *Design* stance,
+3. *Intentional* stance (which I call "Agent Metaphor/Model").
+    - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
+    - _Unintentional_ behaviour is usually explained using the machine metaphor.
+
+
+There a certain intersection between those stances, and the way deep learning models and other humans are explained.
+
+Indeed, humans are explained using the intentional stance. We don't usually use a mechanistic interpretation because that is extremely hard; we use higher level concepts.
+
+To a large extent humans treat other humans as black boxes, not only in terms of explaining their behaviour, but also the way they think and the ideas they communicate.
+
+The way we usually analyse statements does not only involve beliefs about the person, and ignores what happens in the brain, but also just tests their consequences and analyse how the statement fits into our own worldview.
+
+The sections below link these stances to how we explain statements made by another human, or those found in a book, or emitted by a deep learning model.
+
+And it is proposed here that we use a few stances or metaphors, in many cases this is audience dependent. An example is given by [byrne_human_explanations]:
+
+> A potential implication for XAI is the necessity to consider when a particular stance is appropriate for explaining an AI system’s decision. A question posed by a user as to why an AI system refused their loan may be a request for causal information of a mechanistic sort about how the AI system came to make that decision. Hence, it may require an explanation based on information about how the user’s input features relate to a training data set, e.g., that loans have been refused for applicants of similar salary level, occupational status, credit history, as the user. Alternatively, it may be a request for functional information of a teleological sort about the purpose of the AI’s decision. Accordingly, it may require instead information about the goal and consequences of the output, e.g., that decisions of this sort mitigate the risk of applicants defaulting from repayment. Each sort of explanation will lead users to develop a different understanding of aspects of an AI system, and impact their learning, satisfaction, and trust in it.
 
 ## Human To Human Explanations
 
@@ -20,7 +47,6 @@ Should we treat DL models the same, and accept predictions without "peeking into
 
 The idea of this post is that there will be a level of complexity and utility at which this will also happen for DL models.
 
-
 ## DL Models are Scientific Models
 
 DL models are mathematical functions. Both the architecture and the trained model can be considered scientific models or theories. In this case, they should be explainable. Here there is an underlying metaphor of "DL models as machines" and we expect them to be explainable in terms of their parts and how they interact.
@@ -31,7 +57,7 @@ For simple or narrow-AI models, we may expect to peek into the black box, and to
 
 They're expected to be decomposable in domain-level concepts (just as a theory is).
 
-In other words, we want to answer: _What did it learn? Which concepts is the network using for their decision making?_
+In other words, we want to answer: _What did it learn? Which concepts is the network using for their decision making?_ But how can we extract their "baked in" knowledge?
 
 _But, what if the metaphor used for a complex DL model is that of a scientist, or a human, rather than a machine?_
 
@@ -67,7 +93,10 @@ Now we go back to common methods used to explain mostly narrow AI algorithms.
 <summary>Sources</summary>
 
 1. [The Emotion Machine][minsky] (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.
+1. [Can we open the black box of AI?][open_ai_black_box] (2016). This paper briefly explains what ANNs are, their similarities (not the differences) to the brain, and what challenges they pose to us. Primarily, the challenge is that they are hard to explain. It puts as an example a physician or patient relying in the output, but not knowing _why_ it predicts that. The author also cites Michael Tyka saying "The problem is that the knowledge gets baked into the network, rather than into us"
 
 </details>
 
 [minsky]: https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html
+[open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
+[byrne_human_explanations]: https://doi.org/10.24963/ijcai.2023/733

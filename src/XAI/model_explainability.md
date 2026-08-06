@@ -10,18 +10,18 @@ Explainable AI (XAI) is primarily about explaining models and their outputs. _Mo
 
 > The degree to which we can answer questions about a model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
 
-Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve.
+<!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 
-Examples of classifications of model explanations are:
+Types of model explainability:
 
 - Intrinsic vs Extrinsic
     - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; also at the complexity of the model and the input types.
-    - Extrinsic or "Black Boxness"[^2]: looks at input-outputs relations, may also use clustering and visualisation techniques.
+    - Extrinsic or "Black Boxness"[^1]: looks at input-outputs relations, may also use clustering and visualisation techniques.
 - Global (valid for all inputs) vs Local (for specific inputs)
 
 ### Trade-offs
 
-In deep learning practice, tradeoffs abound. For example, explainability _tends to_ decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.
+In deep learning practice, tradeoffs abound.  Intuitively, we could expect explainability to decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.
 
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
@@ -32,6 +32,10 @@ In deep learning practice, tradeoffs abound. For example, explainability _tends 
 
 Moreover, simple explanations can **oversimplify** its operation, or lack **generality**.
 
+It is important to remark that, according to [Cynthia Rubin's comment][interpretable_ml], the claim that more interpretable models are less accurate lacks scientific evidence. In her own words (bold is mine, references removed):
+
+> Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
+
 ## Out of Distribution
 
 Let's take an imaginary model, $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
@@ -39,16 +43,18 @@ Let's take an imaginary model, $y = f(u)$, $f$ being the model, $u$ being the pr
 However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
 
 1. The model _undefitted_ the data, and we may need a better model.
-1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints?
+1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction?
 1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
-Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^1]
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^2]
 
 A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
 Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
 
 > It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.
+
+Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.
 
 ## Model Insights from Comparisons
 
@@ -126,6 +132,8 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 <details>
 <summary>Sources</summary>
 
+1. [Can we open the black box of AI?][open_ai_black_box] (2016). This paper briefly explains what ANNs are, their similarities (not the differences) to the brain, and what challenges they pose to us. Primarily, the challenge is that they are hard to explain. It puts as an example a physician or patient relying in the output, but not knowing _why_ it predicts that. The author also cites Michael Tyka saying "The problem is that the knowledge gets baked into the network, rather than into us" which is also interesting.
+Furthermore, there isn't a "number 5 pattern" that is the same for many networks; the pattern appears from the training procedure, and although it may be similar for all number 5, it's usually different between training runs, datasets, and networks. Similarly so for brains!
 1. [The Mythos of Model Interpretability][mythos] (2018), excellent and easy-to-read. They consider two interpretability strategies:
    - _Transparency_ (intrinsic explainability) can refer to: `1.` _simulatability_ i.e. can mentally run the model, `2.` _decomposability_ i.e. each part of the model admits an intuitive explanation, and `3.` _algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
    - _Post hoc_ interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as textual explanations using RNNs, visual explanations of learned representations (e.g. t-SNE or other dimensionality reduction method), local, by example / comparison and so forth. This is the sort of interpretability/explainability that applies to humans (which are otherwise black boxes).
@@ -135,6 +143,7 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
 1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
+1. [Why black box machine learning should be avoided for high-stakes decisions, in brief][interpretable_ml] (2022),
 1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
@@ -142,7 +151,11 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 
+[interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0
+
 [mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
+
+[open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
 
 [perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
 
@@ -164,5 +177,5 @@ The focus here though, is explaining _deep learning_ models. These are usually _
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
-[^1]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
-[^2]: Also post-hoc explainability, opaqueness.
+[^1]: Also post-hoc explainability, opaqueness.
+[^2]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
