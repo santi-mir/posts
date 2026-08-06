@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>RCA - Thoughts on AI</title>
+        <title>Explanatory Stances - Thoughts on AI</title>
 
 
         <!-- Custom HTML head -->
@@ -179,33 +179,89 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="reference-based-coordinate-assignment"><a class="header" href="#reference-based-coordinate-assignment">Reference-based Coordinate Assignment</a></h1>
-<p><a href="https://chemrxiv.org/doi/full/10.26434/chemrxiv.15000944/v1">RCA</a> is a dimensionality reduction method. Importantly, this implies we already have some representation available, which we may want to reduce.</p>
-<p>The main idea could be conceptually represented as:</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5944em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathbf">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mord mathnormal">ce</span><span class="mopen">(</span><span class="mord"><span class="mord mathbf">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathbf">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathbf">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathbf">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
-<p>On the right hand side, the distance of each <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> dimensional vector <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathbf">a</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"></span><span class="mord mathbf">d</span></span></span></span> to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is calculated. Each of these vectors is a centroid calculated from a cluster of embeddings.</p>
-<p>The result, on the left hand side, is a reduced <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span>-dimensional sample vector <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
-<p>An important point is raised in the paper:</p>
-<blockquote>
-<p>To avoid degeneracies arising from equidistant configurations, the reference points must span the structure of the dataset.</p>
-</blockquote>
-<p>Which means the reference vectors (centroids) should be able to reach any point in the original dataset, and not lose expressivity.</p>
-<p>The method has useful properties:</p>
+<h1 id="explanatory-modes"><a class="header" href="#explanatory-modes">Explanatory Modes</a></h1>
+<p>This post explores different metaphors humans use to explain objects and processes.</p>
+<p>One question asked is: Should we explain DL models or teach them to explain themselves? The answer, to some extent, is: it depends.</p>
+<hr>
+<h2 id="explanatory-stances"><a class="header" href="#explanatory-stances">Explanatory Stances</a></h2>
+<p>In the <a href="./explanation.html">previous post</a> explanatory metaphors, or as Dennett calls them "stances" were described. The summary is:</p>
 <ol>
-<li>Compared to a large vector, it is cheaper to use to train a model (and can still be accurate),</li>
-<li>Compared to other dimensionality reduction methods, it is easier to extend,</li>
-<li>With certain care, the dimensions may be interpretable.</li>
+<li><em>Mechanical</em> stance (which I call "Machine Metaphor/Model"),
+<ul>
+<li>Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).</li>
+</ul>
+</li>
+<li><em>Design</em> stance,</li>
+<li><em>Intentional</em> stance (which I call "Agent Metaphor/Model").
+<ul>
+<li>Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.</li>
+<li><em>Unintentional</em> behaviour is usually explained using the machine metaphor.</li>
+</ul>
+</li>
 </ol>
+<p>There a certain intersection between those stances, and the way deep learning models and other humans are explained.</p>
+<p>Indeed, humans are explained using the intentional stance. We don't usually use a mechanistic interpretation because that is extremely hard; we use higher level concepts.</p>
+<p>To a large extent humans treat other humans as black boxes, not only in terms of explaining their behaviour, but also the way they think and the ideas they communicate.</p>
+<p>The way we usually analyse statements does not only involve beliefs about the person, and ignores what happens in the brain, but also just tests their consequences and analyse how the statement fits into our own worldview.</p>
+<p>The sections below link these stances to how we explain statements made by another human, or those found in a book, or emitted by a deep learning model.</p>
+<p>And it is proposed here that we use a few stances or metaphors, in many cases this is audience dependent. An example is given by <a href="https://doi.org/10.24963/ijcai.2023/733">byrne_human_explanations</a>:</p>
+<blockquote>
+<p>A potential implication for XAI is the necessity to consider when a particular stance is appropriate for explaining an AI system’s decision. A question posed by a user as to why an AI system refused their loan may be a request for causal information of a mechanistic sort about how the AI system came to make that decision. Hence, it may require an explanation based on information about how the user’s input features relate to a training data set, e.g., that loans have been refused for applicants of similar salary level, occupational status, credit history, as the user. Alternatively, it may be a request for functional information of a teleological sort about the purpose of the AI’s decision. Accordingly, it may require instead information about the goal and consequences of the output, e.g., that decisions of this sort mitigate the risk of applicants defaulting from repayment. Each sort of explanation will lead users to develop a different understanding of aspects of an AI system, and impact their learning, satisfaction, and trust in it.</p>
+</blockquote>
+<h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
+<!-- How do humans explain things to each other? Which level of description do they expect? -->
+<!---->
+<!-- We have explored the first of those questions in previous posts, where the explanation process was described. -->
+<p>When humans explain phenomena to each other they use language, pictures and other media. But we don't get access to each others' brain processes (to a large extent, not even our own); and even if we did, the task wouldn't be trivial.</p>
+<p>A brain may use "communication processes" that <em>look at</em> "decision processes" (see Marvin Minsky, <a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a>). Then the statement is exchanged and interpreted by another agent. The statement can be tested against reality, or for inconsistencies or compared to other statements.</p>
+<p>In other words, we largely treat brains as black boxes.</p>
+<p>Should we treat DL models the same, and accept predictions without "peeking into the black box", just as we do with humans? If so, under which circumstances?</p>
+<p>The idea of this post is that there will be a level of complexity and utility at which this will also happen for DL models.</p>
+<h2 id="dl-models-are-scientific-models"><a class="header" href="#dl-models-are-scientific-models">DL Models are Scientific Models</a></h2>
+<p>DL models are mathematical functions. Both the architecture and the trained model can be considered scientific models or theories. In this case, they should be explainable. Here there is an underlying metaphor of "DL models as machines" and we expect them to be explainable in terms of their parts and how they interact.</p>
+<p>There are also societal reasons for this expectation: many models are used on decision making and high-stakes scenarios, so we expect explanations or justifications for their decisions, just as we expect from humans making decisions.</p>
+<p>For simple or narrow-AI models, we may expect to peek into the black box, and to analyze their input-output relations to get insight into their inner workings.</p>
+<p>They're expected to be decomposable in domain-level concepts (just as a theory is).</p>
+<p>In other words, we want to answer: <em>What did it learn? Which concepts is the network using for their decision making?</em> But how can we extract their "baked in" knowledge?</p>
+<p><em>But, what if the metaphor used for a complex DL model is that of a scientist, or a human, rather than a machine?</em></p>
+<h2 id="dl-models-are-scientists"><a class="header" href="#dl-models-are-scientists">DL Models are Scientists</a></h2>
+<p>General-purpose models may explain decisions in a human-like way, and be as hard to inspect as the brain is. Treating these models as a scientific theory of a domain, or a narrow AI model, may be a counter-productive, and even a category error.</p>
+<p>In this case, a detailed explanation process could be as hard to extract as it is from a brain.</p>
+<p>So what do we do? In this case, it may be better to expect what we expect from a human: Take an explanation in natural language and test it and compare it to other established statements.</p>
+<p>This is what the paper [The Mythos of Model Interpretability][mythos] describes, in the section about post-hoc textual explanations:</p>
+<blockquote>
+<p>Humans often justify decisions verbally. Similarly, one model might be trained to generate predictions, and a separate model, such as a recurrent neural network language model, to generate an explanation.</p>
+</blockquote>
+<p>In other words, we would treat it as a black box.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>We have explored two metaphors "DL models as Agents / Scientists" and "DL Models as Scientific Models", and the expectations for each case:</p>
+<ol>
+<li>As Scientific Models: We can study them as black boxes, and also internal mechanisms,</li>
+<li>As Scientists: We can only study them as black boxes,
+<ol>
+<li>This includes Agents that can output a certain explanation (e.g. humans).</li>
+</ol>
+</li>
+</ol>
+<p>As science advances, some models may become explainable. Similarly, intrinsically explainable architectures may be designed, and could be preferred over black box architectures (e.g. Capsule Networks were an effort in this direction).</p>
+<p>Now we go back to common methods used to explain mostly narrow AI algorithms.</p>
+<hr><details>
+<summary>Sources</summary>
+<ol>
+<li><a href="https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html">The Emotion Machine</a> (2007) by Marvin Minsky: This book is a theory suggesting that the mind is a hierarchy of processes, and makes theories of how each layer may work. In his view, all layers are made out of abstract units called resources, what changes is their role.</li>
+<li><a href="http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731">Can we open the black box of AI?</a> (2016). This paper briefly explains what ANNs are, their similarities (not the differences) to the brain, and what challenges they pose to us. Primarily, the challenge is that they are hard to explain. It puts as an example a physician or patient relying in the output, but not knowing <em>why</em> it predicts that. The author also cites Michael Tyka saying "The problem is that the knowledge gets baked into the network, rather than into us"</li>
+</ol>
+</details>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../representations/skipatom.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../XAI/explanation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../representations/results.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../XAI/model_explainability.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -215,11 +271,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../representations/skipatom.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../XAI/explanation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../representations/results.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../XAI/model_explainability.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
