@@ -10,7 +10,7 @@ In the [previous post](./explanation.md) explanatory metaphors, or as Dennett ca
     - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
 2. *Design* stance,
 3. *Intentional* stance (which I call "Agent Metaphor/Model").
-    - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
+    - Explanation uses purposes (teleology), goals, motives, feelings, intent to explain actions and/or behaviour. It assumes a "state of mind" of the object and uses the model to predict behaviour.
     - _Unintentional_ behaviour is usually explained using the machine metaphor.
 
 The selection of a stance is a relevant aspect to consider when generating explanations. An example is given by [byrne_human_explanations]:
