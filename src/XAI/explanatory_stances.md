@@ -1,12 +1,9 @@
-# Explanatory Modes
+# Explanatory Stances
 
-This post explores different metaphors humans use to explain objects and processes.
-
-One question asked is: Should we explain DL models or teach them to explain themselves? The answer, to some extent, is: it depends.
+This post explores the question: How should Deep Learning Models be explained?
 
 -------------------
 
-## Explanatory Stances
 In the [previous post](./explanation.md) explanatory metaphors, or as Dennett calls them "stances" were described. The summary is:
 
 1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
@@ -16,20 +13,11 @@ In the [previous post](./explanation.md) explanatory metaphors, or as Dennett ca
     - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
     - _Unintentional_ behaviour is usually explained using the machine metaphor.
 
+The selection of a stance is a relevant aspect to consider when generating explanations. An example is given by [byrne_human_explanations]:
 
-There a certain intersection between those stances, and the way deep learning models and other humans are explained.
+> A potential implication for XAI is the necessity to consider when a particular stance is appropriate for explaining an AI system's decision. A question posed by a user as to why an AI system refused their loan may be a request for causal information of a mechanistic sort about how the AI system came to make that decision. Hence, it may require an explanation based on information about how the user's input features relate to a training data set, e.g., that loans have been refused for applicants of similar salary level, occupational status, credit history, as the user. Alternatively, it may be a request for functional information of a teleological sort about the purpose of the AI's decision. Accordingly, it may require instead information about the goal and consequences of the output, e.g., that decisions of this sort mitigate the risk of applicants defaulting from repayment. Each sort of explanation will lead users to develop a different understanding of aspects of an AI system, and impact their learning, satisfaction, and trust in it.
 
-Indeed, humans are explained using the intentional stance. We don't usually use a mechanistic interpretation because that is extremely hard; we use higher level concepts.
-
-To a large extent humans treat other humans as black boxes, not only in terms of explaining their behaviour, but also the way they think and the ideas they communicate.
-
-The way we usually analyse statements does not only involve beliefs about the person, and ignores what happens in the brain, but also just tests their consequences and analyse how the statement fits into our own worldview.
-
-The sections below link these stances to how we explain statements made by another human, or those found in a book, or emitted by a deep learning model.
-
-And it is proposed here that we use a few stances or metaphors, in many cases this is audience dependent. An example is given by [byrne_human_explanations]:
-
-> A potential implication for XAI is the necessity to consider when a particular stance is appropriate for explaining an AI system’s decision. A question posed by a user as to why an AI system refused their loan may be a request for causal information of a mechanistic sort about how the AI system came to make that decision. Hence, it may require an explanation based on information about how the user’s input features relate to a training data set, e.g., that loans have been refused for applicants of similar salary level, occupational status, credit history, as the user. Alternatively, it may be a request for functional information of a teleological sort about the purpose of the AI’s decision. Accordingly, it may require instead information about the goal and consequences of the output, e.g., that decisions of this sort mitigate the risk of applicants defaulting from repayment. Each sort of explanation will lead users to develop a different understanding of aspects of an AI system, and impact their learning, satisfaction, and trust in it.
+Next, a few of these stances are explored in different contexts.
 
 ## Human To Human Explanations
 

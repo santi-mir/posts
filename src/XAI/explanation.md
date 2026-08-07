@@ -108,7 +108,7 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 
 ## Metaphors: The Machine and The Agent
 
-Humans often use explanatory stances, as noted by Daniel Dennett. There are three common ones:
+Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. There are three common ones:
 
 1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
     - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
@@ -117,7 +117,7 @@ Humans often use explanatory stances, as noted by Daniel Dennett. There are thre
     - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
     - _Unintentional_ behaviour is usually explained using the machine metaphor.
 
-As c.f. [Byrne][byrne_human_explanations] says:
+They can be complementary when applied to the same phenomena or as [Ruth Byrne][byrne_human_explanations] puts it:
 
 > Notably, each explanatory stance can be applied to explain the same device or action, but they have different consequences for understanding it. Each stance can lead to different kinds of insights, and to different kinds of erroneous inferences. The atypical application of a particular stance, say, a mechanical stance to explain an action more typically understood from an intentional stance, such as explaining travelers in a crowded airport as like pinballs careening around a pinball machine, may be interpreted analogically to yield new inferences [Keil, 2006].
 
@@ -129,11 +129,11 @@ What seems here most fundamental than the particular stances is the selection of
 
 Other metaphors and analogies could be proposed for specific problems.
 
-This is similar to what [researchers hypothesise][autonomous_intelligent_systems]:
+Similar ideas can be found in "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]":
 
 > For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
 
-And much more recently, [Byrne][byrne_human_explanations]:
+And more recently, in [Good Explanations in XAI][byrne_human_explanations]:
 
 > People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].
 
