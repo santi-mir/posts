@@ -12,12 +12,7 @@ What is an explanation? There are many definitions. Here is one, from "[How Peop
 
 > Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.
 
-> [!NOTE]
-> **Relation of Explanation to Understanding**
->
-> Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the _cognitive process_ explained in the next section. However, the process of explaining can refine our understanding (it's a cycle).
-
-The first definition though, is unclear regarding what "_explains_" means. But this is explored in the next section.
+The definition of "Explanation" given above is unclear regarding what "_explains_" means. We could just as well define "Interview" as "Someone interviews someone about something". Though even in this vague form, it still highlights an exchange between two agents.
 
 Inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social], this post defines "explaining" broadly as:
 
@@ -33,6 +28,15 @@ The cognitive process may also generate multiple hypotheses which are then compa
 
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
+
+### Relation of Explaining to Understanding
+
+Understanding is having a theory or hypothesis about how something works. It's also frequent that there is an illusion of understanding, or a belief.
+
+Understanding (or a belief) is a prerequisite for an explanation, and can be associated to the _cognitive process_ explained in the next section. However, the process of explaining can refine our understanding (it's a cycle).
+
+Usually (not always) we refine or correct these with experience. They also _test_ others' understanding through their explanations.
+
 
 
 ## Cognitive Process
@@ -95,7 +99,7 @@ The communication can be aided by the [gricean maxims][gricean_maxims]: rules of
 
 In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.
 
-_Relevance_ is primarily related to the _causal selection problem_, as [Malle et al state][autonomous_intelligent_systems]:
+_Relevance_ is primarily related to the _causal selection problem_ in relation to an audience, as [Malle et. al., state][autonomous_intelligent_systems]:
 
 > How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
 
@@ -107,11 +111,11 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. There are three common ones:
 
 1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
-    - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
+    - Explain outcomes by considering the parts of a system, what they do and how they interact (that is, a mechanism).
 2. *Design* stance, this has different interpretations. One is of the perceived _purpose_ of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).
 3. *Intentional* stance (which I call "Agent Metaphor/Model").
     - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
-    - _Unintentional_ behaviour is usually explained using the machine metaphor.
+    - _Unintentional_ behaviour/events is usually explained using the machine metaphor (see the following paper, section [Ordinary Behavior Explanation][autonomous_intelligent_systems]).
 
 They can be complementary when applied to the same phenomena or as [Ruth Byrne][byrne_human_explanations] puts it:
 
@@ -184,7 +188,7 @@ The post on [explanatory stances](./explanatory_stances) continues this line of 
    - And an extension of that work ["Explanation in artificial intelligence: insights from the social sciences"][explanations_social] (2019, 38 pages).
    - Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: [Gricean Maxims of Communication][gricean_maxims] (blog-post), or [Wikipedia's][wikipedia_gricean].
    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
-1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017),
+1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017). Argues that Agents will necessarily have initiative, planning, decision making and people will regard them as intentional agents. They will explain them (and expect the system to do so) as if it were a human.
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm].
 1. [Good Explanations in Explainable Artificial Intelligence (XAI):  Evidence from Human Explanatory Reasoning][byrne_human_explanations] (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.
 
