@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-a7164ced.js";
+            window.path_to_searchindex_js = "../searchindex-0ed5ecb1.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -179,11 +179,9 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="explanatory-modes"><a class="header" href="#explanatory-modes">Explanatory Modes</a></h1>
-<p>This post explores different metaphors humans use to explain objects and processes.</p>
-<p>One question asked is: Should we explain DL models or teach them to explain themselves? The answer, to some extent, is: it depends.</p>
+<h1 id="explanatory-stances"><a class="header" href="#explanatory-stances">Explanatory Stances</a></h1>
+<p>This post explores the question: How should Deep Learning Models be explained?</p>
 <hr>
-<h2 id="explanatory-stances"><a class="header" href="#explanatory-stances">Explanatory Stances</a></h2>
 <p>In the <a href="./explanation.html">previous post</a> explanatory metaphors, or as Dennett calls them "stances" were described. The summary is:</p>
 <ol>
 <li><em>Mechanical</em> stance (which I call "Machine Metaphor/Model"),
@@ -199,15 +197,11 @@
 </ul>
 </li>
 </ol>
-<p>There a certain intersection between those stances, and the way deep learning models and other humans are explained.</p>
-<p>Indeed, humans are explained using the intentional stance. We don't usually use a mechanistic interpretation because that is extremely hard; we use higher level concepts.</p>
-<p>To a large extent humans treat other humans as black boxes, not only in terms of explaining their behaviour, but also the way they think and the ideas they communicate.</p>
-<p>The way we usually analyse statements does not only involve beliefs about the person, and ignores what happens in the brain, but also just tests their consequences and analyse how the statement fits into our own worldview.</p>
-<p>The sections below link these stances to how we explain statements made by another human, or those found in a book, or emitted by a deep learning model.</p>
-<p>And it is proposed here that we use a few stances or metaphors, in many cases this is audience dependent. An example is given by <a href="https://doi.org/10.24963/ijcai.2023/733">byrne_human_explanations</a>:</p>
+<p>The selection of a stance is a relevant aspect to consider when generating explanations. An example is given by <a href="https://doi.org/10.24963/ijcai.2023/733">byrne_human_explanations</a>:</p>
 <blockquote>
-<p>A potential implication for XAI is the necessity to consider when a particular stance is appropriate for explaining an AI system’s decision. A question posed by a user as to why an AI system refused their loan may be a request for causal information of a mechanistic sort about how the AI system came to make that decision. Hence, it may require an explanation based on information about how the user’s input features relate to a training data set, e.g., that loans have been refused for applicants of similar salary level, occupational status, credit history, as the user. Alternatively, it may be a request for functional information of a teleological sort about the purpose of the AI’s decision. Accordingly, it may require instead information about the goal and consequences of the output, e.g., that decisions of this sort mitigate the risk of applicants defaulting from repayment. Each sort of explanation will lead users to develop a different understanding of aspects of an AI system, and impact their learning, satisfaction, and trust in it.</p>
+<p>A potential implication for XAI is the necessity to consider when a particular stance is appropriate for explaining an AI system's decision. A question posed by a user as to why an AI system refused their loan may be a request for causal information of a mechanistic sort about how the AI system came to make that decision. Hence, it may require an explanation based on information about how the user's input features relate to a training data set, e.g., that loans have been refused for applicants of similar salary level, occupational status, credit history, as the user. Alternatively, it may be a request for functional information of a teleological sort about the purpose of the AI's decision. Accordingly, it may require instead information about the goal and consequences of the output, e.g., that decisions of this sort mitigate the risk of applicants defaulting from repayment. Each sort of explanation will lead users to develop a different understanding of aspects of an AI system, and impact their learning, satisfaction, and trust in it.</p>
 </blockquote>
+<p>Next, a few of these stances are explored in different contexts.</p>
 <h2 id="human-to-human-explanations"><a class="header" href="#human-to-human-explanations">Human To Human Explanations</a></h2>
 <!-- How do humans explain things to each other? Which level of description do they expect? -->
 <!---->
