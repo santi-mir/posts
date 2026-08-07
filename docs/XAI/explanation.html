@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-2948ed8a.js";
+            window.path_to_searchindex_js = "../searchindex-9d2148ad.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -188,12 +188,7 @@
 <blockquote>
 <p>Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.</p>
 </blockquote>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p><strong>Relation of Explanation to Understanding</strong></p>
-<p>Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the <em>cognitive process</em> explained in the next section. However, the process of explaining can refine our understanding (it's a cycle).</p>
-</blockquote>
-<p>The first definition though, is unclear regarding what "<em>explains</em>" means. But this is explored in the next section.</p>
+<p>The definition of "Explanation" given above is unclear regarding what "<em>explains</em>" means. We could just as well define "Interview" as "Someone interviews someone about something". Though even in this vague form, it still highlights an exchange between two agents.</p>
 <p>Inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>, this post defines "explaining" broadly as:</p>
 <blockquote>
 <p><strong>Explaining</strong></p>
@@ -207,6 +202,10 @@
 </ul>
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
+<h3 id="relation-of-explaining-to-understanding"><a class="header" href="#relation-of-explaining-to-understanding">Relation of Explaining to Understanding</a></h3>
+<p>Understanding is having a theory or hypothesis about how something works. It's also frequent that there is an illusion of understanding, or a belief.</p>
+<p>Understanding (or a belief) is a prerequisite for an explanation, and can be associated to the <em>cognitive process</em> explained in the next section. However, the process of explaining can refine our understanding (it's a cycle).</p>
+<p>Usually (not always) we refine or correct these with experience. They also <em>test</em> others' understanding through their explanations.</p>
 <h2 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive Process</a></h2>
 <h3 id="contrastive-questions"><a class="header" href="#contrastive-questions">Contrastive Questions</a></h3>
 <p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em> Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.</p>
@@ -256,7 +255,7 @@
 <li><strong>Manner</strong> (clarity): express it in elegant terms.</li>
 </ul>
 <p>In some cases, humans also tend to prefer concrete over abstract explanations, so "concreteness" could be added to the list.</p>
-<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em>, as <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">Malle et al state</a>:</p>
+<p><em>Relevance</em> is primarily related to the <em>causal selection problem</em> in relation to an audience, as <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">Malle et. al., state</a>:</p>
 <blockquote>
 <p>How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).</p>
 </blockquote>
@@ -266,14 +265,14 @@
 <ol>
 <li><em>Mechanical</em> stance (which I call "Machine Metaphor/Model"),
 <ul>
-<li>Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).</li>
+<li>Explain outcomes by considering the parts of a system, what they do and how they interact (that is, a mechanism).</li>
 </ul>
 </li>
 <li><em>Design</em> stance, this has different interpretations. One is of the perceived <em>purpose</em> of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).</li>
 <li><em>Intentional</em> stance (which I call "Agent Metaphor/Model").
 <ul>
 <li>Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.</li>
-<li><em>Unintentional</em> behaviour is usually explained using the machine metaphor.</li>
+<li><em>Unintentional</em> behaviour/events is usually explained using the machine metaphor (see the following paper, section <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">Ordinary Behavior Explanation</a>).</li>
 </ul>
 </li>
 </ol>
@@ -342,7 +341,7 @@
 <li>The definition of explanation extends previous work by Lombrozo on <a href="https://fitelson.org/few/few_08/lombrozo_reading.pdf">The structure and function of explanations</a> (2006).</li>
 </ul>
 </li>
-<li><a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a> (2017),</li>
+<li><a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a> (2017). Argues that Agents will necessarily have initiative, planning, decision making and people will regard them as intentional agents. They will explain them (and expect the system to do so) as if it were a human.</li>
 <li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>.</li>
 <li><a href="https://doi.org/10.24963/ijcai.2023/733">Good Explanations in Explainable Artificial Intelligence (XAI):  Evidence from Human Explanatory Reasoning</a> (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.</li>
 </ol>
