@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-0ed5ecb1.js";
+            window.path_to_searchindex_js = "../searchindex-2948ed8a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -183,34 +183,27 @@
 <p>This post describes what explanations are, and forms a basis for understanding how to explain artificial intelligent systems.</p>
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 <hr>
-<h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
-<p>Explanations may be <em>interactive</em> (a conversation), <em>static</em> (a book), or a mix of both.</p>
-<ul>
-<li><strong>Interactive explanations</strong>: a communicator and an audience interact aiming to resolve <em>what</em>, <em>how</em> or <em>why</em> questions posed by the audience.</li>
-<li><strong>Static explanations</strong>: Same as above, but they are non-interactive.</li>
-<li><strong>Mix</strong>: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to.</li>
-</ul>
-<p>In the rest of this post, the term <em>explanandum</em> defines <em>that which needs clarification</em>.</p>
-<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
+<h2 id="definition"><a class="header" href="#definition">Definition</a></h2>
+<p>What is an explanation? There are many definitions. Here is one, from "<a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a>" (2017):</p>
+<blockquote>
+<p>Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.</p>
+</blockquote>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p><strong>Relation of Explanation to Understanding</strong></p>
-<p>Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the <em>cognitive process</em> explained in the next section.</p>
+<p>Understanding is having a theory or idea about how something works. Usually we refine or correct these with experience. So it is a prerequisite for an explanation, and can be associated to the <em>cognitive process</em> explained in the next section. However, the process of explaining can refine our understanding (it's a cycle).</p>
 </blockquote>
-<h2 id="the-explanation-process"><a class="header" href="#the-explanation-process">The explanation process</a></h2>
-<p>Explanations involve a <em>cognitive</em> and a <em>social</em> process. The version below was inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>.</p>
-<ol>
-<li>During the <em>cognitive process</em>, hypotheses (e.g. causal connections) are generated aiming to clarify the <em>explanandum</em>.
+<p>The first definition though, is unclear regarding what "<em>explains</em>" means. But this is explored in the next section.</p>
+<p>Inspired by <a href="https://www.sciencedirect.com/science/article/pii/S0004370218305988">Explanation in artificial intelligence: insights from the social sciences</a>, this post defines "explaining" broadly as:</p>
+<blockquote>
+<p><strong>Explaining</strong></p>
+<p>A two-step process involving <code>1.</code> the generation of explanatory hypotheses (cognitive process) and <code>2.</code> the communication to an audience (social process).</p>
+</blockquote>
+<p>The cognitive process may also generate multiple hypotheses which are then compared, and one may be selected until contradicted by experience or superseded (e.g. by a simpler explanation, by being disproved, or shown to be inconsistent).</p>
 <ul>
-<li>Hypotheses are then compared, and one may be selected until contradicted by experience or superseded (e.g. by a simpler explanation, by being disproved, or shown to be inconsistent).</li>
-</ul>
-</li>
-<li>During the <em>social process</em>, the answer is communicated to an audience.</li>
-</ol>
-<p>The process may iterate and update during the interaction (or not, in a static explanation).</p>
-<ul>
+<li>The process may iterate and update during the interaction (or not, in a static explanation).</li>
 <li>Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!</li>
-<li>Also, the <em>explanandum</em> may be refined just as a photo-camera may gain focus with increased exposure.</li>
+<li>Also, the <em>explanandum</em> (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.</li>
 </ul>
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
@@ -313,6 +306,15 @@
 </table>
 </div>
 <p>The post on <a href="./explanatory_stances">explanatory stances</a> continues this line of reasoning and connects them with <em>how we explain humans and deep learning models</em>.</p>
+<!-- ### Classification -->
+<!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
+<!---->
+<!-- - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience. -->
+<!-- - **Static explanations**: Same as above, but they are non-interactive. -->
+<!-- - **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to. -->
+<!---->
+<!-- In the rest of this post, the term _explanandum_ defines _that which needs clarification_. -->
+<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
 <!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
 <!-- ## Explaining is Teaching -->
 <!---->
