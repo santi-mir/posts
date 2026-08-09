@@ -2,7 +2,7 @@
 
 ## Visual Explainability Methods
 
-- **Saliency Maps**: visually show which features are most important in a particular prediction. They can be generated for 1D, 2D and ND inputs. For example, here is for radiology:
+- **Saliency Maps**: visually show which features are most important in a particular prediction. They can give a false sense of confidence unless also tested with the "wrong label". It does not give any information on what processing is done with the regions. They can be generated for 1D, 2D and ND inputs. For example, here is for radiology:
     <div class="center w60">
         <a href="../assets/saliency_map_plus_rnn_text.png">
         <img src="../assets/saliency_map_plus_rnn_text.png" alt="Image with saliency map overlay"/>
@@ -17,26 +17,26 @@
 
 - **Validity Interval Analysis**: another technique fitting the NN behaviour to try to extract explanations.
 
-## Feature Relevance
+## Linear Combination Of Features
 
-- SHAP (possibly also LIME),
-- Influence Functions.
+- SHAP,
+- Influence Functions,
+- LIME (previous post)
 
-## Simplification
+## Other methods
 
-- LIME (possibly also SHAP). Explained in previous post,
+-
 - **Anchors**: the authors of LIME also proposed this nice method described by [Principles and practice of explainability in ML][principles_and_practice]:
     - > A similar technique, called anchors, can be found in (Ribeiro et al., 2018). Here the objective is again to approximate a model locally, but this time not by using a linear model. Instead, easy to understand "if-then" rules that anchor the model's decision are employed. The rules aim at capturing the essential features, omitting the rest, so it results in more sparse explanations.
     - > (...) decides to use anchors in order to achieve just that, generate easy-to-understand "if-then" rules that approximate the opaque model's behaviour in a local area (Figure 9). The resulting rules would now look something like "if salary is greater than 20 k£ and there are no missed payment, then the loan is approved.
 
-## Other methods
-
 - **Dimensionality Reduction**: Principal Component Analysis, t-SNE, Dimensionality Reduction, Independent Component Analysis, Non-negative Matrix Factorisation.
-- **Counterfactuals**: We replace the problem by a hypothetical opposite:
-    - A was the cause of B if, in an imaginary situation, A not happening implies B not happening.
-    - Change the instance slightly, but such that the model classifies the new instance in a different category.
-    - > (...) the applicant had missed one payment that led to this outcome, and that had he/she missed none the application would had been accepted
-- **Contrastive**: Is about comparing carefully selected instances: _Why P rather than Q?_
+- **Counterfactuals**: [Rudin states][stop_explaining_interpret_instead] "A counterfactual explanation describes a minimal change to the input that would result in the opposite prediction." We replace the problem by a hypothetical opposite:
+    - Rudin's paper has concretes example as well: "your loan application was denied, but if you had \$1000 less debt, you would have qualified for the loan." and "If you reduced your debt by \$5000 and increased your savings by \$50% then you would have qualified for the loan you applied for".
+    - A is _a cause_ of B if, in an imaginary situation, A not happening implies B not happening,
+    - Change the instance slightly, but such that the model classifies the new instance in a different category,
+    - > (...) the applicant had missed one payment that led to this outcome, and that had he/she missed none the application would had been accepted.
+- **Contrastive**: Is about comparing carefully selected instances: _Why P rather than Q?_.
     - > In such cases, people expect to observe a particular event, but then observe another, with the observed event being the fact and the expected event being the foil.
     - It's a good "question generator". What do you expect if X is done, rather than Y?
 
@@ -51,8 +51,9 @@ Architectures designed to make explaining part of their operation easier.
 <details>
 <summary>Sources</summary>
 
-1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx],
+1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Explanation in artificial intelligence: Insights from the social sciences][xai_social_sciences] (2019),
+1. [Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead][stop_explaining_interpret_instead] (2019),
 1. [Principles and practice of explainability in ML][principles_and_practice] (2021).
 
 </details>
@@ -61,3 +62,5 @@ Architectures designed to make explaining part of their operation easier.
 [xx]: http://arxiv.org/abs/1806.00069
 [xai_social_sciences]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
+[stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
+

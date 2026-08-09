@@ -6,39 +6,53 @@ Explanations were defined and characterised in [explanations](./explanation.md).
 
 ## Model Explainability
 
-Explainable AI (XAI) is primarily about explaining models and their outputs. _Model explainability_ can be defined as:
+Explainable AI (XAI) is primarily about explaining deep learning models and their outputs. _Model explainability_ can be defined as:
 
-> The degree to which we can answer questions about a model and its output. The _answers_ are audience and context dependent. The audience, in some cases, may be ourselves.
+> The degree to which we can answer questions about a model and its output. The _answers_ are context and audience (including ourselves).
 
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 
-Types of model explainability:
+Types of _model explainability_:
 
 - Intrinsic vs Extrinsic
-    - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; also at the complexity of the model and the input types.
-    - Extrinsic or "Black Boxness"[^1]: looks at input-outputs relations, may also use clustering and visualisation techniques.
+    - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form[^1]. That is, imposing physical constraints, or causal inputs, sparsity, and so forth.
+    - Extrinsic or "Black Boxness"[^2]: looks at input-outputs relations, may also use clustering and visualisation techniques.
 - Global (valid for all inputs) vs Local (for specific inputs)
 
-### Trade-offs
+### Trade-offs?
 
-In deep learning practice, tradeoffs abound.  Intuitively, we could expect explainability to decrease the more complex a model is. In turn, complexity or size of a model tend to increase accuracy.
+We may expect _model explainability_ to be inversely correlated with model complexity or accuracy. Graphically:
 
 <div class="center w30">
     <a href="../assets/tradeoff.webp">
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff."/>
     </a>
-    <p>Model accuracy vs Model explainability tradeoff.</p>
+    <p>Hypothesis: Model explainability v Accuracy tradeoff.</p>
 </div>
 
-Moreover, simple explanations can **oversimplify** its operation, or lack **generality**.
-
-It is important to remark that, according to [Cynthia Rubin's comment][interpretable_ml], the claim that more interpretable models are less accurate lacks scientific evidence. In her own words (bold is mine, references removed):
+But this may not be true. For example, [Rudin's Comment][interpretable_ml] states (bold is mine, references were removed):
 
 > Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
 
+Rudin's [more detailed paper][stop_explaining_interpret_instead] states something similar:
+
+> There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.
+
+When Deep networks became popular, it was observed that scaling-up an architecture would increase its performance (up to a size, with data not being scarce). Beyond some "optimal size region" this could plateau or even decrease in performance. In other words, there is evidence for the claim.
+
+For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:
+
+> Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
+
+And further on:
+
+> The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
+
+<!-- explain also that there are are clear reasons companies may prefer black box models (in two senses): proprietary helps to profit (and restricts gaming them), black box helps avoid accountability / responsibility. -->
+
 ## Out of Distribution
 
-Let's take an imaginary model, $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
+Consider an imaginary model $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
 
 However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
 
@@ -46,7 +60,7 @@ However, the model consistently fails to predict rains when people didn't take t
 1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction?
 1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
-Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^2]
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^3]
 
 A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
@@ -60,11 +74,11 @@ Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights
 
 How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).
 
-_Counterfactuals_ ask _What would happen if this other input (fact) were used instead of the former one_, or if one feature is changed slightly? They are also similar to _What ifs_ (as the question shows).
+_Counterfactuals_ What would have happened with an alternative input (a hypothetical case counter to the fact). It's most informative to use the minimum changes that change an output class. They are also similar to _What ifs_ (as the question shows).
 
 Counterfacturals and other comparisons can help to explain models without opening the box.
 
-For a model, _counterfactuals_ are yet another prediction, but the question is helpful because that is one way humans explain things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).
+For a model, _counterfactuals_ are yet another inference from another input, but the comparison is helpful because that is one way humans understand things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).
 
 In a similar fashion to counterfactuals, we can compare with reference inputs.
 
@@ -123,7 +137,7 @@ _Classic ML_ models are usually _transparent_ (intrinsically explainable) but _m
 
 To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.
 
-The focus here though, is explaining _deep learning_ models. These are usually _opaque_ ("_black-box_") models, and their accuracy is usually higher than classic ML models.
+The focus here though, is explaining _deep learning_ models which are often, but not always, more accurate than classic ML models.
 
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
@@ -142,6 +156,10 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
+1. [Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead][stop_explaining_interpret_instead] (2019).
+    - Suggests post-hoc models are worse than interpretable/transparent ones for high-stakes scenarios. It also states that the definitions of "Interpretable" varies for each field, so there won't be a general definition. However, something usually in common is that the model is _constrained in form_ such as including causality, additivity and physical constraints.
+    - The paper also **challenges the beliefs** that `1.` There is a trade-off between interpretability and accuracy; also that `2.` Explanation models (e.g. SHAP, LIME) provide faithful explanations of black-box models (and that a better term to "explanations" is "summary statistics" or "trend"), finally that `3.` The explanations are detailed enough (Saliency Maps) and so forth.
+    - And describes challenges towards Interpretable AI: `1.` Black boxes shields companies from accountability (incentives); `2.` Interpretable models are harder to construct (require more expertise). `3.` Belief DL models can uncover patterns that interpretable models wouldn't find (the issue is the belief).
 1. [The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making][perils_and_pitfalls] (2021): emphasis on socio-political aspects,
 1. [Why black box machine learning should be avoided for high-stakes decisions, in brief][interpretable_ml] (2022),
 1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
@@ -163,6 +181,8 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 [shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 
+[stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
+
 [tbow]: https://en.wikipedia.org/wiki/The_Book_of_Why
 
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
@@ -177,5 +197,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
-[^1]: Also post-hoc explainability, opaqueness.
-[^2]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+[^1]: See for example, [Stop Explaining Black Box ML Models ][stop_explaining_interpret_instead]
+[^2]: Also post-hoc explainability, opaqueness.
+[^3]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?

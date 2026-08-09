@@ -20,24 +20,14 @@ Inspired by [Explanation in artificial intelligence: insights from the social sc
 >
 > A two-step process involving `1.` the generation of explanatory hypotheses (cognitive process) and `2.` the communication to an audience (social process).
 
-The cognitive process may also generate multiple hypotheses which are then compared, and one may be selected until contradicted by experience or superseded (e.g. by a simpler explanation, by being disproved, or shown to be inconsistent).
+Usually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.
 
-- The process may iterate and update during the interaction (or not, in a static explanation).
-- Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!
-- Also, the _explanandum_ (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.
+The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding! Also, the _explanandum_ (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.
+
+Our understanding is reflected in the hypothesis formed in the _cognitive process_: Understanding is having a theory, hypothesis or model about how something works (cognitive process). It's also frequent that there is an illusion of understanding, and explaining or forcing predictions may make the illusion more evident.
 
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
-
-### Relation of Explaining to Understanding
-
-Understanding is having a theory or hypothesis about how something works. It's also frequent that there is an illusion of understanding, or a belief.
-
-Understanding (or a belief) is a prerequisite for an explanation, and can be associated to the _cognitive process_ explained in the next section. However, the process of explaining can refine our understanding (it's a cycle).
-
-Usually (not always) we refine or correct these with experience. They also _test_ others' understanding through their explanations.
-
-
 
 ## Cognitive Process
 
