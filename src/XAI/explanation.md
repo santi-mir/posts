@@ -95,15 +95,14 @@ _Relevance_ is primarily related to the _causal selection problem_ in relation t
 
 _Contrastive explanations_ can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.
 
-
 ## Metaphors: The Machine and The Agent
 
 Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. There are three common ones:
 
-1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
+1. _Mechanical_ stance (which I call "Machine Metaphor/Model"),
     - Explain outcomes by considering the parts of a system, what they do and how they interact (that is, a mechanism).
-2. *Design* stance, this has different interpretations. One is of the perceived _purpose_ of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).
-3. *Intentional* stance (which I call "Agent Metaphor/Model").
+2. _Design_ stance, this has different interpretations. One is of the perceived _purpose_ of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).
+3. _Intentional_ stance (which I call "Agent Metaphor/Model").
     - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
     - _Unintentional_ behaviour/events is usually explained using the machine metaphor (see the following paper, section [Ordinary Behavior Explanation][autonomous_intelligent_systems]).
 
@@ -127,14 +126,12 @@ And more recently, in [Good Explanations in XAI][byrne_human_explanations]:
 
 > People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].
 
-
 We can summarise some of these ideas (including a standard audience) in a brief table:
 
 | Perspective      | Model is a… | Preferred Explanation style | Audience            |
 | ---------------- | ----------- | --------------------------- | ------------------- |
 | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
 | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
-
 
 The post on [explanatory stances](./explanatory_stances) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
 
@@ -150,7 +147,6 @@ The post on [explanatory stances](./explanatory_stances) continues this line of 
 <!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
 
 <!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
-
 
 <!-- ## Explaining is Teaching -->
 <!---->
@@ -180,8 +176,7 @@ The post on [explanatory stances](./explanatory_stances) continues this line of 
    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017). Argues that Agents will necessarily have initiative, planning, decision making and people will regard them as intentional agents. They will explain them (and expect the system to do so) as if it were a human.
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm].
-1. [Good Explanations in Explainable Artificial Intelligence (XAI):  Evidence from Human Explanatory Reasoning][byrne_human_explanations] (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.
-
+1. [Good Explanations in Explainable Artificial Intelligence (XAI): Evidence from Human Explanatory Reasoning][byrne_human_explanations] (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.
 
 </details>
 

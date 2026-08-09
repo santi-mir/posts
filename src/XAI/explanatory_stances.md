@@ -6,10 +6,10 @@ This post explores the question: How should Deep Learning Models be explained?
 
 In the [previous post](./explanation.md) explanatory metaphors, or as Dennett calls them "stances" were described. The summary is:
 
-1. *Mechanical* stance (which I call "Machine Metaphor/Model"),
+1. _Mechanical_ stance (which I call "Machine Metaphor/Model"),
     - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
-2. *Design* stance,
-3. *Intentional* stance (which I call "Agent Metaphor/Model").
+2. _Design_ stance,
+3. _Intentional_ stance (which I call "Agent Metaphor/Model").
     - Explanation uses purposes (teleology), goals, motives, feelings, intent to explain actions and/or behaviour. It assumes a "state of mind" of the object and uses the model to predict behaviour.
     - _Unintentional_ behaviour is usually explained using the machine metaphor.
 

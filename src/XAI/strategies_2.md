@@ -29,7 +29,6 @@
 - **Anchors**: the authors of LIME also proposed this nice method described by [Principles and practice of explainability in ML][principles_and_practice]:
     - > A similar technique, called anchors, can be found in (Ribeiro et al., 2018). Here the objective is again to approximate a model locally, but this time not by using a linear model. Instead, easy to understand "if-then" rules that anchor the model's decision are employed. The rules aim at capturing the essential features, omitting the rest, so it results in more sparse explanations.
     - > (...) decides to use anchors in order to achieve just that, generate easy-to-understand "if-then" rules that approximate the opaque model's behaviour in a local area (Figure 9). The resulting rules would now look something like "if salary is greater than 20 k£ and there are no missed payment, then the loan is approved.
-
 - **Dimensionality Reduction**: Principal Component Analysis, t-SNE, Dimensionality Reduction, Independent Component Analysis, Non-negative Matrix Factorisation.
 - **Counterfactuals**: [Rudin states][stop_explaining_interpret_instead] "A counterfactual explanation describes a minimal change to the input that would result in the opposite prediction." We replace the problem by a hypothetical opposite:
     - Rudin's paper has concretes example as well: "your loan application was denied, but if you had \$1000 less debt, you would have qualified for the loan." and "If you reduced your debt by \$5000 and increased your savings by \$50% then you would have qualified for the loan you applied for".
@@ -63,4 +62,3 @@ Architectures designed to make explaining part of their operation easier.
 [xai_social_sciences]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
 [stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
-

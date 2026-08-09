@@ -9,7 +9,4 @@ The steps in which AI can help include:
 3. Lead Optimisation,
 4. Addressing the low preclinical-to-clinical success rate.
 
-
-
-
 [AI_in_pharma]: https://www.sciencedirect.com/science/article/pii/S1359644621005043
