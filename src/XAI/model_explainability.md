@@ -15,9 +15,28 @@ Explainable AI (XAI) is primarily about explaining deep learning models and thei
 Types of _model explainability_:
 
 - Intrinsic vs Extrinsic
-    - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form[^1]. That is, imposing physical constraints, or causal inputs, sparsity, and so forth.
+    - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form[^1]. That is, imposing physical constraints or inductive biases, or causal inputs, sparsity, and so forth.
+    - Transparency is domain-dependent. For example, GNNs can express constraints (or inductive biases) of connectivity related to molecules and materials, making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
     - Extrinsic or "Black Boxness"[^2]: looks at input-outputs relations, may also use clustering and visualisation techniques.
 - Global (valid for all inputs) vs Local (for specific inputs)
+
+### Brief Aside: Neural Netwoks
+
+This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper [Can we open the black box of AI?][open_ai_black_box] (Section "Good Trip").
+
+And what do these networks learn? ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] states that:
+
+> [AI methods] includes deep representation learning (Box 1), particularly multilayered neural networks capable of identifying essential, compact features that can simultaneously solve many tasks that underlie a scientific problem.
+
+So a key aspect of understanding and explaining will be to decode those "essential, compact features" into domain concepts. What concepts, if any, are stored there, in the synapses?
+
+It's also useful to have in mind a general idea of where are neural networks models being used, and how:
+
+1. Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth)
+2. Domain-General: there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.
+3. AI Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments.
+
+Here we are concerned with `1.` primarily, and with the possibility to explain them, design them and understand them better.
 
 ### Trade-offs?
 
@@ -69,6 +88,10 @@ Selecting those variables is not very easy, though. An expert must pick known ca
 > It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.
 
 Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.
+
+An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (references where removed):
+
+> Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.
 
 ## Model Insights from Comparisons
 
@@ -164,11 +187,12 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Why black box machine learning should be avoided for high-stakes decisions, in brief][interpretable_ml] (2022),
 1. [Interpretable and Explainable Machine Learning for Materials Science and Chemistry][xai4mat] (2022),
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
+1. [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (2023).
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 </details>
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-
+[ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2
 [interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0
 
 [mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
