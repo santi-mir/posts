@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-ca371a74.js";
+            window.path_to_searchindex_js = "../searchindex-0809c0d1.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -192,12 +192,27 @@
 <ul>
 <li>Intrinsic vs Extrinsic
 <ul>
-<li>Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>. That is, imposing physical constraints, or causal inputs, sparsity, and so forth.</li>
+<li>Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>. That is, imposing physical constraints or inductive biases, or causal inputs, sparsity, and so forth.</li>
+<li>Transparency is domain-dependent. For example, GNNs can express constraints (or inductive biases) of connectivity related to molecules and materials, making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</li>
 <li>Extrinsic or "Black Boxness"<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">2</a></sup>: looks at input-outputs relations, may also use clustering and visualisation techniques.</li>
 </ul>
 </li>
 <li>Global (valid for all inputs) vs Local (for specific inputs)</li>
 </ul>
+<h3 id="brief-aside-neural-netwoks"><a class="header" href="#brief-aside-neural-netwoks">Brief Aside: Neural Netwoks</a></h3>
+<p>This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper <a href="http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731">Can we open the black box of AI?</a> (Section "Good Trip").</p>
+<p>And what do these networks learn? <a href="https://www.nature.com/articles/s41586-023-06221-2">"Scientific discovery in the age of artificial intelligence"</a> states that:</p>
+<blockquote>
+<p>[AI methods] includes deep representation learning (Box 1), particularly multilayered neural networks capable of identifying essential, compact features that can simultaneously solve many tasks that underlie a scientific problem.</p>
+</blockquote>
+<p>So a key aspect of understanding and explaining will be to decode those "essential, compact features" into domain concepts. What concepts, if any, are stored there, in the synapses?</p>
+<p>It's also useful to have in mind a general idea of where are neural networks models being used, and how:</p>
+<ol>
+<li>Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth)</li>
+<li>Domain-General: there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.</li>
+<li>AI Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments.</li>
+</ol>
+<p>Here we are concerned with <code>1.</code> primarily, and with the possibility to explain them, design them and understand them better.</p>
 <h3 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs?</a></h3>
 <p>We may expect <em>model explainability</em> to be inversely correlated with model complexity or accuracy. Graphically:</p>
 <div class="center w30">
@@ -242,6 +257,10 @@
 <p>It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.</p>
 </blockquote>
 <p>Similarly, <a href="https://www.nature.com/articles/s43586-022-00172-0">this two-page comment</a> by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.</p>
+<p>An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in <a href="https://www.nature.com/articles/s41586-023-06221-2">Scientific discovery in the age of artificial intelligence</a> (references where removed):</p>
+<blockquote>
+<p>Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.</p>
+</blockquote>
 <h2 id="model-insights-from-comparisons"><a class="header" href="#model-insights-from-comparisons">Model Insights from Comparisons</a></h2>
 <p>How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).</p>
 <p><em>Counterfactuals</em> What would have happened with an alternative input (a hypothetical case counter to the fact). It's most informative to use the minimum changes that change an output class. They are also similar to <em>What ifs</em> (as the question shows).</p>
@@ -326,6 +345,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <li><a href="https://www.nature.com/articles/s43586-022-00172-0">Why black box machine learning should be avoided for high-stakes decisions, in brief</a> (2022),</li>
 <li><a href="https://pubs.acs.org/doi/10.1021/accountsmr.1c00244">Interpretable and Explainable Machine Learning for Materials Science and Chemistry</a> (2022),</li>
 <li><a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable machine-learning</a> (2021, 25 pages): Sections 8–11 are a useful review of explainability methods.</li>
+<li><a href="https://www.nature.com/articles/s41586-023-06221-2">Scientific discovery in the age of artificial intelligence</a> (2023).</li>
 <li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</li>
 </ol>
 </details>
