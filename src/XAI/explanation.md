@@ -26,6 +26,9 @@ The process may repeat and update during the interaction. Sometimes it's during 
 
 Our understanding is reflected in the hypothesis formed in the _cognitive process_: Understanding is having a theory, hypothesis or model about how something works (cognitive process). It's also frequent that there is an illusion of understanding, and explaining or forcing predictions may make the illusion more evident.
 
+> [!NOTE]
+> This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander.
+
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
 
@@ -197,6 +200,8 @@ The post on [explanatory stances](./explanatory_stances) continues this line of 
 [gricean_maxims]: https://effectiviology.com/principles-of-effective-communication/
 
 [logic_of_expl_hempel]: https://fitelson.org/woodward/hempel_oppenheim.pdf
+
+[logic_substack]: https://newsletter.squishy.computer/p/llms-for-theory-building
 
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
 

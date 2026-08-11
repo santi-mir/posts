@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-0809c0d1.js";
+            window.path_to_searchindex_js = "searchindex-415ee69e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -218,6 +218,10 @@
 <p>Usually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.</p>
 <p>The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding! Also, the <em>explanandum</em> (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.</p>
 <p>Our understanding is reflected in the hypothesis formed in the <em>cognitive process</em>: Understanding is having a theory, hypothesis or model about how something works (cognitive process). It's also frequent that there is an illusion of understanding, and explaining or forcing predictions may make the illusion more evident.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>This post is mostly jargon-free. Technical articles about topics such as <em>abductive inference</em> are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given <a href="https://newsletter.squishy.computer/p/llms-for-theory-building">in this article</a> by Gordon Brander.</p>
+</blockquote>
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
 <h2 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive Process</a></h2>
@@ -446,7 +450,7 @@
 <li>Intrinsic vs Extrinsic
 <ul>
 <li>Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>. That is, imposing physical constraints or inductive biases, or causal inputs, sparsity, and so forth.</li>
-<li>Transparency is domain-dependent. For example, GNNs can express constraints (or inductive biases) of connectivity related to molecules and materials, making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</li>
+<li>Transparency is domain-dependent. For example, the field of <strong>geometric deep learning</strong> can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</li>
 <li>Extrinsic or "Black Boxness"<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">2</a></sup>: looks at input-outputs relations, may also use clustering and visualisation techniques.</li>
 </ul>
 </li>
@@ -461,11 +465,11 @@
 <p>So a key aspect of understanding and explaining will be to decode those "essential, compact features" into domain concepts. What concepts, if any, are stored there, in the synapses?</p>
 <p>It's also useful to have in mind a general idea of where are neural networks models being used, and how:</p>
 <ol>
-<li>Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth)</li>
-<li>Domain-General: there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.</li>
-<li>AI Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments.</li>
+<li>Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth). These models benefit from XAI, inductive biases and constrains, and would ideally be interpretable.</li>
+<li>Domain-General (Foundation Models): there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.</li>
+<li>AI-Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments. The difference to other approaches is that these models are reasoning, and to some extent work like a team of scientists.</li>
 </ol>
-<p>Here we are concerned with <code>1.</code> primarily, and with the possibility to explain them, design them and understand them better.</p>
+<p>Here we are concerned with <code>1.</code> primarily, and with the possibility to explain them, design them such that they are interpretable and finally understand them better.</p>
 <h3 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs?</a></h3>
 <p>We may expect <em>model explainability</em> to be inversely correlated with model complexity or accuracy. Graphically:</p>
 <div class="center w30">
@@ -500,7 +504,7 @@
 <p>However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "<a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythods of Model Interpretability</a>":</p>
 <ol>
 <li>The model <em>undefitted</em> the data, and we may need a better model.</li>
-<li>The dataset is <em>not representative</em> the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction?</li>
+<li>The dataset is <em>not representative</em> the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?</li>
 <li>The approach itself was incorrect: we use variables that promote <em>association rather than causation</em>.</li>
 </ol>
 <p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-3-1"><a href="#footnote-3">3</a></sup></p>
@@ -510,9 +514,15 @@
 <p>It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.</p>
 </blockquote>
 <p>Similarly, <a href="https://www.nature.com/articles/s43586-022-00172-0">this two-page comment</a> by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.</p>
+<p>In Deep Learning Models, the problem constraints can be used to add inductive biases or priors to architectures, such as symmetry constraints, connectivity (say through graph networks). This may also reduce the amount of training data needed, improve generalisation and improve interpretability.</p>
 <p>An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in <a href="https://www.nature.com/articles/s41586-023-06221-2">Scientific discovery in the age of artificial intelligence</a> (references where removed):</p>
 <blockquote>
 <p>Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.</p>
+</blockquote>
+<p>This is especially useful when models can leverage large amount of data, which is usually in the form of unlabelled data (there are also mechanisms to label data semi-reliably).</p>
+<p>Another promising path towards better generalisation is that of Causal AI. As <a href="https://www.nature.com/articles/s41586-023-06221-2">"Scientific discovery in the age of artificial intelligence"</a> puts it:</p>
+<blockquote>
+<p>Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field</p>
 </blockquote>
 <h2 id="model-insights-from-comparisons"><a class="header" href="#model-insights-from-comparisons">Model Insights from Comparisons</a></h2>
 <p>How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).</p>
@@ -832,10 +842,15 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 </details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom-vectors"><a class="header" href="#atom-vectors">Atom vectors</a></h1>
-<p>In the [Future of AI Technology] (1992), Marvin Minsky said:</p>
-<blockquote>
-<p>First we'll have to change some present-day ideas. For example, many students like to ask, "Is it better to represent knowledge with Neural Nets, Logical Deduction, Semantic Networks, Frames, Scripts, Rule-Based Systems or Natural Language?" My teaching method is to try to get them to ask a different kind of question. "First decide what kinds of reasoning might be best for each different kind of problem -- and then find out which combination of representations might work well in each case."</p>
-</blockquote>
+<!-- In the [Future of AI Technology] (1992), Marvin Minsky said: -->
+<!---->
+<!-- > First we'll have to change some present-day ideas. For example, many students like to ask, "Is it better to represent knowledge with Neural Nets, Logical Deduction, Semantic Networks, Frames, Scripts, Rule-Based Systems or Natural Language?" My teaching method is to try to get them to ask a different kind of question. "First decide what kinds of reasoning might be best for each different kind of problem -- and then find out which combination of representations might work well in each case." -->
+<!-- In [Scientific discovery in the age of artificial intelligence][dl_science] (2023), Yoshua Bengio, Max Welling et.al., write (references removed): -->
+<!---->
+<!-- > Scientifically meaningful representations are compact, discriminative, disentangle underlying factors of variation and encode underlying mechanisms that generalize across numerous tasks. -->
+<!---->
+<!-- And then go on to suggest ways to achieve this. -->
+<!---->
 <p>The quest for <em>machine representations of objects</em> is a long-standing research theme. For example, we have vector representations:</p>
 <pre class="mermaid">flowchart TB
 A(Machine representations
@@ -857,6 +872,12 @@ B --&gt; D(Embeddings)
 </ul>
 </li>
 </ul>
+<p>The paper <a href="https://www.nature.com/articles/s41586-023-06221-2">Scientific discovery in the age of artificial intelligence</a> proposes a different list of characteristics (references removed):</p>
+<blockquote>
+<p>Scientifically meaningful representations are compact, discriminative, disentangle underlying factors of variation and encode underlying mechanisms that generalize across numerous tasks.</p>
+</blockquote>
+<p>Though here <em>representation</em> doesn't necessarily refer to generated embeddings (my reading of it, at least), but both to generated embeddings and ways to encode and represent the input.</p>
+<p>They suggest that promising approaches to achieve this task are: <code>1.</code> Geometric deep learning, <code>2.</code> Self-supervised learning (pre-trained on unlabelled data, then fine-tuned), <code>3.</code> Language modelling, here they proposed traditional next-token learning, and also masked learning; and the language part refers to learning sequences be it language or molecular strings etc.</p>
 <h2 id="embeddings-for-atoms"><a class="header" href="#embeddings-for-atoms">Embeddings for Atoms</a></h2>
 <p>Embeddings for atoms were inspired by NLP models from the 2010s.</p>
 <p>One such example was learning <a href="https://arxiv.org/abs/1301.3781v3">continuous vector representations of words</a> (2013). They proposed an automated mechanism to generate word-vectors by absorbing information from that word's environment (neighbouring words).</p>

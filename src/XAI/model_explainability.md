@@ -16,7 +16,7 @@ Types of _model explainability_:
 
 - Intrinsic vs Extrinsic
     - Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form[^1]. That is, imposing physical constraints or inductive biases, or causal inputs, sparsity, and so forth.
-    - Transparency is domain-dependent. For example, GNNs can express constraints (or inductive biases) of connectivity related to molecules and materials, making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
+    - Transparency is domain-dependent. For example, the field of **geometric deep learning** can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
     - Extrinsic or "Black Boxness"[^2]: looks at input-outputs relations, may also use clustering and visualisation techniques.
 - Global (valid for all inputs) vs Local (for specific inputs)
 
@@ -32,11 +32,11 @@ So a key aspect of understanding and explaining will be to decode those "essenti
 
 It's also useful to have in mind a general idea of where are neural networks models being used, and how:
 
-1. Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth)
-2. Domain-General: there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.
-3. AI Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments.
+1. Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth). These models benefit from XAI, inductive biases and constrains, and would ideally be interpretable.
+2. Domain-General (Foundation Models): there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.
+3. AI-Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments. The difference to other approaches is that these models are reasoning, and to some extent work like a team of scientists.
 
-Here we are concerned with `1.` primarily, and with the possibility to explain them, design them and understand them better.
+Here we are concerned with `1.` primarily, and with the possibility to explain them, design them such that they are interpretable and finally understand them better.
 
 ### Trade-offs?
 
@@ -76,7 +76,7 @@ Consider an imaginary model $y = f(u)$, $f$ being the model, $u$ being the propo
 However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
 
 1. The model _undefitted_ the data, and we may need a better model.
-1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction?
+1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
 1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
 Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^3]
@@ -89,9 +89,17 @@ Selecting those variables is not very easy, though. An expert must pick known ca
 
 Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.
 
+In Deep Learning Models, the problem constraints can be used to add inductive biases or priors to architectures, such as symmetry constraints, connectivity (say through graph networks). This may also reduce the amount of training data needed, improve generalisation and improve interpretability.
+
 An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (references where removed):
 
 > Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.
+
+This is especially useful when models can leverage large amount of data, which is usually in the form of unlabelled data (there are also mechanisms to label data semi-reliably).
+
+Another promising path towards better generalisation is that of Causal AI. As ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] puts it:
+
+> Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field
 
 ## Model Insights from Comparisons
 
@@ -193,6 +201,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 [ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2
+
 [interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0
 
 [mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340

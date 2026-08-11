@@ -1,9 +1,15 @@
 # Atom vectors
 
-In the [Future of AI Technology] (1992), Marvin Minsky said:
+<!-- In the [Future of AI Technology] (1992), Marvin Minsky said: -->
+<!---->
+<!-- > First we'll have to change some present-day ideas. For example, many students like to ask, "Is it better to represent knowledge with Neural Nets, Logical Deduction, Semantic Networks, Frames, Scripts, Rule-Based Systems or Natural Language?" My teaching method is to try to get them to ask a different kind of question. "First decide what kinds of reasoning might be best for each different kind of problem -- and then find out which combination of representations might work well in each case." -->
 
-> First we'll have to change some present-day ideas. For example, many students like to ask, "Is it better to represent knowledge with Neural Nets, Logical Deduction, Semantic Networks, Frames, Scripts, Rule-Based Systems or Natural Language?" My teaching method is to try to get them to ask a different kind of question. "First decide what kinds of reasoning might be best for each different kind of problem -- and then find out which combination of representations might work well in each case."
-
+<!-- In [Scientific discovery in the age of artificial intelligence][dl_science] (2023), Yoshua Bengio, Max Welling et.al., write (references removed): -->
+<!---->
+<!-- > Scientifically meaningful representations are compact, discriminative, disentangle underlying factors of variation and encode underlying mechanisms that generalize across numerous tasks. -->
+<!---->
+<!-- And then go on to suggest ways to achieve this. -->
+<!---->
 The quest for _machine representations of objects_ is a long-standing research theme. For example, we have vector representations:
 
 ```mermaid
@@ -27,6 +33,14 @@ It is desirable, but not always possible that they:
 - Are interpretable,
 - Can be generated with data scarce environments,
     - Or are data-hungry but it is easily available,
+
+The paper [Scientific discovery in the age of artificial intelligence][dl_science] proposes a different list of characteristics (references removed):
+
+> Scientifically meaningful representations are compact, discriminative, disentangle underlying factors of variation and encode underlying mechanisms that generalize across numerous tasks.
+
+Though here _representation_ doesn't necessarily refer to generated embeddings (my reading of it, at least), but both to generated embeddings and ways to encode and represent the input.
+
+They suggest that promising approaches to achieve this task are: `1.` Geometric deep learning, `2.` Self-supervised learning (pre-trained on unlabelled data, then fine-tuned), `3.` Language modelling, here they proposed traditional next-token learning, and also masked learning; and the language part refers to learning sequences be it language or molecular strings etc.
 
 ## Embeddings for Atoms
 
@@ -81,6 +95,7 @@ Can we design machine-learnt interpretable vectors that are intrinsically interp
 
 Should the representation be just the simplest, and the network learn all that is needed for the given tasks?
 
+[dl_science]: https://www.nature.com/articles/s41586-023-06221-2
 [SkipAtom]: https://www.nature.com/articles/s41524-022-00729-3
 [Atom2Vec]: https://pnas.org/doi/full/10.1073/pnas.1801181115
 [word embeddings]: https://arxiv.org/abs/1301.3781v3
