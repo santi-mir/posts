@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-89110c23.js";
+            window.path_to_searchindex_js = "../searchindex-11604df3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -195,15 +195,13 @@ Unclear why this item is about interpretability.
 <!-- 4. Improve debugging / troubleshooting? -->
 <!-- 5. Get more useful information from the model. -->
 <h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
-<p>Explainable AI (XAI) is primarily about explaining deep learning models and their outputs. <em>Model explainability</em> can be defined as:</p>
+<p>Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about a model and its output. The <em>answers</em> are context and audience (including ourselves).</p>
 </blockquote>
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
-<h3 id="types-of-model-explainability"><a class="header" href="#types-of-model-explainability">Types of <em>model explainability</em></a></h3>
-<p>First, we have Intrinsic vs Extrinsic explainability.</p>
-<ul>
-<li>Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a> or <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary C.</a>) —that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">puts it</a>
+<p>There are several types of <em>model explainability</em>:</p>
+<p>Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a> or <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary C.</a>) —that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">puts it</a>:</p>
 <ul>
 <li>
 <blockquote>
@@ -212,26 +210,32 @@ Unclear why this item is about interpretability.
 </li>
 <li>Transparency is domain-dependent. For example, the field of <strong>geometric deep learning</strong> can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</li>
 </ul>
-</li>
-<li>Extrinsic or "Black Boxness"<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>: looks at input-outputs relations, may also use clustering and visualisation techniques.
+<p>Extrinsic or "Black Boxness"<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>: looks at input-outputs relations, may also use clustering and visualisation techniques.</p>
 <ul>
-<li>In some cases, it uses a proxy, simpler model to explain the complex model. <a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these explanations must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</li>
+<li>In some cases it uses a simpler model to explain the complex model. <a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these explanations must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</li>
+<li>On the other hand, methods such as SHAP, LIME, t-SNE, can provide <em>some</em> understanding of the model, even if using approximations. In the case of LIME, the explanations are <em>not global</em>, but <em>local</em>, so the model can't replace the original, and it may be locally-faithful. The question is rather <em>how faithful</em> it needs to be. Combination of local explanations may also give a global understanding of the model. As <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>'s paper puts it:
+<ul>
+<li>
+<blockquote>
+<p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model’s prediction.</p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li>Global (valid for all inputs) vs Local (for specific inputs)</li>
 </ul>
+<p>Global (valid for all inputs, e.g. LIME combining local explanations) vs Local (for specific inputs, e.g. LIME).</p>
 <h3 id="brief-aside-neural-netwoks"><a class="header" href="#brief-aside-neural-netwoks">Brief Aside: Neural Netwoks</a></h3>
 <p>This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper <a href="http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731">Can we open the black box of AI?</a> (Section "Good Trip").</p>
-<p>And what do these networks learn? <a href="https://www.nature.com/articles/s41586-023-06221-2">"Scientific discovery in the age of artificial intelligence"</a> states that:</p>
+<p>But what exactly do these networks <em>learn</em>? <a href="https://www.nature.com/articles/s41586-023-06221-2">"Scientific discovery in the age of artificial intelligence"</a> states that:</p>
 <blockquote>
 <p>[AI methods] includes deep representation learning (Box 1), particularly multilayered neural networks capable of identifying essential, compact features that can simultaneously solve many tasks that underlie a scientific problem.</p>
 </blockquote>
 <p>So a key aspect of understanding and explaining will be to decode those "essential, compact features" into domain concepts. What concepts, if any, are stored there, in the synapses?</p>
 <p>It's also useful to have in mind a general idea of where are neural networks models being used, and how:</p>
 <ol>
-<li>Domain Specific: these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth). These models benefit from XAI, inductive biases and constrains, and would ideally be interpretable.</li>
-<li>Domain-General (Foundation Models): there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.</li>
-<li>AI-Agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments. The difference to other approaches is that these models are reasoning, and to some extent work like a team of scientists.</li>
+<li>Domain-specific (Narrow AI): these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth). These models benefit from XAI, inductive biases and constrains, and would ideally be interpretable.</li>
+<li>Domain-general (Foundation Models): there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.</li>
+<li>AI agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments. The difference to other approaches is that these models are reasoning, and to some extent work like a team of scientists.</li>
 </ol>
 <p>Here we are concerned with <code>1.</code> primarily, and with the possibility to explain them, design them such that they are interpretable and finally understand them better.</p>
 <h3 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs?</a></h3>
@@ -241,10 +245,14 @@ Unclear why this item is about interpretability.
     <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
     </a>
     
-<p>Hypothesis: Model explainability v Accuracy tradeoff.</p>
+<p>Hypothesis: Model explainability v. Accuracy tradeoff.</p>
 
 </div>
 
+<p>A similar idea may be behind <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary's paper</a>:</p>
+<blockquote>
+<p>One advantage of this concept of interpretability [post hoc interpretability] is that opaque models can be interpreted after the fact, without sacrificing predictive performance.</p>
+</blockquote>
 <p>But this may not be true. For example, <a href="https://www.nature.com/articles/s43586-022-00172-0">Rudin's Comment</a> states (bold is mine, references were removed):</p>
 <blockquote>
 <p>Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an <strong>incorrect perception</strong> that they are <strong>less accurate than black boxes</strong>. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is <strong>no scientific evidence that accuracy must be sacrificed when adding interpretability constraints</strong>.</p>
@@ -253,12 +261,14 @@ Unclear why this item is about interpretability.
 <blockquote>
 <p>There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.</p>
 </blockquote>
-<p>When Deep networks became popular, it was observed that scaling-up an architecture would increase its performance (up to a size, with data not being scarce). Beyond some "optimal size region" this could plateau or even decrease in performance. In other words, there is evidence for the claim.</p>
+<p>I'd make two comments to the quote above. First, <em>good representation in terms of naturally meaningful features</em> may be hard to obtain or create. NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.</p>
 <p>For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:</p>
 <blockquote>
 <p>Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.</p>
 </blockquote>
-<p>And further on:</p>
+<blockquote>
+<p>(...)</p>
+</blockquote>
 <blockquote>
 <p>The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.</p>
 </blockquote>
@@ -353,10 +363,13 @@ Unclear why this item is about interpretability.
 Furthermore, there isn't a "number 5 pattern" that is the same for many networks; the pattern appears from the training procedure, and although it may be similar for all number 5, it's usually different between training runs, datasets, and networks. Similarly so for brains!</p>
 </li>
 <li>
+<p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a> (2016)</p>
+</li>
+<li>
 <p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018) is an excellent break down of ideas. They consider two interpretability strategies:</p>
 <ul>
 <li><em>Transparency</em> (intrinsic explainability) can refer to: <code>1.</code> <em>simulatability</em> i.e. can mentally run the model, <code>2.</code> <em>decomposability</em> i.e. each part of the model admits an intuitive explanation, and <code>3.</code> <em>algorithmic training</em> which focuses on global vs local minimum, error and loss, guaranteed convergence.;</li>
-<li><em>Post hoc</em> interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as textual explanations using RNNs, visual explanations of learned representations (e.g. t-SNE or other dimensionality reduction method), local, by example / comparison and so forth. This is the sort of interpretability/explainability that applies to humans (which are otherwise black boxes).</li>
+<li><em>Posthoc</em> interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as <code>1.</code> Textual explanations using RNNs, visual explanations of learned representations (dimensionality reduction methods such as t-SNE, PCA), input alteration (to maximise activation of a neuron), <code>2.</code> Local alterations using derivative of input wrt output (measuring "sensitivity" to each pixel); <code>3.</code> By example / similarity / comparison and so forth. Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes).</li>
 <li>Another takeaway is that obsessing about model transparency can harm accuracy and capability of a model, so it is important to consider this aspect.</li>
 </ul>
 </li>
@@ -453,6 +466,22 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

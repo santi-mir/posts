@@ -38,11 +38,20 @@ SHAP provides both global (average across inputs) and local (for a given input).
 
 ## Method: LIME
 
-Local Interpretable Model Agnostic Explanation (LIME) and Generalised Linear Models (GLMs).[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
+Local Interpretable Model Agnostic Explanation ([LIME][lime]) and Generalised Linear Models (GLMs).[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
 
 > LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)
 
 It is considered a simplification method rather than a feature attribution method.
+Here is an image from the [original paper][], comparing two models' predictions using LIME to show the influence of each input feature in the output:
+
+<div class="center w60">
+    <a href="../assets/LIME.png">
+    <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME."/>
+    </a>
+    <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
+</div>
+
 
 For LIME, the coefficients $\phi_i$ are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.
 
@@ -74,12 +83,14 @@ Let's now look at other methods.
 <summary>Sources</summary>
 
 1. [A value for n-person games][shap original] (1952)
+1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016)
 1. [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] (2017)
 1. [Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.
 
 </details>
 
+[lime]: https://dl.acm.org/doi/10.1145/2939672.2939778
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
