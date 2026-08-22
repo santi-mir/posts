@@ -20,25 +20,41 @@ Unclear why this item is about interpretability.
 
 ## Model Explainability
 
-Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. _Model explainability_ can be defined as:
+Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. In this blogpost, explainability and interpretability are considered synonyms. _Model explainability_ can be defined as:
 
 > The degree to which we can answer questions about a model and its output. The _answers_ are context and audience (including ourselves).
 
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 
-There are several types of _model explainability_:
+Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^1], Local and Global, are explained.
 
-Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., [Rudin C.][stop_explaining_interpret_instead] or [Zachary C.][mythos]) &mdash;that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. [puts it][mythos]:
-- > Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.
-- Transparency is domain-dependent. For example, the field of **geometric deep learning** can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
+### Intrinsic Explainability
 
+Looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., [Rudin C.][stop_explaining_interpret_instead] or [Zachary C.][mythos]) &mdash;that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. [puts it][mythos]:
 
-Extrinsic or "Black Boxness"[^1]: looks at input-outputs relations, may also use clustering and visualisation techniques.
-- In some cases it uses a simpler model to explain the complex model. [Rudin][stop_explaining_interpret_instead] argues that these explanations must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
-- On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. In the case of LIME, the explanations are _not global_, but _local_, so the model can't replace the original, and it may be locally-faithful. The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. As [LIME][lime]'s paper puts it:
-    - > By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model’s prediction.
+> Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.
 
-Global (valid for all inputs, e.g. LIME combining local explanations) vs Local (for specific inputs, e.g. LIME).
+Transparency is domain-dependent. For example, the field of **geometric deep learning** can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
+
+### Extrinsic Explainability
+
+Aims to give a qualitative understanding between inputs and outputs, be easy to understand, and be model agnostic. They should also have good local fidelity, that is, they should be a good approximation to the original model in the vicinity of the instance being predicted. The local explanations may also be combined to provide a _global explanation_ of the model. All of these properties were taken from [LIME][lime].
+
+The fidelity usually isn't perfect &mdash;unless it's just the original model. Simplified models may use less variables than the original, making it easier to understand.
+
+[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
+
+On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. In the case of LIME, the explanations are _not global_, but _local_, so the model can't replace the original, and it may be locally-faithful. The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. As [LIME][lime]'s paper puts it:
+
+> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model’s prediction.
+
+> [!NOTE]
+> Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations.
+
+### Global vs Local
+
+- Global: valid for all inputs, e.g. LIME combining local explanations and also gradient based methods (which are never local).
+- Local: for specific inputs, e.g. LIME and other input-perturbation explanation models.
 
 ### Brief Aside: Neural Netwoks
 
@@ -69,12 +85,15 @@ We may expect _model explainability_ to be inversely correlated with model compl
     <p>Hypothesis: Model explainability v. Accuracy tradeoff.</p>
 </div>
 
-
 A similar idea may be behind [Zachary's paper][mythos]:
 
 > One advantage of this concept of interpretability [post hoc interpretability] is that opaque models can be interpreted after the fact, without sacrificing predictive performance.
 
-But this may not be true. For example, [Rudin's Comment][interpretable_ml] states (bold is mine, references were removed):
+And similarly, in [LIME][lime] (refs removed):
+
+> Recognizing the utility of explanations in assessing trust, many have proposed using interpretable models, especially for the medical domain. While such models may be appropriate for some domains, they may not apply equally well to others (...). Interpretability, in these cases, comes at the cost of flexibility, accuracy, or efficiency.
+
+Other researchers such as [Rudin][interpretable_ml] disagredisagree (bold is mine, references were removed):
 
 > Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
 
@@ -82,14 +101,12 @@ Rudin's [more detailed paper][stop_explaining_interpret_instead] states somethin
 
 > There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.
 
-I'd make two comments to the quote above. First, _good representation in terms of naturally meaningful features_ may be hard to obtain or create. NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.
+I'd make two comments to the quote above. First, _good representation in terms of naturally meaningful features_ may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.
 
 For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:
 
 > Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
-
 > (...)
-
 > The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
 
 <!-- explain also that there are are clear reasons companies may prefer black box models (in two senses): proprietary helps to profit (and restricts gaming them), black box helps avoid accountability / responsibility. -->
@@ -225,6 +242,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
 1. [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (2023).
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+
 </details>
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
@@ -260,5 +278,5 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
-[^1]: Also post-hoc explainability, opaqueness.
+[^1]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
 [^2]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?

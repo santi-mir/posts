@@ -73,6 +73,7 @@ So all the different kinds may be considered to learning, if they permanently ch
 1. [elearnspace. Connectivism: A Learning Theory for the Digital Age][connectivism_siemens] (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
    - A more extensive work is at [Connectivism][connectivism_downes] (2021).
    - Similarly, [Connectivism: a knowledge learning theory for the digital age?][connectivism_goldie] (2016)
+
 </details>
 
 [connectivism_siemens]: https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf

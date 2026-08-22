@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-11604df3.js";
+            window.path_to_searchindex_js = "searchindex-783c94ea.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -452,35 +452,35 @@ Unclear why this item is about interpretability.
 <!-- 4. Improve debugging / troubleshooting? -->
 <!-- 5. Get more useful information from the model. -->
 <h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
-<p>Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. <em>Model explainability</em> can be defined as:</p>
+<p>Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. In this blogpost, explainability and interpretability are considered synonyms. <em>Model explainability</em> can be defined as:</p>
 <blockquote>
 <p>The degree to which we can answer questions about a model and its output. The <em>answers</em> are context and audience (including ourselves).</p>
 </blockquote>
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
-<p>There are several types of <em>model explainability</em>:</p>
-<p>Intrinsic or Transparency: looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a> or <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary C.</a>) —that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">puts it</a>:</p>
-<ul>
-<li>
+<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, Local and Global, are explained.</p>
+<h3 id="intrinsic-explainability"><a class="header" href="#intrinsic-explainability">Intrinsic Explainability</a></h3>
+<p>Looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a> or <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary C.</a>) —that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">puts it</a>:</p>
 <blockquote>
 <p>Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.</p>
 </blockquote>
-</li>
-<li>Transparency is domain-dependent. For example, the field of <strong>geometric deep learning</strong> can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</li>
-</ul>
-<p>Extrinsic or "Black Boxness"<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>: looks at input-outputs relations, may also use clustering and visualisation techniques.</p>
-<ul>
-<li>In some cases it uses a simpler model to explain the complex model. <a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these explanations must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</li>
-<li>On the other hand, methods such as SHAP, LIME, t-SNE, can provide <em>some</em> understanding of the model, even if using approximations. In the case of LIME, the explanations are <em>not global</em>, but <em>local</em>, so the model can't replace the original, and it may be locally-faithful. The question is rather <em>how faithful</em> it needs to be. Combination of local explanations may also give a global understanding of the model. As <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>'s paper puts it:
-<ul>
-<li>
+<p>Transparency is domain-dependent. For example, the field of <strong>geometric deep learning</strong> can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</p>
+<h3 id="extrinsic-explainability"><a class="header" href="#extrinsic-explainability">Extrinsic Explainability</a></h3>
+<p>Aims to give a qualitative understanding between inputs and outputs, be easy to understand, and be model agnostic. They should also have good local fidelity, that is, they should be a good approximation to the original model in the vicinity of the instance being predicted. The local explanations may also be combined to provide a <em>global explanation</em> of the model. All of these properties were taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>.</p>
+<p>The fidelity usually isn't perfect —unless it's just the original model. Simplified models may use less variables than the original, making it easier to understand.</p>
+<p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
+<p>On the other hand, methods such as SHAP, LIME, t-SNE, can provide <em>some</em> understanding of the model, even if using approximations. In the case of LIME, the explanations are <em>not global</em>, but <em>local</em>, so the model can't replace the original, and it may be locally-faithful. The question is rather <em>how faithful</em> it needs to be. Combination of local explanations may also give a global understanding of the model. As <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>'s paper puts it:</p>
 <blockquote>
 <p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model’s prediction.</p>
 </blockquote>
-</li>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations.</p>
+</blockquote>
+<h3 id="global-vs-local"><a class="header" href="#global-vs-local">Global vs Local</a></h3>
+<ul>
+<li>Global: valid for all inputs, e.g. LIME combining local explanations and also gradient based methods (which are never local).</li>
+<li>Local: for specific inputs, e.g. LIME and other input-perturbation explanation models.</li>
 </ul>
-</li>
-</ul>
-<p>Global (valid for all inputs, e.g. LIME combining local explanations) vs Local (for specific inputs, e.g. LIME).</p>
 <h3 id="brief-aside-neural-netwoks"><a class="header" href="#brief-aside-neural-netwoks">Brief Aside: Neural Netwoks</a></h3>
 <p>This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper <a href="http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731">Can we open the black box of AI?</a> (Section "Good Trip").</p>
 <p>But what exactly do these networks <em>learn</em>? <a href="https://www.nature.com/articles/s41586-023-06221-2">"Scientific discovery in the age of artificial intelligence"</a> states that:</p>
@@ -510,7 +510,11 @@ Unclear why this item is about interpretability.
 <blockquote>
 <p>One advantage of this concept of interpretability [post hoc interpretability] is that opaque models can be interpreted after the fact, without sacrificing predictive performance.</p>
 </blockquote>
-<p>But this may not be true. For example, <a href="https://www.nature.com/articles/s43586-022-00172-0">Rudin's Comment</a> states (bold is mine, references were removed):</p>
+<p>And similarly, in <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> (refs removed):</p>
+<blockquote>
+<p>Recognizing the utility of explanations in assessing trust, many have proposed using interpretable models, especially for the medical domain. While such models may be appropriate for some domains, they may not apply equally well to others (...). Interpretability, in these cases, comes at the cost of flexibility, accuracy, or efficiency.</p>
+</blockquote>
+<p>Other researchers such as <a href="https://www.nature.com/articles/s43586-022-00172-0">Rudin</a> disagredisagree (bold is mine, references were removed):</p>
 <blockquote>
 <p>Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an <strong>incorrect perception</strong> that they are <strong>less accurate than black boxes</strong>. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is <strong>no scientific evidence that accuracy must be sacrificed when adding interpretability constraints</strong>.</p>
 </blockquote>
@@ -518,16 +522,12 @@ Unclear why this item is about interpretability.
 <blockquote>
 <p>There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.</p>
 </blockquote>
-<p>I'd make two comments to the quote above. First, <em>good representation in terms of naturally meaningful features</em> may be hard to obtain or create. NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.</p>
+<p>I'd make two comments to the quote above. First, <em>good representation in terms of naturally meaningful features</em> may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.</p>
 <p>For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:</p>
 <blockquote>
-<p>Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.</p>
-</blockquote>
-<blockquote>
-<p>(...)</p>
-</blockquote>
-<blockquote>
-<p>The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.</p>
+<p>Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
+(...)
+The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.</p>
 </blockquote>
 <!-- explain also that there are are clear reasons companies may prefer black box models (in two senses): proprietary helps to profit (and restricts gaming them), black box helps avoid accountability / responsibility. -->
 <h2 id="out-of-distribution"><a class="header" href="#out-of-distribution">Out of Distribution</a></h2>
@@ -681,7 +681,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-1">
-<p>Also post-hoc explainability, opaqueness. <a href="#fr-1-1">↩</a></p>
+<p>Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. <a href="#fr-1-1">↩</a></p>
 </li>
 <li id="footnote-2">
 <p>Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies? <a href="#fr-2-1">↩</a></p>
@@ -724,8 +724,9 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
+<p>LIME fits the linear model to several perturbed representations of the input (modified to be interpretable).</p>
 <p>It is considered a simplification method rather than a feature attribution method.
-Here is an image from the [original paper][], comparing two models' predictions using LIME to show the influence of each input feature in the output:</p>
+Here is an image from the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a>, comparing two models' predictions using LIME to show the influence of each input feature in the output:</p>
 <div class="center w60">
     <a href="assets/LIME.png">
     <img src="assets/LIME.png" alt="Comparison between to algorithms analysed by LIME." />
@@ -1779,22 +1780,6 @@ A --&gt; Direct
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>

@@ -42,8 +42,10 @@ Local Interpretable Model Agnostic Explanation ([LIME][lime]) and Generalised Li
 
 > LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)
 
+LIME fits the linear model to several perturbed representations of the input (modified to be interpretable).
+
 It is considered a simplification method rather than a feature attribution method.
-Here is an image from the [original paper][], comparing two models' predictions using LIME to show the influence of each input feature in the output:
+Here is an image from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
 
 <div class="center w60">
     <a href="../assets/LIME.png">
@@ -51,7 +53,6 @@ Here is an image from the [original paper][], comparing two models' predictions 
     </a>
     <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
 </div>
-
 
 For LIME, the coefficients $\phi_i$ are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.
 
