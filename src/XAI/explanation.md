@@ -136,7 +136,7 @@ We can summarise some of these ideas (including a standard audience) in a brief 
 | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
 | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
 
-The post on [explanatory stances](./explanatory_stances) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
+The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
 
 <!-- ### Classification -->
 <!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
