@@ -37,7 +37,7 @@ The paper "[Contrastive explanations for machine learning predictions in chemist
 
 </details>
 
-[ai4dd]: https://www.sciencedirect.com/science/article/pii/S1359644621005043
+[ai4dd]: https://doi.org/10.1016/j.drudis.2021.11.023
 [xai4chem]: https://jcheminf.biomedcentral.com/articles/10.1186/s13321-025-01100-6
 [explanations]: ./explanation.md
 [model explainability]: ./model_explainability.md

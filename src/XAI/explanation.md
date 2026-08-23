@@ -195,7 +195,7 @@ The post on [explanatory stances](./explanatory_stances) continues this line of 
 
 [causal_selection_problem]: https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection
 
-[explanations_social]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
+[explanations_social]: https://doi.org/10.1016/j.artint.2018.07.007
 
 [gricean_maxims]: https://effectiviology.com/principles-of-effective-communication/
 
@@ -209,7 +209,9 @@ The post on [explanatory stances](./explanatory_stances) continues this line of 
 
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 [wikipedia_gricean]: https://en.wikipedia.org/wiki/Cooperative_principle
+
 [what_is_xai]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
+
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->

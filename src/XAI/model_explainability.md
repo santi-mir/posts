@@ -260,7 +260,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 [open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
 
-[perils_and_pitfalls]: https://www.sciencedirect.com/science/article/pii/S0740624X21001027
+[perils_and_pitfalls]: https://doi.org/10.1016/j.giq.2021.101666
 
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
 
