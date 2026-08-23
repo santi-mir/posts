@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-783c94ea.js";
+            window.path_to_searchindex_js = "searchindex-b69a05de.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -457,7 +457,11 @@ Unclear why this item is about interpretability.
 <p>The degree to which we can answer questions about a model and its output. The <em>answers</em> are context and audience (including ourselves).</p>
 </blockquote>
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
-<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, Local and Global, are explained.</p>
+<p>There are also other related definitions such as <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>'s:</p>
+<blockquote>
+<p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance’s components (e.g. words in text, patches in an image) and the model’s prediction.</p>
+</blockquote>
+<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".</p>
 <h3 id="intrinsic-explainability"><a class="header" href="#intrinsic-explainability">Intrinsic Explainability</a></h3>
 <p>Looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a> or <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary C.</a>) —that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">puts it</a>:</p>
 <blockquote>
@@ -720,13 +724,17 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 </ul>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="method-lime"><a class="header" href="#method-lime">Method: LIME</a></h2>
-<p>Local Interpretable Model Agnostic Explanation (<a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>) and Generalised Linear Models (GLMs).<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
+<!-- and Generalised Linear Models (GLMs). -->
+<p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">Local Interpretable Model Agnostic Explanation</a> (LIME) aims to explain a black box model with an <em>interpretable model</em> that uses and <em>interpretable representation</em> of the input.</p>
+<p>The interpretable model is a linear one. The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model <em>around a prediction</em> (locally faithful).</p>
+<p>Which models do they consider interpretable? They propose a few (decision trees, linear models, falling lists), and a complexity metric because even those can become hard to interpret.</p>
+<p><sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> describes LIME as:</p>
 <blockquote>
 <p>LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)</p>
 </blockquote>
-<p>LIME fits the linear model to several perturbed representations of the input (modified to be interpretable).</p>
-<p>It is considered a simplification method rather than a feature attribution method.
-Here is an image from the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a>, comparing two models' predictions using LIME to show the influence of each input feature in the output:</p>
+<p>LIME evaluates the original model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0019em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>, with perturbed <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>s, generating the labels for the explanation model. The explanation model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>, tries to fit an interpretable (e.g. binary) representation of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>s called <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>, to the original model's labels.</p>
+<p>It is considered a simplification method rather than a feature attribution method.</p>
+<p>Here is an image from the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a>, comparing two models' predictions using LIME to show the influence of each input feature in the output:</p>
 <div class="center w60">
     <a href="assets/LIME.png">
     <img src="assets/LIME.png" alt="Comparison between to algorithms analysed by LIME." />
