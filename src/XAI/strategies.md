@@ -38,13 +38,22 @@ SHAP provides both global (average across inputs) and local (for a given input).
 
 ## Method: LIME
 
-Local Interpretable Model Agnostic Explanation ([LIME][lime]) and Generalised Linear Models (GLMs).[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
+<!-- and Generalised Linear Models (GLMs). -->
+
+The [Local Interpretable Model Agnostic Explanation][lime] (LIME) aims to explain a black box model with an _interpretable model_ that uses and _interpretable representation_ of the input.
+
+The interpretable model is a linear one. The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
+
+Which models do they consider interpretable? They propose a few (decision trees, linear models, falling lists), and a complexity metric because even those can become hard to interpret.
+
+[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
 
 > LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)
 
-LIME fits the linear model to several perturbed representations of the input (modified to be interpretable).
+LIME evaluates the original model, $f(x')$, with perturbed $x$s, generating the labels for the explanation model. The explanation model, $g(z)$, tries to fit an interpretable (e.g. binary) representation of $x'$s called $z$, to the original model's labels.
 
 It is considered a simplification method rather than a feature attribution method.
+
 Here is an image from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
 
 <div class="center w60">

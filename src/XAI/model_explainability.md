@@ -26,7 +26,12 @@ Explainable AI (XAI) is primarily about explaining machine and deep learning mod
 
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 
-Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^1], Local and Global, are explained.
+There are also other related definitions such as [LIME][lime]'s:
+
+> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance’s components (e.g. words in text, patches in an image) and the model’s prediction.
+
+Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^1], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
+
 
 ### Intrinsic Explainability
 
