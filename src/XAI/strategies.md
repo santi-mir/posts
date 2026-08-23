@@ -15,7 +15,7 @@ _Note_: these could be called linear combination of binary features as well.
 
 Existing additive feature methods (e.g. SHAP, LIME) calculate $\phi_i$s differently, in turn yielding different coefficients. But...which one obtains the _best_ coefficients $\phi_i$? A definition of _best_ is needed.
 
-The [unified approach to interpret model predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
+The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
 
 The authors argue these properties lead to coefficients that are more intuitive for humans.
 
@@ -69,7 +69,7 @@ It is considered a simplification method rather than a feature attribution metho
 
 Here is an image from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
 
-<div class="center w60">
+<div class="center w50">
     <a href="../assets/LIME.png">
     <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME."/>
     </a>
