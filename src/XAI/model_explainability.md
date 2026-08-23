@@ -32,7 +32,6 @@ There are also other related definitions such as [LIME][lime]'s:
 
 Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^1], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
 
-
 ### Intrinsic Explainability
 
 Looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., [Rudin C.][stop_explaining_interpret_instead] or [Zachary C.][mythos]) &mdash;that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. [puts it][mythos]:

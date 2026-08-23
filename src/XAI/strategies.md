@@ -2,13 +2,12 @@
 
 These set of methods are linear approximations ($g$) to the original model ($f$). Mathematically:
 
-$$f(x) \approx g(z') = \phi_0 + \sum_{i=1} \phi_i z_i$$
+$$f(x) \approx g(z) = \phi_0 + \sum_{i=1} \phi_i z_i$$
 
 $\phi_i$s are the effect of each _binary_ feature $z_i$ in the output. Clarifications:
 
-1. $\phi_i$s do not belong to $f$, but to the approximation $g$,
-2. Two complex models $f_1$, $f_2$ trained with same data likely have different $\phi_i$s,
-3. Methods don't protect from a biased model.
+1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s),
+1. Methods don't protect from a biased model.
 
 _Note_: these could be called linear combination of binary features as well.
 
@@ -18,21 +17,23 @@ Existing additive feature methods (e.g. SHAP, LIME) calculate $\phi_i$s differen
 
 The [unified approach to interpret model predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
 
-The authors argue these properties lead to coefficients more intuitive for humans.
+The authors argue these properties lead to coefficients that are more intuitive for humans.
 
 ## Method: SHAP
 
 SHAP stands for SHapley Additive exPlanations, it is considered a feature attribution method rather than a simplification method. The [Principles and practice of explaining ML][principles_and_practice] states:
 
-> The objective in this case is to build a linear model around the instance to be explained, and then interpret the coefficients as the feature’s importance. This idea is similar to LIME, in fact LIME and SHAP are closely related, but SHAP comes with a set of nice theoretical properties.
+> The objective in this case is to build a linear model around the instance to be explained, and then interpret each features' coefficient as the features' importance. This idea is similar to LIME, in fact LIME and SHAP are closely related, but SHAP comes with a set of nice theoretical properties.
 
-The exact Shapley values $\phi_i$ result from an expensive combinatorial (see sources at the end). Approximations to the exact formula can be made, with extra assumptions, which **may not hold!!**:
+The exact Shapley values $\phi_i$ result from an expensive combinatorial (see sources at the end). Approximations to the exact formula can be made, with extra assumptions, which **may not hold**:
 
-- Assumption 1: Feature independence (implies non-multicollinearity).
-    - Shapley sampling values method,
-    - Quantitative Input Influence,
-    - Plus assumption 2, model linearity: Kernel SHAP (LIME + Shapley values)
-- Assumption 2, model linearity: Shapley regression values.
+Assumption 1: Feature independence (implies non-multicollinearity).
+
+- Shapley sampling values method,
+- Quantitative Input Influence,
+- Plus assumption 2, model linearity: Kernel SHAP (LIME + Shapley values)
+
+Assumption 2, model linearity: Shapley regression values.
 
 SHAP provides both global (average across inputs) and local (for a given input).
 
@@ -40,11 +41,23 @@ SHAP provides both global (average across inputs) and local (for a given input).
 
 <!-- and Generalised Linear Models (GLMs). -->
 
-The [Local Interpretable Model Agnostic Explanation][lime] (LIME) aims to explain a black box model with an _interpretable model_ that uses and _interpretable representation_ of the input.
+The [Local Interpretable Model Agnostic Explanation][lime] (LIME) aims to explain _a particular prediction_ of a black box model with an _interpretable model_ that uses and _interpretable representation_ of the input.
 
-The interpretable model is a linear one. The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
+- _Explaining a prediction_ means understanding which features contribute most to the model's output. Hence, the underlying explanation-model must be faithful and simple.
 
-Which models do they consider interpretable? They propose a few (decision trees, linear models, falling lists), and a complexity metric because even those can become hard to interpret.
+Explanations from representative inputs may be aggregated to _explain the whole model_ (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME.
+
+- _Explaining a model_ implies sensing how it analyses representative cases and building a sense of how it will generalise in the real world (alongside evaluation metrics).
+
+Having these explanations can help domain-experts decide whether and why to accept (or reject) a prediction, which competing model to choose and how to improve a model.
+
+Which models does the [LIME][lime] paper consider interpretable?
+
+> (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model g ∈ G can be readily presented to the user with visual or textual artifacts.
+
+They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff).
+
+The paper uses a sparse linear model as explanation model; the interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
 
 [^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
 
