@@ -38,6 +38,7 @@ Assumption 2, model linearity: Shapley regression values.
 SHAP provides both global (average across inputs) and local (for a given input).
 
 ## Locally Interpretable Model-Agnostic eXplanations (LIME)
+
 <!-- and Generalised Linear Models (GLMs). -->
 
 The [Local Interpretable Model-Agnostic Explanation][lime] (LIME) aims to explain _a particular prediction_ of a black-box model with an _interpretable model_ that uses an _interpretable representation_ of the input. Let's now expand on this paragraph.
@@ -68,17 +69,19 @@ Which models does the [LIME][lime] paper consider interpretable?
 They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff).
 
 ### LIME: The Algorithm
+
 The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm:
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
 2. Start an interpretable, binary vector $x' \in {0,1}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
 3. Generate perturbed binary variants of $x'$ called $z'$,
 4. Use $z'$ to make variants of $x$ called $z \in R^n$,
-4. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
+5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
 
 The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
 
 ### LIME: Visuals
+
 Here is an image from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
 
 <div class="center w60">
@@ -130,4 +133,3 @@ Let's now look at other methods.
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 [shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
-
