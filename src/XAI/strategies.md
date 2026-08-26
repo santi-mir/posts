@@ -37,19 +37,29 @@ Assumption 2, model linearity: Shapley regression values.
 
 SHAP provides both global (average across inputs) and local (for a given input).
 
-## Method: LIME
-
+## Locally Interpretable Model-Agnostic eXplanations (LIME)
 <!-- and Generalised Linear Models (GLMs). -->
 
-The [Local Interpretable Model Agnostic Explanation][lime] (LIME) aims to explain _a particular prediction_ of a black box model with an _interpretable model_ that uses and _interpretable representation_ of the input.
+The [Local Interpretable Model-Agnostic Explanation][lime] (LIME) aims to explain _a particular prediction_ of a black-box model with an _interpretable model_ that uses an _interpretable representation_ of the input. Let's now expand on this paragraph.
 
-- _Explaining a prediction_ means understanding which features contribute most to the model's output. Hence, the underlying explanation-model must be faithful and simple.
+By _local_ it is meant that the explanation model approximates the original around some prediction (local to it). This in contrast with _global_ explanations, which explain the full model.
 
-Explanations from representative inputs may be aggregated to _explain the whole model_ (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME.
+_Interpretable_ (model and representations) means they're easy to understand in conceptual terms. Examples of both are mentioned further down this text.
 
-- _Explaining a model_ implies sensing how it analyses representative cases and building a sense of how it will generalise in the real world (alongside evaluation metrics).
+By _model-agnostic_, that it makes no assumptions about the original model that the method tries to approximate.
+
+The paper also describes two explanatory levels:
+
+- _Explaining a prediction_ implies developing an intuitive understanding of which features contribute most to the model's output. Hence, the underlying explanation model must be faithful and simple.
+- To _explain the whole model_, explanations from representative inputs may be aggregated to (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME.
 
 Having these explanations can help domain-experts decide whether and why to accept (or reject) a prediction, which competing model to choose and how to improve a model.
+
+### Interpretability in LIME
+
+Which representations does the [LIME][lime] paper consider interpretable?
+
+An _interpretable representation_ may use a binary vector indicating presence/absence of a word (or any interpretable component) in the explanation model, replacing an embedding in the original model.
 
 Which models does the [LIME][lime] paper consider interpretable?
 
@@ -57,19 +67,21 @@ Which models does the [LIME][lime] paper consider interpretable?
 
 They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff).
 
-The paper uses a sparse linear model as explanation model; the interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
+### LIME: The Algorithm
+The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm:
 
-[^1] [Principles and practice of explainable ML][principles_and_practice] describes LIME as:
+1. A model $f$ and an input vector $x \in R^n$ needs explaining,
+2. Start an interpretable, binary vector $x' \in {0,1}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
+3. Generate perturbed binary variants of $x'$ called $z'$,
+4. Use $z'$ to make variants of $x$ called $z \in R^n$,
+4. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
 
-> LIME approximates an opaque model locally, in the surrounding area of the prediction we are interested in explaining, (...) using the resulting model as a surrogate in order to explain the more complex one. Furthermore, this approach requires a transformation of the input data to an "interpretable representation," so the resulting features are understandable to humans, regardless of the actual features used by the model (...)
+The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
 
-LIME evaluates the original model, $f(x')$, with perturbed $x$s, generating the labels for the explanation model. The explanation model, $g(z)$, tries to fit an interpretable (e.g. binary) representation of $x'$s called $z$, to the original model's labels.
-
-It is considered a simplification method rather than a feature attribution method.
-
+### LIME: Visuals
 Here is an image from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
 
-<div class="center w50">
+<div class="center w60">
     <a href="../assets/LIME.png">
     <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME."/>
     </a>
@@ -119,4 +131,3 @@ Let's now look at other methods.
 [unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 [shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
 
-[^1]: _Local_ in the name refers to being for a _particular input_, not _Global_ which would be general.
