@@ -1,5 +1,7 @@
 # Additive Feature Attribution Methods
 
+<!-- In previous posts, we have described explanations and proposed a definition of _model explainability_. Here the definitions are those that each paper uses, rather than the general ones given in these series. -->
+
 These set of methods are linear approximations ($g$) to the original model ($f$). Mathematically:
 
 $$f(x) \approx g(z) = \phi_0 + \sum_{i=1} \phi_i z_i$$
@@ -37,36 +39,65 @@ Assumption 2, model linearity: Shapley regression values.
 
 SHAP provides both global (average across inputs) and local (for a given input).
 
-## Locally Interpretable Model-Agnostic eXplanations (LIME)
+## LIME
 
-<!-- and Generalised Linear Models (GLMs). -->
+The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) aims to explain _a particular prediction_ of a black-box model with an _interpretable model_ that uses an _interpretable representation_ of the input. Let's now clarify some of terms these terms.
 
-The [Local Interpretable Model-Agnostic Explanation][lime] (LIME) aims to explain _a particular prediction_ of a black-box model with an _interpretable model_ that uses an _interpretable representation_ of the input. Let's now expand on this paragraph.
+- _Local_: the explanation model approximates the original model around a particular prediction (local to it). This in contrast with _global_ explanations, which explain the full model.
 
-By _local_ it is meant that the explanation model approximates the original around some prediction (local to it). This in contrast with _global_ explanations, which explain the full model.
+- _Model-agnostic_: any black-box model can in principle be explained by this method.
 
-_Interpretable_ (model and representations) means they're easy to understand in conceptual terms. Examples of both are mentioned further down this text.
+Now the most complicated parts. "Interpretable" and "Explanation".
 
-By _model-agnostic_, that it makes no assumptions about the original model that the method tries to approximate.
+"Interpretable" is a desired characteristic of "Explanation". In their own words:
 
-The paper also describes two explanatory levels:
+> An essential criterion for explanations is that they must be interpretable, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
 
-- _Explaining a prediction_ implies developing an intuitive understanding of which features contribute most to the model's output. Hence, the underlying explanation model must be faithful and simple.
-- To _explain the whole model_, explanations from representative inputs may be aggregated to (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME.
+They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff). So the desired characteristics of explanation-models hinted above are:
 
-Having these explanations can help domain-experts decide whether and why to accept (or reject) a prediction, which competing model to choose and how to improve a model.
+- Interpretable, with interpretable input representations,
+    - An example is shown [in this section](#interpretability-in-LIME).
+- Model-agnostic (described earlier),
+- Locally faithful (perfect global-faithfullness would be the same model).
+- Global Perspective.
+
+<!-- ### LIME: Two Explanatory Levels -->
+<!---->
+<!-- <!-- The paper describes two explanatory levels; they also map to _trust_ levels: an explanation increases understanding which in turn calibrates our trust. --> -->
+<!---->
+<!-- - _Explaining / Trusting a prediction_: Does the user trust the prediction to take an action based on it? For that, the user needs to develop an intuitive understanding of which features contribute most to the model's output. Also, the explanation model must be faithful and simple. -->
+<!---->
+<!-- - _Explain / Trusting the whole model_: Does it perform well on real-world data? For the right reasons? Explanations from representative inputs may be aggregated to (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME. This is used alongside evaluation accuracy and other metrics. -->
+<!---->
+<!-- Both explanations boil down to understanding predictions. -->
+
+The downstream benefits of the kind of explanations they propose (LIME, SP-LIME) are:
+
+- Provide understanding of predictions,
+- Help domain-experts decide whether and why to accept (or reject) a prediction,
+- Help selecting a competing model,
+- Suggest how to improve a model (e.g. that which uses relevant features).
 
 ### Interpretability in LIME
 
+As previously mentioned, an key aspect of an explanation model is **interpretability** which implies qualitative understanding.
+
 Which representations does the [LIME][lime] paper consider interpretable?
 
-An _interpretable representation_ may use a binary vector indicating presence/absence of a word (or any interpretable component) in the explanation model, replacing an embedding in the original model.
+An _interpretable representation_ may use a binary vector indicating presence / absence of a word in the explanation model, replacing an embedding in the original model.
 
 Which models does the [LIME][lime] paper consider interpretable?
 
 > (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model g ∈ G can be readily presented to the user with visual or textual artifacts.
 
-They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff).
+Here is an example of a visual explanation from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
+
+<div class="center w60">
+    <a href="../assets/LIME.png">
+    <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME."/>
+    </a>
+    <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
+</div>
 
 ### LIME: The Algorithm
 
@@ -80,20 +111,13 @@ The paper uses a sparse linear model as explanation model. Here is my interpreta
 
 The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model _around a prediction_ (locally faithful).
 
-### LIME: Visuals
+### LIME: Summary
 
-Here is an image from the [original paper][lime], comparing two models' predictions using LIME to show the influence of each input feature in the output:
+In a nutshell, the paper proposes to approximate a complex model around a prediction with a simpler (explanation) model that we can understand conceptually.
 
-<div class="center w60">
-    <a href="../assets/LIME.png">
-    <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME."/>
-    </a>
-    <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
-</div>
+This is to be used as a complement (not a replacement) to accuracy or other evaluation metrics.
 
-For LIME, the coefficients $\phi_i$ are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.
-
-Assuming feature independence and model linearity, the objective function can be modified and the SHAP values obtained through weighted linear regression (no slow combinatorics). This is called **Kernel SHAP**, and obeys the 3 properties listed earlier.
+Lastly, the input representation must also be conceptually meaningful.
 
 ## Fixes
 
