@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-40f9f9e6.js";
+            window.path_to_searchindex_js = "../searchindex-0ac0d6b2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -180,6 +180,7 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
+<!-- In previous posts, we have described explanations and proposed a definition of _model explainability_. Here the definitions are those that each paper uses, rather than the general ones given in these series. -->
 <p>These set of methods are linear approximations (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) to the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>). Mathematically:</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
 <p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>s are the effect of each <em>binary</em> feature <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> in the output. Clarifications:</p>
@@ -206,26 +207,66 @@
 </ul>
 <p>Assumption 2, model linearity: Shapley regression values.</p>
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
-<h2 id="locally-interpretable-model-agnostic-explanations-lime"><a class="header" href="#locally-interpretable-model-agnostic-explanations-lime">Locally Interpretable Model-Agnostic eXplanations (LIME)</a></h2>
-<!-- and Generalised Linear Models (GLMs). -->
-<p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">Local Interpretable Model-Agnostic Explanation</a> (LIME) aims to explain <em>a particular prediction</em> of a black-box model with an <em>interpretable model</em> that uses an <em>interpretable representation</em> of the input. Let's now expand on this paragraph.</p>
-<p>By <em>local</em> it is meant that the explanation model approximates the original around some prediction (local to it). This in contrast with <em>global</em> explanations, which explain the full model.</p>
-<p><em>Interpretable</em> (model and representations) means they're easy to understand in conceptual terms. Examples of both are mentioned further down this text.</p>
-<p>By <em>model-agnostic</em>, that it makes no assumptions about the original model that the method tries to approximate.</p>
-<p>The paper also describes two explanatory levels:</p>
+<h2 id="lime"><a class="header" href="#lime">LIME</a></h2>
+<p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">Local Interpretable Model-Agnostic eXplanation</a> (LIME) aims to explain <em>a particular prediction</em> of a black-box model with an <em>interpretable model</em> that uses an <em>interpretable representation</em> of the input. Let's now clarify some of terms these terms.</p>
 <ul>
-<li><em>Explaining a prediction</em> implies developing an intuitive understanding of which features contribute most to the model's output. Hence, the underlying explanation model must be faithful and simple.</li>
-<li>To <em>explain the whole model</em>, explanations from representative inputs may be aggregated to (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME.</li>
+<li>
+<p><em>Local</em>: the explanation model approximates the original model around a particular prediction (local to it). This in contrast with <em>global</em> explanations, which explain the full model.</p>
+</li>
+<li>
+<p><em>Model-agnostic</em>: any black-box model can in principle be explained by this method.</p>
+</li>
 </ul>
-<p>Having these explanations can help domain-experts decide whether and why to accept (or reject) a prediction, which competing model to choose and how to improve a model.</p>
+<p>Now the most complicated parts. "Interpretable" and "Explanation".</p>
+<p>"Interpretable" is a desired characteristic of "Explanation". In their own words:</p>
+<blockquote>
+<p>An essential criterion for explanations is that they must be interpretable, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.</p>
+</blockquote>
+<p>They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff). So the desired characteristics of explanation-models hinted above are:</p>
+<ul>
+<li>Interpretable, with interpretable input representations,
+<ul>
+<li>An example is shown <a href="#interpretability-in-LIME">in this section</a>.</li>
+</ul>
+</li>
+<li>Model-agnostic (described earlier),</li>
+<li>Locally faithful (perfect global-faithfullness would be the same model).</li>
+<li>Global Perspective.</li>
+</ul>
+<!-- ### LIME: Two Explanatory Levels -->
+<!---->
+<!-- <!-- The paper describes two explanatory levels; they also map to _trust_ levels: an explanation increases understanding which in turn calibrates our trust. --> --&gt;
+<!---->
+<!-- - _Explaining / Trusting a prediction_: Does the user trust the prediction to take an action based on it? For that, the user needs to develop an intuitive understanding of which features contribute most to the model's output. Also, the explanation model must be faithful and simple. -->
+<!---->
+<!-- - _Explain / Trusting the whole model_: Does it perform well on real-world data? For the right reasons? Explanations from representative inputs may be aggregated to (global explanation), beyond just particular predictions. The method used for this purpose is called SP-LIME. This is used alongside evaluation accuracy and other metrics. -->
+<!---->
+<!-- Both explanations boil down to understanding predictions. -->
+<p>The downstream benefits of the kind of explanations they propose (LIME, SP-LIME) are:</p>
+<ul>
+<li>Provide understanding of predictions,</li>
+<li>Help domain-experts decide whether and why to accept (or reject) a prediction,</li>
+<li>Help selecting a competing model,</li>
+<li>Suggest how to improve a model (e.g. that which uses relevant features).</li>
+</ul>
 <h3 id="interpretability-in-lime"><a class="header" href="#interpretability-in-lime">Interpretability in LIME</a></h3>
+<p>As previously mentioned, an key aspect of an explanation model is <strong>interpretability</strong> which implies qualitative understanding.</p>
 <p>Which representations does the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> paper consider interpretable?</p>
-<p>An <em>interpretable representation</em> may use a binary vector indicating presence/absence of a word (or any interpretable component) in the explanation model, replacing an embedding in the original model.</p>
+<p>An <em>interpretable representation</em> may use a binary vector indicating presence / absence of a word in the explanation model, replacing an embedding in the original model.</p>
 <p>Which models does the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> paper consider interpretable?</p>
 <blockquote>
 <p>(...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model g ∈ G can be readily presented to the user with visual or textual artifacts.</p>
 </blockquote>
-<p>They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff).</p>
+<p>Here is an example of a visual explanation from the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a>, comparing two models' predictions using LIME to show the influence of each input feature in the output:</p>
+<div class="center w60">
+    <a href="../assets/LIME.png">
+    <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME." />
+    </a>
+    
+<p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
+
+</div>
+
 <h3 id="lime-the-algorithm"><a class="header" href="#lime-the-algorithm">LIME: The Algorithm</a></h3>
 <p>The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm:</p>
 <ol>
@@ -236,19 +277,10 @@
 <li>Now we have training tuples <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0019em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">))</span></span></span></span>.</li>
 </ol>
 <p>The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This combination is easier to understand while staying close to the original model <em>around a prediction</em> (locally faithful).</p>
-<h3 id="lime-visuals"><a class="header" href="#lime-visuals">LIME: Visuals</a></h3>
-<p>Here is an image from the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a>, comparing two models' predictions using LIME to show the influence of each input feature in the output:</p>
-<div class="center w60">
-    <a href="../assets/LIME.png">
-    <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME." />
-    </a>
-    
-<p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
-
-</div>
-
-<p>For LIME, the coefficients <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are found minimising an objective function. The coefficients resulting from the optimisation do not necessarily obey the 3 desired properties listed earlier.</p>
-<p>Assuming feature independence and model linearity, the objective function can be modified and the SHAP values obtained through weighted linear regression (no slow combinatorics). This is called <strong>Kernel SHAP</strong>, and obeys the 3 properties listed earlier.</p>
+<h3 id="lime-summary"><a class="header" href="#lime-summary">LIME: Summary</a></h3>
+<p>In a nutshell, the paper proposes to approximate a complex model around a prediction with a simpler (explanation) model that we can understand conceptually.</p>
+<p>This is to be used as a complement (not a replacement) to accuracy or other evaluation metrics.</p>
+<p>Lastly, the input representation must also be conceptually meaningful.</p>
 <h2 id="fixes"><a class="header" href="#fixes">Fixes</a></h2>
 <ul>
 <li>Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering.</li>
