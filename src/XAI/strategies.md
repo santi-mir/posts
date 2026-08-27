@@ -56,6 +56,7 @@ In this paper, "interpretable" is a desired characteristic of "explanation". In 
 > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
 
 ### Desiderata and Benefits
+
 The desired characteristics of explanation-models are:
 
 - Interpretable model and input representations,
@@ -101,7 +102,6 @@ The paper uses a sparse linear model as explanation model. Here is my interpreta
 3. Generate perturbed binary variants of $x'$ called $z'_i$,
 4. Use $z'$ to make variants of $x$ called $z \in R^n$,
 5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
-
 
 ### LIME: Summary
 
@@ -150,7 +150,6 @@ Let's now look at other methods.
 [unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 [shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
 
-
 <!-- ### LIME: Two Explanatory Levels -->
 <!---->
 <!-- The paper describes two explanatory levels; they also map to _trust_ levels: an explanation increases understanding which in turn calibrates our trust. -->
@@ -162,7 +161,6 @@ Let's now look at other methods.
 <!-- Both explanations boil down to understanding predictions. -->
 
 <!-- They also propose a complexity metric because even those simpler models can become hard to interpret (they call this fidelity-interpretability tradeoff).  -->
-
 
 <!-- Diagramatically, it would be: -->
 
@@ -183,4 +181,3 @@ Let's now look at other methods.
 <!-- ``` -->
 
 <!-- The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This vector is easier to understand while staying close to the original model _around a prediction_ (locally faithful). -->
-
