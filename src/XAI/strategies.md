@@ -63,7 +63,7 @@ They also propose a complexity metric because even those simpler models can beco
 
 <!-- ### LIME: Two Explanatory Levels -->
 <!---->
-<!-- <!-- The paper describes two explanatory levels; they also map to _trust_ levels: an explanation increases understanding which in turn calibrates our trust. --> -->
+<!-- The paper describes two explanatory levels; they also map to _trust_ levels: an explanation increases understanding which in turn calibrates our trust. -->
 <!---->
 <!-- - _Explaining / Trusting a prediction_: Does the user trust the prediction to take an action based on it? For that, the user needs to develop an intuitive understanding of which features contribute most to the model's output. Also, the explanation model must be faithful and simple. -->
 <!---->
