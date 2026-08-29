@@ -95,15 +95,15 @@ It also makes comparison of the explanation models easy. One of them is untrustw
 
 A desired characteristic of an explanation model is **interpretability**, which implies qualitative understanding.
 
-* But which representations does the [LIME][lime] paper consider interpretable?
+- But which representations does the [LIME][lime] paper consider interpretable?
 
   An example of an _interpretable representation_ is a binary vector with components indicating presence / absence of a feature (e.g. a word) in the explanation model.
 
-* Which models does the [LIME][lime] paper consider interpretable?
+- Which models does the [LIME][lime] paper consider interpretable?
 
   > (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model $g \in G$ can be readily presented to the user with visual or textual artifacts.
 
-* Complexity is the opposite of interpretable ($G$ being the model class of $g$):
+- Complexity is the opposite of interpretable ($G$ being the model class of $g$):
 
   > As not every $g \in G$ may be simple enough to be interpretable thus we let $\Omega(g)$ be a measure of complexity (as opposed to interpretability) of the explanation $g \in G$.
 

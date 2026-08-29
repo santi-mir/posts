@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-7f5cff37.js";
+            window.path_to_searchindex_js = "searchindex-737b5cee.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -752,6 +752,12 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <li>Choosing between competing models,</li>
 <li>Suggesting improvement to a model (e.g. that which uses relevant features).</li>
 </ul>
+<p>Some of the <strong>drawbacks</strong>:</p>
+<ul>
+<li>Explanation model will be sometimes wrong,</li>
+<li>May be inaccurate if reference model is highly non-linear around sample,</li>
+<li>Some input-features may be hard to encode in binary form.</li>
+</ul>
 <h3 id="lime-in-practice"><a class="header" href="#lime-in-practice">LIME in practice</a></h3>
 <p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a> shows an example comparing two interpretable models which fit black box models:</p>
 <div class="center w60">
@@ -768,14 +774,27 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p>It also makes comparison of the explanation models easy. One of them is untrustworhy (right hand side), giving high weight to meaningless features.</p>
 <h3 id="interpretability-in-lime"><a class="header" href="#interpretability-in-lime">Interpretability in LIME</a></h3>
 <p>A desired characteristic of an explanation model is <strong>interpretability</strong>, which implies qualitative understanding.</p>
+<ul>
+<li>
 <p>But which representations does the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> paper consider interpretable?</p>
-<p>An <em>interpretable representation</em> may use a binary vector indicating presence / absence of a word in the explanation model, replacing an embedding in the original model. Similarly, this can be done for images replacing pixels by superpixels.</p>
+<p>An example of an <em>interpretable representation</em> is a binary vector with components indicating presence / absence of a feature (e.g. a word) in the explanation model.</p>
+</li>
+<li>
 <p>Which models does the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> paper consider interpretable?</p>
 <blockquote>
 <p>(...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> can be readily presented to the user with visual or textual artifacts.</p>
 </blockquote>
+</li>
+<li>
+<p>Complexity is the opposite of interpretable (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> being the model class of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>):</p>
+<blockquote>
+<p>As not every <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> may be simple enough to be interpretable thus we let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Ω</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span> be a measure of complexity (as opposed to interpretability) of the explanation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.</p>
+</blockquote>
+<p>The definition of complexity depends on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>. For linear models it may be the number of weights.</p>
+</li>
+</ul>
 <h3 id="lime-the-algorithm"><a class="header" href="#lime-the-algorithm">LIME: The Algorithm</a></h3>
-<p>The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables use binary elements):</p>
+<p>The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):</p>
 <ol>
 <li>A model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> and an input vector <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> needs explaining,</li>
 <li>Start an interpretable, binary vector <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.791em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1925em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9425em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> with only the dimensions of interest of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> (it may be all-ones often),</li>
