@@ -68,6 +68,12 @@ The **benefits** of such desiderata are:
 - Choosing between competing models,
 - Suggesting improvement to a model (e.g. that which uses relevant features).
 
+Some of the **drawbacks**:
+
+- Explanation model will be sometimes wrong,
+- May be inaccurate if reference model is highly non-linear around sample,
+- Some input-features may be hard to encode in binary form.
+
 ### LIME in practice
 
 The [original paper][lime] shows an example comparing two interpretable models which fit black box models:
@@ -89,17 +95,23 @@ It also makes comparison of the explanation models easy. One of them is untrustw
 
 A desired characteristic of an explanation model is **interpretability**, which implies qualitative understanding.
 
-But which representations does the [LIME][lime] paper consider interpretable?
+* But which representations does the [LIME][lime] paper consider interpretable?
 
-An _interpretable representation_ may use a binary vector indicating presence / absence of a word in the explanation model, replacing an embedding in the original model. Similarly, this can be done for images replacing pixels by superpixels.
+  An example of an _interpretable representation_ is a binary vector with components indicating presence / absence of a feature (e.g. a word) in the explanation model.
 
-Which models does the [LIME][lime] paper consider interpretable?
+* Which models does the [LIME][lime] paper consider interpretable?
 
-> (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model $g \in G$ can be readily presented to the user with visual or textual artifacts.
+  > (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model $g \in G$ can be readily presented to the user with visual or textual artifacts.
+
+* Complexity is the opposite of interpretable ($G$ being the model class of $g$):
+
+  > As not every $g \in G$ may be simple enough to be interpretable thus we let $\Omega(g)$ be a measure of complexity (as opposed to interpretability) of the explanation $g \in G$.
+
+  The definition of complexity depends on $G$. For linear models it may be the number of weights.
 
 ### LIME: The Algorithm
 
-The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables use binary elements):
+The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
 2. Start an interpretable, binary vector $x' \in \{0,1\}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
