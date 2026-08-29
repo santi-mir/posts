@@ -1,10 +1,10 @@
-# Additive Feature Attribution Methods
+# Additive Feature Attribution Methods (AFAM)
 
-This post explores extrinsic explainability methods, that is, those treating the original model as a black box. There is less emphasis on audiences or technicalities about explanations.
+This post explores a class of extrinsic explainability methods (AFAM), that is, methods applied to explain black box models. There is less emphasis on audiences or technicalities about explanations.
 
 ---------
 
-These set of methods are linear approximations ($g$) to the original model ($f$). Mathematically:
+Additive Feature Attribution methods are linear approximations ($g$) to the original model ($f$). Mathematically:
 
 $$f(x) \approx g(z) = \phi_0 + \sum_{i=1} \phi_i z_i$$
 
@@ -41,7 +41,7 @@ Assumption 2, model linearity: Shapley regression values.
 
 SHAP provides both global (average across inputs) and local (for a given input).
 
-## LIME, SP-LIME
+## LIME and SP-LIME
 
 The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) explains a black-box model's prediction by using an _interpretable input_ and an _interpretable model_. Let's now clarify some of terms these terms.
 
@@ -49,42 +49,28 @@ The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) explains a bla
 
 - _Model-agnostic_: any black-box model can in principle be explained by this method.
 
-Now the most complicated parts. "Interpretable" and "Explanation".
+- _Interpretable Explanation_: In this paper, "interpretable" is a desired characteristic of "explanation". In their own words:
+    > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
 
-In this paper, "interpretable" is a desired characteristic of "explanation". In their own words:
-
-> An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
-
-### Desiderata and Benefits
-
-The desired characteristics of explanation-models are:
+The characteristics above are part of a **desiderata for explanation models**:
 
 - Interpretable model and input representations,
-    - An example is shown [in this section](#interpretability-in-LIME).
-- Model-agnostic (described earlier),
-- Locally faithful (perfect global-faithfullness would be the same model).
-- Global Perspective (e.g. SP-LIME).
+- Model-agnostic,
+- Locally faithful,
+- Global Perspective.
 
-The downstream benefits of the kind of explanations they propose (LIME, SP-LIME) are:
+From the name, we see that LIME tackles the first three, aiming at understanding a prediction. Submodule Picking LIME (SP-LIME) selects LIME explanations to give a global explanation of the model.
 
-- Provide understanding of predictions,
-- Help domain-experts decide whether and why to accept (or reject) a prediction,
-- Help selecting a competing model,
-- Suggest how to improve a model (e.g. that which uses relevant features).
+The **benefits** of such desiderata are:
 
-### Interpretability in LIME
+- Providing understanding of predictions,
+- Deciding whether and why to accept (or reject) a prediction,
+- Choosing between competing models,
+- Suggesting improvement to a model (e.g. that which uses relevant features).
 
-A desired characteristic of an explanation model is **interpretability**, which implies qualitative understanding.
+### LIME in practice
 
-But which representations does the [LIME][lime] paper consider interpretable?
-
-An _interpretable representation_ may use a binary vector indicating presence / absence of a word in the explanation model, replacing an embedding in the original model.
-
-Which models does the [LIME][lime] paper consider interpretable?
-
-> (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model g ∈ G can be readily presented to the user with visual or textual artifacts.
-
-The [original paper][lime] shows an example comparing two interpretable models' predictions:
+The [original paper][lime] shows an example comparing two interpretable models which fit black box models:
 
 <div class="center w60">
     <a href="../assets/LIME.png">
@@ -92,6 +78,24 @@ The [original paper][lime] shows an example comparing two interpretable models' 
     </a>
     <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
 </div>
+
+These explanation models fit an original black box model.
+
+Each model shows the effect of each input-feature on the decision, which can be used to decide whether to trust the prediction or not.
+
+It also makes comparison of the explanation models easy. One of them is untrustworhy (right hand side), giving high weight to meaningless features.
+
+### Interpretability in LIME
+
+A desired characteristic of an explanation model is **interpretability**, which implies qualitative understanding.
+
+But which representations does the [LIME][lime] paper consider interpretable?
+
+An _interpretable representation_ may use a binary vector indicating presence / absence of a word in the explanation model, replacing an embedding in the original model. Similarly, this can be done for images replacing pixels by superpixels.
+
+Which models does the [LIME][lime] paper consider interpretable?
+
+> (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model $g \in G$ can be readily presented to the user with visual or textual artifacts.
 
 ### LIME: The Algorithm
 
@@ -103,13 +107,21 @@ The paper uses a sparse linear model as explanation model. Here is my interpreta
 4. Use $z'$ to make variants of $x$ called $z \in R^n$,
 5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
 
+The SP-LIME algorithm won't be described in detail, but it involves:
+
+- Adding instances to a matrix $V$ that increase coverage metric the most;
+- Those are instances that add the most importance to $V$.
+- Again, importance and coverage are defined in the paper.
+
 ### LIME: Summary
 
 In a nutshell, the paper proposes to approximate a complex model around a prediction with a simpler (explanation) model that we can understand conceptually.
 
 This is to be used as a complement (not a replacement) to accuracy or other evaluation metrics.
 
-Lastly, the input representation must also be conceptually meaningful.
+Also, the input representation must also be conceptually meaningful.
+
+Finally, SP-LIME is a method to select a set of instances with good explanatory value, according to a "coverage" metric that they propose.
 
 ## Fixes
 
