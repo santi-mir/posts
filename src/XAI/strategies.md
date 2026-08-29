@@ -50,7 +50,7 @@ The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) explains a bla
 - _Model-agnostic_: any black-box model can in principle be explained by this method.
 
 - _Interpretable Explanation_: In this paper, "interpretable" is a desired characteristic of "explanation". In their own words:
-    > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
+  > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
 
 The characteristics above are part of a **desiderata for explanation models**:
 
