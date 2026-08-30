@@ -52,6 +52,14 @@ The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) explains a bla
 - _Interpretable Explanation_: It was mentioned that the paper's goal is an interpretable explanation model with interpretable input features, and these can be different to the input features of the reference model. In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
   > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
 
+
+SP-LIME is defined as:
+
+> [SP-LIME] a global understanding of the model by explaining a set of individual instances.
+
+The complex part of SP-LIME is selecting instances that add the maximum insight, and avoiding repeated ones. The algorithm is briefly described later on.
+
+### Desiderata, Benefits, Drawbacks
 The characteristics above are part of a **desiderata for explanation models**:
 
 - Interpretable model and input representations,
@@ -119,11 +127,22 @@ The paper uses a sparse linear model as explanation model. Here is my interpreta
 4. Use $z'$ to make variants of $x$ called $z \in R^n$,
 5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
 
-The SP-LIME algorithm won't be described in detail, but it involves:
+### SP-LIME: The Algorithm
 
-- Adding instances to a matrix $V$ that increase coverage metric the most;
-- Those are instances that add the most importance to $V$.
-- Again, importance and coverage are defined in the paper.
+The goal here is picking the most informative instances, and without repetition.
+
+A _coverage_ metric is defined: $c(V, W, I) = \sum_j \mathbb{1}_[\exists i \in V:W_{ij}\gt 0] I_j$.
+
+Here, $W$ is a matrix of weights (columns) for each instance (row).
+
+$I$ is the _global importance_ of a component, defined as $I_j = \sqrt{\sum_{i} W_{ij}}$. The larger the sum of weights is, the more important.
+
+A marginal coverage for each candidate instance ($i$) $c_{i} - c$ is performed, then the instance that increases $c$ of $V$ the most is appended to it.
+
+> [!NOTE]
+> This approximates the $V$ with the largest coverage, but it's not exact because the total max could be one that does not max it on each step!
+
+To increase the coverage at all, it must add some non-zero value to a column of zeros.
 
 ### LIME: Summary
 
