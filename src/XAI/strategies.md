@@ -52,7 +52,6 @@ The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) explains a bla
 - _Interpretable Explanation_: It was mentioned that the paper's goal is an interpretable explanation model with interpretable input features, and these can be different to the input features of the reference model. In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
   > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
 
-
 SP-LIME is defined as:
 
 > [SP-LIME] a global understanding of the model by explaining a set of individual instances.
@@ -60,6 +59,7 @@ SP-LIME is defined as:
 The complex part of SP-LIME is selecting instances that add the maximum insight, and avoiding repeated ones. The algorithm is briefly described later on.
 
 ### Desiderata, Benefits, Drawbacks
+
 The characteristics above are part of a **desiderata for explanation models**:
 
 - Interpretable model and input representations,
