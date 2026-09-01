@@ -115,7 +115,6 @@ A desired characteristic of an explanation model is **interpretability**, which 
 
 ### LIME: The Algorithm
 
-
 The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
