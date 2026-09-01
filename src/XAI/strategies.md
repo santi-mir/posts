@@ -1,6 +1,6 @@
-# Additive Feature Attribution Methods (AFAM)
+# Additive Feature Attribution Methods
 
-This post explores a class of extrinsic explainability methods (AFAM), that is, methods applied to explain black box models. There is less emphasis on audiences or technicalities about explanations.
+This post explores the "Additive Feature Attribution Methods" class of extrinsic explainability methods, where the reference model interals aren't analysed. There is less emphasis on audiences or technicalities about explanations.
 
 ---------
 
@@ -43,20 +43,17 @@ SHAP provides both global (average across inputs) and local (for a given input).
 
 ## LIME and SP-LIME
 
-The [Local Interpretable Model-Agnostic eXplanation][lime] (LIME) explains a black-box model's prediction by using an _interpretable input_ and an _interpretable model_. Let's now clarify some of terms these terms.
+The paper ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] proposes the Local Interpretable Model-Agnostic eXplanation (LIME) and the Submodule Picking LIME.
+<!-- The idea is that simple, accurate explanations can help improve models, spot mistakes, and develop trust. -->
+
+LIME aims to explain _why_ a model makes a particular prediction by approximating it locally with an _interpretable input_ and an _interpretable model_. SP-LIME aims to explain the entire model.
+
+Let's start by clarifying LIME's terms.
 
 - _Local_: the interpretable or explanation model approximates the original model around a particular prediction. In contrast, _global_ explanations explain the full model.
-
-- _Model-agnostic_: any black-box model can in principle be explained by this method.
-
-- _Interpretable Explanation_: It was mentioned that the paper's goal is an interpretable explanation model with interpretable input features, and these can be different to the input features of the reference model. In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
+- _Model-agnostic_: any model can in principle be explained by this method.
+- _Interpretable Explanation_: In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
   > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
-
-SP-LIME is defined as:
-
-> [SP-LIME] a global understanding of the model by explaining a set of individual instances.
-
-The complex part of SP-LIME is selecting instances that add the maximum insight, and avoiding repeated ones. The algorithm is briefly described later on.
 
 ### Desiderata, Benefits, Drawbacks
 
@@ -81,10 +78,11 @@ Some of the **drawbacks**:
 - Explanation model will be sometimes wrong,
 - May be inaccurate if reference model is highly non-linear around sample,
 - Some input-features may be hard to encode in binary form.
+- If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable.
 
 ### LIME in practice
 
-The [original paper][lime] shows an example comparing two interpretable models which fit black box models:
+The [original paper][lime] shows an example comparing two interpretable models fitting reference models' prediction:
 
 <div class="center w60">
     <a href="../assets/LIME.png">
@@ -93,11 +91,9 @@ The [original paper][lime] shows an example comparing two interpretable models w
     <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
 </div>
 
-These explanation models fit an original black box model.
+- Observing the effect of each input-feature on the decision can be used to decide whether to trust the prediction or not.
 
-Each model shows the effect of each input-feature on the decision, which can be used to decide whether to trust the prediction or not.
-
-It also makes comparison of the explanation models easy. One of them is untrustworhy (right hand side), giving high weight to meaningless features.
+- It also makes comparison of the explanation models easy. One of them is untrustworhy (right hand side), giving high weight to meaningless features.
 
 ### Interpretability in LIME
 
@@ -119,6 +115,7 @@ A desired characteristic of an explanation model is **interpretability**, which 
 
 ### LIME: The Algorithm
 
+
 The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
@@ -126,6 +123,17 @@ The paper uses a sparse linear model as explanation model. Here is my interpreta
 3. Generate perturbed binary variants of $x'$ called $z'_i$,
 4. Use $z'$ to make variants of $x$ called $z \in R^n$,
 5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
+6. Use the dataset to fit the linear model $g$ using $K-LASSO$.
+    - To select $K$ interpretable features they apply $K$-LASSO.
+    - LASSO is like a sparse linear regression, some coefficients are pushed to 0 and correspond to variables we can ignore. How many are are pushed to $0$ may be controlled by the complexity penalty in the loss function.
+    - This is why the number of input features for the interpretable model ($x'$, $z'$) may be much smaller than that of $x$, $z$.
+    - Then the non-zero variables are used to fit $g$ to $f$ but now using least-squares.
+
+SP-LIME is defined as:
+
+> [SP-LIME] a global understanding of the model by explaining a set of individual instances.
+
+The complex part of SP-LIME is selecting instances that add the maximum insight, and avoiding repeated ones. The algorithm is briefly described later on.
 
 ### SP-LIME: The Algorithm
 
