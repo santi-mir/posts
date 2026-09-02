@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-47ed23fa.js";
+            window.path_to_searchindex_js = "searchindex-f5b95777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -723,43 +723,14 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p>SHAP provides both global (average across inputs) and local (for a given input).</p>
 <h2 id="lime-and-sp-lime"><a class="header" href="#lime-and-sp-lime">LIME and SP-LIME</a></h2>
 <p>The paper <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a> proposes the Local Interpretable Model-Agnostic eXplanation (LIME) and the Submodule Picking LIME.</p>
-<!-- The idea is that simple, accurate explanations can help improve models, spot mistakes, and develop trust. -->
-<p>LIME aims to explain <em>why</em> a model makes a particular prediction by approximating it locally with an <em>interpretable input</em> and an <em>interpretable model</em>. SP-LIME aims to explain the entire model.</p>
-<p>Let's start by clarifying LIME's terms.</p>
-<ul>
-<li><em>Local</em>: the interpretable or explanation model approximates the original model around a particular prediction. In contrast, <em>global</em> explanations explain the full model.</li>
-<li><em>Model-agnostic</em>: any model can in principle be explained by this method.</li>
-<li><em>Interpretable Explanation</em>: In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
-<blockquote>
-<p>An essential criterion for explanations is that they must be <strong>interpretable</strong>, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="desiderata-benefits-drawbacks"><a class="header" href="#desiderata-benefits-drawbacks">Desiderata, Benefits, Drawbacks</a></h3>
-<p>The characteristics above are part of a <strong>desiderata for explanation models</strong>:</p>
-<ul>
-<li>Interpretable model and input representations,</li>
-<li>Model-agnostic,</li>
-<li>Locally faithful,</li>
-<li>Global Perspective.</li>
-</ul>
-<p>From the name, we see that LIME tackles the first three, aiming at understanding a prediction. Submodule Picking LIME (SP-LIME) selects LIME explanations to give a global explanation of the model.</p>
-<p>The <strong>benefits</strong> of such desiderata are:</p>
-<ul>
-<li>Providing understanding of predictions,</li>
-<li>Deciding whether and why to accept (or reject) a prediction,</li>
-<li>Choosing between competing models,</li>
-<li>Suggesting improvement to a model (e.g. that which uses relevant features).</li>
-</ul>
-<p>Some of the <strong>drawbacks</strong>:</p>
-<ul>
-<li>Explanation model will be sometimes wrong,</li>
-<li>May be inaccurate if reference model is highly non-linear around sample,</li>
-<li>Some input-features may be hard to encode in binary form.</li>
-<li>If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable.</li>
-</ul>
-<h3 id="lime-in-practice"><a class="header" href="#lime-in-practice">LIME in practice</a></h3>
-<p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a> shows an example comparing two interpretable models fitting reference models' prediction:</p>
+<p>LIME isn't a particular model. It's more like a framework or general idea of the desired charteristics that explainable methods should have (more on this later).</p>
+<p>Let's first look at LIME as implemented in a concrete case.</p>
+<h3 id="a-concrete-example"><a class="header" href="#a-concrete-example">A concrete example</a></h3>
+<p>This is in line with LIME's approach.</p>
+<p>A linear model with few-ish, interpretable features, locally fit to a complex one is in line with LIMEs' requirements.</p>
+<p>Local fit means fitting only in the vicinity of the input of interest.The input features may differ from those in the original model.</p>
+<p>Why would this be useful?</p>
+<p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">original paper</a> shows an example comparing two different models that were fit by linear ones:</p>
 <div class="center w60">
     <a href="assets/LIME.png">
     <img src="assets/LIME.png" alt="Comparison between to algorithms analysed by LIME." />
@@ -769,19 +740,30 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 </div>
 
+<p>As long as the fit is faithful, the value of this simplification is:</p>
 <ul>
-<li>
-<p>Observing the effect of each input-feature on the decision can be used to decide whether to trust the prediction or not.</p>
-</li>
-<li>
-<p>It also makes comparison of the explanation models easy. One of them is untrustworhy (right hand side), giving high weight to meaningless features.</p>
+<li>The interpretable features, alongside their contributions (weights) to the prediction, can help decide whether to trust the prediction or not.</li>
+<li>Comparing models is easy (through the linear proxies). It's especially useful if the original models' accuracy (and other metrics) are similar, and their features non-interpretable.</li>
+<li>Here, one of them is untrustworhy (right hand side), giving high weight to meaningless features.</li>
+</ul>
+<h3 id="explanation-model-desiderata"><a class="header" href="#explanation-model-desiderata">Explanation Model Desiderata</a></h3>
+<p>The authors consider 4 properties to be desirable in an explanation model:</p>
+<ul>
+<li><em>Local</em>: the interpretable or explanation model approximates the original model in the vicinity of a particular prediction. In contrast, <em>global</em> explanations explain the full model.</li>
+<li><em>Model-agnostic</em>: any model can in principle be explained by this method.</li>
+<li><em>Interpretable Explanation</em>: In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
+<blockquote>
+<p>An essential criterion for explanations is that they must be <strong>interpretable</strong>, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.</p>
+</blockquote>
 </li>
 </ul>
-<h3 id="interpretability-in-lime"><a class="header" href="#interpretability-in-lime">Interpretability in LIME</a></h3>
-<p>A desired characteristic of an explanation model is <strong>interpretability</strong>, which implies qualitative understanding.</p>
+<p>Additionally, they include <code>4.</code> A global perspective, a mechanism to get a sense of the full model's behaviour.</p>
+<p>The first 3 can be achieved using LIME. The fourth, using the Submodule Picking LIME (SP-LIME), which selects LIME explanations to give a global explanation of the model.</p>
+<h3 id="lime-general-framework"><a class="header" href="#lime-general-framework">LIME: General Framework</a></h3>
+<p>LIME is a slightly more constrained version of the first 3 desired properties. They consider some input representations, some explanation models, and a sampling procedure to train it (not related to SP-LIME).</p>
 <ul>
 <li>
-<p>But which representations does the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> paper consider interpretable?</p>
+<p>Which specific representations does the <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a> framework consider interpretable?</p>
 <p>An example of an <em>interpretable representation</em> is a binary vector with components indicating presence / absence of a feature (e.g. a word) in the explanation model.</p>
 </li>
 <li>
@@ -791,15 +773,16 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 </blockquote>
 </li>
 <li>
-<p>Complexity is the opposite of interpretable (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> being the model class of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>):</p>
+<p>Complexity is the opposite of interpretable, so the loss (we skip it here) to train the explainable model accounts for it, and also weighs local samples more than remote ones. Here <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> being the model class of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>:</p>
 <blockquote>
 <p>As not every <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> may be simple enough to be interpretable thus we let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Ω</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span> be a measure of complexity (as opposed to interpretability) of the explanation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.</p>
 </blockquote>
 <p>The definition of complexity depends on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>. For linear models it may be the number of weights.</p>
 </li>
 </ul>
-<h3 id="lime-the-algorithm"><a class="header" href="#lime-the-algorithm">LIME: The Algorithm</a></h3>
-<p>The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):</p>
+<p>They also define a sampling procedure to create the training set. This is detailed in the concrete algorithm in the next section.</p>
+<h3 id="lime-an-algorithm"><a class="header" href="#lime-an-algorithm">LIME: An Algorithm</a></h3>
+<p>The paper implements LIME using the class <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> of sparse linear models as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):</p>
 <ol>
 <li>A model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> and an input vector <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> needs explaining,</li>
 <li>Start an interpretable, binary vector <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.791em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1925em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9425em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> with only the dimensions of interest of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> (it may be all-ones often),</li>
@@ -831,11 +814,9 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p>This approximates the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> with the largest coverage, but it's not exact because the total max could be one that does not max it on each step!</p>
 </blockquote>
 <p>To increase the coverage at all, it must add some non-zero value to a column of zeros.</p>
-<h3 id="lime-summary"><a class="header" href="#lime-summary">LIME: Summary</a></h3>
-<p>In a nutshell, the paper proposes to approximate a complex model around a prediction with a simpler (explanation) model that we can understand conceptually.</p>
-<p>This is to be used as a complement (not a replacement) to accuracy or other evaluation metrics.</p>
-<p>Also, the input representation must also be conceptually meaningful.</p>
-<p>Finally, SP-LIME is a method to select a set of instances with good explanatory value, according to a "coverage" metric that they propose.</p>
+<h3 id="lime-final-comments"><a class="header" href="#lime-final-comments">LIME: Final Comments</a></h3>
+<p>Explanation models do not replace but complement accuracy or other evaluation metrics.</p>
+<!-- The input representation must also be conceptually meaningful. -->
 <h2 id="fixes"><a class="header" href="#fixes">Fixes</a></h2>
 <ul>
 <li>Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering.</li>
@@ -892,6 +873,19 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- D --\> F -->
 <!-- ``` -->
 <!-- The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This vector is easier to understand while staying close to the original model _around a prediction_ (locally faithful). -->
+<!-- The **benefits** of such desiderata are: -->
+<!---->
+<!-- - Providing understanding of predictions, -->
+<!-- - Deciding whether and why to accept (or reject) a prediction, -->
+<!-- - Choosing between competing models, -->
+<!-- - Suggesting improvement to a model (e.g. that which uses relevant features). -->
+<!---->
+<!-- Some of the **drawbacks**: -->
+<!---->
+<!-- - Explanation model will be sometimes wrong, -->
+<!-- - May be inaccurate if reference model is highly non-linear around sample, -->
+<!-- - Some input-features may be hard to encode in binary form. -->
+<!-- - If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable. -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="methods-ii"><a class="header" href="#methods-ii">Methods II</a></h1>
 <h2 id="visual-explainability-methods"><a class="header" href="#visual-explainability-methods">Visual Explainability Methods</a></h2>
