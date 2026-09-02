@@ -50,6 +50,7 @@ LIME isn't a particular model. It's more like a framework or general idea of the
 Let's first look at LIME as implemented in a concrete case.
 
 ### A concrete example
+
 This is in line with LIME's approach.
 
 A linear model with few-ish, interpretable features, locally fit to a complex one is in line with LIMEs' requirements.
@@ -220,7 +221,6 @@ Let's now look at other methods.
 <!-- ``` -->
 
 <!-- The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This vector is easier to understand while staying close to the original model _around a prediction_ (locally faithful). -->
-
 
 <!-- The **benefits** of such desiderata are: -->
 <!---->
