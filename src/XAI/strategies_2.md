@@ -59,6 +59,6 @@ Architectures designed to make explaining part of their operation easier.
 
 <!-- [whatifs_wachter]: https://arxiv.org/pdf/1711.00399 -->
 [xx]: http://arxiv.org/abs/1806.00069
-[xai_social_sciences]: https://www.sciencedirect.com/science/article/pii/S0004370218305988
+[xai_social_sciences]: https://doi.org/10.1016/j.artint.2018.07.007
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
 [stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154

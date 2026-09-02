@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-783c94ea.js";
+            window.path_to_searchindex_js = "../searchindex-f5b95777.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -200,7 +200,11 @@ Unclear why this item is about interpretability.
 <p>The degree to which we can answer questions about a model and its output. The <em>answers</em> are context and audience (including ourselves).</p>
 </blockquote>
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
-<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, Local and Global, are explained.</p>
+<p>There are also other related definitions such as <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">LIME</a>'s:</p>
+<blockquote>
+<p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance’s components (e.g. words in text, patches in an image) and the model’s prediction.</p>
+</blockquote>
+<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".</p>
 <h3 id="intrinsic-explainability"><a class="header" href="#intrinsic-explainability">Intrinsic Explainability</a></h3>
 <p>Looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a> or <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">Zachary C.</a>) —that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">puts it</a>:</p>
 <blockquote>
@@ -399,7 +403,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 </ul>
 </li>
 <li>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S0740624X21001027">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</p>
+<p><a href="https://doi.org/10.1016/j.giq.2021.101666">The perils and pitfalls of explainable AI: Strategies for explaining algorithmic decision-making</a> (2021): emphasis on socio-political aspects,</p>
 </li>
 <li>
 <p><a href="https://www.nature.com/articles/s43586-022-00172-0">Why black box machine learning should be avoided for high-stakes decisions, in brief</a> (2022),</p>
