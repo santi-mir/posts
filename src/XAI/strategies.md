@@ -44,45 +44,21 @@ SHAP provides both global (average across inputs) and local (for a given input).
 ## LIME and SP-LIME
 
 The paper ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] proposes the Local Interpretable Model-Agnostic eXplanation (LIME) and the Submodule Picking LIME.
-<!-- The idea is that simple, accurate explanations can help improve models, spot mistakes, and develop trust. -->
 
-LIME aims to explain _why_ a model makes a particular prediction by approximating it locally with an _interpretable input_ and an _interpretable model_. SP-LIME aims to explain the entire model.
+LIME isn't a particular model. It's more like a framework or general idea of the desired charteristics that explainable methods should have (more on this later).
 
-Let's start by clarifying LIME's terms.
+Let's first look at LIME as implemented in a concrete case.
 
-- _Local_: the interpretable or explanation model approximates the original model around a particular prediction. In contrast, _global_ explanations explain the full model.
-- _Model-agnostic_: any model can in principle be explained by this method.
-- _Interpretable Explanation_: In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
-  > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
+### A concrete example
+This is in line with LIME's approach.
 
-### Desiderata, Benefits, Drawbacks
+A linear model with few-ish, interpretable features, locally fit to a complex one is in line with LIMEs' requirements.
 
-The characteristics above are part of a **desiderata for explanation models**:
+Local fit means fitting only in the vicinity of the input of interest.The input features may differ from those in the original model.
 
-- Interpretable model and input representations,
-- Model-agnostic,
-- Locally faithful,
-- Global Perspective.
+Why would this be useful?
 
-From the name, we see that LIME tackles the first three, aiming at understanding a prediction. Submodule Picking LIME (SP-LIME) selects LIME explanations to give a global explanation of the model.
-
-The **benefits** of such desiderata are:
-
-- Providing understanding of predictions,
-- Deciding whether and why to accept (or reject) a prediction,
-- Choosing between competing models,
-- Suggesting improvement to a model (e.g. that which uses relevant features).
-
-Some of the **drawbacks**:
-
-- Explanation model will be sometimes wrong,
-- May be inaccurate if reference model is highly non-linear around sample,
-- Some input-features may be hard to encode in binary form.
-- If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable.
-
-### LIME in practice
-
-The [original paper][lime] shows an example comparing two interpretable models fitting reference models' prediction:
+The [original paper][lime] shows an example comparing two different models that were fit by linear ones:
 
 <div class="center w60">
     <a href="../assets/LIME.png">
@@ -91,15 +67,30 @@ The [original paper][lime] shows an example comparing two interpretable models f
     <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
 </div>
 
-- Observing the effect of each input-feature on the decision can be used to decide whether to trust the prediction or not.
+As long as the fit is faithful, the value of this simplification is:
 
-- It also makes comparison of the explanation models easy. One of them is untrustworhy (right hand side), giving high weight to meaningless features.
+- The interpretable features, alongside their contributions (weights) to the prediction, can help decide whether to trust the prediction or not.
+- Comparing models is easy (through the linear proxies). It's especially useful if the original models' accuracy (and other metrics) are similar, and their features non-interpretable.
+- Here, one of them is untrustworhy (right hand side), giving high weight to meaningless features.
 
-### Interpretability in LIME
+### Explanation Model Desiderata
 
-A desired characteristic of an explanation model is **interpretability**, which implies qualitative understanding.
+The authors consider 4 properties to be desirable in an explanation model:
 
-- But which representations does the [LIME][lime] paper consider interpretable?
+- _Local_: the interpretable or explanation model approximates the original model in the vicinity of a particular prediction. In contrast, _global_ explanations explain the full model.
+- _Model-agnostic_: any model can in principle be explained by this method.
+- _Interpretable Explanation_: In this paper, "interpretable" is a desired characteristic of "explanation", and provides qualititative understanding (a simple answer to "Why was this prediction made?"). In their own words:
+  > An essential criterion for explanations is that they must be **interpretable**, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user's limitations.
+
+Additionally, they include `4.` A global perspective, a mechanism to get a sense of the full model's behaviour.
+
+The first 3 can be achieved using LIME. The fourth, using the Submodule Picking LIME (SP-LIME), which selects LIME explanations to give a global explanation of the model.
+
+### LIME: General Framework
+
+LIME is a slightly more constrained version of the first 3 desired properties. They consider some input representations, some explanation models, and a sampling procedure to train it (not related to SP-LIME).
+
+- Which specific representations does the [LIME][lime] framework consider interpretable?
 
   An example of an _interpretable representation_ is a binary vector with components indicating presence / absence of a feature (e.g. a word) in the explanation model.
 
@@ -107,15 +98,17 @@ A desired characteristic of an explanation model is **interpretability**, which 
 
   > (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model $g \in G$ can be readily presented to the user with visual or textual artifacts.
 
-- Complexity is the opposite of interpretable ($G$ being the model class of $g$):
+- Complexity is the opposite of interpretable, so the loss (we skip it here) to train the explainable model accounts for it, and also weighs local samples more than remote ones. Here $G$ being the model class of $g$:
 
   > As not every $g \in G$ may be simple enough to be interpretable thus we let $\Omega(g)$ be a measure of complexity (as opposed to interpretability) of the explanation $g \in G$.
 
   The definition of complexity depends on $G$. For linear models it may be the number of weights.
 
-### LIME: The Algorithm
+They also define a sampling procedure to create the training set. This is detailed in the concrete algorithm in the next section.
 
-The paper uses a sparse linear model as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):
+### LIME: An Algorithm
+
+The paper implements LIME using the class $G$ of sparse linear models as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
 2. Start an interpretable, binary vector $x' \in \{0,1\}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
@@ -151,15 +144,11 @@ A marginal coverage for each candidate instance ($i$) $c_{i} - c$ is performed, 
 
 To increase the coverage at all, it must add some non-zero value to a column of zeros.
 
-### LIME: Summary
+### LIME: Final Comments
 
-In a nutshell, the paper proposes to approximate a complex model around a prediction with a simpler (explanation) model that we can understand conceptually.
+Explanation models do not replace but complement accuracy or other evaluation metrics.
 
-This is to be used as a complement (not a replacement) to accuracy or other evaluation metrics.
-
-Also, the input representation must also be conceptually meaningful.
-
-Finally, SP-LIME is a method to select a set of instances with good explanatory value, according to a "coverage" metric that they propose.
+<!-- The input representation must also be conceptually meaningful. -->
 
 ## Fixes
 
@@ -231,3 +220,18 @@ Let's now look at other methods.
 <!-- ``` -->
 
 <!-- The interpretable representation is a binary vector that may use a subset of the original features (even transformed ones). This vector is easier to understand while staying close to the original model _around a prediction_ (locally faithful). -->
+
+
+<!-- The **benefits** of such desiderata are: -->
+<!---->
+<!-- - Providing understanding of predictions, -->
+<!-- - Deciding whether and why to accept (or reject) a prediction, -->
+<!-- - Choosing between competing models, -->
+<!-- - Suggesting improvement to a model (e.g. that which uses relevant features). -->
+<!---->
+<!-- Some of the **drawbacks**: -->
+<!---->
+<!-- - Explanation model will be sometimes wrong, -->
+<!-- - May be inaccurate if reference model is highly non-linear around sample, -->
+<!-- - Some input-features may be hard to encode in binary form. -->
+<!-- - If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable. -->
