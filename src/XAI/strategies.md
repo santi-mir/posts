@@ -1,32 +1,33 @@
 # Additive Feature Attribution Methods
 
-This post explores the "Additive Feature Attribution Methods" class of extrinsic explainability methods, where the reference model interals aren't analysed. There is less emphasis on audiences or technicalities about explanations.
+This post explores the "Additive Feature Attribution Methods" class of extrinsic explainability methods, where the reference model internals aren't analysed. There is less emphasis on audiences or technicalities about explanations.
 
 ---------
 
-Additive Feature Attribution methods are linear approximations ($g$) to the original model ($f$). Mathematically:
+Additive Feature Attribution Methods use an explanation model ($g$) that approximates the original model ($f$) using a linear combination of simple (usually binary) features. Mathematically:
 
-$$f(x) \approx g(z) = \phi_0 + \sum_{i=1} \phi_i z_i$$
+$$f(x) \approx g(z') = \phi_0 + \sum_{i=1} \phi_i z_i'$$
 
-$\phi_i$s are the effect of each _binary_ feature $z_i$ in the output. Clarifications:
+$\phi_i$s are the effect of each _binary_ feature $z_i'$ in the output. Clarifications:
 
 1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s),
 1. Methods don't protect from a biased model.
 
-_Note_: these could be called linear combination of binary features as well.
+<!-- _Note_: these could be called linear combination of binary features as well. -->
 
 ## Best coefficients?
 
-Existing additive feature methods (e.g. SHAP, LIME) calculate $\phi_i$s differently, in turn yielding different coefficients. But...which one obtains the _best_ coefficients $\phi_i$? A definition of _best_ is needed.
+SHAP, LIME and other methods just calculate $\phi_i$s differently, in turn yielding different coefficients. But...which one obtains the _best_ coefficients $\phi_i$? A definition of _best_ is needed.
 
 The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
 
 The authors argue these properties lead to coefficients that are more intuitive for humans.
 
-## Method: SHAP
+## SHAP
 
-SHAP stands for SHapley Additive exPlanations, it is considered a feature attribution method rather than a simplification method. The [Principles and practice of explaining ML][principles_and_practice] states:
+SHAP is a result from game theory that finds the best coefficients (given local accuracy, missingness and consistency requirements) of a linear model. It stands for SHapley Additive exPlanations.
 
+The [Principles and practice of explaining ML][principles_and_practice] states:
 > The objective in this case is to build a linear model around the instance to be explained, and then interpret each features' coefficient as the features' importance. This idea is similar to LIME, in fact LIME and SHAP are closely related, but SHAP comes with a set of nice theoretical properties.
 
 The exact Shapley values $\phi_i$ result from an expensive combinatorial (see sources at the end). Approximations to the exact formula can be made, with extra assumptions, which **may not hold**:
@@ -68,9 +69,10 @@ The [original paper][lime] shows an example comparing two different models that 
     <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
 </div>
 
-As long as the fit is faithful, the value of this simplification is:
+Some other uses are:
 
 - The interpretable features, alongside their contributions (weights) to the prediction, can help decide whether to trust the prediction or not.
+- Feature engineering such as removing features (or certain data) that the model uses but harm generalisation,
 - Comparing models is easy (through the linear proxies). It's especially useful if the original models' accuracy (and other metrics) are similar, and their features non-interpretable.
 - Here, one of them is untrustworhy (right hand side), giving high weight to meaningless features.
 
@@ -114,7 +116,7 @@ The paper implements LIME using the class $G$ of sparse linear models as explana
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
 2. Start an interpretable, binary vector $x' \in \{0,1\}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
 3. Generate perturbed binary variants of $x'$ called $z'_i$,
-4. Use $z'$ to make variants of $x$ called $z \in R^n$,
+4. Use different $z'$ to make variants of $x$ called $z \in R^n$,
 5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
 6. Use the dataset to fit the linear model $g$ using $K-LASSO$.
     - To select $K$ interpretable features they apply $K$-LASSO.
@@ -151,7 +153,7 @@ Explanation models do not replace but complement accuracy or other evaluation me
 
 <!-- The input representation must also be conceptually meaningful. -->
 
-## Fixes
+## Robustness Fixes
 
 - Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering.
 - Modified Index Position, in the [paper's words][using_shap_lime]:
