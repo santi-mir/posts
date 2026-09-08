@@ -30,7 +30,7 @@ Another definition is found in ["Why Should I Trust You?"][lime]:
 
 > By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
 
-Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^1], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
+Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^extr_intr], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
 
 <!-- The explanations may still be _local_ (explains a particular prediction) or global (explains the full model). The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. -->
 
@@ -62,7 +62,7 @@ On top of the previous quote, the paper ["Why should I trust you?"][lime] has an
 
 <!-- Simpler models are also less expressive and may use less variables than the original, making it easier to understand. -->
 
-[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
+[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models[^shap] must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
 
 On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. Some of those popular methods are explained in [strategies](./strategies.md).
 
@@ -131,7 +131,7 @@ However, the model consistently fails to predict rains when people didn't take t
 1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
 1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
-Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^2]
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^3]
 
 A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
@@ -288,5 +288,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
-[^1]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
-[^2]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+[^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
+[^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
+[^3]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?

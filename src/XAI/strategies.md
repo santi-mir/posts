@@ -1,64 +1,80 @@
 # Additive Feature Attribution Methods
 
-This post explores the "Additive Feature Attribution Methods" class of extrinsic explainability methods, where the reference model internals aren't analysed. There is less emphasis on audiences or technicalities about explanations.
+This post explores the "Additive Feature Attribution Methods" class of _extrinsic explainability_ methods (where the reference model's internals aren't analysed). There is less emphasis on audiences or technicalities about explanations.
 
 ---------
 
-Additive Feature Attribution Methods use an explanation model ($g$) that approximates the original model ($f$) using a linear combination of simple (usually binary) features. Mathematically:
+[A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf] identified that many explanation models are Additive Feature Attribution Methods (AFAMs). These methods approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features (making it simpler and interpretable). Mathematically:
 
-$$f(x) \approx g(z') = \phi_0 + \sum_{i=1} \phi_i z_i'$$
+$$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 
-$\phi_i$s are the effect of each _binary_ feature $z_i'$ in the output. Clarifications:
+$\phi_i \in R$ are the affects of each _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different members of the class estimate $\phi_i$ differently.
 
-1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s),
-1. Methods don't protect from a biased model.
+<!-- Considerations: -->
+<!-- 1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s), -->
+<!-- 1. Explanation models don't protect from a biased prediction model, -->
+<!-- 1. Some methods, such as Kernel SHAP and LIME, assume independent features, -->
+<!-- 1. If we assume linearity and the reality is non-linear there will also be an error. -->
 
 <!-- _Note_: these could be called linear combination of binary features as well. -->
 
-## Best coefficients?
+## Best coefficients
 
-SHAP, LIME and other methods just calculate $\phi_i$s differently, in turn yielding different coefficients. But...which one obtains the _best_ coefficients $\phi_i$? A definition of _best_ is needed.
+SHAP values, Linear LIME, DeepLIFT and other methods just calculate $\phi_i$s differently, in turn yielding different coefficients.
 
-The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients. Other methods violate some of these 3 properties.
+The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients, thereby unifying the methods. Other methods violate some of these 3 properties.
+
+This post gives a very brief definition of each characteristic, just below:
+
+1. **Local Accuracy**: There must be equality when the input is the original one ($x$), that is $f(x) = g(x')$
+2. **Missingness**: this is their word for a feature being $0$. If $x_i'$ is always 0, the feature must have no impact, that is $\phi_i=0$.
+3. **Consistency**:
 
 The authors argue these properties lead to coefficients that are more intuitive for humans.
 
+> [!NOTE]
+> The most accurate SHAP values are expensive to calculate. Approximations can be used in some cases to speed this up.
+
 ## SHAP
 
-SHAP is a result from game theory that finds the best coefficients (given local accuracy, missingness and consistency requirements) of a linear model. It stands for SHapley Additive exPlanations.
+SHAP stands for SHapley Additive exPlanations, and it's the link between Shapley's values with the best coefficients for the linear explanation model (when local accuracy, missingness and consistency are required).
 
 The [Principles and practice of explaining ML][principles_and_practice] states:
 > The objective in this case is to build a linear model around the instance to be explained, and then interpret each features' coefficient as the features' importance. This idea is similar to LIME, in fact LIME and SHAP are closely related, but SHAP comes with a set of nice theoretical properties.
 
-The exact Shapley values $\phi_i$ result from an expensive combinatorial (see sources at the end). Approximations to the exact formula can be made, with extra assumptions, which **may not hold**:
+The exact Shapley values $\phi_i$ result from an expensive combinatorial. Approximations to the exact formula can be made, with extra assumptions, which **may not hold**:
 
-Assumption 1: Feature independence (implies non-multicollinearity).
+**Approximation 1**: Feature independence (implies non-multicollinearity).
 
 - Shapley sampling values method,
 - Quantitative Input Influence,
-- Plus assumption 2, model linearity: Kernel SHAP (LIME + Shapley values)
+- Kernel SHAP (requires both assumptions).
 
-Assumption 2, model linearity: Shapley regression values.
+**Approximation 2**, model linearity: Shapley regression values.
 
-SHAP provides both global (average across inputs) and local (for a given input).
+- SHAP provides both global (average across inputs) and local (for a given input).
+
+### Kernel SHAP
+
+Due to a mathematical connection, SHAP values for a linear model with assumed-uncorrelated features can be estimated by weighted linear regression.
+
+The Linear LIME quantities of _proximity kernel_ ($\pi_x$), complexity penalty ($\Omega(g)$) and Loss ($L$) are turned into a _shapley kernel_, $\Omega(g) = 0$, and the same weighted loss.
+
+This method is called Kernel SHAP.
 
 ## LIME and SP-LIME
 
 The paper ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] proposes the Local Interpretable Model-Agnostic eXplanation (LIME) and the Submodule Picking LIME.
 
-LIME isn't a particular model. It's more like a framework or general idea of the desired charteristics that explainable methods should have (more on this later).
+LIME isn't a particular model but rather a set of characteristics that explainable methods should have, according to the authors (more on this later).
 
 Let's first look at LIME as implemented in a concrete case.
 
-### A concrete example
-
-This is in line with LIME's approach.
+### Why would this be useful? A concrete example
 
 A linear model with few-ish, interpretable features, locally fit to a complex one is in line with LIMEs' requirements.
 
-Local fit means fitting only in the vicinity of the input of interest.The input features may differ from those in the original model.
-
-Why would this be useful?
+Local fit means fitting only in the vicinity of the input of interest. The input features may differ from those in the original model.
 
 The [original paper][lime] shows an example comparing two different models that were fit by linear ones:
 
@@ -69,14 +85,14 @@ The [original paper][lime] shows an example comparing two different models that 
     <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
 </div>
 
-Some other uses are:
+The image makes clear some of the uses of it:
 
 - The interpretable features, alongside their contributions (weights) to the prediction, can help decide whether to trust the prediction or not.
 - Feature engineering such as removing features (or certain data) that the model uses but harm generalisation,
 - Comparing models is easy (through the linear proxies). It's especially useful if the original models' accuracy (and other metrics) are similar, and their features non-interpretable.
 - Here, one of them is untrustworhy (right hand side), giving high weight to meaningless features.
 
-### Explanation Model Desiderata
+### LIME / Desiderata
 
 The authors consider 4 properties to be desirable in an explanation model:
 
@@ -87,11 +103,9 @@ The authors consider 4 properties to be desirable in an explanation model:
 
 Additionally, they include `4.` A global perspective, a mechanism to get a sense of the full model's behaviour.
 
-The first 3 can be achieved using LIME. The fourth, using the Submodule Picking LIME (SP-LIME), which selects LIME explanations to give a global explanation of the model.
+The first 3 can be called LIME; the Submodule Picking LIME (SP-LIME), which selects LIME explanations to give a global explanation of the model.
 
-### LIME: General Framework
-
-LIME is a slightly more constrained version of the first 3 desired properties. They consider some input representations, some explanation models, and a sampling procedure to train it (not related to SP-LIME).
+LIME is a slightly more explicit version of the first 3 desired properties. Let's explore this.
 
 - Which specific representations does the [LIME][lime] framework consider interpretable?
 
@@ -101,26 +115,28 @@ LIME is a slightly more constrained version of the first 3 desired properties. T
 
   > (...) interpretable models, such as linear models, decision trees, or falling rule lists [27], i.e. a model $g \in G$ can be readily presented to the user with visual or textual artifacts.
 
-- Complexity is the opposite of interpretable, so the loss (we skip it here) to train the explainable model accounts for it, and also weighs local samples more than remote ones. Here $G$ being the model class of $g$:
+- Complexity is the opposite of interpretable, so the loss (we skip it here) to train the explainable model accounts for it, and gives local samples more importance than remote ones. Here $G$ being the model class of $g$:
 
   > As not every $g \in G$ may be simple enough to be interpretable thus we let $\Omega(g)$ be a measure of complexity (as opposed to interpretability) of the explanation $g \in G$.
 
   The definition of complexity depends on $G$. For linear models it may be the number of weights.
 
-They also define a sampling procedure to create the training set. This is detailed in the concrete algorithm in the next section.
+- They also define a sampling procedure to create the training set. This is detailed in the concrete algorithm in the next section.
 
-### LIME: An Algorithm
+### Linear LIME: An Algorithm
 
-The paper implements LIME using the class $G$ of sparse linear models as explanation model. Here is my interpretation of the algorithm (the primed variables denote binary vectors):
+The paper implements LIME using the class $G$ of sparse linear models as explanation model, which we could call Linear LIME (as
+[A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] does). Here is my interpretation of the algorithm (the primed variables denote binary vectors):
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
 2. Start an interpretable, binary vector $x' \in \{0,1\}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
 3. Generate perturbed binary variants of $x'$ called $z'_i$,
-4. Use different $z'$ to make variants of $x$ called $z \in R^n$,
+4. Use different $z'$ to make variants of $x$ called $z \in R^n$.
+    - Written in [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] paper as $z = h_x(z')$.
 5. Now we have training tuples $(f(z), z', \pi_{x} (z))$.
 6. Use the dataset to fit the linear model $g$ using $K-LASSO$.
     - To select $K$ interpretable features they apply $K$-LASSO.
-    - LASSO is like a sparse linear regression, some coefficients are pushed to 0 and correspond to variables we can ignore. How many are are pushed to $0$ may be controlled by the complexity penalty in the loss function.
+    - LASSO is like a sparse linear regression, some coefficients are pushed to $0$ and correspond to variables we can ignore. How many are are pushed to $0$ may be controlled by the complexity penalty in the loss function.
     - This is why the number of input features for the interpretable model ($x'$, $z'$) may be much smaller than that of $x$, $z$.
     - Then the non-zero variables are used to fit $g$ to $f$ but now using least-squares.
 
@@ -237,3 +253,5 @@ Let's now look at other methods.
 <!-- - May be inaccurate if reference model is highly non-linear around sample, -->
 <!-- - Some input-features may be hard to encode in binary form. -->
 <!-- - If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable. -->
+
+[^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
