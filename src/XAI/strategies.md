@@ -35,7 +35,6 @@ Those requirements are only satisfied when the explanation model's coefficients 
 > [!NOTE]
 > The most accurate Shapley values are expensive to calculate. Approximations can be used in some cases to speed this up.
 
-
 ## SHAP
 
 - Shapley Values are the importances of features ($\phi_i$) for a model $f$.
