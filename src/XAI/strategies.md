@@ -1,6 +1,8 @@
 # Additive Feature Attribution Methods
 
-This post explores the "Additive Feature Attribution Methods" class of _extrinsic explainability_ methods (where the reference model's internals aren't analysed). There is less emphasis on audiences or technicalities about explanations.
+This post explores the "Additive Feature Attribution Methods" class of _extrinsic explainability_ methods (where the reference model's internals aren't analysed).
+
+<!-- There is less emphasis on audiences or technicalities about explanations. -->
 
 ---------
 
@@ -8,7 +10,7 @@ This post explores the "Additive Feature Attribution Methods" class of _extrinsi
 
 $$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 
-$\phi_i \in R$ are the affects of each _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different members of the class estimate $\phi_i$ differently.
+$\phi_i \in R$ are the effects of each _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different methods in the class estimate $\phi_i$ differently.
 
 <!-- Considerations: -->
 <!-- 1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s), -->
@@ -22,27 +24,33 @@ $\phi_i \in R$ are the affects of each _binary_ feature $z_i' \in \{0, 1\}^M$ in
 
 SHAP values, Linear LIME, DeepLIFT and other methods just calculate $\phi_i$s differently, in turn yielding different coefficients.
 
-The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_. With these requirements, they show that Shapley values are the best coefficients, thereby unifying the methods. Other methods violate some of these 3 properties.
+The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_ defined as:
 
-This post gives a very brief definition of each characteristic, just below:
+1. **Local Accuracy**: There must be equality when the input is the original one ($x$), that is $f(x) = g(x')$.
+2. **Missingness**: If the reference vector ($x'$) has a "missing" component ($x_i'=0$) then the feature must have no impact, that is $\phi_i = 0$.
+3. **Consistency**: if one of two models is larger just turning feature $i$ on and off, then it must have a larger $\phi_i$.
 
-1. **Local Accuracy**: There must be equality when the input is the original one ($x$), that is $f(x) = g(x')$
-2. **Missingness**: this is their word for a feature being $0$. If $x_i'$ is always 0, the feature must have no impact, that is $\phi_i=0$.
-3. **Consistency**:
-
-The authors argue these properties lead to coefficients that are more intuitive for humans.
+Those requirements are only satisfied when the explanation model's coefficients ($\phi_i$) are Shapley values. Other methods violate some of these 3 properties (so the authors changeii them to comply). The authors argue these properties lead to coefficients that are more intuitive for humans.
 
 > [!NOTE]
-> The most accurate SHAP values are expensive to calculate. Approximations can be used in some cases to speed this up.
+> The most accurate Shapley values are expensive to calculate. Approximations can be used in some cases to speed this up.
+
 
 ## SHAP
 
-SHAP stands for SHapley Additive exPlanations, and it's the link between Shapley's values with the best coefficients for the linear explanation model (when local accuracy, missingness and consistency are required).
+- Shapley Values are the importances of features ($\phi_i$) for a model $f$.
+- SHAP (Shapley Additive exPlanations) Values is just the Shapley Values but it adds an interpretation of $f$ as the change in the expectation value of $f$ when the feature $x'\_i$ is turned on. This is written as $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$.
+<!-- They come from a combinatorial which depends on the prediction model $f(h_x(z))$ and a "fixed" input $x$: -->
+<!-- - $\phi_i(f,x)$ is a complex combinatorial depending on on the definition of $f$ around a point $x$, which they define as an expectation value $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$ and $S$ are non-zero indices. -->
+<!-- - For example, with $\vec{z} = \langle{}v_1, 0, v_2\rangle{}$ then $\phi_3 = \mathbb{E}[f(z)|z_{1,3}]$. So the Shapley values are the change in the expected model prediction when conditioning on a feature. -->
 
-The [Principles and practice of explaining ML][principles_and_practice] states:
-> The objective in this case is to build a linear model around the instance to be explained, and then interpret each features' coefficient as the features' importance. This idea is similar to LIME, in fact LIME and SHAP are closely related, but SHAP comes with a set of nice theoretical properties.
+When the model $f$ is highly non-linear or the features are correlated, the estimation of SHAP values involves a complex average of values, otherwise there are useful approximations to them.
 
-The exact Shapley values $\phi_i$ result from an expensive combinatorial. Approximations to the exact formula can be made, with extra assumptions, which **may not hold**:
+### Approximating SHAP values
+
+The approximations can be _model agnostic_: Shapley Sampling Values, Quantitative Input Influence, Kernel SHAP; or they can be _model-specific_: Max SHAP, Deep SHAP.
+
+The actual approximations are:
 
 **Approximation 1**: Feature independence (implies non-multicollinearity).
 
