@@ -38,7 +38,9 @@ Those requirements are only satisfied when the explanation model's coefficients 
 ## SHAP
 
 - Shapley Values are the importances of features ($\phi_i$) for a model $f$.
-- SHAP (Shapley Additive exPlanations) Values is just the Shapley Values but it adds an interpretation of $f$ as the change in the expectation value of $f$ when the feature $x'\_i$ is turned on. This is written as $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$.
+- SHAP (Shapley Additive exPlanations) Values is:
+    - The Shapley Values in the context of a linear local approximation model $g$ to the original $f$, which requires additive Shapley Values, plus the 3 property requirements, together guaranteeing a unique solution (Theorem 1).
+    - With an interpretation of $f$ as the change in the expectation value of $f$ when the feature $x'\_i$ is turned on. This is written as $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$ (Section 4).
 <!-- They come from a combinatorial which depends on the prediction model $f(h_x(z))$ and a "fixed" input $x$: -->
 <!-- - $\phi_i(f,x)$ is a complex combinatorial depending on on the definition of $f$ around a point $x$, which they define as an expectation value $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$ and $S$ are non-zero indices. -->
 <!-- - For example, with $\vec{z} = \langle{}v_1, 0, v_2\rangle{}$ then $\phi_3 = \mathbb{E}[f(z)|z_{1,3}]$. So the Shapley values are the change in the expected model prediction when conditioning on a feature. -->
