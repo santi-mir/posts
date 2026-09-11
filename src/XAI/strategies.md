@@ -17,6 +17,13 @@ $$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 Each $\phi_i \in R$ is an effects of a _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different methods in the class estimate $\phi_i$ differently.
 
 > [!NOTE]
+> **Explanation Model**
+>
+> [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
+
+Finally, just for completeness:
+
+> [!NOTE]
 > The AFAM class was identified in the paper [A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf].
 
 ## SHAP
@@ -271,5 +278,4 @@ Let's now look at other methods.
 
 <!-- _Note_: these could be called linear combination of binary features as well. -->
 
-[^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 
