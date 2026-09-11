@@ -6,48 +6,46 @@ This post explores the "Additive Feature Attribution Methods" class of _extrinsi
 
 ---------
 
-[A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf] identified that many explanation models are Additive Feature Attribution Methods (AFAMs). These methods approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features (making it simpler and interpretable). Mathematically:
+## What are AFAMs?
+
+Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features (making it simpler and interpretable).
+
+Mathematically:
 
 $$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 
-$\phi_i \in R$ are the effects of each _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different methods in the class estimate $\phi_i$ differently.
-
-<!-- Considerations: -->
-<!-- 1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s), -->
-<!-- 1. Explanation models don't protect from a biased prediction model, -->
-<!-- 1. Some methods, such as Kernel SHAP and LIME, assume independent features, -->
-<!-- 1. If we assume linearity and the reality is non-linear there will also be an error. -->
-
-<!-- _Note_: these could be called linear combination of binary features as well. -->
-
-## Best coefficients
-
-SHAP values, Linear LIME, DeepLIFT and other methods just calculate $\phi_i$s differently, in turn yielding different coefficients.
-
-The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_ defined as:
-
-1. **Local Accuracy**: There must be equality when the input is the original one ($x$), that is $f(x) = g(x')$.
-2. **Missingness**: If the reference vector ($x'$) has a "missing" component ($x_i'=0$) then the feature must have no impact, that is $\phi_i = 0$.
-3. **Consistency**: if one of two models is larger just turning feature $i$ on and off, then it must have a larger $\phi_i$.
-
-Those requirements are only satisfied when the explanation model's coefficients ($\phi_i$) are Shapley values. Other methods violate some of these 3 properties (so the authors changeii them to comply). The authors argue these properties lead to coefficients that are more intuitive for humans.
+Each $\phi_i \in R$ is an effects of a _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different methods in the class estimate $\phi_i$ differently.
 
 > [!NOTE]
-> The most accurate Shapley values are expensive to calculate. Approximations can be used in some cases to speed this up.
+> The AFAM class was identified in the paper [A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf].
 
 ## SHAP
 
-- Shapley Values are the importances of features ($\phi_i$) for a model $f$.
-- SHAP (Shapley Additive exPlanations) Values is:
-    - The Shapley Values in the context of a linear local approximation model $g$ to the original $f$, which requires additive Shapley Values, plus the 3 property requirements, together guaranteeing a unique solution (Theorem 1).
-    - With an interpretation of $f$ as the change in the expectation value of $f$ when the feature $x'\_i$ is turned on. This is written as $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$ (Section 4).
+Linear LIME, DeepLIFT and other methods calculate $\phi_i$s differently, in turn yielding different coefficients.
+
+The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_ which, they argue, lead to coefficients that are more intuitive for humans.
+
+The terms are defined as:
+
+- **Local Accuracy**: There must be equality when the input is the original one ($x$), that is $f(x) = g(x')$.
+- **Missingness**: If the reference vector ($x'$) has a "missing" component ($x_i'=0$) then the feature must have no impact, that is $\phi_i = 0$.
+- **Consistency**: if one of two models is larger just turning feature $i$ on and off, then it must have a larger $\phi_i$.
+
+Their Theorem (Theorem 1) guarantees ahat a linear explanation model plus the 3 requirements leave Shapley Values (a result from [game-theory found by Shapley][shap original]) as the best (and unique) coefficients. Other methods violate some of these 3 properties (so the authors modify them to comply).
+
+SHAP (SHapley Additive Explanations) Values are the Shapley Values of a conditional expectation function of the original model: $f(h_x(z')) =  \mathbb{E}[f(z)|z_S]$ (Section 4, see Figure 1). $S$ are non-zero indices.
+
+- For example, with $\vec{z} = \langle{}v_1, 0, v_2\rangle{}$ then $\phi_3 = \mathbb{E}[f(z)|z_{1,3}]$. So the Shapley values are the change in the expected model prediction when conditioning on a feature.
+
+
+> [!NOTE]
+> The most accurate Shapley Values are expensive to calculate. Approximations can be used in some cases to speed this up.
+
 <!-- They come from a combinatorial which depends on the prediction model $f(h_x(z))$ and a "fixed" input $x$: -->
-<!-- - $\phi_i(f,x)$ is a complex combinatorial depending on on the definition of $f$ around a point $x$, which they define as an expectation value $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$ and $S$ are non-zero indices. -->
-<!-- - For example, with $\vec{z} = \langle{}v_1, 0, v_2\rangle{}$ then $\phi_3 = \mathbb{E}[f(z)|z_{1,3}]$. So the Shapley values are the change in the expected model prediction when conditioning on a feature. -->
+<!-- - $\phi_i(f,x)$ is a complex combinatorial depending on on the definition of $f$ around a point $x$, which they define as an expectation value $f(h_x(z)) =  \mathbb{E}[f(z)|z_S]$
+When the model $f$ is highly non-linear or the features are correlated, the estimation of SHAP values involves a complex average of values, otherwise there are useful approximations to them. -->
 
-When the model $f$ is highly non-linear or the features are correlated, the estimation of SHAP values involves a complex average of values, otherwise there are useful approximations to them.
-
-### Approximating SHAP values
+### Approximating SHAP Values
 
 The approximations can be _model agnostic_: Shapley Sampling Values, Quantitative Input Influence, Kernel SHAP; or they can be _model-specific_: Max SHAP, Deep SHAP.
 
@@ -65,11 +63,13 @@ The actual approximations are:
 
 ### Kernel SHAP
 
-Due to a mathematical connection, SHAP values for a linear model with assumed-uncorrelated features can be estimated by weighted linear regression.
+Can we modify Linear LIME's Loss function so that the values of coefficients found are Shapley values? Yes! These are also more intuitive to humans, and remove some of the heuristics (kernel selection and complexity metric) of it.
 
 The Linear LIME quantities of _proximity kernel_ ($\pi_x$), complexity penalty ($\Omega(g)$) and Loss ($L$) are turned into a _shapley kernel_, $\Omega(g) = 0$, and the same weighted loss.
 
-This method is called Kernel SHAP.
+The SHAP values / coefficients for this linear model with assumed-uncorrelated features can be estimated by weighted linear regression.
+
+This method is called Kernel SHAP, and it's fast to compute.
 
 ## LIME and SP-LIME
 
@@ -263,4 +263,13 @@ Let's now look at other methods.
 <!-- - Some input-features may be hard to encode in binary form. -->
 <!-- - If a model uses a binary or interpretable input, then the contribution of a feature may be known by "turning it on and off". LIME helps when there are too many, or they are not interpretable. -->
 
+<!-- Considerations: -->
+<!-- 1. Two complex models $f_1$, $f_2$ trained with same data likely have different coefficients for each approximation model ($\phi_i$s), -->
+<!-- 1. Explanation models don't protect from a biased prediction model, -->
+<!-- 1. Some methods, such as Kernel SHAP and LIME, assume independent features, -->
+<!-- 1. If we assume linearity and the reality is non-linear there will also be an error. -->
+
+<!-- _Note_: these could be called linear combination of binary features as well. -->
+
 [^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
+
