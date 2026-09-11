@@ -22,15 +22,25 @@ Unclear why this item is about interpretability.
 
 Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. In this blogpost, explainability and interpretability are considered synonyms. _Model explainability_ can be defined as:
 
-> The degree to which we can answer questions about a model and its output. The _answers_ are context and audience (including ourselves).
+> The degree to which we can answer questions a model's predictions and inner workings. The _answers_ are context and audience (including ourselves).
 
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 
-There are also other related definitions such as [LIME][lime]'s:
+Another definition is found in ["Why Should I Trust You?"][lime]:
 
-> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance’s components (e.g. words in text, patches in an image) and the model’s prediction.
+> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
 
-Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^1], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
+Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^extr_intr], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
+
+<!-- The explanations may still be _local_ (explains a particular prediction) or global (explains the full model). The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. -->
+
+<!-- > [!NOTE] -->
+<!-- > Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations. -->
+
+### Global and Local Explanations
+
+- Global: valid for all inputs (explains the model) e.g. by combining local explanations.
+- Local: for specific inputs-outputs.
 
 ### Intrinsic Explainability
 
@@ -42,23 +52,19 @@ Transparency is domain-dependent. For example, the field of **geometric deep lea
 
 ### Extrinsic Explainability
 
-Aims to give a qualitative understanding between inputs and outputs, be easy to understand, and be model agnostic. They should also have good local fidelity, that is, they should be a good approximation to the original model in the vicinity of the instance being predicted. The local explanations may also be combined to provide a _global explanation_ of the model. All of these properties were taken from [LIME][lime].
+From [Zachary's paper][mythos]:
 
-The fidelity usually isn't perfect &mdash;unless it's just the original model. Simplified models may use less variables than the original, making it easier to understand.
+> (...) opaque models can be interpreted after the fact, without sacrificing predictive performance.
 
-[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models must be wrong; if it is the same, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
+This is what this post calls Extrinsic Explainability.
 
-On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. In the case of LIME, the explanations are _not global_, but _local_, so the model can't replace the original, and it may be locally-faithful. The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. As [LIME][lime]'s paper puts it:
+On top of the previous quote, the paper ["Why should I trust you?"][lime] has an explainer desiderata: it should give a qualitative understanding between inputs and outputs, be easy to understand, and be model agnostic and locally faithful (a good fit to the original model in the vicinity of the instance being explained). In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
 
-> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model’s prediction.
+<!-- Simpler models are also less expressive and may use less variables than the original, making it easier to understand. -->
 
-> [!NOTE]
-> Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations.
+[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models[^shap] must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
 
-### Global vs Local
-
-- Global: valid for all inputs, e.g. LIME combining local explanations and also gradient based methods (which are never local).
-- Local: for specific inputs, e.g. LIME and other input-perturbation explanation models.
+On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. Some of those popular methods are explained in [strategies](./strategies.md).
 
 ### Brief Aside: Neural Netwoks
 
@@ -89,15 +95,15 @@ We may expect _model explainability_ to be inversely correlated with model compl
     <p>Hypothesis: Model explainability v. Accuracy tradeoff.</p>
 </div>
 
-A similar idea may be behind [Zachary's paper][mythos]:
-
-> One advantage of this concept of interpretability [post hoc interpretability] is that opaque models can be interpreted after the fact, without sacrificing predictive performance.
-
-And similarly, in [LIME][lime] (refs removed):
+And in ["Why Should I Trust You?"][lime] (refs removed):
 
 > Recognizing the utility of explanations in assessing trust, many have proposed using interpretable models, especially for the medical domain. While such models may be appropriate for some domains, they may not apply equally well to others (...). Interpretability, in these cases, comes at the cost of flexibility, accuracy, or efficiency.
 
-Other researchers such as [Rudin][interpretable_ml] disagredisagree (bold is mine, references were removed):
+And in [SHAP][shap]:
+
+> However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability.
+
+Other researchers such as [Rudin][interpretable_ml] disagre (bold is mine, references were removed):
 
 > Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
 
@@ -125,7 +131,7 @@ However, the model consistently fails to predict rains when people didn't take t
 1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
 1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
-Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^2]
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^3]
 
 A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
@@ -282,5 +288,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
-[^1]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
-[^2]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+[^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
+[^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
+[^3]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
