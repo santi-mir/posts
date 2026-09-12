@@ -8,9 +8,13 @@ This post explores the "Additive Feature Attribution Methods" class of _extrinsi
 
 ## What are AFAMs?
 
-Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features (making it simpler and interpretable).
+Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features, making it simpler and interpretable.
 
-Mathematically:
+How do _explanation models_ relate to explanations as [described earlier](./explanation.md)? Here is what [Explaining Explanations in AI][xxai] says:
+
+> These [explanation] models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.
+
+Mathematically, the explanation model ($g$) is described as:
 
 $$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 
@@ -211,8 +215,9 @@ Let's now look at other methods.
 <summary>Sources</summary>
 
 1. [A value for n-person games][shap original] (1952)
-1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016)
-1. [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] (2017)
+1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016),
+1. [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] (2017),
+1. [Explaining Explanations in AI][xxai] (2019),
 1. [Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.
 
@@ -223,6 +228,7 @@ Let's now look at other methods.
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
 [unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 [shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
+[xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
 <!-- ### LIME: Two Explanatory Levels -->
 <!---->

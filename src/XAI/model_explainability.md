@@ -4,29 +4,31 @@ Explanations were defined and characterised in [explanations](./explanation.md).
 
 ----------------
 
-<!-- ## Real World Objectives-->
-<!---->
-<!-- Partly based on the paper [The Mythos of Model Interpretability][mythos] we want to:-->
-<!-- 1. Trust. In which sense? Accuracy deployment robustness, human-performance? -->
-<!-- 2. Causality. They are usually trained to just make correlations/associations, and they may learn to use proxy-variables, confounders (X-Y may have both an underlying Z-cause), shortcuts; we would want causal relationships instead. Bayesian Networks and Regression Trees? How can we infer causal relations from observational data (Pearl, Causality) -->
-<!-- Transferability: This isn't just about Out Of Distribution, but that the training environment correctly reflects the deployment one (for example, programmers may misinterpret the meaning of some column, or it may even be wrong, which could still happen in accurate models! So this should be broken down into database trust (which is also mentioned by Rudin though in terms of data poisoning rather than errors) and data-task correctly understood, and model generality / performance OoD.
-Unclear why this item is about interpretability.
--->
-<!-- Informativeness: Interesting. Besides or along with the primary training objective it may be possible to extract extra information from the model, to help (inform) the user. This may be provided with posthoc or intrinsic XAI as well. Rudin et.al., created a "classifier-by-similarity" CNN that outputs which images in the dataset where used to decide, compared to. Or point to similar cases. Counterfactuals / Contrasts seem another way (Juergensen).
--->
-<!-- Ethics: Right to explanation (GDPR), Conform to ethical standards,..-->
-<!-- 4. Improve debugging / troubleshooting? -->
-<!-- 5. Get more useful information from the model. -->
 
 ## Model Explainability
 
-Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. In this blogpost, explainability and interpretability are considered synonyms. _Model explainability_ can be defined as:
+Explainable AI (XAI) is primarily about explaining machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
 
-> The degree to which we can answer questions a model's predictions and inner workings. The _answers_ are context and audience (including ourselves).
+<!-- As I read it, _explainability_ and _interpretability_ are also considered synonyms by [Explaining Explanations in AI][xxai] stating "the xAI community investigates interpretability (or explainability) ...". The paper also defines _interpretability_ as: -->
+<!---->
+<!-- > "Interpretability" refers to the degree of human comprehensibility of a given 'black-box' model or decision (Lisboa, 2013; Miller, 2017). -->
+
+<!-- Our definition of explanation is more detailed and was given in [this previous post](./explanation.md). -->
+
+We define _model explainability_ condensing many paragraphs from different papers.[^1]
+
+> [!NOTE]
+> **Model explainability**
+>
+> The degree to which we can answer questions a model's predictions and inner workings. The _answers_ are context and audience (including ourselves) dependent.
+
+For example, one similar paragraph is from [Explaining Explanations in AI][xxai] defines explanation as:
+
+> (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).
 
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 
-Another definition is found in ["Why Should I Trust You?"][lime]:
+Another similar paragraph is from ["Why Should I Trust You?"][lime]:
 
 > By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
 
@@ -131,7 +133,7 @@ However, the model consistently fails to predict rains when people didn't take t
 1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
 1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
 
-Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^3]
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^selection_problem]
 
 A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
 
@@ -284,10 +286,29 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 [xx]: http://arxiv.org/abs/1806.00069
 
+[xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
+
 <!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
 
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
+[^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable").
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
 [^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
-[^3]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+[^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+
+
+
+<!-- ## Real World Objectives-->
+<!---->
+<!-- Partly based on the paper [The Mythos of Model Interpretability][mythos] we want to:-->
+<!-- 1. Trust. In which sense? Accuracy deployment robustness, human-performance? -->
+<!-- 2. Causality. They are usually trained to just make correlations/associations, and they may learn to use proxy-variables, confounders (X-Y may have both an underlying Z-cause), shortcuts; we would want causal relationships instead. Bayesian Networks and Regression Trees? How can we infer causal relations from observational data (Pearl, Causality) -->
+<!-- Transferability: This isn't just about Out Of Distribution, but that the training environment correctly reflects the deployment one (for example, programmers may misinterpret the meaning of some column, or it may even be wrong, which could still happen in accurate models! So this should be broken down into database trust (which is also mentioned by Rudin though in terms of data poisoning rather than errors) and data-task correctly understood, and model generality / performance OoD.
+Unclear why this item is about interpretability.
+-->
+<!-- Informativeness: Interesting. Besides or along with the primary training objective it may be possible to extract extra information from the model, to help (inform) the user. This may be provided with posthoc or intrinsic XAI as well. Rudin et.al., created a "classifier-by-similarity" CNN that outputs which images in the dataset where used to decide, compared to. Or point to similar cases. Counterfactuals / Contrasts seem another way (Juergensen).
+-->
+<!-- Ethics: Right to explanation (GDPR), Conform to ethical standards,..-->
+<!-- 4. Improve debugging / troubleshooting? -->
+<!-- 5. Get more useful information from the model. -->
