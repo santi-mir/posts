@@ -4,7 +4,6 @@ Explanations were defined and characterised in [explanations](./explanation.md).
 
 ----------------
 
-
 ## Model Explainability
 
 Explainable AI (XAI) is primarily about explaining machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
@@ -15,7 +14,7 @@ Explainable AI (XAI) is primarily about explaining machine and deep learning mod
 
 <!-- Our definition of explanation is more detailed and was given in [this previous post](./explanation.md). -->
 
-We define _model explainability_ condensing many paragraphs from different papers.[^1]
+We define _model explainability_ condensing many paragraphs from different papers.[^literal]
 
 > [!NOTE]
 > **Model explainability**
@@ -296,8 +295,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
 [^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 [^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
-
-
 
 <!-- ## Real World Objectives-->
 <!---->

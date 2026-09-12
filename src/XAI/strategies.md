@@ -48,7 +48,6 @@ SHAP (SHapley Additive Explanations) Values are the Shapley Values of a conditio
 
 - For example, with $\vec{z} = \langle{}v_1, 0, v_2\rangle{}$ then $\phi_3 = \mathbb{E}[f(z)|z_{1,3}]$. So the Shapley values are the change in the expected model prediction when conditioning on a feature.
 
-
 > [!NOTE]
 > The most accurate Shapley Values are expensive to calculate. Approximations can be used in some cases to speed this up.
 
@@ -218,7 +217,7 @@ Let's now look at other methods.
 1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016),
 1. [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] (2017),
 1. [Explaining Explanations in AI][xxai] (2019),
-1. [Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,
+1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): overview of many aspects of XAI,
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.
 
 </details>
@@ -283,5 +282,3 @@ Let's now look at other methods.
 <!-- 1. If we assume linearity and the reality is non-linear there will also be an error. -->
 
 <!-- _Note_: these could be called linear combination of binary features as well. -->
-
-

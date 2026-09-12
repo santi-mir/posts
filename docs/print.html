@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-d89c3d95.js";
+            window.path_to_searchindex_js = "searchindex-74c2edb2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -210,10 +210,14 @@
 <p>Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.</p>
 </blockquote>
 <p>The definition of "Explanation" given above is unclear regarding what "<em>explains</em>" means. We could just as well define "Interview" as "Someone interviews someone about something". Though even in this vague form, it still highlights an exchange between two agents.</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> also defines of explanations and explanation in AI:</p>
+<blockquote>
+<p>(...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).</p>
+</blockquote>
 <p>Inspired by <a href="https://doi.org/10.1016/j.artint.2018.07.007">Explanation in artificial intelligence: insights from the social sciences</a>, this post defines "explaining" broadly as:</p>
 <blockquote>
 <p><strong>Explaining</strong></p>
-<p>A two-step process involving <code>1.</code> the generation of explanatory hypotheses (cognitive process) and <code>2.</code> the communication to an audience (social process).</p>
+<p>A two-step process involving <code>1.</code> the generation of explanatory hypotheses (cognitive process) and <code>2.</code> the communication to an audience (social process). The process may repeat indefinitely.</p>
 </blockquote>
 <p>Usually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.</p>
 <p>The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding! Also, the <em>explanandum</em> (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.</p>
@@ -360,6 +364,7 @@
 </ul>
 </li>
 <li><a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a> (2017). Argues that Agents will necessarily have initiative, planning, decision making and people will regard them as intentional agents. They will explain them (and expect the system to do so) as if it were a human.</li>
+<li><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019), an interesting take on the problem from the perspective of "explanation sciences" (philosophy, cognitive sciences, social sciences).</li>
 <li>Blog Posts: <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">What is Explainable AI?</a> (2022) and from <a href="https://www.sei.cmu.edu/blog/what-is-explainable-ai/">IBM</a>.</li>
 <li><a href="https://doi.org/10.24963/ijcai.2023/733">Good Explanations in Explainable Artificial Intelligence (XAI): Evidence from Human Explanatory Reasoning</a> (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.</li>
 </ol>
@@ -438,26 +443,25 @@
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explainable-ai"><a class="header" href="#explainable-ai">Explainable AI</a></h1>
 <p>Explanations were defined and characterised in <a href="#explanations">explanations</a>. This post explores the connection of <em>explanations</em> to <em>deep learning models</em>.</p>
-<hr><!-- ## Real World Objectives-->
-<!---->
-<!-- Partly based on the paper [The Mythos of Model Interpretability][mythos] we want to:-->
-<!-- 1. Trust. In which sense? Accuracy deployment robustness, human-performance? -->
-<!-- 2. Causality. They are usually trained to just make correlations/associations, and they may learn to use proxy-variables, confounders (X-Y may have both an underlying Z-cause), shortcuts; we would want causal relationships instead. Bayesian Networks and Regression Trees? How can we infer causal relations from observational data (Pearl, Causality) -->
-<!-- Transferability: This isn't just about Out Of Distribution, but that the training environment correctly reflects the deployment one (for example, programmers may misinterpret the meaning of some column, or it may even be wrong, which could still happen in accurate models! So this should be broken down into database trust (which is also mentioned by Rudin though in terms of data poisoning rather than errors) and data-task correctly understood, and model generality / performance OoD.
-Unclear why this item is about interpretability.
--->
-<!-- Informativeness: Interesting. Besides or along with the primary training objective it may be possible to extract extra information from the model, to help (inform) the user. This may be provided with posthoc or intrinsic XAI as well. Rudin et.al., created a "classifier-by-similarity" CNN that outputs which images in the dataset where used to decide, compared to. Or point to similar cases. Counterfactuals / Contrasts seem another way (Juergensen).
--->
-<!-- Ethics: Right to explanation (GDPR), Conform to ethical standards,..-->
-<!-- 4. Improve debugging / troubleshooting? -->
-<!-- 5. Get more useful information from the model. -->
+<hr>
 <h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
-<p>Explainable AI (XAI) is primarily about explaining machine and deep learning models and their outputs. In this blogpost, explainability and interpretability are considered synonyms. <em>Model explainability</em> can be defined as:</p>
+<p>Explainable AI (XAI) is primarily about explaining machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.</p>
+<!-- As I read it, _explainability_ and _interpretability_ are also considered synonyms by [Explaining Explanations in AI][xxai] stating "the xAI community investigates interpretability (or explainability) ...". The paper also defines _interpretability_ as: -->
+<!---->
+<!-- > "Interpretability" refers to the degree of human comprehensibility of a given 'black-box' model or decision (Lisboa, 2013; Miller, 2017). -->
+<!-- Our definition of explanation is more detailed and was given in [this previous post](./explanation.md). -->
+<p>We define <em>model explainability</em> condensing many paragraphs from different papers.[^1]</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p><strong>Model explainability</strong></p>
+<p>The degree to which we can answer questions a model's predictions and inner workings. The <em>answers</em> are context and audience (including ourselves) dependent.</p>
+</blockquote>
+<p>For example, one similar paragraph is from <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> defines explanation as:</p>
 <blockquote>
-<p>The degree to which we can answer questions a model's predictions and inner workings. The <em>answers</em> are context and audience (including ourselves).</p>
+<p>(...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).</p>
 </blockquote>
 <!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
-<p>Another definition is found in <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a>:</p>
+<p>Another similar paragraph is from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a>:</p>
 <blockquote>
 <p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.</p>
 </blockquote>
@@ -543,7 +547,7 @@ The researcher needs to create a model that has the capability of uncovering the
 <li>The dataset is <em>not representative</em> the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?</li>
 <li>The approach itself was incorrect: we use variables that promote <em>association rather than causation</em>.</li>
 </ol>
-<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-3-1"><a href="#footnote-3">3</a></sup></p>
+<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-selection_problem-1"><a href="#footnote-selection_problem">3</a></sup></p>
 <p>A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
 <p>Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
 <blockquote>
@@ -683,6 +687,19 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
 <!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
+<!-- ## Real World Objectives-->
+<!---->
+<!-- Partly based on the paper [The Mythos of Model Interpretability][mythos] we want to:-->
+<!-- 1. Trust. In which sense? Accuracy deployment robustness, human-performance? -->
+<!-- 2. Causality. They are usually trained to just make correlations/associations, and they may learn to use proxy-variables, confounders (X-Y may have both an underlying Z-cause), shortcuts; we would want causal relationships instead. Bayesian Networks and Regression Trees? How can we infer causal relations from observational data (Pearl, Causality) -->
+<!-- Transferability: This isn't just about Out Of Distribution, but that the training environment correctly reflects the deployment one (for example, programmers may misinterpret the meaning of some column, or it may even be wrong, which could still happen in accurate models! So this should be broken down into database trust (which is also mentioned by Rudin though in terms of data poisoning rather than errors) and data-task correctly understood, and model generality / performance OoD.
+Unclear why this item is about interpretability.
+-->
+<!-- Informativeness: Interesting. Besides or along with the primary training objective it may be possible to extract extra information from the model, to help (inform) the user. This may be provided with posthoc or intrinsic XAI as well. Rudin et.al., created a "classifier-by-similarity" CNN that outputs which images in the dataset where used to decide, compared to. Or point to similar cases. Counterfactuals / Contrasts seem another way (Juergensen).
+-->
+<!-- Ethics: Right to explanation (GDPR), Conform to ethical standards,..-->
+<!-- 4. Improve debugging / troubleshooting? -->
+<!-- 5. Get more useful information from the model. -->
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-extr_intr">
@@ -691,8 +708,8 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <li id="footnote-shap">
 <p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">In their words</a> : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the <em>explanation model</em>." and also "Instead, we must use a simpler <em>explanation model</em>, which we define as any interpretable approximation of the original model.". <a href="#fr-shap-1">↩</a></p>
 </li>
-<li id="footnote-3">
-<p>Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies? <a href="#fr-3-1">↩</a></p>
+<li id="footnote-selection_problem">
+<p>Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies? <a href="#fr-selection_problem-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -701,8 +718,12 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- There is less emphasis on audiences or technicalities about explanations. -->
 <hr>
 <h2 id="what-are-afams"><a class="header" href="#what-are-afams">What are AFAMs?</a></h2>
-<p>Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>) with an <em>explanation model</em> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) which is a linear addition of binary features (making it simpler and interpretable).</p>
-<p>Mathematically:</p>
+<p>Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>) with an <em>explanation model</em> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) which is a linear addition of binary features, making it simpler and interpretable.</p>
+<p>How do <em>explanation models</em> relate to explanations as <a href="#explanations">described earlier</a>? Here is what <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:</p>
+<blockquote>
+<p>These [explanation] models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.</p>
+</blockquote>
+<p>Mathematically, the explanation model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) is described as:</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0519em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8019em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:3.106em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8019em;"><span style="top:-2.453em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></span></p>
 <p>Each <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> is an effects of a <em>binary</em> feature <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0106em;vertical-align:-0.2587em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-2.4413em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2587em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span></span></span></span></span></span></span></span></span></span></span> in the output. The different methods in the class estimate <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> differently.</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
@@ -878,8 +899,9 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <summary>Sources</summary>
 <ol>
 <li><a href="https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf">A value for n-person games</a> (1952)</li>
-<li><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a> (2016)</li>
-<li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017)</li>
+<li><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a> (2016),</li>
+<li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017),</li>
+<li><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019),</li>
 <li>[Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,</li>
 <li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.</li>
 </ol>
