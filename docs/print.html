@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-74c2edb2.js";
+            window.path_to_searchindex_js = "searchindex-5080c976.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -450,7 +450,7 @@
 <!---->
 <!-- > "Interpretability" refers to the degree of human comprehensibility of a given 'black-box' model or decision (Lisboa, 2013; Miller, 2017). -->
 <!-- Our definition of explanation is more detailed and was given in [this previous post](./explanation.md). -->
-<p>We define <em>model explainability</em> condensing many paragraphs from different papers.[^1]</p>
+<p>We define <em>model explainability</em> condensing many paragraphs from different papers.<sup class="footnote-reference" id="fr-literal-1"><a href="#footnote-literal">1</a></sup></p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p><strong>Model explainability</strong></p>
@@ -465,7 +465,7 @@
 <blockquote>
 <p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.</p>
 </blockquote>
-<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-extr_intr-1"><a href="#footnote-extr_intr">1</a></sup>, Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".</p>
+<p>Below, a few types of <em>model explainability</em>, namely Intrinsic and Extrinsic<sup class="footnote-reference" id="fr-extr_intr-1"><a href="#footnote-extr_intr">2</a></sup>, Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".</p>
 <!-- The explanations may still be _local_ (explains a particular prediction) or global (explains the full model). The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. -->
 <!-- > [!NOTE] -->
 <!-- > Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations. -->
@@ -488,7 +488,7 @@
 <p>This is what this post calls Extrinsic Explainability.</p>
 <p>On top of the previous quote, the paper <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why should I trust you?"</a> has an explainer desiderata: it should give a qualitative understanding between inputs and outputs, be easy to understand, and be model agnostic and locally faithful (a good fit to the original model in the vicinity of the instance being explained). In that paper, SP-LIME combines local explanations to provide a <em>global explanation</em> of the model.</p>
 <!-- Simpler models are also less expressive and may use less variables than the original, making it easier to understand. -->
-<p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models<sup class="footnote-reference" id="fr-shap-1"><a href="#footnote-shap">2</a></sup> must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
+<p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models<sup class="footnote-reference" id="fr-shap-1"><a href="#footnote-shap">3</a></sup> must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
 <p>On the other hand, methods such as SHAP, LIME, t-SNE, can provide <em>some</em> understanding of the model, even if using approximations. Some of those popular methods are explained in <a href="#additive-feature-attribution-methods">strategies</a>.</p>
 <h3 id="brief-aside-neural-netwoks"><a class="header" href="#brief-aside-neural-netwoks">Brief Aside: Neural Netwoks</a></h3>
 <p>This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper <a href="http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731">Can we open the black box of AI?</a> (Section "Good Trip").</p>
@@ -547,7 +547,7 @@ The researcher needs to create a model that has the capability of uncovering the
 <li>The dataset is <em>not representative</em> the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?</li>
 <li>The approach itself was incorrect: we use variables that promote <em>association rather than causation</em>.</li>
 </ol>
-<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-selection_problem-1"><a href="#footnote-selection_problem">3</a></sup></p>
+<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-selection_problem-1"><a href="#footnote-selection_problem">4</a></sup></p>
 <p>A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
 <p>Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
 <blockquote>
@@ -702,6 +702,9 @@ Unclear why this item is about interpretability.
 <!-- 5. Get more useful information from the model. -->
 <hr>
 <ol class="footnote-definition">
+<li id="footnote-literal">
+<p>The suffix "-ability" simply means "the degree to which" so <em>explainability</em> is the degree to which a phenomenon or event is explainable, and <em>Model explainability</em> simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable"). <a href="#fr-literal-1">↩</a></p>
+</li>
 <li id="footnote-extr_intr">
 <p>Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. <a href="#fr-extr_intr-1">↩</a></p>
 </li>
@@ -902,7 +905,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <li><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a> (2016),</li>
 <li><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017),</li>
 <li><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019),</li>
-<li>[Principles and practice of explainable machine-learning][principles_and_practices] (2021, 25 pages): overview of many aspects of XAI,</li>
+<li><a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable machine-learning</a> (2021, 25 pages): overview of many aspects of XAI,</li>
 <li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.</li>
 </ol>
 </details>
