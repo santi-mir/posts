@@ -1,30 +1,8 @@
 # Model Explainability II
 
-After defining _model explainability_ and the most common kinds of explanations (extrinsic, intrinsic) let's consider the value of comparisons and a summary of methods.
+After defining _model explainability_ and the most common kinds of explanations (extrinsic, intrinsic, global, local) let's do a summary of methods.
 
 ----------------------
-
-## Model Insights from Comparisons
-
-How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).
-
-_Counterfactuals_ What would have happened with an alternative input (a hypothetical case counter to the fact). It's most informative to use the minimum changes that change an output class. They are also similar to _What ifs_ (as the question shows).
-
-Counterfacturals and other comparisons can help to explain models without opening the box.
-
-For a model, _counterfactuals_ are yet another inference from another input, but the comparison is helpful because that is one way humans understand things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).
-
-In a similar fashion to counterfactuals, we can compare with reference inputs.
-
-<!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
-
-<!-- ## Higher-Level Aspects of Networks -->
-<!---->
-<!-- The recognition of higher level patterns in graph can also span across methods. -->
-<!---->
-<!-- These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes. -->
-<!---->
-<!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
 
 ## Overview of methods
 

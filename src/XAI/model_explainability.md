@@ -1,47 +1,32 @@
-# Explainable AI
+# Explainable AI (XAI)
 
 Explanations were defined and characterised in [explanations](./explanation.md). This post explores the connection of _explanations_ to _deep learning models_.
 
 ----------------
 
+## Scope of the Field
+
+Explainable AI (XAI) aims to  explain machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
+
 ## Model Explainability
 
-Explainable AI (XAI) is primarily about explaining machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
-
-<!-- As I read it, _explainability_ and _interpretability_ are also considered synonyms by [Explaining Explanations in AI][xxai] stating "the xAI community investigates interpretability (or explainability) ...". The paper also defines _interpretability_ as: -->
-<!---->
-<!-- > "Interpretability" refers to the degree of human comprehensibility of a given 'black-box' model or decision (Lisboa, 2013; Miller, 2017). -->
-
-<!-- Our definition of explanation is more detailed and was given in [this previous post](./explanation.md). -->
-
-We define _model explainability_ condensing many paragraphs from different papers.[^literal]
+We define _model explainability_[^literal] as:
 
 > [!NOTE]
 > **Model explainability**
 >
-> The degree to which we can answer questions a model's predictions and inner workings. The _answers_ are context and audience (including ourselves) dependent.
+> The degree to which we can answer questions about a model's predictions and inner workings. The _answers_ are context and audience (including ourselves) dependent.
 
 One similar paragraph from [Explaining Explanations in AI][xxai] defines explanation as:
 
 > (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).
 
-<!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
-
-Another similar paragraph is from ["Why Should I Trust You?"][lime]:
-
-> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
-
-Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^extr_intr], Local and Global, are explained. The quote just above is closer to our "Extrinsic Explainability".
-
-<!-- The explanations may still be _local_ (explains a particular prediction) or global (explains the full model). The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. -->
-
-<!-- > [!NOTE] -->
-<!-- > Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations. -->
+Four types of _model explainability_ are described below: Intrinsic, Extrinsic[^extr_intr], Local and Global.
 
 ### Global and Local Explanations
 
-- Global: aims to explain the full model e.g. by combining local explanations as in SP-LIME.
-- Local: aims to explain specific predictions or outputs of a model in connection to its input (e.g. LIME).
+- Global: explains the full model e.g. by combining local explanations as in SP-LIME,
+- Local: explains specific predictions or outputs of a model in connection to its input (e.g. LIME).
 
 ### Intrinsic Explainability
 
@@ -51,47 +36,34 @@ Intrinsic Explainability (or Transparency) looks at the internal mechanics, at t
 
 Zachary's paper breaks down _transparency_ into three components _simulatability_, _decomposability_ and _algorithmic transparency_ which are briefly described in the Sources at the bottom of this post.
 
-Transparency is domain-dependent. For example, the field of **geometric deep learning** can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
+Transparency is domain-dependent. For example, the field of geometric deep learning can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
 
 ### Extrinsic Explainability
 
-On [Zachary's paper][mythos], post-hoc interpretability is defined as:
-
-> (...) opaque models can be interpreted after the fact, without sacrificing predictive performance.
-
-This is what this post calls Extrinsic Explainability (also known as post-hoc interpretation).
+Extrinsic Explainability or post-hoc involves explaining prediction(s). Sometimes they use an extra _explanation model_, but not always.
 
 [Explaining Explanations in AI][xxai] details a few kinds post-hoc interpretation methods:
 
 > Post-hoc human interpretable explanations of models and specific decisions do not seek to reveal how a model functions, but rather how it behaved, and why. According to Lipton (2016), approaches to post-hoc interpretability include verbal (natural language) explanations (e.g. McAuley and Leskovec (2013)), visualisations and interactive interfaces (e.g. Simonyan et al. (2013); Tamagnini et al. (2017)), local explanations or approximations (e.g. Fong and Vedaldi (2017); Ribeiro et al. (2016)), and case-based explanations (e.g. Caruana et al. (1999); Kim et al. (2014)).
 
-The paper ["Why should I trust you?"][lime] has an _explainer desiderata_ (for the approximation or explanation model): it should be `1.` **interpretable**, by giving a qualitative understanding between inputs and outputs, making it easy to understand, `2.` **model agnostic** and `3.` **locally faithful** (a good fit to the original model in the vicinity of the instance being explained) and `4.` **globally explainable**. In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
+["Why Should I Trust You?"][lime] describes one such cases:
 
-An example of qualitative understanding is given in their paper and in the paper [A Unified Approach to Interpreting Model Predictions][shap values], using a visual representation of the contribution of each feature to the output.
+> By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
 
-<!-- Simpler models are also less expressive and may use less variables than the original, making it easier to understand. -->
+This is a visual explanation of the features' contribution to the output from the same paper, where it is used to compare models:
+
+<div class="center w60">
+    <a href="../assets/LIME.png">
+    <img src="../assets/LIME.png" alt="Comparison between to algorithms analysed by LIME."/>
+    </a>
+    <p>Image taken from <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">paper</a>.</p>
+</div>
+
+They also propose an _explainer desiderata_ for the explanation model: it should be `1.` **interpretable**, by giving a qualitative understanding between inputs and outputs, making it easy to understand, `2.` **model agnostic** and `3.` **locally faithful** (a good fit to the original model in the vicinity of the instance being explained) and `4.` **globally explainable**. In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
 
 [Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models[^shap] must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
 
 On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. Some of those popular methods are explained in [strategies](./strategies.md).
-
-### Brief Aside: Neural Netwoks
-
-This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper [Can we open the black box of AI?][open_ai_black_box] (Section "Good Trip").
-
-But what exactly do these networks _learn_? ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] states that:
-
-> [AI methods] includes deep representation learning (Box 1), particularly multilayered neural networks capable of identifying essential, compact features that can simultaneously solve many tasks that underlie a scientific problem.
-
-So a key aspect of understanding and explaining will be to decode those "essential, compact features" into domain concepts. What concepts, if any, are stored there, in the synapses?
-
-It's also useful to have in mind a general idea of where are neural networks models being used, and how:
-
-1. Domain-specific (Narrow AI): these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth). These models benefit from XAI, inductive biases and constrains, and would ideally be interpretable.
-2. Domain-general (Foundation Models): there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks.
-3. AI agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments. The difference to other approaches is that these models are reasoning, and to some extent work like a team of scientists.
-
-Here we are concerned with `1.` primarily, and with the possibility to explain them, design them such that they are interpretable and finally understand them better.
 
 ### Trade-offs?
 
@@ -128,7 +100,6 @@ For complex tasks (Natural Language Processing, Computer Vision), DL models surp
 > (...)
 > The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
 
-<!-- explain also that there are are clear reasons companies may prefer black box models (in two senses): proprietary helps to profit (and restricts gaming them), black box helps avoid accountability / responsibility. -->
 
 ## Out of Distribution
 
@@ -226,15 +197,51 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
-<!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
-
-<!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
 
 [^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable").
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
 [^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 [^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
 
+
+<!-- BELOW THERE IS A TON OF SNIPPETS I REMOVED TO KEEP IT SHORT -->
+
+
+<!-- ### Brief Aside: Neural Netwoks -->
+<!---->
+<!-- This post assumes a working idea of what deep learning models or neural networks are. A simple definition is provided in the paper [Can we open the black box of AI?][open_ai_black_box] (Section "Good Trip"). -->
+<!---->
+<!-- But what exactly do these networks _learn_? ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] states that: -->
+<!---->
+<!-- > [AI methods] includes deep representation learning (Box 1), particularly multilayered neural networks capable of identifying essential, compact features that can simultaneously solve many tasks that underlie a scientific problem. -->
+<!---->
+<!-- So a key aspect of understanding and explaining will be to decode those "essential, compact features" into domain concepts. What concepts, if any, are stored there, in the synapses? -->
+<!---->
+<!-- It's also useful to have in mind a general idea of where are neural networks models being used, and how: -->
+<!---->
+<!-- 1. Domain-specific (Narrow AI): these are small or large models but trained on a specific domain (protein folding, generating new molecules, predicting spectra and so forth). These models benefit from XAI, inductive biases and constrains, and would ideally be interpretable. -->
+<!-- 2. Domain-general (Foundation Models): there is a spectrum between networks trained for a task in a domain, and for a whole domain (e.g. chemistry). These models are usually very large, pre-trained in some unsupervised way and then need to be fine tuned to specific tasks, where they reuse the learnt building blocks. -->
+<!-- 3. AI agents: These are clusters of models working together to carry out many parts of the scientific process of discovery (hypothesis generation, reading literature, suggesting experiments and running code simulations etc.) In some cases they may also have access to robotics platforms and run real world experiments. The difference to other approaches is that these models are reasoning, and to some extent work like a team of scientists. -->
+<!---->
+<!-- Here we are concerned with `1.` primarily, and with the possibility to explain them, design them such that they are interpretable and finally understand them better. -->
+
+<!-- explain also that there are are clear reasons companies may prefer black box models (in two senses): proprietary helps to profit (and restricts gaming them), black box helps avoid accountability / responsibility. -->
+<!-- Simpler models are also less expressive and may use less variables than the original, making it easier to understand. -->
+
+<!-- The explanations may still be _local_ (explains a particular prediction) or global (explains the full model). The question is rather _how faithful_ it needs to be. Combination of local explanations may also give a global understanding of the model. -->
+
+<!-- > [!NOTE] -->
+<!-- > Not all models need an explanation model, some may use explanation techniques that still look at them as black boxes, such as contrastive or counterfactual explanations. -->
+<!-- As noted in the previous post, the "questions" may be implicit; and it's common that the question, implicit or explicit is a _contrastive why-question_. -->
+
+<!-- As I read it, _explainability_ and _interpretability_ are also considered synonyms by [Explaining Explanations in AI][xxai] stating "the xAI community investigates interpretability (or explainability) ...". The paper also defines _interpretability_ as: -->
+<!---->
+<!-- > "Interpretability" refers to the degree of human comprehensibility of a given 'black-box' model or decision (Lisboa, 2013; Miller, 2017). -->
+
+<!-- Our definition of explanation is more detailed and was given in [this previous post](./explanation.md). -->
+<!-- It's interesting to consider, that we ourselves can't really inspect our own models within the brain. We a human explains a model, there is still the "human black box", but one which we trust, maybe because of human-human similarities. -->
+
+<!-- Since there are many definitions and goals of XAI we should always define the term (even approximately) or to cite a definition, and to state _which problems_ our ideas aim to solve. -->
 <!-- ## Real World Objectives-->
 <!---->
 <!-- Partly based on the paper [The Mythos of Model Interpretability][mythos] we want to:-->
