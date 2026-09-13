@@ -6,7 +6,7 @@ Explanations were defined and characterised in [explanations](./explanation.md).
 
 ## Scope of the Field
 
-Explainable AI (XAI) aims to  explain machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
+Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
 
 ## Model Explainability
 
@@ -99,7 +99,6 @@ For complex tasks (Natural Language Processing, Computer Vision), DL models surp
 > Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
 > (...)
 > The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
-
 
 ## Out of Distribution
 
@@ -197,15 +196,12 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
-
 [^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable").
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
 [^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 [^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
 
-
 <!-- BELOW THERE IS A TON OF SNIPPETS I REMOVED TO KEEP IT SHORT -->
-
 
 <!-- ### Brief Aside: Neural Netwoks -->
 <!---->

@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-3f2fc228.js";
+            window.path_to_searchindex_js = "../searchindex-30f45752.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -181,7 +181,6 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanations"><a class="header" href="#explanations">Explanations</a></h1>
 <p>This post describes what explanations are, and forms a basis for understanding how to explain artificial intelligent systems.</p>
-<!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
 <hr>
 <h2 id="definition"><a class="header" href="#definition">Definition</a></h2>
 <p>What is an explanation? There are many definitions. Here is one, from "<a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a>" (2017):</p>
@@ -205,8 +204,6 @@
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p>This post is mostly jargon-free. Technical articles about topics such as <em>abductive inference</em> are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given <a href="https://newsletter.squishy.computer/p/llms-for-theory-building">in this article</a> by Gordon Brander.</p>
 </blockquote>
-<!-- >[!NOTE] -->
-<!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
 <h2 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive Process</a></h2>
 <h3 id="contrastive-questions"><a class="header" href="#contrastive-questions">Contrastive Questions</a></h3>
 <p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em> Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.</p>
@@ -306,28 +303,6 @@
 </table>
 </div>
 <p>The post on <a href="./explanatory_stances.html">explanatory stances</a> continues this line of reasoning and connects them with <em>how we explain humans and deep learning models</em>.</p>
-<!-- ### Classification -->
-<!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
-<!---->
-<!-- - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience. -->
-<!-- - **Static explanations**: Same as above, but they are non-interactive. -->
-<!-- - **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to. -->
-<!---->
-<!-- In the rest of this post, the term _explanandum_ defines _that which needs clarification_. -->
-<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
-<!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
-<!-- ## Explaining is Teaching -->
-<!---->
-<!-- The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.) -->
-<!---->
-<!-- The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.) -->
-<!---->
-<!-- Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_. -->
-<!---->
-<!-- More modern views include _connectivism_ (based on connectionism). -->
-<!---->
-<!-- This is a fascinating and related topic, but currently not discussed in the posts. -->
-<!---->
 <hr><details>
 <summary>Sources</summary>
 <ol>
@@ -350,7 +325,51 @@
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
+<!-- ### Classification -->
+<!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
+<!---->
+<!-- - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience. -->
+<!-- - **Static explanations**: Same as above, but they are non-interactive. -->
+<!-- - **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to. -->
+<!---->
+<!-- In the rest of this post, the term _explanandum_ defines _that which needs clarification_. -->
+<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
+<!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
+<!-- ## Explaining is Teaching -->
+<!---->
+<!-- The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.) -->
+<!---->
+<!-- The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.) -->
+<!---->
+<!-- Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_. -->
+<!---->
+<!-- More modern views include _connectivism_ (based on connectionism). -->
+<!---->
+<!-- This is a fascinating and related topic, but currently not discussed in the posts. -->
+<!---->
+<!-- ## Model Insights from Comparisons -->
+<!---->
+<!-- How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison). -->
+<!---->
+<!-- _Counterfactuals_ What would have happened with an alternative input (a hypothetical case counter to the fact). It's most informative to use the minimum changes that change an output class. They are also similar to _What ifs_ (as the question shows). -->
+<!---->
+<!-- Counterfacturals and other comparisons can help to explain models without opening the box. -->
+<!---->
+<!-- For a model, _counterfactuals_ are yet another inference from another input, but the comparison is helpful because that is one way humans understand things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences). -->
+<!---->
+<!-- In a similar fashion to counterfactuals, we can compare with reference inputs. -->
+<!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
+<!-- ## Higher-Level Aspects of Networks -->
+<!---->
+<!-- The recognition of higher level patterns in graph can also span across methods. -->
+<!---->
+<!-- These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes. -->
+<!---->
+<!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
+<!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
+<!-- >[!NOTE] -->
+<!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
 
                     </main>
 

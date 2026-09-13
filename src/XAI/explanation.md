@@ -31,7 +31,6 @@ Our understanding is reflected in the hypothesis formed in the _cognitive proces
 > [!NOTE]
 > This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander.
 
-
 ## Cognitive Process
 
 ### Contrastive Questions
@@ -138,8 +137,6 @@ We can summarise some of these ideas (including a standard audience) in a brief 
 
 The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
 
-
-
 --------------
 
 <details>
@@ -193,7 +190,6 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
 
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
-
 <!-- ### Classification -->
 <!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
 <!---->
@@ -242,10 +238,7 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
 <!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
 <!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
 
-
-
 <!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
-
 
 <!-- >[!NOTE] -->
 <!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
