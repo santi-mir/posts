@@ -21,7 +21,7 @@ We define _model explainability_ condensing many paragraphs from different paper
 >
 > The degree to which we can answer questions a model's predictions and inner workings. The _answers_ are context and audience (including ourselves) dependent.
 
-For example, one similar paragraph is from [Explaining Explanations in AI][xxai] defines explanation as:
+One similar paragraph from [Explaining Explanations in AI][xxai] defines explanation as:
 
 > (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).
 
@@ -40,26 +40,34 @@ Below, a few types of _model explainability_, namely Intrinsic and Extrinsic[^ex
 
 ### Global and Local Explanations
 
-- Global: valid for all inputs (explains the model) e.g. by combining local explanations.
-- Local: for specific inputs-outputs.
+- Global: aims to explain the full model e.g. by combining local explanations as in SP-LIME.
+- Local: aims to explain specific predictions or outputs of a model in connection to its input (e.g. LIME).
 
 ### Intrinsic Explainability
 
-Looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., [Rudin C.][stop_explaining_interpret_instead] or [Zachary C.][mythos]) &mdash;that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. [puts it][mythos]:
+Intrinsic Explainability (or Transparency) looks at the internal mechanics, at the roles of layers, neurons, weights; it may also relate to constraining the model in form (e.g., [Rudin C.][stop_explaining_interpret_instead] or [Zachary C. Lipton][mythos]) &mdash;that is, imposing physical constraints, inductive biases, causal inputs selected by experts, monotonicity, sparsity, constraining model size or computational complexity. Or as Zachary C. puts it in [The Mythos of Model Interpretability][mythos]:
 
 > Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.
+
+Zachary's paper breaks down _transparency_ into three components _simulatability_, _decomposability_ and _algorithmic transparency_ which are briefly described in the Sources at the bottom of this post.
 
 Transparency is domain-dependent. For example, the field of **geometric deep learning** can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
 
 ### Extrinsic Explainability
 
-From [Zachary's paper][mythos]:
+On [Zachary's paper][mythos], post-hoc interpretability is defined as:
 
 > (...) opaque models can be interpreted after the fact, without sacrificing predictive performance.
 
-This is what this post calls Extrinsic Explainability.
+This is what this post calls Extrinsic Explainability (also known as post-hoc interpretation).
 
-On top of the previous quote, the paper ["Why should I trust you?"][lime] has an explainer desiderata: it should give a qualitative understanding between inputs and outputs, be easy to understand, and be model agnostic and locally faithful (a good fit to the original model in the vicinity of the instance being explained). In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
+[Explaining Explanations in AI][xxai] details a few kinds post-hoc interpretation methods:
+
+> Post-hoc human interpretable explanations of models and specific decisions do not seek to reveal how a model functions, but rather how it behaved, and why. According to Lipton (2016), approaches to post-hoc interpretability include verbal (natural language) explanations (e.g. McAuley and Leskovec (2013)), visualisations and interactive interfaces (e.g. Simonyan et al. (2013); Tamagnini et al. (2017)), local explanations or approximations (e.g. Fong and Vedaldi (2017); Ribeiro et al. (2016)), and case-based explanations (e.g. Caruana et al. (1999); Kim et al. (2014)).
+
+The paper ["Why should I trust you?"][lime] has an _explainer desiderata_ (for the approximation or explanation model): it should be `1.` **interpretable**, by giving a qualitative understanding between inputs and outputs, making it easy to understand, `2.` **model agnostic** and `3.` **locally faithful** (a good fit to the original model in the vicinity of the instance being explained) and `4.` **globally explainable**. In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
+
+An example of qualitative understanding is given in their paper and in the paper [A Unified Approach to Interpreting Model Predictions][shap values], using a visual representation of the contribution of each feature to the output.
 
 <!-- Simpler models are also less expressive and may use less variables than the original, making it easier to understand. -->
 
@@ -154,76 +162,6 @@ Another promising path towards better generalisation is that of Causal AI. As ["
 
 > Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field
 
-## Model Insights from Comparisons
-
-How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).
-
-_Counterfactuals_ What would have happened with an alternative input (a hypothetical case counter to the fact). It's most informative to use the minimum changes that change an output class. They are also similar to _What ifs_ (as the question shows).
-
-Counterfacturals and other comparisons can help to explain models without opening the box.
-
-For a model, _counterfactuals_ are yet another inference from another input, but the comparison is helpful because that is one way humans understand things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences).
-
-In a similar fashion to counterfactuals, we can compare with reference inputs.
-
-<!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
-
-<!-- ## Higher-Level Aspects of Networks -->
-<!---->
-<!-- The recognition of higher level patterns in graph can also span across methods. -->
-<!---->
-<!-- These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes. -->
-<!---->
-<!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
-
-## Overview of methods
-
-There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison, in the same sense as used in our previous section.
-
-For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.
-
-### Kinds of Methods
-
-The survey [Principles and practise of explaining ML models][principles_and_practice] includes a table of **method kinds**. A modified version of the table is below:
-
-| Kind         | Advantages    | Disadvantages | Question |
-|---------------------|---------------|---------------|----------|
-| **Local explanations** | Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. | Explanations do not generalize on a global scale. Small **perturbations** might result in very different explanations.| How do small perturbations affect the output / prediction? |
-| **Examples**      | Representative items for each class provide insights about the model's internal reasoning. | Examples require human selection. They do not explicitly state what parts of the example influence the model. | How do inputs from different classes compare? And same? |
-| **Feature relevance** | They operate on an instance level (some can operate globally). | Methods may make assumptions which do not hold (e.g. feature independence, linearity).| Which input features are most important? |
-| **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
-| **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
-
-A method not listed there are text explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).
-
-We should remember that:
-
-> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
-
-In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind.
-
-### Map of XAI
-
-An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021).
-
-Most _classic ML_ models are in the <span style="padding:0.15rem; display: inline-block; border-radius:0.5rem; border:0.15rem dashed purple">dashed</span> area under **Model types** column.
-
-_Classic ML_ models are usually _transparent_ (intrinsically explainable) but _may_ benefit from post-hoc (post training) explanations, such as visualising it. When transparency is key and the predictions are accurate enough, these may be preferred over DL models.
-
-<div class="center w50">
-    <a href="../assets/taxonomy.webp">
-    <img src="../assets/taxonomy.webp" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP."/>
-    </a>
-    <p>
-    Image from <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
-    </p>
-</div>
-
-To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.
-
-The focus here though, is explaining _deep learning_ models which are often, but not always, more accurate than classic ML models.
-
-<!-- In other words, classical ML and DL models each have their use-cases. -->
 
 ----------------
 
@@ -241,6 +179,8 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
+1. [Explaining Explanations in AI][xxai] (2019). The first part of the paper figures out which kind of explanations we look for in XAI. Distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains. A key paragraph is:
+    > In recent calls for explanations in AI, and in work on interpretability in machine learning more broadly, explanations are requested in connection to a particular entity, be it a specific decision, event, trained model, or application. The explanations requested are thus not full scientific explanations, as they need not appeal to general relationships or scientific laws, but rather at most to causal relationships between the set of variables in a given model (Woodward, 1997). As such, xAI is effectively calling for everyday explanations either of how a trained model functions in general, or how it behaved in a particular case.
 1. [Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead][stop_explaining_interpret_instead] (2019).
    - Suggests post-hoc models are worse than interpretable/transparent ones for high-stakes scenarios. It also states that the definitions of "Interpretable" varies for each field (references removed):
    > Interpretability is a domain-specific notion, so there cannot be an all-purpose definition. Usually, however, an interpretable machine learning model is constrained in model form so that it is either useful to someone, or obeys structural knowledge of the domain, such as monotonicity, causality, structural (generative) constraints, additivity, or physical constraints that come from domain knowledge. Interpretable models could use case-based reasoning for complex domains.
@@ -309,3 +249,11 @@ Unclear why this item is about interpretability.
 <!-- Ethics: Right to explanation (GDPR), Conform to ethical standards,..-->
 <!-- 4. Improve debugging / troubleshooting? -->
 <!-- 5. Get more useful information from the model. -->
+
+
+<!-- <details> -->
+<!-- <summary>Sources</summary> -->
+<!---->
+<!-- </details> -->
+
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
