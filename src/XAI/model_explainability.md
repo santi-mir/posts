@@ -162,7 +162,6 @@ Another promising path towards better generalisation is that of Causal AI. As ["
 
 > Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field
 
-
 ----------------
 
 <details>
@@ -180,7 +179,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
 1. [Explaining Explanations in AI][xxai] (2019). The first part of the paper figures out which kind of explanations we look for in XAI. Distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains. A key paragraph is:
-    > In recent calls for explanations in AI, and in work on interpretability in machine learning more broadly, explanations are requested in connection to a particular entity, be it a specific decision, event, trained model, or application. The explanations requested are thus not full scientific explanations, as they need not appeal to general relationships or scientific laws, but rather at most to causal relationships between the set of variables in a given model (Woodward, 1997). As such, xAI is effectively calling for everyday explanations either of how a trained model functions in general, or how it behaved in a particular case.
+   > In recent calls for explanations in AI, and in work on interpretability in machine learning more broadly, explanations are requested in connection to a particular entity, be it a specific decision, event, trained model, or application. The explanations requested are thus not full scientific explanations, as they need not appeal to general relationships or scientific laws, but rather at most to causal relationships between the set of variables in a given model (Woodward, 1997). As such, xAI is effectively calling for everyday explanations either of how a trained model functions in general, or how it behaved in a particular case.
 1. [Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead][stop_explaining_interpret_instead] (2019).
    - Suggests post-hoc models are worse than interpretable/transparent ones for high-stakes scenarios. It also states that the definitions of "Interpretable" varies for each field (references removed):
    > Interpretability is a domain-specific notion, so there cannot be an all-purpose definition. Usually, however, an interpretable machine learning model is constrained in model form so that it is either useful to someone, or obeys structural knowledge of the domain, such as monotonicity, causality, structural (generative) constraints, additivity, or physical constraints that come from domain knowledge. Interpretable models could use case-based reasoning for complex domains.
@@ -250,10 +249,7 @@ Unclear why this item is about interpretability.
 <!-- 4. Improve debugging / troubleshooting? -->
 <!-- 5. Get more useful information from the model. -->
 
-
 <!-- <details> -->
 <!-- <summary>Sources</summary> -->
 <!---->
 <!-- </details> -->
-
-[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full

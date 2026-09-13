@@ -4,7 +4,6 @@ After defining _model explainability_ and the most common kinds of explanations 
 
 ----------------------
 
-
 ## Model Insights from Comparisons
 
 How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison).
