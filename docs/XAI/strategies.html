@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-7a60c2b8.js";
+            window.path_to_searchindex_js = "../searchindex-711286c7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-18a239df.js"></script>
@@ -185,7 +185,7 @@
 <hr>
 <h2 id="what-are-afams"><a class="header" href="#what-are-afams">What are AFAMs?</a></h2>
 <p>Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>) with an <em>explanation model</em> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) which is a linear addition of binary features, making it simpler and interpretable.</p>
-<p>How do <em>explanation models</em> relate to explanations as <a href="./explanation.html">described earlier</a>? Here is what <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:</p>
+<p>How do <em>explanation models</em> relate to out general idea of <a href="./explanation.html">explanations</a>? Here is what <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:</p>
 <blockquote>
 <p>These [explanation] models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.</p>
 </blockquote>
@@ -202,12 +202,11 @@
 <p>For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading.</p>
 <p>This is not to say that local approximations are without merit, but rather that they can only reliably have explanatory power if their limitations are clearly documented and understood by recipients.</p>
 </blockquote>
-<p>The paper also discusses possible uses of the models besides what is described in the rest of the post:</p>
+<p>The paper also highlights a link between <em>explanation models</em> (and would also apply to transparent models) to contrastive and what-if explanations:</p>
 <blockquote>
 <p>Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer "what if" questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"</p>
 </blockquote>
-<p>However (as the paper also notes), if we ask "What if" questions, we may be moving outside of the area where the explanation model is reliable.</p>
-<p>Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).</p>
+<p>However (as they note) local explanation models won't be accurate outside of the local domain (by definition). Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).</p>
 <p>Finally, just for completeness:</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>

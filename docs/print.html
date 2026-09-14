@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-7a60c2b8.js";
+            window.path_to_searchindex_js = "searchindex-711286c7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-18a239df.js"></script>
@@ -487,15 +487,24 @@
 <blockquote>
 <p>Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.</p>
 </blockquote>
-<p>Zachary's paper breaks down <em>transparency</em> into three components <em>simulatability</em>, <em>decomposability</em> and <em>algorithmic transparency</em> which are briefly described in the Sources at the bottom of this post.</p>
+<p>Zachary's suggests three components of <em>transparency</em> (intrinsic explainability). Very briefly:</p>
+<ol>
+<li><em>Simulatability</em> i.e. can mentally run the model,</li>
+<li><em>decomposability</em> i.e. each part of the model admits an intuitive explanation,</li>
+<li><em>algorithmic training</em> which focuses on global vs local minimum, error and loss, guaranteed convergence.;</li>
+</ol>
 <p>Transparency is domain-dependent. For example, the field of geometric deep learning can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</p>
 <h3 id="extrinsic-explainability"><a class="header" href="#extrinsic-explainability">Extrinsic Explainability</a></h3>
-<p>Extrinsic Explainability or post-hoc involves explaining prediction(s). Sometimes they use an extra <em>explanation model</em>, but not always.</p>
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> details a few kinds post-hoc interpretation methods:</p>
-<blockquote>
-<p>Post-hoc human interpretable explanations of models and specific decisions do not seek to reveal how a model functions, but rather how it behaved, and why. According to Lipton (2016), approaches to post-hoc interpretability include verbal (natural language) explanations (e.g. McAuley and Leskovec (2013)), visualisations and interactive interfaces (e.g. Simonyan et al. (2013); Tamagnini et al. (2017)), local explanations or approximations (e.g. Fong and Vedaldi (2017); Ribeiro et al. (2016)), and case-based explanations (e.g. Caruana et al. (1999); Kim et al. (2014)).</p>
-</blockquote>
-<p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> describes one such cases:</p>
+<p>Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works. Sometimes they use an extra <em>explanation model</em>, but not always.</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> names a few types of <em>post hoc interpretability</em> (extrinsic explainability) techniques. Very briefly:</p>
+<ul>
+<li><strong>Textual</strong> e.g. using RNNs to translate the network state into text (trained with descriptions),</li>
+<li><strong>Visualisation</strong> of learned representations (dimensionality reduction methods such as t-SNE, PCA), altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to);</li>
+<li><strong>Local explanations</strong>, using <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3287em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8087em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">/</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.5073em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathbf">x</span></span></span></span></span> gradient (saliency maps), fitting simpler local models (e.g. Linear LIME);</li>
+<li><strong>Similarity</strong>: e.g. distance combined with KNN, comparison.</li>
+</ul>
+<p>Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes).</p>
+<p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> combines local explanations with a visual representation:</p>
 <blockquote>
 <p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.</p>
 </blockquote>
@@ -582,12 +591,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a> (2016)</p>
 </li>
 <li>
-<p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018) is an excellent break down of ideas. They consider two interpretability strategies:</p>
-<ul>
-<li><em>Transparency</em> (intrinsic explainability) can refer to: <code>1.</code> <em>simulatability</em> i.e. can mentally run the model, <code>2.</code> <em>decomposability</em> i.e. each part of the model admits an intuitive explanation, and <code>3.</code> <em>algorithmic training</em> which focuses on global vs local minimum, error and loss, guaranteed convergence.;</li>
-<li><em>Posthoc</em> interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as <code>1.</code> Textual explanations using RNNs, visual explanations of learned representations (dimensionality reduction methods such as t-SNE, PCA), input alteration (to maximise activation of a neuron), <code>2.</code> Local alterations using derivative of input wrt output (measuring "sensitivity" to each pixel); <code>3.</code> By example / similarity / comparison and so forth. Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes).</li>
-<li>Another takeaway is that obsessing about model transparency can harm accuracy and capability of a model, so it is important to consider this aspect.</li>
-</ul>
+<p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018) is an excellent break down of ideas. This paper is cited and discussed in the post primarily.</p>
 </li>
 <li>
 <p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</p>
@@ -602,10 +606,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p><a href="https://en.wikipedia.org/wiki/The_Book_of_Why">The Book of Why</a> (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)</p>
 </li>
 <li>
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019). The first part of the paper figures out which kind of explanations we look for in XAI. Distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains. A key paragraph is:</p>
-<blockquote>
-<p>In recent calls for explanations in AI, and in work on interpretability in machine learning more broadly, explanations are requested in connection to a particular entity, be it a specific decision, event, trained model, or application. The explanations requested are thus not full scientific explanations, as they need not appeal to general relationships or scientific laws, but rather at most to causal relationships between the set of variables in a given model (Woodward, 1997). As such, xAI is effectively calling for everyday explanations either of how a trained model functions in general, or how it behaved in a particular case.</p>
-</blockquote>
+<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019). Is related to "The Mythos of Model Interpretability", "Explanation in artificial intelligence: Insights from the social sciences", "Why should I trust you" and other important papers. The first part of the paper figures out which kind of explanations we look for in XAI. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.</p>
 </li>
 <li>
 <p><a href="http://arxiv.org/abs/1811.10154">Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead</a> (2019).</p>
@@ -710,7 +711,7 @@ Unclear why this item is about interpretability.
 <hr>
 <h2 id="what-are-afams"><a class="header" href="#what-are-afams">What are AFAMs?</a></h2>
 <p>Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>) with an <em>explanation model</em> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) which is a linear addition of binary features, making it simpler and interpretable.</p>
-<p>How do <em>explanation models</em> relate to explanations as <a href="#explanations">described earlier</a>? Here is what <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:</p>
+<p>How do <em>explanation models</em> relate to out general idea of <a href="#explanations">explanations</a>? Here is what <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:</p>
 <blockquote>
 <p>These [explanation] models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.</p>
 </blockquote>
@@ -727,12 +728,11 @@ Unclear why this item is about interpretability.
 <p>For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading.</p>
 <p>This is not to say that local approximations are without merit, but rather that they can only reliably have explanatory power if their limitations are clearly documented and understood by recipients.</p>
 </blockquote>
-<p>The paper also discusses possible uses of the models besides what is described in the rest of the post:</p>
+<p>The paper also highlights a link between <em>explanation models</em> (and would also apply to transparent models) to contrastive and what-if explanations:</p>
 <blockquote>
 <p>Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer "what if" questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"</p>
 </blockquote>
-<p>However (as the paper also notes), if we ask "What if" questions, we may be moving outside of the area where the explanation model is reliable.</p>
-<p>Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).</p>
+<p>However (as they note) local explanation models won't be accurate outside of the local domain (by definition). Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).</p>
 <p>Finally, just for completeness:</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>

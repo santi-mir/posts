@@ -35,6 +35,7 @@ Intrinsic Explainability (or Transparency) looks at the internal mechanics, at t
 > Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.
 
 Zachary's suggests three components of _transparency_ (intrinsic explainability). Very briefly:
+
 1. _Simulatability_ i.e. can mentally run the model,
 2. _decomposability_ i.e. each part of the model admits an intuitive explanation,
 3. _algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
