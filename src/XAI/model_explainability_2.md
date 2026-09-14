@@ -1,28 +1,25 @@
-# Model Explainability II
+# Post Hoc Methods and Map
 
-After defining _model explainability_ and the most common kinds of explanations (extrinsic, intrinsic, global, local) let's do a summary of methods.
+Let's do a summary of post hoc methods, and show an XAI map extracted from one paper.
 
 ----------------------
 
-## Overview of methods
+## Post Hoc Methods
 
-There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison, in the same sense as used in our previous section.
+There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison.
 
 For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.
-
-### Kinds of Methods
-
-The survey [Principles and practise of explaining ML models][principles_and_practice] includes a table of **method kinds**. A modified version of the table is below:
+The survey [Principles and practise of explaining ML models][principles_and_practice] includes a table of **method kinds**, these are extrinsic methods. A modified version of the table is below:
 
 | Kind         | Advantages    | Disadvantages | Question |
 |---------------------|---------------|---------------|----------|
 | **Local explanations** | Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. | Explanations do not generalize on a global scale. Small **perturbations** might result in very different explanations.| How do small perturbations affect the output / prediction? |
-| **Examples**      | Representative items for each class provide insights about the model's internal reasoning. | Examples require human selection. They do not explicitly state what parts of the example influence the model. | How do inputs from different classes compare? And same? |
+| **Examples & Case-Based**      | Representative items for each class provide insights about the model's internal reasoning. | Examples require human selection. They do not explicitly state what parts of the example influence the model. | How do inputs from different classes compare? And same? |
 | **Feature relevance** | They operate on an instance level (some can operate globally). | Methods may make assumptions which do not hold (e.g. feature independence, linearity).| Which input features are most important? |
 | **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
 | **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
 
-A method not listed there are text explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).
+There are also textual explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).
 
 We should remember that:
 
@@ -30,7 +27,7 @@ We should remember that:
 
 In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind.
 
-### Map of XAI
+## Map of XAI
 
 An interesting map of XAI is given in the survey [Principles and practice of explainable ML][principles_and_practice] (2021).
 

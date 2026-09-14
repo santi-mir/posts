@@ -25,6 +25,20 @@ Each $\phi_i \in R$ is an effects of a _binary_ feature $z_i' \in \{0, 1\}^M$ in
 >
 > [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 
+The paper [Explaining Explanations in AI][xxai] relates such models to approximate scientific models (which are all of them as reminded by Box's maxim "All models are wrong but some are useful"). So it is important for the recipients or users to know where models are reliable, where they break down or where they have unknown behaviour. In their words:
+
+> For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading.
+>
+> This is not to say that local approximations are without merit, but rather that they can only reliably have explanatory power if their limitations are clearly documented and understood by recipients.
+
+The paper also discusses possible uses of the models besides what is described in the rest of the post:
+
+> Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer "what if" questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"
+
+However (as the paper also notes), if we ask "What if" questions, we may be moving outside of the area where the explanation model is reliable.
+
+Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).
+
 Finally, just for completeness:
 
 > [!NOTE]
