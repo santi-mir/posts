@@ -10,7 +10,7 @@ This post explores the "Additive Feature Attribution Methods" class of _extrinsi
 
 Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features, making it simpler and interpretable.
 
-How do _explanation models_ relate to explanations as [described earlier](./explanation.md)? Here is what [Explaining Explanations in AI][xxai] says:
+How do _explanation models_ relate to out general idea of [explanations](./explanation.md)? Here is what [Explaining Explanations in AI][xxai] says:
 
 > These [explanation] models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.
 
@@ -31,13 +31,11 @@ The paper [Explaining Explanations in AI][xxai] relates such models to approxima
 >
 > This is not to say that local approximations are without merit, but rather that they can only reliably have explanatory power if their limitations are clearly documented and understood by recipients.
 
-The paper also discusses possible uses of the models besides what is described in the rest of the post:
+The paper also highlights a link between _explanation models_ (and would also apply to transparent models) to contrastive and what-if explanations:
 
 > Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer "what if" questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"
 
-However (as the paper also notes), if we ask "What if" questions, we may be moving outside of the area where the explanation model is reliable.
-
-Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).
+However (as they note) local explanation models won't be accurate outside of the local domain (by definition). Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).
 
 Finally, just for completeness:
 

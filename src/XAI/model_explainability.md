@@ -34,19 +34,27 @@ Intrinsic Explainability (or Transparency) looks at the internal mechanics, at t
 
 > Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.
 
-Zachary's paper breaks down _transparency_ into three components _simulatability_, _decomposability_ and _algorithmic transparency_ which are briefly described in the Sources at the bottom of this post.
+Zachary's suggests three components of _transparency_ (intrinsic explainability). Very briefly:
+1. _Simulatability_ i.e. can mentally run the model,
+2. _decomposability_ i.e. each part of the model admits an intuitive explanation,
+3. _algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
 
 Transparency is domain-dependent. For example, the field of geometric deep learning can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
 
 ### Extrinsic Explainability
 
-Extrinsic Explainability or post-hoc involves explaining prediction(s). Sometimes they use an extra _explanation model_, but not always.
+Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works. Sometimes they use an extra _explanation model_, but not always.
 
-[Explaining Explanations in AI][xxai] details a few kinds post-hoc interpretation methods:
+[The Mythos of Model Interpretability][mythos] names a few types of _post hoc interpretability_ (extrinsic explainability) techniques. Very briefly:
 
-> Post-hoc human interpretable explanations of models and specific decisions do not seek to reveal how a model functions, but rather how it behaved, and why. According to Lipton (2016), approaches to post-hoc interpretability include verbal (natural language) explanations (e.g. McAuley and Leskovec (2013)), visualisations and interactive interfaces (e.g. Simonyan et al. (2013); Tamagnini et al. (2017)), local explanations or approximations (e.g. Fong and Vedaldi (2017); Ribeiro et al. (2016)), and case-based explanations (e.g. Caruana et al. (1999); Kim et al. (2014)).
+- **Textual** e.g. using RNNs to translate the network state into text (trained with descriptions),
+- **Visualisation** of learned representations (dimensionality reduction methods such as t-SNE, PCA), altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to);
+- **Local explanations**, using $\frac{y_j}/{\mathbf{x}}$ gradient (saliency maps), fitting simpler local models (e.g. Linear LIME);
+- **Similarity**: e.g. distance combined with KNN, comparison.
 
-["Why Should I Trust You?"][lime] describes one such cases:
+Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes).
+
+["Why Should I Trust You?"][lime] combines local explanations with a visual representation:
 
 > By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
 
@@ -140,16 +148,12 @@ Another promising path towards better generalisation is that of Causal AI. As ["
 1. [Can we open the black box of AI?][open_ai_black_box] (2016). This paper briefly explains what ANNs are, their similarities (not the differences) to the brain, and what challenges they pose to us. Primarily, the challenge is that they are hard to explain. It puts as an example a physician or patient relying in the output, but not knowing _why_ it predicts that. The author also cites Michael Tyka saying "The problem is that the knowledge gets baked into the network, rather than into us" which is also interesting.
 Furthermore, there isn't a "number 5 pattern" that is the same for many networks; the pattern appears from the training procedure, and although it may be similar for all number 5, it's usually different between training runs, datasets, and networks. Similarly so for brains!
 1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016)
-1. [The Mythos of Model Interpretability][mythos] (2018) is an excellent break down of ideas. They consider two interpretability strategies:
-   - _Transparency_ (intrinsic explainability) can refer to: `1.` _simulatability_ i.e. can mentally run the model, `2.` _decomposability_ i.e. each part of the model admits an intuitive explanation, and `3.` _algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
-   - _Posthoc_ interpretability (black boxness / extrinsic explainability): does not elucidate precisely how a model works. It breaks down techniques such as `1.` Textual explanations using RNNs, visual explanations of learned representations (dimensionality reduction methods such as t-SNE, PCA), input alteration (to maximise activation of a neuron), `2.` Local alterations using derivative of input wrt output (measuring "sensitivity" to each pixel); `3.` By example / similarity / comparison and so forth. Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes).
-   - Another takeaway is that obsessing about model transparency can harm accuracy and capability of a model, so it is important to consider this aspect.
+1. [The Mythos of Model Interpretability][mythos] (2018) is an excellent break down of ideas. This paper is cited and discussed in the post primarily.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
-1. [Explaining Explanations in AI][xxai] (2019). The first part of the paper figures out which kind of explanations we look for in XAI. Distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains. A key paragraph is:
-   > In recent calls for explanations in AI, and in work on interpretability in machine learning more broadly, explanations are requested in connection to a particular entity, be it a specific decision, event, trained model, or application. The explanations requested are thus not full scientific explanations, as they need not appeal to general relationships or scientific laws, but rather at most to causal relationships between the set of variables in a given model (Woodward, 1997). As such, xAI is effectively calling for everyday explanations either of how a trained model functions in general, or how it behaved in a particular case.
+1. [Explaining Explanations in AI][xxai] (2019). Is related to "The Mythos of Model Interpretability", "Explanation in artificial intelligence: Insights from the social sciences", "Why should I trust you" and other important papers. The first part of the paper figures out which kind of explanations we look for in XAI. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.
 1. [Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead][stop_explaining_interpret_instead] (2019).
    - Suggests post-hoc models are worse than interpretable/transparent ones for high-stakes scenarios. It also states that the definitions of "Interpretable" varies for each field (references removed):
    > Interpretability is a domain-specific notion, so there cannot be an all-purpose definition. Usually, however, an interpretable machine learning model is constrained in model form so that it is either useful to someone, or obeys structural knowledge of the domain, such as monotonicity, causality, structural (generative) constraints, additivity, or physical constraints that come from domain knowledge. Interpretable models could use case-based reasoning for complex domains.
