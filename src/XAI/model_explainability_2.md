@@ -23,9 +23,13 @@ And in [SHAP][shap]:
 
 > However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability.
 
-Other researchers such as [Rudin][interpretable_ml] disagre (bold is mine, references were removed):
+And in [Explaining Explanations in AI][xxai]:
 
-> Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
+> (...) three-way trade-off between the simplicity of the approximated model, the size of the domain it describes, and the accuracy of this description.
+
+Other researchers such as [Rudin][interpretable_ml] disagree (references were removed):
+
+> Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an incorrect perception that they are less accurate than black boxes. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is no scientific evidence that accuracy must be sacrificed when adding interpretability constraints.
 
 Rudin's [more detailed paper][stop_explaining_interpret_instead] states something similar:
 
@@ -33,7 +37,7 @@ Rudin's [more detailed paper][stop_explaining_interpret_instead] states somethin
 
 I'd make two comments to the quote above. First, _good representation in terms of naturally meaningful features_ may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.
 
-For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:
+The paper also states a related complication:
 
 > Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
 > (...)
@@ -92,19 +96,16 @@ To the visual explanations, t-SNE, PCA and other dimensionality reduction techni
 
 The focus here though, is explaining _deep learning_ models which are often, but not always, more accurate than classic ML models.
 
+[ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2
+[lime]: https://dl.acm.org/doi/10.1145/2939672.2939778
+[mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
+[stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
+[xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
+
+[^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
+
+
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-<!-- [ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2 -->
-
-<!-- [interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0 -->
-
-[lime]: https://dl.acm.org/doi/10.1145/2939672.2939778
-
-[mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
-
-[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
-
-[stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
-
-[^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?

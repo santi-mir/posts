@@ -8,8 +8,8 @@
 
 - [Explanations](./XAI/explanation.md)
 - [Explanatory Stances](./XAI/explanatory_stances.md)
-- [XAI](./XAI/model_explainability.md)
-- [Topic in XAI](./XAI/model_explainability_2.md)
+- [The Field of XAI](./XAI/model_explainability.md)
+- [Generality and Tradeoffs](./XAI/model_explainability_2.md)
 - [XAI Methods I](./XAI/strategies.md)
 - [XAI Methods II](./XAI/strategies_2.md)
 <!-- - [Interpretable Models]() -->
