@@ -71,6 +71,8 @@ On the other hand, methods such as SHAP, LIME can provide _some_ understanding o
 
 > Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain.
 
+The analogy is that in both cases there are simpler models that approximate the more detailed one in a restricted domain, and are also (usually) more intelligible.
+
 Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_.
 
 Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. When and where the models (both) are accurate, inaccurate or unknown should be characterised.
