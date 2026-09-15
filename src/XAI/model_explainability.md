@@ -79,6 +79,8 @@ Note also that local fitting of a prediction model may be faithful, but both mod
 
 - Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, _explanation models_ are trained with predictions of the complex model, that may not exist in the training data.
 
+The paper explores limitations of using simplified e.g. linear explanation models, which will struggle with highly non-linear behaviour (curvature) and variables interdependency of multi-collinearity.
+
 <!-- Some post-hoc XAI methods are explained in [strategies](./strategies.md). -->
 
 ### Post Hoc Methods
