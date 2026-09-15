@@ -530,7 +530,7 @@
 <p>Some methods may need to be adapted for a given audience. A version merging parts of these two is given below:</p>
 <ul>
 <li><strong>Textual</strong> e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),</li>
-<li><strong>Local explanations</strong>:  Explains the model's behaviour in a local area of interest. Operates on instance-level explanations.  Explanations do not generalize on a global scale.
+<li><strong>Local explanations</strong>: Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. Explanations do not generalize on a global scale.
 Using <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3287em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8087em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">/</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.5073em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathbf">x</span></span></span></span></span> gradient (saliency maps), fitting simpler local models (e.g. Linear LIME).
 <ul>
 <li>Small <strong>perturbations</strong> might result in very different explanations. How do small perturbations affect the output / prediction?</li>
@@ -541,12 +541,12 @@ Using <span class="katex"><span class="katex-html" aria-hidden="true"><span clas
 <li>They do not explicitly state what parts of the example influence the model. How do inputs from different classes compare? And same?</li>
 </ul>
 </li>
-<li><strong>Feature relevance</strong>:  They operate on an instance level (some can operate globally).
+<li><strong>Feature relevance</strong>: They operate on an instance level (some can operate globally).
 <ul>
 <li>Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?</li>
 </ul>
 </li>
-<li><strong>Simplification</strong>:   Simple surrogate models explain opaque ones.
+<li><strong>Simplification</strong>: Simple surrogate models explain opaque ones.
 <ul>
 <li>Surrogate models may not approximate original models well.  Can we get local insights by using a simpler model?
 <strong>Visualizations</strong>: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.</li>
