@@ -105,7 +105,6 @@ The focus here though, is explaining _deep learning_ models which are often, but
 
 [^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
 
-
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
