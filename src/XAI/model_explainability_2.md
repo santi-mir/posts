@@ -1,31 +1,75 @@
-# Post Hoc Methods and Map
+# Topics in XAI
 
-Let's do a summary of post hoc methods, and show an XAI map extracted from one paper.
+Having described the structure of the field of XAI, with a brief on popular methods, let's now discuss two topics: the modelling trade-off and generalisation out of distribution. Finally, an interesting map of XAI extracted from one paper is shown.
 
 ----------------------
 
-## Post Hoc Methods
+## Trade-offs?
 
-There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison.
+We may expect _model explainability_ to be inversely correlated with model complexity or accuracy. Graphically:
 
-For all audiences, we can group these methods into more general categories, and then go into specific cases for a certain audience.
-The survey [Principles and practise of explaining ML models][principles_and_practice] includes a table of **method kinds**, these are extrinsic methods. A modified version of the table is below:
+<div class="center w30">
+    <a href="../assets/tradeoff.webp">
+    <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff."/>
+    </a>
+    <p>Hypothesis: Model explainability v. Accuracy tradeoff.</p>
+</div>
 
-| Kind         | Advantages    | Disadvantages | Question |
-|---------------------|---------------|---------------|----------|
-| **Local explanations** | Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. | Explanations do not generalize on a global scale. Small **perturbations** might result in very different explanations.| How do small perturbations affect the output / prediction? |
-| **Examples & Case-Based**      | Representative items for each class provide insights about the model's internal reasoning. | Examples require human selection. They do not explicitly state what parts of the example influence the model. | How do inputs from different classes compare? And same? |
-| **Feature relevance** | They operate on an instance level (some can operate globally). | Methods may make assumptions which do not hold (e.g. feature independence, linearity).| Which input features are most important? |
-| **Simplification**  | Simple surrogate models explain opaque ones. | Surrogate models may not approximate original models well. | Can we get local insights by using a simpler model? |
-| **Visualizations**  | Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement. | There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. | Class boundaries? |
+And in ["Why Should I Trust You?"][lime] (refs removed):
 
-There are also textual explanations, which can be generated from an RNN or a language model, reading the model's internal state (for example, this can generate captions).
+> Recognizing the utility of explanations in assessing trust, many have proposed using interpretable models, especially for the medical domain. While such models may be appropriate for some domains, they may not apply equally well to others (...). Interpretability, in these cases, comes at the cost of flexibility, accuracy, or efficiency.
 
-We should remember that:
+And in [SHAP][shap]:
 
-> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
+> However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability.
 
-In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind.
+Other researchers such as [Rudin][interpretable_ml] disagre (bold is mine, references were removed):
+
+> Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
+
+Rudin's [more detailed paper][stop_explaining_interpret_instead] states something similar:
+
+> There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.
+
+I'd make two comments to the quote above. First, _good representation in terms of naturally meaningful features_ may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.
+
+For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:
+
+> Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
+> (...)
+> The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
+
+## Out of Distribution
+
+Consider an imaginary model $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
+
+However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
+
+1. The model _undefitted_ the data, and we may need a better model.
+1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
+1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
+
+Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^selection_problem]
+
+A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
+
+Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
+
+> It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.
+
+Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.
+
+In Deep Learning Models, the problem constraints can be used to add inductive biases or priors to architectures, such as symmetry constraints, connectivity (say through graph networks). This may also reduce the amount of training data needed, improve generalisation and improve interpretability.
+
+An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (references where removed):
+
+> Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.
+
+This is especially useful when models can leverage large amount of data, which is usually in the form of unlabelled data (there are also mechanisms to label data semi-reliably).
+
+Another promising path towards better generalisation is that of Causal AI. As ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] puts it:
+
+> Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field
 
 ## Map of XAI
 
@@ -49,3 +93,34 @@ To the visual explanations, t-SNE, PCA and other dimensionality reduction techni
 The focus here though, is explaining _deep learning_ models which are often, but not always, more accurate than classic ML models.
 
 <!-- In other words, classical ML and DL models each have their use-cases. -->
+
+<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+[ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2
+
+[interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0
+
+[lime]: https://dl.acm.org/doi/10.1145/2939672.2939778
+
+[mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
+
+[open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
+
+[perils_and_pitfalls]: https://doi.org/10.1016/j.giq.2021.101666
+
+[principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
+
+[shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+
+[stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
+
+[tbow]: https://en.wikipedia.org/wiki/The_Book_of_Why
+
+[using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
+
+[xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
+
+[xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
+
+[xx]: http://arxiv.org/abs/1806.00069
+
+[xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574

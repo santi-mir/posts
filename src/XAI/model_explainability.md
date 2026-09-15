@@ -1,6 +1,8 @@
 # Explainable AI (XAI)
 
-Explanations were defined and characterised in [explanations](./explanation.md). This post explores the connection of _explanations_ to _deep learning models_.
+Explanations were defined and characterised in [explanations](./explanation.md).
+
+This post presents methods and areas of the field of Explainable AI (XAI).
 
 ----------------
 
@@ -34,11 +36,11 @@ Intrinsic Explainability (or Transparency) looks at the internal mechanics, at t
 
 > Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.
 
-Zachary's suggests three components of _transparency_ (intrinsic explainability). Very briefly:
+Furthermore, the paper suggests three components of _transparency_ (intrinsic explainability). Very briefly:
 
 1. _Simulatability_ i.e. can mentally run the model,
-2. _decomposability_ i.e. each part of the model admits an intuitive explanation,
-3. _algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
+2. _Decomposability_ i.e. each part of the model admits an intuitive explanation,
+3. _Algorithmic training_ which focuses on global vs local minimum, error and loss, guaranteed convergence.;
 
 Transparency is domain-dependent. For example, the field of geometric deep learning can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.
 
@@ -46,14 +48,7 @@ Transparency is domain-dependent. For example, the field of geometric deep learn
 
 Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works. Sometimes they use an extra _explanation model_, but not always.
 
-[The Mythos of Model Interpretability][mythos] names a few types of _post hoc interpretability_ (extrinsic explainability) techniques. Very briefly:
-
-- **Textual** e.g. using RNNs to translate the network state into text (trained with descriptions),
-- **Visualisation** of learned representations (dimensionality reduction methods such as t-SNE, PCA), altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to);
-- **Local explanations**, using $\frac{y_j}/{\mathbf{x}}$ gradient (saliency maps), fitting simpler local models (e.g. Linear LIME);
-- **Similarity**: e.g. distance combined with KNN, comparison.
-
-Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes).
+Post-Hoc methods are summarised in [the next section][post-hoc-methods].
 
 ["Why Should I Trust You?"][lime] combines local explanations with a visual representation:
 
@@ -70,76 +65,47 @@ This is a visual explanation of the features' contribution to the output from th
 
 They also propose an _explainer desiderata_ for the explanation model: it should be `1.` **interpretable**, by giving a qualitative understanding between inputs and outputs, making it easy to understand, `2.` **model agnostic** and `3.` **locally faithful** (a good fit to the original model in the vicinity of the instance being explained) and `4.` **globally explainable**. In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
 
-[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models[^shap] must be wrong. If it is perfectly accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
+[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models[^shap] must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
 
-On the other hand, methods such as SHAP, LIME, t-SNE, can provide _some_ understanding of the model, even if using approximations. Some of those popular methods are explained in [strategies](./strategies.md).
+On the other hand, methods such as SHAP, LIME can provide _some_ understanding of the phenomena, often with local fidelity, even if approximately. [Explaining Explanations in AI][xxai] seems to argue a similar case, by citing Box's maxim: "All models are wrong but some are useful" and making an analogy with scientific modelling:
 
-### Trade-offs?
+> Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain.
 
-We may expect _model explainability_ to be inversely correlated with model complexity or accuracy. Graphically:
+Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_.
 
-<div class="center w30">
-    <a href="../assets/tradeoff.webp">
-    <img src="../assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff."/>
-    </a>
-    <p>Hypothesis: Model explainability v. Accuracy tradeoff.</p>
-</div>
+Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. When and where the models (both) are accurate, inaccurate or unknown should be characterised.
 
-And in ["Why Should I Trust You?"][lime] (refs removed):
+- Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, _explanation models_ are trained with predictions of the complex model, that may not exist in the training data.
 
-> Recognizing the utility of explanations in assessing trust, many have proposed using interpretable models, especially for the medical domain. While such models may be appropriate for some domains, they may not apply equally well to others (...). Interpretability, in these cases, comes at the cost of flexibility, accuracy, or efficiency.
+<!-- Some post-hoc XAI methods are explained in [strategies](./strategies.md). -->
 
-And in [SHAP][shap]:
+### Post Hoc Methods
 
-> However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability.
+[The Mythos of Model Interpretability][mythos] names a few types of _post hoc interpretability_ (extrinsic explainability) techniques.
 
-Other researchers such as [Rudin][interpretable_ml] disagre (bold is mine, references were removed):
+A similar variant included in the survey in [Principles and practise of explaining ML models][principles_and_practice].
 
-> Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an **incorrect perception** that they are **less accurate than black boxes**. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is **no scientific evidence that accuracy must be sacrificed when adding interpretability constraints**.
+Some methods may need to be adapted for a given audience. A version merging parts of these two is given below:
 
-Rudin's [more detailed paper][stop_explaining_interpret_instead] states something similar:
+- **Textual** e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),
+- **Local explanations**:  Explains the model's behaviour in a local area of interest. Operates on instance-level explanations.  Explanations do not generalize on a global scale.
+Using $\frac{y_j}/{\mathbf{x}}$ gradient (saliency maps), fitting simpler local models (e.g. Linear LIME).
+    - Small **perturbations** might result in very different explanations. How do small perturbations affect the output / prediction?
+- **Similarity** (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
+    - They do not explicitly state what parts of the example influence the model. How do inputs from different classes compare? And same?
+- **Feature relevance**:  They operate on an instance level (some can operate globally).
+    - Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?
+- **Simplification**:   Simple surrogate models explain opaque ones.
+    - Surrogate models may not approximate original models well.  Can we get local insights by using a simpler model?
+ **Visualizations**: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
+    - There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations.  Class boundaries?
 
-> There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.
+The latter paper reminds us that:
 
-I'd make two comments to the quote above. First, _good representation in terms of naturally meaningful features_ may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.
+> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
 
-For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:
+<!-- In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind. -->
 
-> Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
-> (...)
-> The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
-
-## Out of Distribution
-
-Consider an imaginary model $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
-
-However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
-
-1. The model _undefitted_ the data, and we may need a better model.
-1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
-1. The approach itself was incorrect: we use variables that promote _association rather than causation_.
-
-Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have _all_ the _causal inputs_? Why do we expect it to work out of distribution, though?[^selection_problem]
-
-A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.
-
-Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.
-
-> It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.
-
-Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.
-
-In Deep Learning Models, the problem constraints can be used to add inductive biases or priors to architectures, such as symmetry constraints, connectivity (say through graph networks). This may also reduce the amount of training data needed, improve generalisation and improve interpretability.
-
-An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (references where removed):
-
-> Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.
-
-This is especially useful when models can leverage large amount of data, which is usually in the form of unlabelled data (there are also mechanisms to label data semi-reliably).
-
-Another promising path towards better generalisation is that of Causal AI. As ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] puts it:
-
-> Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field
 
 ----------------
 
@@ -261,3 +227,6 @@ Unclear why this item is about interpretability.
 <!-- <summary>Sources</summary> -->
 <!---->
 <!-- </details> -->
+
+<!-- Posthoc is the sort of interpretability / explainability that applies to humans (which are otherwise black boxes). -->
+<!-- There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison. -->
