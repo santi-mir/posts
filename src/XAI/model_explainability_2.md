@@ -95,32 +95,16 @@ The focus here though, is explaining _deep learning_ models which are often, but
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-[ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2
+<!-- [ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2 -->
 
-[interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0
+<!-- [interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0 -->
 
 [lime]: https://dl.acm.org/doi/10.1145/2939672.2939778
 
 [mythos]: https://dl.acm.org/doi/10.1145/3236386.3241340
 
-[open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
-
-[perils_and_pitfalls]: https://doi.org/10.1016/j.giq.2021.101666
-
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
-
-[shap_values]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
 
 [stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
 
-[tbow]: https://en.wikipedia.org/wiki/The_Book_of_Why
-
-[using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
-
-[xai_rnn_radiology]: https://arxiv.org/abs/1806.00340
-
-[xai4mat]: https://pubs.acs.org/doi/10.1021/accountsmr.1c00244
-
-[xx]: http://arxiv.org/abs/1806.00069
-
-[xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
+[^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?

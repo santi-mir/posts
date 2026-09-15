@@ -88,14 +88,14 @@ A similar variant included in the survey in [Principles and practise of explaini
 Some methods may need to be adapted for a given audience. A version merging parts of these two is given below:
 
 - **Textual** e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),
-- **Local explanations**:  Explains the model's behaviour in a local area of interest. Operates on instance-level explanations.  Explanations do not generalize on a global scale.
+- **Local explanations**: Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. Explanations do not generalize on a global scale.
 Using $\frac{y_j}/{\mathbf{x}}$ gradient (saliency maps), fitting simpler local models (e.g. Linear LIME).
     - Small **perturbations** might result in very different explanations. How do small perturbations affect the output / prediction?
 - **Similarity** (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
     - They do not explicitly state what parts of the example influence the model. How do inputs from different classes compare? And same?
-- **Feature relevance**:  They operate on an instance level (some can operate globally).
+- **Feature relevance**: They operate on an instance level (some can operate globally).
     - Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?
-- **Simplification**:   Simple surrogate models explain opaque ones.
+- **Simplification**: Simple surrogate models explain opaque ones.
     - Surrogate models may not approximate original models well.  Can we get local insights by using a simpler model?
  **Visualizations**: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
     - There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations.  Class boundaries?
@@ -105,7 +105,6 @@ The latter paper reminds us that:
 > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
 
 <!-- In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind. -->
-
 
 ----------------
 
@@ -170,7 +169,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 [^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable").
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
 [^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
-[^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
 
 <!-- BELOW THERE IS A TON OF SNIPPETS I REMOVED TO KEEP IT SHORT -->
 
