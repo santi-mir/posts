@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-3df3ff29.js";
+            window.path_to_searchindex_js = "searchindex-c430ff96.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-18a239df.js"></script>
+        <script src="toc-6d4cf850.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -680,6 +680,96 @@ Unclear why this item is about interpretability.
 </li>
 <li id="footnote-shap">
 <p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">In their words</a> : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the <em>explanation model</em>." and also "Instead, we must use a simpler <em>explanation model</em>, which we define as any interpretable approximation of the original model.". <a href="#fr-shap-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="topics-in-xai"><a class="header" href="#topics-in-xai">Topics in XAI</a></h1>
+<p>Having described the structure of the field of XAI, with a brief on popular methods, let's now discuss two topics: the modelling trade-off and generalisation out of distribution. Finally, an interesting map of XAI extracted from one paper is shown.</p>
+<hr>
+<h2 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs?</a></h2>
+<p>We may expect <em>model explainability</em> to be inversely correlated with model complexity or accuracy. Graphically:</p>
+<div class="center w30">
+    <a href="assets/tradeoff.webp">
+    <img src="assets/tradeoff.webp" alt="Model Explainability vs Model accuracy tradeoff." />
+    </a>
+    
+<p>Hypothesis: Model explainability v. Accuracy tradeoff.</p>
+
+</div>
+
+<p>And in <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> (refs removed):</p>
+<blockquote>
+<p>Recognizing the utility of explanations in assessing trust, many have proposed using interpretable models, especially for the medical domain. While such models may be appropriate for some domains, they may not apply equally well to others (...). Interpretability, in these cases, comes at the cost of flexibility, accuracy, or efficiency.</p>
+</blockquote>
+<p>And in [SHAP][shap]:</p>
+<blockquote>
+<p>However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability.</p>
+</blockquote>
+<p>Other researchers such as [Rudin][interpretable_ml] disagre (bold is mine, references were removed):</p>
+<blockquote>
+<p>Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an <strong>incorrect perception</strong> that they are <strong>less accurate than black boxes</strong>. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is <strong>no scientific evidence that accuracy must be sacrificed when adding interpretability constraints</strong>.</p>
+</blockquote>
+<p>Rudin's <a href="http://arxiv.org/abs/1811.10154">more detailed paper</a> states something similar:</p>
+<blockquote>
+<p>There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.</p>
+</blockquote>
+<p>I'd make two comments to the quote above. First, <em>good representation in terms of naturally meaningful features</em> may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.</p>
+<p>For complex tasks (Natural Language Processing, Computer Vision), DL models surpass most other algorithms. For narrower tasks, it is sometimes possible to find interpretable models that are also very accurate (benchmarks?), but they can be very hard to design, making the time-risk-benefit tradeoff worth considering:</p>
+<blockquote>
+<p>Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
+(...)
+The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.</p>
+</blockquote>
+<h2 id="out-of-distribution"><a class="header" href="#out-of-distribution">Out of Distribution</a></h2>
+<p>Consider an imaginary model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> being the model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain. The model reaches low evaluation error and everyone is happy.</p>
+<p>However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "<a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythods of Model Interpretability</a>":</p>
+<ol>
+<li>The model <em>undefitted</em> the data, and we may need a better model.</li>
+<li>The dataset is <em>not representative</em> the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?</li>
+<li>The approach itself was incorrect: we use variables that promote <em>association rather than causation</em>.</li>
+</ol>
+<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-selection_problem-1"><a href="#footnote-selection_problem">1</a></sup></p>
+<p>A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
+<p>Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
+<blockquote>
+<p>It is hard to predict whether a model will work out of distribution without knowing what it has learnt. Knowing what a model has learnt is part of the XAI discipline, both opening the box, or carefully comparing its outputs.</p>
+</blockquote>
+<p>Similarly, [this two-page comment][interpretable_ml] by Cynthia Rudin highlights the preference for interpretable (transparent) models in high stakes scenarios.</p>
+<p>In Deep Learning Models, the problem constraints can be used to add inductive biases or priors to architectures, such as symmetry constraints, connectivity (say through graph networks). This may also reduce the amount of training data needed, improve generalisation and improve interpretability.</p>
+<p>An idea related to "Out Of Distribution" inference is that of "Transfer Learning": If a model has learnt "essential, compact features" then they should generalise to other task, as stated in [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (references where removed):</p>
+<blockquote>
+<p>Self-supervised learning (Box 1) has enabled neural networks trained on labelled or unlabelled data to transfer learned representations to a different domain with few labelled examples, for example, by pre-training large foundation models and adapting them to solve diverse tasks across different domains.</p>
+</blockquote>
+<p>This is especially useful when models can leverage large amount of data, which is usually in the form of unlabelled data (there are also mechanisms to label data semi-reliably).</p>
+<p>Another promising path towards better generalisation is that of Causal AI. As ["Scientific discovery in the age of artificial intelligence"][ai_aided_discovery] puts it:</p>
+<blockquote>
+<p>Although many scientific laws are not universal, their applicability is generally broad. Compared with state-of-the-art AI, human brains can better and faster generalize to modified settings. An attractive hypothesis is that this is because humans build not just a statistical model of what they observe but a causal model, that is, a family of statistical models indexed by all possible interventions (for example, different initial states, actions of agents or different regimes). Incorporating causality in AI is still a young field</p>
+</blockquote>
+<h2 id="map-of-xai"><a class="header" href="#map-of-xai">Map of XAI</a></h2>
+<p>An interesting map of XAI is given in the survey <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practice of explainable ML</a> (2021).</p>
+<p>Most <em>classic ML</em> models are in the <span style="padding:0.15rem; display: inline-block; border-radius:0.5rem; border:0.15rem dashed purple">dashed</span> area under <strong>Model types</strong> column.</p>
+<p><em>Classic ML</em> models are usually <em>transparent</em> (intrinsically explainable) but <em>may</em> benefit from post-hoc (post training) explanations, such as visualising it. When transparency is key and the predictions are accurate enough, these may be preferred over DL models.</p>
+<div class="center w50">
+    <a href="assets/taxonomy.webp">
+    <img src="assets/taxonomy.webp" alt="Complex Graph linking prediction models such as SVMs, kinds of explanations such as text or graph, and explanation methods such as SHAP." />
+    </a>
+    
+<p>
+    Image from <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+    </p>
+
+</div>
+
+<p>To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.</p>
+<p>The focus here though, is explaining <em>deep learning</em> models which are often, but not always, more accurate than classic ML models.</p>
+<!-- In other words, classical ML and DL models each have their use-cases. -->
+<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<!-- [ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2 -->
+<!-- [interpretable_ml]: https://www.nature.com/articles/s43586-022-00172-0 -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-selection_problem">
+<p>Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies? <a href="#fr-selection_problem-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
