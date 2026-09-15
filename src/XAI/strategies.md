@@ -8,7 +8,7 @@ This post explores the "Additive Feature Attribution Methods" class of _extrinsi
 
 ## What are AFAMs?
 
-Additive Feature Attribution Methods (AFAMs) approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features, making it simpler and interpretable.
+The Additive Feature Attribution Methods (AFAMs) class was identified in the paper [A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf]. The methods in this class approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features, making it simpler and interpretable.
 
 How do _explanation models_ relate to out general idea of [explanations](./explanation.md)? Here is what [Explaining Explanations in AI][xxai] says:
 
@@ -20,10 +20,9 @@ $$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 
 Each $\phi_i \in R$ is an effects of a _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different methods in the class estimate $\phi_i$ differently.
 
-> [!NOTE]
-> **Explanation Model**
->
-> [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
+[A Unified Approach To Interpreting Model Predictions][shap_values] defines **Explanation Model** as:
+
+> We introduce the perspective of viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 
 The paper [Explaining Explanations in AI][xxai] relates such models to approximate scientific models (which are all of them as reminded by Box's maxim "All models are wrong but some are useful"). So it is important for the recipients or users to know where models are reliable, where they break down or where they have unknown behaviour. In their words:
 
@@ -36,11 +35,6 @@ The paper also highlights a link between _explanation models_ (and would also ap
 > Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer "what if" questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"
 
 However (as they note) local explanation models won't be accurate outside of the local domain (by definition). Also, the explanation models may be faithful to the prediction model, but if the latter is unreliable, the explanation model will also be (though on the positive side, this may be more obvious in the simpler model).
-
-Finally, just for completeness:
-
-> [!NOTE]
-> The AFAM class was identified in the paper [A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf].
 
 ## SHAP
 
