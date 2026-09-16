@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-93650a9e.js";
+            window.path_to_searchindex_js = "searchindex-a17f8227.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-d885b7d5.js"></script>
@@ -465,8 +465,7 @@
 <p>This post is an overview of the field of Explainable AI (XAI).</p>
 <hr>
 <h2 id="scope-of-the-field"><a class="header" href="#scope-of-the-field">Scope of the Field</a></h2>
-<p>Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. As a mean to this end, the field has focused in researching <em>methods for producing explanations</em> (e.g. such as visualisation techniques, SHAP, LIME).</p>
-<p>Some of these methods are discussed here and in the following posts.</p>
+<p>Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs.</p>
 <h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
 <p>Let's start by taking "<em>model explainability</em>" apart. The suffix "-ability" means the "degree to which", so we have the "degree to which a model is explainable".</p>
 <p>We want to <em>explain</em> not only to the model's inner working but also to its outputs or predictions.</p>
@@ -505,8 +504,7 @@
 <h3 id="extrinsic-explainability"><a class="header" href="#extrinsic-explainability">Extrinsic Explainability</a></h3>
 <p>Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works.</p>
 <p>Sometimes they use an extra <em>explanation model</em>, but not always.</p>
-<p>Post-Hoc methods are summarised in [the next section][post-hoc-methods].</p>
-<p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> combines local explanations with a visual representation:</p>
+<p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> defines "explaining a prediction" as:</p>
 <blockquote>
 <p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.</p>
 </blockquote>
@@ -782,14 +780,24 @@ The researcher needs to create a model that has the capability of uncovering the
 <hr>
 <p>A popular type of post-hoc explainability, <strong>local explanations</strong> explain the model's behaviour in a local area of interest, often using an <em>explanation model</em> which <a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">is defined in SHAP as</a>:</p>
 <blockquote>
-<p>(...) viewing any explanation of a model's prediction as a model itself, which we term the <em>explanation model</em>.
-and also</p>
+<p>(...) viewing any explanation of a model's prediction as a model itself, which we term the <em>explanation model</em>.</p>
 </blockquote>
+<p>And also:</p>
 <blockquote>
 <p>Instead, we must use a simpler <em>explanation model</em>, which we define as any interpretable approximation of the original model.</p>
 </blockquote>
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> also adds: "Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions."
-It must still be complemented by the areas where the model is accurate, breaks down, or its fit to the prediction model is unknown. And where the explanation model is accurate, they say:</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> adds:</p>
+<blockquote>
+<p>Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions.</p>
+</blockquote>
+<!-- And they state later on: -->
+<!---->
+<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
+<!-- > -->
+<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
+<!---->
+<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
+<p>It must still be complemented by the areas where the model is accurate, breaks down, or its fit to the prediction model is unknown. And where the explanation model is accurate, they say:</p>
 <blockquote>
 <p>Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer 'what if' questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"</p>
 </blockquote>
