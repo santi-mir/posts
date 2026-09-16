@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-cc4cc66d.js";
+            window.path_to_searchindex_js = "../searchindex-93650a9e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -181,12 +181,15 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explainable-ai-xai"><a class="header" href="#explainable-ai-xai">Explainable AI (XAI)</a></h1>
 <p>Explanations were defined and characterised in <a href="./explanation.html">explanations</a>.</p>
-<p>This post presents methods and areas of the field of Explainable AI (XAI).</p>
+<p>This post is an overview of the field of Explainable AI (XAI).</p>
 <hr>
 <h2 id="scope-of-the-field"><a class="header" href="#scope-of-the-field">Scope of the Field</a></h2>
-<p>Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.</p>
+<p>Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. As a mean to this end, the field has focused in researching <em>methods for producing explanations</em> (e.g. such as visualisation techniques, SHAP, LIME).</p>
+<p>Some of these methods are discussed here and in the following posts.</p>
 <h2 id="model-explainability"><a class="header" href="#model-explainability">Model Explainability</a></h2>
-<p>We define <em>model explainability</em><sup class="footnote-reference" id="fr-literal-1"><a href="#footnote-literal">1</a></sup> as:</p>
+<p>Let's start by taking "<em>model explainability</em>" apart. The suffix "-ability" means the "degree to which", so we have the "degree to which a model is explainable".</p>
+<p>We want to <em>explain</em> not only to the model's inner working but also to its outputs or predictions.</p>
+<p>We have defined <em>explanation</em> earlier, but we can roughly put all this together in one definition:</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p><strong>Model explainability</strong></p>
@@ -196,7 +199,11 @@
 <blockquote>
 <p>(...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).</p>
 </blockquote>
-<p>Four types of <em>model explainability</em> are described below: Intrinsic, Extrinsic<sup class="footnote-reference" id="fr-extr_intr-1"><a href="#footnote-extr_intr">2</a></sup>, Local and Global.</p>
+<p>Four types of <em>model explainability</em> are described in the following sections: Intrinsic, Extrinsic<sup class="footnote-reference" id="fr-extr_intr-1"><a href="#footnote-extr_intr">1</a></sup>, Local and Global.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>In this blogpost, <em>explainability</em> and <em>interpretability</em> are considered synonyms.</p>
+</blockquote>
 <h3 id="global-and-local-explanations"><a class="header" href="#global-and-local-explanations">Global and Local Explanations</a></h3>
 <ul>
 <li>Global: explains the full model e.g. by combining local explanations as in SP-LIME,</li>
@@ -215,7 +222,8 @@
 </ol>
 <p>Transparency is domain-dependent. For example, the field of geometric deep learning can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</p>
 <h3 id="extrinsic-explainability"><a class="header" href="#extrinsic-explainability">Extrinsic Explainability</a></h3>
-<p>Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works. Sometimes they use an extra <em>explanation model</em>, but not always.</p>
+<p>Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works.</p>
+<p>Sometimes they use an extra <em>explanation model</em>, but not always.</p>
 <p>Post-Hoc methods are summarised in [the next section][post-hoc-methods].</p>
 <p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> combines local explanations with a visual representation:</p>
 <blockquote>
@@ -232,7 +240,7 @@
 </div>
 
 <p>They also propose an <em>explainer desiderata</em> for the explanation model: it should be <code>1.</code> <strong>interpretable</strong>, by giving a qualitative understanding between inputs and outputs, making it easy to understand, <code>2.</code> <strong>model agnostic</strong> and <code>3.</code> <strong>locally faithful</strong> (a good fit to the original model in the vicinity of the instance being explained) and <code>4.</code> <strong>globally explainable</strong>. In that paper, SP-LIME combines local explanations to provide a <em>global explanation</em> of the model.</p>
-<p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models<sup class="footnote-reference" id="fr-shap-1"><a href="#footnote-shap">3</a></sup> must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
+<p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
 <p>On the other hand, methods such as SHAP, LIME can provide <em>some</em> understanding of the phenomena, often with local fidelity, even if approximately. <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> seems to argue a similar case, by citing Box's maxim: "All models are wrong but some are useful" and making an analogy with scientific modelling:</p>
 <blockquote>
 <p>Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain.</p>
@@ -251,12 +259,6 @@
 <p>Some methods may need to be adapted for a given audience. A version merging parts of these two is given below:</p>
 <ul>
 <li><strong>Textual</strong> e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),</li>
-<li><strong>Local explanations</strong>: Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. Explanations do not generalize on a global scale.
-Using <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3287em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8087em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">/</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.5073em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathbf">x</span></span></span></span></span> gradient (saliency maps), fitting simpler local models (e.g. Linear LIME).
-<ul>
-<li>Small <strong>perturbations</strong> might result in very different explanations. How do small perturbations affect the output / prediction?</li>
-</ul>
-</li>
 <li><strong>Similarity</strong> (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
 <ul>
 <li>They do not explicitly state what parts of the example influence the model. How do inputs from different classes compare? And same?</li>
@@ -269,17 +271,20 @@ Using <span class="katex"><span class="katex-html" aria-hidden="true"><span clas
 </li>
 <li><strong>Simplification</strong>: Simple surrogate models explain opaque ones.
 <ul>
-<li>Surrogate models may not approximate original models well.  Can we get local insights by using a simpler model?
-<strong>Visualizations</strong>: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.</li>
-<li>There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations.  Class boundaries?</li>
+<li>Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?</li>
 </ul>
 </li>
+<li><strong>Visualizations</strong>: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
+<ul>
+<li>There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. Class boundaries?</li>
+</ul>
+</li>
+<li><strong>Local Explanations</strong>: see <a href="./strategies.html">next post</a>.</li>
 </ul>
 <p>The latter paper reminds us that:</p>
 <blockquote>
 <p>Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),</p>
 </blockquote>
-<!-- In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind. -->
 <hr><details>
 <summary>Sources</summary>
 <ol>
@@ -342,6 +347,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<!-- [^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable"). -->
 <!-- BELOW THERE IS A TON OF SNIPPETS I REMOVED TO KEEP IT SHORT -->
 <!-- ### Brief Aside: Neural Netwoks -->
 <!---->
@@ -393,14 +399,8 @@ Unclear why this item is about interpretability.
 <!-- There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison. -->
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-literal">
-<p>The suffix "-ability" simply means "the degree to which" so <em>explainability</em> is the degree to which a phenomenon or event is explainable, and <em>Model explainability</em> simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable"). <a href="#fr-literal-1">↩</a></p>
-</li>
 <li id="footnote-extr_intr">
 <p>Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. <a href="#fr-extr_intr-1">↩</a></p>
-</li>
-<li id="footnote-shap">
-<p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">In their words</a> : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the <em>explanation model</em>." and also "Instead, we must use a simpler <em>explanation model</em>, which we define as any interpretable approximation of the original model.". <a href="#fr-shap-1">↩</a></p>
 </li>
 </ol>
 
