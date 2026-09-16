@@ -74,13 +74,16 @@ They also propose an _explainer desiderata_ for the explanation model: it should
 
 [Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
 
-On the other hand, methods such as SHAP, LIME can provide _some_ understanding of the phenomena, often with local fidelity, even if approximately. [Explaining Explanations in AI][xxai] seems to argue a similar case, by citing Box's maxim: "All models are wrong but some are useful" and making an analogy with scientific modelling:
+<!-- citing Box's maxim: "All models are wrong but some are useful" and -->
+On the other hand, methods such as SHAP, LIME can provide _some_ understanding of the phenomena, often with local fidelity, even if approximately. [Explaining Explanations in AI][xxai] seems to argue a similar case, by making an analogy with scientific modelling:
 
 > Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain.
 
-The analogy is that in both cases there are simpler models that approximate the more detailed one in a restricted domain, and are also (usually) more intelligible.
+So simpler models can approximate a more detailed one in a restricted domain, and are also (usually) more intelligible.
 
-Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_.
+<!-- This is a model of a model, or a model derived from a model, which is a difference in the analogy. Though we could also consider this as an emergent model, derived from a more detailed one (just as averaging in statistical thermodynamics to get larger scale laws). -->
+
+<!-- Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_. -->
 
 Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. When and where the models (both) are accurate, inaccurate or unknown should be characterised.
 
