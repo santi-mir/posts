@@ -1,14 +1,33 @@
-# Additive Feature Attribution Methods
+# Local Explanations
 
-This post explores the "Additive Feature Attribution Methods" class of _extrinsic explainability_ methods (where the reference model's internals aren't analysed).
+This post explores the local explainability methods, with emphasis on "Additive Feature Attribution Methods" class of _extrinsic explainability_ methods (where the reference model's internals aren't analysed).
 
-<!-- There is less emphasis on audiences or technicalities about explanations. -->
+---------------
 
----------
+A popular type of post-hoc explainability, **local explanations** explain the model's behaviour in a local area of interest, often using an _explanation model_ which [is defined in SHAP as][shap]:
+
+> (...) viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_.
+and also
+
+> Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.
+
+[Explaining Explanations in AI][xxai] also adds: "Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions."
+It must still be complemented by the areas where the model is accurate, breaks down, or its fit to the prediction model is unknown. And where the explanation model is accurate, they say:
+
+> Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer 'what if' questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"
+
+Connecting this post with the [one on explanations](./explanation.md), particularly _contrastive_ ones.
+
+These models operates on instance-level explanations. Explanations do not generalize on a global scale, unless something else is done (e.g. SP-LIME, explained in this post).
+
+> [!NOTE]
+> This is why contrastive explanations may not be possible unless we explore nearby points, where the local explanation models are accurate, but restricting its usefulness. They also fail to model highly non-linear models (property of curvature) and multi-collinearity.
+
+Besides models like SHAP and LIME which fit a simpler model, local explanations can be provided by instance gradients (saliency maps,$\frac{y_j}/{\mathbf{x}}$), fitting simpler local models (e.g. Linear LIME). In this case small perturbations might result in very different explanations.
 
 ## What are AFAMs?
 
-The Additive Feature Attribution Methods (AFAMs) class was identified in the paper [A Unified Approach To Interpreting Model Predictions][unified_approach_lcobf]. The methods in this class approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features, making it simpler and interpretable.
+The Additive Feature Attribution Methods (AFAMs) class was identified in the paper [A Unified Approach To Interpreting Model Predictions][shap]. The methods in this class approximate a prediction of the original model ($f$) with an _explanation model_ ($g$) which is a linear addition of binary features, making it simpler and interpretable.
 
 How do _explanation models_ relate to out general idea of [explanations](./explanation.md)? Here is what [Explaining Explanations in AI][xxai] says:
 
@@ -20,7 +39,7 @@ $$f(x) \approx g(z') = \phi_0 + \sum_{i=1}^M \phi_i z_i'$$
 
 Each $\phi_i \in R$ is an effects of a _binary_ feature $z_i' \in \{0, 1\}^M$ in the output. The different methods in the class estimate $\phi_i$ differently.
 
-[A Unified Approach To Interpreting Model Predictions][shap_values] defines **Explanation Model** as:
+[A Unified Approach To Interpreting Model Predictions][shap] defines **Explanation Model** as:
 
 > We introduce the perspective of viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 
@@ -40,7 +59,7 @@ However (as they note) local explanation models won't be accurate outside of the
 
 Linear LIME, DeepLIFT and other methods calculate $\phi_i$s differently, in turn yielding different coefficients.
 
-The [Unified Approach to Interpret Model Predictions][unified_approach_lcobf] proposes that models should have _local accuracy_, _missingness_, _consistency_ which, they argue, lead to coefficients that are more intuitive for humans.
+The [Unified Approach to Interpret Model Predictions][shap] proposes that models should have _local accuracy_, _missingness_, _consistency_ which, they argue, lead to coefficients that are more intuitive for humans.
 
 The terms are defined as:
 
@@ -48,7 +67,7 @@ The terms are defined as:
 - **Missingness**: If the reference vector ($x'$) has a "missing" component ($x_i'=0$) then the feature must have no impact, that is $\phi_i = 0$.
 - **Consistency**: if one of two models is larger just turning feature $i$ on and off, then it must have a larger $\phi_i$.
 
-Their Theorem (Theorem 1) guarantees ahat a linear explanation model plus the 3 requirements leave Shapley Values (a result from [game-theory found by Shapley][shap original]) as the best (and unique) coefficients. Other methods violate some of these 3 properties (so the authors modify them to comply).
+Their Theorem (Theorem 1) guarantees ahat a linear explanation model plus the 3 requirements leave Shapley Values (a result from [game-theory found by Shapley][shapley]) as the best (and unique) coefficients. Other methods violate some of these 3 properties (so the authors modify them to comply).
 
 SHAP (SHapley Additive Explanations) Values are the Shapley Values of a conditional expectation function of the original model: $f(h_x(z')) =  \mathbb{E}[f(z)|z_S]$ (Section 4, see Figure 1). $S$ are non-zero indices.
 
@@ -151,7 +170,7 @@ LIME is a slightly more explicit version of the first 3 desired properties. Let'
 ### Linear LIME: An Algorithm
 
 The paper implements LIME using the class $G$ of sparse linear models as explanation model, which we could call Linear LIME (as
-[A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] does). Here is my interpretation of the algorithm (the primed variables denote binary vectors):
+[A Unified Approach to Interpreting Model Predictions][shap] does). Here is my interpretation of the algorithm (the primed variables denote binary vectors):
 
 1. A model $f$ and an input vector $x \in R^n$ needs explaining,
 2. Start an interpretable, binary vector $x' \in \{0,1\}^{n'}$ with only the dimensions of interest of $x$ (it may be all-ones often),
@@ -194,34 +213,34 @@ Explanation models do not replace but complement accuracy or other evaluation me
 
 <!-- The input representation must also be conceptually meaningful. -->
 
-## Robustness Fixes
-
-- Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering.
-- Modified Index Position, in the [paper's words][using_shap_lime]:
-  > [MIP] works similarly to NMR by iteratively removing the top feature and retraining and testing the model. Thereafter, it examines how the features are reordered in the model which implies the effect of collinearity.
-
-These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one &mdash;most stable&mdash; of several methods.
-
-## Definition of a few concepts
-
-<details><summary>Aside: Collinearity and Non-linearity</summary>
-
-**Multicollinearity**: one feature is a linear combination of one or more other features. For example, $x_3 = \beta_2 x_2 + \beta_1 x_1 + \beta_0$; assuming linear independence would be an error. In the [paper's words][using_shap_lime]:
-
-> Indeed, some features might be assigned a low score despite being significantly associated with the outcome. This is because they do not improve the model performance due to their collinearity with other features whose impact has already been accounted for.
-
-**Non-linearity**: output changes are not proportional to input changes. For example $y = \beta x^N$ is non-linear, and fitting a line $y' = \alpha x$ to it would be inaccurate. Some SHAP models can model this correctly.
-
-</details>
-
-Let's now look at other methods.
-
+<!-- ## Robustness Fixes -->
+<!---->
+<!-- - Normalised Moving Rate (NMR): tests the stability of the list against the collinearity. Smaller NMR means more stable ordering. -->
+<!-- - Modified Index Position, in the [paper's words][using_shap_lime]: -->
+<!--   > [MIP] works similarly to NMR by iteratively removing the top feature and retraining and testing the model. Thereafter, it examines how the features are reordered in the model which implies the effect of collinearity. -->
+<!---->
+<!-- These two methods (MIP, NMR) can be useful both in having a reliable sorting of features, and on selecting one &mdash;most stable&mdash; of several methods. -->
+<!---->
+<!-- ## Definition of a few concepts -->
+<!---->
+<!-- <details><summary>Aside: Collinearity and Non-linearity</summary> -->
+<!---->
+<!-- **Multicollinearity**: one feature is a linear combination of one or more other features. For example, $x_3 = \beta_2 x_2 + \beta_1 x_1 + \beta_0$; assuming linear independence would be an error. In the [paper's words][using_shap_lime]: -->
+<!---->
+<!-- > Indeed, some features might be assigned a low score despite being significantly associated with the outcome. This is because they do not improve the model performance due to their collinearity with other features whose impact has already been accounted for. -->
+<!---->
+<!-- **Non-linearity**: output changes are not proportional to input changes. For example $y = \beta x^N$ is non-linear, and fitting a line $y' = \alpha x$ to it would be inaccurate. Some SHAP models can model this correctly. -->
+<!---->
+<!-- </details> -->
+<!---->
+<!-- Let's now look at other methods. -->
+<!---->
 <details>
 <summary>Sources</summary>
 
-1. [A value for n-person games][shap original] (1952)
+1. [A value for n-person games][shapley] (1952)
 1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016),
-1. [A Unified Approach to Interpreting Model Predictions][unified_approach_lcobf] (2017),
+1. [A Unified Approach to Interpreting Model Predictions][shap] (2017),
 1. [Explaining Explanations in AI][xxai] (2019),
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): overview of many aspects of XAI,
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2025): conceptual aspects (weaknesses, strengths, assumptions) of the popular XAI methods SHAP and LIME.
@@ -231,8 +250,8 @@ Let's now look at other methods.
 [lime]: https://dl.acm.org/doi/10.1145/2939672.2939778
 [principles_and_practice]: https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full
 [using_shap_lime]: https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304
-[unified_approach_lcobf]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
-[shap original]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
+[shap]: https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+[shapley]: https://sites.math.rutgers.edu/~zeilberg/EM22/Shapley1952.pdf
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
 <!-- ### LIME: Two Explanatory Levels -->
@@ -288,3 +307,6 @@ Let's now look at other methods.
 <!-- 1. If we assume linearity and the reality is non-linear there will also be an error. -->
 
 <!-- _Note_: these could be called linear combination of binary features as well. -->
+
+<!-- How do small perturbations affect the output / prediction? -->
+<!-- In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind. -->

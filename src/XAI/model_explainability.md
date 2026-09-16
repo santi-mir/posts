@@ -2,17 +2,23 @@
 
 Explanations were defined and characterised in [explanations](./explanation.md).
 
-This post presents methods and areas of the field of Explainable AI (XAI).
+This post is an overview of the field of Explainable AI (XAI).
 
 ----------------
 
 ## Scope of the Field
 
-Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. In this blogpost, explainability and interpretability are considered synonyms.
+Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. As a mean to this end, the field has focused in researching _methods for producing explanations_ (e.g. such as visualisation techniques, SHAP, LIME).
+
+Some of these methods are discussed here and in the following posts.
 
 ## Model Explainability
 
-We define _model explainability_[^literal] as:
+Let's start by taking "_model explainability_" apart. The suffix "-ability" means the "degree to which", so we have the "degree to which a model is explainable".
+
+We want to _explain_ not only to the model's inner working but also to its outputs or predictions.
+
+We have defined _explanation_ earlier, but we can roughly put all this together in one definition:
 
 > [!NOTE]
 > **Model explainability**
@@ -23,7 +29,10 @@ One similar paragraph from [Explaining Explanations in AI][xxai] defines explana
 
 > (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).
 
-Four types of _model explainability_ are described below: Intrinsic, Extrinsic[^extr_intr], Local and Global.
+Four types of _model explainability_ are described in the following sections: Intrinsic, Extrinsic[^extr_intr], Local and Global.
+
+> [!NOTE]
+> In this blogpost, _explainability_ and _interpretability_ are considered synonyms.
 
 ### Global and Local Explanations
 
@@ -46,7 +55,9 @@ Transparency is domain-dependent. For example, the field of geometric deep learn
 
 ### Extrinsic Explainability
 
-Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works. Sometimes they use an extra _explanation model_, but not always.
+Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works.
+
+Sometimes they use an extra _explanation model_, but not always.
 
 Post-Hoc methods are summarised in [the next section][post-hoc-methods].
 
@@ -65,7 +76,7 @@ This is a visual explanation of the features' contribution to the output from th
 
 They also propose an _explainer desiderata_ for the explanation model: it should be `1.` **interpretable**, by giving a qualitative understanding between inputs and outputs, making it easy to understand, `2.` **model agnostic** and `3.` **locally faithful** (a good fit to the original model in the vicinity of the instance being explained) and `4.` **globally explainable**. In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
 
-[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models[^shap] must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
+[Rudin][stop_explaining_interpret_instead] argues that these simpler explanation models must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".
 
 On the other hand, methods such as SHAP, LIME can provide _some_ understanding of the phenomena, often with local fidelity, even if approximately. [Explaining Explanations in AI][xxai] seems to argue a similar case, by citing Box's maxim: "All models are wrong but some are useful" and making an analogy with scientific modelling:
 
@@ -92,23 +103,19 @@ A similar variant included in the survey in [Principles and practise of explaini
 Some methods may need to be adapted for a given audience. A version merging parts of these two is given below:
 
 - **Textual** e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),
-- **Local explanations**: Explains the model's behaviour in a local area of interest. Operates on instance-level explanations. Explanations do not generalize on a global scale.
-Using $\frac{y_j}/{\mathbf{x}}$ gradient (saliency maps), fitting simpler local models (e.g. Linear LIME).
-    - Small **perturbations** might result in very different explanations. How do small perturbations affect the output / prediction?
 - **Similarity** (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
     - They do not explicitly state what parts of the example influence the model. How do inputs from different classes compare? And same?
 - **Feature relevance**: They operate on an instance level (some can operate globally).
     - Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?
 - **Simplification**: Simple surrogate models explain opaque ones.
-    - Surrogate models may not approximate original models well.  Can we get local insights by using a simpler model?
- **Visualizations**: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
-    - There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations.  Class boundaries?
+    - Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?
+- **Visualizations**: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
+    - There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. Class boundaries?
+- **Local Explanations**: see [next post](./strategies.md).
 
 The latter paper reminds us that:
 
 > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
-
-<!-- In the next posts, we focus on **methods** that aid _causal attribution_ (or cognitive process) with a scientific audience in mind. -->
 
 ----------------
 
@@ -170,9 +177,8 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
-[^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable").
+<!-- [^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable"). -->
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
-[^shap]: [In their words][shap_values] : "We introduce the perspective of viewing any explanation of a model’s prediction as a model itself, which we term the _explanation model_." and also "Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.".
 
 <!-- BELOW THERE IS A TON OF SNIPPETS I REMOVED TO KEEP IT SHORT -->
 
