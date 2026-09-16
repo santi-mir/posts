@@ -8,9 +8,7 @@ This post is an overview of the field of Explainable AI (XAI).
 
 ## Scope of the Field
 
-Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs. As a mean to this end, the field has focused in researching _methods for producing explanations_ (e.g. such as visualisation techniques, SHAP, LIME).
-
-Some of these methods are discussed here and in the following posts.
+Explainable AI (XAI) aims to explain machine and deep learning models inner workings and their outputs.
 
 ## Model Explainability
 
@@ -59,9 +57,7 @@ Extrinsic Explainability or post-hoc involves explaining prediction(s) rather th
 
 Sometimes they use an extra _explanation model_, but not always.
 
-Post-Hoc methods are summarised in [the next section][post-hoc-methods].
-
-["Why Should I Trust You?"][lime] combines local explanations with a visual representation:
+["Why Should I Trust You?"][lime] defines "explaining a prediction" as:
 
 > By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.
 

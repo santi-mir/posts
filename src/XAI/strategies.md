@@ -7,11 +7,23 @@ This post explores the local explainability methods, with emphasis on "Additive 
 A popular type of post-hoc explainability, **local explanations** explain the model's behaviour in a local area of interest, often using an _explanation model_ which [is defined in SHAP as][shap]:
 
 > (...) viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_.
-and also
+
+And also:
 
 > Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.
 
-[Explaining Explanations in AI][xxai] also adds: "Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions."
+[Explaining Explanations in AI][xxai] adds:
+
+> Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions.
+
+<!-- And they state later on: -->
+<!---->
+<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
+<!-- > -->
+<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
+<!---->
+<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
+
 It must still be complemented by the areas where the model is accurate, breaks down, or its fit to the prediction model is unknown. And where the explanation model is accurate, they say:
 
 > Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer 'what if' questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"
