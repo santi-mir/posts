@@ -169,6 +169,20 @@ SP-LIME is defined as:
 
 The complex part of SP-LIME is selecting instances that add the maximum insight, and avoiding repeated ones. The algorithm is briefly described later on.
 
+### Linear LIME: A problem
+
+[Explaining Explanations in AI][xxai] has both an interesting explanation and also criticism of LIME, so it is pasted below without changes:
+
+> The other option, and most influentially proposed by Ribeiro et al. (2016) in their Locally Interpretable Model-Agnostic Explanations (LIME) approach, is to binarize the problem. Rather than trying to fit a linear classifier to a large range of values, the authors consider a binary problem, where for each feature they attempt to switch it on and off, allowing them to answer the question “What is the contribution of feature f to the classifier response, given the data it currently sees?” This leaves open the question of “the contribution compared to what?” For unstructured data, such as a count of how many times particular words occur in a document, it makes sense to compare against a baseline created by setting the count to 0. For structured data this is more problematic. For example, how can we evaluate the importance of someone’s salary to a loan decision, if the classifier can only evaluate people with valid salaries? The answer is to compare it against a different valid salary, but it is unclear how this valid salary should be chosen.
+
+Particularly it highlights that we are looking at $g(z_i'=1,...) - g(z_i'=0)$ rather than anything else (the $\phi_0$ can be meaningless, since that can be very far away from the value on $f$).
+
+And here it matters to which state of $z_i$ each $z_i'$ value maps to. It is also important that the corresponding $z$ vectors near $x$! Otherwise, the difference is meaningless, because one of them is likely inaccurate.
+
+The last part of the paper explores which state should be $0$ which is can be actual $0$ or a reference value. As said above, the $z$ points must be near $x$ for best results.
+
+There are many interesting caveats with LIME which are worth exploring in detail.
+
 ### SP-LIME: The Algorithm
 
 The goal here is picking the most informative instances, and without repetition.

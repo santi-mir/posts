@@ -2,8 +2,8 @@
 
 Let's now discuss three key topics which stand on their own:
 
-- Local explanations: A popular post-hoc explainability method of,
-- The modelling trade-off,
+- Local explanations: a popular post-hoc explainability class,
+- Modelling trade-offs,
 - Generalisation out of distribution.
 
 Finally, an interesting map of XAI extracted from one paper is shown.
@@ -12,31 +12,17 @@ Finally, an interesting map of XAI extracted from one paper is shown.
 
 ## Local Explanations
 
-We will discuss AFAMs within the context of post-hoc explainability, and almost entirely as local explainability methods.
+Linear, gradient-based and decision trees are used to explain particular predictions, as local explanation models. They can be extended to be global (as we will discuss).
 
-As we will see in the next section, AFAMs are _explanation models_ defined as linear combination of binary features. With them we can try to explain particular predictions (local explanation) though they can be extended to be global (as we will discuss).
+Local explanation models can be defined as simpler and interpretable models used to approximate and explain particular predictions of the original model.
 
-Explanation model [is defined in SHAP as][shap]:
 
-> (...) viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_.
-
-And also:
-
-> Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model.
 
 [Explaining Explanations in AI][xxai] adds:
 
 > Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions.
 
 To my interpretation, the paper also argues that this isn't an explanation in itself. Rather, they are models we can use to generate local explanations.
-
-<!-- And they state later on: -->
-<!---->
-<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
-<!-- > -->
-<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
-<!---->
-<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
 
 It must still be complemented by the areas where the model is accurate, breaks down, or its fit to the prediction model is unknown. And where the explanation model is accurate, they say:
 
@@ -46,8 +32,7 @@ Connecting this post with the [one on explanations](./explanation.md), particula
 
 These models operates on instance-level explanations. Explanations do not generalize on a global scale, unless something else is done (e.g. SP-LIME, explained in this post).
 
-> [!NOTE]
-> This is why contrastive explanations may not be possible unless we explore nearby points, where the local explanation models are accurate, but restricting its usefulness. They also fail to model highly non-linear models (property of curvature) and multi-collinearity.
+Hence, contrastive explanations may only be possible for neighbouring points, where the local explanation models are accurate, but restricting its usefulness. They also fail to model highly non-linear models (property of curvature) and interdependency between variables.
 
 Besides models like SHAP and LIME which fit a simpler model, local explanations can be provided by instance gradients (saliency maps,$\frac{y_j}/{\mathbf{x}}$), fitting simpler local models (e.g. Linear LIME). In this case small perturbations might result in very different explanations.
 
@@ -74,6 +59,10 @@ And in [Explaining Explanations in AI][xxai]:
 
 > (...) three-way trade-off between the simplicity of the approximated model, the size of the domain it describes, and the accuracy of this description.
 
+And also:
+
+> A trade-off inherently occurs between the insightfulness of the approximated model, the simplicity of the presented function, and the size of the domain to which is applies and remains valid (Bastani et al., 2017; Lakkaraju et al., 2017).
+
 Other researchers such as [Rudin][interpretable_ml] disagree (references were removed):
 
 > Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an incorrect perception that they are less accurate than black boxes. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is no scientific evidence that accuracy must be sacrificed when adding interpretability constraints.
@@ -90,11 +79,13 @@ The paper also states a related complication:
 > (...)
 > The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
 
+However, I don't think this tradeoff has been formalised in a general way and it's just an observation, or it is not mentioned in these papers?
+
 ## Out of Distribution
 
 Consider an imaginary model $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
 
-However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythods of Model Interpretability][mythos]":
+However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "[The Mythos of Model Interpretability][mythos]":
 
 1. The model _undefitted_ the data, and we may need a better model.
 1. The dataset is _not representative_ the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?
@@ -155,3 +146,19 @@ The focus here though, is explaining _deep learning_ models which are often, but
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+
+
+<!-- [shap] -->
+<!---->
+<!-- > (...) viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_. -->
+<!---->
+<!-- And also: -->
+<!---->
+<!-- > Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model. -->
+<!-- And they state later on: -->
+<!---->
+<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
+<!-- > -->
+<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
+<!---->
+<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
