@@ -50,6 +50,7 @@ These models operates on instance-level explanations. Explanations do not genera
 > This is why contrastive explanations may not be possible unless we explore nearby points, where the local explanation models are accurate, but restricting its usefulness. They also fail to model highly non-linear models (property of curvature) and multi-collinearity.
 
 Besides models like SHAP and LIME which fit a simpler model, local explanations can be provided by instance gradients (saliency maps,$\frac{y_j}/{\mathbf{x}}$), fitting simpler local models (e.g. Linear LIME). In this case small perturbations might result in very different explanations.
+
 ## Trade-offs?
 
 We may expect _model explainability_ to be inversely correlated with model complexity or accuracy. Graphically:
