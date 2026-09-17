@@ -110,7 +110,7 @@ Some methods may need to be adapted for a given audience. A version merging part
     - Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?
 - **Visualizations**: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
     - There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. Class boundaries?
-- **Local Explanations**: see [next post](./strategies.md).
+- **Local Explanations**: see [next post](./model_explainability_2.md).
 
 The latter paper reminds us that:
 
