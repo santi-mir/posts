@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-65a2eb69.js";
+            window.path_to_searchindex_js = "../searchindex-fda0df9f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -179,39 +179,9 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="local-explanations"><a class="header" href="#local-explanations">Local Explanations</a></h1>
-<p>This post explores the local explainability methods, with emphasis on "Additive Feature Attribution Methods" class of <em>extrinsic explainability</em> methods (where the reference model's internals aren't analysed).</p>
+<h1 id="additive-feature-attribution-methods"><a class="header" href="#additive-feature-attribution-methods">Additive Feature Attribution Methods</a></h1>
+<p>"Additive Feature Attribution Methods" (AFAMs) are a class of <em>extrinsic explainability</em> methods (where the reference model's internals aren't analysed). This post explores a few of these methods.</p>
 <hr>
-<p>A popular type of post-hoc explainability, <strong>local explanations</strong> explain the model's behaviour in a local area of interest, often using an <em>explanation model</em> which <a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">is defined in SHAP as</a>:</p>
-<blockquote>
-<p>(...) viewing any explanation of a model's prediction as a model itself, which we term the <em>explanation model</em>.</p>
-</blockquote>
-<p>And also:</p>
-<blockquote>
-<p>Instead, we must use a simpler <em>explanation model</em>, which we define as any interpretable approximation of the original model.</p>
-</blockquote>
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> adds:</p>
-<blockquote>
-<p>Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions.</p>
-</blockquote>
-<!-- And they state later on: -->
-<!---->
-<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
-<!-- > -->
-<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
-<!---->
-<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
-<p>It must still be complemented by the areas where the model is accurate, breaks down, or its fit to the prediction model is unknown. And where the explanation model is accurate, they say:</p>
-<blockquote>
-<p>Over the domain for which the model accurately maps onto the phenomena we are interested in, it can be used to answer 'what if' questions, for example "What would the outcome be if the data looked like this instead?" and to search for contrastive explanations, for example "How could I alter the data to get outcome X?"</p>
-</blockquote>
-<p>Connecting this post with the <a href="./explanation.html">one on explanations</a>, particularly <em>contrastive</em> ones.</p>
-<p>These models operates on instance-level explanations. Explanations do not generalize on a global scale, unless something else is done (e.g. SP-LIME, explained in this post).</p>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>This is why contrastive explanations may not be possible unless we explore nearby points, where the local explanation models are accurate, but restricting its usefulness. They also fail to model highly non-linear models (property of curvature) and multi-collinearity.</p>
-</blockquote>
-<p>Besides models like SHAP and LIME which fit a simpler model, local explanations can be provided by instance gradients (saliency maps,<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3287em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8087em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">/</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.5073em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathbf">x</span></span></span></span></span>), fitting simpler local models (e.g. Linear LIME). In this case small perturbations might result in very different explanations.</p>
 <h2 id="what-are-afams"><a class="header" href="#what-are-afams">What are AFAMs?</a></h2>
 <p>The Additive Feature Attribution Methods (AFAMs) class was identified in the paper <a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach To Interpreting Model Predictions</a>. The methods in this class approximate a prediction of the original model (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>) with an <em>explanation model</em> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>) which is a linear addition of binary features, making it simpler and interpretable.</p>
 <p>How do <em>explanation models</em> relate to out general idea of <a href="./explanation.html">explanations</a>? Here is what <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:</p>
