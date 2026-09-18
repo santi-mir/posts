@@ -28,14 +28,28 @@ The process may repeat and update during the interaction. Sometimes it's during 
 
 Our understanding is reflected in the hypothesis formed in the _cognitive process_: Understanding is having a theory, hypothesis or model about how something works (cognitive process). It's also frequent that there is an illusion of understanding, and explaining or forcing predictions may make the illusion more evident.
 
-> [!NOTE]
-> This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander.
+Explanations also have three important aspects; they are usually _contrastive_, _selective_ and _social_. We will dive into each of those aspects in the remaining sections.
 
-## Cognitive Process
+<!-- > [!NOTE] -->
+<!-- > This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander. -->
 
-### Contrastive Questions
+## Contrastive Theories and Causal Explanation
 
-Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
+The contrastive framing of a problem or question is _one way to help providing causal explanation_ (or causal hypothesis). One useful case will appear in Explainable AI, to help explain particular cases.
+
+What do they involve? They involve a counterfactual, as [Explaining Explanations in AI][xxai] states:
+
+> In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
+
+That is, the event cited as cause of $P$ (say $X$) must be absent (can't have happened) for $Q$ to happen. (We require not-$X$ for $Q$).
+
+Also _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
+
+In a sense we are looking for the presence of an event that leads to P (which both can be hypotheses) and also a missing necessary event that leads to Q.
+
+They also state that contrastive explanations are usually preferred by humans:
+
+> Rather, the reviewed empirical evidence indicates that humans psychologically prefer contrastive explanations (Miller, 2017, p.18)(Rehder, 2003, 2006).
 
 As the paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] states:
 
@@ -49,9 +63,16 @@ The _foil_ focuses the explanation on the differences between the two cases (ign
 
 The complexity, of course, lies on knowing _which differences_ matter.
 
+Anomalies are usually a case when contrastive explanations are requested, against a normal or expected case (foil).
+
+[Explaining Explanations in AI][xxai] also adds an interesting analysis about the value of contrastive explanations:
+
+> While the utility of contrastive theories remains debated, the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990).
+
 ### Attributing Causes
 
-As [Miller et al. state][beware_inmates_asylum]:
+The contrastive explanation involves assigning a cause.
+[Miller et al. state][beware_inmates_asylum]:
 
 > Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
 
