@@ -6,7 +6,9 @@ This post describes what explanations are, and forms a basis for understanding h
 
 ## Definition
 
-What is an explanation? There are many definitions. Here is one, from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
+What is an explanation? There are many definitions. But, in general, they *are not* just the presentation of causes. Although that is an essential part, it is more complex than that.
+
+Here is definition, from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
 
 > Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.
 
