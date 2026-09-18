@@ -16,8 +16,6 @@ Linear, gradient-based and decision trees are used to explain particular predict
 
 Local explanation models can be defined as simpler and interpretable models used to approximate and explain particular predictions of the original model.
 
-
-
 [Explaining Explanations in AI][xxai] adds:
 
 > Explainable AI generates approximate simple models and calls them 'explanations', suggesting reliable knowledge of how a complex model functions.
@@ -146,7 +144,6 @@ The focus here though, is explaining _deep learning_ models which are often, but
 <!-- In other words, classical ML and DL models each have their use-cases. -->
 
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-
 
 <!-- [shap] -->
 <!---->

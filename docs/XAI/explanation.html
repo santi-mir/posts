@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-36f4ae0d.js";
+            window.path_to_searchindex_js = "../searchindex-97698c9e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -200,13 +200,22 @@
 <p>Usually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.</p>
 <p>The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding! Also, the <em>explanandum</em> (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.</p>
 <p>Our understanding is reflected in the hypothesis formed in the <em>cognitive process</em>: Understanding is having a theory, hypothesis or model about how something works (cognitive process). It's also frequent that there is an illusion of understanding, and explaining or forcing predictions may make the illusion more evident.</p>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>This post is mostly jargon-free. Technical articles about topics such as <em>abductive inference</em> are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given <a href="https://newsletter.squishy.computer/p/llms-for-theory-building">in this article</a> by Gordon Brander.</p>
+<p>Explanations also have three important aspects; they are usually <em>contrastive</em>, <em>selective</em> and <em>social</em>. We will dive into each of those aspects in the remaining sections.</p>
+<!-- > [!NOTE] -->
+<!-- > This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander. -->
+<h2 id="contrastive-theories-and-causal-explanation"><a class="header" href="#contrastive-theories-and-causal-explanation">Contrastive Theories and Causal Explanation</a></h2>
+<p>The contrastive framing of a problem or question is <em>one way to help providing causal explanation</em> (or causal hypothesis). One useful case will appear in Explainable AI, to help explain particular cases.</p>
+<p>What do they involve? They involve a counterfactual, as <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> states:</p>
+<blockquote>
+<p>In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".</p>
 </blockquote>
-<h2 id="cognitive-process"><a class="header" href="#cognitive-process">Cognitive Process</a></h2>
-<h3 id="contrastive-questions"><a class="header" href="#contrastive-questions">Contrastive Questions</a></h3>
-<p>Research has shown that <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em> Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.</p>
+<p>That is, the event cited as cause of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> (say <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>) must be absent (can't have happened) for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span> to happen. (We require not-<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span>).</p>
+<p>Also <em>why-questions</em> are usually <em>contrastive</em>. That is, they are phrased as <em>Why P rather than Q?</em> instead of simply <em>Why P?</em> Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.</p>
+<p>In a sense we are looking for the presence of an event that leads to P (which both can be hypotheses) and also a missing necessary event that leads to Q.</p>
+<p>They also state that contrastive explanations are usually preferred by humans:</p>
+<blockquote>
+<p>Rather, the reviewed empirical evidence indicates that humans psychologically prefer contrastive explanations (Miller, 2017, p.18)(Rehder, 2003, 2006).</p>
+</blockquote>
 <p>As the paper <a href="http://arxiv.org/abs/1712.00547">Beware of Inmates Running the Asylum</a> states:</p>
 <blockquote>
 <p>For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
@@ -217,8 +226,14 @@
 <p>What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an <em>object a</em>, an <em>object of comparison b</em> and an <em>explanandum property E</em> which a has and b does not have.</p>
 </blockquote>
 <p>The complexity, of course, lies on knowing <em>which differences</em> matter.</p>
+<p>Anomalies are usually a case when contrastive explanations are requested, against a normal or expected case (foil).</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> also adds an interesting analysis about the value of contrastive explanations:</p>
+<blockquote>
+<p>While the utility of contrastive theories remains debated, the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990).</p>
+</blockquote>
 <h3 id="attributing-causes"><a class="header" href="#attributing-causes">Attributing Causes</a></h3>
-<p>As <a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
+<p>The contrastive explanation involves assigning a cause.
+<a href="http://arxiv.org/abs/1712.00547">Miller et al. state</a>:</p>
 <blockquote>
 <p>Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.</p>
 </blockquote>
