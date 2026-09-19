@@ -115,8 +115,6 @@ Unclear why this item is about interpretability.
 <!-- > [!NOTE] -->
 <!-- > This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander. -->
 
-
-
 <!-- The definition of "Explanation" given above is unclear regarding what "_explains_" means. We could just as well define "Interview" as "Someone interviews someone about something". Though even in this vague form, it still highlights an exchange between two agents. -->
 <!-- The authors also state that contrastive explanations are usually preferred by humans to other kinds of explanations (e.g. fuller causal-chain explanations). -->
 

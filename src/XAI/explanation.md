@@ -6,7 +6,7 @@ This post describes what _explanations_ are in the context of artificial intelli
 
 ## Definition
 
-_What is an explanation?_ There are many definitions. But, in general, they are *not* just the presentation of causes. That is an essential aspect, but there is more to them.
+_What is an explanation?_ There are many definitions. But, in general, they are _not_ just the presentation of causes. That is an essential aspect, but there is more to them.
 
 Here is definition from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
 
@@ -40,7 +40,7 @@ My reading is as follows
 
 - _Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals.
     - As [Explaining Explanations in AI][xxai] states:
-    > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
+  > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
     - They can also be given via other terms (intervention and observation/association, as in the 3 steps of the Ladder of Causation).
 
 - _Contrastive explanations_ don't _always_ rely on counterfactuals.
@@ -61,6 +61,7 @@ The _foil_ focuses the explanation on "What leads to P and not to Q". Similarly 
 <!-- , and can also reduce confusion. -->
 
 ### Contrastive Question
+
 [Hesslow][causal_selection_problem] a more general idea:
 
 > What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an _object a_, an _object of comparison b_ and an _explanandum property E_ which a has and b does not have.
@@ -114,8 +115,6 @@ _Relevance_ is primarily related to the _causal selection problem_ in relation t
 > How do people solve this problem? They determine what exact question the audience is interested in (McClure and Hilton 1998); they take into account what their audience member already knows (Slugoski et al. 1993); and they offer elements of explanations that build bridges between presumed knowledge and novel information (Korman and Malle 2016). In short, they offer explanations that generate coherence in a knowledge structure of old and new information (Thagard 1989).
 
 _Contrastive explanations_ can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.
-
-
 
 ## Metaphors: The Machine and The Agent
 
