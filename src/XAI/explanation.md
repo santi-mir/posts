@@ -194,8 +194,6 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
 
 [logic_of_expl_hempel]: https://fitelson.org/woodward/hempel_oppenheim.pdf
 
-[logic_substack]: https://newsletter.squishy.computer/p/llms-for-theory-building
-
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
 
 [scriven]: https://fitelson.org/woodward/scriven_epl.pdf

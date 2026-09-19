@@ -127,3 +127,5 @@ Unclear why this item is about interpretability.
 <!-- [Explaining Explanations in AI][xxai] also adds an interesting analysis about the value of contrastive explanations: -->
 <!---->
 <!-- > While the utility of contrastive theories remains debated, the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990). -->
+
+<!-- [logic_substack]: https://newsletter.squishy.computer/p/llms-for-theory-building -->
