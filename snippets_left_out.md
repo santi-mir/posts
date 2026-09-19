@@ -58,3 +58,74 @@ Unclear why this item is about interpretability.
 <!-- There are many methods to identify causes or relevant properties on models, that help explain how they work. Some of them include counterfactuals and comparison. -->
 
 <!-- [^literal]: The suffix "-ability" simply means "the degree to which" so _explainability_ is the degree to which a phenomenon or event is explainable, and _Model explainability_ simply adds a bit more context to what the words themselves mean together (which is already "the degree to which a model is explainable"). -->
+
+<!-- ### Classification -->
+<!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
+<!---->
+<!-- - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience. -->
+<!-- - **Static explanations**: Same as above, but they are non-interactive. -->
+<!-- - **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to. -->
+<!---->
+<!-- In the rest of this post, the term _explanandum_ defines _that which needs clarification_. -->
+
+<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
+
+<!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
+
+<!-- ## Explaining is Teaching -->
+<!---->
+<!-- The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.) -->
+<!---->
+<!-- The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.) -->
+<!---->
+<!-- Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_. -->
+<!---->
+<!-- More modern views include _connectivism_ (based on connectionism). -->
+<!---->
+<!-- This is a fascinating and related topic, but currently not discussed in the posts. -->
+<!---->
+<!-- ## Model Insights from Comparisons -->
+<!---->
+<!-- How many ways do we have to make comparisons? Probably dozens. Analogies, metaphors, counterfactuals, a reference case (opposite or similar), a prototype or class-assignment (generalisation uses comparison). -->
+<!---->
+<!-- _Counterfactuals_ What would have happened with an alternative input (a hypothetical case counter to the fact). It's most informative to use the minimum changes that change an output class. They are also similar to _What ifs_ (as the question shows). -->
+<!---->
+<!-- Counterfacturals and other comparisons can help to explain models without opening the box. -->
+<!---->
+<!-- For a model, _counterfactuals_ are yet another inference from another input, but the comparison is helpful because that is one way humans understand things. We can use them as a proxy to "understand how the model is thinking" (that is, by comparing results or inferences). -->
+<!---->
+<!-- In a similar fashion to counterfactuals, we can compare with reference inputs. -->
+
+<!-- (A logic-inference section could be added, but at the moment I don't see it adding much useful information.) -->
+
+<!-- ## Higher-Level Aspects of Networks -->
+<!---->
+<!-- The recognition of higher level patterns in graph can also span across methods. -->
+<!---->
+<!-- These can even be inspired by other networks or graphs; for example, insect colonies can be considered as graphs of insect-nodes and pheromone-edges, and certain nodes have roles and tasks they specialise on. A similar situation can be postulated to happen in human networks, and in neural (biological and artificial) networks, where the node is affected by, and also affects other nodes. -->
+<!---->
+<!-- A basic description of graph and networks and how there can be transfer learning between the different areas can be found in [Siemens - Connectivism][connectivism_siemens] and particularly in [Downes - Connectivism][connectivism_downes]. -->
+<!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
+
+<!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
+
+<!-- >[!NOTE] -->
+<!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
+
+<!-- > [!NOTE] -->
+<!-- > This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander. -->
+
+
+
+<!-- The definition of "Explanation" given above is unclear regarding what "_explains_" means. We could just as well define "Interview" as "Someone interviews someone about something". Though even in this vague form, it still highlights an exchange between two agents. -->
+<!-- The authors also state that contrastive explanations are usually preferred by humans to other kinds of explanations (e.g. fuller causal-chain explanations). -->
+
+<!-- Notice also that we have different formulations an answers. -->
+
+<!-- Contrastive questions simply use a fact and a foil. This can help generate counterfactual / causal answers. -->
+<!---->
+<!-- Anomalies are usually a case when contrastive explanations are requested, against a normal or expected case (foil). -->
+<!---->
+<!-- [Explaining Explanations in AI][xxai] also adds an interesting analysis about the value of contrastive explanations: -->
+<!---->
+<!-- > While the utility of contrastive theories remains debated, the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990). -->
