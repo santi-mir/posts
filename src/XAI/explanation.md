@@ -46,6 +46,7 @@ My reading is as follows
 - _Contrastive explanations_ don't _always_ rely on counterfactuals.
     - Their defining characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit).
     - However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means.
+    - We can have also functional or mechanistical explanations relying on contrasts, which are not causal.
 
 The link is that contrastive _why-questions_ are asking for a cause (causal explanation) and can be answered via counterfactuals. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit. (Contrastive questions and explanations will be revisited in the context of explainable AI.)
 
