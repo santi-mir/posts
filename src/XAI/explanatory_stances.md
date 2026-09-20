@@ -117,7 +117,6 @@ Now we go back to common methods used to explain mostly narrow AI algorithms.
 [open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
 [byrne_human_explanations]: https://doi.org/10.24963/ijcai.2023/733
 
-
 <!-- We can summarise some of these ideas (including a standard audience) in a brief table: -->
 <!---->
 <!-- | Perspective      | Model is a… | Preferred Explanation style | Audience            | -->
@@ -126,4 +125,3 @@ Now we go back to common methods used to explain mostly narrow AI algorithms.
 <!-- | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders | -->
 <!---->
 <!-- The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_. -->
-
