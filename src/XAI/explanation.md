@@ -107,7 +107,6 @@ _Relevance_ is primarily related to the _causal selection problem_ in relation t
 
 _Contrastive explanations_ can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.
 
-
 --------------
 
 <details>
@@ -164,7 +163,6 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 <!-- Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are. -->
 <!---->
 <!-- Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.) -->
-
 
 <!-- - The hypothesis is clarifying an _explanandum_ (that which is to be explained), and answers a question about it. -->
 <!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
