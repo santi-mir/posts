@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-fe242d32.js";
+            window.path_to_searchindex_js = "../searchindex-ab8942c8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -180,33 +180,24 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanatory-stances"><a class="header" href="#explanatory-stances">Explanatory Stances</a></h1>
-<p>This post explores the question: How should Deep Learning Models be explained?</p>
+<p>Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. Related ideas are explored in this post.</p>
 <hr>
-<h2 id="metaphors-the-machine-and-the-agent"><a class="header" href="#metaphors-the-machine-and-the-agent">Metaphors: The Machine and The Agent</a></h2>
-<p>Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. There are three common ones:</p>
+<h2 id="explaining-via-metaphors"><a class="header" href="#explaining-via-metaphors">Explaining via Metaphors</a></h2>
+<p>Here are three common metaphors humans use to explain things:</p>
 <ol>
-<li><em>Mechanical</em> stance (which I call "Machine Metaphor/Model"),
-<ul>
-<li>Explain outcomes by considering the parts of a system, what they do and how they interact (that is, a mechanism).</li>
-</ul>
-</li>
-<li><em>Design</em> stance, this has different interpretations. One is of the perceived <em>purpose</em> of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).</li>
-<li><em>Intentional</em> stance (which I call "Agent Metaphor/Model").
-<ul>
-<li>Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.</li>
-<li><em>Unintentional</em> behaviour/events is usually explained using the machine metaphor (see the following paper, section [Ordinary Behavior Explanation][autonomous_intelligent_systems]).</li>
-</ul>
-</li>
+<li>The <em>mechanical</em> stance (or the <em>Machine</em> Metaphor) explains behaviour how the parts of a system interact and what they do.</li>
+<li>The <em>design</em> stance, this has different interpretations. One is of the perceived <em>purpose</em> of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).</li>
+<li>The <em>intentional</em> stance (which I call "Agent Metaphor/Model") uses goals, motives, feelings, intent to explain actions and/or behaviour. <em>Unintentional</em> behaviour/events is usually explained using the machine metaphor (see the following paper, section [Ordinary Behavior Explanation][autonomous_intelligent_systems]).</li>
 </ol>
 <p>They can be complementary when applied to the same phenomena or as <a href="https://doi.org/10.24963/ijcai.2023/733">Ruth Byrne</a> puts it:</p>
 <blockquote>
 <p>Notably, each explanatory stance can be applied to explain the same device or action, but they have different consequences for understanding it. Each stance can lead to different kinds of insights, and to different kinds of erroneous inferences. The atypical application of a particular stance, say, a mechanical stance to explain an action more typically understood from an intentional stance, such as explaining travelers in a crowded airport as like pinballs careening around a pinball machine, may be interpreted analogically to yield new inferences [Keil, 2006].</p>
 </blockquote>
 <p>In technical fields, many complex systems are conceptualised as <em>machines</em>: composed of parts, each with a function, a role. Many are also conceptualised as <em>graphs</em>.</p>
-<p>Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.</p>
+<p>In everyday life we often conceptualise complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.</p>
 <p>What seems here most fundamental than the particular stances is the selection of a metaphor to structure thinking and obtaining insights.</p>
 <p>Other metaphors and analogies could be proposed for specific problems.</p>
-<p>Similar ideas can be found in "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]":</p>
+<p>A similar idea is expressed in "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]":</p>
 <blockquote>
 <p>For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.</p>
 </blockquote>
@@ -214,19 +205,6 @@
 <blockquote>
 <p>People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].</p>
 </blockquote>
-<p>We can summarise some of these ideas (including a standard audience) in a brief table:</p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Perspective</th><th>Model is a…</th><th>Preferred Explanation style</th><th>Audience</th></tr>
-</thead>
-<tbody>
-<tr><td><strong>Scientific</strong></td><td>Machine</td><td>Mechanistic, causal, formal</td><td>Experts</td></tr>
-<tr><td><strong>Human-facing</strong></td><td>Agent/Person</td><td>Intentional, narrative</td><td>Users, stakeholders</td></tr>
-</tbody>
-</table>
-</div>
-<p>The post on <a href="./explanatory_stances.html">explanatory stances</a> continues this line of reasoning and connects them with <em>how we explain humans and deep learning models</em>.</p>
 <p>The summary is:</p>
 <ol>
 <li><em>Mechanical</em> stance (which I call "Machine Metaphor/Model"),
@@ -291,6 +269,14 @@
 <li><a href="http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731">Can we open the black box of AI?</a> (2016). This paper briefly explains what ANNs are, their similarities (not the differences) to the brain, and what challenges they pose to us. Primarily, the challenge is that they are hard to explain. It puts as an example a physician or patient relying in the output, but not knowing <em>why</em> it predicts that. The author also cites Michael Tyka saying "The problem is that the knowledge gets baked into the network, rather than into us"</li>
 </ol>
 </details>
+<!-- We can summarise some of these ideas (including a standard audience) in a brief table: -->
+<!---->
+<!-- | Perspective      | Model is a… | Preferred Explanation style | Audience            | -->
+<!-- | ---------------- | ----------- | --------------------------- | ------------------- | -->
+<!-- | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             | -->
+<!-- | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders | -->
+<!---->
+<!-- The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_. -->
 
                     </main>
 
