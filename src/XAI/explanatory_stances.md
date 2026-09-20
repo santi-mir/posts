@@ -1,10 +1,38 @@
 # Explanatory Stances
 
-This post explores the question: How should Deep Learning Models be explained?
+Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. Related ideas are explored in this post.
 
 -------------------
 
-In the [previous post](./explanation.md) explanatory metaphors, or as Dennett calls them "stances" were described. The summary is:
+## Explaining via Metaphors
+
+Here are three common metaphors humans use to explain things:
+
+1. The _mechanical_ stance (or the _Machine_ Metaphor) explains behaviour how the parts of a system interact and what they do.
+2. The _design_ stance, this has different interpretations. One is of the perceived _purpose_ of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).
+3. The _intentional_ stance (which I call "Agent Metaphor/Model") uses goals, motives, feelings, intent to explain actions and/or behaviour. _Unintentional_ behaviour/events is usually explained using the machine metaphor (see the following paper, section [Ordinary Behavior Explanation][autonomous_intelligent_systems]).
+
+They can be complementary when applied to the same phenomena or as [Ruth Byrne][byrne_human_explanations] puts it:
+
+> Notably, each explanatory stance can be applied to explain the same device or action, but they have different consequences for understanding it. Each stance can lead to different kinds of insights, and to different kinds of erroneous inferences. The atypical application of a particular stance, say, a mechanical stance to explain an action more typically understood from an intentional stance, such as explaining travelers in a crowded airport as like pinballs careening around a pinball machine, may be interpreted analogically to yield new inferences [Keil, 2006].
+
+In technical fields, many complex systems are conceptualised as _machines_: composed of parts, each with a function, a role. Many are also conceptualised as _graphs_.
+
+In everyday life we often conceptualise complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.
+
+What seems here most fundamental than the particular stances is the selection of a metaphor to structure thinking and obtaining insights.
+
+Other metaphors and analogies could be proposed for specific problems.
+
+A similar idea is expressed in "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]":
+
+> For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
+
+And more recently, in [Good Explanations in XAI][byrne_human_explanations]:
+
+> People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].
+
+The summary is:
 
 1. _Mechanical_ stance (which I call "Machine Metaphor/Model"),
     - Explain outcomes by considering the parts of a system and how they interact (that is, a mechanism).
@@ -88,3 +116,12 @@ Now we go back to common methods used to explain mostly narrow AI algorithms.
 [minsky]: https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/index.html
 [open_ai_black_box]: http://www.nature.com/news/can-we-open-the-black-box-of-ai-1.20731
 [byrne_human_explanations]: https://doi.org/10.24963/ijcai.2023/733
+
+<!-- We can summarise some of these ideas (including a standard audience) in a brief table: -->
+<!---->
+<!-- | Perspective      | Model is a… | Preferred Explanation style | Audience            | -->
+<!-- | ---------------- | ----------- | --------------------------- | ------------------- | -->
+<!-- | **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             | -->
+<!-- | **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders | -->
+<!---->
+<!-- The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_. -->
