@@ -1,62 +1,89 @@
 # Explanations
 
-This post describes what explanations are, and forms a basis for understanding how to explain artificial intelligent systems.
-
-<!-- For example: Can we create a deep learning model, or a model-explanation algorithm that best fits ordinary people's requirements? Can we adapt pre-existing ones for this purpose? Can we create or adapt models or explanation models that are suitable for specific audiences (with different requirements)? When can we trade _truth_ or _accuracy_ of an explanation, for _simplicity_? -->
+This post describes what _explanations_ are in the context of artificial intelligence.
 
 --------------
 
 ## Definition
 
-What is an explanation? There are many definitions. Here is one, from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
+_What is an explanation?_ There are many definitions. But, in general, they are _not_ just the presentation of causes. That is an essential aspect, but there is more to them.
+
+Here is definition from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
 
 > Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.
 
-The definition of "Explanation" given above is unclear regarding what "_explains_" means. We could just as well define "Interview" as "Someone interviews someone about something". Though even in this vague form, it still highlights an exchange between two agents.
+<!-- That's a step forwards. But what is _explains_? -->
 
-Inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social], this post defines "explaining" broadly as:
+[Explaining Explanations in AI][xxai] also defines of explanations and explanation in AI:
 
-> **Explaining**
+> (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).
+
+Inspired by [Explanation in artificial intelligence: insights from the social sciences][explanations_social], this post defines _explanation_ as:
+
+> **Explanation**
 >
-> A two-step process involving `1.` the generation of explanatory hypotheses (cognitive process) and `2.` the communication to an audience (social process).
+> A two-step process involving `1.` the generation of explanatory hypotheses (cognitive process) and `2.` the communication to an audience (social process) possibly including ourselves. The process may repeat indefinitely.
 
-Usually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.
+<!-- - The hypothesis is clarifying an _explanandum_ (that which is to be explained), and answers a question about it. -->
+In the iterations, the _explanandum_ (that which is to be explained) may be refined which can also increase our understanding, even by making evident showing an illusion of understanding.
 
-The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding! Also, the _explanandum_ (that which is to be explained) may be refined just as a photo-camera may gain focus with increased exposure.
+Eventually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.
+<!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
 
-Our understanding is reflected in the hypothesis formed in the _cognitive process_: Understanding is having a theory, hypothesis or model about how something works (cognitive process). It's also frequent that there is an illusion of understanding, and explaining or forcing predictions may make the illusion more evident.
+The hypothesis (formed in the _cognitive process_) reflects our understanding: Understanding is having a theory, hypothesis or model about how something works (cognitive process).
 
-> [!NOTE]
-> This post is mostly jargon-free. Technical articles about topics such as _abductive inference_ are linked in the "Sources" at the bottom of this post. A brief discussion of logic inference in AI is given [in this article][logic_substack] by Gordon Brander.
+Explanations also have three important aspects; they are usually _contrastive_, _selective_ and _social_. We will dive into each of those aspects in the remaining sections.
 
-<!-- >[!NOTE] -->
-<!-- > The problem of causal _connection_ and _selection_ (`1.`) are well known, complex problems in psychology. -->
+In the case of _AI-models_ (either approximations or the original ones) we may also require to know the approximations, robustness and errors of the model.
 
-## Cognitive Process
+## Contrastive and Causal Explanations
 
-### Contrastive Questions
+My reading is as follows
 
-Research has shown that _why-questions_ are usually _contrastive_. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
+- _Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals.
+    - As [Explaining Explanations in AI][xxai] states:
+  > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
+    - They can also be given via other terms (intervention and observation/association, as in the 3 steps of the Ladder of Causation).
 
-As the paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] states:
+- _Contrastive explanations_ don't _always_ rely on counterfactuals.
+    - Their defining characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit).
+    - However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means.
+    - We can have also functional or mechanistical explanations relying on contrasts, which are not causal.
+
+The link is that contrastive _why-questions_ are asking for a cause (causal explanation) and can be answered via counterfactuals. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit. (Contrastive questions and explanations will be revisited in the context of explainable AI.)
+
+But what are counterfactuals? If X leads to both P and Q, then it can't help to explain why only one occurred. So we want a case where P needs X to have happened, Q could happen if and only if X wouldn't have happened. Or briefly: X leads to P and only ~X can leads to Q.
+
+### Contrastive Causal Question
+
+The paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] has an interesting example:
 
 > For example, explaining "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.
 
-The _foil_ focuses the explanation on the differences between the two cases (ignoring similarities). This is usually easier to explain than the standalone fact. It can also reduce confusion.
+The _foil_ focuses the explanation on "What leads to P and not to Q". Similarly it ignores what leads to both. This is usually easier to explain than the standalone fact P.
+<!-- , and can also reduce confusion. -->
 
-[Hesslow][causal_selection_problem] states this idea in a concise way:
+### Contrastive Question
+
+[Hesslow][causal_selection_problem] a more general idea:
 
 > What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an _object a_, an _object of comparison b_ and an _explanandum property E_ which a has and b does not have.
 
-The complexity, of course, lies on knowing _which differences_ matter.
+The complexity, of course, lies on formulating a question that makes the important difference with a reference case obvious.
+
+In many cases, the complexity is finding a good, relevant foil. As [Explaining Explanations in AI][xxai] states:
+
+> However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).
+
+The last sentence is related to the social process of explaining, which we describe in this post (_relevance_ from Gricean Maxims).
 
 ### Attributing Causes
 
-As [Miller et al. state][beware_inmates_asylum]:
+A causal explanation (or contrastive _why-questions_) involves assigning a cause. [Miller et al.][beware_inmates_asylum] state:
 
 > Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
 
-We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the _causal selection problem_).
+<!-- We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the _causal selection problem_). -->
 
 Researchers have pointed out many heuristics used by humans to favour some candidate causes (causal hypotheses) over others: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.
 
@@ -72,15 +99,11 @@ Here is yet another illustration by Hesslow, of how contrasts cases narrow down 
 
 > For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.
 
-### Pragmatism
-
-Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are.
-
-Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.)
-
 ## Social Process (Communication)
 
-We have gone through the _cognitive process_ and how contrastive questions can aid the generation and selection of a hypothesis or a cause. The second process is that of commucation.
+We have gone through the _cognitive process_ and how contrastive questions can aid the generation and selection of a hypothesis or a cause.
+
+The second process is that of communication. This isn't just the _transfer of knowledge_; in the best cases, it involves an exchange between the participants (explainer and explainee), as in a e.g. dialogue.
 
 The communication can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
 
@@ -138,32 +161,6 @@ We can summarise some of these ideas (including a standard audience) in a brief 
 
 The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
 
-<!-- ### Classification -->
-<!-- We could also classify explanations as _interactive_ (e.g. a conversation), _static_ (e.g. a book), or a mix of both. -->
-<!---->
-<!-- - **Interactive explanations**: a communicator and an audience interact aiming to resolve _what_, _how_ or _why_ questions posed by the audience. -->
-<!-- - **Static explanations**: Same as above, but they are non-interactive. -->
-<!-- - **Mix**: consider machines with pre-set questions and answers, where the audience can't always ask what it needs or wants to. -->
-<!---->
-<!-- In the rest of this post, the term _explanandum_ defines _that which needs clarification_. -->
-
-<!-- Interactive explanations are similar to static explanations, just updated in real time by follow-up questions, behaviour, and other kind of feedback. -->
-
-<!--  ; for example, DL Models may be conceptualised as machines or similarly, as scientific models. -->
-
-<!-- ## Explaining is Teaching -->
-<!---->
-<!-- The communicator models what the audience doesn't know, and receives feedback. In this sense, the communicator teaches and the audience learns. (The communicator needn't be the expert, but aside from that, they seem very similar.) -->
-<!---->
-<!-- The communication process is at times like "_filling a gap_" in the audience's understanding. (An outdated pedagogical view of the learning process based on _knowledge transfer_.) -->
-<!---->
-<!-- Other views come from _constructivism_ (Piaget) or _constructionism_ (Papert e.g. "Mindstorms", Resnick "Lifelong Kindergarten") where the learning process is _active_ and goes through _accommodation_. -->
-<!---->
-<!-- More modern views include _connectivism_ (based on connectionism). -->
-<!---->
-<!-- This is a fascinating and related topic, but currently not discussed in the posts. -->
-<!---->
-
 --------------
 
 <details>
@@ -178,6 +175,7 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
    - Once the why-cause is found (diagnosis), it may be communicated, making rules of conversation relevant: [Gricean Maxims of Communication][gricean_maxims] (blog-post), or [Wikipedia's][wikipedia_gricean].
    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017). Argues that Agents will necessarily have initiative, planning, decision making and people will regard them as intentional agents. They will explain them (and expect the system to do so) as if it were a human.
+1. [Explaining Explanations in AI][xxai] (2019), a fantastic paper, from the perspective of "explanation sciences" (philosophy, cognitive sciences, social sciences). Defines terms clearly (XAI, Explanation in XAI, Interpretability/Explainability), distinguishes the main areas (transparency and post hoc interpretability), and names important post-hoc methods.
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm].
 1. [Good Explanations in Explainable Artificial Intelligence (XAI): Evidence from Human Explanatory Reasoning][byrne_human_explanations] (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.
 
@@ -201,8 +199,6 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
 
 [logic_of_expl_hempel]: https://fitelson.org/woodward/hempel_oppenheim.pdf
 
-[logic_substack]: https://newsletter.squishy.computer/p/llms-for-theory-building
-
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
 
 [scriven]: https://fitelson.org/woodward/scriven_epl.pdf
@@ -214,4 +210,10 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
 
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 
-<!-- A **deduction** (proof) is e.g. "All cats are animals (I); animals are big (II); then cats are big (III)", whereas **abduction** (hypothesis) would be "III; I; maybe II" notice the _maybe_ (anti-clockwise rotation). Another anti-clockwise rotation takes us to **induction** (generalisation,hypothesis): "II; III; maybe all I". -->
+[xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
+
+<!-- ### Pragmatism -->
+<!---->
+<!-- Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are. -->
+<!---->
+<!-- Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.) -->

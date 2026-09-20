@@ -6,7 +6,7 @@ These are my thoughts on topics related to AI, XAI, AI for chemistry.
 
 - The top-left hamburger icon <img style="display:inline; width:36px" src="./assets/hamburger.svg"/> toggles the table of contents.
 
-- At the bottom of posts there is a "Sources" which includes papers I read during the write up.
+- At the bottom of some posts there is a "Sources" which includes papers I read during the write up.
 
 ## License
 
