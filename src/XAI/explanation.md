@@ -34,6 +34,8 @@ The hypothesis (formed in the _cognitive process_) reflects our understanding: U
 
 Explanations also have three important aspects; they are usually _contrastive_, _selective_ and _social_. We will dive into each of those aspects in the remaining sections.
 
+In the case of _AI-models_ (either approximations or the original ones) we may also require to know the approximations, robustness and errors of the model.
+
 ## Contrastive and Causal Explanations
 
 My reading is as follows
@@ -99,7 +101,9 @@ Here is yet another illustration by Hesslow, of how contrasts cases narrow down 
 
 ## Social Process (Communication)
 
-We have gone through the _cognitive process_ and how contrastive questions can aid the generation and selection of a hypothesis or a cause. The second process is that of commucation.
+We have gone through the _cognitive process_ and how contrastive questions can aid the generation and selection of a hypothesis or a cause.
+
+The second process is that of communication. This isn't just the _transfer of knowledge_; in the best cases, it involves an exchange between the participants (explainer and explainee), as in a e.g. dialogue.
 
 The communication can be aided by the [gricean maxims][gricean_maxims]: rules of _effective_ communication.
 

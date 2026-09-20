@@ -110,7 +110,8 @@ A version merging parts of these two is given below:
     - Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?
 - **Simplification**: Simple surrogate models explain opaque ones.
     - Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?
-- **Counterfactuals**: look for similar cases that lead to a different decision, and was formalised in a few papers. A brief discussion is in [Explaining Explanations in AI][xxai] Section **4.4**.
+- **Contrastive Methods** look for similar cases that lead to a different decision, or that help clarifying the decision in some way. A summary from [Explaining Explanations in AI][xxai] is:
+    > Such methods for computing contrastive explanations seek to provide contextually-relevant information to parties affected by a decision by describing how relevant closely related, alternative events could have occurred. However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).
 
 The last two classes are popular and often used in the context of **Local Explanations**, discussed in the [next post](./model_explainability_2.md).
 
