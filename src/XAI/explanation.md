@@ -6,9 +6,7 @@ This post describes what _explanations_ are in the context of artificial intelli
 
 ## Definition
 
-_What is an explanation?_ There are many definitions. But, in general, they are _not_ just the presentation of causes. That is an essential aspect, but there is more to them.
-
-Here is definition from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
+_What is an explanation?_ They more than the presentation of causes, but that is an essential aspect. Here is definition from "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017):
 
 > Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.
 
@@ -24,37 +22,33 @@ Inspired by [Explanation in artificial intelligence: insights from the social sc
 >
 > A two-step process involving `1.` the generation of explanatory hypotheses (cognitive process) and `2.` the communication to an audience (social process) possibly including ourselves. The process may repeat indefinitely.
 
-<!-- - The hypothesis is clarifying an _explanandum_ (that which is to be explained), and answers a question about it. -->
-In the iterations, the _explanandum_ (that which is to be explained) may be refined which can also increase our understanding, even by making evident showing an illusion of understanding.
-
-Eventually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.
-<!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
+Explaining can evidentiate a lack (or illusion) of understanding, and also improve understanding. Eventually, one best hypothesis may be selected until contradicted by experience, superseded by a simpler one, or shown to be inconsistent with prior knowledge.
 
 The hypothesis (formed in the _cognitive process_) reflects our understanding: Understanding is having a theory, hypothesis or model about how something works (cognitive process).
 
-Explanations also have three important aspects; they are usually _contrastive_, _selective_ and _social_. We will dive into each of those aspects in the remaining sections.
-
-In the case of _AI-models_ (either approximations or the original ones) we may also require to know the approximations, robustness and errors of the model.
+In the case of _AI-models_ (either approximations or the original ones) we may also require to know the limitations, domain of applicability, accuracy and other model characteristics.
 
 ## Contrastive and Causal Explanations
 
-My reading is as follows
+_Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals. As [Explaining Explanations in AI][xxai] states:
 
-- _Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals.
-    - As [Explaining Explanations in AI][xxai] states:
-  > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
-    - They can also be given via other terms (intervention and observation/association, as in the 3 steps of the Ladder of Causation).
+> In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
 
-- _Contrastive explanations_ don't _always_ rely on counterfactuals.
-    - Their defining characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit).
-    - However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means.
-    - We can have also functional or mechanistical explanations relying on contrasts, which are not causal.
+They can also be given via other terms (intervention and observation/association, as in the 3 steps of the Ladder of Causation).
 
-The link is that contrastive _why-questions_ are asking for a cause (causal explanation) and can be answered via counterfactuals. That is, they are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit. (Contrastive questions and explanations will be revisited in the context of explainable AI.)
+_Contrastive explanations_ don't require counterfactuals, but contrastive _why-questions_ are asking for a cause (causal explanation) and can be answered via counterfactuals. I call these **causal-contrastive** explanations and questions (next section). Their defining characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit).
 
-But what are counterfactuals? If X leads to both P and Q, then it can't help to explain why only one occurred. So we want a case where P needs X to have happened, Q could happen if and only if X wouldn't have happened. Or briefly: X leads to P and only ~X can leads to Q.
+However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means.
 
-### Contrastive Causal Question
+We can have also functional or mechanistical explanations relying on contrasts, which are not causal.
+
+### Causal-contrastive Explanations and Questions
+
+For context, the study of how people assign causes to events is part of _attribution theory_. This is relevant in the case of a causal-contrastive explanation from causal-contrastive _why-questions_, which involve assigning a cause aided by a contrast.
+
+Causal-contrastive questions are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
+
+These are _sometimes_ answered via counterfactuals. _But what are counterfactuals?_ If X leads to both P and Q, then it can't help to explain why only one occurred. So we want a case where P needs X to have happened, Q could happen if and only if X wouldn't have happened. Or briefly: X leads to P and only ~X can leads to Q.
 
 The paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] has an interesting example:
 
@@ -63,9 +57,9 @@ The paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] has an i
 The _foil_ focuses the explanation on "What leads to P and not to Q". Similarly it ignores what leads to both. This is usually easier to explain than the standalone fact P.
 <!-- , and can also reduce confusion. -->
 
-### Contrastive Question
+### More on Contrastive Questions and Explanations
 
-[Hesslow][causal_selection_problem] a more general idea:
+[Hesslow][causal_selection_problem] states:
 
 > What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an _object a_, an _object of comparison b_ and an _explanandum property E_ which a has and b does not have.
 
@@ -76,14 +70,6 @@ In many cases, the complexity is finding a good, relevant foil. As [Explaining E
 > However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).
 
 The last sentence is related to the social process of explaining, which we describe in this post (_relevance_ from Gricean Maxims).
-
-### Attributing Causes
-
-A causal explanation (or contrastive _why-questions_) involves assigning a cause. [Miller et al.][beware_inmates_asylum] state:
-
-> Attribution theory is the study of how people attribute causes to events; something that is necessary to provide explanations.
-
-<!-- We never provide a full causal chain (it is endless), but a short-enough one that explains the event in question (this is the _causal selection problem_). -->
 
 Researchers have pointed out many heuristics used by humans to favour some candidate causes (causal hypotheses) over others: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.
 
@@ -121,45 +107,6 @@ _Relevance_ is primarily related to the _causal selection problem_ in relation t
 
 _Contrastive explanations_ can also take care of many of these aspects automatically, by selecting a contrast that is relevant or understood by the audience.
 
-## Metaphors: The Machine and The Agent
-
-Humans often use "explanatory stances" to explain events, as noted by Daniel Dennett. There are three common ones:
-
-1. _Mechanical_ stance (which I call "Machine Metaphor/Model"),
-    - Explain outcomes by considering the parts of a system, what they do and how they interact (that is, a mechanism).
-2. _Design_ stance, this has different interpretations. One is of the perceived _purpose_ of something (applied to things created by humans such as tools, but also those hypothesised to be created by universal designer or god).
-3. _Intentional_ stance (which I call "Agent Metaphor/Model").
-    - Explanation uses goals, motives, feelings, intent to explain actions and/or behaviour.
-    - _Unintentional_ behaviour/events is usually explained using the machine metaphor (see the following paper, section [Ordinary Behavior Explanation][autonomous_intelligent_systems]).
-
-They can be complementary when applied to the same phenomena or as [Ruth Byrne][byrne_human_explanations] puts it:
-
-> Notably, each explanatory stance can be applied to explain the same device or action, but they have different consequences for understanding it. Each stance can lead to different kinds of insights, and to different kinds of erroneous inferences. The atypical application of a particular stance, say, a mechanical stance to explain an action more typically understood from an intentional stance, such as explaining travelers in a crowded airport as like pinballs careening around a pinball machine, may be interpreted analogically to yield new inferences [Keil, 2006].
-
-In technical fields, many complex systems are conceptualised as _machines_: composed of parts, each with a function, a role. Many are also conceptualised as _graphs_.
-
-Ordinary people conceptualise certain kinds of complex systems as humans or agents (wholly or in part). This may happen with systems using human language or behaving autonomously, but other times it is due to pragmatic reasons. They would use and expect the kind of explanation a human would give, if there were one.
-
-What seems here most fundamental than the particular stances is the selection of a metaphor to structure thinking and obtaining insights.
-
-Other metaphors and analogies could be proposed for specific problems.
-
-Similar ideas can be found in "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]":
-
-> For those intentional agents, we hypothesize, people will apply the same conceptual framework of behavior explanation that they apply to humans (...) a subset of AIS that people do not regard as intentional agents; and for those, they may apply a purely mechanical explanatory framework.
-
-And more recently, in [Good Explanations in XAI][byrne_human_explanations]:
-
-> People may tend to adopt multiple stances in their preferred explanations of an AI decision support system and its decisions, not unlike their tendencies in interacting with social robots [Clark and Fischer, 2023]. People are aware that a social robot is a machine, but interpret it as a depiction of a character, not unlike a ventriloquist dummy, and engage with it in pretense of interacting with the depicted character [Clark and Fischer, 2023]. Similarly, they may be aware that an AI decision support system is an algorithm but they may interpret its decisions as a depiction of those provided by a human, e.g., a bank loan assessor, or the organization the human represents, a bank. Hence, an intentional stance and a design stance may both be useful in different contexts for explaining how automated agents behave [Veit and Browning, 2023].
-
-We can summarise some of these ideas (including a standard audience) in a brief table:
-
-| Perspective      | Model is a… | Preferred Explanation style | Audience            |
-| ---------------- | ----------- | --------------------------- | ------------------- |
-| **Scientific**   | Machine     | Mechanistic, causal, formal | Experts             |
-| **Human-facing** |Agent/Person | Intentional, narrative      | Users, stakeholders |
-
-The post on [explanatory stances](./explanatory_stances.md) continues this line of reasoning and connects them with _how we explain humans and deep learning models_.
 
 --------------
 
@@ -217,3 +164,8 @@ The post on [explanatory stances](./explanatory_stances.md) continues this line 
 <!-- Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are. -->
 <!---->
 <!-- Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.) -->
+
+
+<!-- - The hypothesis is clarifying an _explanandum_ (that which is to be explained), and answers a question about it. -->
+<!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
+<!-- Besides the cognitive and social process, this post focuses on  _contrastive explanations_, _causal selection_ and _social_. We will dive into each of those aspects in the remaining sections. -->
