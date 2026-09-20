@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-be6d779c.js";
+            window.path_to_searchindex_js = "searchindex-947a4d65.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-d885b7d5.js"></script>
@@ -225,6 +225,7 @@
 <!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
 <p>The hypothesis (formed in the <em>cognitive process</em>) reflects our understanding: Understanding is having a theory, hypothesis or model about how something works (cognitive process).</p>
 <p>Explanations also have three important aspects; they are usually <em>contrastive</em>, <em>selective</em> and <em>social</em>. We will dive into each of those aspects in the remaining sections.</p>
+<p>In the case of <em>AI-models</em> (either approximations or the original ones) we may also require to know the approximations, robustness and errors of the model.</p>
 <h2 id="contrastive-and-causal-explanations"><a class="header" href="#contrastive-and-causal-explanations">Contrastive and Causal Explanations</a></h2>
 <p>My reading is as follows</p>
 <ul>
@@ -289,7 +290,8 @@
 <p>For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.</p>
 </blockquote>
 <h2 id="social-process-communication"><a class="header" href="#social-process-communication">Social Process (Communication)</a></h2>
-<p>We have gone through the <em>cognitive process</em> and how contrastive questions can aid the generation and selection of a hypothesis or a cause. The second process is that of commucation.</p>
+<p>We have gone through the <em>cognitive process</em> and how contrastive questions can aid the generation and selection of a hypothesis or a cause.</p>
+<p>The second process is that of communication. This isn't just the <em>transfer of knowledge</em>; in the best cases, it involves an exchange between the participants (explainer and explainee), as in a e.g. dialogue.</p>
 <p>The communication can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
 <ul>
 <li><strong>Informative</strong> (Quantity): right amount of context and details,</li>
@@ -548,7 +550,11 @@
 <li>Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?</li>
 </ul>
 </li>
-<li><strong>Counterfactuals</strong>: look for similar cases that lead to a different decision, and was formalised in a few papers. A brief discussion is in <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> Section <strong>4.4</strong>.</li>
+<li><strong>Contrastive Methods</strong> look for similar cases that lead to a different decision, or that help clarifying the decision in some way. A summary from <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> is:
+<blockquote>
+<p>Such methods for computing contrastive explanations seek to provide contextually-relevant information to parties affected by a decision by describing how relevant closely related, alternative events could have occurred. However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).</p>
+</blockquote>
+</li>
 </ul>
 <p>The last two classes are popular and often used in the context of <strong>Local Explanations</strong>, discussed in the <a href="#topics-in-xai">next post</a>.</p>
 <p>The latter paper reminds us that:</p>
