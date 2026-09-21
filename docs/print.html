@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-ab8942c8.js";
+            window.path_to_searchindex_js = "searchindex-f8f9ff2e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-d885b7d5.js"></script>
@@ -457,7 +457,7 @@
 <p>Transparency is domain-dependent. For example, the field of geometric deep learning can express constraints (or inductive biases) of connectivity related to molecules and materials (e.g. GNNs), making them more interpretable than other network architectures for representing this particular input / physical problem. This can be further extended to symmetry and other aspects.</p>
 <h3 id="extrinsic-explainability"><a class="header" href="#extrinsic-explainability">Extrinsic Explainability</a></h3>
 <p>Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works.</p>
-<p>Sometimes they use an extra <em>explanation model</em>, but not always.</p>
+<!-- Sometimes they use an extra _explanation model_, but not always. -->
 <p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> defines "explaining a prediction" as:</p>
 <blockquote>
 <p>By "explaining a prediction", we mean presenting textual or visual artifacts that provide qualitative understanding of the relationship between the instance's components (e.g. words in text, patches in an image) and the model's prediction.</p>
@@ -482,16 +482,20 @@
 <p>So simpler models can approximate a more detailed one in a restricted domain, and are also (usually) more intelligible.</p>
 <!-- This is a model of a model, or a model derived from a model, which is a difference in the analogy. Though we could also consider this as an emergent model, derived from a more detailed one (just as averaging in statistical thermodynamics to get larger scale laws). -->
 <!-- Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_. -->
-<p>Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. When and where the models (both) are accurate, inaccurate or unknown should be characterised.</p>
+<p>Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. The domain where the models (both) are accurate, inaccurate or unknown should be characterised.</p>
 <ul>
 <li>Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, <em>explanation models</em> are trained with predictions of the complex model, that may not exist in the training data.</li>
 </ul>
 <p>The paper explores limitations of using simplified e.g. linear explanation models, which will struggle with highly non-linear behaviour (curvature) and variables interdependency of multi-collinearity.</p>
 <!-- Some post-hoc XAI methods are explained in [strategies](./strategies.md). -->
 <h3 id="post-hoc-methods"><a class="header" href="#post-hoc-methods">Post Hoc Methods</a></h3>
-<p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> names a few types of <em>post hoc interpretability</em> (extrinsic explainability) techniques.</p>
-<p>A similar variant included in the survey in <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practise of explaining ML models</a>.</p>
-<p>A version merging parts of these two is given below:</p>
+<p>[Explaining Explanations in AI] states that:</p>
+<blockquote>
+<p>(...) first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving.</p>
+</blockquote>
+<p>Which is an important qualifier, they are more like a <em>toolkit to produce explanations</em>. They are also approximations and usually local in the sense of having a <em>domain of applicability</em>. Importantly, they are intelligible / interpretable as most scientific models are.</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> and <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practise of explaining ML models</a> name and review a few types of <em>post hoc interpretability</em> (extrinsic explainability) techniques.</p>
+<p>A similar version to those papers is given below:</p>
 <ul>
 <li><strong>Textual</strong> e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),</li>
 <li><strong>Similarity</strong> (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
@@ -504,29 +508,26 @@
 <li>There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. Class boundaries?</li>
 </ul>
 </li>
-<li><strong>Feature relevance</strong>: They operate on an instance level or globally (e.g. SP-LIME).
-<ul>
-<li>Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?</li>
-</ul>
-</li>
-<li><strong>Simplification</strong>: Simple surrogate models explain opaque ones.
-<ul>
-<li>Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?</li>
-</ul>
-</li>
-<li><strong>Contrastive Methods</strong> look for similar cases that lead to a different decision, or that help clarifying the decision in some way. A summary from <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> is:
+<li><strong>Contrastive Methods</strong> look for similar cases that lead to a different decision, or that help clarifying the decision in some way.
+They are a separate category because they may use the original model, and the key characteristic is the type of question they ask. But, as <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:
 <blockquote>
-<p>Such methods for computing contrastive explanations seek to provide contextually-relevant information to parties affected by a decision by describing how relevant closely related, alternative events could have occurred. However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).</p>
+<p>(...) choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge.</p>
 </blockquote>
 </li>
+<li><strong>Approximations</strong>: Simple, surrogate, interpretable models explain opaque ones, locally and/or globally. They also allow us to ask contrastive or what-if questions (see previous method).
+<ul>
+<li><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> states:</li>
 </ul>
+<blockquote>
+<p>These models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.</p>
+</blockquote>
+<ul>
+<li><strong>Feature relevance</strong> can be considered a linear approximation model. They operate locally or globally (e.g. LIME and SP-LIME). These Methods may make assumptions which do not hold (e.g. feature independence, linearity).</li>
+</ul>
+</li>
+</ul>
+<p>A useful approach could be to use and compare several different these methods.</p>
 <p>The last two classes are popular and often used in the context of <strong>Local Explanations</strong>, discussed in the <a href="#topics-in-xai">next post</a>.</p>
-<p>The latter paper reminds us that:</p>
-<blockquote>
-<p>Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),</p>
-</blockquote>
-<p>Some methods may need to be adapted for a given audience.</p>
-<p>Often, in XAI the explanation is often generated by interaction between an inquirer such as the user or developer, and the explanation model (<a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a>, <strong>4.3</strong>).</p>
 <hr><details>
 <summary>Sources</summary>
 <ol>
@@ -553,7 +554,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p><a href="https://en.wikipedia.org/wiki/The_Book_of_Why">The Book of Why</a> (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)</p>
 </li>
 <li>
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019). Is related to "The Mythos of Model Interpretability", "Explanation in artificial intelligence: Insights from the social sciences", "Why should I trust you" and other important papers. The first part of the paper figures out which kind of explanations we look for in XAI. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019). <strong>First</strong> it review post hoc methods and makes an analogy of XAI post-hoc methods to scientific models (i.e. they are local interpretable approximations and help <em>generate</em> explanations). <strong>Then</strong> answering "why-questions" requires "contrastive, selective and social" explanations. <strong>Finally</strong>, that an interactive, dialectic way to challenge algorithmic decisions is needed. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.</p>
 </li>
 <li>
 <p><a href="http://arxiv.org/abs/1811.10154">Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead</a> (2019).</p>
@@ -589,6 +590,13 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<!-- The latter paper reminds us that: -->
+<!---->
+<!-- > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion), -->
+<!---->
+<!-- Some methods may need to be adapted for a given audience. -->
+<!---->
+<!-- Often, in XAI the explanation is often generated by interaction between an inquirer such as the user or developer, and the explanation model ([Explaining Explanations in AI][xxai], **4.3**). -->
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-extr_intr">
@@ -606,6 +614,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p>Finally, an interesting map of XAI extracted from one paper is shown.</p>
 <hr>
 <h2 id="local-explanations"><a class="header" href="#local-explanations">Local Explanations</a></h2>
+<p>These models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.</p>
 <p>Linear, gradient-based and decision trees are used to explain particular predictions, as local explanation models. They can be extended to be global (as we will discuss).</p>
 <p>Local explanation models can be defined as simpler and interpretable models used to approximate and explain particular predictions of the original model.</p>
 <p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> adds:</p>
