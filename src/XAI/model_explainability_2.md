@@ -12,6 +12,8 @@ Finally, an interesting map of XAI extracted from one paper is shown.
 
 ## Local Explanations
 
+These models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.
+
 Linear, gradient-based and decision trees are used to explain particular predictions, as local explanation models. They can be extended to be global (as we will discuss).
 
 Local explanation models can be defined as simpler and interpretable models used to approximate and explain particular predictions of the original model.

@@ -55,7 +55,7 @@ Transparency is domain-dependent. For example, the field of geometric deep learn
 
 Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works.
 
-Sometimes they use an extra _explanation model_, but not always.
+<!-- Sometimes they use an extra _explanation model_, but not always. -->
 
 ["Why Should I Trust You?"][lime] defines "explaining a prediction" as:
 
@@ -85,7 +85,7 @@ So simpler models can approximate a more detailed one in a restricted domain, an
 
 <!-- Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_. -->
 
-Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. When and where the models (both) are accurate, inaccurate or unknown should be characterised.
+Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. The domain where the models (both) are accurate, inaccurate or unknown should be characterised.
 
 - Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, _explanation models_ are trained with predictions of the complex model, that may not exist in the training data.
 
@@ -95,33 +95,33 @@ The paper explores limitations of using simplified e.g. linear explanation model
 
 ### Post Hoc Methods
 
-[The Mythos of Model Interpretability][mythos] names a few types of _post hoc interpretability_ (extrinsic explainability) techniques.
+[Explaining Explanations in AI] states that:
 
-A similar variant included in the survey in [Principles and practise of explaining ML models][principles_and_practice].
+> (...) first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving.
 
-A version merging parts of these two is given below:
+Which is an important qualifier, they are more like a _toolkit to produce explanations_. They are also approximations and usually local in the sense of having a _domain of applicability_. Importantly, they are intelligible / interpretable as most scientific models are.
+
+[The Mythos of Model Interpretability][mythos] and [Principles and practise of explaining ML models][principles_and_practice] name and review a few types of _post hoc interpretability_ (extrinsic explainability) techniques.
+
+A similar version to those papers is given below:
 
 - **Textual** e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),
 - **Similarity** (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
     - They do not explicitly state what parts of the example influence the model. How do inputs from different classes compare? And same?
 - **Visualizations**: of learned representations. Altering certain input features to maximise activation of a particular neuron (then looking back at the modified image to see what this neuron is responding to). Easier to communicate to non-technical audiences. Most approaches are intuitive and not hard to implement.
     - There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. Class boundaries?
-- **Feature relevance**: They operate on an instance level or globally (e.g. SP-LIME).
-    - Methods may make assumptions which do not hold (e.g. feature independence, linearity). Which input features are most important?
-- **Simplification**: Simple surrogate models explain opaque ones.
-    - Surrogate models may not approximate original models well. Can we get local insights by using a simpler model?
-- **Contrastive Methods** look for similar cases that lead to a different decision, or that help clarifying the decision in some way. A summary from [Explaining Explanations in AI][xxai] is:
-  > Such methods for computing contrastive explanations seek to provide contextually-relevant information to parties affected by a decision by describing how relevant closely related, alternative events could have occurred. However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).
+- **Contrastive Methods** look for similar cases that lead to a different decision, or that help clarifying the decision in some way.
+They are a separate category because they may use the original model, and the key characteristic is the type of question they ask. But, as [Explaining Explanations in AI][xxai] says:
+  > (...) choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge.
+- **Approximations**: Simple, surrogate, interpretable models explain opaque ones, locally and/or globally. They also allow us to ask contrastive or what-if questions (see previous method).
+    - [Explaining Explanations in AI][xxai] states:
+    >These models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.
+    - **Feature relevance** can be considered a linear approximation model. They operate locally or globally (e.g. LIME and SP-LIME). These Methods may make assumptions which do not hold (e.g. feature independence, linearity).
+
+A useful approach could be to use and compare several different these methods.
 
 The last two classes are popular and often used in the context of **Local Explanations**, discussed in the [next post](./model_explainability_2.md).
 
-The latter paper reminds us that:
-
-> Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion),
-
-Some methods may need to be adapted for a given audience.
-
-Often, in XAI the explanation is often generated by interaction between an inquirer such as the user or developer, and the explanation model ([Explaining Explanations in AI][xxai], **4.3**).
 
 ----------------
 
@@ -136,7 +136,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
 1. [Producing radiologist-quality reports for interpretable artificial intelligence][xai_rnn_radiology] (2018): a "case study",
 1. [The Book of Why][tbow] (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)
-1. [Explaining Explanations in AI][xxai] (2019). Is related to "The Mythos of Model Interpretability", "Explanation in artificial intelligence: Insights from the social sciences", "Why should I trust you" and other important papers. The first part of the paper figures out which kind of explanations we look for in XAI. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.
+1. [Explaining Explanations in AI][xxai] (2019). **First** it review post hoc methods and makes an analogy of XAI post-hoc methods to scientific models (i.e. they are local interpretable approximations and help *generate* explanations). **Then** answering "why-questions" requires "contrastive, selective and social" explanations. **Finally**, that an interactive, dialectic way to challenge algorithmic decisions is needed. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.
 1. [Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead][stop_explaining_interpret_instead] (2019).
    - Suggests post-hoc models are worse than interpretable/transparent ones for high-stakes scenarios. It also states that the definitions of "Interpretable" varies for each field (references removed):
    > Interpretability is a domain-specific notion, so there cannot be an all-purpose definition. Usually, however, an interpretable machine learning model is constrained in model form so that it is either useful to someone, or obeys structural knowledge of the domain, such as monotonicity, causality, structural (generative) constraints, additivity, or physical constraints that come from domain knowledge. Interpretable models could use case-based reasoning for complex domains.
@@ -184,3 +184,12 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
+
+<!-- The latter paper reminds us that: -->
+<!---->
+<!-- > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion), -->
+<!---->
+<!-- Some methods may need to be adapted for a given audience. -->
+<!---->
+<!-- Often, in XAI the explanation is often generated by interaction between an inquirer such as the user or developer, and the explanation model ([Explaining Explanations in AI][xxai], **4.3**). -->
+
