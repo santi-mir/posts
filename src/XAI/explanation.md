@@ -26,6 +26,8 @@ Explaining can evidentiate a lack (or illusion) of understanding, and also impro
 
 The hypothesis (formed in the _cognitive process_) reflects our understanding: Understanding is having a theory, hypothesis or model about how something works (cognitive process).
 
+Everyday explanations tend to be _contrastive_ as this helps to reduce the length of the causal chain; _selective_, which helps to focus on what is most relevant for the explainee; and _social_ or interactive. All three characteristics will be discussed in this post.
+
 In the case of _AI-models_ (either approximations or the original ones) we may also require to know the limitations, domain of applicability, accuracy and other model characteristics.
 
 ## Contrastive and Causal Explanations
@@ -44,7 +46,7 @@ We can have also functional or mechanistical explanations relying on contrasts, 
 
 ### Causal-contrastive Explanations and Questions
 
-For context, the study of how people assign causes to events is part of _attribution theory_. This is relevant in the case of a causal-contrastive explanation from causal-contrastive _why-questions_, which involve assigning a cause aided by a contrast.
+Causal-contrastive explanation from causal-contrastive _why-questions_  involve assigning a cause (part of _attribution theory_) aided by a contrast.
 
 Causal-contrastive questions are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
 
@@ -84,6 +86,7 @@ And also most other causal selections are contained:
 Here is yet another illustration by Hesslow, of how contrasts cases narrow down possible causes:
 
 > For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.
+
 
 ## Social Process (Communication)
 
