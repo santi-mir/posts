@@ -46,7 +46,7 @@ We can have also functional or mechanistical explanations relying on contrasts, 
 
 ### Causal-contrastive Explanations and Questions
 
-Causal-contrastive explanation from causal-contrastive _why-questions_  involve assigning a cause (part of _attribution theory_) aided by a contrast.
+Causal-contrastive explanation from causal-contrastive _why-questions_ involve assigning a cause (part of _attribution theory_) aided by a contrast.
 
 Causal-contrastive questions are phrased as _Why P rather than Q?_ instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
 
@@ -86,7 +86,6 @@ And also most other causal selections are contained:
 Here is yet another illustration by Hesslow, of how contrasts cases narrow down possible causes:
 
 > For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other.It is, therefore, explanatorily relevant.
-
 
 ## Social Process (Communication)
 

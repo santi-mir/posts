@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-1f2d891f.js";
+            window.path_to_searchindex_js = "../searchindex-6061ce6f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -240,11 +240,14 @@
 <p>They also propose an <em>explainer desiderata</em> for the explanation model: it should be <code>1.</code> <strong>interpretable</strong>, by giving a qualitative understanding between inputs and outputs, making it easy to understand, <code>2.</code> <strong>model agnostic</strong> and <code>3.</code> <strong>locally faithful</strong> (a good fit to the original model in the vicinity of the instance being explained) and <code>4.</code> <strong>globally explainable</strong>. In that paper, SP-LIME combines local explanations to provide a <em>global explanation</em> of the model.</p>
 <p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
 <!-- citing Box's maxim: "All models are wrong but some are useful" and -->
-<p>On the other hand, methods such as SHAP, LIME can provide <em>some</em> understanding of the phenomena, often with local fidelity, even if approximately. <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> seems to argue a similar case, by making an analogy with scientific modelling:</p>
+<p>On the other hand, methods such as SHAP, LIME can provide <em>some</em> understanding of the phenomena, often with local fidelity, even if approximately. <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> makes an analogy between local approximation and scientific models, they key part being that both may approximate a more detailed model within a narrow domain (in which they are valid).</p>
+<p>They argue for the use contrastive explanations and the <em>original model</em>, which has less limitations of domain of validity and also curvature (non-linearity) and variable interdependency modelling.</p>
+<p>Here is their pitch for it:</p>
 <blockquote>
-<p>Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain.</p>
+<p>Rather than explicitly generating a model that approximates functional values over a restrictive domain, and relying on the user to interpret this, contrastive explanations directly offer an alternative data point: "If your data had looked like this, you would have been given this classification score instead." These alternative data points can be computed exactly. As such, many of the challenges facing ’modelling’ approaches to generating explanations, such as the quality of the approximation or the limits of a chosen domain, do not arise to a comparable degree.</p>
 </blockquote>
-<p>That is, simpler, locally interpretable models can approximate a more detailed one in a restricted domain. The interest is usually around a particular prediction or a particular model (requiring a partial causal-chain or "everyday explanation" rather than a full causal-chain or "scientific explanation").</p>
+<p>And the selection of the alternative data point is of high importance (must be relevant, and similar enough to background other causes). This is achieved by a particular Lagrange-style constrained optimisation which helps select that counterfactual (one that is both close to the data point of interest and to a certain desired output value).</p>
+<!-- The interest is usually around a particular prediction or a particular model (requiring a partial causal-rather than a full causal-chain). -->
 <p>Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. It's also not enough to have an interpretable model, as they continue:</p>
 <blockquote>
 <p>It is not enough to simply offer a human interpretable model as an explanation. For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading</p>
@@ -253,7 +256,6 @@
 <ul>
 <li>Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, <em>explanation models</em> are trained with predictions of the complex model, that may not exist in the training data.</li>
 </ul>
-<p>The paper explores limitations of using simplified e.g. linear explanation models, which will struggle with highly non-linear behaviour (curvature) and variables interdependency of multi-collinearity.</p>
 <!-- Some post-hoc XAI methods are explained in [strategies](./strategies.md). -->
 <h3 id="post-hoc-methods"><a class="header" href="#post-hoc-methods">Post Hoc Methods</a></h3>
 <p>[Explaining Explanations in AI] states that:</p>
@@ -366,6 +368,15 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- Often, in XAI the explanation is often generated by interaction between an inquirer such as the user or developer, and the explanation model ([Explaining Explanations in AI][xxai], **4.3**). -->
 <!-- This is a model of a model, or a model derived from a model, which is a difference in the analogy. Though we could also consider this as an emergent model, derived from a more detailed one (just as averaging in statistical thermodynamics to get larger scale laws). -->
 <!-- Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_. -->
+<!-- > Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain. -->
+<!---->
+<!-- They also define scientific modelling: -->
+<!---->
+<!-- > scientific models, which can be understood as partial causal scientific explanations that assist in comprehending a piece of the functionality of a phenomenon (Ruben, 2004). -->
+<!--  they could help explain a model as well. -->
+<!-- As [Explaining Explanations in AI][xxai] states: -->
+<!---->
+<!-- > (...) the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990). -->
 <hr>
 <ol class="footnote-definition">
 <li id="footnote-extr_intr">

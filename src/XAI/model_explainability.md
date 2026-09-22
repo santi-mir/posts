@@ -85,7 +85,6 @@ Here is their pitch for it:
 
 And the selection of the alternative data point is of high importance (must be relevant, and similar enough to background other causes). This is achieved by a particular Lagrange-style constrained optimisation which helps select that counterfactual (one that is both close to the data point of interest and to a certain desired output value).
 
-
 <!-- The interest is usually around a particular prediction or a particular model (requiring a partial causal-rather than a full causal-chain). -->
 
 Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. It's also not enough to have an interpretable model, as they continue:
@@ -204,7 +203,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- They also define scientific modelling: -->
 <!---->
 <!-- > scientific models, which can be understood as partial causal scientific explanations that assist in comprehending a piece of the functionality of a phenomenon (Ruben, 2004). -->
-
 
 <!--  they could help explain a model as well. -->
 <!-- As [Explaining Explanations in AI][xxai] states: -->
