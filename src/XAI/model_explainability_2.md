@@ -76,6 +76,7 @@ And the second point:
 > The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
 
 So there is the:
+
 - _Problem of optimisation_ (under constraints) and
 - The _problem of designing_ such transparent models (including neural networks), which require expertise, while black boxes may not,
     - We should add that black boxes have plenty of issues with accountability, reliability, accuracy, and value of the explanations.

@@ -19,7 +19,6 @@ Note that "black box" can also refer to a model _unavailable for inspection_ (su
 
 This post and most papers use "black box" in the first sense: _models which are hard to comprehend_.
 
-
 Four types of _explainability_ are described in the following sections: Intrinsic, Extrinsic[^extr_intr], Local and Global.
 
 > [!NOTE]
@@ -63,7 +62,7 @@ Rudin does mention a few pointers:
     - One class is the "smaller-than-global interpretable models" (Appendix D) which are a good starting point point for intrinsically explainable models; for example disjunctive normal form models and falling rule lists and CORELS.
 2. Adequately crafted neural networks.
 
- or linear fits or case-based reasoning.
+   or linear fits or case-based reasoning.
 
 It's also possible to imbue interpretable aspects into deep learning models (could be interesting to expand on this aspect, maybe through mechanistic interpretability papers). At the same time, it's important to know when a traditional ML algorithm is a better fit (for interpretability, performance, accuracy).
 
@@ -95,7 +94,6 @@ Within other problems the paper states:
 > Even an explanation model that performs almost identically to a black box model might use completely different features, and is thus not faithful to the computation of the black box.
 > (...)
 
-
 An explanation model depending on race could construe "This person is predicted to be arrested because they are black." (as the paper states) even if the original model did not depend on this feature directly (it could by proxy features). This would mislead a user very badly.
 
 <!-- citing Box's maxim: "All models are wrong but some are useful" and -->
@@ -106,6 +104,7 @@ A an issue with this analogy was noted by [Rudin][stop_explaining_interpret_inst
 > Note that the term "explanation" here refers to an understanding of how a model works, as opposed to an explanation of how the world works. The terminology "explanation" will be discussed later; it is misleading.
 
 ### Contrastive-Causal Explanation via Counterfactuals
+
 They argue for the use contrastive explanations and the _original model_, which has less limitations of domain of validity and also curvature (non-linearity) and variable interdependency modelling.
 
 Here is their pitch for it:
