@@ -12,6 +12,8 @@ Finally, an interesting map of XAI extracted from one paper is shown.
 
 ## Local Explanations
 
+These models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.
+
 Linear, gradient-based and decision trees are used to explain particular predictions, as local explanation models. They can be extended to be global (as we will discuss).
 
 Local explanation models can be defined as simpler and interpretable models used to approximate and explain particular predictions of the original model.
@@ -61,23 +63,28 @@ And also:
 
 > A trade-off inherently occurs between the insightfulness of the approximated model, the simplicity of the presented function, and the size of the domain to which is applies and remains valid (Bastani et al., 2017; Lakkaraju et al., 2017).
 
-Other researchers such as [Rudin][interpretable_ml] disagree (references were removed):
+Other researchers such as [Rudin][interpretable_ml] disagree (references were removed, and bold is mine):
 
 > Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an incorrect perception that they are less accurate than black boxes. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is no scientific evidence that accuracy must be sacrificed when adding interpretability constraints.
 
-Rudin's [more detailed paper][stop_explaining_interpret_instead] states something similar:
+Rudin's [more detailed paper][stop_explaining_interpret_instead] restates the first point:
 
 > There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.
 
-I'd make two comments to the quote above. First, _good representation in terms of naturally meaningful features_ may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.
+And the second point:
 
-The paper also states a related complication:
-
-> Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
-> (...)
 > The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.
 
-However, I don't think this tradeoff has been formalised in a general way and it's just an observation, or it is not mentioned in these papers?
+So there is the:
+
+- _Problem of optimisation_ (under constraints) and
+- The _problem of designing_ such transparent models (including neural networks), which require expertise, while black boxes may not,
+    - We should add that black boxes have plenty of issues with accountability, reliability, accuracy, and value of the explanations.
+- There is also the problem of input representation, that is of finding or creating a _good representation in terms of naturally meaningful features_.
+
+But in terms of the trade-off there is no clear scientific evidence that interpretable models are less accurate, though they can be harder to design and optimise.
+
+Within the class of NNs though, they do tend to perform better as we scale them up until eventually plateau or decrease its performance. But there doesn't seem to be any cross-algorithm evidence or formal argument of the complexity-accuracy tradeoff.
 
 ## Out of Distribution
 

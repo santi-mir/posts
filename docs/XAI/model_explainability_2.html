@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-ab8942c8.js";
+            window.path_to_searchindex_js = "../searchindex-58cec8f6.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -189,6 +189,7 @@
 <p>Finally, an interesting map of XAI extracted from one paper is shown.</p>
 <hr>
 <h2 id="local-explanations"><a class="header" href="#local-explanations">Local Explanations</a></h2>
+<p>These models can be understood as a "do it yourself kit" for explanations, allowing a practitioner to directly answer "what if questions" or generate contrastive explanations without external assistance.</p>
 <p>Linear, gradient-based and decision trees are used to explain particular predictions, as local explanation models. They can be extended to be global (as we will discuss).</p>
 <p>Local explanation models can be defined as simpler and interpretable models used to approximate and explain particular predictions of the original model.</p>
 <p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> adds:</p>
@@ -231,22 +232,30 @@
 <blockquote>
 <p>A trade-off inherently occurs between the insightfulness of the approximated model, the simplicity of the presented function, and the size of the domain to which is applies and remains valid (Bastani et al., 2017; Lakkaraju et al., 2017).</p>
 </blockquote>
-<p>Other researchers such as [Rudin][interpretable_ml] disagree (references were removed):</p>
+<p>Other researchers such as [Rudin][interpretable_ml] disagree (references were removed, and bold is mine):</p>
 <blockquote>
 <p>Two obstacles to using interpretable models are that they are harder to optimize because they require extra constraints, and there is an incorrect perception that they are less accurate than black boxes. On the first point, the community is getting quite good at building interpretable sparse models and interpretable neural networks. On the second point, there is no scientific evidence that accuracy must be sacrificed when adding interpretability constraints.</p>
 </blockquote>
-<p>Rudin's <a href="http://arxiv.org/abs/1811.10154">more detailed paper</a> states something similar:</p>
+<p>Rudin's <a href="http://arxiv.org/abs/1811.10154">more detailed paper</a> restates the first point:</p>
 <blockquote>
 <p>There is a widespread belief that more complex models are more accurate, meaning that a complicated black box is necessary for top predictive performance. However, this is often not true, particularly when the data are structured, with a good representation in terms of naturally meaningful features.</p>
 </blockquote>
-<p>I'd make two comments to the quote above. First, <em>good representation in terms of naturally meaningful features</em> may be hard to obtain or create. Second, NNs tend to perform better as we scale them up. Though there is some "optimal-size region" and going beyond could plateau or even decrease its performance.</p>
-<p>The paper also states a related complication:</p>
+<p>And the second point:</p>
 <blockquote>
-<p>Interpretable models can entail significant effort to construct, in terms of both computation and domain expertise. (...) for high-stakes decisions, analyst time and computational time are less expensive than the cost of having a flawed or overly complicated model.
-(...)
-The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.</p>
+<p>The researcher needs to create a model that has the capability of uncovering the types of patterns that the user would find interpretable, but also the model needs to be flexible enough to fit the data accurately. This, and the optimization challenges discussed above, are where the difficulty lies with constructing interpretable models.</p>
 </blockquote>
-<p>However, I don't think this tradeoff has been formalised in a general way and it's just an observation, or it is not mentioned in these papers?</p>
+<p>So there is the:</p>
+<ul>
+<li><em>Problem of optimisation</em> (under constraints) and</li>
+<li>The <em>problem of designing</em> such transparent models (including neural networks), which require expertise, while black boxes may not,
+<ul>
+<li>We should add that black boxes have plenty of issues with accountability, reliability, accuracy, and value of the explanations.</li>
+</ul>
+</li>
+<li>There is also the problem of input representation, that is of finding or creating a <em>good representation in terms of naturally meaningful features</em>.</li>
+</ul>
+<p>But in terms of the trade-off there is no clear scientific evidence that interpretable models are less accurate, though they can be harder to design and optimise.</p>
+<p>Within the class of NNs though, they do tend to perform better as we scale them up until eventually plateau or decrease its performance. But there doesn't seem to be any cross-algorithm evidence or formal argument of the complexity-accuracy tradeoff.</p>
 <h2 id="out-of-distribution"><a class="header" href="#out-of-distribution">Out of Distribution</a></h2>
 <p>Consider an imaginary model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> being the model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain. The model reaches low evaluation error and everyone is happy.</p>
 <p>However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "<a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a>":</p>
