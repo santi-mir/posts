@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-9310f36c.js";
+            window.path_to_searchindex_js = "../searchindex-58cec8f6.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -226,10 +226,9 @@
 <li>
 <p>The human-interpretable models we had before machine learning (and some of these can be machine-learnt). Some examples from Rudin's paper, though it will be extended, are:</p>
 <ul>
-<li><strong>Logical Models</strong>: use logical conditions such as or/and/if-then which are also called rule lists, expert systems, but <em>are machine-learnt</em> in a reasonable amount of time. Even though the model may be large (non-simulatable) the explaining condition may usually be locally small and interpretable, and the model still be useful.</li>
+<li><strong>Logical Models</strong><sup class="footnote-reference" id="fr-other_names-1"><a href="#footnote-other_names">2</a></sup>: use logical conditions such as "or, and, if-then" but <em>are machine-learnt</em> in a reasonable amount of time. The model may be large (non-simulatable) but the explaining condition may be brief and interpretable. Rudin calls these "smaller-than-global explanations" because the explanation is just a few rules of the global model which may have many (Appendix D). Examples: disjunctive normal form models and falling rule lists and CORELS.</li>
 <li><strong>Sparse Linear Models</strong>. If it uses integer coefficients is a <em>scoring system</em>.</li>
-<li><strong>Case-Based</strong>: by defining vision interpretability in terms of regions of the image, they create a <em>prototype network</em> ("prototype" in the Eleanor Rosch sense, a characteristic part of an image), and the network <em>seems to</em> crop the image in multiple ways (maybe just outputs prototypical regions bounding boxes) and compare these to training prototypes for each class. The interesting thing is that <em>this output is the explanation itself</em>. Finally it does a weighted average.</li>
-<li>One class is the "smaller-than-global interpretable models" (Appendix D) which are a good starting point point for intrinsically explainable models; for example disjunctive normal form models and falling rule lists and CORELS.</li>
+<li><strong>Case-Based</strong>: they <em>defined interpretability</em> for a specific domain, in this case computer vision, in terms of how humans explain them (by pointing at features in regions of the image). This definition led them to create a <em>prototype network</em> ("prototype" in the Eleanor Rosch sense, a characteristic part of an image), and the network <em>seems to</em> crop the image in multiple ways (maybe just outputs prototypical regions bounding boxes) and compare these to training prototypes for each class. The interesting thing is that <em>this output is the explanation itself</em>. Finally it does a weighted average.</li>
 </ul>
 </li>
 <li>
@@ -411,6 +410,9 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <ol class="footnote-definition">
 <li id="footnote-extr_intr">
 <p>Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. <a href="#fr-extr_intr-1">↩</a></p>
+</li>
+<li id="footnote-other_names">
+<p>related names are: rule lists, expert systems, decision trees, disjunctive normal form models, associative classifiers. <a href="#fr-other_names-1">↩</a></p>
 </li>
 </ol>
 
