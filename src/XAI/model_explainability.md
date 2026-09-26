@@ -56,10 +56,10 @@ _But what are examples of some algorithms for some problems? Or maybe common cla
 Rudin does mention a few pointers:
 
 1. The human-interpretable models we had before machine learning (and some of these can be machine-learnt). Some examples from Rudin's paper, though it will be extended, are:
-    - **Logical Models**: use logical conditions such as or/and/if-then which are also called rule lists, expert systems, but _are machine-learnt_ in a reasonable amount of time. Even though the model may be large (non-simulatable) the explaining condition may usually be locally small and interpretable, and the model still be useful.
+    - **Logical Models**[^other_names]: use logical conditions such as "or, and, if-then" but _are machine-learnt_ in a reasonable amount of time. The model may be large (non-simulatable) but the explaining condition may be brief and interpretable. Rudin calls these "smaller-than-global explanations" because the explanation is just a few rules of the global model which may have many (Appendix D). Examples: disjunctive normal form models and falling rule lists and CORELS.
     - **Sparse Linear Models**. If it uses integer coefficients is a _scoring system_.
-    - **Case-Based**: by defining vision interpretability in terms of regions of the image, they create a _prototype network_ ("prototype" in the Eleanor Rosch sense, a characteristic part of an image), and the network _seems to_ crop the image in multiple ways (maybe just outputs prototypical regions bounding boxes) and compare these to training prototypes for each class. The interesting thing is that _this output is the explanation itself_. Finally it does a weighted average.
-    - One class is the "smaller-than-global interpretable models" (Appendix D) which are a good starting point point for intrinsically explainable models; for example disjunctive normal form models and falling rule lists and CORELS.
+    - **Case-Based**: they *defined interpretability* for a specific domain, in this case computer vision, in terms of how humans explain them (by pointing at features in regions of the image). This definition led them to create a _prototype network_ ("prototype" in the Eleanor Rosch sense, a characteristic part of an image), and the network _seems to_ crop the image in multiple ways (maybe just outputs prototypical regions bounding boxes) and compare these to training prototypes for each class. The interesting thing is that _this output is the explanation itself_. Finally it does a weighted average.
+
 2. Adequately crafted neural networks.
 
    or linear fits or case-based reasoning.
@@ -220,6 +220,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
 [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness.
+[^other_names]: related names are: rule lists, expert systems, decision trees, disjunctive normal form models, associative classifiers.
 
 <!-- The latter paper reminds us that: -->
 <!---->
