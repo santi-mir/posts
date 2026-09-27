@@ -34,7 +34,7 @@ In the case of _AI-models_ (either approximations or the original ones) we may a
 
 [Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr]
 
-> We define Counterfactual Explanations as statements taking the form:  Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.
+> We define Counterfactual Explanations as statements taking the form: Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.
 >
 > While many such explanations are possible, an ideal counterfactual explanation would alter values as little as possible and represent a closest world under which score p' is returned instead of p. The notion of a "closest possible world" is thus implicit in our definition.
 
@@ -44,7 +44,7 @@ Here there isn't always a causal graph, hence the "intervention" (in Pearl's sen
 
 In their own words:
 
-> In any case, our approach does not rely on  knowledge of the causal structure of the world, (...)
+> In any case, our approach does not rely on knowledge of the causal structure of the world, (...)
 
 To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.
 
@@ -52,7 +52,7 @@ To my mind, contrastive and counterfactual explanations are the same thing, but 
 
 _Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals, but as mentioned above, not all counterfactuals are causal.[^funny]
 
-Machine Learning Models are often doing correlation then the reasoning may use  counterfactual explanations, but no causation.
+Machine Learning Models are often doing correlation then the reasoning may use counterfactual explanations, but no causation.
 
 However, building models where we have causal variables may be of interest and it's done in certain cases.
 
