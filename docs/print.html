@@ -225,19 +225,19 @@
 <h2 id="contrastive-and-counterfactual-explanations"><a class="header" href="#contrastive-and-counterfactual-explanations">Contrastive and Counterfactual Explanations</a></h2>
 <p><a href="https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&amp;section=29c">Counterfactual explanations without opening the black box: Automated decisions and the GDPR</a></p>
 <blockquote>
-<p>We define Counterfactual Explanations as statements taking the form:  Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.</p>
+<p>We define Counterfactual Explanations as statements taking the form: Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.</p>
 <p>While many such explanations are possible, an ideal counterfactual explanation would alter values as little as possible and represent a closest world under which score p' is returned instead of p. The notion of a "closest possible world" is thus implicit in our definition.</p>
 </blockquote>
 <p>They also consider that in many cases we may want several counterfactual explanations, for different reasons including that <em>relevance</em> depends on the subject (case by case).</p>
 <p>Here there isn't always a causal graph, hence the "intervention" (in Pearl's sense) isn't showing causality.</p>
 <p>In their own words:</p>
 <blockquote>
-<p>In any case, our approach does not rely on  knowledge of the causal structure of the world, (...)</p>
+<p>In any case, our approach does not rely on knowledge of the causal structure of the world, (...)</p>
 </blockquote>
 <p>To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.</p>
 <h2 id="causal-explanations"><a class="header" href="#causal-explanations">Causal Explanations</a></h2>
 <p><em>Causal explanations</em> (or causal hypotheses) can be given in terms of counterfactuals, but as mentioned above, not all counterfactuals are causal.<sup class="footnote-reference" id="fr-funny-1"><a href="#footnote-funny">1</a></sup></p>
-<p>Machine Learning Models are often doing correlation then the reasoning may use  counterfactual explanations, but no causation.</p>
+<p>Machine Learning Models are often doing correlation then the reasoning may use counterfactual explanations, but no causation.</p>
 <p>However, building models where we have causal variables may be of interest and it's done in certain cases.</p>
 <p>As <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> states:</p>
 <blockquote>
