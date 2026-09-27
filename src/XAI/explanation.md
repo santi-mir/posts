@@ -30,9 +30,33 @@ Everyday explanations tend to be _contrastive_ as this helps to reduce the lengt
 
 In the case of _AI-models_ (either approximations or the original ones) we may also require to know the limitations, domain of applicability, accuracy and other model characteristics.
 
-## Contrastive and Causal Explanations
+## Contrastive and Counterfactual Explanations
 
-_Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals. As [Explaining Explanations in AI][xxai] states:
+[Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr]
+
+> We define Counterfactual Explanations as statements taking the form:  Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.
+>
+> While many such explanations are possible, an ideal counterfactual explanation would alter values as little as possible and represent a closest world under which score p' is returned instead of p. The notion of a "closest possible world" is thus implicit in our definition.
+
+They also consider that in many cases we may want several counterfactual explanations, for different reasons including that _relevance_ depends on the subject (case by case).
+
+Here there isn't always a causal graph, hence the "intervention" (in Pearl's sense) isn't showing causality.
+
+In their own words:
+
+> In any case, our approach does not rely on  knowledge of the causal structure of the world, (...)
+
+To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.
+
+## Causal Explanations
+
+_Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals, but as mentioned above, not all counterfactuals are causal.[^funny]
+
+Machine Learning Models are often doing correlation then the reasoning may use  counterfactual explanations, but no causation.
+
+However, building models where we have causal variables may be of interest and it's done in certain cases.
+
+As [Explaining Explanations in AI][xxai] states:
 
 > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
 
@@ -124,6 +148,7 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
    - The definition of explanation extends previous work by Lombrozo on [The structure and function of explanations][lombrozo] (2006).
 1. [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (2017). Argues that Agents will necessarily have initiative, planning, decision making and people will regard them as intentional agents. They will explain them (and expect the system to do so) as if it were a human.
 1. [Explaining Explanations in AI][xxai] (2019), a fantastic paper, from the perspective of "explanation sciences" (philosophy, cognitive sciences, social sciences). Defines terms clearly (XAI, Explanation in XAI, Interpretability/Explainability), distinguishes the main areas (transparency and post hoc interpretability), and names important post-hoc methods.
+1. [Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr] (2019) defines counterfactual explanations pretty clearly.
 1. Blog Posts: [What is Explainable AI?][what_is_xai] (2022) and from [IBM][xai_ibm].
 1. [Good Explanations in Explainable Artificial Intelligence (XAI): Evidence from Human Explanatory Reasoning][byrne_human_explanations] (2023). This paper discusses certain aspects of human explanations and understanding. For example: the illusion of understanding, thinking fast (intuitive, heuristic) and slow (deliberate, methodical), and explanatory stances. It also discusses counterfactual and causal explanations.
 
@@ -140,6 +165,8 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 [byrne_human_explanations]: https://doi.org/10.24963/ijcai.2023/733
 
 [causal_selection_problem]: https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection
+
+[counterfactual_explanations_gdpr]: https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&section=29c
 
 [explanations_social]: https://doi.org/10.1016/j.artint.2018.07.007
 
@@ -169,3 +196,5 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 <!-- - The hypothesis is clarifying an _explanandum_ (that which is to be explained), and answers a question about it. -->
 <!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
 <!-- Besides the cognitive and social process, this post focuses on  _contrastive explanations_, _causal selection_ and _social_. We will dive into each of those aspects in the remaining sections. -->
+
+[^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)."
