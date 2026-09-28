@@ -32,11 +32,17 @@ In the case of _AI-models_ (either approximations or the original ones) we may a
 
 ## Contrastive and Counterfactual Explanations
 
-[Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr]
+To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.
+
+The paper "[Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr]" defines counterfactuals (counterfactual explanations) as:
 
 > We define Counterfactual Explanations as statements taking the form: Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.
 >
 > While many such explanations are possible, an ideal counterfactual explanation would alter values as little as possible and represent a closest world under which score p' is returned instead of p. The notion of a "closest possible world" is thus implicit in our definition.
+
+Another kind of counterfactual seeks for the conclusion to remain the same rather than changing (for fairness purposes), as they state:
+
+> Kusner et al.58 consider counterfactuals where the subject belongs to a different race or sex, and require that the decision made remain the same under such a counterfactual for it to be considered fair. In contrast, we consider counterfactuals in which the decision differs from its current state.
 
 They also consider that in many cases we may want several counterfactual explanations, for different reasons including that _relevance_ depends on the subject (case by case).
 
@@ -46,7 +52,16 @@ In their own words:
 
 > In any case, our approach does not rely on knowledge of the causal structure of the world, (...)
 
-To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.
+Pearl has a "Ladder of Causation" for causal attribution (assigning causes):
+
+1. Observations in randomised controlled trials,
+2. Interventions: real experiments where $X$ is a cause if  $P(Y | do(X_i)) \gt P (Y)$ (other variables remain constant) i.e. $X$ increases the probability of the outcome,
+3. Cause-finding Counterfactuals require that we have a causal graph.
+
+Without the causal graphs, we can just do counterfactuals but not causal attribution.
+
+Importantly, the counterfactual proposed for XAI (when using black box models) should still be a "possible (and close) state of the world", even though as said above most aren't causal graphs.
+
 
 ## Causal Explanations
 
