@@ -62,7 +62,6 @@ Without the causal graphs, we can just do counterfactuals but not causal attribu
 
 Importantly, the counterfactual proposed for XAI (when using black box models) should still be a "possible (and close) state of the world", even though as said above most aren't causal graphs.
 
-
 ## Causal Explanations
 
 _Causal explanations_ (or causal hypotheses) can be given in terms of counterfactuals, but as mentioned above, not all counterfactuals are causal.[^funny]
