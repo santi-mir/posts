@@ -54,8 +54,8 @@ In their own words:
 
 Pearl has a "Ladder of Causation" for causal attribution (assigning causes):
 
-1. Observations in randomised controlled trials,
-2. Interventions: real experiments where $X$ is a cause if  $P(Y | do(X_i)) \gt P (Y)$ (other variables remain constant) i.e. $X$ increases the probability of the outcome,
+1. Association correlation (can't assign causes),
+2. Interventions: real experiments where $X$ is a cause if  $P(Y | do(X_i)) \gt P (Y)$ (other variables remain constant) i.e. $X$ increases the probability of the outcome; also observations in double blind, randomised controlled trials (RCTs),
 3. Cause-finding Counterfactuals require that we have a causal graph.
 
 Without the causal graphs, we can just do counterfactuals but not causal attribution.

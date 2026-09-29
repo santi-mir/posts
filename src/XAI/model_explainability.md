@@ -105,13 +105,24 @@ A an issue with this analogy was noted by [Rudin][stop_explaining_interpret_inst
 
 ### Contrastive-Causal Explanation via Counterfactuals
 
-They argue for the use contrastive explanations and the _original model_, which has less limitations of domain of validity and also curvature (non-linearity) and variable interdependency modelling.
+[Explaining Explanations in AI][xxai] argues for the use contrastive explanations for the _original model_, which has less limitations than linear, local explanations[^linear_limitations]
 
 Here is their pitch for it:
 
-> Rather than explicitly generating a model that approximates functional values over a restrictive domain, and relying on the user to interpret this, contrastive explanations directly offer an alternative data point: "If your data had looked like this, you would have been given this classification score instead." These alternative data points can be computed exactly. As such, many of the challenges facing ’modelling’ approaches to generating explanations, such as the quality of the approximation or the limits of a chosen domain, do not arise to a comparable degree.
+> Rather than explicitly generating a model that approximates functional values over a restrictive domain, and relying on the user to interpret this, contrastive explanations directly offer an alternative data point: "If your data had looked like this, you would have been given this classification score instead." These alternative data points can be computed exactly. As such, many of the challenges facing 'modelling' approaches to generating explanations, such as the quality of the approximation or the limits of a chosen domain, do not arise to a comparable degree.
 
 And the selection of the alternative data point is of high importance (must be relevant, and similar enough to background other causes). This is achieved by a particular Lagrange-style constrained optimisation which helps select that counterfactual (one that is both close to the data point of interest and to a certain desired output value).
+
+As an example, they use:
+
+$$\mathrm{argmin_{x'} argmax_{\lambda} \lambda (f(x')-y)^2 + d(x,x')$$
+
+with an $L_1$ norm (absolute distance between the given $x$ a close value to find, which is $x'$). The important part here is that the $L_1$ norm can usually find a resulting vector that contains several zeros ($x'=x$ for many features), this makes counterfactuals easier to explain (less differences).
+
+- There may also be local minima, which can all be provided as a cluster of explanations to look at,
+- $x'$ must also be a "possible world" or possible point,
+- This optimisation is harder if variables are discrete (assumed continuous here).
+
 <!-- The interest is usually around a particular prediction or a particular model (requiring a partial causal-rather than a full causal-chain). -->
 
 Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. It's also not enough to have an interpretable model, as they continue:
@@ -242,3 +253,4 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- As [Explaining Explanations in AI][xxai] states: -->
 <!---->
 <!-- > (...) the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990). -->
+[^linear_limitations]: Only valid for a small region, can't fit curvature / non-linearity, struggles with variable interdependency modelling.
