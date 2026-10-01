@@ -2,7 +2,7 @@
 
 Let's now discuss three key topics which stand on their own:
 
-- Local explanations: a popular post-hoc explainability class,
+- Local and Counterfatctual explanations which are popular post-hoc explainability classes,
 - Modelling trade-offs,
 - Generalisation out of distribution.
 
@@ -86,6 +86,52 @@ But in terms of the trade-off there is no clear scientific evidence that interpr
 
 Within the class of NNs though, they do tend to perform better as we scale them up until eventually plateau or decrease its performance. But there doesn't seem to be any cross-algorithm evidence or formal argument of the complexity-accuracy tradeoff.
 
+## Counterfactual Explanations in AI
+
+"[Counterfactual explanations without opening the black box][without_opening_bbox]" defines these explanations as the minimum change in the input (in some distance metric) to change the output (or keep it the same depending on the goal).
+
+In other words, counterfactual explanations are contrastive in the sense that they compare two situations, and non-causal, unless the use a causal model.
+
+[Explaining Explanations in AI][xxai] argues for the use contrastive explanations for the _original model_, which has less limitations than linear, local explanations[^linear_limitations]:
+
+> Rather than explicitly generating a model that approximates functional values over a restrictive domain, and relying on the user to interpret this, contrastive explanations directly offer an alternative data point: "If your data had looked like this, you would have been given this classification score instead." These alternative data points can be computed exactly. As such, many of the challenges facing 'modelling' approaches to generating explanations, such as the quality of the approximation or the limits of a chosen domain, do not arise to a comparable degree.
+
+And the selection of the alternative data point is of high importance (must be relevant, and similar enough to background other causes). This is achieved by a particular Lagrange-style constrained optimisation which helps select that counterfactual (one that is both close to the data point of interest and to a certain desired output value).
+
+As an example, they use:
+
+$$\mathrm{argmin_{x'} argmax_{\lambda} \lambda (f(x')-y)^2 + d(x,x')$$
+
+with an $L_1$ norm (absolute distance between the given $x$ a close value to find, which is $x'$). The important part here is that the $L_1$ norm can usually find a resulting vector that contains several zeros ($x'=x$ for many features), this makes counterfactuals easier to explain (less differences).
+
+- There may also be local minima, which can all be provided as a cluster of explanations to look at,
+- $x'$ must also be a "possible world" or possible point,
+- This optimisation is harder if variables are discrete (assumed continuous here).
+
+Their other paper [Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR][without_opening_bbox] states why and for whom these explanations may be most useful:
+
+> Principally, counterfactuals bypass the substantial challenge of explaining the internal workings of complex machine learning systems.70 Even if technically feasible, such explanations may be of little practical value to data subjects. In contrast, counterfactuals provide information to the data subject that is both easily digestible and practically useful for understanding the reasons for a decision, challenging them, and altering future behaviour for a better result.
+
+Counterfactual explanations explain automated decisions (partly or fully), don't require opening the black box (explaining inner workings) and are easier to generate and to understand as well than the internals of the model. Not disclosing the model protects companies' trade secret and (as they state) "the privacy of individuals whose data is contained in the training dataset (...) Assuming reasonable limitations are set on the number of counterfactuals that must be provided, counterfactuals are also less likely to provide information that reveals trade secrets or allows gaming of decision-making systems."
+
+### Advantage of counterfactual over simpler model
+
+Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. It's also not enough to have an interpretable model, as they continue:
+
+> It is not enough to simply offer a human interpretable model as an explanation. For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading
+
+That is, the domain where the models (both) are accurate, inaccurate or unknown should be characterised, and understood by the recipients.
+
+- Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, _explanation models_ are trained with predictions of the complex model, that may not exist in the training data.
+
+### When are counterfactual explanations insufficient?
+
+The authors note that their counterfactual explanations don't require causal graphs or causal models, which in some cases can be needed.
+
+Also, as they state:
+
+> As a minimal form of explanation, counterfactuals are not appropriate in all scenarios. In particular, where it is important to understand system functionality, or the rationale of an automated decision, counterfactuals may be insufficient in themselves. Further, counterfactuals do not provide the statistical evidence needed to assess algorithms for fairness or racial bias. Given these limitations, more general forms of explanations and interpretability should still be pursued to increase accountability and better validate the fairness and functionality of systems.
+
 ## Out of Distribution
 
 Consider an imaginary model $y = f(u)$, $f$ being the model, $u$ being the proportion of people with an umbrella and $y$ the probability of rain. The model reaches low evaluation error and everyone is happy.
@@ -146,23 +192,5 @@ The focus here though, is explaining _deep learning_ models which are often, but
 [stop_explaining_interpret_instead]: http://arxiv.org/abs/1811.10154
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
 
+[^linear_limitations]: Only valid for a small region, can't fit curvature / non-linearity, struggles with variable interdependency modelling.
 [^selection_problem]: Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies?
-
-<!-- In other words, classical ML and DL models each have their use-cases. -->
-
-<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-
-<!-- [shap] -->
-<!---->
-<!-- > (...) viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_. -->
-<!---->
-<!-- And also: -->
-<!---->
-<!-- > Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model. -->
-<!-- And they state later on: -->
-<!---->
-<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
-<!-- > -->
-<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
-<!---->
-<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
