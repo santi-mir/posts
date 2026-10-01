@@ -100,7 +100,7 @@ And the selection of the alternative data point is of high importance (must be r
 
 As an example, they use:
 
-$$\mathrm{argmin_{x'} argmax_{\lambda} \lambda (f(x')-y)^2 + d(x,x')$$
+$$\mathrm{argmin}_{x'} \mathrm{argmax}_{\lambda} \lambda (f(x')-y)^2 + d(x,x')$$
 
 with an $L_1$ norm (absolute distance between the given $x$ a close value to find, which is $x'$). The important part here is that the $L_1$ norm can usually find a resulting vector that contains several zeros ($x'=x$ for many features), this makes counterfactuals easier to explain (less differences).
 
