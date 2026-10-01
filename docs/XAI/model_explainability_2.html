@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-1a9be8c1.js";
+            window.path_to_searchindex_js = "../searchindex-522848f7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -182,7 +182,7 @@
 <h1 id="topics-in-xai"><a class="header" href="#topics-in-xai">Topics in XAI</a></h1>
 <p>Let's now discuss three key topics which stand on their own:</p>
 <ul>
-<li>Local explanations: a popular post-hoc explainability class,</li>
+<li>Local and Counterfatctual explanations which are popular post-hoc explainability classes,</li>
 <li>Modelling trade-offs,</li>
 <li>Generalisation out of distribution.</li>
 </ul>
@@ -256,6 +256,42 @@
 </ul>
 <p>But in terms of the trade-off there is no clear scientific evidence that interpretable models are less accurate, though they can be harder to design and optimise.</p>
 <p>Within the class of NNs though, they do tend to perform better as we scale them up until eventually plateau or decrease its performance. But there doesn't seem to be any cross-algorithm evidence or formal argument of the complexity-accuracy tradeoff.</p>
+<h2 id="counterfactual-explanations-in-ai"><a class="header" href="#counterfactual-explanations-in-ai">Counterfactual Explanations in AI</a></h2>
+<p>"[Counterfactual explanations without opening the black box][without_opening_bbox]" defines these explanations as the minimum change in the input (in some distance metric) to change the output (or keep it the same depending on the goal).</p>
+<p>In other words, counterfactual explanations are contrastive in the sense that they compare two situations, and non-causal, unless the use a causal model.</p>
+<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> argues for the use contrastive explanations for the <em>original model</em>, which has less limitations than linear, local explanations<sup class="footnote-reference" id="fr-linear_limitations-1"><a href="#footnote-linear_limitations">1</a></sup>:</p>
+<blockquote>
+<p>Rather than explicitly generating a model that approximates functional values over a restrictive domain, and relying on the user to interpret this, contrastive explanations directly offer an alternative data point: "If your data had looked like this, you would have been given this classification score instead." These alternative data points can be computed exactly. As such, many of the challenges facing 'modelling' approaches to generating explanations, such as the quality of the approximation or the limits of a chosen domain, do not arise to a comparable degree.</p>
+</blockquote>
+<p>And the selection of the alternative data point is of high importance (must be relevant, and similar enough to background other causes). This is achieved by a particular Lagrange-style constrained optimisation which helps select that counterfactual (one that is both close to the data point of interest and to a certain desired output value).</p>
+<p>As an example, they use:</p>
+<p>$$\mathrm{argmin_{x'} argmax_{\lambda} \lambda (f(x')-y)^2 + d(x,x')$$</p>
+<p>with an <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> norm (absolute distance between the given <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> a close value to find, which is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>). The important part here is that the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> norm can usually find a resulting vector that contains several zeros (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> for many features), this makes counterfactuals easier to explain (less differences).</p>
+<ul>
+<li>There may also be local minima, which can all be provided as a cluster of explanations to look at,</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> must also be a "possible world" or possible point,</li>
+<li>This optimisation is harder if variables are discrete (assumed continuous here).</li>
+</ul>
+<p>Their other paper [Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR][without_opening_bbox] states why and for whom these explanations may be most useful:</p>
+<blockquote>
+<p>Principally, counterfactuals bypass the substantial challenge of explaining the internal workings of complex machine learning systems.70 Even if technically feasible, such explanations may be of little practical value to data subjects. In contrast, counterfactuals provide information to the data subject that is both easily digestible and practically useful for understanding the reasons for a decision, challenging them, and altering future behaviour for a better result.</p>
+</blockquote>
+<p>Counterfactual explanations explain automated decisions (partly or fully), don't require opening the black box (explaining inner workings) and are easier to generate and to understand as well than the internals of the model. Not disclosing the model protects companies' trade secret and (as they state) "the privacy of individuals whose data is contained in the training dataset (...) Assuming reasonable limitations are set on the number of counterfactuals that must be provided, counterfactuals are also less likely to provide information that reveals trade secrets or allows gaming of decision-making systems."</p>
+<h3 id="advantage-of-counterfactual-over-simpler-model"><a class="header" href="#advantage-of-counterfactual-over-simpler-model">Advantage of counterfactual over simpler model</a></h3>
+<p>Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. It's also not enough to have an interpretable model, as they continue:</p>
+<blockquote>
+<p>It is not enough to simply offer a human interpretable model as an explanation. For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading</p>
+</blockquote>
+<p>That is, the domain where the models (both) are accurate, inaccurate or unknown should be characterised, and understood by the recipients.</p>
+<ul>
+<li>Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, <em>explanation models</em> are trained with predictions of the complex model, that may not exist in the training data.</li>
+</ul>
+<h3 id="when-are-counterfactual-explanations-insufficient"><a class="header" href="#when-are-counterfactual-explanations-insufficient">When are counterfactual explanations insufficient?</a></h3>
+<p>The authors note that their counterfactual explanations don't require causal graphs or causal models, which in some cases can be needed.</p>
+<p>Also, as they state:</p>
+<blockquote>
+<p>As a minimal form of explanation, counterfactuals are not appropriate in all scenarios. In particular, where it is important to understand system functionality, or the rationale of an automated decision, counterfactuals may be insufficient in themselves. Further, counterfactuals do not provide the statistical evidence needed to assess algorithms for fairness or racial bias. Given these limitations, more general forms of explanations and interpretability should still be pursued to increase accountability and better validate the fairness and functionality of systems.</p>
+</blockquote>
 <h2 id="out-of-distribution"><a class="header" href="#out-of-distribution">Out of Distribution</a></h2>
 <p>Consider an imaginary model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> being the model, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> being the proportion of people with an umbrella and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> the probability of rain. The model reaches low evaluation error and everyone is happy.</p>
 <p>However, the model consistently fails to predict rains when people didn't take the umbrella. Why could this happen? Some of the reasons below were inspired by the paper "<a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a>":</p>
@@ -264,7 +300,7 @@
 <li>The dataset is <em>not representative</em> the deployment environment, and the model can't generalise out of training distribution. Can it be fixed if we don't have those datapoints? Were there simply wrong datapoints, that led the model in the wrong direction? Can we create synthetic data?</li>
 <li>The approach itself was incorrect: we use variables that promote <em>association rather than causation</em>.</li>
 </ol>
-<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-selection_problem-1"><a href="#footnote-selection_problem">1</a></sup></p>
+<p>Selecting possible causal variables, such as pressure and temperature, rather than the fraction of humans carrying out an umbrella, could help to make it more accurate, and even more explainable. But does it have <em>all</em> the <em>causal inputs</em>? Why do we expect it to work out of distribution, though?<sup class="footnote-reference" id="fr-selection_problem-1"><a href="#footnote-selection_problem">2</a></sup></p>
 <p>A subset of causal-variables may do for a good-enough approximation, and even generale well out of distribution. In some cases though, it may be enough to have a correlation model, but they should be distinguished.</p>
 <p>Selecting those variables is not very easy, though. An expert must pick known causes-effects pairs as inputs-outputs to train a model, but others may unknowingly build a correlation model instead.</p>
 <blockquote>
@@ -298,24 +334,11 @@
 
 <p>To the visual explanations, t-SNE, PCA and other dimensionality reduction techniques can be added.</p>
 <p>The focus here though, is explaining <em>deep learning</em> models which are often, but not always, more accurate than classic ML models.</p>
-<!-- In other words, classical ML and DL models each have their use-cases. -->
-<!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-<!-- [shap] -->
-<!---->
-<!-- > (...) viewing any explanation of a model's prediction as a model itself, which we term the _explanation model_. -->
-<!---->
-<!-- And also: -->
-<!---->
-<!-- > Instead, we must use a simpler _explanation model_, which we define as any interpretable approximation of the original model. -->
-<!-- And they state later on: -->
-<!---->
-<!-- > Specifically, the vast majority of work in xAI produces simplified approximations of complex decision-making functions. We argue that these approximations function more like scientific models than the types of scientific and 'everyday' explanations considered in philosophy, cognitive science, and psychology. -->
-<!-- > -->
-<!-- > In this paper we examine the extent of this gap between xAI and the 'explanation sciences'. We do so by first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving. -->
-<!---->
-<!-- That is, these explanation models aids us in producing explanations for models, and are more akin to scientific models than to explanations themselves: -->
 <hr>
 <ol class="footnote-definition">
+<li id="footnote-linear_limitations">
+<p>Only valid for a small region, can't fit curvature / non-linearity, struggles with variable interdependency modelling. <a href="#fr-linear_limitations-1">↩</a></p>
+</li>
 <li id="footnote-selection_problem">
 <p>Could metaphors and analogies (from experience) be the missing ingredient of this to succeed? Could using causal models help to overcome these problems? How can we make a model that uses analogies? <a href="#fr-selection_problem-1">↩</a></p>
 </li>
