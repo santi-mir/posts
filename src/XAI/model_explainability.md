@@ -6,29 +6,29 @@ This post is an overview of the field of Explainable AI (XAI).
 
 ## Scope of the Field of XAI
 
-Explainable AI (XAI) aims to _explain_ (see above) artificial intelligence models inner workings and their outputs.
+Explainable AI (XAI) aims to _explain_ artificial intelligence models; that is, it aims to answer questions about the models' design, inner working and output, for a given audience.
 
-Briefly, _to explain_ involves answering questions about an _explanandum_ for an audience. It involves the two processes (cognitive and social) described in the more detailed post on [explanations](./explanation.md).
-
-_For an audience_ is more important than it may seem. An audience certain level of expertise, need such as to the know accuracy and limitations of models and goals such as answering certain kinds of questions. These aspects are encapsulated in the social process and gricean maxims.
+An audience has certain level of expertise, information needs such as the accuracy and limitations of a model, and goals such as answering certain kinds of questions, and so forth. These aspects are part of the _social process_. For more detail see the post on [explanations](./explanation.md).
 
 Broadly speaking, we find two sub-fields within XAI:
 
 - **Post Training Explainability**
     - Of the models' output or decisions,
-    - Of the models' internal state, such as the role of each layer, activation, and weight.
+    - Of the models' internal state, such as layers, activations, and weights.
 - **Intrinsic Explainability**
-    - Writing models that are constrained in some way that makes them more interpretable (independently of whether it's been trained or not.),
+    - Writing models that are constrained in some way that makes them more interpretable (independently of whether it's been trained or not),
     - Explaining the internals and rationale of the models themselves.
 
 Since this is a custom classification (though close to others), quotes from papers will make it clear which aspects are we mapping to it.
 
-Explanations can also be Local or Global, referring to a single input-output (e.g. linear LIME) or to the model as a whole (e.g. combining local explanations as SP-LIME does). This post only discusses the two sub-fields above, and makes clarifications about local/global if needed.
+Explanations can also be Local or Global, referring to a single input-output (e.g. linear LIME) or to the model as a whole (e.g. combining local explanations as SP-LIME does). This post discusses the two sub-fields above, clarifying about local/global if needed.
 
 > [!NOTE]
 > The term "black box" is commonly used to refer to complex deep learning models. It can also refer to a model _unavailable for inspection_ (such as encrypted or proprietary models). In both cases, we can try to explain the outputs, but the internals can only be explained if the model is available.
+>
+> This blog-post and most papers use "black box" in that sense: _models which are available but are hard to comprehend_.
 
-This post and most papers use "black box" in the first sense: _models which are hard to comprehend_.
+A final note on terminology:
 
 > [!NOTE]
 > In this blogpost, _explainability_ and _interpretability_ are considered synonyms.

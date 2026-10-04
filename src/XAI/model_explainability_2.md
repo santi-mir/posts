@@ -86,6 +86,10 @@ But in terms of the trade-off there is no clear scientific evidence that interpr
 
 Within the class of NNs though, they do tend to perform better as we scale them up until eventually plateau or decrease its performance. But there doesn't seem to be any cross-algorithm evidence or formal argument of the complexity-accuracy tradeoff.
 
+Rudin also considers the Rashomon set argument: if there are several models with similar high-accuracy, then there may also be some within the set that are interpretable.
+
+An interesting, related question is: is the three-way trade-off of domain of applicability, ease of understanding and accuracy also valid in general, for any model? This may still support Rashomon sets, but the ease of understanding may be quite low (requiring very high expertise). But here we can ask the question more generally about models.
+
 ## Counterfactual Explanations in AI
 
 "[Counterfactual explanations without opening the black box][without_opening_bbox]" defines these explanations as the minimum change in the input (in some distance metric) to change the output (or keep it the same depending on the goal).
