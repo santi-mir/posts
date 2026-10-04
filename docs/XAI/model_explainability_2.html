@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-06372ec6.js";
+            window.path_to_searchindex_js = "../searchindex-691874db.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -256,6 +256,8 @@
 </ul>
 <p>But in terms of the trade-off there is no clear scientific evidence that interpretable models are less accurate, though they can be harder to design and optimise.</p>
 <p>Within the class of NNs though, they do tend to perform better as we scale them up until eventually plateau or decrease its performance. But there doesn't seem to be any cross-algorithm evidence or formal argument of the complexity-accuracy tradeoff.</p>
+<p>Rudin also considers the Rashomon set argument: if there are several models with similar high-accuracy, then there may also be some within the set that are interpretable.</p>
+<p>An interesting, related question is: is the three-way trade-off of domain of applicability, ease of understanding and accuracy also valid in general, for any model? This may still support Rashomon sets, but the ease of understanding may be quite low (requiring very high expertise). But here we can ask the question more generally about models.</p>
 <h2 id="counterfactual-explanations-in-ai"><a class="header" href="#counterfactual-explanations-in-ai">Counterfactual Explanations in AI</a></h2>
 <p>"[Counterfactual explanations without opening the black box][without_opening_bbox]" defines these explanations as the minimum change in the input (in some distance metric) to change the output (or keep it the same depending on the goal).</p>
 <p>In other words, counterfactual explanations are contrastive in the sense that they compare two situations, and non-causal, unless the use a causal model.</p>

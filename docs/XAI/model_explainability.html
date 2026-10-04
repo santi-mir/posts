@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-06372ec6.js";
+            window.path_to_searchindex_js = "../searchindex-691874db.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -183,31 +183,31 @@
 <p>This post is an overview of the field of Explainable AI (XAI).</p>
 <hr>
 <h2 id="scope-of-the-field-of-xai"><a class="header" href="#scope-of-the-field-of-xai">Scope of the Field of XAI</a></h2>
-<p>Explainable AI (XAI) aims to <em>explain</em> (see above) artificial intelligence models inner workings and their outputs.</p>
-<p>Briefly, <em>to explain</em> involves answering questions about an <em>explanandum</em> for an audience. It involves the two processes (cognitive and social) described in the more detailed post on <a href="./explanation.html">explanations</a>.</p>
-<p><em>For an audience</em> is more important than it may seem. An audience certain level of expertise, need such as to the know accuracy and limitations of models and goals such as answering certain kinds of questions. These aspects are encapsulated in the social process and gricean maxims.</p>
+<p>Explainable AI (XAI) aims to <em>explain</em> artificial intelligence models; that is, it aims to answer questions about the models' design, inner working and output, for a given audience.</p>
+<p>An audience has certain level of expertise, information needs such as the accuracy and limitations of a model, and goals such as answering certain kinds of questions, and so forth. These aspects are part of the <em>social process</em>. For more detail see the post on <a href="./explanation.html">explanations</a>.</p>
 <p>Broadly speaking, we find two sub-fields within XAI:</p>
 <ul>
 <li><strong>Post Training Explainability</strong>
 <ul>
 <li>Of the models' output or decisions,</li>
-<li>Of the models' internal state, such as the role of each layer, activation, and weight.</li>
+<li>Of the models' internal state, such as layers, activations, and weights.</li>
 </ul>
 </li>
 <li><strong>Intrinsic Explainability</strong>
 <ul>
-<li>Writing models that are constrained in some way that makes them more interpretable (independently of whether it's been trained or not.),</li>
+<li>Writing models that are constrained in some way that makes them more interpretable (independently of whether it's been trained or not),</li>
 <li>Explaining the internals and rationale of the models themselves.</li>
 </ul>
 </li>
 </ul>
 <p>Since this is a custom classification (though close to others), quotes from papers will make it clear which aspects are we mapping to it.</p>
-<p>Explanations can also be Local or Global, referring to a single input-output (e.g. linear LIME) or to the model as a whole (e.g. combining local explanations as SP-LIME does). This post only discusses the two sub-fields above, and makes clarifications about local/global if needed.</p>
+<p>Explanations can also be Local or Global, referring to a single input-output (e.g. linear LIME) or to the model as a whole (e.g. combining local explanations as SP-LIME does). This post discusses the two sub-fields above, clarifying about local/global if needed.</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p>The term "black box" is commonly used to refer to complex deep learning models. It can also refer to a model <em>unavailable for inspection</em> (such as encrypted or proprietary models). In both cases, we can try to explain the outputs, but the internals can only be explained if the model is available.</p>
+<p>This blog-post and most papers use "black box" in that sense: <em>models which are available but are hard to comprehend</em>.</p>
 </blockquote>
-<p>This post and most papers use "black box" in the first sense: <em>models which are hard to comprehend</em>.</p>
+<p>A final note on terminology:</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p>In this blogpost, <em>explainability</em> and <em>interpretability</em> are considered synonyms.</p>
