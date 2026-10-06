@@ -209,6 +209,14 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Principles and practice of explainable machine-learning][principles_and_practice] (2021, 25 pages): Sections 8&ndash;11 are a useful review of explainability methods.
 1. [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (2023).
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
+1. [From scientific theory to duality of predictive artificial intelligence models][cell_chem] (2025): This paper explains an "XAI duality". But overall, this is just restating the scientific method, and how to use AI and produce scientific understanding (even with black boxes). The latter is defined as _qualitative understanding of a theory_ which is the DL model:
+  1. Have a scientific hypothesis,
+  2. Test it by training a model,
+  3. Explain the predictions (XAI, computational methods),
+  4. Interpret the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).
+  5. Test the causal hypotheses (mind correlation).
+
+  The duality is scientific vs non-scientific, and the name is less relevant in some sense.
 
 </details>
 
