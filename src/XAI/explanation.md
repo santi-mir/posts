@@ -129,7 +129,6 @@ Pearl has a "Ladder of Causation" for causal attribution (assigning causes):
 2. Interventions: experiments where $X$ is a cause if  $P(Y | do(X_i)) \gt P (Y)$ (other variables remain constant) i.e. $X$ increases the probability of the outcome; also observations in double blind, randomised controlled trials (RCTs),
 3. Cause-finding Counterfactuals: require that we have a causal graph.
 
-
 ## Social Process (Communication)
 
 We have gone through the _cognitive process_ and how contrastive questions can aid the generation and selection of a hypothesis or a cause.

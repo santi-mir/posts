@@ -13,8 +13,9 @@ An audience has certain level of expertise, information needs such as the accura
 Broadly speaking, we find two sub-fields within XAI:
 
 **Post Training Explainability** can be subdivided in:
-  - Of the models' input-output relations (usually termed _post-hoc explainability_),
-  - Of the models' internal representations and state, such as layers, activations, and weights (usually post training, called _mechanistic interpretability_).
+
+- Of the models' input-output relations (usually termed _post-hoc explainability_),
+- Of the models' internal representations and state, such as layers, activations, and weights (usually post training, called _mechanistic interpretability_).
 
 **Intrinsic Explainability**: usually by constraining or conceptually grounding the model, e.g. a physical constraint that makes it more interpretable (independently of whether it's been trained or not).
     - An interesting analogue here are scientific models, and models that are conceptually grounded (we just learn the parameters e.g. linear regression, decision trees).
@@ -107,7 +108,6 @@ This is one reason why accuracy on a test set alone isn't a bulletproof metric, 
 
 The ["Why Should I Trust You?"][lime] paper also proposes an _explainer desiderata_ for the explanation model: it should be `1.` **interpretable**, by giving a qualitative understanding between inputs and outputs, making it easy to understand, `2.` **model agnostic** and `3.` **locally faithful** (a good fit to the original model in the vicinity of the instance being explained) and `4.` **globally explainable**. In that paper, SP-LIME combines local explanations to provide a _global explanation_ of the model.
 
-
 ### Issues with Post-Training XAI Methods
 
 XAI methods are not without problems.
@@ -150,7 +150,6 @@ A an issue with this analogy was noted by [Rudin][stop_explaining_interpret_inst
 
 ### Post Hoc Explanation Classes
 
-
 In general, all methods are like a _toolkit to produce explanations_.
 
 Many papers describe a few types of _post training explainability_ methods and classes (such as 1, [1][mythos], [2][principles_and_practice] and [3][cell_chem] ).
@@ -183,7 +182,6 @@ An audience of scientists may be interested in generating causal, testable hypot
 
 Causal inference (or attribution) is a hypothesis about the responsibility of variables to either change or produce the output.
 
-
 ----------------
 
 <details>
@@ -194,7 +192,6 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. ["Why Should I Trust You?": Explaining the Predictions of Any Classifier][lime] (2016)
 1. [The Mythos of Model Interpretability][mythos] (2018) is an excellent break down of ideas. This paper is cited and discussed in the post primarily.
 1. [A Unified Approach to Interpreting Model Predictions][shap_values] (2017): paper proposing SHAP, that is, showing Shapley values (a result from [game-theory][shapley] found by Shapley) as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),
-
 1. [Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR][without_opening_bbox] (2017) which (briefly) proposes a set of unconditional counterfactual explanations in the context of GDPR (unconditional as in we can always have them); these are easier to generate and understand than the internals of a complex model, protect trade secrets and privacy (by not revealing datasets).
     - The authors also have a related paper: [Explaining Explanations in AI][xxai] (2019). **First** it review post hoc methods and makes an analogy of XAI post-hoc methods to scientific models (i.e. they are local interpretable approximations and help _generate_ explanations). **Then** answering "why-questions" requires "contrastive, selective and social" explanations. **Finally**, that an interactive, dialectic way to challenge algorithmic decisions is needed. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.
 [Explaining Explanations: An Overview of Interpretability of Machine Learning][xx] (2018),
