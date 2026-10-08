@@ -44,15 +44,41 @@ Everyday explanations tend to be _contrastive_. Comparing reduces ts complexity 
 
 <!-- In the case of _AI-models_ (either approximations or the original ones) we may also require to know its assumptions (e.g. is it causal or correlative?), domain of applicability, accuracy and other model characteristics. -->
 
-## Contrastive and Counterfactual Explanations
+## Contrastive Questions
 
-To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.
+<!-- Contrastive and counterfactual explanations are related. -->
+[Miller et al.,][asylum] define contrastive questions as:
 
-Contrastive explanations are linked to contrastive questions, particularly _why-questions_ as [Miller et al.,][asylum] state:
+> Perhaps the most important result from this work is that explanations are _contrastive_; or more accurately, _why–questions_ are contrastive. That is, _why–questions_ are of the form "_Why P rather than Q?_", where _P_ is the _fact_ that requires explanation, and _Q_ is some _foil_ case that was expected.
 
-> Perhaps the most important result from this work is that explanations are _contrastive_; or more accurately, _why–questions_ are contrastive. That is, why–questions are of the form "_Why P rather than Q?_", where _P_ is the _fact_ that requires explanation, and _Q_ is some _foil_ case that was expected.
+> [!NOTE]
+> (Not sure of this...)
+> This is also how we can define a counterfactual question, so at a rough level contrastive and counterfactual questions (and explanations) are the same.
 
-Miller and others go as far as saying that _all_ why-questions are contrastive, since even those without explicit contrast such as "Why P?" still have an implicit one.
+They argue that _all_ why-questions are contrastive, since even those without explicit contrast such as "Why P?" still have an implicit one.
+
+For our purposes, the interest is that if we can find a useful foil, then answering the question is easier, as we only need to focus on the differences between these two cases to generate a contrastive explanation.
+
+## Attribution Theory
+
+Attribution theory is about how people assign causes to events, which [Miller et. al.][asylum] cite as "something that is necessary to provide explanations" and distinguishes social from general attribution. For the general case, they state:
+
+> Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently [Kahneman and Tversky, 1982; Hilton et al., 2005; McCloy and Byrne, 2000].
+
+It's similar for social attribution, but within a framework of belief, desires, intents and traits of people cited as causes.
+
+Importantly, when there are many variables, the combinatoric is large, and this would be unfeasible, so people must select a few counterfactuals to simulate; so they add:
+
+> However, simulating an entire causal chain is infeasible in most cases, so cognitive scientists and social psychologists have studied how people decide which events to ‘undo’ (the counterfactuals) to determine cause. For example, people tend to undo more proximal causes over more distal causes [Miller and Gunasegaram, 1990], abnormal events over normal events [Kahneman and Tversky, 1982], and events that are considered more ‘controllable’ [Girotto et al., 1991].
+
+### Causal Attribution via Counterfactuals
+Notice how "what would have happened" is exactly a counterfactual, which is why counterfactuals are important in causal providing explanations.
+
+For _scientific_ explanation, this is more rigorous and there are also other mechanisms (e.g. Pearl's Ladder of Causation).
+
+<!-- However, this isn't entirely correct or complete: we don't only explain by assigning _causes_ in a rigorous way, but we use that form "a cause" for things we know are probably just correlated, but can't quite point at a causal mechanism. -->
+
+If we have a mathematical model, we attribute as "cause" a certain input or feature value; but in that case, it's not the cause for the real world event, it's the cause for the model, and whether it accurately models the real world, it's a different question.
 
 For example, the paper "[Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr]" require counterfactual explanations to be _a close, possible world_:
 
@@ -69,9 +95,9 @@ They also consider that in many cases we may want several counterfactual explana
 <!-- They can also be given via other terms (intervention and observation/association, as in the 3 steps of the Ladder of Causation). -->
 <!-- _Contrastive explanations_ don't require counterfactuals, but contrastive  -->
 
-A key characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit).
+<!-- A key characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit). -->
 
-However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means.
+<!-- However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means. -->
 
 _Why P rather than Q?_ is a counterfactual or contrastive question instead of simply _Why P?_ Usually P is the real case (or fact) and Q the expected case (or foil), which may also be implicit.
 
