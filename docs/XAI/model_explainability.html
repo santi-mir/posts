@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-b73d842c.js";
+            window.path_to_searchindex_js = "../searchindex-4233c791.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -182,6 +182,17 @@
 <h1 id="explainable-ai-xai"><a class="header" href="#explainable-ai-xai">Explainable AI (XAI)</a></h1>
 <p>This post is an overview of the field of Explainable AI (XAI).</p>
 <hr>
+<h2 id="why-all-of-this"><a class="header" href="#why-all-of-this">Why all of this?</a></h2>
+<p>The <a href="./explanation">previous post</a> described aspects of explanations in general.</p>
+<p>But there are two questions that seem worth asking before moving forward:</p>
+<ol>
+<li>Why do we need this emphasis on theories of explanations for AI, but not for Physics, Chemistry, Maths? After all, all these use formulas, models and scientific models?</li>
+<li>What can theories of explanations offer, such that "(...) models of explainable AI can benefit from models of human explanation" (quote from <a href="http://arxiv.org/abs/1712.00547">Explainable AI: Beware of Inmates Running the Asylum (...)</a>)?</li>
+</ol>
+<p>To the first question, my current answer is that XAI started because models are used in ways that affect non-experts (e.g. financial decisions such as a loan decision). Then explanations are need of such models for a general, non-expert audience to understand and challenge those decisions.</p>
+<p>Eventually, deep learning models became more popular and complex, so the question became how can we extract insights, contextualise, or relate the internals of the models to science and other areas?</p>
+<p>In the context of science, it seems that works needs to be done to distinguish scientific from other kinds of explanation. A starting point was recently published by <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">Bajorath</a>, describing a <em>model duality</em> (as within or outside a scientific framing).</p>
+<p>To the second question, the previous post highlighted certain techniques which have been found useful in everyday explanation such as <em>contrastive explanation</em> (the contrastive nature of <em>why-questions</em>). Some of these are applicable or were considered for models that we will describe (here and in the next posts).</p>
 <h2 id="scope-of-the-field-of-xai"><a class="header" href="#scope-of-the-field-of-xai">Scope of the Field of XAI</a></h2>
 <p>Explainable AI (XAI) aims to <em>explain</em> artificial intelligence models; that is, it aims to answer questions about the models' design, inner working and output, for a given audience.</p>
 <p>An audience has certain level of expertise, information needs such as the accuracy and limitations of a model, and goals such as answering certain kinds of questions, and so forth. These aspects are part of the <em>social process</em>. For more detail see the post on <a href="./explanation.html">explanations</a>.</p>
@@ -402,19 +413,19 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p><a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">From scientific theory to duality of predictive artificial intelligence models</a> (2025): This paper explains an "XAI duality". But overall, this is just restating the scientific method, and how to use AI and produce scientific understanding (even with black boxes). The latter is defined as <em>qualitative understanding of a theory</em> which is the DL model:</p>
 </li>
 <li>
-<p>Have a scientific hypothesis,</p>
+<p>Have a hypothesis contextualised by a scientific rationale / framework,</p>
 </li>
 <li>
-<p>Test it by training a model,</p>
+<p><em>Test it</em> by first training a model,</p>
 </li>
 <li>
-<p>Explain the predictions (XAI, computational methods),</p>
+<p><em>Explaining</em> the predictions (XAI, computational methods, as a pre-requisite for <em>interpretation</em>),</p>
 </li>
 <li>
-<p>Interpret the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).</p>
+<p><em>Interpreting</em> the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).</p>
 </li>
 <li>
-<p>Test the causal hypotheses (mind correlation).</p>
+<p>Test further consequences.</p>
 </li>
 </ol>
 <p>The duality is scientific vs non-scientific, and the name is less relevant in some sense.</p>

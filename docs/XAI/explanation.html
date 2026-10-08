@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-b73d842c.js";
+            window.path_to_searchindex_js = "../searchindex-4233c791.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -215,6 +215,11 @@
 <!-- In the case of _AI-models_ (either approximations or the original ones) we may also require to know its assumptions (e.g. is it causal or correlative?), domain of applicability, accuracy and other model characteristics. -->
 <h2 id="contrastive-and-counterfactual-explanations"><a class="header" href="#contrastive-and-counterfactual-explanations">Contrastive and Counterfactual Explanations</a></h2>
 <p>To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.</p>
+<p>Contrastive explanations are linked to contrastive questions, particularly <em>why-questions</em> as [Miller et al.,][asylum] state:</p>
+<blockquote>
+<p>Perhaps the most important result from this work is that explanations are <em>contrastive</em>; or more accurately, <em>why–questions</em> are contrastive. That is, why–questions are of the form "<em>Why P rather than Q?</em>", where <em>P</em> is the <em>fact</em> that requires explanation, and <em>Q</em> is some <em>foil</em> case that was expected.</p>
+</blockquote>
+<p>Miller and others go as far as saying that <em>all</em> why-questions are contrastive, since even those without explicit contrast such as "Why P?" still have an implicit one.</p>
 <p>For example, the paper "<a href="https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&amp;section=29c">Counterfactual explanations without opening the black box: Automated decisions and the GDPR</a>" require counterfactual explanations to be <em>a close, possible world</em>:</p>
 <blockquote>
 <p>We define Counterfactual Explanations as statements taking the form: Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.</p>
