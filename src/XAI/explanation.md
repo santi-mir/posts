@@ -48,6 +48,12 @@ Everyday explanations tend to be _contrastive_. Comparing reduces ts complexity 
 
 To my mind, contrastive and counterfactual explanations are the same thing, but it is possible that the latter is a special case of the former.
 
+Contrastive explanations are linked to contrastive questions, particularly _why-questions_ as [Miller et al.,][asylum] state:
+
+> Perhaps the most important result from this work is that explanations are _contrastive_; or more accurately, _why–questions_ are contrastive. That is, why–questions are of the form "_Why P rather than Q?_", where _P_ is the _fact_ that requires explanation, and _Q_ is some _foil_ case that was expected.
+
+Miller and others go as far as saying that _all_ why-questions are contrastive, since even those without explicit contrast such as "Why P?" still have an implicit one.
+
 For example, the paper "[Counterfactual explanations without opening the black box: Automated decisions and the GDPR][counterfactual_explanations_gdpr]" require counterfactual explanations to be _a close, possible world_:
 
 > We define Counterfactual Explanations as statements taking the form: Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.

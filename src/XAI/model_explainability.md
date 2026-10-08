@@ -4,6 +4,23 @@ This post is an overview of the field of Explainable AI (XAI).
 
 ----------------
 
+## Why all of this?
+
+The [previous post](./explanation) described aspects of explanations in general.
+
+But there are two questions that seem worth asking before moving forward:
+
+1. Why do we need this emphasis on theories of explanations for AI, but not for Physics, Chemistry, Maths? After all, all these use formulas, models and scientific models?
+2. What can theories of explanations offer, such that "(...) models of explainable AI can benefit from models of human explanation" (quote from [Explainable AI: Beware of Inmates Running the Asylum (...)][asylum])?
+
+To the first question, my current answer is that XAI started because models are used in ways that affect non-experts (e.g. financial decisions such as a loan decision). Then explanations are need of such models for a general, non-expert audience to understand and challenge those decisions.
+
+Eventually, deep learning models became more popular and complex, so the question became how can we extract insights, contextualise, or relate the internals of the models to science and other areas?
+
+In the context of science, it seems that works needs to be done to distinguish scientific from other kinds of explanation. A starting point was recently published by [Bajorath][cell_chem], describing a _model duality_ (as within or outside a scientific framing).
+
+To the second question, the previous post highlighted certain techniques which have been found useful in everyday explanation such as _contrastive explanation_ (the contrastive nature of _why-questions_). Some of these are applicable or were considered for models that we will describe (here and in the next posts).
+
 ## Scope of the Field of XAI
 
 Explainable AI (XAI) aims to _explain_ artificial intelligence models; that is, it aims to answer questions about the models' design, inner working and output, for a given audience.
@@ -210,16 +227,17 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 1. [Scientific discovery in the age of artificial intelligence][ai_aided_discovery] (2023).
 1. [A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME][using_shap_lime] (2024).
 1. [From scientific theory to duality of predictive artificial intelligence models][cell_chem] (2025): This paper explains an "XAI duality". But overall, this is just restating the scientific method, and how to use AI and produce scientific understanding (even with black boxes). The latter is defined as _qualitative understanding of a theory_ which is the DL model:
-  1. Have a scientific hypothesis,
-  2. Test it by training a model,
-  3. Explain the predictions (XAI, computational methods),
-  4. Interpret the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).
-  5. Test the causal hypotheses (mind correlation).
+  1. Have a hypothesis contextualised by a scientific rationale / framework,
+  2. _Test it_ by first training a model,
+  3. _Explaining_ the predictions (XAI, computational methods, as a pre-requisite for _interpretation_),
+  4. _Interpreting_ the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).
+  5. Test further consequences.
 
   The duality is scientific vs non-scientific, and the name is less relevant in some sense.
 
 </details>
 
+[asylum]: http://arxiv.org/abs/1712.00547
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
 [ai_aided_discovery]: https://www.nature.com/articles/s41586-023-06221-2
 
@@ -258,3 +276,4 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. -->
 [^other_names]: related names are: rule lists, expert systems, decision trees, disjunctive normal form models, associative classifiers.
 [^hans]: The description above is sometimes called the "Clever Hans" effect for AI. This derives from a horse ("Hans") believed to know arithmetic, but instead it was guessing through queues in the owner's face and behaviour.
+
