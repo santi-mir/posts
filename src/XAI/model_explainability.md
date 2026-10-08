@@ -233,7 +233,7 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
   4. _Interpreting_ the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).
   5. Test further consequences.
 
-  The duality is scientific vs non-scientific, and the name is less relevant in some sense.
+     The duality is scientific vs non-scientific, and the name is less relevant in some sense.
 
 </details>
 
@@ -276,4 +276,3 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <!-- [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. -->
 [^other_names]: related names are: rule lists, expert systems, decision trees, disjunctive normal form models, associative classifiers.
 [^hans]: The description above is sometimes called the "Clever Hans" effect for AI. This derives from a horse ("Hans") believed to know arithmetic, but instead it was guessing through queues in the owner's face and behaviour.
-

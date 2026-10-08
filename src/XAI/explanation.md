@@ -72,6 +72,7 @@ Importantly, when there are many variables, the combinatoric is large, and this 
 > However, simulating an entire causal chain is infeasible in most cases, so cognitive scientists and social psychologists have studied how people decide which events to ‘undo’ (the counterfactuals) to determine cause. For example, people tend to undo more proximal causes over more distal causes [Miller and Gunasegaram, 1990], abnormal events over normal events [Kahneman and Tversky, 1982], and events that are considered more ‘controllable’ [Girotto et al., 1991].
 
 ### Causal Attribution via Counterfactuals
+
 Notice how "what would have happened" is exactly a counterfactual, which is why counterfactuals are important in causal providing explanations.
 
 For _scientific_ explanation, this is more rigorous and there are also other mechanisms (e.g. Pearl's Ladder of Causation).
