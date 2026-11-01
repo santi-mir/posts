@@ -45,7 +45,7 @@ In the paper "[From scientific theory to duality of predictive artificial intell
 ## Contrastive Questions (and Explanations)
 
 <!-- Contrastive and counterfactual explanations are related. -->
-[Miller et al.,][asylum] define contrastive questions as:
+[Miller et al.,][beware_inmates_asylum] define contrastive questions as:
 
 > Perhaps the most important result from this work is that explanations are _contrastive_; or more accurately, _why–questions_ are contrastive. That is, _why–questions_ are of the form "_Why P rather than Q?_", where _P_ is the _fact_ that requires explanation, and _Q_ is some _foil_ case that was expected.
 
@@ -59,23 +59,9 @@ If we can find a useful _foil_, then answering the question is easier, as we onl
 
 <!-- Everyday explanations tend to be _contrastive_. Comparing reduces ts complexity by focusing on differences that matter, that the explainee may ignore. -->
 
-## Attribution Theory
+### Counterfactuals
 
-Attribution theory is about how people assign causes to events, which [Miller et. al.][asylum] cite as "_something that is necessary to provide explanations_" and distinguishes _social_ from _general_ causal attribution.
-
-For the _general_ case, they state (references removed):
-
-> Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently.
-
-It's similar for social attribution, but uses a belief, desires, intents and traits (of people) as causes.
-
-Importantly, when there are many variables, the combinatoric is large, and this would be unfeasible, so people must select a few counterfactuals to simulate, giving rise to the _causal selection_ problem. They add:
-
-> However, simulating an entire causal chain is infeasible in most cases, so cognitive scientists and social psychologists have studied how people decide which events to 'undo' (the counterfactuals) to determine cause. For example, people tend to undo more proximal causes over more distal causes [Miller and Gunasegaram, 1990], abnormal events over normal events [Kahneman and Tversky, 1982], and events that are considered more 'controllable' [Girotto et al., 1991].
-
-### Causal Attribution via Counterfactuals
-
-Notice how "What would have happened if ..." is exactly a counterfactual, and that "Why P rather than Q?" also involves an alternative fact, which is why counterfactuals are important in causal providing explanations.
+Notice how "_What would have happened if ..._" is exactly a counterfactual, and "_Why P rather than Q?_" involves an alternative fact: counterfactuals are useful for providing causal explanations. However, not all causal explanations require counterfactuals (this is rung 3 of Judea Pearl's _Ladder of Causation_)
 
 For _scientific_ explanation, this is more rigorous and there are also other mechanisms (e.g. Pearl's Ladder of Causation).
 
@@ -97,13 +83,6 @@ Another kind of counterfactual seeks for the output to remain the same rather th
 
 Often, multiple counterfactual explanations may be preferred, so that the subject can choose the optimal one.
 
-<!-- They can also be given via other terms (intervention and observation/association, as in the 3 steps of the Ladder of Causation). -->
-<!-- _Contrastive explanations_ don't require counterfactuals, but contrastive  -->
-
-<!-- A key characteristic seems that comparison plays an important role in the answer (and in the question though it may be implicit). -->
-
-<!-- However, they can be given via counterfactuals since they also involve comparison. They can also be given via other means. -->
-
 _How do we give an explanatory hypothesis based on counterfactuals?_ If the cause "X" leads to both P and Q, then it can't explain why only one occurred. So we want a case where P needs "X" to have happened, while "not X" is required for Q.
 
 The paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] has an interesting example:
@@ -112,6 +91,20 @@ The paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] has an i
 
 <!-- The _foil_ focuses the explanation on "What leads to P and not to Q". Similarly it ignores what leads to both. This is usually easier to explain than the standalone fact P. -->
 <!-- , and can also reduce confusion. -->
+
+## Attribution Theory
+
+Attribution theory is about how people assign causes to events. Assigning causes is [Miller et. al.][beware_inmates_asylum] "_necessary to provide explanations_".
+
+They distinguish _social_ from _general_ causal attribution. For the _general_ case, they state (references removed):
+
+> Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently.
+
+It's similar for social attribution, but uses a belief, desires, intents and traits (of people) as causes.
+
+Importantly, when there are many variables, the combinatoric is large, and this would be unfeasible, so people must select a few counterfactuals to simulate, giving rise to the _causal selection_ problem. They add:
+
+> However, simulating an entire causal chain is infeasible in most cases, so cognitive scientists and social psychologists have studied how people decide which events to 'undo' (the counterfactuals) to determine cause. For example, people tend to undo more proximal causes over more distal causes [Miller and Gunasegaram, 1990], abnormal events over normal events [Kahneman and Tversky, 1982], and events that are considered more 'controllable' [Girotto et al., 1991].
 
 ## More on Contrastive Questions (and Explanations)
 
@@ -241,15 +234,5 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
-
-<!-- ### Pragmatism -->
-<!---->
-<!-- Notably, accuracy may not be preferred in an explanation; rather, usefulness, simplicity, generality and consistency with prior knowledge are. -->
-<!---->
-<!-- Many of these results come from work by Tania Lombrozo. (This section will eventually be expanded.) -->
-
-<!-- - The hypothesis is clarifying an _explanandum_ (that which is to be explained), and answers a question about it. -->
-<!-- The process may repeat and update during the interaction. Sometimes it's during an explanation that we find errors in the understanding. Hence, explanations can provide understanding!  -->
-<!-- Besides the cognitive and social process, this post focuses on  _contrastive explanations_, _causal selection_ and _social_. We will dive into each of those aspects in the remaining sections. -->
 
 [^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)."
