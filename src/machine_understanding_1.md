@@ -6,11 +6,11 @@ Currently, it's primarily John Searle's position, and then Koller and Benders id
 
 ------
 
-Usually, the Turing test (described in ["COMPUTING MACHINERY AND  INTELLIGENCE"][turing], 1950, by Alan Turing) is assumed to be a test for thinking under the assumption that only outward behaviour matters.
+Usually, the Turing test (described in ["COMPUTING MACHINERY AND INTELLIGENCE"][turing], 1950, by Alan Turing) is assumed to be a test for thinking under the assumption that only outward behaviour matters.
 
 This isn't Turing's point, since he makes clear that we can't even define thinking. But it makes us consider: If a machine can pass as a human without being noticed by other humans, what are the consequences? Do the internal mechanisms matter? Should we call it thinking?
 
-As humans we tend to assume a mind behind any bit of language, as the ELIZA effect has shown. And even for evaluating understanding *without* linguistic outputs, humans have been wrong about Clever Hans (a horse assumed to understand arithmetic, but later on shown to read social queues to guess, which is still impressive). This has happened in recent times as well, [with LLMs][melanie_talk_cognitive].
+As humans we tend to assume a mind behind any bit of language, as the ELIZA effect has shown. And even for evaluating understanding _without_ linguistic outputs, humans have been wrong about Clever Hans (a horse assumed to understand arithmetic, but later on shown to read social queues to guess, which is still impressive). This has happened in recent times as well, [with LLMs][melanie_talk_cognitive].
 
 The take away seems to be that we should evaluate more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.
 
@@ -33,7 +33,7 @@ A last statement, equivalent to all of the above, of his:
 But what is meaning then? Searle believes that it's what the symbols refer to, but aren't those also symbols?
 One could argue that are the "symbols" of the perceptions for example. Consider a few more ideas about what meaning could be:
 
-- "Meaning 1" comes from symbols standing for / referring to something; the symbols have mental content. I suppose that we may or not be aware of the mental content (conscious or unconscious). Or is *thinking* always a conscious process?
+- "Meaning 1" comes from symbols standing for / referring to something; the symbols have mental content. I suppose that we may or not be aware of the mental content (conscious or unconscious). Or is _thinking_ always a conscious process?
 - "Meaning 2" is just "links between symbols".
     - A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols.
 
@@ -51,11 +51,12 @@ But how does `Meaning 1` relate to `Meaning 2`? In my view, "Meaning 1" is built
 
 The Chinese Room Argument (CRA) refutes the Strong AI claim "Meaning 1" and the right I/O implies "Meaning 2"; the Strong AI claim may come from a (mis)-interpretation of the Turing test.
 
-In relation to *what meaning is* for Searle, besides the CRA, see:
+In relation to _what meaning is_ for Searle, besides the CRA, see:
 
 > If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.
 
 ### Compressed View
+
 Searle captures his overall view in this paragraph:
 
 > First, I have not tried to prove that "a computer cannot think." Since any thing that can be simulated computationally can be described as a computer, and since our brains can at some levels be simulated, it follows trivially that our brains are computers and they can certainly think. But from the fact that a system can be simulated by symbol manipulation and the fact that it is thinking, it does not follow that thinking is equivalent to formal symbol manipulation.
@@ -119,11 +120,9 @@ Searle does consider this question, once in the quote at the beginning of this s
 
 > (...) could not later investigation also show that semantics are entirely constituted of syntax ?
 
-
 It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological, and just as digestion, an emergent property of matter.
 
 Simulating digestion simply isn't digestion.
-
 
 ## But...is it relevant?
 
