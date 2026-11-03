@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-473fcb3f.js";
+            window.path_to_searchindex_js = "searchindex-bb346ac1.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-d885b7d5.js"></script>
+        <script src="toc-ad0ed2c9.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1849,6 +1849,124 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 </ol>
 </details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="visualising-high-dimensional-data"><a class="header" href="#visualising-high-dimensional-data">Visualising High Dimensional Data</a></h1>
+<ul>
+<li>PCA</li>
+<li>Dimensionality Reduction</li>
+<li>t-SNE</li>
+</ul>
+<p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="compchem-map"><a class="header" href="#compchem-map">CompChem Map</a></h1>
+<p>This is a draft of areas I'd like to organise in some taxonomy.</p>
+<h2 id="finding-useful-molecules"><a class="header" href="#finding-useful-molecules">Finding Useful Molecules</a></h2>
+<ul>
+<li>Get a Materials Database(s), either method</li>
+</ul>
+<h3 id="method-1-direct-compounds-to-properties"><a class="header" href="#method-1-direct-compounds-to-properties">Method 1: Direct (Compounds to Properties)</a></h3>
+<ul>
+<li>Use DFT to guide towards one that fits the requirements (slow if we have billions of compounds.),</li>
+<li><em>Or</em> use the DB to train a NN to make predictions (needs labelled data for training)</li>
+<li><em>Or</em> similarity metrics to find new (similar) molecules.</li>
+<li>...</li>
+</ul>
+<h3 id="method-2-inverse-properties-to-compounds"><a class="header" href="#method-2-inverse-properties-to-compounds">Method 2: Inverse (Properties to Compounds)</a></h3>
+<ol>
+<li>Use the gradient to update embedding.</li>
+<li>Maximise or Minimise the needed properties.</li>
+</ol>
+<p>The paper's approach is more towards a <strong>Direct</strong> method. It is a method to generate embeddings that can then be used to train a neural network to predict properties.</p>
+<p>This can be arranged (not very tidily) in a chart:</p>
+<pre class="mermaid">---
+config:
+    flowchart:
+        htmlLabels:false
+---
+
+flowchart TB
+
+A[("Compounds Database")]
+
+subgraph Direct["`**Direct**`"]
+    direction LR
+    B("`Electronic Structure
+    Predictions`")
+    C("`Train NN on DB
+    (with labelled data)`")
+    D("`Use similarity metrics to
+        find nearby candidates`")
+end
+
+subgraph Inverse["`**Inverse**`"]
+    direction TB
+    E("`Train VAE to create
+    smooth surface`")
+    E --&gt; F("`Link MLP to
+        latent vector`")
+    F --&gt; G("`Minimise or Maximise pps.
+            by changing vector`")
+end
+
+A --&gt; Inverse
+A --&gt; Direct
+
+</pre>
+
+<h2 id="unsupervised-learning-of-representations-of-atoms"><a class="header" href="#unsupervised-learning-of-representations-of-atoms">Unsupervised-Learning of Representations of Atoms</a></h2>
+<p>Other investigations of unsupervised learning of machine representation of atoms are:</p>
+<ul>
+<li>Zhou, Q. et al. Learning atoms for materials discovery. (2018).</li>
+<li>Tshitoyan, V. et al. Unsupervised word embeddings capture latent knowledge from materials science literature. (2019).</li>
+<li>Chakravarti, S. K. Distributed representation of chemical fragments. (2018).</li>
+<li>Butler K. et al. Distributed Representations of Atoms and Materials for Machine Learning. (2022).</li>
+</ul>
+<h2 id="supervised-learning-of-representations-of-atoms"><a class="header" href="#supervised-learning-of-representations-of-atoms">Supervised-Learning of Representations of Atoms</a></h2>
+<ul>
+<li>Jha, D. et al. ElemNet: deep learning the chemistry of materials from only elemental composition. (2018).</li>
+<li>Goodall, R. E. &amp; Lee, A. A. Predicting materials properties without crystal structure: deep representation learning from stoichiometry. (2020).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="databases-and-benchmarks"><a class="header" href="#databases-and-benchmarks">Databases and Benchmarks</a></h1>
+<p>Bear in mind when using databases what this <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> states:</p>
+<blockquote>
+<p>Data may require initial pre-processing, during which missing or spurious elements are identified and handled.</p>
+<p>Identifying and removing such errors is essential if ML algorithms are not to be misled by their presence.</p>
+</blockquote>
+<ul>
+<li>The <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine Learning for molecular and materials science</a> aggregates many DBs and such in tables at the end</li>
+<li>Pillong, M. et al. A publicly available crystallisation data set and its application in machine learning. CrystEngComm (2017).</li>
+<li>ICSD: Inorganic Crystal Structure Dataset</li>
+<li>Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation.
+<ul>
+<li>The materials project database <a href="https://materialsproject.org/">https://materialsproject.org/</a></li>
+</ul>
+</li>
+<li>Benchmarking materials property prediction methods: the matbench test set and automatminer reference algorithm.
+<ul>
+<li>Matbench benchmark: <a href="https://hackingmaterials.lbl.gov/automatminer/datasets.html">https://hackingmaterials.lbl.gov/automatminer/datasets.html</a></li>
+</ul>
+</li>
+<li>Materials design and discovery with high-throughput density functional theory: the open quantum materials database (OQMD)</li>
+</ul>
+<p>Also <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> lists materials-and-properties' databases (experimentally observed and hypothetical):</p>
+<blockquote>
+<p>DFT calculations have offered opportunities for large-scale data collection such as the Open Quantum Materials Database (OQMD), the Automatic Flow of Materials Discovery Library (AFLOWLIB), the Materials Project, and the Novel Materials Discovery (NoMaD); they contain DFT computed properties of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> of experimentally-observed and hypothetical materials. In the past few decades, such materials datasets have led to the new data-driven paradigm of materials informatics</p>
+</blockquote>
+<p>ElemNet describes OQDM as well (bold is mine):</p>
+<blockquote>
+<p>OQMD is an extensive high-throughput DFT database, consisting of <strong>DFT computed</strong> crystallographic parameters and formation enthalpies of <strong>experimentally observed compounds</strong> taken from the Inorganic Crystal Structure Database (ICSD) <strong>and hypothetical structures</strong> created by decorating prototype structures from the ICSD with different compositions.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ai-in-pharma"><a class="header" href="#ai-in-pharma">AI in Pharma</a></h1>
+<p>The paper <a href="https://doi.org/10.1016/j.drudis.2021.11.023">Enhancing preclinical drug discovery with artificial intelligence</a> discusses all the areas in which Artificial Intelligence models can improve the Drug Discovery Pipeline.</p>
+<p>The steps in which AI can help include:</p>
+<ol>
+<li>Target Identification,</li>
+<li>Hit Identification,</li>
+<li>Lead Optimisation,</li>
+<li>Addressing the low preclinical-to-clinical success rate.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
 <p>Personal comment: I disagree the theory's definition of <em>learning</em>, but agree with their view of <em>knowledge</em> in the digital era and the consequences of it.</p>
 <p>Also, their idea of relating learning with a network/graph is quite useful (even though they may have done it for other reasons).</p>
@@ -2036,123 +2154,112 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 </ol>
 </details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="visualising-high-dimensional-data"><a class="header" href="#visualising-high-dimensional-data">Visualising High Dimensional Data</a></h1>
-<ul>
-<li>PCA</li>
-<li>Dimensionality Reduction</li>
-<li>t-SNE</li>
-</ul>
-<p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="compchem-map"><a class="header" href="#compchem-map">CompChem Map</a></h1>
-<p>This is a draft of areas I'd like to organise in some taxonomy.</p>
-<h2 id="finding-useful-molecules"><a class="header" href="#finding-useful-molecules">Finding Useful Molecules</a></h2>
-<ul>
-<li>Get a Materials Database(s), either method</li>
-</ul>
-<h3 id="method-1-direct-compounds-to-properties"><a class="header" href="#method-1-direct-compounds-to-properties">Method 1: Direct (Compounds to Properties)</a></h3>
-<ul>
-<li>Use DFT to guide towards one that fits the requirements (slow if we have billions of compounds.),</li>
-<li><em>Or</em> use the DB to train a NN to make predictions (needs labelled data for training)</li>
-<li><em>Or</em> similarity metrics to find new (similar) molecules.</li>
-<li>...</li>
-</ul>
-<h3 id="method-2-inverse-properties-to-compounds"><a class="header" href="#method-2-inverse-properties-to-compounds">Method 2: Inverse (Properties to Compounds)</a></h3>
-<ol>
-<li>Use the gradient to update embedding.</li>
-<li>Maximise or Minimise the needed properties.</li>
-</ol>
-<p>The paper's approach is more towards a <strong>Direct</strong> method. It is a method to generate embeddings that can then be used to train a neural network to predict properties.</p>
-<p>This can be arranged (not very tidily) in a chart:</p>
-<pre class="mermaid">---
-config:
-    flowchart:
-        htmlLabels:false
----
-
-flowchart TB
-
-A[("Compounds Database")]
-
-subgraph Direct["`**Direct**`"]
-    direction LR
-    B("`Electronic Structure
-    Predictions`")
-    C("`Train NN on DB
-    (with labelled data)`")
-    D("`Use similarity metrics to
-        find nearby candidates`")
-end
-
-subgraph Inverse["`**Inverse**`"]
-    direction TB
-    E("`Train VAE to create
-    smooth surface`")
-    E --&gt; F("`Link MLP to
-        latent vector`")
-    F --&gt; G("`Minimise or Maximise pps.
-            by changing vector`")
-end
-
-A --&gt; Inverse
-A --&gt; Direct
-
-</pre>
-
-<h2 id="unsupervised-learning-of-representations-of-atoms"><a class="header" href="#unsupervised-learning-of-representations-of-atoms">Unsupervised-Learning of Representations of Atoms</a></h2>
-<p>Other investigations of unsupervised learning of machine representation of atoms are:</p>
-<ul>
-<li>Zhou, Q. et al. Learning atoms for materials discovery. (2018).</li>
-<li>Tshitoyan, V. et al. Unsupervised word embeddings capture latent knowledge from materials science literature. (2019).</li>
-<li>Chakravarti, S. K. Distributed representation of chemical fragments. (2018).</li>
-<li>Butler K. et al. Distributed Representations of Atoms and Materials for Machine Learning. (2022).</li>
-</ul>
-<h2 id="supervised-learning-of-representations-of-atoms"><a class="header" href="#supervised-learning-of-representations-of-atoms">Supervised-Learning of Representations of Atoms</a></h2>
-<ul>
-<li>Jha, D. et al. ElemNet: deep learning the chemistry of materials from only elemental composition. (2018).</li>
-<li>Goodall, R. E. &amp; Lee, A. A. Predicting materials properties without crystal structure: deep representation learning from stoichiometry. (2020).</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="databases-and-benchmarks"><a class="header" href="#databases-and-benchmarks">Databases and Benchmarks</a></h1>
-<p>Bear in mind when using databases what this <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> states:</p>
+<h1 id="machine-understanding"><a class="header" href="#machine-understanding">Machine Understanding</a></h1>
+<p>This is a work in progress. I am collecting views on Machine Understanding that I find historically or conceptually interesting.</p>
+<p>Currently, it's primarily John Searle's position, and then Koller and Benders idea of meaning.</p>
+<hr>
+<p>Usually, the Turing test (described in <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">"COMPUTING MACHINERY AND INTELLIGENCE"</a>, 1950, by Alan Turing) is assumed to be a test for thinking under the assumption that only outward behaviour matters.</p>
+<p>This isn't Turing's point, since he makes clear that we can't even define thinking. But it makes us consider: If a machine can pass as a human without being noticed by other humans, what are the consequences? Do the internal mechanisms matter? Should we call it thinking?</p>
+<p>As humans we tend to assume a mind behind any bit of language, as the ELIZA effect has shown. And even for evaluating understanding <em>without</em> linguistic outputs, humans have been wrong about Clever Hans (a horse assumed to understand arithmetic, but later on shown to read social queues to guess, which is still impressive). This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
+<p>The take away seems to be that we should evaluate more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
+<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">"Is the Brain's Mind a Computer Program?"</a> (Searle, 1990) Searle describes the Strong-AI advocates' view of the Turing test:</p>
 <blockquote>
-<p>Data may require initial pre-processing, during which missing or spurious elements are identified and handled.</p>
-<p>Identifying and removing such errors is essential if ML algorithms are not to be misled by their presence.</p>
+<p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
 </blockquote>
+<p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is an intuition pump that shows the absurdity Strong AI view. The underlying point is: a program on modern computers, even if it passes the Turing test (as his experiment's subject does), is a symbol manipulator, and as such it doesn't guarantee semantics nor thinking. Searle summarises his result:</p>
+<blockquote>
+<p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
+</blockquote>
+<p>Searle concludes that <em>no symbol manipulation program can think</em>, even if it has the right input-output behaviour: the system wouldn't yet know the meaning of the Chinese symbols/words it is manipulating.</p>
+<p>A last statement, equivalent to all of the above, of his:</p>
+<blockquote>
+<p>You can't get semantically loaded thought contents from formal computations alone, (...)</p>
+</blockquote>
+<h2 id="meaning"><a class="header" href="#meaning">Meaning</a></h2>
+<p>But what is meaning then? Searle believes that it's what the symbols refer to, but aren't those also symbols?
+One could argue that are the "symbols" of the perceptions for example. Consider a few more ideas about what meaning could be:</p>
 <ul>
-<li>The <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine Learning for molecular and materials science</a> aggregates many DBs and such in tables at the end</li>
-<li>Pillong, M. et al. A publicly available crystallisation data set and its application in machine learning. CrystEngComm (2017).</li>
-<li>ICSD: Inorganic Crystal Structure Dataset</li>
-<li>Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation.
+<li>"Meaning 1" comes from symbols standing for / referring to something; the symbols have mental content. I suppose that we may or not be aware of the mental content (conscious or unconscious). Or is <em>thinking</em> always a conscious process?</li>
+<li>"Meaning 2" is just "links between symbols".
 <ul>
-<li>The materials project database <a href="https://materialsproject.org/">https://materialsproject.org/</a></li>
+<li>A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols.</li>
 </ul>
 </li>
-<li>Benchmarking materials property prediction methods: the matbench test set and automatminer reference algorithm.
+</ul>
+<p>A variant of "Meaning 2" includes the <em>grounded symbols</em> that is, symbols for linked to perceptions, its parts, memories, emotions, and so forth. Something that the expression refers to, in the mind of the interpreter.</p>
+<p>Koller and Bender, in <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021) define meaning as the set of pairs <code>(expressions, intents)</code>; expressions can be symbols, gestures and intent is what's not in the expression itself. They hold that machines can't learn intents from form alone (symbols) but don't make statements about learning from pairs, or whether it's impossible.</p>
+<p>Beyond the above paragraph, <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> talks about the Turing test, Searle's Chinese Room, Harnad, their own Octopus test, and so on. For example, they say:</p>
+<blockquote>
+<p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form. But language is used for communication about the speakers’ actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the symbol grounding problem. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
+</blockquote>
+<p>"Meaning 1" may involve a meta process linking some aspects of the processing to the input and the output.</p>
+<p>But how does <code>Meaning 1</code> relate to <code>Meaning 2</code>? In my view, "Meaning 1" is built on top of symbol manipulation where the only "meaning" is how symbols are linked and represented ("Meaning 2"). However, this itself isn't enough, it may require specific ways in which the lower level processing happens, and also specific meta-processes.</p>
+<p>The Chinese Room Argument (CRA) refutes the Strong AI claim "Meaning 1" and the right I/O implies "Meaning 2"; the Strong AI claim may come from a (mis)-interpretation of the Turing test.</p>
+<p>In relation to <em>what meaning is</em> for Searle, besides the CRA, see:</p>
+<blockquote>
+<p>If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.</p>
+</blockquote>
+<h3 id="compressed-view"><a class="header" href="#compressed-view">Compressed View</a></h3>
+<p>Searle captures his overall view in this paragraph:</p>
+<blockquote>
+<p>First, I have not tried to prove that "a computer cannot think." Since any thing that can be simulated computationally can be described as a computer, and since our brains can at some levels be simulated, it follows trivially that our brains are computers and they can certainly think. But from the fact that a system can be simulated by symbol manipulation and the fact that it is thinking, it does not follow that thinking is equivalent to formal symbol manipulation.</p>
+</blockquote>
+<p>That is, some computers can think (brains are computers and can think), but the simulation of thought (right IO) through symbol manipulation does not guarantee any meaning or thought.</p>
+<p>Here something seems strange: Searle believes computers <em>can</em> think, but symbol manipulation can't have semantics (needed for thinking).</p>
+<p>In other words, semantics (or thoughts, or mental contents) are somewhat special. Let's explore why Searle may think so.</p>
+<h2 id="hardware-thoughts"><a class="header" href="#hardware-thoughts">Hardware Thoughts</a></h2>
+<p>Searle's questions are very interesting:</p>
+<blockquote>
+<p>why couldn't we give semantics to other computers?</p>
+<p>(...)</p>
+<p>What, in fact, are the differences between animal brains and computer systems that enable the Chinese room argument to work against computers but not against brains?</p>
+</blockquote>
+<p>(What do we need, beyond the program?)</p>
+<p>Searle continues:</p>
+<blockquote>
+<p>The most obvious difference is that the processes that define something as a computer—computational processes—are completely independent of any reference to a specific type of hardware implementation. One could in principle make a computer out of old beer cans strung together with wires and powered by windmills.</p>
+<p>But when it comes to brains, although science is largely ignorant of how brains function to produce mental states, one is struck by the extreme specificity of the anatomy (...)</p>
+</blockquote>
+<p>And later on, in the replies to comments states:</p>
+<blockquote>
+<p>(...) formal symbols have no physical, causal powers. The only power that symbols have, qua symbols, is the power to cause the next step in the program when the machine is running. And there is no question of waiting on further research to reveal the physical, causal properties of 0's and 1's. The only relevant properties of 0's and 1's are abstract computational properties, and they are already well known.</p>
+</blockquote>
+<p>So <em>even if</em> we consider "the processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion)." Searle would say <em>no</em>.</p>
+<p>Why? He's got this covered:</p>
+<blockquote>
+<p>(...) the brain does not merely instantiate a formal pattern or program (it does that, too), but it also causes mental events by virtue of specific neurobiological processes.</p>
+</blockquote>
 <ul>
-<li>Matbench benchmark: <a href="https://hackingmaterials.lbl.gov/automatminer/datasets.html">https://hackingmaterials.lbl.gov/automatminer/datasets.html</a></li>
+<li><em>Why would Searle consider that physical, causal links are required, rather than just the computation?</em> He says:</li>
 </ul>
-</li>
-<li>Materials design and discovery with high-throughput density functional theory: the open quantum materials database (OQMD)</li>
+<blockquote>
+<p>But the simulation should not be confused with duplication. The computational model of mental processes is no more real than the computational model of any other natural phenomenon.</p>
+</blockquote>
+<p>For example simulating <em>a diesel car engine</em> doesn't release combustion gases; nor simulating <em>the rain</em> makes the computer wet, and so forth. Or in Searle's words:</p>
+<blockquote>
+<p>No one expects to get wet in a pool filled with Ping-Pong-ball models of water molecules. So why would anyone think a computer model of thought process es would actually think ?</p>
+</blockquote>
+<p>And in Searle's words, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
+<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the physical and causal structure of the brain and the computers (as currently designed).</p>
+<p>Also, the causal structure isn't that of wrapping <em>current computers</em> in a robot body, but about the kind of causation in the neural network.</p>
+<p>Fascinating stuff. But it's worth pondering here:</p>
+<ul>
+<li><em>Why exactly does meaning require a particular physico-causal organisation of matter?</em></li>
+<li>And, what if semantics / meaning are not what Searle thinks (and require certain causal structure), and all that is needed is rich representations of symbols (included grounded ones), links between them, and their processing? Note that I am not saying <em>form alone</em> since this was robustly refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but e.g. rich representations of symbols connected to multimodal perceptions. This is what they suggest in Section 7 (among other options):</li>
 </ul>
-<p>Also <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> lists materials-and-properties' databases (experimentally observed and hypothetical):</p>
 <blockquote>
-<p>DFT calculations have offered opportunities for large-scale data collection such as the Open Quantum Materials Database (OQMD), the Automatic Flow of Materials Discovery Library (AFLOWLIB), the Materials Project, and the Novel Materials Discovery (NoMaD); they contain DFT computed properties of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> of experimentally-observed and hypothetical materials. In the past few decades, such materials datasets have led to the new data-driven paradigm of materials informatics</p>
+<p>One approach to providing grounding is to train distributional models on corpora augmented with perceptual data, such as photos (...)</p>
 </blockquote>
-<p>ElemNet describes OQDM as well (bold is mine):</p>
+<p>Searle does consider this question, once in the quote at the beginning of this section, another time below in relation to the Churchlands' <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a Machine Think?"</a> (1990):</p>
 <blockquote>
-<p>OQMD is an extensive high-throughput DFT database, consisting of <strong>DFT computed</strong> crystallographic parameters and formation enthalpies of <strong>experimentally observed compounds</strong> taken from the Inorganic Crystal Structure Database (ICSD) <strong>and hypothetical structures</strong> created by decorating prototype structures from the ICSD with different compositions.</p>
+<p>(...) could not later investigation also show that semantics are entirely constituted of syntax ?</p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="ai-in-pharma"><a class="header" href="#ai-in-pharma">AI in Pharma</a></h1>
-<p>The paper <a href="https://doi.org/10.1016/j.drudis.2021.11.023">Enhancing preclinical drug discovery with artificial intelligence</a> discusses all the areas in which Artificial Intelligence models can improve the Drug Discovery Pipeline.</p>
-<p>The steps in which AI can help include:</p>
-<ol>
-<li>Target Identification,</li>
-<li>Hit Identification,</li>
-<li>Lead Optimisation,</li>
-<li>Addressing the low preclinical-to-clinical success rate.</li>
-</ol>
+<p>It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological, and just as digestion, an emergent property of matter.</p>
+<p>Simulating digestion simply isn't digestion.</p>
+<h2 id="butis-it-relevant"><a class="header" href="#butis-it-relevant">But...is it relevant?</a></h2>
+<p>Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that solves problems, represents things internally in a rich, and understandable (by us) way; it may even do research and discover things.</p>
+<p>Leaving aside the important question of morality (which for Searle wouldn't seem to be a problem, since they aren't real beings), then, what would we call what these machines do?</p>
+<p>What status would these systems have? And what are they, just useful-ish computers?</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
 <ul>
