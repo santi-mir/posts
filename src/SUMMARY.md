@@ -51,6 +51,7 @@
 - [CompChem Map](./other/compchem_map.md)
 - [Databases & Benchmarks](./other/databases_and_benchmarks.md)
 - [Pharma](./other/pharma.md)
+<!-- - [Machine Understanding](./other/understanding.md) -->
 <!-- - [Milestones in AI (To-Do)]() -->
 <!-- - [Milestones in XAI (To-Do)]() -->
 

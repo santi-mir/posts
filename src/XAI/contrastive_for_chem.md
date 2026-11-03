@@ -2,9 +2,9 @@
 
 Previous posts have discussed [explanations] and [model explainability].
 
-One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties.
+One area of interest, both in academia and the pharmaceutical industries, is the explainability of neural networks predicting structures or properties of molecules.
 
-Here is an example, from the paper "[Enhancing preclinical drug discovery with artificial intelligence][ai4dd]" (the references were edited out, and can be found in the original article):
+For example the paper "[Enhancing preclinical drug discovery with artificial intelligence][ai4dd]" (the references were edited out, and can be found in the original article) states:
 
 > (...) many successful applications of QSAR-based VS workflows for hit identification have been reported. Zhang et al. described the successful implementation of an ML-based QSAR workflow for VS that led to the discovery of novel antimalarial agents.
 

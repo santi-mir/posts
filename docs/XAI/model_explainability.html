@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-58cec8f6.js";
+            window.path_to_searchindex_js = "../searchindex-473fcb3f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-d885b7d5.js"></script>
@@ -180,43 +180,59 @@
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explainable-ai-xai"><a class="header" href="#explainable-ai-xai">Explainable AI (XAI)</a></h1>
-<p>Explanations were defined and characterised in <a href="./explanation.html">explanations</a>.</p>
 <p>This post is an overview of the field of Explainable AI (XAI).</p>
 <hr>
-<h2 id="scope-of-the-field"><a class="header" href="#scope-of-the-field">Scope of the Field</a></h2>
-<p>Explainable AI (XAI) aims to explain artificial intelligence models inner workings and their outputs.</p>
-<p>As a narrow definition of <em>explain</em> we can use to: "answer questions and communicate them to an audience (including ourselves)" which involve the two processes (cognitive and social) described earlier.</p>
+<h2 id="why-all-of-this"><a class="header" href="#why-all-of-this">Why all of this?</a></h2>
+<p>The <a href="./explanation">previous post</a> described aspects of explanations in general.</p>
+<p>But there are two questions that seem worth asking before moving forward:</p>
+<ol>
+<li>Why do we need this emphasis on theories of explanations for AI, but not for Physics, Chemistry, Maths? After all, all these use formulas, models and scientific models?</li>
+<li>What can theories of explanations offer, such that "(...) models of explainable AI can benefit from models of human explanation" (quote from <a href="http://arxiv.org/abs/1712.00547">Explainable AI: Beware of Inmates Running the Asylum (...)</a>)?</li>
+</ol>
+<p>To the first question, my current answer is that XAI started because models are used in ways that affect non-experts (e.g. financial decisions such as a loan decision). Then explanations are need of such models for a general, non-expert audience to understand and challenge those decisions.</p>
+<p>Eventually, deep learning models became more popular and complex, so the question became how can we extract insights, contextualise, or relate the internals of the models to science and other areas?</p>
+<p>In the context of science, it seems that works needs to be done to distinguish scientific from other kinds of explanation. A starting point was recently published by <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">Bajorath</a>, describing a <em>model duality</em> (as within or outside a scientific framing).</p>
+<p>To the second question, the previous post highlighted certain techniques which have been found useful in everyday explanation such as <em>contrastive explanation</em> (the contrastive nature of <em>why-questions</em>). Some of these are applicable or were considered for models that we will describe (here and in the next posts).</p>
+<h2 id="scope-of-the-field-of-xai"><a class="header" href="#scope-of-the-field-of-xai">Scope of the Field of XAI</a></h2>
+<p>Explainable AI (XAI) aims to <em>explain</em> artificial intelligence models; that is, it aims to answer questions about the models' design, inner working and output, for a given audience.</p>
+<p>An audience has certain level of expertise, information needs such as the accuracy and limitations of a model, and goals such as answering certain kinds of questions, and so forth. These aspects are part of the <em>social process</em>. For more detail see the post on <a href="./explanation.html">explanations</a>.</p>
+<p>Broadly speaking, we find two sub-fields within XAI:</p>
+<p><strong>Post Training Explainability</strong> can be subdivided in:</p>
 <ul>
-<li>One part of the field explains "black box" models, meaning models that are hard to comprehend for any human such as some deep learning models.</li>
-<li>Another part of the field focuses on writing models that are not black-boxes but rather are constrained in some way that makes them more interpretable (or transparent).</li>
+<li>Of the models' input-output relations (usually termed <em>post-hoc explainability</em>),</li>
+<li>Of the models' internal representations and state, such as layers, activations, and weights (usually post training, called <em>mechanistic interpretability</em>).</li>
 </ul>
-<p>Note that "black box" can also refer to a model <em>unavailable for inspection</em> (such as encrypted or proprietary models). For both definitions, we still try to explain outputs, but the internals can only be explained if the model is available.</p>
-<p>This post and most papers use "black box" in the first sense: <em>models which are hard to comprehend</em>.</p>
-<p>Four types of <em>explainability</em> are described in the following sections: Intrinsic, Extrinsic<sup class="footnote-reference" id="fr-extr_intr-1"><a href="#footnote-extr_intr">1</a></sup>, Local and Global.</p>
+<p><strong>Intrinsic Explainability</strong>: usually by constraining or conceptually grounding the model, e.g. a physical constraint that makes it more interpretable (independently of whether it's been trained or not).
+- An interesting analogue here are scientific models, and models that are conceptually grounded (we just learn the parameters e.g. linear regression, decision trees).
+- Also of interest is to explore causality and neurosymbolic computing.</p>
+<p>Since this is a custom classification (though close to others), quotes from papers will make it clear which aspects are we mapping to it.</p>
+<p>Explanations can also be Local or Global, referring to a single input-output (e.g. linear LIME) or to the model as a whole (e.g. combining local explanations as SP-LIME does). This post discusses the two sub-fields above, clarifying about local/global if needed.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>The term "black box" is commonly used to refer to complex deep learning models. It can also refer to a model <em>unavailable for inspection</em> (such as encrypted or proprietary models). In both cases, we can try to explain the outputs, but the internals can only be explained if the model is available.</p>
+<p>This blog-post and most papers use "black box" in that sense: <em>models which are available but are hard to comprehend</em>.</p>
+</blockquote>
+<p>A final note on terminology:</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
 <p>In this blogpost, <em>explainability</em> and <em>interpretability</em> are considered synonyms.</p>
 </blockquote>
-<h3 id="global-and-local-explanations"><a class="header" href="#global-and-local-explanations">Global and Local Explanations</a></h3>
-<ul>
-<li>Global: explains the full model e.g. by combining local explanations as in SP-LIME,</li>
-<li>Local: explains specific predictions or outputs of a model in connection to its input (e.g. LIME).</li>
-</ul>
 <h3 id="intrinsic-explainability"><a class="header" href="#intrinsic-explainability">Intrinsic Explainability</a></h3>
-<p>Intrinsic Explainability (or Transparency) usually involves constraining the model in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a>), but it can include looking at the internals of a model (such as role of layers and neurons).</p>
-<p>Transparency is domain-dependent. For example, geometric deep learning can express constraints of connectivity related to molecules and materials (e.g. GNNs); CNNs are relatively friendly (to experts) in terms of processing images.</p>
-<p>In general ways to add transparency are problem-specific but may involve: imposing physical constraints, inductive biases (such as symmetry), using expert-selected causal features, monotonicity, sparsity, constraining model size or computational complexity.</p>
-<p>The paper "<a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a>" suggests three components of <em>transparency</em> (intrinsic explainability). Very briefly:</p>
+<p>Intrinsic Explainability (or interpretability) refers to designing models that are constrained in form (e.g., <a href="http://arxiv.org/abs/1811.10154">Rudin C.</a>) and also explaining the internals of models.</p>
+<p>What design makes a model interpretable is domain-dependent. For example, geometric deep learning can express constraints of connectivity related to molecules and materials (e.g. GNNs);</p>
+<p>Other strategies are: imposing physical or connectivity constraints (e.g. GNNs for molecules and materials), inductive biases (such as symmetry), CNNs for processing images (somewhat interpretable to experts), using expert-selected causal features, imposing monotonicity, sparsity or constraining model size or computational complexity.</p>
+<p>The paper "<a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a>" suggests three components of <em>transparency</em>. Very briefly:</p>
 <ol>
 <li><em>Simulatability</em> i.e. can mentally run the model,</li>
 <li><em>Decomposability</em> i.e. each part of the model admits an intuitive explanation,</li>
-<li><em>Algorithmic training</em> which focuses on global vs local minimum, error and loss, guaranteed convergence.;</li>
+<li><em>Algorithmic training</em> which focuses on global vs local minimum, error and loss, guaranteed convergence;</li>
 </ol>
-<p>And says:</p>
+<p>These are important aspects that have to be considered for models, and the emphasis on each will depend on the case.</p>
+<p>The paper states:</p>
 <blockquote>
 <p>Sufficiently high-dimensional [linear] models, unwieldy rule lists, and deep decision trees could all be considered less transparent than comparatively compact neural networks.</p>
 </blockquote>
-<p>Transparent models are usually also harder to construct and optimise, as the paper states:</p>
+<p><a href="http://arxiv.org/abs/1811.10154">Rudin's paper adds</a>:</p>
 <blockquote>
 <p>As discussed above, interpretability usually translates in practice to a set of application-specific constraints on the model. Solving constrained problems is generally harder than solving unconstrained problems. Domain expertise is needed to construct the definition of interpretability for the domain, and the features for machine learning. For data that are unconfounded, complete, and clean, it is much easier to use a black box machine learning method than to troubleshoot and solve computationally hard problems.</p>
 </blockquote>
@@ -226,7 +242,7 @@
 <li>
 <p>The human-interpretable models we had before machine learning (and some of these can be machine-learnt). Some examples from Rudin's paper, though it will be extended, are:</p>
 <ul>
-<li><strong>Logical Models</strong><sup class="footnote-reference" id="fr-other_names-1"><a href="#footnote-other_names">2</a></sup>: use logical conditions such as "or, and, if-then" but <em>are machine-learnt</em> in a reasonable amount of time. The model may be large (non-simulatable) but the explaining condition may be brief and interpretable. Rudin calls these "smaller-than-global explanations" because the explanation is just a few rules of the global model which may have many (Appendix D). Examples: disjunctive normal form models and falling rule lists and CORELS.</li>
+<li><strong>Logical Models</strong><sup class="footnote-reference" id="fr-other_names-1"><a href="#footnote-other_names">1</a></sup>: use logical conditions such as "or, and, if-then" but <em>are machine-learnt</em> in a reasonable amount of time. The model may be large (non-simulatable) but the explaining condition may be brief and interpretable. Rudin calls these "smaller-than-global explanations" because the explanation is just a few rules of the global model which may have many (Appendix D). Examples: disjunctive normal form models and falling rule lists and CORELS.</li>
 <li><strong>Sparse Linear Models</strong>. If it uses integer coefficients is a <em>scoring system</em>.</li>
 <li><strong>Case-Based</strong>: they <em>defined interpretability</em> for a specific domain, in this case computer vision, in terms of how humans explain them (by pointing at features in regions of the image). This definition led them to create a <em>prototype network</em> ("prototype" in the Eleanor Rosch sense, a characteristic part of an image), and the network <em>seems to</em> crop the image in multiple ways (maybe just outputs prototypical regions bounding boxes) and compare these to training prototypes for each class. The interesting thing is that <em>this output is the explanation itself</em>. Finally it does a weighted average.</li>
 </ul>
@@ -237,8 +253,9 @@
 </li>
 </ol>
 <p>It's also possible to imbue interpretable aspects into deep learning models (could be interesting to expand on this aspect, maybe through mechanistic interpretability papers). At the same time, it's important to know when a traditional ML algorithm is a better fit (for interpretability, performance, accuracy).</p>
-<h3 id="extrinsic-explainability"><a class="header" href="#extrinsic-explainability">Extrinsic Explainability</a></h3>
-<p>Extrinsic Explainability or post-hoc involves explaining prediction(s) rather than elucidating precisely how a model works.</p>
+<p>I would also add that, in scientific disciplines, we may want <em>causal and interpretable models</em>, rather than just <em>interpretable</em>.</p>
+<h3 id="post-training-explainability"><a class="header" href="#post-training-explainability">Post Training Explainability</a></h3>
+<p>Usually this is includes extrinsic and post hoc explainability and involves explaining input-output relations, prediction(s), role of layers and neurons.., rather than elucidating precisely how a model works.</p>
 <!-- Sometimes they use an extra _explanation model_, but not always. -->
 <p><a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> defines "explaining a prediction" as:</p>
 <blockquote>
@@ -254,7 +271,22 @@
 
 </div>
 
-<p>They also propose an <em>explainer desiderata</em> for the explanation model: it should be <code>1.</code> <strong>interpretable</strong>, by giving a qualitative understanding between inputs and outputs, making it easy to understand, <code>2.</code> <strong>model agnostic</strong> and <code>3.</code> <strong>locally faithful</strong> (a good fit to the original model in the vicinity of the instance being explained) and <code>4.</code> <strong>globally explainable</strong>. In that paper, SP-LIME combines local explanations to provide a <em>global explanation</em> of the model.</p>
+<p>This simpler, and user-friendly presentation (when correct) has some uses. For example, to spot reliance on features we wouldn't want it to use for the prediction.</p>
+<p>If those features were missing, it would fail (it does not generalise). Related concepts are <em>shortcut learning</em>, <em>Clever Hans</em><sup class="footnote-reference" id="fr-hans-1"><a href="#footnote-hans">2</a></sup>, <em>Right for the Wrong Reasons</em>.</p>
+<p>This is one reason why accuracy on a test set alone isn't a bulletproof metric, and why we need XAI. Some solutions, then, are:</p>
+<ul>
+<li>Analysis of data in database,</li>
+<li>Test in real world settings,</li>
+<li>Use intrinsically interpretable and causal models instead,</li>
+<li>Use XAI methods <em>and</em> ensure that the features responsible for the output are conceptually sound.</li>
+</ul>
+<p>The <a href="https://dl.acm.org/doi/10.1145/2939672.2939778">"Why Should I Trust You?"</a> paper also proposes an <em>explainer desiderata</em> for the explanation model: it should be <code>1.</code> <strong>interpretable</strong>, by giving a qualitative understanding between inputs and outputs, making it easy to understand, <code>2.</code> <strong>model agnostic</strong> and <code>3.</code> <strong>locally faithful</strong> (a good fit to the original model in the vicinity of the instance being explained) and <code>4.</code> <strong>globally explainable</strong>. In that paper, SP-LIME combines local explanations to provide a <em>global explanation</em> of the model.</p>
+<h3 id="issues-with-post-training-xai-methods"><a class="header" href="#issues-with-post-training-xai-methods">Issues with Post-Training XAI Methods</a></h3>
+<p>XAI methods are not without problems.</p>
+<p>One of the problems is: How can we know that the explanation describes what the model does accurately? Explanation models are sometimes misleading or wrong. It's also relevant to know their limitations and assumptions, such as which area are they supposed to be accurate on.</p>
+<p>One interesting perspective is given by <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">J. Bajorath</a>, where a model needs to be explainable, then interpreted (into human, domain-specific concepts) and finally humans do causal inference (using a scientific framework/paradigm) which can be tested. In other words, by requiring that the black box prediction can be transformed into a sound causal hypothesis.</p>
+<p>In general, they are often <em>models (of models)</em> and suffer problems deriving from this fact (explored by the analogy to scientific models on "<a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a>").</p>
+<p>However, in the case of local attribution methods, these are simpler, and <em>usually</em> are not themselves black boxes.</p>
 <p><a href="http://arxiv.org/abs/1811.10154">Rudin</a> argues that these simpler explanation models must be wrong. If it is globally accurate, then we don't need the original model. Rudin proposes calling these model-approximation techniques "summary of predictions", "summary statistics" or "trends".</p>
 <p>Within other problems the paper states:</p>
 <blockquote>
@@ -263,41 +295,23 @@
 </blockquote>
 <p>An explanation model depending on race could construe "This person is predicted to be arrested because they are black." (as the paper states) even if the original model did not depend on this feature directly (it could by proxy features). This would mislead a user very badly.</p>
 <!-- citing Box's maxim: "All models are wrong but some are useful" and -->
-<p>Within these limitations, methods such as SHAP, LIME can provide <em>some</em> understanding of what the model is doing (though as stated above, they can also be misleading). <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> makes an analogy between local approximation and scientific models, they key part being that both may approximate a more detailed model within a narrow domain (in which they are valid).</p>
+<p>Within these limitations, methods such as SHAP, LIME, Counterfactuals (even though these don't use an extra model), can provide <em>some</em> understanding of what the model is doing (though as stated above, they can also be misleading). <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> makes an analogy between local approximation and scientific models, they key part being that both may approximate a more detailed model within a narrow domain (in which they are valid).</p>
+<!-- A place where the analogy breaks is that scientific models fit within a conceptual framework of ideas, whereas many DL models are thrown huge amounts of data and there isn't a conceptual (domain-specific) framework behind them, and even the hypothesis may not be directly testable by experiment. -->
 <p>A an issue with this analogy was noted by <a href="http://arxiv.org/abs/1811.10154">Rudin</a>:</p>
 <blockquote>
 <p>Note that the term "explanation" here refers to an understanding of how a model works, as opposed to an explanation of how the world works. The terminology "explanation" will be discussed later; it is misleading.</p>
 </blockquote>
-<h3 id="contrastive-causal-explanation-via-counterfactuals"><a class="header" href="#contrastive-causal-explanation-via-counterfactuals">Contrastive-Causal Explanation via Counterfactuals</a></h3>
-<p>They argue for the use contrastive explanations and the <em>original model</em>, which has less limitations of domain of validity and also curvature (non-linearity) and variable interdependency modelling.</p>
-<p>Here is their pitch for it:</p>
-<blockquote>
-<p>Rather than explicitly generating a model that approximates functional values over a restrictive domain, and relying on the user to interpret this, contrastive explanations directly offer an alternative data point: "If your data had looked like this, you would have been given this classification score instead." These alternative data points can be computed exactly. As such, many of the challenges facing ’modelling’ approaches to generating explanations, such as the quality of the approximation or the limits of a chosen domain, do not arise to a comparable degree.</p>
-</blockquote>
-<p>And the selection of the alternative data point is of high importance (must be relevant, and similar enough to background other causes). This is achieved by a particular Lagrange-style constrained optimisation which helps select that counterfactual (one that is both close to the data point of interest and to a certain desired output value).</p>
 <!-- The interest is usually around a particular prediction or a particular model (requiring a partial causal-rather than a full causal-chain). -->
-<p>Note also that local fitting of a prediction model may be faithful, but both models could be inaccurate. It's also not enough to have an interpretable model, as they continue:</p>
-<blockquote>
-<p>It is not enough to simply offer a human interpretable model as an explanation. For an individual to be able to trust such a model as an approximation, they must know over which domain a model is reliable and accurate, where it breaks down, and where its behaviour is uncertain. If the recipient of a local approximation does not understand its limitations, at best it is not comprehensible, and at worst misleading</p>
-</blockquote>
-<p>That is, the domain where the models (both) are accurate, inaccurate or unknown should be characterised, and understood by the recipients.</p>
-<ul>
-<li>Couldn't we train local explainable models from scratch, and throw away the complex one? Usually no, <em>explanation models</em> are trained with predictions of the complex model, that may not exist in the training data.</li>
-</ul>
 <p><a href="http://arxiv.org/abs/1811.10154">In Appendix C, Rudin argues</a> that choosing from one of many possible counterfactual explanations (which apparently are also called <em>inverse classification</em>!) is often undecidable:</p>
 <blockquote>
 <p>Some have argued that counterfactual explanations [e.g., see 37] are a way for black boxes to provide useful information while preserving secrecy of the global model. Counterfactual explanations, also called inverse classification, state a change in features that is sufficient (but not necessary) for the prediction to switch to another class (e.g., "If you reduced your debt by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">5000</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal">in</span><span class="mord mathnormal">cre</span><span class="mord mathnormal">a</span><span class="mord mathnormal">se</span><span class="mord mathnormal">d</span><span class="mord mathnormal">yo</span><span class="mord mathnormal">u</span><span class="mord mathnormal">rs</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">s</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>50% then you would have qualified for the loan you applied for"). This is important for recourse in certain types of decisions, meaning that the user could take an ac"ion to reverse a decision [61].</p>
 <p>In other words, let us say that there is more than one counterfactual explanation available (e.g., the first explanation is "If you reduced your debt by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">5000</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal">in</span><span class="mord mathnormal">cre</span><span class="mord mathnormal">a</span><span class="mord mathnormal">se</span><span class="mord mathnormal">d</span><span class="mord mathnormal">yo</span><span class="mord mathnormal">u</span><span class="mord mathnormal">rs</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">s</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>50% then you would have qualified for the loan you applied for" and the second explanation is "If you had gotten a job that pays $500 more per week, then you would have qualified for the loan"). In that case, the explanation shown to the user should be the easiest one for the user to actually accomplish. However, it is unclear in advance which explanation would be easier for the user to accomplish. In the credit example, perhaps it is easier for the user to save money rather than get a job or vice versa.</p>
 </blockquote>
 <!-- Some post-hoc XAI methods are explained in [strategies](./strategies.md). -->
-<h3 id="post-hoc-methods"><a class="header" href="#post-hoc-methods">Post Hoc Methods</a></h3>
-<p>[Explaining Explanations in AI] states that:</p>
-<blockquote>
-<p>(...) first reviewing methods for producing explanations in xAI, and explain how they are generally more akin to scientific modelling than explanation giving.</p>
-</blockquote>
-<p>Which is an important qualifier, they are more like a <em>toolkit to produce explanations</em>. They are also approximations and usually local in the sense of having a <em>domain of applicability</em>. Importantly, they are intelligible / interpretable as most scientific models are.</p>
-<p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> and <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">Principles and practise of explaining ML models</a> name and review a few types of <em>post hoc interpretability</em> (extrinsic explainability) techniques.</p>
-<p>A similar version to those papers is given below:</p>
+<h3 id="post-hoc-explanation-classes"><a class="header" href="#post-hoc-explanation-classes">Post Hoc Explanation Classes</a></h3>
+<p>In general, all methods are like a <em>toolkit to produce explanations</em>.</p>
+<p>Many papers describe a few types of <em>post training explainability</em> methods and classes (such as 1, <a href="https://dl.acm.org/doi/10.1145/3236386.3241340">1</a>, <a href="https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2021.688969/full">2</a> and <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">3</a> ).</p>
+<p>Below a custom set of classes is given usually named after a distinct XAI concept they are based off.</p>
 <ul>
 <li><strong>Textual</strong> e.g. using RNNs or a language model to translate the network state into text (trained with descriptions, similar to captioning images),</li>
 <li><strong>Similarity</strong> (or Case-Based): Representative items for each class provide insights about the model's internal reasoning. Can be automated with distance KNNs but specific examples may require human selection.
@@ -310,7 +324,7 @@
 <li>There is an upper bound on how many features can be considered at once. Humans must inspect plots to derive explanations. Class boundaries?</li>
 </ul>
 </li>
-<li><strong>Contrastive Methods</strong> look for similar cases that lead to a different decision, or that help clarifying the decision in some way.
+<li><strong>Contrastive and Counterfactual Methods</strong> look for similar cases that lead to a different (or the same) decision, or that help clarifying the decision in some way.
 They are a separate category because they may use the original model, and the key characteristic is the type of question they ask. But, as <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> says:
 <blockquote>
 <p>(...) choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge.</p>
@@ -325,11 +339,20 @@ They are a separate category because they may use the original model, and the ke
 </blockquote>
 <ul>
 <li><strong>Feature relevance</strong> can be considered a linear approximation model. They operate locally or globally (e.g. LIME and SP-LIME). These Methods may make assumptions which do not hold (e.g. feature independence, linearity).</li>
+<li>As <em>local</em> and <em>approximations</em> they often have a <em>domain of applicability</em>.</li>
 </ul>
 </li>
 </ul>
-<p>A useful approach could be to use and compare several different these methods.</p>
-<p>The last two classes are popular and often used in the context of <strong>Local Explanations</strong>, discussed in the <a href="./model_explainability_2.html">next post</a>.</p>
+<p>An interesting approach could be to use and compare the results of several different these methods, which often appears as a suggestion. <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">For example, in this paper</a>:</p>
+<blockquote>
+<p>For all practical purposes, it is advisable to apply at least two distinct explanation approaches and compare the results for consistency.</p>
+</blockquote>
+<h2 id="causal-explanations-from-ml-models"><a class="header" href="#causal-explanations-from-ml-models">Causal Explanations from ML models</a></h2>
+<p>An audience of scientists may be interested in generating causal, testable hypotheses from ML models (via intervention in Pearl's language), as "<a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">From scientific theory to duality of predictive artificial intelligence models</a>" states (refs removed):</p>
+<blockquote>
+<p>If an ML model is derived to predict the results of a natural process, then model interpretation might lead to the formulation of testable hypotheses of causal relationships. A causal relationship exists if interpretable features determining the prediction of a test instance are directly responsible for the outcome of the underlying natural process. Accordingly, causal ML involves the incorporation of knowledge or inference of causal relationships.</p>
+</blockquote>
+<p>Causal inference (or attribution) is a hypothesis about the responsibility of variables to either change or produce the output.</p>
 <hr><details>
 <summary>Sources</summary>
 <ol>
@@ -344,19 +367,20 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <p><a href="https://dl.acm.org/doi/10.1145/3236386.3241340">The Mythos of Model Interpretability</a> (2018) is an excellent break down of ideas. This paper is cited and discussed in the post primarily.</p>
 </li>
 <li>
-<p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</p>
+<p><a href="https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html">A Unified Approach to Interpreting Model Predictions</a> (2017): paper proposing SHAP, that is, showing Shapley values (a result from [game-theory][shapley] found by Shapley) as the best coefficients in linear combination of features, given 3 requirements (local accuracy, missingness and consistency),</p>
 </li>
 <li>
-<p><a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</p>
+<p><a href="https://arxiv.org/abs/1711.00399">Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR</a> (2017) which (briefly) proposes a set of unconditional counterfactual explanations in the context of GDPR (unconditional as in we can always have them); these are easier to generate and understand than the internals of a complex model, protect trade secrets and privacy (by not revealing datasets).</p>
+<ul>
+<li>The authors also have a related paper: <a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019). <strong>First</strong> it review post hoc methods and makes an analogy of XAI post-hoc methods to scientific models (i.e. they are local interpretable approximations and help <em>generate</em> explanations). <strong>Then</strong> answering "why-questions" requires "contrastive, selective and social" explanations. <strong>Finally</strong>, that an interactive, dialectic way to challenge algorithmic decisions is needed. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.
+<a href="http://arxiv.org/abs/1806.00069">Explaining Explanations: An Overview of Interpretability of Machine Learning</a> (2018),</li>
+</ul>
 </li>
 <li>
 <p><a href="https://arxiv.org/abs/1806.00340">Producing radiologist-quality reports for interpretable artificial intelligence</a> (2018): a "case study",</p>
 </li>
 <li>
 <p><a href="https://en.wikipedia.org/wiki/The_Book_of_Why">The Book of Why</a> (2018): The introduction and first chapter were read in detail, only the part of interest for XAI (to my judgement) is discussed here, comparison and counterfactuals. It's interesting but may be more useful in other areas (like medical sciences, economics etc.)</p>
-</li>
-<li>
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> (2019). <strong>First</strong> it review post hoc methods and makes an analogy of XAI post-hoc methods to scientific models (i.e. they are local interpretable approximations and help <em>generate</em> explanations). <strong>Then</strong> answering "why-questions" requires "contrastive, selective and social" explanations. <strong>Finally</strong>, that an interactive, dialectic way to challenge algorithmic decisions is needed. It distinguishes "scientific explanations" addressing general phenomena with a full causal chain from "everyday explanations" addressing particular facts with partial causal chains.</p>
 </li>
 <li>
 <p><a href="http://arxiv.org/abs/1811.10154">Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead</a> (2019).</p>
@@ -385,34 +409,36 @@ Furthermore, there isn't a "number 5 pattern" that is the same for many networks
 <li>
 <p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/aisy.202400304">A Perspective on Explainable Artificial Intelligence Methods: SHAP and LIME</a> (2024).</p>
 </li>
+<li>
+<p><a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">From scientific theory to duality of predictive artificial intelligence models</a> (2025): This paper explains an "XAI duality". But overall, this is just restating the scientific method, and how to use AI and produce scientific understanding (even with black boxes). The latter is defined as <em>qualitative understanding of a theory</em> which is the DL model:</p>
+</li>
+<li>
+<p>Have a hypothesis contextualised by a scientific rationale / framework,</p>
+</li>
+<li>
+<p><em>Test it</em> by first training a model,</p>
+</li>
+<li>
+<p><em>Explaining</em> the predictions (XAI, computational methods, as a pre-requisite for <em>interpretation</em>),</p>
+</li>
+<li>
+<p><em>Interpreting</em> the explanation within the scientific framework (human terms) in terms of causal hypotheses / relations (e.g. features that are directly responsible for the output).</p>
+</li>
+<li>
+<p>Test further consequences.</p>
+<p>The duality is scientific vs non-scientific, and the name is less relevant in some sense.</p>
+</li>
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
-<!-- The latter paper reminds us that: -->
-<!---->
-<!-- > Relying on only one technique will only give us a partial picture of the whole story, possibly missing out important information. Hence, combining multiple approaches together provides for a more cautious way to explain a model. (...) At this point we would like to note that there is no established way of combining techniques (in a pipeline fashion), -->
-<!---->
-<!-- Some methods may need to be adapted for a given audience. -->
-<!---->
-<!-- Often, in XAI the explanation is often generated by interaction between an inquirer such as the user or developer, and the explanation model ([Explaining Explanations in AI][xxai], **4.3**). -->
-<!-- This is a model of a model, or a model derived from a model, which is a difference in the analogy. Though we could also consider this as an emergent model, derived from a more detailed one (just as averaging in statistical thermodynamics to get larger scale laws). -->
-<!-- Higher level models approximate lower level ones. Analogously, the _explanation model_ approximates the more complex _prediction model_. -->
-<!-- > Although any physical system can be understood in terms of the emergent properties of subatomic particles, such descriptions are neither human comprehensible nor computationally feasible. Instead, scientists deal in local approximations that provide accurate descriptions of the phenomena they are interested in, but which may prove inaccurate in a larger domain. -->
-<!---->
-<!-- They also define scientific modelling: -->
-<!---->
-<!-- > scientific models, which can be understood as partial causal scientific explanations that assist in comprehending a piece of the functionality of a phenomenon (Ruben, 2004). -->
-<!--  they could help explain a model as well. -->
-<!-- As [Explaining Explanations in AI][xxai] states: -->
-<!---->
-<!-- > (...) the fact that contrastive explanations address a particular event or case and are thus simpler to generate than complete or global explanations of model functionality suggest they worth further consideration in xAI (Lipton, 1990). -->
+<!-- [^extr_intr]: Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. -->
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-extr_intr">
-<p>Intrinsic explainability is also called "Transparency", "Inherently interpretable models"; Extrinsic explainability is also called "black boxedness", post-hoc explainability, opaqueness. <a href="#fr-extr_intr-1">↩</a></p>
-</li>
 <li id="footnote-other_names">
 <p>related names are: rule lists, expert systems, decision trees, disjunctive normal form models, associative classifiers. <a href="#fr-other_names-1">↩</a></p>
+</li>
+<li id="footnote-hans">
+<p>The description above is sometimes called the "Clever Hans" effect for AI. This derives from a horse ("Hans") believed to know arithmetic, but instead it was guessing through queues in the owner's face and behaviour. <a href="#fr-hans-1">↩</a></p>
 </li>
 </ol>
 

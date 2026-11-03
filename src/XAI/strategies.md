@@ -46,7 +46,9 @@ The terms are defined as:
 - **Missingness**: If the reference vector ($x'$) has a "missing" component ($x_i'=0$) then the feature must have no impact, that is $\phi_i = 0$.
 - **Consistency**: if one of two models is larger just turning feature $i$ on and off, then it must have a larger $\phi_i$.
 
-Their Theorem (Theorem 1) guarantees ahat a linear explanation model plus the 3 requirements leave Shapley Values (a result from [game-theory found by Shapley][shapley]) as the best (and unique) coefficients. Other methods violate some of these 3 properties (so the authors modify them to comply).
+This how they bring in a result from [game-theory][shapley] by Shapley, which they call Shapley values.
+
+Their _Theorem 1_ guarantees that a linear explanation model plus the 3 requirements leave Shapley Values as the best (and unique) coefficients. Other methods violate some of these 3 properties (so the authors modify them to comply).
 
 SHAP (SHapley Additive Explanations) Values are the Shapley Values of a conditional expectation function of the original model: $f(h_x(z')) =  \mathbb{E}[f(z)|z_S]$ (Section 4, see Figure 1). $S$ are non-zero indices.
 
