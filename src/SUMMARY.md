@@ -45,13 +45,13 @@
 - [ML Best Practices](./other/best_practices.md)
 - [ML Perspective (bits)](./machine_learning_perspective_2019.md)
 - [Citing Research Objects](./other/research_objects.md)
-- [Systems That Learn I](./systems_that_learn/connectivism.md)
-- [Systems That Learn II](./systems_that_learn/connectivism_refined.md)
 - [Visualising N-D vectors](./other/visualising_high_dimensional_data.md)
 - [CompChem Map](./other/compchem_map.md)
 - [Databases & Benchmarks](./other/databases_and_benchmarks.md)
 - [Pharma](./other/pharma.md)
-<!-- - [Machine Understanding](./other/understanding.md) -->
+- [Systems That Learn I](./systems_that_learn/connectivism.md)
+- [Systems That Learn II](./systems_that_learn/connectivism_refined.md)
+- [Machine Understanding](./systems_that_learn/machine_understanding_1.md)
 <!-- - [Milestones in AI (To-Do)]() -->
 <!-- - [Milestones in XAI (To-Do)]() -->
 
