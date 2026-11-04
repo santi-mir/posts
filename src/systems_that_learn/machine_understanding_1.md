@@ -131,11 +131,11 @@ Simulating digestion simply isn't digestion.
 
 ## But...is it relevant?
 
-Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that solves problems, represents things internally in a rich, and understandable (by us) way; it may even do research and discover things.
+Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that carries out the computations of those processes, solves problems, represents things internally in a rich, and understandable (by us) way and so forth.
 
-Leaving aside the important question of morality (which for Searle wouldn't seem to be a problem, since they aren't real beings), then, what would we call what these machines do?
+It may even do research and discover things.
 
-What status would these systems have? And what are they, just useful-ish computers?
+What would we call what these machines do? What are the limits of it? What moral status would these systems have (maybe none)? Would they be more than just useful-ish computers?
 
 [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120
 [eliza]: https://en.wikipedia.org/wiki/ELIZA_effect
