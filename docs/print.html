@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-bb346ac1.js";
+            window.path_to_searchindex_js = "searchindex-99fd1fa8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-ad0ed2c9.js"></script>
@@ -2155,67 +2155,72 @@ A --&gt; Direct
 </details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="machine-understanding"><a class="header" href="#machine-understanding">Machine Understanding</a></h1>
-<p>This is a work in progress. I am collecting views on Machine Understanding that I find historically or conceptually interesting.</p>
-<p>Currently, it's primarily John Searle's position, and then Koller and Benders idea of meaning.</p>
+<p>This is a work in progress, that explores the topic of "Machine Understanding", "Machine Thinking" and related ideas.</p>
 <hr>
-<p>Usually, the Turing test (described in <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">"COMPUTING MACHINERY AND INTELLIGENCE"</a>, 1950, by Alan Turing) is assumed to be a test for thinking under the assumption that only outward behaviour matters.</p>
-<p>This isn't Turing's point, since he makes clear that we can't even define thinking. But it makes us consider: If a machine can pass as a human without being noticed by other humans, what are the consequences? Do the internal mechanisms matter? Should we call it thinking?</p>
-<p>As humans we tend to assume a mind behind any bit of language, as the ELIZA effect has shown. And even for evaluating understanding <em>without</em> linguistic outputs, humans have been wrong about Clever Hans (a horse assumed to understand arithmetic, but later on shown to read social queues to guess, which is still impressive). This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
-<p>The take away seems to be that we should evaluate more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
-<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">"Is the Brain's Mind a Computer Program?"</a> (Searle, 1990) Searle describes the Strong-AI advocates' view of the Turing test:</p>
+<h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing test</a></h2>
+<p>The <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a> (1950, by Alan Turing), is a remote chat where a human is tasked to tell who of the other two members of the chat is a computer.</p>
+<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">"Is the Brain's Mind a Computer Program?"</a> (1990) Searle states that Strong-AI advocates take the Turing test as a test for machine thinking:</p>
 <blockquote>
 <p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
 </blockquote>
-<p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is an intuition pump that shows the absurdity Strong AI view. The underlying point is: a program on modern computers, even if it passes the Turing test (as his experiment's subject does), is a symbol manipulator, and as such it doesn't guarantee semantics nor thinking. Searle summarises his result:</p>
+<p>But, we could ask the Strong AI advocates:</p>
+<ul>
+<li>Does such machine experience the world the same than us?</li>
+<li>What about the internal mechanisms?</li>
+<li>Why only care about overt behaviour?</li>
+<li>Is the Turing test the best one for this purpose?</li>
+</ul>
+<p>There are a few reasons that make this interpretation untrustworthy.</p>
+<ul>
+<li>First, we may be bad at evaluating this difference.</li>
+<li>Second, even if we evaluate correctly, it may be that the test does not provide conclusive evidence of thinking or another cognitive capacity.</li>
+</ul>
+<h2 id="first-are-we-good-evaluators"><a class="header" href="#first-are-we-good-evaluators">First: Are we good evaluators?</a></h2>
+<p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown.</p>
+<p>Humans have also been wrong about <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, and later on shown to guess the answer social queues (which is still impressive, but a different capability).</p>
+<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
+<!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
+<p>The take-away seems to be that we should evaluate behaviour more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
+<h2 id="second-turing-tests-usefulness"><a class="header" href="#second-turing-tests-usefulness">Second: Turing test's usefulness</a></h2>
+<p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view. Searle summarises his result as:</p>
 <blockquote>
 <p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
 </blockquote>
-<p>Searle concludes that <em>no symbol manipulation program can think</em>, even if it has the right input-output behaviour: the system wouldn't yet know the meaning of the Chinese symbols/words it is manipulating.</p>
+<p>Searle concludes that <em>programs restricted to symbol manipulation can't think</em>. A program may have the right input-output behaviour (e.g. passes the Turing test), but the system wouldn't yet know the meaning of the Chinese symbols/words it is manipulating.</p>
 <p>A last statement, equivalent to all of the above, of his:</p>
 <blockquote>
 <p>You can't get semantically loaded thought contents from formal computations alone, (...)</p>
 </blockquote>
-<h2 id="meaning"><a class="header" href="#meaning">Meaning</a></h2>
-<p>But what is meaning then? Searle believes that it's what the symbols refer to, but aren't those also symbols?
-One could argue that are the "symbols" of the perceptions for example. Consider a few more ideas about what meaning could be:</p>
-<ul>
-<li>"Meaning 1" comes from symbols standing for / referring to something; the symbols have mental content. I suppose that we may or not be aware of the mental content (conscious or unconscious). Or is <em>thinking</em> always a conscious process?</li>
-<li>"Meaning 2" is just "links between symbols".
-<ul>
-<li>A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols.</li>
-</ul>
-</li>
-</ul>
-<p>A variant of "Meaning 2" includes the <em>grounded symbols</em> that is, symbols for linked to perceptions, its parts, memories, emotions, and so forth. Something that the expression refers to, in the mind of the interpreter.</p>
-<p>Koller and Bender, in <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021) define meaning as the set of pairs <code>(expressions, intents)</code>; expressions can be symbols, gestures and intent is what's not in the expression itself. They hold that machines can't learn intents from form alone (symbols) but don't make statements about learning from pairs, or whether it's impossible.</p>
-<p>Beyond the above paragraph, <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> talks about the Turing test, Searle's Chinese Room, Harnad, their own Octopus test, and so on. For example, they say:</p>
-<blockquote>
-<p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form. But language is used for communication about the speakers’ actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the symbol grounding problem. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
-</blockquote>
-<p>"Meaning 1" may involve a meta process linking some aspects of the processing to the input and the output.</p>
-<p>But how does <code>Meaning 1</code> relate to <code>Meaning 2</code>? In my view, "Meaning 1" is built on top of symbol manipulation where the only "meaning" is how symbols are linked and represented ("Meaning 2"). However, this itself isn't enough, it may require specific ways in which the lower level processing happens, and also specific meta-processes.</p>
-<p>The Chinese Room Argument (CRA) refutes the Strong AI claim "Meaning 1" and the right I/O implies "Meaning 2"; the Strong AI claim may come from a (mis)-interpretation of the Turing test.</p>
-<p>In relation to <em>what meaning is</em> for Searle, besides the CRA, see:</p>
+<h2 id="general-ideas-about-meaning"><a class="header" href="#general-ideas-about-meaning">General Ideas about Meaning</a></h2>
+<!-- If the machines can fool us via syntactics only, it would be interesting to know _how_ the missing bit (meaning) works and how it fits in the picture. -->
+<p>Before considering details about meaning let's ask: What is meaning (in broad terms)? Searle states that meaning is what the symbols refer to:</p>
 <blockquote>
 <p>If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.</p>
 </blockquote>
-<h3 id="compressed-view"><a class="header" href="#compressed-view">Compressed View</a></h3>
-<p>Searle captures his overall view in this paragraph:</p>
+<p>But this seems a bit mysterious and one may want to ask Searle: What if all we need are symbols, processing, and grounded symbols?<sup class="footnote-reference" id="fr-1-1-2"><a href="#footnote-1-2">1</a></sup></p>
+<p>What about researchers other than Searle? Koller and Bender, in <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021) define meaning as the set of <code>(expressions, intents)</code> pairs. <em>Expressions</em> are symbols, gestures and intent is what's not in the expression itself (this is the <em>intent</em>).</p>
+<p>They hold that machines can't learn intents from form alone (symbols) though they may if trained on meaning pairs, or a similar task.</p>
+<p><a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> talks about all the of the above: the Turing test, Searle's Chinese Room, Stevan Harnad's grounded symbols, and they describe their own <em>Octopus test</em> for language understanding. They say:</p>
 <blockquote>
-<p>First, I have not tried to prove that "a computer cannot think." Since any thing that can be simulated computationally can be described as a computer, and since our brains can at some levels be simulated, it follows trivially that our brains are computers and they can certainly think. But from the fact that a system can be simulated by symbol manipulation and the fact that it is thinking, it does not follow that thinking is equivalent to formal symbol manipulation.</p>
+<p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form.</p>
 </blockquote>
-<p>That is, some computers can think (brains are computers and can think), but the simulation of thought (right IO) through symbol manipulation does not guarantee any meaning or thought.</p>
-<p>Here something seems strange: Searle believes computers <em>can</em> think, but symbol manipulation can't have semantics (needed for thinking).</p>
-<p>In other words, semantics (or thoughts, or mental contents) are somewhat special. Let's explore why Searle may think so.</p>
-<h2 id="hardware-thoughts"><a class="header" href="#hardware-thoughts">Hardware Thoughts</a></h2>
-<p>Searle's questions are very interesting:</p>
+<p>(Which is precisely what bare-LLMs do.) They continue:</p>
+<blockquote>
+<p>But language is used for communication about the speakers' actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the <em>symbol grounding problem</em>. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
+</blockquote>
+<!-- ### Recap -->
+<!---->
+<!-- So far we considered the Strong AI view of the Turing test, and both practical and theoretical arguments against it. The former about a history of problems of human evaluating the output, and the latter related to the Chinese Room Argument and the training on form only. -->
+<!---->
+<!-- But Searle's view is a bit weirder. Searle believes that _some_ computers _can_ think (e.g. the brain). But not the programs running on silicon, since symbol manipulation can't have semantics (needed for thinking). -->
+<h3 id="hardware-thoughts"><a class="header" href="#hardware-thoughts">Hardware Thoughts</a></h3>
+<p>Searle asks interesting questions:</p>
 <blockquote>
 <p>why couldn't we give semantics to other computers?</p>
 <p>(...)</p>
 <p>What, in fact, are the differences between animal brains and computer systems that enable the Chinese room argument to work against computers but not against brains?</p>
 </blockquote>
-<p>(What do we need, beyond the program?)</p>
-<p>Searle continues:</p>
+<p>In other words: Where does meaning (or semantics) come from, that we can't just add it in modern computers, but brains have it? Searle continues:</p>
 <blockquote>
 <p>The most obvious difference is that the processes that define something as a computer—computational processes—are completely independent of any reference to a specific type of hardware implementation. One could in principle make a computer out of old beer cans strung together with wires and powered by windmills.</p>
 <p>But when it comes to brains, although science is largely ignorant of how brains function to produce mental states, one is struck by the extreme specificity of the anatomy (...)</p>
@@ -2224,8 +2229,7 @@ One could argue that are the "symbols" of the perceptions for example. Consider 
 <blockquote>
 <p>(...) formal symbols have no physical, causal powers. The only power that symbols have, qua symbols, is the power to cause the next step in the program when the machine is running. And there is no question of waiting on further research to reveal the physical, causal properties of 0's and 1's. The only relevant properties of 0's and 1's are abstract computational properties, and they are already well known.</p>
 </blockquote>
-<p>So <em>even if</em> we consider "the processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion)." Searle would say <em>no</em>.</p>
-<p>Why? He's got this covered:</p>
+<p>So <em>even if</em> we consider "the processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion)." Searle would say <em>no</em>. Searle explains that the difference is that</p>
 <blockquote>
 <p>(...) the brain does not merely instantiate a formal pattern or program (it does that, too), but it also causes mental events by virtue of specific neurobiological processes.</p>
 </blockquote>
@@ -2235,14 +2239,14 @@ One could argue that are the "symbols" of the perceptions for example. Consider 
 <blockquote>
 <p>But the simulation should not be confused with duplication. The computational model of mental processes is no more real than the computational model of any other natural phenomenon.</p>
 </blockquote>
-<p>For example simulating <em>a diesel car engine</em> doesn't release combustion gases; nor simulating <em>the rain</em> makes the computer wet, and so forth. Or in Searle's words:</p>
+<p>For example (again Searle's words):</p>
 <blockquote>
 <p>No one expects to get wet in a pool filled with Ping-Pong-ball models of water molecules. So why would anyone think a computer model of thought process es would actually think ?</p>
 </blockquote>
-<p>And in Searle's words, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
-<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the physical and causal structure of the brain and the computers (as currently designed).</p>
+<p>He says that, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
+<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the physical and causal structure of the brain which computers (as currently designed) lack.</p>
 <p>Also, the causal structure isn't that of wrapping <em>current computers</em> in a robot body, but about the kind of causation in the neural network.</p>
-<p>Fascinating stuff. But it's worth pondering here:</p>
+<p>Fascinating. But it's worth pondering here:</p>
 <ul>
 <li><em>Why exactly does meaning require a particular physico-causal organisation of matter?</em></li>
 <li>And, what if semantics / meaning are not what Searle thinks (and require certain causal structure), and all that is needed is rich representations of symbols (included grounded ones), links between them, and their processing? Note that I am not saying <em>form alone</em> since this was robustly refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but e.g. rich representations of symbols connected to multimodal perceptions. This is what they suggest in Section 7 (among other options):</li>
@@ -2254,12 +2258,28 @@ One could argue that are the "symbols" of the perceptions for example. Consider 
 <blockquote>
 <p>(...) could not later investigation also show that semantics are entirely constituted of syntax ?</p>
 </blockquote>
-<p>It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological, and just as digestion, an emergent property of matter.</p>
+<p>It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological and, just as digestion, an emergent property of matter.</p>
 <p>Simulating digestion simply isn't digestion.</p>
 <h2 id="butis-it-relevant"><a class="header" href="#butis-it-relevant">But...is it relevant?</a></h2>
 <p>Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that solves problems, represents things internally in a rich, and understandable (by us) way; it may even do research and discover things.</p>
 <p>Leaving aside the important question of morality (which for Searle wouldn't seem to be a problem, since they aren't real beings), then, what would we call what these machines do?</p>
 <p>What status would these systems have? And what are they, just useful-ish computers?</p>
+<!-- Consider a few more ideas about what meaning could be: -->
+<!---->
+<!-- - "Meaning A" is what the symbols stand for / refer to; and the referee is mental content (conscious or unconscious, I assume, and one may split System 1 and System 2, as Daniel Kahnemann argued). -->
+<!-- - "Meaning B" is just "links between symbols". -->
+<!--     - A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols. -->
+<!---->
+<!-- " Meaning A" may involve a meta-process linking some aspects of the processing to the input and the output. -->
+<!-- How does _ Meaning A_ relate to _Meaning B_? One way could be that Meaning A adds the _leaves_ to a _branch-structure_ (Meaning B). There may also be requirements specific ways in which the lower level processing happens, and also specific meta-processes. -->
+<!-- All the refutation of Strong AI via CRA needs is us to accept that symbols have independent meanings. processing symbols, on their own, as CRA states, " Meaning A" and the right I/O implies "Meaning B"; the Strong AI claim may come from a (mis)-inte Harnad's _grounded symbols_ are those linked to perceptions, memories, emotions, and so forth.rpretation of the Turing test. -->
+<!-- In my view one could think of meaning as a tree, the structure of branches are _symbols and their links_; the leaves are the _grounded symbols_. The structure of branches is a [semantic network][semantic_net]. -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1-2">
+<p>Harnad's <em>grounded symbols</em> are those linked to perceptions, memories, emotions, and so forth. And those in turn are just some input representation. <a href="#fr-1-1-2">↩</a></p>
+</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
 <ul>
@@ -2326,6 +2346,22 @@ One could argue that are the "symbols" of the perceptions for example. Consider 
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
