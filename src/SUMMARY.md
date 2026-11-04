@@ -21,14 +21,13 @@
 <!---->
 <!-- - [Graph Nets](./arches/gn.md) -->
 
-------
+-----
 
 # Learning & Understanding
 
 - [Systems That Learn I](./systems_that_learn/connectivism.md)
 - [Systems That Learn II](./systems_that_learn/connectivism_refined.md)
 - [Machine Understanding](./systems_that_learn/machine_understanding_1.md)
-
 
 -----
 
@@ -40,7 +39,7 @@
 - [RCA](./representations/rca.md)
 - [Results](./representations/results.md)
 
-----------
+-----
 
 <!-- ----- -->
 <!---->
@@ -48,7 +47,6 @@
 <!---->
 <!-- - [Concepts](./DL_aided_exploration_inorg_solids_1.md) -->
 <!-- - [Workflow](./DL_aided_exploration_inorg_solids_2.md) -->
-
 
 # Other
 

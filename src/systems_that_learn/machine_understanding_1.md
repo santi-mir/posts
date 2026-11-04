@@ -13,6 +13,7 @@ In ["Is the Brain's Mind a Computer Program?"][searle_simple] (1990) Searle stat
 > The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability&mdash;say, the ability to do addition or to understand Chinese&mdash;then the computer also has that ability.
 
 But, we could ask the Strong AI advocates:
+
 - Does such machine experience the world the same than us?
 - What about the internal mechanisms?
 - Why only care about overt behaviour?
@@ -24,6 +25,7 @@ There are a few reasons that make this interpretation untrustworthy.
 - Second, even if we evaluate correctly, it may be that the test does not provide conclusive evidence of thinking or another cognitive capacity.
 
 ## First: Are we good evaluators?
+
 Humans anthropomorphise language easily (assigning a mind behind it), as the [ELIZA effect][eliza] has shown.
 
 Humans have also been wrong about [Clever Hans][hans]; Hans was a horse assumed to understand arithmetic, and later on shown to guess the answer social queues (which is still impressive, but a different capability).
@@ -146,7 +148,6 @@ What status would these systems have? And what are they, just useful-ish compute
 
 [^1]: Harnad's _grounded symbols_ are those linked to perceptions, memories, emotions, and so forth. And those in turn are just some input representation.
 
-
 <!-- Consider a few more ideas about what meaning could be: -->
 <!---->
 <!-- - "Meaning A" is what the symbols stand for / refer to; and the referee is mental content (conscious or unconscious, I assume, and one may split System 1 and System 2, as Daniel Kahnemann argued). -->
@@ -155,9 +156,7 @@ What status would these systems have? And what are they, just useful-ish compute
 <!---->
 <!-- " Meaning A" may involve a meta-process linking some aspects of the processing to the input and the output. -->
 
-
 <!-- How does _ Meaning A_ relate to _Meaning B_? One way could be that Meaning A adds the _leaves_ to a _branch-structure_ (Meaning B). There may also be requirements specific ways in which the lower level processing happens, and also specific meta-processes. -->
 
 <!-- All the refutation of Strong AI via CRA needs is us to accept that symbols have independent meanings. processing symbols, on their own, as CRA states, " Meaning A" and the right I/O implies "Meaning B"; the Strong AI claim may come from a (mis)-inte Harnad's _grounded symbols_ are those linked to perceptions, memories, emotions, and so forth.rpretation of the Turing test. -->
 <!-- In my view one could think of meaning as a tree, the structure of branches are _symbols and their links_; the leaves are the _grounded symbols_. The structure of branches is a [semantic network][semantic_net]. -->
-
