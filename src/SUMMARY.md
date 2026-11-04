@@ -25,9 +25,9 @@
 
 # Learning & Understanding
 
+- [Machine Understanding](./systems_that_learn/machine_understanding_1.md)
 - [Systems That Learn I](./systems_that_learn/connectivism.md)
 - [Systems That Learn II](./systems_that_learn/connectivism_refined.md)
-- [Machine Understanding](./systems_that_learn/machine_understanding_1.md)
 
 -----
 
