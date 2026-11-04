@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-bb346ac1.js";
+            window.path_to_searchindex_js = "searchindex-6e748fcb.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-ad0ed2c9.js"></script>
+        <script src="toc-09f3f0e1.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1298,6 +1298,320 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 </ol>
 </details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="machine-understanding"><a class="header" href="#machine-understanding">Machine Understanding</a></h1>
+<p>This is a work in progress, that explores the topic of "Machine Understanding", "Machine Thinking" and related ideas.</p>
+<hr>
+<h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing test</a></h2>
+<p>The <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a> (1950, by Alan Turing), is a remote chat where a human is tasked to tell who of the other two members of the chat is a computer.</p>
+<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">"Is the Brain's Mind a Computer Program?"</a> (1990) Searle states that Strong-AI advocates take the Turing test as a test for machine thinking:</p>
+<blockquote>
+<p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
+</blockquote>
+<p>But, we could ask the Strong AI advocates:</p>
+<ul>
+<li>Does such machine experience the world the same than us?</li>
+<li>What about the internal mechanisms?</li>
+<li>Why only care about overt behaviour?</li>
+<li>Is the Turing test the best one for this purpose?</li>
+</ul>
+<p>There are a few reasons that make this interpretation untrustworthy.</p>
+<ul>
+<li>First, we may be bad at evaluating this difference.</li>
+<li>Second, even if we evaluate correctly, it may be that the test does not provide conclusive evidence of thinking or another cognitive capacity.</li>
+</ul>
+<h2 id="first-are-we-good-evaluators"><a class="header" href="#first-are-we-good-evaluators">First: Are we good evaluators?</a></h2>
+<p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown.</p>
+<p>Humans have also been wrong about <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, and later on shown to guess the answer social queues (which is still impressive, but a different capability).</p>
+<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
+<!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
+<p>The take-away seems to be that we should evaluate behaviour more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
+<h2 id="second-turing-tests-usefulness"><a class="header" href="#second-turing-tests-usefulness">Second: Turing test's usefulness</a></h2>
+<p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view. Searle summarises his result as:</p>
+<blockquote>
+<p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
+</blockquote>
+<p>Searle concludes that <em>programs restricted to symbol manipulation can't think</em>. A program may have the right input-output behaviour (e.g. passes the Turing test), but the system wouldn't yet know the meaning of the Chinese symbols/words it is manipulating.</p>
+<p>A last statement, equivalent to all of the above, of his:</p>
+<blockquote>
+<p>You can't get semantically loaded thought contents from formal computations alone, (...)</p>
+</blockquote>
+<h2 id="general-ideas-about-meaning"><a class="header" href="#general-ideas-about-meaning">General Ideas about Meaning</a></h2>
+<!-- If the machines can fool us via syntactics only, it would be interesting to know _how_ the missing bit (meaning) works and how it fits in the picture. -->
+<p>Before considering details about meaning let's ask: What is meaning (in broad terms)? Searle states that meaning is what the symbols refer to:</p>
+<blockquote>
+<p>If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.</p>
+</blockquote>
+<p>But this seems a bit mysterious and one may want to ask Searle: What if all we need are symbols, processing, and grounded symbols?<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>What about researchers other than Searle? Koller and Bender, in <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021) define meaning as the set of <code>(expressions, intents)</code> pairs. <em>Expressions</em> are symbols, gestures and intent is what's not in the expression itself (this is the <em>intent</em>).</p>
+<p>They hold that machines can't learn intents from form alone (symbols) though they may if trained on meaning pairs, or a similar task.</p>
+<p><a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> talks about all the of the above: the Turing test, Searle's Chinese Room, Stevan Harnad's grounded symbols, and they describe their own <em>Octopus test</em> for language understanding. They say:</p>
+<blockquote>
+<p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form.</p>
+</blockquote>
+<p>(Which is precisely what bare-LLMs do.) They continue:</p>
+<blockquote>
+<p>But language is used for communication about the speakers' actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the <em>symbol grounding problem</em>. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
+</blockquote>
+<!-- ### Recap -->
+<!---->
+<!-- So far we considered the Strong AI view of the Turing test, and both practical and theoretical arguments against it. The former about a history of problems of human evaluating the output, and the latter related to the Chinese Room Argument and the training on form only. -->
+<!---->
+<!-- But Searle's view is a bit weirder. Searle believes that _some_ computers _can_ think (e.g. the brain). But not the programs running on silicon, since symbol manipulation can't have semantics (needed for thinking). -->
+<h3 id="hardware-thoughts"><a class="header" href="#hardware-thoughts">Hardware Thoughts</a></h3>
+<p>Searle asks interesting questions:</p>
+<blockquote>
+<p>why couldn't we give semantics to other computers?</p>
+<p>(...)</p>
+<p>What, in fact, are the differences between animal brains and computer systems that enable the Chinese room argument to work against computers but not against brains?</p>
+</blockquote>
+<p>In other words: Where does meaning (or semantics) come from, that we can't just add it in modern computers, but brains have it? Searle continues:</p>
+<blockquote>
+<p>The most obvious difference is that the processes that define something as a computer—computational processes—are completely independent of any reference to a specific type of hardware implementation. One could in principle make a computer out of old beer cans strung together with wires and powered by windmills.</p>
+<p>But when it comes to brains, although science is largely ignorant of how brains function to produce mental states, one is struck by the extreme specificity of the anatomy (...)</p>
+</blockquote>
+<p>And later on, in the replies to comments states:</p>
+<blockquote>
+<p>(...) formal symbols have no physical, causal powers. The only power that symbols have, qua symbols, is the power to cause the next step in the program when the machine is running. And there is no question of waiting on further research to reveal the physical, causal properties of 0's and 1's. The only relevant properties of 0's and 1's are abstract computational properties, and they are already well known.</p>
+</blockquote>
+<p>So <em>even if</em> we consider "the processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion)." Searle would say <em>no</em>. Searle explains that the difference is that</p>
+<blockquote>
+<p>(...) the brain does not merely instantiate a formal pattern or program (it does that, too), but it also causes mental events by virtue of specific neurobiological processes.</p>
+</blockquote>
+<ul>
+<li><em>Why would Searle consider that physical, causal links are required, rather than just the computation?</em> He says:</li>
+</ul>
+<blockquote>
+<p>But the simulation should not be confused with duplication. The computational model of mental processes is no more real than the computational model of any other natural phenomenon.</p>
+</blockquote>
+<p>For example (again Searle's words):</p>
+<blockquote>
+<p>No one expects to get wet in a pool filled with Ping-Pong-ball models of water molecules. So why would anyone think a computer model of thought process es would actually think ?</p>
+</blockquote>
+<p>He says that, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
+<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the physical and causal structure of the brain which computers (as currently designed) lack.</p>
+<p>Also, the causal structure isn't that of wrapping <em>current computers</em> in a robot body, but about the kind of causation in the neural network.</p>
+<p>Fascinating. But it's worth pondering here:</p>
+<ul>
+<li><em>Why exactly does meaning require a particular physico-causal organisation of matter?</em></li>
+<li>And, what if semantics / meaning are not what Searle thinks (and require certain causal structure), and all that is needed is rich representations of symbols (included grounded ones), links between them, and their processing? Note that I am not saying <em>form alone</em> since this was robustly refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but e.g. rich representations of symbols connected to multimodal perceptions. This is what they suggest in Section 7 (among other options):</li>
+</ul>
+<blockquote>
+<p>One approach to providing grounding is to train distributional models on corpora augmented with perceptual data, such as photos (...)</p>
+</blockquote>
+<p>Searle does consider this question, once in the quote at the beginning of this section, another time below in relation to the Churchlands' <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a Machine Think?"</a> (1990):</p>
+<blockquote>
+<p>(...) could not later investigation also show that semantics are entirely constituted of syntax ?</p>
+</blockquote>
+<p>It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological and, just as digestion, an emergent property of matter.</p>
+<p>Simulating digestion simply isn't digestion.</p>
+<h2 id="butis-it-relevant"><a class="header" href="#butis-it-relevant">But...is it relevant?</a></h2>
+<p>Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that carries out the computations of those processes, solves problems, represents things internally in a rich, and understandable (by us) way and so forth.</p>
+<p>It may even do research and discover things.</p>
+<p>What would we call what these machines do? What are the limits of it? What moral status would these systems have (maybe none)? Would they be more than just useful-ish computers?</p>
+<!-- Consider a few more ideas about what meaning could be: -->
+<!---->
+<!-- - "Meaning A" is what the symbols stand for / refer to; and the referee is mental content (conscious or unconscious, I assume, and one may split System 1 and System 2, as Daniel Kahnemann argued). -->
+<!-- - "Meaning B" is just "links between symbols". -->
+<!--     - A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols. -->
+<!---->
+<!-- " Meaning A" may involve a meta-process linking some aspects of the processing to the input and the output. -->
+<!-- How does _ Meaning A_ relate to _Meaning B_? One way could be that Meaning A adds the _leaves_ to a _branch-structure_ (Meaning B). There may also be requirements specific ways in which the lower level processing happens, and also specific meta-processes. -->
+<!-- All the refutation of Strong AI via CRA needs is us to accept that symbols have independent meanings. processing symbols, on their own, as CRA states, " Meaning A" and the right I/O implies "Meaning B"; the Strong AI claim may come from a (mis)-inte Harnad's _grounded symbols_ are those linked to perceptions, memories, emotions, and so forth.rpretation of the Turing test. -->
+<!-- In my view one could think of meaning as a tree, the structure of branches are _symbols and their links_; the leaves are the _grounded symbols_. The structure of branches is a [semantic network][semantic_net]. -->
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>Harnad's <em>grounded symbols</em> are those linked to perceptions, memories, emotions, and so forth. And those in turn are just some input representation. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
+<p>Personal comment: I disagree the theory's definition of <em>learning</em>, but agree with their view of <em>knowledge</em> in the digital era and the consequences of it.</p>
+<p>Also, their idea of relating learning with a network/graph is quite useful (even though they may have done it for other reasons).</p>
+<p>Lastly, <em>connectivism</em> is distinct but related to <em>connectionism</em>. The latter is a AI/DL framework inspired in biological neural networks.</p>
+<hr>
+<p><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">Connectivism</a> (2004) is "a learning theory for the digital age".</p>
+<h2 id="origin-and-definitions"><a class="header" href="#origin-and-definitions">Origin and Definitions</a></h2>
+<p>As the digital era unfolds a few important changes become clear:</p>
+<ul>
+<li>Knowledge grows faster and faster;</li>
+<li>Computers and algorithms role changes, and can now store, retrieve, analyse information and follow instructions.</li>
+</ul>
+<p>So the environment requires that we:</p>
+<ul>
+<li>Select and discriminate <em>what</em> to (and not to) learn;</li>
+<li>Develop ways to search the best knowledge-sources;</li>
+<li>Understand how knowledge is distributed in human networks, how it grows, changes...</li>
+</ul>
+<h3 id="definitions-of-learning"><a class="header" href="#definitions-of-learning">Definitions of Learning</a></h3>
+<p>Connectivism defines <em>learning</em> as (bold is mine):</p>
+<blockquote>
+<p>Learning is a process that occurs within nebulous environments of shifting core elements – not entirely under the control of the individual. Learning (defined as <strong>actionable knowledge</strong>) can reside outside of ourselves (within an organization or a database), is focused on connecting specialized information sets, and the connections that enable us to learn more are more important than our current state of knowing.</p>
+</blockquote>
+<p>It also states:</p>
+<blockquote>
+<p>Learning is a process of connecting specialized nodes or information sources.</p>
+</blockquote>
+<p>So if learning is redefined as <em>knowledge that we can use</em>, then indeed it is being conceptualised like a recipe in a database.</p>
+<p>This does not seem a definition most people subscribe to.</p>
+<p>What seems clear though is that there may be less <em>need to know</em> (how &amp; what) and more need of knowing-where the knowledge needed is (plus select and delegate).</p>
+<p>If instead we define learning as <em>a persistent change in the object's interaction with the world, as a result of a previous interaction</em> then it isn't learning what has changed. What changed are the specific tasks. For example, learning how to search may become more and more important.</p>
+<p>By this definition, one may argue that the aspects of learning that matter remain in place: making sense of a new problem.</p>
+<p>Also, at a lower pace, we also had to know how to search <em>before</em> the rapid informational changes: find the right expert for a job, record information on a piece of paper and so forth.</p>
+<p>But this insight into the dynamics of knowledge-rich era is still a useful idea:</p>
+<blockquote>
+<p>When knowledge, however, is needed, but not known, the ability to plug into sources to meet the requirements becomes a vital skill. As knowledge continues to grow and evolve, access to what is needed is more important than what the learner currently possesses.</p>
+</blockquote>
+<h3 id="systems-that-learn"><a class="header" href="#systems-that-learn">Systems That Learn</a></h3>
+<p>In their view, not only individuals can learn but also other objects, such as organisations and human (or social) networks.</p>
+<p>And, as mentioned earlier, the digital era involves even faster knowledge growth, and what we know will become proportionally less:</p>
+<blockquote>
+<p>When knowledge, however, is needed, but not known, the ability to plug into sources to meet the requirements becomes a vital skill. As knowledge continues to grow and evolve, access to what is needed is more important than what the learner currently possesses.</p>
+</blockquote>
+<p>Either way, representing learning as "CRUD" operations on a graph / network is a useful idea.</p>
+<p>They define connectivism as:</p>
+<blockquote>
+<p>Connectivism is the integration of principles explored by chaos, network, and complexity and self-organization theories. (...) Connectivism is driven by the understanding that decisions are based on rapidly altering foundations. New information is continually being acquired. The ability to draw distinctions between important and unimportant information is vital. The ability to recognize when new information alters the landscape based on decisions made yesterday is also critical.</p>
+</blockquote>
+<p>Notice that all the above fits well with a "behaviourist" view of learning but adding an interpretation of some aspects of learning via a graph (e.g. how the brain or an organisation learns via modifications of the graph) and considering that now information changes and grows at a faster rate. Also, considering a network of people as the "knowledge storage device" is quite insightful, as it is also meaningful to consider it from the perspective of a node.</p>
+<p>I'd also consider that the process of "digitally storing and updating information" isn't by itself organisational learning. But how the organisation responds to and prepares for new problems and events does fit the behaviourist definition of learning quite well.</p>
+<h2 id="networks"><a class="header" href="#networks">Networks</a></h2>
+<p>A central object of the theory are <strong>networks</strong>; as they state:</p>
+<blockquote>
+<p>A network can simply be defined as connections between entities. Computer networks, power grids, and social networks all function on the simple principle that people, groups, systems, nodes, entities can be connected to create an integrated whole. Alterations within the network have ripple effects on the whole.</p>
+</blockquote>
+<p>And also:</p>
+<blockquote>
+<p>The starting point of connectivism is the individual. Personal knowledge is comprised of a network, which feeds into organizations and institutions, which in turn feed back into the network, and then continue to provide learning to individual. This cycle of knowledge development (personal to network to organization) allows learners to remain current in their field through the connections they have formed.</p>
+<p>(...)</p>
+<p>This amplification of learning, knowledge and understanding through the extension of a personal network is the epitome of connectivism.</p>
+</blockquote>
+<p>Hence structure of interconnected nodes (a network or graph) is an important part of the naming <em>connectivism</em>. The aspects that the links and the nodes represent, how it grows or shrinks, what the link-pattern and architecture look like and so forth will change from problem to problem.</p>
+<p>A set of concrete instances of the idea of a graph seems to inspire connectionism, which appears in the area of human and organisations learning.</p>
+<h3 id="examples-of-networks"><a class="header" href="#examples-of-networks">Examples of Networks</a></h3>
+<ol>
+<li>The Internet, and later on the World Wide Web
+<ul>
+<li>Seems to have inspired this theory the most: nodes/documents becomes more useful, by being accessible and interlinked; suddenly, the individual is connected via a "fast"-link to a world wide network of documents; this idea also shines light on what an organisation is and how to improve it (more accessible, diverse knowledge for example)</li>
+<li>These both were from the start problems about networking; heterogeneous devices or resources linked together,</li>
+<li>These technologies opened up access to a network of resources and people.</li>
+<li>The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.</li>
+</ul>
+</li>
+<li>Neural Networks, both biological and artificial;</li>
+<li>Certain aspects of organisms and organisations. The paper linked above states:
+<blockquote>
+<p>The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.</p>
+</blockquote>
+</li>
+</ol>
+<p>As said, networks are the main object of the theory, so let's briefly define them:</p>
+<blockquote>
+<p><strong>Networks</strong>: collections of linked nodes or items.</p>
+</blockquote>
+<p>What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.</p>
+<p>There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.</p>
+<h2 id="knowledge-and-learning"><a class="header" href="#knowledge-and-learning">Knowledge and Learning</a></h2>
+<p>The theory views knowledge and learning as properties of networks, and defines them as:</p>
+<ul>
+<li>
+<p><strong>Knowledge</strong></p>
+<ul>
+<li>Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.</li>
+<li>Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.</li>
+</ul>
+</li>
+<li>
+<p><strong>Learning</strong></p>
+<ul>
+<li>Network view: a change of network connections by exposure to experience and reasoning.</li>
+<li>Behavioural view: a persisting change in knowledge. Learning is evidenced through <em>a change</em> towards more appropriate behavioural responses (to a signal or stimuli.)</li>
+</ul>
+</li>
+</ul>
+<p>In a network, one node or link changing means much more has changed due to the ripple effects given by the links.</p>
+<p>Discussion on whether <em>all</em> networks really learn are left for the next post. This one focuses on learning-human-networks and how the theory can help understand and design them.</p>
+<h2 id="a-human-in-the-net"><a class="header" href="#a-human-in-the-net">A human in the net</a></h2>
+<p>A promising area for connectivism is as a paradigm to think of human networks (or human-and-resources networks), how to organise them (or letting them self-organise), which properties make nodes and the net grow and so forth.</p>
+<p>It appears of especial important in the digital, interconnected world; but also classrooms, organisations, and social networks in general.</p>
+<p>Let's consider the case of a human or agent embedded in a wider network such as a classroom, a group, community, organisation.</p>
+<p>This networks can be seen as an metaphorically organism, or just as a whole: when the connections and nodes change and so does the behaviour in response to input signals, which in certain cases will imply learning, and formation of knowledge.</p>
+<h3 id="example"><a class="header" href="#example">Example</a></h3>
+<p>Think of the response of an organisation in the event of a fire or an emergency.</p>
+<p>The input (fire alarm) ripples through the network as the nodes act and propagate activity: learning isn't <em>only</em> intra-personal, the whole network can be said to have learnt in this example.</p>
+<p>In the case of a classroom, this framework may aid us with questions such as:</p>
+<ul>
+<li>Centralised human-learning-network guided by teacher or a decentralised network? Should the teacher be more like a routing node?</li>
+<li>Are all items considered part of it, such as resources, or agents such as humans? Is it useful to split or join different networks?</li>
+<li>An open network where agents can change resources, or closed networks where they only have read permissions (if even so)?</li>
+</ul>
+<h2 id="a-human-is-a-net-theory-of-mind"><a class="header" href="#a-human-is-a-net-theory-of-mind">A human is a net (theory of mind)</a></h2>
+<p>We also want to focus on the individuals. Can connectivism help?</p>
+<p>Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.</p>
+<p>So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.</p>
+<details><summary>Resources</summary>
+<ol>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<ul>
+<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
+<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
+</ul>
+</li>
+</ol>
+</details>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="refining-connectivism"><a class="header" href="#refining-connectivism">Refining Connectivism</a></h1>
+<h2 id="do-all-networks-learn"><a class="header" href="#do-all-networks-learn">Do all networks learn?</a></h2>
+<p>The notion that all networks learn, just by virtue of being networks seems off. It does not correspond to what most of us would call <em>learning</em>.</p>
+<p>Is there some way to look at this, which makes more intuitive sense? Admittedly, there will be grey areas, but my view is that it <em>is</em> possible to conceptualise learning more clearly.</p>
+<p>Different networks vary on:</p>
+<ul>
+<li>The breath of signals they are responsive to,</li>
+<li>The intensity of signals they are responsive to,</li>
+<li>How varied their response is,</li>
+<li>How much directionality there is to the process,</li>
+<li>Possibly others (still thinking on it).</li>
+</ul>
+<p>The hypothesis is that, what we ordinarily call a <em>learning system</em> maps to:</p>
+<blockquote>
+<p>High-complexity systems that respond to a wide variety of input signals in a wide variety of ways, and change in a way that makes future reactions <em>appropriate</em> (which is left to intuition for the moment).</p>
+</blockquote>
+<p>Usually, <em>networks of</em> complex systems or of hybrid systems also change complex ways and will also be <em>learning systems</em>.</p>
+<p>On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered <em>learning systems</em>.</p>
+<p>In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not <em>learning systems</em>.</p>
+<p>Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.</p>
+<p>We could say that there is a threshold of a binary function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">re</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">pt</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">ore</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span> were systems are considered at <em>learners</em>. There will also be, certainly, grey areas.</p>
+<h2 id="with-that-which-one-learns"><a class="header" href="#with-that-which-one-learns">With that, which one learns?</a></h2>
+<p>We can apply the previous criteria to a large number of cases, and see whether we are satisfied:</p>
+<p><em>Do biological networks learn?</em></p>
+<p>It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built into the system (brain) e.g. by Hebbian learning. We can take this case as our paradigmatic <em>learning system</em>.</p>
+<p><em>Do artificial neural networks (ANNs) learn?</em></p>
+<p>During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. General-purpose process a wide variety of signals are are closer to <em>learning systems</em> than narrow AIs. Both only learn during training phase.</p>
+<p><em>Does a colony of insects learn?</em></p>
+<p>Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.</p>
+<p>But is this "reaction", or emergent behaviour, the same as learning? Only if the change is permanent. The variety of signals they process and the behaviours is quite varied and certainly are learning systems.</p>
+<p><em>Does the world wide web, or a library learn?</em></p>
+<p>The system will learn only if it is designed to do so. For example, after a certain event (like a query) a program may change the system to respond more appropriately in the future.</p>
+<p>When humans have designed them to adapt (say with software) these have limited learning ability and change in response to a narrow variety of events, and are not quite <em>learning systems</em>. Considered without the programs, these wouldn't have any learning at all.</p>
+<p>Hybrid systems such as humans-web, or humans-library systems certainly are <em>learning systems</em>.</p>
+<p>The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them</p>
+<p><em>Does the electric grid learns?</em> Same as above.</p>
+<p><em>Does a molecule or a material, which can be represented as a graph, learn?</em></p>
+<p>Signals can change them. But even if we define <em>appropriate</em> as increasing the likelihood to persist / survive, the ways in which it reacts and the number of stimuli it responds to are narrow, and won't be <em>learning systems</em>.</p>
+<p><em>Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems (say a book), learn?</em></p>
+<p>Yes, especially if we consider a company, a community and so forth.</p>
+<p>So all the different kinds may be considered to learning, if they permanently change in response to a stimuli and this adequately changes future responses.</p>
+<details><summary>Resources</summary>
+<ol>
+<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
+<ul>
+<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
+<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
+</ul>
+</li>
+</ol>
+</details>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom-vectors"><a class="header" href="#atom-vectors">Atom vectors</a></h1>
 <!-- In the [Future of AI Technology] (1992), Marvin Minsky said: -->
 <!---->
@@ -1374,7 +1688,7 @@ B --&gt; D(Embeddings)
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
-<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
+<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -1434,8 +1748,8 @@ B --&gt; D(Embeddings)
 </blockquote>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1">
-<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1">↩</a></p>
+<li id="footnote-1-1">
+<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -1555,124 +1869,6 @@ B --&gt; D(Embeddings)
 <p>Similar compounds have similar vectors, which is useful. But without structural information, all isomers have the same vector, which is a limitation.</p>
 <p>It is computationally cheap, and can help screen large number of compounds as a first selection step.</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="discovering-inorganic-solids"><a class="header" href="#discovering-inorganic-solids">Discovering Inorganic Solids</a></h1>
-<p>These are some of my opinions and ideas after reading two papers by Rosseinsky group:</p>
-<ol>
-<li><a href="https://pubs.acs.org/doi/10.1021/acs.accounts.4c00694">Discovery of Crystalline Inorganic Solids in the Digital Age</a> (2025).</li>
-<li><a href="https://www.nature.com/articles/s41467-021-25343-7">Element selection for crystalline inorganic solid discovery guided by unsupervised machine learning of experimentally explored chemistry</a> (2021)</li>
-</ol>
-<hr>
-<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
-<p>In solid-state chemistry, some elemental compositions (phase fields) are more likely to lead to isolable compounds than others.</p>
-<p>Deep learning models can help differentiate between these two groups, and lead researchers to the promising areas. The models can be trained for this task with data from ICSD, the Inorganic Crystal Structure Database.</p>
-<p>Such models would improve the allocation of resources when exploring new phase fields.</p>
-<h2 id="searching-for-new-compounds"><a class="header" href="#searching-for-new-compounds">Searching for new compounds</a></h2>
-<p>Some definitions will be used:</p>
-<ul>
-<li><em>Phase field</em>: the elements selected. Can be thought as the labels for cartesian axes.</li>
-<li><em>Composition</em>: the values or ranges of values in each axes. Once we have the axes' labels we can explore values computationally.</li>
-</ul>
-<p>We can search for compounds by <em>analogy</em> and by <em>exploration</em>, characterised in the table below:</p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr><th>Method</th><th>Starting Point</th><th>Concept</th><th>Success Rate</th></tr>
-</thead>
-<tbody>
-<tr><td>By analogy</td><td>Parent Compound</td><td>Change composition, same structure</td><td>Higher</td></tr>
-<tr><td>By exploration</td><td>Structural Hypothesis / Idea</td><td>Try composition and structure</td><td>Lower</td></tr>
-</tbody>
-</table>
-</div>
-<h3 id="analogy-based-search"><a class="header" href="#analogy-based-search">Analogy Based Search</a></h3>
-<p>The analogy-based search involves:</p>
-<ol>
-<li>Starts from a naturally occuring mineral, or previously discovered structures,</li>
-<li>Change its composition retaining the crystalline structure. For example, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">S</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">I</span></span></span></span></span> can be expanded by analogy to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">S</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">2</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mord mathrm">G</span><span class="mord"><span class="mord mathrm">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">I</span></span></span></span></span>, conserving the crystalline structure.</li>
-</ol>
-<p>With respect to analogy-based search, the paper notes:</p>
-<blockquote>
-<p>(...) it is straightforward to expand known structures by analogy through substitution, but the initial identification of such structures, which cannot be by analogy, is an entirely different question (...)</p>
-</blockquote>
-<p>And usefully,</p>
-<blockquote>
-<p>The properties of the analogy-based materials can be superior to those of the initial discovery (...)</p>
-</blockquote>
-<h3 id="exploratory-search"><a class="header" href="#exploratory-search">Exploratory Search</a></h3>
-<p>The ML-aided exploratory-search involves:</p>
-<ol>
-<li>Human selects elements or <em>phase field</em> e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathrm" style="margin-right:0.025em;">Y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathrm">Sr</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathrm">Ca</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathrm">Ga</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathrm">O</span></span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathrm">LiSiX</span><span class="mord"><span class="mord mathrm">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span>,...
-<ul>
-<li>A VAE decodes the seed-input into similar compounds (nearby in latent space).</li>
-<li>The reconstruction loss is used as a ranking metric for the generated compounds.</li>
-</ul>
-</li>
-<li>Computationally search in composition-space (Crystal Structure Prediction, CSP), find low-energy probe structures, e.g. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.
-<ul>
-<li>Can use physical constraints (like max n of atoms).</li>
-<li>Calculate thermodynamically stable<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup> probe structure (this step is complex).
-Hints experimentalists of promising region.</li>
-</ul>
-</li>
-<li>Try synthesis, and find somewhat similar structures to the computationally suggested one.</li>
-</ol>
-<p>We can describe the exploration steps as a flow as well:</p>
-<pre class="mermaid">---
-config:
-  flowchart:
-    htmlLabels: true
----
-flowchart LR
-A(("`**Input Phase**
-(e.g Na-Ca-O)`")) --&gt; B(VAE)
-B -- "`**Ranked Phases**`" --&gt; D(Distance Metric)
-D -- "`**Compositions**`" --&gt; F(Thermodynamics)
-F -- "`**Probe**`" --&gt; H(Try synthesis)
-
-style A fill:#123456,color:#f4f4f4,stroke-width:0px
-</pre>
-
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-1-1">
-<p>With respect to the convex hull. <a href="#fr-1-1-1">↩</a></p>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="discovering-inorganic-solids-1"><a class="header" href="#discovering-inorganic-solids-1">Discovering Inorganic Solids</a></h1>
-<h2 id="in-depth-workflow"><a class="header" href="#in-depth-workflow">In depth workflow</a></h2>
-<h3 id="dataset"><a class="header" href="#dataset">Dataset</a></h3>
-<p>The atom descriptors are taken from a atom-property database and include atomic weight, valence, ionic radius, and others.</p>
-<p>The 4-element crystals are selected from ICSD, and only the elements are retained.
-For example, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">CaNaLi</span><span class="mord"><span class="mord mathrm">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> would become <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">CaNaLiO</span></span></span></span></span> for training.</p>
-<p>The data is scaled 24 fold by performing all possible permutations of 4 elements, i.e. 4! (factorial). This enhances learning, reduces overfitting.</p>
-<h3 id="architecture-variational-autoencoder-vae"><a class="header" href="#architecture-variational-autoencoder-vae">Architecture: Variational Autoencoder (VAE)</a></h3>
-<p>Here the emphasis is on exploiting a pattern and not on interpretability, the human expert evaluates the compounds afterwards.</p>
-<p>An autoencoder consists of two parts, an encoder, and a decoder. The overall task is to reconstruct the original vector from the compressed representation.</p>
-<p>The encoder compresses the 148 vector into a 4D vector (latent vector), and the decoder decompresses it into 148D. The euclidean distance is then computed as a measure of error, and the gradient is used to correct the weights.</p>
-<p>Since the model is trained only on phase fields that lead to isolable materials, it is biased towards those compounds.</p>
-<p>Just like a single-class classifier using cat-only images, the VAE only sees positive instances, and no learning comes from predicting negatives.</p>
-<h3 id="inference-stage"><a class="header" href="#inference-stage">Inference Stage</a></h3>
-<p>Input structures are passed with a bit of noise each time and the reconstruction loss is used to rank them for synthetic exploration.</p>
-<p>A larger reconstruction loss means the phase is less likely to be synthesizable, since it learn to reconstruct only synthesizable regions.</p>
-<p>The rank will also tell how different the compound is to the original.</p>
-<h2 id="example-of-results"><a class="header" href="#example-of-results">Example of Results</a></h2>
-<p>After VAE ranking, the decision to explore Li-Sn-S-Cl phase field was based on the high conductivity of a related ternary field Li-Sn-S.</p>
-<p>The following image shows calculations performed, each a tripod, in a red background. Dark red represents little enery barrier from the convex hull, bright red the opposite.</p>
-<p>Most solids found by the group or by others are in dark areas of the plot with tripods overlaying.</p>
-<p>The magenta point A in the image is the new phase found, not far from the probe structure which was <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="mord"><span class="mord mathrm">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Sn</span><span class="mord"><span class="mord mathrm">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">Cl</span></span></span></span></span>.</p>
-<div class="center w40"> <!--other classes: w220, w420-->
-    <a href="assets/results_rosseinsky_energy_phase_map.png">
-    <img src="assets/results_rosseinsky_energy_phase_map.png" alt="Results showing compositions as S/(S+Cl) in y-axis and of Li/(Li+Sn) on the x-axis. The compositions vary from 0 to 1 for each. The point (1,1) is S and Li, the point (0,0) is SnCl. They evaluated many compositions and computed the energies." />
-    </a>
-    
-<p>
-    Image from <a href="https://www.nature.com/articles/s41467-021-25343-7">Original Paper</a> under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-SA 4.0</a>
-    </p>
-
-</div>
-
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h1>
 <p>TL;DR from the paper <a href="https://www.nature.com/articles/s41557-021-00716-z">"Best practices in machine learning for chemistry"</a> (2021), a very similar paper by the same authors is <a href="https://www.nature.com/articles/s41586-018-0337-2">"Machine learning for molecular and materials science"</a>.</p>
 <ul>
@@ -1723,7 +1919,7 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 <p>In all reports, remember to cite the methods and packages employed to ensure that the development community receive the recognition they deserve.</p>
 </blockquote>
 <p>They provide a great checklist but since the license is a mess I am not including it here.</p>
-<h2 id="example"><a class="header" href="#example">Example</a></h2>
+<h2 id="example-1"><a class="header" href="#example-1">Example</a></h2>
 <p>Take <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> as an example and go through the checklist.</p>
 <ul>
 <li><em>Database</em>:
@@ -1856,410 +2052,6 @@ For example, <span class="katex"><span class="katex-html" aria-hidden="true"><sp
 <li>t-SNE</li>
 </ul>
 <p>Reference of some of the techniques, book cited in some papers: 18. Hastie T, Tibshirani R, Friedman J (2001) The Elements of Statistical Learning, Springer Series in Statistics (Springer, New York).</p>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="compchem-map"><a class="header" href="#compchem-map">CompChem Map</a></h1>
-<p>This is a draft of areas I'd like to organise in some taxonomy.</p>
-<h2 id="finding-useful-molecules"><a class="header" href="#finding-useful-molecules">Finding Useful Molecules</a></h2>
-<ul>
-<li>Get a Materials Database(s), either method</li>
-</ul>
-<h3 id="method-1-direct-compounds-to-properties"><a class="header" href="#method-1-direct-compounds-to-properties">Method 1: Direct (Compounds to Properties)</a></h3>
-<ul>
-<li>Use DFT to guide towards one that fits the requirements (slow if we have billions of compounds.),</li>
-<li><em>Or</em> use the DB to train a NN to make predictions (needs labelled data for training)</li>
-<li><em>Or</em> similarity metrics to find new (similar) molecules.</li>
-<li>...</li>
-</ul>
-<h3 id="method-2-inverse-properties-to-compounds"><a class="header" href="#method-2-inverse-properties-to-compounds">Method 2: Inverse (Properties to Compounds)</a></h3>
-<ol>
-<li>Use the gradient to update embedding.</li>
-<li>Maximise or Minimise the needed properties.</li>
-</ol>
-<p>The paper's approach is more towards a <strong>Direct</strong> method. It is a method to generate embeddings that can then be used to train a neural network to predict properties.</p>
-<p>This can be arranged (not very tidily) in a chart:</p>
-<pre class="mermaid">---
-config:
-    flowchart:
-        htmlLabels:false
----
-
-flowchart TB
-
-A[("Compounds Database")]
-
-subgraph Direct["`**Direct**`"]
-    direction LR
-    B("`Electronic Structure
-    Predictions`")
-    C("`Train NN on DB
-    (with labelled data)`")
-    D("`Use similarity metrics to
-        find nearby candidates`")
-end
-
-subgraph Inverse["`**Inverse**`"]
-    direction TB
-    E("`Train VAE to create
-    smooth surface`")
-    E --&gt; F("`Link MLP to
-        latent vector`")
-    F --&gt; G("`Minimise or Maximise pps.
-            by changing vector`")
-end
-
-A --&gt; Inverse
-A --&gt; Direct
-
-</pre>
-
-<h2 id="unsupervised-learning-of-representations-of-atoms"><a class="header" href="#unsupervised-learning-of-representations-of-atoms">Unsupervised-Learning of Representations of Atoms</a></h2>
-<p>Other investigations of unsupervised learning of machine representation of atoms are:</p>
-<ul>
-<li>Zhou, Q. et al. Learning atoms for materials discovery. (2018).</li>
-<li>Tshitoyan, V. et al. Unsupervised word embeddings capture latent knowledge from materials science literature. (2019).</li>
-<li>Chakravarti, S. K. Distributed representation of chemical fragments. (2018).</li>
-<li>Butler K. et al. Distributed Representations of Atoms and Materials for Machine Learning. (2022).</li>
-</ul>
-<h2 id="supervised-learning-of-representations-of-atoms"><a class="header" href="#supervised-learning-of-representations-of-atoms">Supervised-Learning of Representations of Atoms</a></h2>
-<ul>
-<li>Jha, D. et al. ElemNet: deep learning the chemistry of materials from only elemental composition. (2018).</li>
-<li>Goodall, R. E. &amp; Lee, A. A. Predicting materials properties without crystal structure: deep representation learning from stoichiometry. (2020).</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="databases-and-benchmarks"><a class="header" href="#databases-and-benchmarks">Databases and Benchmarks</a></h1>
-<p>Bear in mind when using databases what this <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine learning for molecular and materials science</a> states:</p>
-<blockquote>
-<p>Data may require initial pre-processing, during which missing or spurious elements are identified and handled.</p>
-<p>Identifying and removing such errors is essential if ML algorithms are not to be misled by their presence.</p>
-</blockquote>
-<ul>
-<li>The <a href="https://www.nature.com/articles/s41586-018-0337-2">Machine Learning for molecular and materials science</a> aggregates many DBs and such in tables at the end</li>
-<li>Pillong, M. et al. A publicly available crystallisation data set and its application in machine learning. CrystEngComm (2017).</li>
-<li>ICSD: Inorganic Crystal Structure Dataset</li>
-<li>Jain, A. et al. The materials project: a materials genome approach to accelerating materials innovation.
-<ul>
-<li>The materials project database <a href="https://materialsproject.org/">https://materialsproject.org/</a></li>
-</ul>
-</li>
-<li>Benchmarking materials property prediction methods: the matbench test set and automatminer reference algorithm.
-<ul>
-<li>Matbench benchmark: <a href="https://hackingmaterials.lbl.gov/automatminer/datasets.html">https://hackingmaterials.lbl.gov/automatminer/datasets.html</a></li>
-</ul>
-</li>
-<li>Materials design and discovery with high-throughput density functional theory: the open quantum materials database (OQMD)</li>
-</ul>
-<p>Also <a href="https://www.nature.com/articles/s41598-018-35934-y">ElemNet</a> lists materials-and-properties' databases (experimentally observed and hypothetical):</p>
-<blockquote>
-<p>DFT calculations have offered opportunities for large-scale data collection such as the Open Quantum Materials Database (OQMD), the Automatic Flow of Materials Discovery Library (AFLOWLIB), the Materials Project, and the Novel Materials Discovery (NoMaD); they contain DFT computed properties of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> of experimentally-observed and hypothetical materials. In the past few decades, such materials datasets have led to the new data-driven paradigm of materials informatics</p>
-</blockquote>
-<p>ElemNet describes OQDM as well (bold is mine):</p>
-<blockquote>
-<p>OQMD is an extensive high-throughput DFT database, consisting of <strong>DFT computed</strong> crystallographic parameters and formation enthalpies of <strong>experimentally observed compounds</strong> taken from the Inorganic Crystal Structure Database (ICSD) <strong>and hypothetical structures</strong> created by decorating prototype structures from the ICSD with different compositions.</p>
-</blockquote>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="ai-in-pharma"><a class="header" href="#ai-in-pharma">AI in Pharma</a></h1>
-<p>The paper <a href="https://doi.org/10.1016/j.drudis.2021.11.023">Enhancing preclinical drug discovery with artificial intelligence</a> discusses all the areas in which Artificial Intelligence models can improve the Drug Discovery Pipeline.</p>
-<p>The steps in which AI can help include:</p>
-<ol>
-<li>Target Identification,</li>
-<li>Hit Identification,</li>
-<li>Lead Optimisation,</li>
-<li>Addressing the low preclinical-to-clinical success rate.</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
-<p>Personal comment: I disagree the theory's definition of <em>learning</em>, but agree with their view of <em>knowledge</em> in the digital era and the consequences of it.</p>
-<p>Also, their idea of relating learning with a network/graph is quite useful (even though they may have done it for other reasons).</p>
-<p>Lastly, <em>connectivism</em> is distinct but related to <em>connectionism</em>. The latter is a AI/DL framework inspired in biological neural networks.</p>
-<hr>
-<p><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">Connectivism</a> (2004) is "a learning theory for the digital age".</p>
-<h2 id="origin-and-definitions"><a class="header" href="#origin-and-definitions">Origin and Definitions</a></h2>
-<p>As the digital era unfolds a few important changes become clear:</p>
-<ul>
-<li>Knowledge grows faster and faster;</li>
-<li>Computers and algorithms role changes, and can now store, retrieve, analyse information and follow instructions.</li>
-</ul>
-<p>So the environment requires that we:</p>
-<ul>
-<li>Select and discriminate <em>what</em> to (and not to) learn;</li>
-<li>Develop ways to search the best knowledge-sources;</li>
-<li>Understand how knowledge is distributed in human networks, how it grows, changes...</li>
-</ul>
-<h3 id="definitions-of-learning"><a class="header" href="#definitions-of-learning">Definitions of Learning</a></h3>
-<p>Connectivism defines <em>learning</em> as (bold is mine):</p>
-<blockquote>
-<p>Learning is a process that occurs within nebulous environments of shifting core elements – not entirely under the control of the individual. Learning (defined as <strong>actionable knowledge</strong>) can reside outside of ourselves (within an organization or a database), is focused on connecting specialized information sets, and the connections that enable us to learn more are more important than our current state of knowing.</p>
-</blockquote>
-<p>It also states:</p>
-<blockquote>
-<p>Learning is a process of connecting specialized nodes or information sources.</p>
-</blockquote>
-<p>So if learning is redefined as <em>knowledge that we can use</em>, then indeed it is being conceptualised like a recipe in a database.</p>
-<p>This does not seem a definition most people subscribe to.</p>
-<p>What seems clear though is that there may be less <em>need to know</em> (how &amp; what) and more need of knowing-where the knowledge needed is (plus select and delegate).</p>
-<p>If instead we define learning as <em>a persistent change in the object's interaction with the world, as a result of a previous interaction</em> then it isn't learning what has changed. What changed are the specific tasks. For example, learning how to search may become more and more important.</p>
-<p>By this definition, one may argue that the aspects of learning that matter remain in place: making sense of a new problem.</p>
-<p>Also, at a lower pace, we also had to know how to search <em>before</em> the rapid informational changes: find the right expert for a job, record information on a piece of paper and so forth.</p>
-<p>But this insight into the dynamics of knowledge-rich era is still a useful idea:</p>
-<blockquote>
-<p>When knowledge, however, is needed, but not known, the ability to plug into sources to meet the requirements becomes a vital skill. As knowledge continues to grow and evolve, access to what is needed is more important than what the learner currently possesses.</p>
-</blockquote>
-<h3 id="systems-that-learn"><a class="header" href="#systems-that-learn">Systems That Learn</a></h3>
-<p>In their view, not only individuals can learn but also other objects, such as organisations and human (or social) networks.</p>
-<p>And, as mentioned earlier, the digital era involves even faster knowledge growth, and what we know will become proportionally less:</p>
-<blockquote>
-<p>When knowledge, however, is needed, but not known, the ability to plug into sources to meet the requirements becomes a vital skill. As knowledge continues to grow and evolve, access to what is needed is more important than what the learner currently possesses.</p>
-</blockquote>
-<p>Either way, representing learning as "CRUD" operations on a graph / network is a useful idea.</p>
-<p>They define connectivism as:</p>
-<blockquote>
-<p>Connectivism is the integration of principles explored by chaos, network, and complexity and self-organization theories. (...) Connectivism is driven by the understanding that decisions are based on rapidly altering foundations. New information is continually being acquired. The ability to draw distinctions between important and unimportant information is vital. The ability to recognize when new information alters the landscape based on decisions made yesterday is also critical.</p>
-</blockquote>
-<p>Notice that all the above fits well with a "behaviourist" view of learning but adding an interpretation of some aspects of learning via a graph (e.g. how the brain or an organisation learns via modifications of the graph) and considering that now information changes and grows at a faster rate. Also, considering a network of people as the "knowledge storage device" is quite insightful, as it is also meaningful to consider it from the perspective of a node.</p>
-<p>I'd also consider that the process of "digitally storing and updating information" isn't by itself organisational learning. But how the organisation responds to and prepares for new problems and events does fit the behaviourist definition of learning quite well.</p>
-<h2 id="networks"><a class="header" href="#networks">Networks</a></h2>
-<p>A central object of the theory are <strong>networks</strong>; as they state:</p>
-<blockquote>
-<p>A network can simply be defined as connections between entities. Computer networks, power grids, and social networks all function on the simple principle that people, groups, systems, nodes, entities can be connected to create an integrated whole. Alterations within the network have ripple effects on the whole.</p>
-</blockquote>
-<p>And also:</p>
-<blockquote>
-<p>The starting point of connectivism is the individual. Personal knowledge is comprised of a network, which feeds into organizations and institutions, which in turn feed back into the network, and then continue to provide learning to individual. This cycle of knowledge development (personal to network to organization) allows learners to remain current in their field through the connections they have formed.</p>
-<p>(...)</p>
-<p>This amplification of learning, knowledge and understanding through the extension of a personal network is the epitome of connectivism.</p>
-</blockquote>
-<p>Hence structure of interconnected nodes (a network or graph) is an important part of the naming <em>connectivism</em>. The aspects that the links and the nodes represent, how it grows or shrinks, what the link-pattern and architecture look like and so forth will change from problem to problem.</p>
-<p>A set of concrete instances of the idea of a graph seems to inspire connectionism, which appears in the area of human and organisations learning.</p>
-<h3 id="examples-of-networks"><a class="header" href="#examples-of-networks">Examples of Networks</a></h3>
-<ol>
-<li>The Internet, and later on the World Wide Web
-<ul>
-<li>Seems to have inspired this theory the most: nodes/documents becomes more useful, by being accessible and interlinked; suddenly, the individual is connected via a "fast"-link to a world wide network of documents; this idea also shines light on what an organisation is and how to improve it (more accessible, diverse knowledge for example)</li>
-<li>These both were from the start problems about networking; heterogeneous devices or resources linked together,</li>
-<li>These technologies opened up access to a network of resources and people.</li>
-<li>The world changed towards quicker decision-making, but I argue pattern-matching, and thinking strategies have not changed much.</li>
-</ul>
-</li>
-<li>Neural Networks, both biological and artificial;</li>
-<li>Certain aspects of organisms and organisations. The paper linked above states:
-<blockquote>
-<p>The organization and the individual are both learning organisms. Increased attention to knowledge management highlights the need for a theory that attempts to explain the link between individual and organizational learning.</p>
-</blockquote>
-</li>
-</ol>
-<p>As said, networks are the main object of the theory, so let's briefly define them:</p>
-<blockquote>
-<p><strong>Networks</strong>: collections of linked nodes or items.</p>
-</blockquote>
-<p>What is considered a node is defined by us. It could be an individual, a group, a government, countries that trade, libraries, and so forth.</p>
-<p>There are types of nodes and edges (or links) with different properties. For example, a node may have restricted access to a resource. There are also topologies with specific wiring pattern.</p>
-<h2 id="knowledge-and-learning"><a class="header" href="#knowledge-and-learning">Knowledge and Learning</a></h2>
-<p>The theory views knowledge and learning as properties of networks, and defines them as:</p>
-<ul>
-<li>
-<p><strong>Knowledge</strong></p>
-<ul>
-<li>Network view: it is stored distributed across the net (in nodes, edges) in a latent manner. Distributed knowledge means that no single node or edge is uniquely responsible for a concept, rather, many parts of the whole network are. There will be nodes that are more relevant in some situation than other, but the knowledge is still distributed across nodes and links.</li>
-<li>Behavioural view: It is evidenced as an appropriate response to an input signal or stimuli.</li>
-</ul>
-</li>
-<li>
-<p><strong>Learning</strong></p>
-<ul>
-<li>Network view: a change of network connections by exposure to experience and reasoning.</li>
-<li>Behavioural view: a persisting change in knowledge. Learning is evidenced through <em>a change</em> towards more appropriate behavioural responses (to a signal or stimuli.)</li>
-</ul>
-</li>
-</ul>
-<p>In a network, one node or link changing means much more has changed due to the ripple effects given by the links.</p>
-<p>Discussion on whether <em>all</em> networks really learn are left for the next post. This one focuses on learning-human-networks and how the theory can help understand and design them.</p>
-<h2 id="a-human-in-the-net"><a class="header" href="#a-human-in-the-net">A human in the net</a></h2>
-<p>A promising area for connectivism is as a paradigm to think of human networks (or human-and-resources networks), how to organise them (or letting them self-organise), which properties make nodes and the net grow and so forth.</p>
-<p>It appears of especial important in the digital, interconnected world; but also classrooms, organisations, and social networks in general.</p>
-<p>Let's consider the case of a human or agent embedded in a wider network such as a classroom, a group, community, organisation.</p>
-<p>This networks can be seen as an metaphorically organism, or just as a whole: when the connections and nodes change and so does the behaviour in response to input signals, which in certain cases will imply learning, and formation of knowledge.</p>
-<h3 id="example-1"><a class="header" href="#example-1">Example</a></h3>
-<p>Think of the response of an organisation in the event of a fire or an emergency.</p>
-<p>The input (fire alarm) ripples through the network as the nodes act and propagate activity: learning isn't <em>only</em> intra-personal, the whole network can be said to have learnt in this example.</p>
-<p>In the case of a classroom, this framework may aid us with questions such as:</p>
-<ul>
-<li>Centralised human-learning-network guided by teacher or a decentralised network? Should the teacher be more like a routing node?</li>
-<li>Are all items considered part of it, such as resources, or agents such as humans? Is it useful to split or join different networks?</li>
-<li>An open network where agents can change resources, or closed networks where they only have read permissions (if even so)?</li>
-</ul>
-<h2 id="a-human-is-a-net-theory-of-mind"><a class="header" href="#a-human-is-a-net-theory-of-mind">A human is a net (theory of mind)</a></h2>
-<p>We also want to focus on the individuals. Can connectivism help?</p>
-<p>Their general claim is that any network can learn by modifying connections and nodes of the network. And stores distributed knowledge.</p>
-<p>So can parts of the brain, which are networks of neurons, and learning is later on evidenced on the behaviour of individuals.</p>
-<details><summary>Resources</summary>
-<ol>
-<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-<ul>
-<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
-<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
-</ul>
-</li>
-</ol>
-</details>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="refining-connectivism"><a class="header" href="#refining-connectivism">Refining Connectivism</a></h1>
-<h2 id="do-all-networks-learn"><a class="header" href="#do-all-networks-learn">Do all networks learn?</a></h2>
-<p>The notion that all networks learn, just by virtue of being networks seems off. It does not correspond to what most of us would call <em>learning</em>.</p>
-<p>Is there some way to look at this, which makes more intuitive sense? Admittedly, there will be grey areas, but my view is that it <em>is</em> possible to conceptualise learning more clearly.</p>
-<p>Different networks vary on:</p>
-<ul>
-<li>The breath of signals they are responsive to,</li>
-<li>The intensity of signals they are responsive to,</li>
-<li>How varied their response is,</li>
-<li>How much directionality there is to the process,</li>
-<li>Possibly others (still thinking on it).</li>
-</ul>
-<p>The hypothesis is that, what we ordinarily call a <em>learning system</em> maps to:</p>
-<blockquote>
-<p>High-complexity systems that respond to a wide variety of input signals in a wide variety of ways, and change in a way that makes future reactions <em>appropriate</em> (which is left to intuition for the moment).</p>
-</blockquote>
-<p>Usually, <em>networks of</em> complex systems or of hybrid systems also change complex ways and will also be <em>learning systems</em>.</p>
-<p>On the other hand, low-complexity systems change in narrow and even predictable ways whichare not considered <em>learning systems</em>.</p>
-<p>In a sense learning is not the mechanism, but it's just the label. Complex systems that change directionally and in various ways learn; simple systems that change --by the same mechanism-- but do not behave in complex ways are not <em>learning systems</em>.</p>
-<p>Just reinforce it: the proposal is that learning mainly points to high-complexity, but the actual kind of change could be the same in both systems.</p>
-<p>We could say that there is a threshold of a binary function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.01968em;">pl</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">De</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">re</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal">pt</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">ore</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span> were systems are considered at <em>learners</em>. There will also be, certainly, grey areas.</p>
-<h2 id="with-that-which-one-learns"><a class="header" href="#with-that-which-one-learns">With that, which one learns?</a></h2>
-<p>We can apply the previous criteria to a large number of cases, and see whether we are satisfied:</p>
-<p><em>Do biological networks learn?</em></p>
-<p>It is generally agreed that learning involves changes in the wiring pattern, or degree of wiring, and this change can happen in different ways, and it is built into the system (brain) e.g. by Hebbian learning. We can take this case as our paradigmatic <em>learning system</em>.</p>
-<p><em>Do artificial neural networks (ANNs) learn?</em></p>
-<p>During training phase, connections (weights) are updated towards a goal through backpropagation, and the network behaviour (predictions) change. General-purpose process a wide variety of signals are are closer to <em>learning systems</em> than narrow AIs. Both only learn during training phase.</p>
-<p><em>Does a colony of insects learn?</em></p>
-<p>Complex organisms communicate and change their behaviour: Ants propagate pheromones which adapt their behaviour; humans similarly can do it by imitation of some kind. This "node update" propagates out, and may return to update the node further. Finally the network is seen as reacting appropriately.</p>
-<p>But is this "reaction", or emergent behaviour, the same as learning? Only if the change is permanent. The variety of signals they process and the behaviours is quite varied and certainly are learning systems.</p>
-<p><em>Does the world wide web, or a library learn?</em></p>
-<p>The system will learn only if it is designed to do so. For example, after a certain event (like a query) a program may change the system to respond more appropriately in the future.</p>
-<p>When humans have designed them to adapt (say with software) these have limited learning ability and change in response to a narrow variety of events, and are not quite <em>learning systems</em>. Considered without the programs, these wouldn't have any learning at all.</p>
-<p>Hybrid systems such as humans-web, or humans-library systems certainly are <em>learning systems</em>.</p>
-<p>The structure, interface, reliability that they have though, matters a lot in terms of how usable they are to humans, and so forth. These properties are still important across most network systems, be it learning networks or not. In other words, all non-learning networks can become learning networks when associated with other systems that can change them</p>
-<p><em>Does the electric grid learns?</em> Same as above.</p>
-<p><em>Does a molecule or a material, which can be represented as a graph, learn?</em></p>
-<p>Signals can change them. But even if we define <em>appropriate</em> as increasing the likelihood to persist / survive, the ways in which it reacts and the number of stimuli it responds to are narrow, and won't be <em>learning systems</em>.</p>
-<p><em>Do mixes of nodes made of proved-learning-systems (say humans) and non-learning systems (say a book), learn?</em></p>
-<p>Yes, especially if we consider a company, a community and so forth.</p>
-<p>So all the different kinds may be considered to learning, if they permanently change in response to a stimuli and this adequately changes future responses.</p>
-<details><summary>Resources</summary>
-<ol>
-<li><a href="https://www.scispace.com/pdf/elearnspace-connectivism-a-learning-theory-for-the-digital-4dh6aurogw.pdf">elearnspace. Connectivism: A Learning Theory for the Digital Age</a> (2004); this is a very interesting theory of learning (connectivism), that also briefly summarises other approaches (behaviourism, cognitivism, constructivism).
-<ul>
-<li>A more extensive work is at <a href="https://asianjde.com/ojs/index.php/AsianJDE/article/download/623/368">Connectivism</a> (2021).</li>
-<li>Similarly, <a href="https://www.tandfonline.com/doi/full/10.3109/0142159X.2016.1173661">Connectivism: a knowledge learning theory for the digital age?</a> (2016)</li>
-</ul>
-</li>
-</ol>
-</details>
-<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="machine-understanding"><a class="header" href="#machine-understanding">Machine Understanding</a></h1>
-<p>This is a work in progress. I am collecting views on Machine Understanding that I find historically or conceptually interesting.</p>
-<p>Currently, it's primarily John Searle's position, and then Koller and Benders idea of meaning.</p>
-<hr>
-<p>Usually, the Turing test (described in <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">"COMPUTING MACHINERY AND INTELLIGENCE"</a>, 1950, by Alan Turing) is assumed to be a test for thinking under the assumption that only outward behaviour matters.</p>
-<p>This isn't Turing's point, since he makes clear that we can't even define thinking. But it makes us consider: If a machine can pass as a human without being noticed by other humans, what are the consequences? Do the internal mechanisms matter? Should we call it thinking?</p>
-<p>As humans we tend to assume a mind behind any bit of language, as the ELIZA effect has shown. And even for evaluating understanding <em>without</em> linguistic outputs, humans have been wrong about Clever Hans (a horse assumed to understand arithmetic, but later on shown to read social queues to guess, which is still impressive). This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
-<p>The take away seems to be that we should evaluate more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
-<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">"Is the Brain's Mind a Computer Program?"</a> (Searle, 1990) Searle describes the Strong-AI advocates' view of the Turing test:</p>
-<blockquote>
-<p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
-</blockquote>
-<p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is an intuition pump that shows the absurdity Strong AI view. The underlying point is: a program on modern computers, even if it passes the Turing test (as his experiment's subject does), is a symbol manipulator, and as such it doesn't guarantee semantics nor thinking. Searle summarises his result:</p>
-<blockquote>
-<p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
-</blockquote>
-<p>Searle concludes that <em>no symbol manipulation program can think</em>, even if it has the right input-output behaviour: the system wouldn't yet know the meaning of the Chinese symbols/words it is manipulating.</p>
-<p>A last statement, equivalent to all of the above, of his:</p>
-<blockquote>
-<p>You can't get semantically loaded thought contents from formal computations alone, (...)</p>
-</blockquote>
-<h2 id="meaning"><a class="header" href="#meaning">Meaning</a></h2>
-<p>But what is meaning then? Searle believes that it's what the symbols refer to, but aren't those also symbols?
-One could argue that are the "symbols" of the perceptions for example. Consider a few more ideas about what meaning could be:</p>
-<ul>
-<li>"Meaning 1" comes from symbols standing for / referring to something; the symbols have mental content. I suppose that we may or not be aware of the mental content (conscious or unconscious). Or is <em>thinking</em> always a conscious process?</li>
-<li>"Meaning 2" is just "links between symbols".
-<ul>
-<li>A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols.</li>
-</ul>
-</li>
-</ul>
-<p>A variant of "Meaning 2" includes the <em>grounded symbols</em> that is, symbols for linked to perceptions, its parts, memories, emotions, and so forth. Something that the expression refers to, in the mind of the interpreter.</p>
-<p>Koller and Bender, in <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021) define meaning as the set of pairs <code>(expressions, intents)</code>; expressions can be symbols, gestures and intent is what's not in the expression itself. They hold that machines can't learn intents from form alone (symbols) but don't make statements about learning from pairs, or whether it's impossible.</p>
-<p>Beyond the above paragraph, <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> talks about the Turing test, Searle's Chinese Room, Harnad, their own Octopus test, and so on. For example, they say:</p>
-<blockquote>
-<p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form. But language is used for communication about the speakers’ actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the symbol grounding problem. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
-</blockquote>
-<p>"Meaning 1" may involve a meta process linking some aspects of the processing to the input and the output.</p>
-<p>But how does <code>Meaning 1</code> relate to <code>Meaning 2</code>? In my view, "Meaning 1" is built on top of symbol manipulation where the only "meaning" is how symbols are linked and represented ("Meaning 2"). However, this itself isn't enough, it may require specific ways in which the lower level processing happens, and also specific meta-processes.</p>
-<p>The Chinese Room Argument (CRA) refutes the Strong AI claim "Meaning 1" and the right I/O implies "Meaning 2"; the Strong AI claim may come from a (mis)-interpretation of the Turing test.</p>
-<p>In relation to <em>what meaning is</em> for Searle, besides the CRA, see:</p>
-<blockquote>
-<p>If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.</p>
-</blockquote>
-<h3 id="compressed-view"><a class="header" href="#compressed-view">Compressed View</a></h3>
-<p>Searle captures his overall view in this paragraph:</p>
-<blockquote>
-<p>First, I have not tried to prove that "a computer cannot think." Since any thing that can be simulated computationally can be described as a computer, and since our brains can at some levels be simulated, it follows trivially that our brains are computers and they can certainly think. But from the fact that a system can be simulated by symbol manipulation and the fact that it is thinking, it does not follow that thinking is equivalent to formal symbol manipulation.</p>
-</blockquote>
-<p>That is, some computers can think (brains are computers and can think), but the simulation of thought (right IO) through symbol manipulation does not guarantee any meaning or thought.</p>
-<p>Here something seems strange: Searle believes computers <em>can</em> think, but symbol manipulation can't have semantics (needed for thinking).</p>
-<p>In other words, semantics (or thoughts, or mental contents) are somewhat special. Let's explore why Searle may think so.</p>
-<h2 id="hardware-thoughts"><a class="header" href="#hardware-thoughts">Hardware Thoughts</a></h2>
-<p>Searle's questions are very interesting:</p>
-<blockquote>
-<p>why couldn't we give semantics to other computers?</p>
-<p>(...)</p>
-<p>What, in fact, are the differences between animal brains and computer systems that enable the Chinese room argument to work against computers but not against brains?</p>
-</blockquote>
-<p>(What do we need, beyond the program?)</p>
-<p>Searle continues:</p>
-<blockquote>
-<p>The most obvious difference is that the processes that define something as a computer—computational processes—are completely independent of any reference to a specific type of hardware implementation. One could in principle make a computer out of old beer cans strung together with wires and powered by windmills.</p>
-<p>But when it comes to brains, although science is largely ignorant of how brains function to produce mental states, one is struck by the extreme specificity of the anatomy (...)</p>
-</blockquote>
-<p>And later on, in the replies to comments states:</p>
-<blockquote>
-<p>(...) formal symbols have no physical, causal powers. The only power that symbols have, qua symbols, is the power to cause the next step in the program when the machine is running. And there is no question of waiting on further research to reveal the physical, causal properties of 0's and 1's. The only relevant properties of 0's and 1's are abstract computational properties, and they are already well known.</p>
-</blockquote>
-<p>So <em>even if</em> we consider "the processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion)." Searle would say <em>no</em>.</p>
-<p>Why? He's got this covered:</p>
-<blockquote>
-<p>(...) the brain does not merely instantiate a formal pattern or program (it does that, too), but it also causes mental events by virtue of specific neurobiological processes.</p>
-</blockquote>
-<ul>
-<li><em>Why would Searle consider that physical, causal links are required, rather than just the computation?</em> He says:</li>
-</ul>
-<blockquote>
-<p>But the simulation should not be confused with duplication. The computational model of mental processes is no more real than the computational model of any other natural phenomenon.</p>
-</blockquote>
-<p>For example simulating <em>a diesel car engine</em> doesn't release combustion gases; nor simulating <em>the rain</em> makes the computer wet, and so forth. Or in Searle's words:</p>
-<blockquote>
-<p>No one expects to get wet in a pool filled with Ping-Pong-ball models of water molecules. So why would anyone think a computer model of thought process es would actually think ?</p>
-</blockquote>
-<p>And in Searle's words, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
-<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the physical and causal structure of the brain and the computers (as currently designed).</p>
-<p>Also, the causal structure isn't that of wrapping <em>current computers</em> in a robot body, but about the kind of causation in the neural network.</p>
-<p>Fascinating stuff. But it's worth pondering here:</p>
-<ul>
-<li><em>Why exactly does meaning require a particular physico-causal organisation of matter?</em></li>
-<li>And, what if semantics / meaning are not what Searle thinks (and require certain causal structure), and all that is needed is rich representations of symbols (included grounded ones), links between them, and their processing? Note that I am not saying <em>form alone</em> since this was robustly refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but e.g. rich representations of symbols connected to multimodal perceptions. This is what they suggest in Section 7 (among other options):</li>
-</ul>
-<blockquote>
-<p>One approach to providing grounding is to train distributional models on corpora augmented with perceptual data, such as photos (...)</p>
-</blockquote>
-<p>Searle does consider this question, once in the quote at the beginning of this section, another time below in relation to the Churchlands' <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a Machine Think?"</a> (1990):</p>
-<blockquote>
-<p>(...) could not later investigation also show that semantics are entirely constituted of syntax ?</p>
-</blockquote>
-<p>It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological, and just as digestion, an emergent property of matter.</p>
-<p>Simulating digestion simply isn't digestion.</p>
-<h2 id="butis-it-relevant"><a class="header" href="#butis-it-relevant">But...is it relevant?</a></h2>
-<p>Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that solves problems, represents things internally in a rich, and understandable (by us) way; it may even do research and discover things.</p>
-<p>Leaving aside the important question of morality (which for Searle wouldn't seem to be a problem, since they aren't real beings), then, what would we call what these machines do?</p>
-<p>What status would these systems have? And what are they, just useful-ish computers?</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
 <ul>
