@@ -9,6 +9,7 @@ This is a work in progress, that explores the topic of "Machine Understanding", 
 ## Strong AI and the Turing test
 
 The paper [Computing Machinery and Intelligence][turing] (1950, by Alan Turing), describes a game with three participants:
+
 - Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a digital computer.
 - The digital computer: tasked to play the part of (imitate) a man,
 - The man: tasked to be authentic.
@@ -16,6 +17,7 @@ The paper [Computing Machinery and Intelligence][turing] (1950, by Alan Turing),
 Turing called this "The Imitation Game", but nowadays it is most often referred to as the "Turing test".
 
 In my view, this test was a way to avoid both:
+
 - Defining _thinking_,
 - Comparing more closely brains and digital computers.
 
@@ -27,10 +29,10 @@ The Strong AI advocates seem interpret that _if the machine performs like a huma
 
 > The feature of using electricity is thus seen to be only a very superficial similarity [between brains and digital computers]. If we wish to find such similarities we should look rather for mathematical analogies of function.
 
-
 Beyond this reading of Turing's paper there are other analyses which follow below.
 
 ## More on Strong AI views
+
 In [Is the Brain's Mind a Computer Program?][searle_simple] (1990) Searle states that Strong-AI advocates take the Turing test as a test for machine thinking:
 
 > The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability&mdash;say, the ability to do addition or to understand Chinese&mdash;then the computer also has that ability.

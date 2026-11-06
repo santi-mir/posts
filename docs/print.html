@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-6e748fcb.js";
+            window.path_to_searchindex_js = "searchindex-2c02929c.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-09f3f0e1.js"></script>
@@ -1300,32 +1300,66 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="machine-understanding"><a class="header" href="#machine-understanding">Machine Understanding</a></h1>
 <p>This is a work in progress, that explores the topic of "Machine Understanding", "Machine Thinking" and related ideas.</p>
+<!-- Either way, this blog post asks: _Should we consider about the internal processes?_ -->
 <hr>
 <h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing test</a></h2>
-<p>The <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a> (1950, by Alan Turing), is a remote chat where a human is tasked to tell who of the other two members of the chat is a computer.</p>
-<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">"Is the Brain's Mind a Computer Program?"</a> (1990) Searle states that Strong-AI advocates take the Turing test as a test for machine thinking:</p>
+<p>The paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (1950, by Alan Turing), describes a game with three participants:</p>
+<ul>
+<li>Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a digital computer.</li>
+<li>The digital computer: tasked to play the part of (imitate) a man,</li>
+<li>The man: tasked to be authentic.</li>
+</ul>
+<p>Turing called this "The Imitation Game", but nowadays it is most often referred to as the "Turing test".</p>
+<p>In my view, this test was a way to avoid both:</p>
+<ul>
+<li>Defining <em>thinking</em>,</li>
+<li>Comparing more closely brains and digital computers.</li>
+</ul>
+<p>He does write an ambiguous paragraph about it:</p>
+<blockquote>
+<p>May not machines carry out something which ought to be described as thinking but which is very different from what a man does? (...) if, nevertheless, a machine can be constructed to play the imitation game satisfactorily, we need not be troubled by this objection.</p>
+</blockquote>
+<p>The Strong AI advocates seem interpret that <em>if the machine performs like a human, then it thinks</em>; but as listed above, Turing seems to know this is a more complex problem. For example, he says:</p>
+<blockquote>
+<p>The feature of using electricity is thus seen to be only a very superficial similarity [between brains and digital computers]. If we wish to find such similarities we should look rather for mathematical analogies of function.</p>
+</blockquote>
+<p>Beyond this reading of Turing's paper there are other analyses which follow below.</p>
+<h2 id="more-on-strong-ai-views"><a class="header" href="#more-on-strong-ai-views">More on Strong AI views</a></h2>
+<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Is the Brain's Mind a Computer Program?</a> (1990) Searle states that Strong-AI advocates take the Turing test as a test for machine thinking:</p>
 <blockquote>
 <p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
 </blockquote>
-<p>But, we could ask the Strong AI advocates:</p>
-<ul>
-<li>Does such machine experience the world the same than us?</li>
-<li>What about the internal mechanisms?</li>
-<li>Why only care about overt behaviour?</li>
-<li>Is the Turing test the best one for this purpose?</li>
-</ul>
-<p>There are a few reasons that make this interpretation untrustworthy.</p>
-<ul>
-<li>First, we may be bad at evaluating this difference.</li>
-<li>Second, even if we evaluate correctly, it may be that the test does not provide conclusive evidence of thinking or another cognitive capacity.</li>
-</ul>
-<h2 id="first-are-we-good-evaluators"><a class="header" href="#first-are-we-good-evaluators">First: Are we good evaluators?</a></h2>
+<p>And some evidence may come from <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a machine think?"</a> (the part in quotes is Searle's main axiom):</p>
+<blockquote>
+<p>(...) "Syntax by itself is neither constitutive of nor sufficient for semantics." (...) to assume its truth is tantamount to begging the question against the research program of classical AI, for that program is predicated on the very interesting assumption that if one can just set in motion an appropriately structured internal dance of syntactic elements, appropriately connected to inputs and outputs, it can produce the same cognitive states and achievements found in human beings.</p>
+</blockquote>
+<p>Other related quotes being:</p>
+<blockquote>
+<p>Chinese room makes axiom 3 tempting to the unwary, (...)</p>
+</blockquote>
+<p>And:</p>
+<blockquote>
+<p>Even though Searle's Chinese room may appear to be "semantically dark," he is in no position to insist, on the strength of this appearance, that rule-governed symbol manipulation can never constitute semantic phenomena, (...)</p>
+</blockquote>
+<p>Indeed, the Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's <strong>Axiom 3</strong>, that "<em>programs are neither constitutive nor sufficient for minds</em>".</p>
+<!-- But the two aren't really equivalent. -->
+<!-- - Does such machine have mental contents? -->
+<!-- - What about the internal mechanisms? Why only care about overt behaviour? -->
+<!--     - Some would say: only computing the same function matters. -->
+<!-- - Is the Turing test the best one for this purpose? -->
+<!---->
+<p>The next two sections expand on two aspects, respectively:</p>
+<ol>
+<li>Are we good evaluators of language outputs?</li>
+<li>If we are good evaluators, and a machine passes the Turing test, what can we conclude?</li>
+</ol>
+<h2 id="are-we-good-evaluators"><a class="header" href="#are-we-good-evaluators">Are we good evaluators?</a></h2>
 <p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown.</p>
 <p>Humans have also been wrong about <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, and later on shown to guess the answer social queues (which is still impressive, but a different capability).</p>
 <p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
 <!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
 <p>The take-away seems to be that we should evaluate behaviour more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
-<h2 id="second-turing-tests-usefulness"><a class="header" href="#second-turing-tests-usefulness">Second: Turing test's usefulness</a></h2>
+<h2 id="turing-tests-usefulness"><a class="header" href="#turing-tests-usefulness">Turing test's usefulness</a></h2>
 <p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view. Searle summarises his result as:</p>
 <blockquote>
 <p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
@@ -1352,6 +1386,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <blockquote>
 <p>But language is used for communication about the speakers' actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the <em>symbol grounding problem</em>. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
 </blockquote>
+<p>An overview on the theme of symbol grounding and understanding (in LLMs) is given by David Chalmers in <a href="https://consc.net/papers/groundingdebate.pdf">this presentation</a> (2023).</p>
 <!-- ### Recap -->
 <!---->
 <!-- So far we considered the Strong AI view of the Turing test, and both practical and theoretical arguments against it. The former about a history of problems of human evaluating the output, and the latter related to the Chinese Room Argument and the training on form only. -->
