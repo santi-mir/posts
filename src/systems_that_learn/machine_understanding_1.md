@@ -8,13 +8,18 @@ This is a work in progress, that explores the topic of "Machine Understanding", 
 
 ## Strong AI and the Turing test
 
-The paper [Computing Machinery and Intelligence][turing] (1950, by Alan Turing), describes a game with three participants:
+The paper [Computing Machinery and Intelligence][turing] (1950, by Alan Turing), describes a game with three participants.
 
-- Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a digital computer.
-- The digital computer: tasked to play the part of (imitate) a man,
-- The man: tasked to be authentic.
+On one game, there are a:
+- Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a woman.
+- Man: tasked to play the part of (imitate) a man,
+- Woman: tasked to be authentic.
+
+In the second game, a computer takes the role of the man; and we statistically compare differences (can the computer pass as a woman with the same skill a man does).
 
 Turing called this "The Imitation Game", but nowadays it is most often referred to as the "Turing test".
+
+There is also a simplified variant of it: Can the interrogator distinguish which participant isn't a human?
 
 In my view, this test was a way to avoid both:
 
@@ -163,6 +168,7 @@ Fascinating. But it's worth pondering here:
 
 > One approach to providing grounding is to train distributional models on corpora augmented with perceptual data, such as photos (...)
 
+
 Searle does consider this question, once in the quote at the beginning of this section, another time below in relation to the Churchlands' ["Could a Machine Think?"][churchlands] (1990):
 
 > (...) could not later investigation also show that semantics are entirely constituted of syntax ?
@@ -179,11 +185,62 @@ It may even do research and discover things.
 
 What would we call what these machines do? What are the limits of it? What moral status would these systems have (maybe none)? Would they be more than just useful-ish computers?
 
+
+## Accounts of Understanding
+
+Searle claims a machine doing only symbol manipulation won't learn meanings, in other words won't think or understand.
+
+However, regardless of Searle's experiment, one could still look inside as well, to see the kind of programs a learning machine develops during training.
+
+So there is a duality of judging a system's understanding:
+- From test performance and OoD generalisation;
+- From the learning of internal structures (say general ones, algorithms).
+
+Turing does mention a "strong objection" which is somewhat related to that distinction but does not consider the internal programs in any detail (except to say "programmed vs learnt" in the "child" stage). It's still notable that he described machine learning ([see section 7][turing]) in good conceptual depth.
+
+But _what kind_ of programs the machine learns, observed internally, does not seem to have been a worry for him. This is, in part, why the Chinese Room took off, thought Searle wouldn't really care about the internal structure.
+
+I consider that a machine should be evaluated internally as well, and in some cases it will have _some_ understanding. That is, it would have learn general programs, not just look-up tables or local rules and heuristics.
+
+That is dichotomy presented by Lombrozo et. al. in the paper ["Machine Understanding"][mu] (2026). They consider _understanding_ is always for system _S_ and a given task _T_ such as "_Do LLMs (S) understand language (T)?_". The provide a framework to specify _S_ and one to account for the system's understanding of a task.
+
+An example contextualises these ideas:
+
+> Dr. Benchmark argues that S1 possesses better understanding because it returns the correct answer on 83% of the provided inputs, whereas S2 returns the correct answer on only 76%. Dr. Decode argues that S2 possesses better understanding because it implements a (noisy) rule for cal culating products, whereas S1 involves a look-up table that happens to contain the correct outputs for 83% of tested inputs. Which scientist is correct?
+
+Lombrozo et. al. consider 2 accounts of understanding:
+1. _Model-based_:
+  > The basic intuition behind model-based accounts is that understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.
+
+  This is usually studied by XAI either looking inside the black box, or using some post hoc XAI method, e.g. decoding a layer, analysing the attention mechanisms or graph-based links.
+
+  A related area is mechanistic interpretability (finding circuits, though it is  hard) and the design of causal models.
+
+  Another related area is the design of interpretable models (e.g. work by Cynthia Rudin).
+
+  They add:
+
+  > Model-based approaches can successfully explain the contrast between MULT and LOOKUP. Within a range of specified conditions (e.g., generating products for integers between 1 and 10), MULT and LOOK-UP can exhibit exactly the same performance; it is their internal properties that vary. And one thing MULT possesses, but LOOK-UP lacks, is a representation of the dependence relationship that holds between a product and its multiplicands (for integers in general).
+2. _Ability-based_
+  > On ability-based accounts, a system's understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.
+  > (...)
+  > (On a model-based account, it could also offer indirect evidence about internal properties.)
+
+
+We have partly considered these two earlier as internal representations and overt behaviour (Turing test), respectively.
+
+The paper includes two other aspects: _etiology and _phenomenology_ based understanding.
+
+_Model-based_ can also include architectural biases (e.g. symmetry invariances) that include understanding from the start. They state (bold is mine):
+
+What they miss there, as far as I can see, is mechanistic interpretability and the design of interpretable models.
+
 [chalmers]: https://consc.net/papers/groundingdebate.pdf
 [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120
 [eliza]: https://en.wikipedia.org/wiki/ELIZA_effect
 [hans]: https://en.wikipedia.org/wiki/Clever_Hans
-[melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMc
+[melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
+[mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf
 [semantic_net]: https://en.wikipedia.org/wiki/Semantic_network
