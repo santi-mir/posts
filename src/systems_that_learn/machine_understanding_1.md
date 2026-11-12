@@ -11,6 +11,7 @@ This is a work in progress, that explores the topic of "Machine Understanding", 
 The paper [Computing Machinery and Intelligence][turing] (1950, by Alan Turing), describes a game with three participants.
 
 On one game, there are a:
+
 - Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a woman.
 - Man: tasked to play the part of (imitate) a man,
 - Woman: tasked to be authentic.
@@ -168,7 +169,6 @@ Fascinating. But it's worth pondering here:
 
 > One approach to providing grounding is to train distributional models on corpora augmented with perceptual data, such as photos (...)
 
-
 Searle does consider this question, once in the quote at the beginning of this section, another time below in relation to the Churchlands' ["Could a Machine Think?"][churchlands] (1990):
 
 > (...) could not later investigation also show that semantics are entirely constituted of syntax ?
@@ -185,7 +185,6 @@ It may even do research and discover things.
 
 What would we call what these machines do? What are the limits of it? What moral status would these systems have (maybe none)? Would they be more than just useful-ish computers?
 
-
 ## Accounts of Understanding
 
 Searle claims a machine doing only symbol manipulation won't learn meanings, in other words won't think or understand.
@@ -193,6 +192,7 @@ Searle claims a machine doing only symbol manipulation won't learn meanings, in 
 However, regardless of Searle's experiment, one could still look inside as well, to see the kind of programs a learning machine develops during training.
 
 So there is a duality of judging a system's understanding:
+
 - From test performance and OoD generalisation;
 - From the learning of internal structures (say general ones, algorithms).
 
@@ -209,12 +209,13 @@ An example contextualises these ideas:
 > Dr. Benchmark argues that S1 possesses better understanding because it returns the correct answer on 83% of the provided inputs, whereas S2 returns the correct answer on only 76%. Dr. Decode argues that S2 possesses better understanding because it implements a (noisy) rule for cal culating products, whereas S1 involves a look-up table that happens to contain the correct outputs for 83% of tested inputs. Which scientist is correct?
 
 Lombrozo et. al. consider 2 accounts of understanding:
+
 1. _Model-based_:
   > The basic intuition behind model-based accounts is that understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.
 
   This is usually studied by XAI either looking inside the black box, or using some post hoc XAI method, e.g. decoding a layer, analysing the attention mechanisms or graph-based links.
 
-  A related area is mechanistic interpretability (finding circuits, though it is  hard) and the design of causal models.
+  A related area is mechanistic interpretability (finding circuits, though it is hard) and the design of causal models.
 
   Another related area is the design of interpretable models (e.g. work by Cynthia Rudin).
 
@@ -225,7 +226,6 @@ Lombrozo et. al. consider 2 accounts of understanding:
   > On ability-based accounts, a system's understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.
   > (...)
   > (On a model-based account, it could also offer indirect evidence about internal properties.)
-
 
 We have partly considered these two earlier as internal representations and overt behaviour (Turing test), respectively.
 

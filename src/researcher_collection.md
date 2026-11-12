@@ -1,3 +1,5 @@
+# List of Researchers
+
 This is just a list of researchers that span topics I am interested on (not citing some that are linked to them, and adding some that aren't alive anymore):
 
 - Understanding in LMs and AIs:

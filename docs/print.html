@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-2c02929c.js";
+            window.path_to_searchindex_js = "searchindex-455e5c64.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-09f3f0e1.js"></script>
@@ -1303,13 +1303,16 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <!-- Either way, this blog post asks: _Should we consider about the internal processes?_ -->
 <hr>
 <h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing test</a></h2>
-<p>The paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (1950, by Alan Turing), describes a game with three participants:</p>
+<p>The paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (1950, by Alan Turing), describes a game with three participants.</p>
+<p>On one game, there are a:</p>
 <ul>
-<li>Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a digital computer.</li>
-<li>The digital computer: tasked to play the part of (imitate) a man,</li>
-<li>The man: tasked to be authentic.</li>
+<li>Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a woman.</li>
+<li>Man: tasked to play the part of (imitate) a man,</li>
+<li>Woman: tasked to be authentic.</li>
 </ul>
+<p>In the second game, a computer takes the role of the man; and we statistically compare differences (can the computer pass as a woman with the same skill a man does).</p>
 <p>Turing called this "The Imitation Game", but nowadays it is most often referred to as the "Turing test".</p>
+<p>There is also a simplified variant of it: Can the interrogator distinguish which participant isn't a human?</p>
 <p>In my view, this test was a way to avoid both:</p>
 <ul>
 <li>Defining <em>thinking</em>,</li>
@@ -1356,7 +1359,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <h2 id="are-we-good-evaluators"><a class="header" href="#are-we-good-evaluators">Are we good evaluators?</a></h2>
 <p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown.</p>
 <p>Humans have also been wrong about <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, and later on shown to guess the answer social queues (which is still impressive, but a different capability).</p>
-<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>.</p>
+<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">with LLMs</a>.</p>
 <!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
 <p>The take-away seems to be that we should evaluate behaviour more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
 <h2 id="turing-tests-usefulness"><a class="header" href="#turing-tests-usefulness">Turing test's usefulness</a></h2>
@@ -1443,6 +1446,48 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <p>Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that carries out the computations of those processes, solves problems, represents things internally in a rich, and understandable (by us) way and so forth.</p>
 <p>It may even do research and discover things.</p>
 <p>What would we call what these machines do? What are the limits of it? What moral status would these systems have (maybe none)? Would they be more than just useful-ish computers?</p>
+<h2 id="accounts-of-understanding"><a class="header" href="#accounts-of-understanding">Accounts of Understanding</a></h2>
+<p>Searle claims a machine doing only symbol manipulation won't learn meanings, in other words won't think or understand.</p>
+<p>However, regardless of Searle's experiment, one could still look inside as well, to see the kind of programs a learning machine develops during training.</p>
+<p>So there is a duality of judging a system's understanding:</p>
+<ul>
+<li>From test performance and OoD generalisation;</li>
+<li>From the learning of internal structures (say general ones, algorithms).</li>
+</ul>
+<p>Turing does mention a "strong objection" which is somewhat related to that distinction but does not consider the internal programs in any detail (except to say "programmed vs learnt" in the "child" stage). It's still notable that he described machine learning (<a href="https://academic.oup.com/mind/article/LIX/236/433/986238">see section 7</a>) in good conceptual depth.</p>
+<p>But <em>what kind</em> of programs the machine learns, observed internally, does not seem to have been a worry for him. This is, in part, why the Chinese Room took off, thought Searle wouldn't really care about the internal structure.</p>
+<p>I consider that a machine should be evaluated internally as well, and in some cases it will have <em>some</em> understanding. That is, it would have learn general programs, not just look-up tables or local rules and heuristics.</p>
+<p>That is dichotomy presented by Lombrozo et. al. in the paper <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">"Machine Understanding"</a> (2026). They consider <em>understanding</em> is always for system <em>S</em> and a given task <em>T</em> such as "<em>Do LLMs (S) understand language (T)?</em>". The provide a framework to specify <em>S</em> and one to account for the system's understanding of a task.</p>
+<p>An example contextualises these ideas:</p>
+<blockquote>
+<p>Dr. Benchmark argues that S1 possesses better understanding because it returns the correct answer on 83% of the provided inputs, whereas S2 returns the correct answer on only 76%. Dr. Decode argues that S2 possesses better understanding because it implements a (noisy) rule for cal culating products, whereas S1 involves a look-up table that happens to contain the correct outputs for 83% of tested inputs. Which scientist is correct?</p>
+</blockquote>
+<p>Lombrozo et. al. consider 2 accounts of understanding:</p>
+<ol>
+<li><em>Model-based</em>:</li>
+</ol>
+<blockquote>
+<p>The basic intuition behind model-based accounts is that understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.</p>
+</blockquote>
+<p>This is usually studied by XAI either looking inside the black box, or using some post hoc XAI method, e.g. decoding a layer, analysing the attention mechanisms or graph-based links.</p>
+<p>A related area is mechanistic interpretability (finding circuits, though it is  hard) and the design of causal models.</p>
+<p>Another related area is the design of interpretable models (e.g. work by Cynthia Rudin).</p>
+<p>They add:</p>
+<blockquote>
+<p>Model-based approaches can successfully explain the contrast between MULT and LOOKUP. Within a range of specified conditions (e.g., generating products for integers between 1 and 10), MULT and LOOK-UP can exhibit exactly the same performance; it is their internal properties that vary. And one thing MULT possesses, but LOOK-UP lacks, is a representation of the dependence relationship that holds between a product and its multiplicands (for integers in general).</p>
+</blockquote>
+<ol start="2">
+<li><em>Ability-based</em></li>
+</ol>
+<blockquote>
+<p>On ability-based accounts, a system's understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.
+(...)
+(On a model-based account, it could also offer indirect evidence about internal properties.)</p>
+</blockquote>
+<p>We have partly considered these two earlier as internal representations and overt behaviour (Turing test), respectively.</p>
+<p>The paper includes two other aspects: _etiology and <em>phenomenology</em> based understanding.</p>
+<p><em>Model-based</em> can also include architectural biases (e.g. symmetry invariances) that include understanding from the start. They state (bold is mine):</p>
+<p>What they miss there, as far as I can see, is mechanistic interpretability and the design of interpretable models.</p>
 <!-- Consider a few more ideas about what meaning could be: -->
 <!---->
 <!-- - "Meaning A" is what the symbols stand for / refer to; and the referee is mental content (conscious or unconscious, I assume, and one may split System 1 and System 2, as Daniel Kahnemann argued). -->
