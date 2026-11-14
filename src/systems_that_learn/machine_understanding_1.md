@@ -198,42 +198,56 @@ So there is a duality of judging a system's understanding:
 
 Turing does mention a "strong objection" which is somewhat related to that distinction but does not consider the internal programs in any detail (except to say "programmed vs learnt" in the "child" stage). It's still notable that he described machine learning ([see section 7][turing]) in good conceptual depth.
 
-But _what kind_ of programs the machine learns, observed internally, does not seem to have been a worry for him. This is, in part, why the Chinese Room took off, thought Searle wouldn't really care about the internal structure.
+But in the case of learning machines, _what kind_ of programs do/can they learn?
 
-I consider that a machine should be evaluated internally as well, and in some cases it will have _some_ understanding. That is, it would have learn general programs, not just look-up tables or local rules and heuristics.
+Is it a look-up table, local rules and heuristics, or general algorithms (or what is it)?
 
-That is dichotomy presented by Lombrozo et. al. in the paper ["Machine Understanding"][mu] (2026). They consider _understanding_ is always for system _S_ and a given task _T_ such as "_Do LLMs (S) understand language (T)?_". The provide a framework to specify _S_ and one to account for the system's understanding of a task.
+In the paper ["Machine Understanding"][mu] (2026), Lombrozo et. al. consider _understanding_ as defined for a system _S_ and a task _T_ e.g. "_Do LLMs (S) understand language (T)?_".
+
+They provide _a framework_ to specify _S_, a two _accounts_ of a system's understanding of a task.
 
 An example contextualises these ideas:
 
 > Dr. Benchmark argues that S1 possesses better understanding because it returns the correct answer on 83% of the provided inputs, whereas S2 returns the correct answer on only 76%. Dr. Decode argues that S2 possesses better understanding because it implements a (noisy) rule for cal culating products, whereas S1 involves a look-up table that happens to contain the correct outputs for 83% of tested inputs. Which scientist is correct?
 
-Lombrozo et. al. consider 2 accounts of understanding:
+This post briefly describes their two _accounts_.
 
 1. _Model-based_:
   > The basic intuition behind model-based accounts is that understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.
+  >
+  > (...)
+  > A challenge for model-based accounts is defining which internal properties constitute understanding.
 
-  This is usually studied by XAI either looking inside the black box, or using some post hoc XAI method, e.g. decoding a layer, analysing the attention mechanisms or graph-based links.
+  This view accounts for MULT understading more than LOOK-UP due to the structure (considers the relationship between multiplicands).
 
-  A related area is mechanistic interpretability (finding circuits, though it is hard) and the design of causal models.
+  Decoding layers, which is mentioned a few times in the paper, or computing saliency maps and feature importances are post hoc XAI methods. Decoding a layers may be considered a mechanistic interpretability method, depending on how it is done.
 
-  Another related area is the design of interpretable models (e.g. work by Cynthia Rudin).
+  Other areas are: the design of interpretable and or causal models.
 
-  They add:
 
-  > Model-based approaches can successfully explain the contrast between MULT and LOOKUP. Within a range of specified conditions (e.g., generating products for integers between 1 and 10), MULT and LOOK-UP can exhibit exactly the same performance; it is their internal properties that vary. And one thing MULT possesses, but LOOK-UP lacks, is a representation of the dependence relationship that holds between a product and its multiplicands (for integers in general).
+
 2. _Ability-based_
   > On ability-based accounts, a system's understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.
-  > (...)
-  > (On a model-based account, it could also offer indirect evidence about internal properties.)
 
-We have partly considered these two earlier as internal representations and overt behaviour (Turing test), respectively.
+  They argue that benchmarks are how researchers try to answer the question of performance. But then, there is the question for general ability and where there may be the need to "look inside".
 
-The paper includes two other aspects: _etiology and _phenomenology_ based understanding.
+We have partly considered these two earlier as _internal representations_ and _overt behaviour_ (Turing test), respectively.
 
-_Model-based_ can also include architectural biases (e.g. symmetry invariances) that include understanding from the start. They state (bold is mine):
+The paper includes _etiology_ and _phenomenology_ based "add owns" for the two _accounts_ given above; they are quite interesting, the former is related to the training process and the latter to subjective experience. We won't discuss them further since this is a brief-ish introduction.
 
-What they miss there, as far as I can see, is mechanistic interpretability and the design of interpretable models.
+An interesting aspects of the paper is the use of a story or hypothetical to frame and illustrate the methods and accounts, such as Dr. Benchmark, Dr. Decode.
+
+Later on they use one to make clear how each account is related also to a way to conside _what constitutes evidence of understanding_, in the quote below the bold is mine.
+
+> Having offered a landscape for possible views about understanding, it might seem attractive to develop benchmarks corresponding to each. Unfortunately, doing so would miss the point: benchmarks will reflect **performance** that could **only constitute understanding on an ability-based account**. On model-based accounts, benchmarks can only offer indirect evidence (for internal properties).
+>
+> (...)
+>
+> Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of **internal representations**: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from **performance**: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the **system's history: its training and interactions in the world**. And Dr. P's evidence comes from **phenomenology** – an account of subjective experience and how the system does (or doesn't) experience anxiety. **Whose evidence should take precedence, especially when the scientists reach conflicting conclusions?** The answer is that it **depends on one's account of understanding**, and if that isn't made explicit and introduced into the debate, these scientists will simply talk past one another.
+
+<!-- _Model-based_ can also include architectural biases (e.g. symmetry invariances) that include understanding from the start. They state (bold is mine): -->
+
+<!-- What they miss there, as far as I can see, is mechanistic interpretability and the design of interpretable models. -->
 
 [chalmers]: https://consc.net/papers/groundingdebate.pdf
 [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120
