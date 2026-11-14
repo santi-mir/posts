@@ -224,8 +224,6 @@ This post briefly describes their two _accounts_.
 
   Other areas are: the design of interpretable and or causal models.
 
-
-
 2. _Ability-based_
   > On ability-based accounts, a system's understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.
 
