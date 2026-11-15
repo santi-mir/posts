@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-d61dcd13.js";
+            window.path_to_searchindex_js = "searchindex-45147cd7.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-09f3f0e1.js"></script>
+        <script src="toc-90c7a4fb.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -1299,40 +1299,37 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 </details>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="machine-understanding"><a class="header" href="#machine-understanding">Machine Understanding</a></h1>
-<p>This is a work in progress, that explores the topic of "Machine Understanding", "Machine Thinking" and related ideas.</p>
-<!-- Either way, this blog post asks: _Should we consider about the internal processes?_ -->
+<p>This post, and the next one, explore the topic of <em>machine understanding</em>.</p>
 <hr>
-<h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing test</a></h2>
-<p>The paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (1950, by Alan Turing), describes a game with three participants.</p>
-<p>On one game, there are a:</p>
+<h2 id="the-imitation-game"><a class="header" href="#the-imitation-game">The Imitation Game</a></h2>
+<p>The paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (Alan Turing, 1950) describes a game with three participants. In the first scenario the participants are:</p>
 <ul>
-<li>Human interrogator: who chats with two other participants (through a console). His task is to guess which of the other two members of the chat is a man, and which is a woman.</li>
-<li>Man: tasked to play the part of (imitate) a man,</li>
-<li>Woman: tasked to be authentic.</li>
+<li>A woman: tasked to be authentic,</li>
+<li>A man: tasked to play the part of (imitate) a man,</li>
+<li>A human interrogator: tasked to guess which of the other members is a man and which is a woman (interacting via text interface).</li>
 </ul>
-<p>In the second game, a computer takes the role of the man; and we statistically compare differences (can the computer pass as a woman with the same skill a man does).</p>
-<p>Turing called this "The Imitation Game", but nowadays it is most often referred to as the "Turing test".</p>
-<p>There is also a simplified variant of it: Can the interrogator distinguish which participant isn't a human?</p>
-<p>In my view, this test was a way to avoid both:</p>
+<p>In the second scenario, a computer takes the role of the man, and we ask: <em>Can the computer pass as a woman with the same skill a man does?</em></p>
+<p>Turing called this "The Imitation Game".</p>
+<p>A simplified version of the game is referred to as the "Turing test"; it takes the second set up and asks: <em>Can the interrogator distinguish which participant isn't a human?</em>. In this post either name will be used, unless the details become relevant.</p>
+<p>Turing's test avoids two complexities:</p>
 <ul>
 <li>Defining <em>thinking</em>,</li>
 <li>Comparing more closely brains and digital computers.</li>
 </ul>
-<p>He does write an ambiguous paragraph about it:</p>
+<p>Turing was aware of many objections and some are addressed in the paper. However, he dismisses an objection which recently became more important:</p>
 <blockquote>
 <p>May not machines carry out something which ought to be described as thinking but which is very different from what a man does? (...) if, nevertheless, a machine can be constructed to play the imitation game satisfactorily, we need not be troubled by this objection.</p>
 </blockquote>
-<p>The Strong AI advocates seem interpret that <em>if the machine performs like a human, then it thinks</em>; but as listed above, Turing seems to know this is a more complex problem. For example, he says:</p>
-<blockquote>
-<p>The feature of using electricity is thus seen to be only a very superficial similarity [between brains and digital computers]. If we wish to find such similarities we should look rather for mathematical analogies of function.</p>
-</blockquote>
-<p>Beyond this reading of Turing's paper there are other analyses which follow below.</p>
-<h2 id="more-on-strong-ai-views"><a class="header" href="#more-on-strong-ai-views">More on Strong AI views</a></h2>
-<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Is the Brain's Mind a Computer Program?</a> (1990) Searle states that Strong-AI advocates take the Turing test as a test for machine thinking:</p>
+<h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing Test</a></h2>
+<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Is the Brain's Mind a Computer Program?</a> (1990) Searle states that <em>Strong AI advocates</em> take the Turing test as a test for machine thinking:</p>
 <blockquote>
 <p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
 </blockquote>
-<p>And some evidence may come from <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a machine think?"</a> (the part in quotes is Searle's main axiom):</p>
+<p>The Strong AI advocates seem to interpret that <em>if the machine performs like a human, then it thinks</em>; but even Turing seems more sceptical:</p>
+<blockquote>
+<p>The feature of using electricity is thus seen to be only a very superficial similarity [between brains and digital computers]. If we wish to find such similarities we should look rather for mathematical analogies of function.</p>
+</blockquote>
+<p>On <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a machine think?"</a> the Strong AI assumption seems implicit and agrees with Searle's description of the view (the part in quotes is Searle's main axiom):</p>
 <blockquote>
 <p>(...) "Syntax by itself is neither constitutive of nor sufficient for semantics." (...) to assume its truth is tantamount to begging the question against the research program of classical AI, for that program is predicated on the very interesting assumption that if one can just set in motion an appropriately structured internal dance of syntactic elements, appropriately connected to inputs and outputs, it can produce the same cognitive states and achievements found in human beings.</p>
 </blockquote>
@@ -1344,65 +1341,57 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <blockquote>
 <p>Even though Searle's Chinese room may appear to be "semantically dark," he is in no position to insist, on the strength of this appearance, that rule-governed symbol manipulation can never constitute semantic phenomena, (...)</p>
 </blockquote>
-<p>Indeed, the Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's <strong>Axiom 3</strong>, that "<em>programs are neither constitutive nor sufficient for minds</em>".</p>
-<!-- But the two aren't really equivalent. -->
-<!-- - Does such machine have mental contents? -->
-<!-- - What about the internal mechanisms? Why only care about overt behaviour? -->
-<!--     - Some would say: only computing the same function matters. -->
-<!-- - Is the Turing test the best one for this purpose? -->
-<!---->
-<p>The next two sections expand on two aspects, respectively:</p>
-<ol>
-<li>Are we good evaluators of language outputs?</li>
-<li>If we are good evaluators, and a machine passes the Turing test, what can we conclude?</li>
-</ol>
-<h2 id="are-we-good-evaluators"><a class="header" href="#are-we-good-evaluators">Are we good evaluators?</a></h2>
-<p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown.</p>
-<p>Humans have also been wrong about <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, and later on shown to guess the answer social queues (which is still impressive, but a different capability).</p>
-<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">with LLMs</a>.</p>
-<!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
-<p>The take-away seems to be that we should evaluate behaviour more carefully, and that looking at the internal mechanisms of a network may help us do precisely that.</p>
-<h2 id="turing-tests-usefulness"><a class="header" href="#turing-tests-usefulness">Turing test's usefulness</a></h2>
-<p>Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view. Searle summarises his result as:</p>
+<p>The Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's <strong>Axiom 3</strong>, that "<em>programs are neither constitutive nor sufficient for minds</em>". But.., was Searle right?</p>
+<h3 id="arguments-against-strong-ai"><a class="header" href="#arguments-against-strong-ai">Arguments Against Strong AI</a></h3>
+<ul>
+<li>
+<p><strong>The Chinese Room</strong>: Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view.</p>
+<p>Here only Searle's conclusions will be quoted:</p>
 <blockquote>
 <p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
 </blockquote>
-<p>Searle concludes that <em>programs restricted to symbol manipulation can't think</em>. A program may have the right input-output behaviour (e.g. passes the Turing test), but the system wouldn't yet know the meaning of the Chinese symbols/words it is manipulating.</p>
-<p>A last statement, equivalent to all of the above, of his:</p>
+<p>According to Searle if a computer passes the Turing test we can't guarantee that it thinks. A program may read as thoughtful, pass the Turing test, but it wouldn't know the meaning of the symbols it is manipulating.</p>
+<p>An equivalent statement by Searle is:</p>
 <blockquote>
 <p>You can't get semantically loaded thought contents from formal computations alone, (...)</p>
 </blockquote>
-<h2 id="general-ideas-about-meaning"><a class="header" href="#general-ideas-about-meaning">General Ideas about Meaning</a></h2>
-<!-- If the machines can fool us via syntactics only, it would be interesting to know _how_ the missing bit (meaning) works and how it fits in the picture. -->
-<p>Before considering details about meaning let's ask: What is meaning (in broad terms)? Searle states that meaning is what the symbols refer to:</p>
-<blockquote>
-<p>If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.</p>
-</blockquote>
-<p>But this seems a bit mysterious and one may want to ask Searle: What if all we need are symbols, processing, and grounded symbols?<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
-<p>What about researchers other than Searle? Koller and Bender, in <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021) define meaning as the set of <code>(expressions, intents)</code> pairs. <em>Expressions</em> are symbols, gestures and intent is what's not in the expression itself (this is the <em>intent</em>).</p>
-<p>They hold that machines can't learn intents from form alone (symbols) though they may if trained on meaning pairs, or a similar task.</p>
-<p><a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> talks about all the of the above: the Turing test, Searle's Chinese Room, Stevan Harnad's grounded symbols, and they describe their own <em>Octopus test</em> for language understanding. They say:</p>
+<p>A similar argument by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> is that machines can't learn intents from <em>form</em> alone (symbols) though they may if trained on e.g. meaning pairs. They also describe their own <em>Octopus test</em> for language understanding and comment on Searle's Chinese Room:</p>
 <blockquote>
 <p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form.</p>
 </blockquote>
-<p>(Which is precisely what bare-LLMs do.) They continue:</p>
+</li>
+<li>
+<p><strong>False Positives</strong>: Searle's argument aside, the record shows that simple programs can be <em>mistakenly assumed to be thinking</em> by human evaluators.</p>
+<p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown. A similar case was <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, but was using social queues to guess the result as it was shown later on (still impressive, but a different capability).</p>
+<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">with LLMs</a>; for example, a model taken to have learnt "a world model" was later on shown to be memorising (or using local rules and heuristics).</p>
+</li>
+</ul>
+<!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
+<p>The take aways seem to be that:</p>
+<ul>
+<li>We aren't very good evaluators of simulated capabilities;</li>
+<li>Internal mechanisms of a network may help us do precisely that;</li>
+</ul>
+<h2 id="meaning"><a class="header" href="#meaning">Meaning</a></h2>
+<p>A central part of the issue of machine understanding and thinking involves <em>meaning</em>. Let's now step back and ask: <em>But what is meaning?</em></p>
+<p>Searle states that <em>meaning</em> is what the symbols refer to:</p>
+<blockquote>
+<p>If, for example, I am thinking about the last presidential election, certain words will go through my mind, but the words are about the election only because I attach specific meanings to these words, in accordance with my knowledge of English. In this respect they are unlike Chinese symbols for me.</p>
+</blockquote>
+<p>In <a href="https://aclanthology.org/2020.acl-main.463/">Climbing Towards NLU</a> (2021), Koller and Bender define <em>meaning</em> as the set of <code>(expressions, intents)</code> pairs. <em>Expressions</em> are symbols, gestures and intent is what's not in the expression itself (this is the <em>intent</em>).</p>
+<p>They also highlight the <em>grounding problem</em>, the problem of connecting the symbols to perceived entities:</p>
 <blockquote>
 <p>But language is used for communication about the speakers' actual (physical, social, and mental) world, and so the reasoning behind producing meaningful responses must connect the meanings of perceived inputs to information about that world. This in turn means that for a human or a machine to learn a language, they must solve what Harnad (1990) calls the <em>symbol grounding problem</em>. Harnad encapsulates this by pointing to the impossibility for a non-speaker of Chinese to learn the meanings of Chinese words from Chinese dictionary definitions alone.</p>
 </blockquote>
-<p>An overview on the theme of symbol grounding and understanding (in LLMs) is given by David Chalmers in <a href="https://consc.net/papers/groundingdebate.pdf">this presentation</a> (2023).</p>
-<!-- ### Recap -->
-<!---->
-<!-- So far we considered the Strong AI view of the Turing test, and both practical and theoretical arguments against it. The former about a history of problems of human evaluating the output, and the latter related to the Chinese Room Argument and the training on form only. -->
-<!---->
-<!-- But Searle's view is a bit weirder. Searle believes that _some_ computers _can_ think (e.g. the brain). But not the programs running on silicon, since symbol manipulation can't have semantics (needed for thinking). -->
-<h3 id="hardware-thoughts"><a class="header" href="#hardware-thoughts">Hardware Thoughts</a></h3>
-<p>Searle asks interesting questions:</p>
+<p>Symbol grounding and understanding (in LLMs) are also an important part of <a href="https://consc.net/papers/groundingdebate.pdf">this presentation</a> by David Chalmers (2023).</p>
+<h3 id="meaning-and-hardware"><a class="header" href="#meaning-and-hardware">Meaning and Hardware</a></h3>
+<p>Searle asks some interesting questions:</p>
 <blockquote>
 <p>why couldn't we give semantics to other computers?</p>
 <p>(...)</p>
 <p>What, in fact, are the differences between animal brains and computer systems that enable the Chinese room argument to work against computers but not against brains?</p>
 </blockquote>
-<p>In other words: Where does meaning (or semantics) come from, that we can't just add it in modern computers, but brains have it? Searle continues:</p>
+<p>Searle continues:</p>
 <blockquote>
 <p>The most obvious difference is that the processes that define something as a computer—computational processes—are completely independent of any reference to a specific type of hardware implementation. One could in principle make a computer out of old beer cans strung together with wires and powered by windmills.</p>
 <p>But when it comes to brains, although science is largely ignorant of how brains function to produce mental states, one is struck by the extreme specificity of the anatomy (...)</p>
@@ -1411,7 +1400,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <blockquote>
 <p>(...) formal symbols have no physical, causal powers. The only power that symbols have, qua symbols, is the power to cause the next step in the program when the machine is running. And there is no question of waiting on further research to reveal the physical, causal properties of 0's and 1's. The only relevant properties of 0's and 1's are abstract computational properties, and they are already well known.</p>
 </blockquote>
-<p>So <em>even if</em> we consider "the processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion)." Searle would say <em>no</em>. Searle explains that the difference is that</p>
+<p>The processing of a rich representation of interlinked symbols themselves linked to input (e.g. perceptions) and outputs (e.g. an action, decision or conclusion) wouldn't be enough; for Searle would say the important differences, where meaning may be found, are in the organisation (architecture) and causal powers of the hardware.</p>
 <blockquote>
 <p>(...) the brain does not merely instantiate a formal pattern or program (it does that, too), but it also causes mental events by virtue of specific neurobiological processes.</p>
 </blockquote>
@@ -1426,44 +1415,52 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <p>No one expects to get wet in a pool filled with Ping-Pong-ball models of water molecules. So why would anyone think a computer model of thought process es would actually think ?</p>
 </blockquote>
 <p>He says that, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
-<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the physical and causal structure of the brain which computers (as currently designed) lack.</p>
-<p>Also, the causal structure isn't that of wrapping <em>current computers</em> in a robot body, but about the kind of causation in the neural network.</p>
+<p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the organisation and causal structure of the brain which computers (as currently designed) lack.</p>
+<p>Also, the causal structure isn't about adding a robotic body, but about the kind of causation within the neural network.</p>
 <p>Fascinating. But it's worth pondering here:</p>
 <ul>
-<li><em>Why exactly does meaning require a particular physico-causal organisation of matter?</em></li>
-<li>And, what if semantics / meaning are not what Searle thinks (and require certain causal structure), and all that is needed is rich representations of symbols (included grounded ones), links between them, and their processing? Note that I am not saying <em>form alone</em> since this was robustly refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but e.g. rich representations of symbols connected to multimodal perceptions. This is what they suggest in Section 7 (among other options):</li>
+<li><em>Why is about meaning that require a particular organisation and causal powers (such as that of brains)?</em></li>
+<li>Conversely, we can push on the Strong AI view: What if all that is needed is a rich representations of (grounded)-symbols, links between them, and appropriate input-output mapping (processing)? Form alone does seem insufficient, and was refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but what about rich representations of symbols connected to multimodal perceptions? This is what they suggest in Section 7 (among other options):</li>
 </ul>
 <blockquote>
 <p>One approach to providing grounding is to train distributional models on corpora augmented with perceptual data, such as photos (...)</p>
 </blockquote>
-<p>Searle does consider this question, once in the quote at the beginning of this section, another time below in relation to the Churchlands' <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a Machine Think?"</a> (1990):</p>
-<blockquote>
-<p>(...) could not later investigation also show that semantics are entirely constituted of syntax ?</p>
-</blockquote>
-<p>It's an interesting dilemma. It seems likely to me that Searle is right, and that the mind is physico-biological and, just as digestion, an emergent property of matter.</p>
-<p>Simulating digestion simply isn't digestion.</p>
 <h2 id="butis-it-relevant"><a class="header" href="#butis-it-relevant">But...is it relevant?</a></h2>
-<p>Let's assume that we are not interested in a machine that develops a mind with an actual self, understanding, and thoughts, but that carries out the computations of those processes, solves problems, represents things internally in a rich, and understandable (by us) way and so forth.</p>
+<p>Let's assume that we are not interested in a modern computer that develops a mind with an actual self, understanding, and thoughts, but a modern computer that carries out the computations of those processes, solves problems, represents things internally in a rich, and understandable (by us) way and so forth.</p>
 <p>It may even do research and discover things.</p>
-<p>What would we call what these machines do? What are the limits of it? What moral status would these systems have (maybe none)? Would they be more than just useful-ish computers?</p>
-<h2 id="accounts-of-understanding"><a class="header" href="#accounts-of-understanding">Accounts of Understanding</a></h2>
-<p>Searle claims a machine doing only symbol manipulation won't learn meanings, in other words won't think or understand.</p>
-<p>However, regardless of Searle's experiment, one could still look inside as well, to see the kind of programs a learning machine develops during training.</p>
-<p>So there is a duality of judging a system's understanding:</p>
+<p>What would we call what these machines do? What are the limits of it? Would they be more than just useful-ish computers?</p>
+<!-- [semantic_net]: https://en.wikipedia.org/wiki/Semantic_network -->
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="accounts-of-understanding"><a class="header" href="#accounts-of-understanding">Accounts of Understanding</a></h1>
+<p>On the one hand we have the Strong AI advocates which rely on the Turing test and overt behaviour as a test for thinking and understanding.</p>
+<p>On the other hand Searle claims that a machine doing only symbol manipulation won't learn meanings and consequently won't think nor understand. In fact the former method has many other objections and short-comings (as seen in <a href="#machine-understanding">Machine Understanding</a>)</p>
+<p>In practice what we see researchers doing is:</p>
 <ul>
-<li>From test performance and OoD generalisation;</li>
-<li>From the learning of internal structures (say general ones, algorithms).</li>
+<li>Carrying out tests and performance benchmarks that test for out of distribution generalisation (or memorisation), transfer learning and so forth;</li>
+<li>Inspecting internal structures (say general ones, algorithms).</li>
 </ul>
-<p>Turing does mention a "strong objection" which is somewhat related to that distinction but does not consider the internal programs in any detail (except to say "programmed vs learnt" in the "child" stage). It's still notable that he described machine learning (<a href="https://academic.oup.com/mind/article/LIX/236/433/986238">see section 7</a>) in good conceptual depth.</p>
-<p>But in the case of learning machines, <em>what kind</em> of programs do/can they learn?</p>
-<p>Is it a look-up table, local rules and heuristics, or general algorithms (or what is it)?</p>
+<p>A question I find interesting is, closer to Searle's Weak AI ideas:<em>In the case of learning machines, what kind of programs do / can they give rise to?</em></p>
+<p>Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they?</p>
+<h2 id="machine-understanding-revisited"><a class="header" href="#machine-understanding-revisited">Machine Understanding Revisited</a></h2>
 <p>In the paper <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">"Machine Understanding"</a> (2026), Lombrozo et. al. consider <em>understanding</em> as defined for a system <em>S</em> and a task <em>T</em> e.g. "<em>Do LLMs (S) understand language (T)?</em>".</p>
-<p>They provide <em>a framework</em> to specify <em>S</em>, a two <em>accounts</em> of a system's understanding of a task.</p>
-<p>An example contextualises these ideas:</p>
+<p>They suggest four <em>accounts</em> (or views) of a system's understanding of a task T (two of these are "optional") and <em>a framework</em> to specify <em>S</em> which we won't discuss here.</p>
+<p>A key idea in the paper is that <em>evidence of understanding</em> presupposes a particular view of <em>what understanding is</em>. An example contextualises this idea:</p>
 <blockquote>
-<p>Dr. Benchmark argues that S1 possesses better understanding because it returns the correct answer on 83% of the provided inputs, whereas S2 returns the correct answer on only 76%. Dr. Decode argues that S2 possesses better understanding because it implements a (noisy) rule for cal culating products, whereas S1 involves a look-up table that happens to contain the correct outputs for 83% of tested inputs. Which scientist is correct?</p>
+<p>We can now consider a more encompassing example. Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of internal representations: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from performance: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the system's history: its training and interactions in the world. And Dr. P's evidence comes from phenomenology – an account of subjective experience and how the system does (or doesn’t) experience anxiety. (...) if that [the account of understanding] isn't made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
+<p>(...)</p>
+<p>Taken together, this categorization of the different accounts of understanding offers a potential antidote to a major limitation in current AI evaluation practices: over-reliance on singular or aggregate performance metrics (153; 154; 155).</p>
 </blockquote>
-<p>This post briefly describes their two <em>accounts</em>.</p>
+<p>They also state the following hypothetical example (informally shortened):</p>
+<blockquote>
+<p>When law students take the bar exam (...) the scores plausibly reflect not only relevant content knowledge, but also relevant experiences and abilities (a mix of model-, ability, and etiologybased considerations). GPT-4 can now score within the top 10% on the bar exam (156), and could perform better soon. But this will not reflect any real-world legal experience, and it might not reflect the generalization ability that the test assesses in humans. Does it possess legal understanding?</p>
+<p>(...)</p>
+<p>Making an inference from some source of evidence (bar exam performance) to a claim about understanding requires some account of understanding. When that inferential step is spelled out, we can better assess whether it is justified.</p>
+</blockquote>
+<p>A very interesting idea, not always clear in research articles, is that the goals of stake holders may hint to the kind of requirements we should aim for (e.g. account of understanding):</p>
+<blockquote>
+<p>Which approach to understanding is most useful will depend on the goals of stakeholders and of a given AI system (see Table 1), and which account is adopted can have implications for whether machine understanding is a goal we ought to pursue.</p>
+</blockquote>
+<p>Let's expand on two of the <em>accounts</em>:</p>
 <ol>
 <li><em>Model-based</em>:</li>
 </ol>
@@ -1483,32 +1480,22 @@ A challenge for model-based accounts is defining which internal properties const
 </blockquote>
 <p>They argue that benchmarks are how researchers try to answer the question of performance. But then, there is the question for general ability and where there may be the need to "look inside".</p>
 <p>We have partly considered these two earlier as <em>internal representations</em> and <em>overt behaviour</em> (Turing test), respectively.</p>
-<p>The paper includes <em>etiology</em> and <em>phenomenology</em> based "add owns" for the two <em>accounts</em> given above; they are quite interesting, the former is related to the training process and the latter to subjective experience. We won't discuss them further since this is a brief-ish introduction.</p>
-<p>An interesting aspects of the paper is the use of a story or hypothetical to frame and illustrate the methods and accounts, such as Dr. Benchmark, Dr. Decode.</p>
-<p>Later on they use one to make clear how each account is related also to a way to conside <em>what constitutes evidence of understanding</em>, in the quote below the bold is mine.</p>
+<p>The paper includes <em>etiology</em> and <em>phenomenology</em> based add-ons for the two <em>accounts</em> given above; they are quite interesting. The former (etiology based) is related to the training process; models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them. The latter (phenomenology-based) is related to subjective experience. We won't discuss them further in this overview.</p>
+<p>An interesting aspects of the paper is the use of a story or hypothetical to frame and illustrate the methods and accounts, such as Dr. Benchmark and Dr. Decode.</p>
+<p>Each account suggests ways to test for understanding under that account (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>). But it may also add evidence of understanding in general (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span>). They state (bold is mine):</p>
 <blockquote>
 <p>Having offered a landscape for possible views about understanding, it might seem attractive to develop benchmarks corresponding to each. Unfortunately, doing so would miss the point: benchmarks will reflect <strong>performance</strong> that could <strong>only constitute understanding on an ability-based account</strong>. On model-based accounts, benchmarks can only offer indirect evidence (for internal properties).</p>
 <p>(...)</p>
 <p>Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of <strong>internal representations</strong>: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from <strong>performance</strong>: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the <strong>system's history: its training and interactions in the world</strong>. And Dr. P's evidence comes from <strong>phenomenology</strong> – an account of subjective experience and how the system does (or doesn't) experience anxiety. <strong>Whose evidence should take precedence, especially when the scientists reach conflicting conclusions?</strong> The answer is that it <strong>depends on one's account of understanding</strong>, and if that isn't made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
 </blockquote>
-<!-- _Model-based_ can also include architectural biases (e.g. symmetry invariances) that include understanding from the start. They state (bold is mine): -->
-<!-- What they miss there, as far as I can see, is mechanistic interpretability and the design of interpretable models. -->
-<!-- Consider a few more ideas about what meaning could be: -->
-<!---->
-<!-- - "Meaning A" is what the symbols stand for / refer to; and the referee is mental content (conscious or unconscious, I assume, and one may split System 1 and System 2, as Daniel Kahnemann argued). -->
-<!-- - "Meaning B" is just "links between symbols". -->
-<!--     - A single neuron isn't complex enough for that; rather, it may simply be manipulating symbols. -->
-<!---->
-<!-- " Meaning A" may involve a meta-process linking some aspects of the processing to the input and the output. -->
-<!-- How does _ Meaning A_ relate to _Meaning B_? One way could be that Meaning A adds the _leaves_ to a _branch-structure_ (Meaning B). There may also be requirements specific ways in which the lower level processing happens, and also specific meta-processes. -->
-<!-- All the refutation of Strong AI via CRA needs is us to accept that symbols have independent meanings. processing symbols, on their own, as CRA states, " Meaning A" and the right I/O implies "Meaning B"; the Strong AI claim may come from a (mis)-inte Harnad's _grounded symbols_ are those linked to perceptions, memories, emotions, and so forth.rpretation of the Turing test. -->
-<!-- In my view one could think of meaning as a tree, the structure of branches are _symbols and their links_; the leaves are the _grounded symbols_. The structure of branches is a [semantic network][semantic_net]. -->
-<hr>
-<ol class="footnote-definition">
-<li id="footnote-1">
-<p>Harnad's <em>grounded symbols</em> are those linked to perceptions, memories, emotions, and so forth. And those in turn are just some input representation. <a href="#fr-1-1">↩</a></p>
-</li>
-</ol>
+<pre class="mermaid">venn-beta
+  title Understanding in practice
+  set Stakeholder
+  set "AI System"
+  set Account
+  union Stakeholder,Account,"AI System"["Analysis"]
+</pre>
+
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
 <p>Personal comment: I disagree the theory's definition of <em>learning</em>, but agree with their view of <em>knowledge</em> in the digital era and the consequences of it.</p>
@@ -1773,7 +1760,7 @@ B --&gt; D(Embeddings)
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="atom2vec"><a class="header" href="#atom2vec">Atom2Vec</a></h1>
 <p>A popular representation of atoms as vectors appeared in (2018): <a href="https://arxiv.org/pdf/1807.05617">Atom2Vec</a>.</p>
-<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1-1"><a href="#footnote-1-1">1</a></sup></p>
+<p>They take compounds from a database, and build a matrix like the one below:<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -1833,8 +1820,8 @@ B --&gt; D(Embeddings)
 </blockquote>
 <hr>
 <ol class="footnote-definition">
-<li id="footnote-1-1">
-<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1-1">↩</a></p>
+<li id="footnote-1">
+<p>It would be a binary matrix but the database contains some compounds multiple times and those are left duplicated (for some strange reason). <a href="#fr-1-1">↩</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">

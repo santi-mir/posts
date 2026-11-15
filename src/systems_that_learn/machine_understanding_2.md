@@ -72,4 +72,13 @@ Each account suggests ways to test for understanding under that account ($U_x$).
 >
 > Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of **internal representations**: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from **performance**: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the **system's history: its training and interactions in the world**. And Dr. P's evidence comes from **phenomenology** – an account of subjective experience and how the system does (or doesn't) experience anxiety. **Whose evidence should take precedence, especially when the scientists reach conflicting conclusions?** The answer is that it **depends on one's account of understanding**, and if that isn't made explicit and introduced into the debate, these scientists will simply talk past one another.
 
+```mermaid
+venn-beta
+  title Understanding in practice
+  set Stakeholder
+  set "AI System"
+  set Account
+  union Stakeholder,Account,"AI System"["Analysis"]
+```
+
 [mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
