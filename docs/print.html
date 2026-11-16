@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-45147cd7.js";
+            window.path_to_searchindex_js = "searchindex-6a8ab1a2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-90c7a4fb.js"></script>
@@ -1431,71 +1431,96 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <p>What would we call what these machines do? What are the limits of it? Would they be more than just useful-ish computers?</p>
 <!-- [semantic_net]: https://en.wikipedia.org/wiki/Semantic_network -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="accounts-of-understanding"><a class="header" href="#accounts-of-understanding">Accounts of Understanding</a></h1>
-<p>On the one hand we have the Strong AI advocates which rely on the Turing test and overt behaviour as a test for thinking and understanding.</p>
-<p>On the other hand Searle claims that a machine doing only symbol manipulation won't learn meanings and consequently won't think nor understand. In fact the former method has many other objections and short-comings (as seen in <a href="#machine-understanding">Machine Understanding</a>)</p>
-<p>In practice what we see researchers doing is:</p>
+<h1 id="machine-understanding-revisited"><a class="header" href="#machine-understanding-revisited">Machine Understanding Revisited</a></h1>
+<p>This post continues the topic of <a href="#machine-understanding">Machine Understanding I</a>.</p>
+<hr>
+<h2 id="recap"><a class="header" href="#recap">Recap</a></h2>
+<p>We discussed different views relating to whether modern computers can think:</p>
+<ul>
+<li>
+<p>The Strong AI view, arguing that the <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a> is a test for thinking and understanding (if they pass, they think).</p>
+</li>
+<li>
+<p>Intermediate views usually accept that the Turing test (and performance on tasks in general) isn't all that is needed to guarantee that a machine is thinking and understanding e.g.:</p>
+<ul>
+<li>Arguing that symbol grounding isn't always needed (e.g. <a href="https://consc.net/papers/groundingdebate.pdf">David Chalmers</a>);</li>
+<li>Or that neural networks may think (<a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">Could a Machine Think</a>) if they form the right structures;</li>
+<li>Arguing that symbol grounding <em>is</em> needed (Harnad, Koller and Bender).</li>
+</ul>
+</li>
+<li>
+<p>On the other side, Searle claims that a machine doing only symbol manipulation can't learn meaning and consequently won't think nor understand.</p>
+</li>
+</ul>
+<h2 id="paper"><a class="header" href="#paper">Paper</a></h2>
+<p>This post discusses a <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">recent article</a> (Lombrozo et. al. 2026) proposing <em>accounts (or views) of understanding</em>. Research would benefit from stating <em>which view of understanding they subscribe to, before arguing for understanding</em>.</p>
+<p>The article also captures what developers do in practice:</p>
 <ul>
 <li>Carrying out tests and performance benchmarks that test for out of distribution generalisation (or memorisation), transfer learning and so forth;</li>
-<li>Inspecting internal structures (say general ones, algorithms).</li>
+<li>Inspecting internal structures (say general ones, algorithms).
+<ul>
+<li>A question I personally find interesting is: <em>What kinds of programs do / can learning machines give rise to?</em> Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail.</li>
 </ul>
-<p>A question I find interesting is, closer to Searle's Weak AI ideas:<em>In the case of learning machines, what kind of programs do / can they give rise to?</em></p>
-<p>Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they?</p>
-<h2 id="machine-understanding-revisited"><a class="header" href="#machine-understanding-revisited">Machine Understanding Revisited</a></h2>
-<p>In the paper <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">"Machine Understanding"</a> (2026), Lombrozo et. al. consider <em>understanding</em> as defined for a system <em>S</em> and a task <em>T</em> e.g. "<em>Do LLMs (S) understand language (T)?</em>".</p>
-<p>They suggest four <em>accounts</em> (or views) of a system's understanding of a task T (two of these are "optional") and <em>a framework</em> to specify <em>S</em> which we won't discuss here.</p>
-<p>A key idea in the paper is that <em>evidence of understanding</em> presupposes a particular view of <em>what understanding is</em>. An example contextualises this idea:</p>
+</li>
+</ul>
+<h3 id="accounts-of-understanding"><a class="header" href="#accounts-of-understanding">Accounts of Understanding</a></h3>
+<p>In the paper <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">Machine Understanding</a> (2026), Lombrozo et. al. consider <em>understanding</em> as defined for a system <em>S</em> and a task <em>T</em> e.g. "<em>Do LLMs (S) understand language (T)?</em>".</p>
+<p>They suggest four <em>accounts</em> (or views) of a system's understanding of a task <em>T</em> (two of these are "optional") and <em>a framework</em> to specify the system <em>S</em> which we won't discuss here.</p>
+<p>A key idea in the paper is that <em>evidence of understanding</em> should be framed within a particular notion of <em>what understanding is</em>.</p>
+<p>An interesting aspect of the paper is the use of a story or hypothetical to frame and illustrate the methods and accounts, such as the one quoted at the start of this post.</p>
+<p>Here is one of them, which summarises a large part of the paper:</p>
 <blockquote>
-<p>We can now consider a more encompassing example. Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of internal representations: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from performance: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the system's history: its training and interactions in the world. And Dr. P's evidence comes from phenomenology – an account of subjective experience and how the system does (or doesn’t) experience anxiety. (...) if that [the account of understanding] isn't made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
+<p>We can now consider a more encompassing example. Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of internal representations: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from performance: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the system's history: its training and interactions in the world. And Dr. P's evidence comes from phenomenology —an account of subjective experience and how the system does (or doesn’t) experience anxiety. (...) if that [the account of understanding] isn't made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
 <p>(...)</p>
 <p>Taken together, this categorization of the different accounts of understanding offers a potential antidote to a major limitation in current AI evaluation practices: over-reliance on singular or aggregate performance metrics (153; 154; 155).</p>
 </blockquote>
-<p>They also state the following hypothetical example (informally shortened):</p>
+<p>An another hypothetical example (informally shortened, bold is mine):</p>
 <blockquote>
-<p>When law students take the bar exam (...) the scores plausibly reflect not only relevant content knowledge, but also relevant experiences and abilities (a mix of model-, ability, and etiologybased considerations). GPT-4 can now score within the top 10% on the bar exam (156), and could perform better soon. But this will not reflect any real-world legal experience, and it might not reflect the generalization ability that the test assesses in humans. Does it possess legal understanding?</p>
+<p>When law students take the bar exam (...) the scores plausibly reflect not only relevant content knowledge, but also relevant experiences and abilities (a mix of model-, ability, and etiology based considerations). GPT-4 can now score within the top 10% on the bar exam (156), and could perform better soon. But this will not reflect any real-world legal experience, and it might not reflect the generalization ability that the test assesses in humans. Does it possess legal understanding?</p>
 <p>(...)</p>
-<p>Making an inference from some source of evidence (bar exam performance) to a claim about understanding requires some account of understanding. When that inferential step is spelled out, we can better assess whether it is justified.</p>
+<p><strong>Making an inference</strong> from some source of evidence (bar exam performance) to a claim about understanding <strong>requires some account of understanding</strong>. When that inferential step is spelled out, we can better assess whether it is justified.</p>
 </blockquote>
-<p>A very interesting idea, not always clear in research articles, is that the goals of stake holders may hint to the kind of requirements we should aim for (e.g. account of understanding):</p>
+<p>Lastly, a very interesting idea in this article, is that the goals of stakeholders may help us define the system and required account of understanding (bold is mine):</p>
 <blockquote>
-<p>Which approach to understanding is most useful will depend on the goals of stakeholders and of a given AI system (see Table 1), and which account is adopted can have implications for whether machine understanding is a goal we ought to pursue.</p>
+<p>Which approach to understanding is most useful will depend on the goals of <strong>stakeholders</strong> and of a given <strong>AI system</strong> (see Table 1), and which <strong>account</strong> is adopted can have implications for whether machine understanding is a goal we ought to pursue.</p>
 </blockquote>
-<p>Let's expand on two of the <em>accounts</em>:</p>
-<ol>
-<li><em>Model-based</em>:</li>
-</ol>
-<blockquote>
-<p>The basic intuition behind model-based accounts is that understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.</p>
-<p>(...)
-A challenge for model-based accounts is defining which internal properties constitute understanding.</p>
-</blockquote>
-<p>This view accounts for MULT understading more than LOOK-UP due to the structure (considers the relationship between multiplicands).</p>
-<p>Decoding layers, which is mentioned a few times in the paper, or computing saliency maps and feature importances are post hoc XAI methods. Decoding a layers may be considered a mechanistic interpretability method, depending on how it is done.</p>
-<p>Other areas are: the design of interpretable and or causal models.</p>
-<ol start="2">
-<li><em>Ability-based</em></li>
-</ol>
-<blockquote>
-<p>On ability-based accounts, a system's understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.</p>
-</blockquote>
-<p>They argue that benchmarks are how researchers try to answer the question of performance. But then, there is the question for general ability and where there may be the need to "look inside".</p>
-<p>We have partly considered these two earlier as <em>internal representations</em> and <em>overt behaviour</em> (Turing test), respectively.</p>
-<p>The paper includes <em>etiology</em> and <em>phenomenology</em> based add-ons for the two <em>accounts</em> given above; they are quite interesting. The former (etiology based) is related to the training process; models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them. The latter (phenomenology-based) is related to subjective experience. We won't discuss them further in this overview.</p>
-<p>An interesting aspects of the paper is the use of a story or hypothetical to frame and illustrate the methods and accounts, such as Dr. Benchmark and Dr. Decode.</p>
-<p>Each account suggests ways to test for understanding under that account (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>). But it may also add evidence of understanding in general (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span>). They state (bold is mine):</p>
-<blockquote>
-<p>Having offered a landscape for possible views about understanding, it might seem attractive to develop benchmarks corresponding to each. Unfortunately, doing so would miss the point: benchmarks will reflect <strong>performance</strong> that could <strong>only constitute understanding on an ability-based account</strong>. On model-based accounts, benchmarks can only offer indirect evidence (for internal properties).</p>
-<p>(...)</p>
-<p>Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of <strong>internal representations</strong>: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from <strong>performance</strong>: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the <strong>system's history: its training and interactions in the world</strong>. And Dr. P's evidence comes from <strong>phenomenology</strong> – an account of subjective experience and how the system does (or doesn't) experience anxiety. <strong>Whose evidence should take precedence, especially when the scientists reach conflicting conclusions?</strong> The answer is that it <strong>depends on one's account of understanding</strong>, and if that isn't made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
-</blockquote>
+<p>We can summarise some of the above in a Venn diagram (the centre is the ideal area for a given case):</p>
 <pre class="mermaid">venn-beta
   title Understanding in practice
   set Stakeholder
   set "AI System"
   set Account
-  union Stakeholder,Account,"AI System"["Analysis"]
+  union Stakeholder,Account,"AI System"["Ideal"]
 </pre>
 
+<h3 id="model-and-ability-based-accounts"><a class="header" href="#model-and-ability-based-accounts">Model and ability based accounts</a></h3>
+<p>Let's expand on two of the <em>accounts</em>:</p>
+<ul>
+<li>
+<p><em>Model-based</em> (related to <em>intrinsic explanations</em>):</p>
+<blockquote>
+<p>(...) understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.</p>
+<p>(...)
+A challenge for model-based accounts is defining which internal properties constitute understanding.</p>
+</blockquote>
+<p><em>Decoding layers</em>, which is mentioned a few times in the paper, or computing <em>saliency maps</em> and <em>feature importances</em> are post hoc XAI methods. <em>Decoding a layer</em> may also be considered a mechanistic interpretability method.</p>
+<p>Other relevant area is the design of interpretable and/or causal models, or at least the inclusion of some of such properties within models.</p>
+</li>
+<li>
+<p><em>Ability-based</em> (related to <em>extrinsic explanations</em>):</p>
+<blockquote>
+<p>(...) understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.</p>
+</blockquote>
+</li>
+</ul>
+<p>The paper includes <em>etiology</em> and <em>phenomenology</em>-based accounts usually are on top of ability and/or model-based accounts.</p>
+<ul>
+<li>Etiology-based accounts are related to the training process: models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them.</li>
+<li>Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.</li>
+</ul>
+<h2 id="concluding-remarks"><a class="header" href="#concluding-remarks">Concluding remarks</a></h2>
+<p>In studies of explanation (including of AI systems) it is usually stated that explanations are always for an audience: the kind of explanation is dependent on those involved.</p>
+<p>Explanations in AI may benefit from considering the participants/stakeholders, type of system, and account of understanding when producing the explanation (as shown in the Venn diagram given earlier).</p>
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
 <p>Personal comment: I disagree the theory's definition of <em>learning</em>, but agree with their view of <em>knowledge</em> in the digital era and the consequences of it.</p>
@@ -2190,6 +2215,22 @@ B --&gt; D(Embeddings)
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
