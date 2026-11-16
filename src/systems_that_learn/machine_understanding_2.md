@@ -29,6 +29,7 @@ The article also captures what developers do in practice:
     - A question I personally find interesting is: _What kinds of programs do / can learning machines give rise to?_ Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail.
 
 ### Accounts of Understanding
+
 In the paper [Machine Understanding][mu] (2026) they state:
 
 > Assessing machine understanding requires answering questions of the form, "Does S understand T?", where S represents a system and T represents a target of understanding. For instance, in asking, "Do LLMs understand language?"
@@ -48,7 +49,6 @@ And later on say:
 > (...) we take it as a guiding assumption that an account of understanding should offer some insight concerning what (if anything) is deficient about a look-up table or "mere retrieval" when it comes to understanding.
 
 They then describe four different _accounts_ (or views) of a system's understanding of a task _T_ (two of these are "optional") and _a framework_ to specify the system _S_ which we won't discuss here.
-
 
 A key idea in the paper is that _evidence of understanding_ should be framed within a particular notion of _what understanding is_.
 
@@ -106,7 +106,6 @@ The paper includes _etiology_ and _phenomenology_-based accounts usually are on 
 
 - Etiology-based accounts are related to the training process: models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them.
 - Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.
-
 
 The accounts and related questions are arranged in the paper's table 1.
 
