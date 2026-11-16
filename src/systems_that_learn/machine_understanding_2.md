@@ -13,9 +13,10 @@ We discussed different views relating to whether modern computers can think:
 - Intermediate views usually accept that the Turing test (and performance on tasks in general) isn't all that is needed to guarantee that a machine is thinking and understanding e.g.:
     - Arguing that symbol grounding isn't always needed (e.g. [David Chalmers][chalmers]);
     - Or that neural networks may think ([Could a Machine Think][churchlands]) if they form the right structures;
-    - Arguing that symbol grounding _is_ needed (Harnad, Koller and Bender).
+    - Arguing that symbol grounding _is_ needed (Harnad, [Koller and Bender][nlu]).
+    - Mitchell has also interesting thoughts regarding [evaluation of models][melanie_talk_cognitive].
 
-- On the other side, Searle claims that a machine doing only symbol manipulation can't learn meaning and consequently won't think nor understand.
+- On the other side, [Searle][searle_simple] claims that a machine doing only symbol manipulation can't learn meaning and consequently won't think nor understand.
 
 ## Paper
 
@@ -28,6 +29,7 @@ The article also captures what developers do in practice:
     - A question I personally find interesting is: _What kinds of programs do / can learning machines give rise to?_ Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail.
 
 ### Accounts of Understanding
+
 In the paper [Machine Understanding][mu] (2026), Lombrozo et. al. consider _understanding_ as defined for a system _S_ and a task _T_ e.g. "_Do LLMs (S) understand language (T)?_".
 
 They suggest four _accounts_ (or views) of a system's understanding of a task _T_ (two of these are "optional") and _a framework_ to specify the system _S_ which we won't discuss here.
@@ -55,7 +57,6 @@ An another hypothetical example (informally shortened, bold is mine):
 Lastly, a very interesting idea in this article, is that the goals of stakeholders may help us define the system and required account of understanding (bold is mine):
 
 > Which approach to understanding is most useful will depend on the goals of **stakeholders** and of a given **AI system** (see Table 1), and which **account** is adopted can have implications for whether machine understanding is a goal we ought to pursue.
-
 
 We can summarise some of the above in a Venn diagram (the centre is the ideal area for a given case):
 
@@ -90,21 +91,16 @@ The paper includes _etiology_ and _phenomenology_-based accounts usually are on 
 - Etiology-based accounts are related to the training process: models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them.
 - Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.
 
-
 ## Concluding remarks
 
 In studies of explanation (including of AI systems) it is usually stated that explanations are always for an audience: the kind of explanation is dependent on those involved.
 
 Explanations in AI may benefit from considering the participants/stakeholders, type of system, and account of understanding when producing the explanation (as shown in the Venn diagram given earlier).
 
-
 [chalmers]: https://consc.net/papers/groundingdebate.pdf
 [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120
-[eliza]: https://en.wikipedia.org/wiki/ELIZA_effect
-[hans]: https://en.wikipedia.org/wiki/Clever_Hans
 [melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf
 [turing]: https://academic.oup.com/mind/article/LIX/236/433/986238
-
