@@ -29,22 +29,38 @@ The article also captures what developers do in practice:
     - A question I personally find interesting is: _What kinds of programs do / can learning machines give rise to?_ Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail.
 
 ### Accounts of Understanding
+In the paper [Machine Understanding][mu] (2026) they state:
 
-In the paper [Machine Understanding][mu] (2026), Lombrozo et. al. consider _understanding_ as defined for a system _S_ and a task _T_ e.g. "_Do LLMs (S) understand language (T)?_".
+> Assessing machine understanding requires answering questions of the form, "Does S understand T?", where S represents a system and T represents a target of understanding. For instance, in asking, "Do LLMs understand language?"
 
-They suggest four _accounts_ (or views) of a system's understanding of a task _T_ (two of these are "optional") and _a framework_ to specify the system _S_ which we won't discuss here.
+They consider the following (abriged) example: one predictive model consists on a _look-up table_; another on an _equation_ for an idealised situation (e.g. motion equation ignoring friction).
+
+The tests show that look-up table is more accurate than the equation within the domain of evaluation.
+
+However, the equation is a conceptual, general and compressed representation of this aspect of the phenomenon (which in their words "captures something about the data-generating process that is at best implicit in the look-up table.").
+
+_Which "understands" better? The one with higher accuracy, or the one with more internal structure?_ They argue:
+
+> The answer depends on one's account of understanding.
+
+And later on say:
+
+> (...) we take it as a guiding assumption that an account of understanding should offer some insight concerning what (if anything) is deficient about a look-up table or "mere retrieval" when it comes to understanding.
+
+They then describe four different _accounts_ (or views) of a system's understanding of a task _T_ (two of these are "optional") and _a framework_ to specify the system _S_ which we won't discuss here.
+
 
 A key idea in the paper is that _evidence of understanding_ should be framed within a particular notion of _what understanding is_.
 
-An interesting aspect of the paper is the use of a story or hypothetical to frame and illustrate the methods and accounts, such as the one quoted at the start of this post.
+An interesting aspect of the paper is the use of stories to illustrate the accounts, such as the one quoted at the start of this post.
 
 Here is one of them, which summarises a large part of the paper:
 
 > We can now consider a more encompassing example. Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of internal representations: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from performance: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the system's history: its training and interactions in the world. And Dr. P's evidence comes from phenomenology &mdash;an account of subjective experience and how the system does (or doesn’t) experience anxiety. (...) if that [the account of understanding] isn't made explicit and introduced into the debate, these scientists will simply talk past one another.
->
-> (...)
->
-> Taken together, this categorization of the different accounts of understanding offers a potential antidote to a major limitation in current AI evaluation practices: over-reliance on singular or aggregate performance metrics (153; 154; 155).
+
+They also state:
+
+> Our framework is consistent with a pluralist approach to machine understanding—one that recognizes multiple senses of understanding that can potentially diverge.
 
 An another hypothetical example (informally shortened, bold is mine):
 
@@ -90,6 +106,9 @@ The paper includes _etiology_ and _phenomenology_-based accounts usually are on 
 
 - Etiology-based accounts are related to the training process: models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them.
 - Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.
+
+
+The accounts and related questions are arranged in the paper's table 1.
 
 ## Concluding remarks
 

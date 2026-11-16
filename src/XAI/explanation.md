@@ -32,7 +32,7 @@ Explaining can expose a lack (or illusion) of understanding; it can also show an
 - Superseded by a simpler or more general one,
 - Shown to be inconsistent with prior knowledge.
 
-So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works.
+So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works. An interesting recent (2026) paper on that talks about understanding (in the context of AI) is [Machine Understanding][mu] by Lombrozo et. al.
 
 In the paper "[From scientific theory to duality of predictive artificial intelligence models][bajorath]" it is stated, of _scientific understanding of a phenomenon_ (references removed):
 
@@ -223,6 +223,8 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 [logic_of_expl_hempel]: https://fitelson.org/woodward/hempel_oppenheim.pdf
 
 [lombrozo]: https://fitelson.org/few/few_08/lombrozo_reading.pdf
+
+[mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 
 [scriven]: https://fitelson.org/woodward/scriven_epl.pdf
 
