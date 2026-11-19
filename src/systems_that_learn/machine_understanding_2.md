@@ -6,75 +6,32 @@ This post continues the topic of [Machine Understanding I](./machine_understandi
 
 ## Recap
 
-We discussed different views relating to whether modern computers can think:
-
-- The Strong AI view, arguing that the [Turing test][turing] is a test for thinking and understanding (if they pass, they think).
-
-- Intermediate views usually accept that the Turing test (and performance on tasks in general) isn't all that is needed to guarantee that a machine is thinking and understanding e.g.:
-    - Arguing that symbol grounding isn't always needed (e.g. [David Chalmers][chalmers]);
-    - Or that neural networks may think ([Could a Machine Think][churchlands]) if they form the right structures;
-    - Arguing that symbol grounding _is_ needed (Harnad, [Koller and Bender][nlu]).
-    - Mitchell has also interesting thoughts regarding [evaluation of models][melanie_talk_cognitive].
-
-- On the other side, [Searle][searle_simple] claims that a machine doing only symbol manipulation can't learn meaning and consequently won't think nor understand.
+- The Strong AI view: argues that the [Turing test][turing] is a test for thinking and understanding (if they pass, they think).
+- [Searle's view][searle_simple]: a machine doing only symbol manipulation can't learn meaning, and consequently won't think nor understand.
+- Intermediate views usually add extra requirements:
+    <!-- - Arguing that symbol grounding isn't always needed (e.g. [David Chalmers][chalmers]); -->
+    - Forming the right internal structures,
+    - Symbol grounding (Harnad, [Koller and Bender][nlu]),
+    - Careful [evaluation of models][melanie_talk_cognitive].
 
 ## Paper
 
-This post discusses a [recent article][mu] (Lombrozo et. al. 2026) proposing _accounts (or views) of understanding_. Research would benefit from stating _which view of understanding they subscribe to, before arguing for understanding_.
+<!-- We want to design machines that understand or to make sure they understand! Otherwise, they may fail and be harmful. So we need to think about understanding.
+History of understanding? Examples of understanding? E.g. a mechanism on a real system, a simplified system, an analogy, a metaphor, a "fitting model", tinkering & programming, a person, a social situation; Types of systems & Types of explanations?
+-->
 
-The article also captures what developers do in practice:
+A [recent article][mu] (Lombrozo et. al. 2026) considers that _understanding_ requires specifying a system and a task: Does System (S) understand task (T)?
 
-- Carrying out tests and performance benchmarks that test for out of distribution generalisation (or memorisation), transfer learning and so forth;
-- Inspecting internal structures (say general ones, algorithms).
-    - A question I personally find interesting is: _What kinds of programs do / can learning machines give rise to?_ Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail.
+But what is understanding? Rather than advocating for a view, the identify _four common views_ defining what understanding is from each perspective.
 
-### Accounts of Understanding
 
-In the paper [Machine Understanding][mu] (2026) they state:
+The paper uses examples to make the discussion more vivid and concrete. The one belows highlights the 4 accounts/views of understanding (bold is mine):
 
-> Assessing machine understanding requires answering questions of the form, "Does S understand T?", where S represents a system and T represents a target of understanding. For instance, in asking, "Do LLMs understand language?"
+> Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr M's evidence comes from **internal representations**: a decoding technique has revealed intermediate layers corresponding to key features of anxiety. Dr A's evidence comes from **performance**: the system shows excellent performance on key benchmarks. Dr E's evidence comes from the **system's history**: its training and interactions in the world. And Dr P's evidence comes from phenomenology&mdash;an account of **subjective experience** and how the system does (or does not) experience anxiety. Whose evidence should take precedence, especially when the scientists reach conflicting conclusions? The answer is that it depends on one's account of understanding, and if that is not made explicit and introduced into the debate, these scientists will simply talk past one another.
 
-They consider the following (abriged) example: one predictive model consists on a _look-up table_; another on an _equation_ for an idealised situation (e.g. motion equation ignoring friction).
+Lastly, they consider how the goals of stakeholders can help select an account of understanding for a system (bold is mine):
 
-The tests show that look-up table is more accurate than the equation within the domain of evaluation.
-
-However, the equation is a conceptual, general and compressed representation of this aspect of the phenomenon (which in their words "captures something about the data-generating process that is at best implicit in the look-up table.").
-
-_Which "understands" better? The one with higher accuracy, or the one with more internal structure?_ They argue:
-
-> The answer depends on one's account of understanding.
-
-And later on say:
-
-> (...) we take it as a guiding assumption that an account of understanding should offer some insight concerning what (if anything) is deficient about a look-up table or "mere retrieval" when it comes to understanding.
-
-They then describe four different _accounts_ (or views) of a system's understanding of a task _T_ (two of these are "optional") and _a framework_ to specify the system _S_ which we won't discuss here.
-
-A key idea in the paper is that _evidence of understanding_ should be framed within a particular notion of _what understanding is_.
-
-An interesting aspect of the paper is the use of stories to illustrate the accounts, such as the one quoted at the start of this post.
-
-Here is one of them, which summarises a large part of the paper:
-
-> We can now consider a more encompassing example. Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of internal representations: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from performance: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the system's history: its training and interactions in the world. And Dr. P's evidence comes from phenomenology &mdash;an account of subjective experience and how the system does (or doesn’t) experience anxiety. (...) if that [the account of understanding] isn't made explicit and introduced into the debate, these scientists will simply talk past one another.
-
-They also state:
-
-> Our framework is consistent with a pluralist approach to machine understanding—one that recognizes multiple senses of understanding that can potentially diverge.
-
-An another hypothetical example (informally shortened, bold is mine):
-
-> When law students take the bar exam (...) the scores plausibly reflect not only relevant content knowledge, but also relevant experiences and abilities (a mix of model-, ability, and etiology based considerations). GPT-4 can now score within the top 10% on the bar exam (156), and could perform better soon. But this will not reflect any real-world legal experience, and it might not reflect the generalization ability that the test assesses in humans. Does it possess legal understanding?
->
-> (...)
->
-> **Making an inference** from some source of evidence (bar exam performance) to a claim about understanding **requires some account of understanding**. When that inferential step is spelled out, we can better assess whether it is justified.
-
-Lastly, a very interesting idea in this article, is that the goals of stakeholders may help us define the system and required account of understanding (bold is mine):
-
-> Which approach to understanding is most useful will depend on the goals of **stakeholders** and of a given **AI system** (see Table 1), and which **account** is adopted can have implications for whether machine understanding is a goal we ought to pursue.
-
-We can summarise some of the above in a Venn diagram (the centre is the ideal area for a given case):
+> Which approach to understanding is most useful will depend on the goals of **stakeholders** and of a given **AI system**, and which **account** is adopted can have implications for whether machine understanding is a goal we ought to pursue.
 
 ```mermaid
 venn-beta
@@ -85,31 +42,58 @@ venn-beta
   union Stakeholder,Account,"AI System"["Ideal"]
 ```
 
-### Model and ability based accounts
+Let's now consider each account of understanding.
 
-Let's expand on two of the _accounts_:
+### Model-based accounts
 
-- _Model-based_ (related to _intrinsic explanations_):
-  > (...) understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.
-  >
-  > (...)
-  > A challenge for model-based accounts is defining which internal properties constitute understanding.
+Model-based accounts consider understanding to be:
 
-  _Decoding layers_, which is mentioned a few times in the paper, or computing _saliency maps_ and _feature importances_ are post hoc XAI methods. _Decoding a layer_ may also be considered a mechanistic interpretability method.
+> (...) a matter of what a system has "inside": particular representations, algorithms, or other internal properties.
 
-  Other relevant area is the design of interpretable and/or causal models, or at least the inclusion of some of such properties within models.
+<!-- and, -->
+<!---->
+<!-- > (...) taking some internal representation or world model to constitute understanding is the core of a model-based approach. -->
 
-- _Ability-based_ (related to _extrinsic explanations_):
-  > (...) understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.
+With a challenge of:
 
-The paper includes _etiology_ and _phenomenology_-based accounts usually are on top of ability and/or model-based accounts.
+> (...) defining _which_ internal properties constitute understanding and establishing reliable methods for evaluating those properties.
 
-- Etiology-based accounts are related to the training process: models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them.
+As I read it, the evidence of internal structures can come from:
+
+- Designing knowledge structures or decoding them (e.g. intrinsic XAI methods), these are _direct evidence_.
+- Extrinsic XAI methods (_indirect evidence_). For example post-hoc methods (e.g. SHAP and LIME, Saliency Maps, Counterfactuals) _may_ suggest internal structures. Similarly reusing a layer for a different task (transfer learning) may be indirect evidence of internal representations. Frequently, these methods help a human build a model of the model (and don't provide evidence of internal model structure).
+- Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability based accounts (see next section).
+
+
+
+### Ability-based and Other Accounts
+
+
+_Ability-based_ accounts consider understanding to be:
+
+> (...) constituted by its performance or behaviors, not the internal features that give rise to them.
+
+This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test".
+
+_Etiology_ and _phenomenology_-based accounts are usually additions to ability or model-based accounts.
+
+- Etiology-based accounts: is about the causal history of the system's development (e.g. in the learning process).
 - Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.
 
 The accounts and related questions are arranged in the paper's table 1.
 
+<!-- Ability vs Model is the general view of defining an object by how it behaves/what it does vs how the parts interact (e.g. replace "it" by "matter"). It is possible that, by careful design of layers or architectures where each layer/part encodes a distinct concept.-->
+
+Both ability-based understanding (via generalisatio tasks) or model-based understanding
+ (via finding suitable representations) can often separate between systems that memorise versus others with more general concepts; that is, as long as the test is correctly designed, and the encoded representation can be found.
+
+ These approaches can also be complementary, or disprove one another.
+
+
 ## Concluding remarks
+
+_For machines_, we look at the coded or learnt program; _for humans_, we don't look at the brain. Hence, for humans, we only have different kinds of ability-based tests and can only ever _infer_ internal representations (or assume the human has access to it, and can describe it). Had we the have distinct practices (e.g. looking at the brain) then there would be more symmetry between humans and machine understanding.
+<!-- (Incidentally the paper's title can be read as "How to understand machines" or "How machines understand". This may be in purpose, but I don't like it.) -->
 
 In studies of explanation (including of AI systems) it is usually stated that explanations are always for an audience: the kind of explanation is dependent on those involved.
 
@@ -122,3 +106,8 @@ Explanations in AI may benefit from considering the participants/stakeholders, t
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf
 [turing]: https://academic.oup.com/mind/article/LIX/236/433/986238
+
+<!-- - Carrying out tests and performance benchmarks that test for out of distribution generalisation (or memorisation), transfer learning and so forth; -->
+<!-- - Inspecting internal structures (say general ones, algorithms). -->
+<!--     - A question I personally find interesting is: _What kinds of programs do / can learning machines give rise to?_ Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail. -->
+<!---->

@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-a0c62a08.js";
+            window.path_to_searchindex_js = "searchindex-84150235.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-90c7a4fb.js"></script>
@@ -226,7 +226,7 @@
 <li>Superseded by a simpler or more general one,</li>
 <li>Shown to be inconsistent with prior knowledge.</li>
 </ul>
-<p>So the <em>cognitive process</em> involves the generation of hypotheses, theories and reasons, which in turn reflect our <em>understanding</em> about how something works. An interesting recent (2026) paper on that talks about understanding (in the context of AI) is <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">Machine Understanding</a> by Lombrozo et. al.</p>
+<p>So the <em>cognitive process</em> involves the generation of hypotheses, theories and reasons, which in turn reflect our <em>understanding</em> about how something works, though this is just one view of understanding<sup class="footnote-reference" id="fr-mu_post-1"><a href="#footnote-mu_post">1</a></sup>.</p>
 <p>In the paper "<a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">From scientific theory to duality of predictive artificial intelligence models</a>" it is stated, of <em>scientific understanding of a phenomenon</em> (references removed):</p>
 <blockquote>
 <p>(...) if there is an underlying intelligible theory such that scientists can qualitatively comprehend the consequences of this theory without the need for quantitative analysis and exact calculations.</p>
@@ -310,7 +310,7 @@
 <blockquote>
 <p>In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".</p>
 </blockquote>
-<p>However, it doesn't seem that all causal explanations involve counterfactuals (nor all counterfactuals need to be causal). <sup class="footnote-reference" id="fr-funny-1"><a href="#footnote-funny">1</a></sup></p>
+<p>However, it doesn't seem that all causal explanations involve counterfactuals (nor all counterfactuals need to be causal). <sup class="footnote-reference" id="fr-funny-1"><a href="#footnote-funny">2</a></sup></p>
 <p><em>Why-questions</em> asking for a cause (causal explanation) can be answered via causal-counterfactual explanations.
 Counterfactual explanations don't use a hypothesised causal graph, so they aren't causal explanations (don't do causal attribution). In their own words:</p>
 <blockquote>
@@ -367,6 +367,9 @@ Counterfactual explanations don't use a hypothesised causal graph, so they aren'
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
 <hr>
 <ol class="footnote-definition">
+<li id="footnote-mu_post">
+<p>A recent paper by <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">Lombrozo et. al.</a> (2026) proposes a pluralist approach to <em>machine understanding</em>, and is discussed in <a href="#machine-understanding-revisited">this post</a>. <a href="#fr-mu_post-1">↩</a></p>
+</li>
 <li id="footnote-funny">
 <p>As <a href="https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&amp;section=29c">Counterfactuals Explanations Without Opening The Black Box</a> states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)." <a href="#fr-funny-1">↩</a></p>
 </li>
@@ -1435,73 +1438,31 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <p>This post continues the topic of <a href="#machine-understanding">Machine Understanding I</a>.</p>
 <hr>
 <h2 id="recap"><a class="header" href="#recap">Recap</a></h2>
-<p>We discussed different views relating to whether modern computers can think:</p>
 <ul>
-<li>
-<p>The Strong AI view, arguing that the <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a> is a test for thinking and understanding (if they pass, they think).</p>
-</li>
-<li>
-<p>Intermediate views usually accept that the Turing test (and performance on tasks in general) isn't all that is needed to guarantee that a machine is thinking and understanding e.g.:</p>
+<li>The Strong AI view: argues that the <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a> is a test for thinking and understanding (if they pass, they think).</li>
+<li><a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Searle's view</a>: a machine doing only symbol manipulation can't learn meaning, and consequently won't think nor understand.</li>
+<li>Intermediate views usually add extra requirements:  <!-- - Arguing that symbol grounding isn't always needed (e.g. [David Chalmers][chalmers]); -->
 <ul>
-<li>Arguing that symbol grounding isn't always needed (e.g. <a href="https://consc.net/papers/groundingdebate.pdf">David Chalmers</a>);</li>
-<li>Or that neural networks may think (<a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">Could a Machine Think</a>) if they form the right structures;</li>
-<li>Arguing that symbol grounding <em>is</em> needed (Harnad, <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a>).</li>
-<li>Mitchell has also interesting thoughts regarding <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">evaluation of models</a>.</li>
+<li>Forming the right internal structures,</li>
+<li>Symbol grounding (Harnad, <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a>),</li>
+<li>Careful <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">evaluation of models</a>.</li>
 </ul>
-</li>
-<li>
-<p>On the other side, <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Searle</a> claims that a machine doing only symbol manipulation can't learn meaning and consequently won't think nor understand.</p>
 </li>
 </ul>
 <h2 id="paper"><a class="header" href="#paper">Paper</a></h2>
-<p>This post discusses a <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">recent article</a> (Lombrozo et. al. 2026) proposing <em>accounts (or views) of understanding</em>. Research would benefit from stating <em>which view of understanding they subscribe to, before arguing for understanding</em>.</p>
-<p>The article also captures what developers do in practice:</p>
-<ul>
-<li>Carrying out tests and performance benchmarks that test for out of distribution generalisation (or memorisation), transfer learning and so forth;</li>
-<li>Inspecting internal structures (say general ones, algorithms).
-<ul>
-<li>A question I personally find interesting is: <em>What kinds of programs do / can learning machines give rise to?</em> Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail.</li>
-</ul>
-</li>
-</ul>
-<h3 id="accounts-of-understanding"><a class="header" href="#accounts-of-understanding">Accounts of Understanding</a></h3>
-<p>In the paper <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">Machine Understanding</a> (2026) they state:</p>
+<!-- We want to design machines that understand or to make sure they understand! Otherwise, they may fail and be harmful. So we need to think about understanding.
+History of understanding? Examples of understanding? E.g. a mechanism on a real system, a simplified system, an analogy, a metaphor, a "fitting model", tinkering & programming, a person, a social situation; Types of systems & Types of explanations?
+-->
+<p>A <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">recent article</a> (Lombrozo et. al. 2026) considers that <em>understanding</em> requires specifying a system and a task: Does System (S) understand task (T)?</p>
+<p>But what is understanding? Rather than advocating for a view, the identify <em>four common views</em> defining what understanding is from each perspective.</p>
+<p>The paper uses examples to make the discussion more vivid and concrete. The one belows highlights the 4 accounts/views of understanding (bold is mine):</p>
 <blockquote>
-<p>Assessing machine understanding requires answering questions of the form, "Does S understand T?", where S represents a system and T represents a target of understanding. For instance, in asking, "Do LLMs understand language?"</p>
+<p>Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr M's evidence comes from <strong>internal representations</strong>: a decoding technique has revealed intermediate layers corresponding to key features of anxiety. Dr A's evidence comes from <strong>performance</strong>: the system shows excellent performance on key benchmarks. Dr E's evidence comes from the <strong>system's history</strong>: its training and interactions in the world. And Dr P's evidence comes from phenomenology—an account of <strong>subjective experience</strong> and how the system does (or does not) experience anxiety. Whose evidence should take precedence, especially when the scientists reach conflicting conclusions? The answer is that it depends on one's account of understanding, and if that is not made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
 </blockquote>
-<p>They consider the following (abriged) example: one predictive model consists on a <em>look-up table</em>; another on an <em>equation</em> for an idealised situation (e.g. motion equation ignoring friction).</p>
-<p>The tests show that look-up table is more accurate than the equation within the domain of evaluation.</p>
-<p>However, the equation is a conceptual, general and compressed representation of this aspect of the phenomenon (which in their words "captures something about the data-generating process that is at best implicit in the look-up table.").</p>
-<p><em>Which "understands" better? The one with higher accuracy, or the one with more internal structure?</em> They argue:</p>
+<p>Lastly, they consider how the goals of stakeholders can help select an account of understanding for a system (bold is mine):</p>
 <blockquote>
-<p>The answer depends on one's account of understanding.</p>
+<p>Which approach to understanding is most useful will depend on the goals of <strong>stakeholders</strong> and of a given <strong>AI system</strong>, and which <strong>account</strong> is adopted can have implications for whether machine understanding is a goal we ought to pursue.</p>
 </blockquote>
-<p>And later on say:</p>
-<blockquote>
-<p>(...) we take it as a guiding assumption that an account of understanding should offer some insight concerning what (if anything) is deficient about a look-up table or "mere retrieval" when it comes to understanding.</p>
-</blockquote>
-<p>They then describe four different <em>accounts</em> (or views) of a system's understanding of a task <em>T</em> (two of these are "optional") and <em>a framework</em> to specify the system <em>S</em> which we won't discuss here.</p>
-<p>A key idea in the paper is that <em>evidence of understanding</em> should be framed within a particular notion of <em>what understanding is</em>.</p>
-<p>An interesting aspect of the paper is the use of stories to illustrate the accounts, such as the one quoted at the start of this post.</p>
-<p>Here is one of them, which summarises a large part of the paper:</p>
-<blockquote>
-<p>We can now consider a more encompassing example. Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr. M's evidence comes from an analysis of internal representations: a decoding technique has revealed intermediate layers that correspond to key features of anxiety. Dr. A's evidence comes from performance: the system shows excellent performance on key benchmarks. Dr. E's evidence comes from the system's history: its training and interactions in the world. And Dr. P's evidence comes from phenomenology —an account of subjective experience and how the system does (or doesn’t) experience anxiety. (...) if that [the account of understanding] isn't made explicit and introduced into the debate, these scientists will simply talk past one another.</p>
-</blockquote>
-<p>They also state:</p>
-<blockquote>
-<p>Our framework is consistent with a pluralist approach to machine understanding—one that recognizes multiple senses of understanding that can potentially diverge.</p>
-</blockquote>
-<p>An another hypothetical example (informally shortened, bold is mine):</p>
-<blockquote>
-<p>When law students take the bar exam (...) the scores plausibly reflect not only relevant content knowledge, but also relevant experiences and abilities (a mix of model-, ability, and etiology based considerations). GPT-4 can now score within the top 10% on the bar exam (156), and could perform better soon. But this will not reflect any real-world legal experience, and it might not reflect the generalization ability that the test assesses in humans. Does it possess legal understanding?</p>
-<p>(...)</p>
-<p><strong>Making an inference</strong> from some source of evidence (bar exam performance) to a claim about understanding <strong>requires some account of understanding</strong>. When that inferential step is spelled out, we can better assess whether it is justified.</p>
-</blockquote>
-<p>Lastly, a very interesting idea in this article, is that the goals of stakeholders may help us define the system and required account of understanding (bold is mine):</p>
-<blockquote>
-<p>Which approach to understanding is most useful will depend on the goals of <strong>stakeholders</strong> and of a given <strong>AI system</strong> (see Table 1), and which <strong>account</strong> is adopted can have implications for whether machine understanding is a goal we ought to pursue.</p>
-</blockquote>
-<p>We can summarise some of the above in a Venn diagram (the centre is the ideal area for a given case):</p>
 <pre class="mermaid">venn-beta
   title Understanding in practice
   set Stakeholder
@@ -1510,35 +1471,50 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
   union Stakeholder,Account,"AI System"["Ideal"]
 </pre>
 
-<h3 id="model-and-ability-based-accounts"><a class="header" href="#model-and-ability-based-accounts">Model and ability based accounts</a></h3>
-<p>Let's expand on two of the <em>accounts</em>:</p>
+<p>Let's now consider each account of understanding.</p>
+<h3 id="model-based-accounts"><a class="header" href="#model-based-accounts">Model-based accounts</a></h3>
+<p>Model-based accounts consider understanding to be:</p>
+<blockquote>
+<p>(...) a matter of what a system has "inside": particular representations, algorithms, or other internal properties.</p>
+</blockquote>
+<!-- and, -->
+<!---->
+<!-- > (...) taking some internal representation or world model to constitute understanding is the core of a model-based approach. -->
+<p>With a challenge of:</p>
+<blockquote>
+<p>(...) defining <em>which</em> internal properties constitute understanding and establishing reliable methods for evaluating those properties.</p>
+</blockquote>
+<p>As I read it, the evidence of internal structures can come from:</p>
 <ul>
-<li>
-<p><em>Model-based</em> (related to <em>intrinsic explanations</em>):</p>
-<blockquote>
-<p>(...) understanding is a matter of what a system has "inside" – whether that's particular representations, algorithms, or other internal properties.</p>
-<p>(...)
-A challenge for model-based accounts is defining which internal properties constitute understanding.</p>
-</blockquote>
-<p><em>Decoding layers</em>, which is mentioned a few times in the paper, or computing <em>saliency maps</em> and <em>feature importances</em> are post hoc XAI methods. <em>Decoding a layer</em> may also be considered a mechanistic interpretability method.</p>
-<p>Other relevant area is the design of interpretable and/or causal models, or at least the inclusion of some of such properties within models.</p>
-</li>
-<li>
-<p><em>Ability-based</em> (related to <em>extrinsic explanations</em>):</p>
-<blockquote>
-<p>(...) understanding is constituted by its performance or range of behaviors, rather than the internal features that give rise to them.</p>
-</blockquote>
-</li>
+<li>Designing knowledge structures or decoding them (e.g. intrinsic XAI methods), these are <em>direct evidence</em>.</li>
+<li>Extrinsic XAI methods (<em>indirect evidence</em>). For example post-hoc methods (e.g. SHAP and LIME, Saliency Maps, Counterfactuals) <em>may</em> suggest internal structures. Similarly reusing a layer for a different task (transfer learning) may be indirect evidence of internal representations. Frequently, these methods help a human build a model of the model (and don't provide evidence of internal model structure).</li>
+<li>Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability based accounts (see next section).</li>
 </ul>
-<p>The paper includes <em>etiology</em> and <em>phenomenology</em>-based accounts usually are on top of ability and/or model-based accounts.</p>
+<h3 id="ability-based-and-other-accounts"><a class="header" href="#ability-based-and-other-accounts">Ability-based and Other Accounts</a></h3>
+<p><em>Ability-based</em> accounts consider understanding to be:</p>
+<blockquote>
+<p>(...) constituted by its performance or behaviors, not the internal features that give rise to them.</p>
+</blockquote>
+<p>This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test".</p>
+<p><em>Etiology</em> and <em>phenomenology</em>-based accounts are usually additions to ability or model-based accounts.</p>
 <ul>
-<li>Etiology-based accounts are related to the training process: models trained on specific datasets or ways may in principle be unable to develop certain structures, despite any claims for them.</li>
+<li>Etiology-based accounts: is about the causal history of the system's development (e.g. in the learning process).</li>
 <li>Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.</li>
 </ul>
 <p>The accounts and related questions are arranged in the paper's table 1.</p>
+<!-- Ability vs Model is the general view of defining an object by how it behaves/what it does vs how the parts interact (e.g. replace "it" by "matter"). It is possible that, by careful design of layers or architectures where each layer/part encodes a distinct concept.-->
+<p>Both ability-based understanding (via generalisatio tasks) or model-based understanding
+(via finding suitable representations) can often separate between systems that memorise versus others with more general concepts; that is, as long as the test is correctly designed, and the encoded representation can be found.</p>
+<p>These approaches can also be complementary, or disprove one another.</p>
 <h2 id="concluding-remarks"><a class="header" href="#concluding-remarks">Concluding remarks</a></h2>
+<p><em>For machines</em>, we look at the coded or learnt program; <em>for humans</em>, we don't look at the brain. Hence, for humans, we only have different kinds of ability-based tests and can only ever <em>infer</em> internal representations (or assume the human has access to it, and can describe it). Had we the have distinct practices (e.g. looking at the brain) then there would be more symmetry between humans and machine understanding.</p>
+<!-- (Incidentally the paper's title can be read as "How to understand machines" or "How machines understand". This may be in purpose, but I don't like it.) -->
 <p>In studies of explanation (including of AI systems) it is usually stated that explanations are always for an audience: the kind of explanation is dependent on those involved.</p>
 <p>Explanations in AI may benefit from considering the participants/stakeholders, type of system, and account of understanding when producing the explanation (as shown in the Venn diagram given earlier).</p>
+<!-- - Carrying out tests and performance benchmarks that test for out of distribution generalisation (or memorisation), transfer learning and so forth; -->
+<!-- - Inspecting internal structures (say general ones, algorithms). -->
+<!--     - A question I personally find interesting is: _What kinds of programs do / can learning machines give rise to?_ Are they more like look-up tables? Or local rules and heuristics? Or maybe general algorithms? A mixture of all these? Or what are they? Eventually, this questions will be discussed in detail. -->
+<!---->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="connectivism"><a class="header" href="#connectivism">Connectivism</a></h1>
 <p>Personal comment: I disagree the theory's definition of <em>learning</em>, but agree with their view of <em>knowledge</em> in the digital era and the consequences of it.</p>
@@ -2233,6 +2209,22 @@ B --&gt; D(Embeddings)
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

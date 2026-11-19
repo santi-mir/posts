@@ -32,7 +32,7 @@ Explaining can expose a lack (or illusion) of understanding; it can also show an
 - Superseded by a simpler or more general one,
 - Shown to be inconsistent with prior knowledge.
 
-So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works. An interesting recent (2026) paper on that talks about understanding (in the context of AI) is [Machine Understanding][mu] by Lombrozo et. al.
+So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works, though this is just one view of understanding[^mu_post].
 
 In the paper "[From scientific theory to duality of predictive artificial intelligence models][bajorath]" it is stated, of _scientific understanding of a phenomenon_ (references removed):
 
@@ -236,5 +236,7 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 [xai_ibm]: https://www.sei.cmu.edu/blog/what-is-explainable-ai/
 
 [xxai]: https://dl.acm.org/doi/10.1145/3287560.3287574
+
+[^mu_post]: A recent paper by [Lombrozo et. al.][mu] (2026) proposes a pluralist approach to _machine understanding_, and is discussed in [this post](../systems_that_learn/machine_understanding_2.md).
 
 [^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)."
