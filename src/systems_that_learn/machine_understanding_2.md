@@ -24,7 +24,6 @@ A [recent article][mu] (Lombrozo et. al. 2026) considers that _understanding_ re
 
 But what is understanding? Rather than advocating for a view, the identify _four common views_ defining what understanding is from each perspective.
 
-
 The paper uses examples to make the discussion more vivid and concrete. The one belows highlights the 4 accounts/views of understanding (bold is mine):
 
 > Imagine four (hypothetical) scientists debating whether a given AI system understands anxiety. Dr M's evidence comes from **internal representations**: a decoding technique has revealed intermediate layers corresponding to key features of anxiety. Dr A's evidence comes from **performance**: the system shows excellent performance on key benchmarks. Dr E's evidence comes from the **system's history**: its training and interactions in the world. And Dr P's evidence comes from phenomenology&mdash;an account of **subjective experience** and how the system does (or does not) experience anxiety. Whose evidence should take precedence, especially when the scientists reach conflicting conclusions? The answer is that it depends on one's account of understanding, and if that is not made explicit and introduced into the debate, these scientists will simply talk past one another.
@@ -64,10 +63,7 @@ As I read it, the evidence of internal structures can come from:
 - Extrinsic XAI methods (_indirect evidence_). For example post-hoc methods (e.g. SHAP and LIME, Saliency Maps, Counterfactuals) _may_ suggest internal structures. Similarly reusing a layer for a different task (transfer learning) may be indirect evidence of internal representations. Frequently, these methods help a human build a model of the model (and don't provide evidence of internal model structure).
 - Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability based accounts (see next section).
 
-
-
 ### Ability-based and Other Accounts
-
 
 _Ability-based_ accounts consider understanding to be:
 
@@ -89,7 +85,6 @@ Both ability-based understanding (via generalisatio tasks) or model-based unders
 
  These approaches can also be complementary, or disprove one another.
 
-
 ## Concluding remarks
 
 _For machines_, we look at the coded or learnt program; _for humans_, we don't look at the brain. Hence, for humans, we only have different kinds of ability-based tests and can only ever _infer_ internal representations (or assume the human has access to it, and can describe it). Had we the have distinct practices (e.g. looking at the brain) then there would be more symmetry between humans and machine understanding.
@@ -100,7 +95,7 @@ In studies of explanation (including of AI systems) it is usually stated that ex
 Explanations in AI may benefit from considering the participants/stakeholders, type of system, and account of understanding when producing the explanation (as shown in the Venn diagram given earlier).
 
 [chalmers]: https://consc.net/papers/groundingdebate.pdf
-[churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120
+<!-- [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120 -->
 [melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [nlu]: https://aclanthology.org/2020.acl-main.463/
