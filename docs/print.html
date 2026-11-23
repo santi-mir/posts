@@ -478,7 +478,7 @@ Counterfactual explanations don't use a hypothesised causal graph, so they aren'
 <p>This post is an overview of the field of Explainable AI (XAI).</p>
 <hr>
 <h2 id="why-all-of-this"><a class="header" href="#why-all-of-this">Why all of this?</a></h2>
-<p>The <a href="XAI/explanation">previous post</a> described aspects of explanations in general.</p>
+<p>The <a href="#explanation">previous post</a> described aspects of explanations in general.</p>
 <p>But there are two questions that seem worth asking before moving forward:</p>
 <ol>
 <li>Why do we need this emphasis on theories of explanations for AI, but not for Physics, Chemistry, Maths? After all, all these use formulas, models and scientific models?</li>
@@ -1389,7 +1389,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 </blockquote>
 <p>Searle's argument aside, the record shows that simple programs can be <em>mistakenly assumed to be thinking</em> by human evaluators.</p>
 <p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown. A similar case was <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, but was using social queues to guess the result as it was shown later on (still impressive, but a different capability).</p>
-<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">with LLMs</a>; for example, a model taken to have learnt "a world model" was later on shown to be memorising (or using local rules and heuristics).</p>
+<p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">with LLMs</a>; for example, a model taken to have learnt "a world model" was later on shown to be memorising (or using local rules and heuristics).</p>
 <!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
 <p>The take aways seem to be that:</p>
 <ul>
@@ -1453,6 +1453,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <p>Let's assume that we are not interested in a modern computer that develops a mind with an actual self, understanding, and thoughts, but a modern computer that carries out the computations of those processes, solves problems, represents things internally in a rich, and understandable (by us) way and so forth.</p>
 <p>It may even do research and discover things.</p>
 <p>What would we call what these machines do? What are the limits of it? Would they be more than just useful-ish computers?</p>
+<!-- https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X -->
 <!-- [semantic_net]: https://en.wikipedia.org/wiki/Semantic_network -->
 <div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="machine-understanding-revisited"><a class="header" href="#machine-understanding-revisited">Machine Understanding Revisited</a></h1>
@@ -1466,7 +1467,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <ul>
 <li>Forming the right internal structures,</li>
 <li>Symbol grounding (Harnad, <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a>),</li>
-<li>Careful <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">evaluation of models</a>.</li>
+<li>Careful <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">evaluation of models</a>.</li>
 </ul>
 </li>
 </ul>
@@ -1516,7 +1517,7 @@ History of understanding? Examples of understanding? E.g. a mechanism on a real 
 <blockquote>
 <p>(...) constituted by its performance or behaviors, not the internal features that give rise to them.</p>
 </blockquote>
-<p>This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test". Both relate to how performance on a benchmark (if it benchmarks the right thing) could constitute understanding. But evaluations in AI are <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">not always well designed</a> (nor carefully analysed or correctly interpreted).</p>
+<p>This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test". Both relate to how performance on a benchmark (if it benchmarks the right thing) could constitute understanding. But evaluations in AI are <a href="https://www.youtube.com/watch?v=yKbeCvOKvMc">not always well designed</a> (nor carefully analysed or correctly interpreted).</p>
 <p>In that light, they recall someone else's idea to improve evaluation of AI models:</p>
 <blockquote>
 <p>Buckner argues that future evaluations could instead draw inspiration from comparative psychology, adopting rigorous, species-fair testing protocols that assess underlying cognitive capacities rather than just surface-level performance [125].</p>
@@ -2247,6 +2248,22 @@ B --&gt; D(Embeddings)
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>

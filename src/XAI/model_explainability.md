@@ -6,7 +6,7 @@ This post is an overview of the field of Explainable AI (XAI).
 
 ## Why all of this?
 
-The [previous post](./explanation) described aspects of explanations in general.
+The [previous post](./explanation.md) described aspects of explanations in general.
 
 But there are two questions that seem worth asking before moving forward:
 

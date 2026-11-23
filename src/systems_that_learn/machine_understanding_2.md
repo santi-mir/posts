@@ -111,7 +111,8 @@ Explanations in AI may benefit from considering the participants/stakeholders, t
 
 [chalmers]: https://consc.net/papers/groundingdebate.pdf
 <!-- [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120 -->
-[mm]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
+[mm]: https://www.youtube.com/watch?v=yKbeCvOKvMc
+
 [mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf

@@ -184,7 +184,9 @@ What would we call what these machines do? What are the limits of it? Would they
 [eliza]: https://en.wikipedia.org/wiki/ELIZA_effect
 [hans]: https://en.wikipedia.org/wiki/Clever_Hans
 [harnad]: http://www.tandfonline.com/doi/abs/10.1080/09528138908953691
-[melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
+[melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMc
+
+<!-- https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X -->
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf
 <!-- [semantic_net]: https://en.wikipedia.org/wiki/Semantic_network -->
