@@ -12,7 +12,7 @@ This post continues the topic of [Machine Understanding I](./machine_understandi
     <!-- - Arguing that symbol grounding isn't always needed (e.g. [David Chalmers][chalmers]); -->
     - Forming the right internal structures,
     - Symbol grounding (Harnad, [Koller and Bender][nlu]),
-    - Careful [evaluation of models][melanie_talk_cognitive].
+    - Careful [evaluation of models][mm].
 
 ## Paper
 
@@ -20,7 +20,7 @@ This post continues the topic of [Machine Understanding I](./machine_understandi
 History of understanding? Examples of understanding? E.g. a mechanism on a real system, a simplified system, an analogy, a metaphor, a "fitting model", tinkering & programming, a person, a social situation; Types of systems & Types of explanations?
 -->
 
-A [recent article][mu] (Lombrozo et. al. 2026) considers that _understanding_ requires specifying a system and a task: Does System (S) understand task (T)?
+A [recent article][mu] (Lombrozo et. al. 2026) considers that _understanding_ requires specifying a system and a task: Does System (_S_) understand task (_T_)?
 
 But what is understanding? Rather than advocating for a view, the identify _four common views_ defining what understanding is from each perspective.
 
@@ -61,31 +61,46 @@ As I read it, the evidence of internal structures can come from:
 
 - Designing knowledge structures or decoding them (e.g. intrinsic XAI methods), these are _direct evidence_.
 - Extrinsic XAI methods (_indirect evidence_). For example post-hoc methods (e.g. SHAP and LIME, Saliency Maps, Counterfactuals) _may_ suggest internal structures. Similarly reusing a layer for a different task (transfer learning) may be indirect evidence of internal representations. Frequently, these methods help a human build a model of the model (and don't provide evidence of internal model structure).
-- Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability based accounts (see next section).
+- Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability-based accounts (see next section).
 
-### Ability-based and Other Accounts
+### Ability-based Account
 
 _Ability-based_ accounts consider understanding to be:
 
 > (...) constituted by its performance or behaviors, not the internal features that give rise to them.
 
-This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test".
+This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test". Both relate to how performance on a benchmark (if it benchmarks the right thing) could constitute understanding. But evaluations in AI are [not always well designed][mm] (nor carefully analysed or correctly interpreted).
 
-_Etiology_ and _phenomenology_-based accounts are usually additions to ability or model-based accounts.
+In that light, they recall someone else's idea to improve evaluation of AI models:
 
-- Etiology-based accounts: is about the causal history of the system's development (e.g. in the learning process).
-- Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.
-
-The accounts and related questions are arranged in the paper's table 1.
-
-<!-- Ability vs Model is the general view of defining an object by how it behaves/what it does vs how the parts interact (e.g. replace "it" by "matter"). It is possible that, by careful design of layers or architectures where each layer/part encodes a distinct concept.-->
+> Buckner argues that future evaluations could instead draw inspiration from comparative psychology, adopting rigorous, species-fair testing protocols that assess underlying cognitive capacities rather than just surface-level performance [125].
 
 Both ability-based understanding (via generalisatio tasks) or model-based understanding
  (via finding suitable representations) can often separate between systems that memorise versus others with more general concepts; that is, as long as the test is correctly designed, and the encoded representation can be found.
 
  These approaches can also be complementary, or disprove one another.
 
+### Other accounts
+
+The remaining two accounts are less central, but still complementary to ability or model-based accounts, and are briefly described next.
+
+- Etiology-based accounts: is about the causal history of the system's development (e.g. in the learning process). Think of a model as a painting, and each stroke is an additional etiological datapoint; in the case of AIs, this is represented by the dataset (e.g. quality and diversity of data) and how it is used to learn from it (via training a model).
+- Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.
+
+>[!INFO]
+> The accounts and questions to guide AI research are presented in the paper's Table 1, and seem useful.
+
+<!-- Ability vs Model is the general view of defining an object by how it behaves/what it does vs how the parts interact (e.g. replace "it" by "matter"). It is possible that, by careful design of layers or architectures where each layer/part encodes a distinct concept.-->
+
 ## Concluding remarks
+
+The four-accounts framework can help researchers frame relate challenges in the AI lifecycle. The paper makes this clear with one example and one abstract paragraph. The concrete example is (bold was added):
+
+> Consider an ImageNet-trained system that classifies a picture as "class 949" [63]. What (if anything) does the system understand? On a **model-based** approach, one might use decoding techniques to identify which image features are associated with class 949. On an **ability-based** approach, one might assess classification performance: which images does the system classify as 949? On an **etiology-based** view, the place to look is the system’s history: What are the images used to train class 949 images of? (Strawberries.) What were human coders referring to when labeling these images? (Strawberries.)
+
+And the abstracted view:
+
+> (...) data and annotation bias (a largely etiological challenge), the black box problem (a largely model-based challenge; see Box 5), and OOD robustness (an ability-based challenge). However, they can be powerfully recast as specific concerns about the understanding a system does or does not possess.
 
 _For machines_, we look at the coded or learnt program; _for humans_, we don't look at the brain. Hence, for humans, we only have different kinds of ability-based tests and can only ever _infer_ internal representations (or assume the human has access to it, and can describe it). Had we the have distinct practices (e.g. looking at the brain) then there would be more symmetry between humans and machine understanding.
 <!-- (Incidentally the paper's title can be read as "How to understand machines" or "How machines understand". This may be in purpose, but I don't like it.) -->
@@ -96,7 +111,7 @@ Explanations in AI may benefit from considering the participants/stakeholders, t
 
 [chalmers]: https://consc.net/papers/groundingdebate.pdf
 <!-- [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120 -->
-[melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
+[mm]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf

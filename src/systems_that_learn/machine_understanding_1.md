@@ -6,13 +6,15 @@ This post, and the next one, explore the topic of _machine understanding_.
 
 ## The Imitation Game
 
-The paper [Computing Machinery and Intelligence][turing] (Alan Turing, 1950) describes a game with three participants. In the first scenario the participants are:
+In the paper [Computing Machinery and Intelligence][turing] (1950) Turing describes a game with three participants. The game, called "The Imitation Game", was a way to replace the question _Can Machines Think?_.
+
+In the first scenario, the participants are:
 
 - A woman: tasked to be authentic,
 - A man: tasked to play the part of (imitate) a man,
-- A human interrogator: tasked to guess which of the other members is a man and which is a woman (interacting via text interface).
+- An interrogator: tasked to guess which of the other members is a man and which is a woman (interacting via text interface).
 
-In the second scenario, a computer takes the role of the man, and we ask: _Can the computer pass as a woman with the same skill a man does?_
+In the second scenario, a computer takes the role of the man. _Could a computer perform the same as the man (statistically speaking)?_
 
 Turing called this "The Imitation Game".
 
@@ -20,60 +22,86 @@ A simplified version of the game is referred to as the "Turing test"; it takes t
 
 Turing's test avoids two complexities:
 
-- Defining _thinking_,
+- Defining _thinking_ (this set up replaces the question _Can Machines Think?_),
 - Comparing more closely brains and digital computers.
 
 Turing was aware of many objections and some are addressed in the paper. However, he dismisses an objection which recently became more important:
 
 > May not machines carry out something which ought to be described as thinking but which is very different from what a man does? (...) if, nevertheless, a machine can be constructed to play the imitation game satisfactorily, we need not be troubled by this objection.
 
-## Strong AI and the Turing Test
-
-In [Is the Brain's Mind a Computer Program?][searle_simple] (1990) Searle states that _Strong AI advocates_ take the Turing test as a test for machine thinking:
-
-> The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability&mdash;say, the ability to do addition or to understand Chinese&mdash;then the computer also has that ability.
-
-The Strong AI advocates seem to interpret that _if the machine performs like a human, then it thinks_; but even Turing seems more sceptical:
+And also says, much later in the paper:
 
 > The feature of using electricity is thus seen to be only a very superficial similarity [between brains and digital computers]. If we wish to find such similarities we should look rather for mathematical analogies of function.
 
-On ["Could a machine think?"][churchlands] the Strong AI assumption seems implicit and agrees with Searle's description of the view (the part in quotes is Searle's main axiom):
+Turing considered the ability and the program of the system, but not the "analogies of function" (to the brain).
+
+## Strong AI and the Turing Test
+
+Now consider the question (see [Minds, machines and Searle][harnad], 1989):
+
+> (...) if a computer program simulates or imitates activities of ours that seem to require understanding (such as communicating in language), can the program itself be said to understand in so doing?
+
+(I would expect Turing to object to the word _understanding_ there, and insists with the test of ability.)
+
+A related quote comes from [Is the Brain's Mind a Computer Program?][searle_simple] (1990):
+
+> The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its performance from that of a human who has a certain cognitive ability&mdash;say, the ability to do addition or to understand Chinese&mdash;then the computer also has that ability.
+
+The Strong AI view is the view the Turing test can decide whether a computer has that ability. And many of the supporters also thought that the mind (or meaning) is a symbol manipulation process.
+
+On ["Could a machine think?"][churchlands] the Strong AI assumption seems implicit and agrees with Searle's description (the part in quotes is Searle's main axiom):
 
 > (...) "Syntax by itself is neither constitutive of nor sufficient for semantics." (...) to assume its truth is tantamount to begging the question against the research program of classical AI, for that program is predicated on the very interesting assumption that if one can just set in motion an appropriately structured internal dance of syntactic elements, appropriately connected to inputs and outputs, it can produce the same cognitive states and achievements found in human beings.
 
-Other related quotes being:
+Also here by [harnad][harnad] (1989):
 
-> Chinese room makes axiom 3 tempting to the unwary, (...)
+> The computer simulation will not have a mind. The implementation [physical construction, not software] of that model as an actual mechanism, however, will pass the Total Turing Test, and we will have no better (or worse) grounds for denying that it has a mind than we have for denying that anyone else does (Harnad 1984). Does that make me a believer in Strong AI?
 
-And:
-
-> Even though Searle's Chinese room may appear to be "semantically dark," he is in no position to insist, on the strength of this appearance, that rule-governed symbol manipulation can never constitute semantic phenomena, (...)
-
-The Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's **Axiom 3**, that "_programs are neither constitutive nor sufficient for minds_". But.., was Searle right?
+But notice that Turing seems quite carefully restricted to ability, and does not make further claims from that.
 
 ### Arguments Against Strong AI
 
-- **The Chinese Room**: Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view.
+Consider a person replying to questions in an unknown language, via a set of instructions written in the person's native language. But does the person _know the language_?
 
-  Here only Searle's conclusions will be quoted:
+We wouldn't say so. And the same applies if person were replaced by a computer (and the rules by a suitable program). The computer would pass the Turing test for conversation without knowing the language.
 
-  > Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves&mdash;just having the syntax&mdash;is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.
+That is a simplification of Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980), a thought experiment aiming to show the absurdity of the Strong AI view (the claim that imitation of thinking is thinking).
 
-  According to Searle if a computer passes the Turing test we can't guarantee that it thinks. A program may read as thoughtful, pass the Turing test, but it wouldn't know the meaning of the symbols it is manipulating.
+Let's read Searle's conclusions of the thought experiment:
 
-  An equivalent statement by Searle is:
+> Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves&mdash;just having the syntax&mdash;is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.
 
-  > You can't get semantically loaded thought contents from formal computations alone, (...)
+According to Searle if a computer passes the Turing test we can't guarantee that it thinks. A program may read as thoughtful, pass the Turing test, but it wouldn't know the meaning of the symbols it is manipulating.
 
-  A similar argument by [Koller and Bender][nlu] is that machines can't learn intents from _form_ alone (symbols) though they may if trained on e.g. meaning pairs. They also describe their own _Octopus test_ for language understanding and comment on Searle's Chinese Room:
+An equivalent statement by Searle is:
 
-  > Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form.
+> You can't get semantically loaded thought contents from formal computations alone, (...)
 
-- **False Positives**: Searle's argument aside, the record shows that simple programs can be _mistakenly assumed to be thinking_ by human evaluators.
+There are many responses to the CRA, here is one that I find interesting, from ["Could a machine think?"][churchlands]:
 
-  Humans anthropomorphise language easily (assigning a mind behind it), as the [ELIZA effect][eliza] has shown. A similar case was [Clever Hans][hans]; Hans was a horse assumed to understand arithmetic, but was using social queues to guess the result as it was shown later on (still impressive, but a different capability).
+> Even though Searle's Chinese room may appear to be "semantically dark," he is in no position to insist, on the strength of this appearance, that rule-governed symbol manipulation can never constitute semantic phenomena, (...)
 
-  This has happened in recent times as well, [with LLMs][melanie_talk_cognitive]; for example, a model taken to have learnt "a world model" was later on shown to be memorising (or using local rules and heuristics).
+Similarly, [Harnad][harnad] suggests that symbols need to be grounded:
+
+> With symbols defined only in terms of still more symbols, their meanings appear to be "ungrounded". The problem is rather like trying to learn Chinese from a Chinese dictionary alone, without any prior knowledge of Chinese (or even of English or the sensory world).
+
+There are a few separate problems here, as far as I can see:
+
+1. Criticism of _symbolic functionalism_ / _Strong AI_: these hold that "mind equals symbol processing" and is tested via the Turing test. The criticism is that syntax isn't enough for semantics (symbols don't have meaning).
+    - Harnad states this criticism as "(...) trying to learn Chinese from a Chinese dictionary alone, without any prior knowledge of Chinese (...)" (What meaning can a child learn by only ever interacting with words in a book, never experiencing anything else?).
+2. Only physical hardware (like the brain) can think, not a simulation of it (just like a simulation of a plane can't fly).
+3. Harnad's considers that _if_ the simulation informs a successful implementation, then there is some truth to it, as he states:
+  > Computer programs don't understand (though they can in principle model formally all of the relevant causal factors in understanding).
+
+[Koller and Bender][nlu] state that LLMs can't learn intents (what words refer to) if trained from _language form_ alone (symbols). But they consider that computers may develop further if trained on e.g. meaning pairs. They also describe their own _Octopus test_ for language understanding and comment on Searle's Chinese Room:
+
+> Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form.
+
+Searle's argument aside, the record shows that simple programs can be _mistakenly assumed to be thinking_ by human evaluators.
+
+Humans anthropomorphise language easily (assigning a mind behind it), as the [ELIZA effect][eliza] has shown. A similar case was [Clever Hans][hans]; Hans was a horse assumed to understand arithmetic, but was using social queues to guess the result as it was shown later on (still impressive, but a different capability).
+
+This has happened in recent times as well, [with LLMs][melanie_talk_cognitive]; for example, a model taken to have learnt "a world model" was later on shown to be memorising (or using local rules and heuristics).
 
 <!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
 
@@ -81,6 +109,8 @@ The take aways seem to be that:
 
 - We aren't very good evaluators of simulated capabilities;
 - Internal mechanisms of a network may help us do precisely that;
+
+<!-- The Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's **Axiom 3**, that "_programs are neither constitutive nor sufficient for minds_". But.., was Searle right? -->
 
 ## Meaning
 
@@ -134,9 +164,7 @@ He says that, to _think_ computers must "duplicate the specific causal powers of
 
 So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also _adds meaning in_) is to be found in the organisation and causal structure of the brain which computers (as currently designed) lack.
 
-Also, the causal structure isn't about adding a robotic body, but about the kind of causation within the neural network.
-
-Fascinating. But it's worth pondering here:
+Also, the causal structure isn't about adding a robotic body, but about the kind of causation within the neural network. But it's worth pondering here:
 
 - _Why is about meaning that require a particular organisation and causal powers (such as that of brains)?_
 - Conversely, we can push on the Strong AI view: What if all that is needed is a rich representations of (grounded)-symbols, links between them, and appropriate input-output mapping (processing)? Form alone does seem insufficient, and was refuted by [Koller and Bender][nlu] but what about rich representations of symbols connected to multimodal perceptions? This is what they suggest in Section 7 (among other options):
@@ -155,6 +183,7 @@ What would we call what these machines do? What are the limits of it? Would they
 [churchlands]: https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120
 [eliza]: https://en.wikipedia.org/wiki/ELIZA_effect
 [hans]: https://en.wikipedia.org/wiki/Clever_Hans
+[harnad]: http://www.tandfonline.com/doi/abs/10.1080/09528138908953691
 [melanie_talk_cognitive]: https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X
 [nlu]: https://aclanthology.org/2020.acl-main.463/
 [searle_simple]: https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain's%20Mind%20a%20Computer%20Program.pdf

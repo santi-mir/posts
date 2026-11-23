@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-84150235.js";
+            window.path_to_searchindex_js = "searchindex-b873d281.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-90c7a4fb.js"></script>
@@ -1305,51 +1305,55 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <p>This post, and the next one, explore the topic of <em>machine understanding</em>.</p>
 <hr>
 <h2 id="the-imitation-game"><a class="header" href="#the-imitation-game">The Imitation Game</a></h2>
-<p>The paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (Alan Turing, 1950) describes a game with three participants. In the first scenario the participants are:</p>
+<p>In the paper <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a> (1950) Turing describes a game with three participants. The game, called "The Imitation Game", was a way to replace the question <em>Can Machines Think?</em>.</p>
+<p>In the first scenario, the participants are:</p>
 <ul>
 <li>A woman: tasked to be authentic,</li>
 <li>A man: tasked to play the part of (imitate) a man,</li>
-<li>A human interrogator: tasked to guess which of the other members is a man and which is a woman (interacting via text interface).</li>
+<li>An interrogator: tasked to guess which of the other members is a man and which is a woman (interacting via text interface).</li>
 </ul>
-<p>In the second scenario, a computer takes the role of the man, and we ask: <em>Can the computer pass as a woman with the same skill a man does?</em></p>
+<p>In the second scenario, a computer takes the role of the man. <em>Could a computer perform the same as the man (statistically speaking)?</em></p>
 <p>Turing called this "The Imitation Game".</p>
 <p>A simplified version of the game is referred to as the "Turing test"; it takes the second set up and asks: <em>Can the interrogator distinguish which participant isn't a human?</em>. In this post either name will be used, unless the details become relevant.</p>
 <p>Turing's test avoids two complexities:</p>
 <ul>
-<li>Defining <em>thinking</em>,</li>
+<li>Defining <em>thinking</em> (this set up replaces the question <em>Can Machines Think?</em>),</li>
 <li>Comparing more closely brains and digital computers.</li>
 </ul>
 <p>Turing was aware of many objections and some are addressed in the paper. However, he dismisses an objection which recently became more important:</p>
 <blockquote>
 <p>May not machines carry out something which ought to be described as thinking but which is very different from what a man does? (...) if, nevertheless, a machine can be constructed to play the imitation game satisfactorily, we need not be troubled by this objection.</p>
 </blockquote>
-<h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing Test</a></h2>
-<p>In <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Is the Brain's Mind a Computer Program?</a> (1990) Searle states that <em>Strong AI advocates</em> take the Turing test as a test for machine thinking:</p>
-<blockquote>
-<p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its per formance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
-</blockquote>
-<p>The Strong AI advocates seem to interpret that <em>if the machine performs like a human, then it thinks</em>; but even Turing seems more sceptical:</p>
+<p>And also says, much later in the paper:</p>
 <blockquote>
 <p>The feature of using electricity is thus seen to be only a very superficial similarity [between brains and digital computers]. If we wish to find such similarities we should look rather for mathematical analogies of function.</p>
 </blockquote>
-<p>On <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a machine think?"</a> the Strong AI assumption seems implicit and agrees with Searle's description of the view (the part in quotes is Searle's main axiom):</p>
+<p>Turing considered the ability and the program of the system, but not the "analogies of function" (to the brain).</p>
+<h2 id="strong-ai-and-the-turing-test"><a class="header" href="#strong-ai-and-the-turing-test">Strong AI and the Turing Test</a></h2>
+<p>Now consider the question (see <a href="http://www.tandfonline.com/doi/abs/10.1080/09528138908953691">Minds, machines and Searle</a>, 1989):</p>
+<blockquote>
+<p>(...) if a computer program simulates or imitates activities of ours that seem to require understanding (such as communicating in language), can the program itself be said to understand in so doing?</p>
+</blockquote>
+<p>(I would expect Turing to object to the word <em>understanding</em> there, and insists with the test of ability.)</p>
+<p>A related quote comes from <a href="https://www.beisecker.faculty.unlv.edu/Courses/PHIL%20330/Searle,%20Is%20the%20Brain&#39;s%20Mind%20a%20Computer%20Program.pdf">Is the Brain's Mind a Computer Program?</a> (1990):</p>
+<blockquote>
+<p>The Turing test, as currently understood, is simply this: if a computer can perform in such a way that an expert cannot distinguish its performance from that of a human who has a certain cognitive ability—say, the ability to do addition or to understand Chinese—then the computer also has that ability.</p>
+</blockquote>
+<p>The Strong AI view is the view the Turing test can decide whether a computer has that ability. And many of the supporters also thought that the mind (or meaning) is a symbol manipulation process.</p>
+<p>On <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a machine think?"</a> the Strong AI assumption seems implicit and agrees with Searle's description (the part in quotes is Searle's main axiom):</p>
 <blockquote>
 <p>(...) "Syntax by itself is neither constitutive of nor sufficient for semantics." (...) to assume its truth is tantamount to begging the question against the research program of classical AI, for that program is predicated on the very interesting assumption that if one can just set in motion an appropriately structured internal dance of syntactic elements, appropriately connected to inputs and outputs, it can produce the same cognitive states and achievements found in human beings.</p>
 </blockquote>
-<p>Other related quotes being:</p>
+<p>Also here by <a href="http://www.tandfonline.com/doi/abs/10.1080/09528138908953691">harnad</a> (1989):</p>
 <blockquote>
-<p>Chinese room makes axiom 3 tempting to the unwary, (...)</p>
+<p>The computer simulation will not have a mind. The implementation [physical construction, not software] of that model as an actual mechanism, however, will pass the Total Turing Test, and we will have no better (or worse) grounds for denying that it has a mind than we have for denying that anyone else does (Harnad 1984). Does that make me a believer in Strong AI?</p>
 </blockquote>
-<p>And:</p>
-<blockquote>
-<p>Even though Searle's Chinese room may appear to be "semantically dark," he is in no position to insist, on the strength of this appearance, that rule-governed symbol manipulation can never constitute semantic phenomena, (...)</p>
-</blockquote>
-<p>The Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's <strong>Axiom 3</strong>, that "<em>programs are neither constitutive nor sufficient for minds</em>". But.., was Searle right?</p>
+<p>But notice that Turing seems quite carefully restricted to ability, and does not make further claims from that.</p>
 <h3 id="arguments-against-strong-ai"><a class="header" href="#arguments-against-strong-ai">Arguments Against Strong AI</a></h3>
-<ul>
-<li>
-<p><strong>The Chinese Room</strong>: Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980) is a thought experiment aiming to show the absurdity of the Strong AI view.</p>
-<p>Here only Searle's conclusions will be quoted:</p>
+<p>Consider a person replying to questions in an unknown language, via a set of instructions written in the person's native language. But does the person <em>know the language</em>?</p>
+<p>We wouldn't say so. And the same applies if person were replaced by a computer (and the rules by a suitable program). The computer would pass the Turing test for conversation without knowing the language.</p>
+<p>That is a simplification of Searle's Chinese Room Argument (CRA for short; from "Brains, Minds and Programs", 1980), a thought experiment aiming to show the absurdity of the Strong AI view (the claim that imitation of thinking is thinking).</p>
+<p>Let's read Searle's conclusions of the thought experiment:</p>
 <blockquote>
 <p>Now let me add the point that the Chinese Room demonstrated. Having the symbols by themselves—just having the syntax—is not sufficient for having the semantics. Merely manipulating symbols is not enough to guarantee knowledge of what they mean.</p>
 </blockquote>
@@ -1358,23 +1362,41 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <blockquote>
 <p>You can't get semantically loaded thought contents from formal computations alone, (...)</p>
 </blockquote>
-<p>A similar argument by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> is that machines can't learn intents from <em>form</em> alone (symbols) though they may if trained on e.g. meaning pairs. They also describe their own <em>Octopus test</em> for language understanding and comment on Searle's Chinese Room:</p>
+<p>There are many responses to the CRA, here is one that I find interesting, from <a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780122154959500120">"Could a machine think?"</a>:</p>
+<blockquote>
+<p>Even though Searle's Chinese room may appear to be "semantically dark," he is in no position to insist, on the strength of this appearance, that rule-governed symbol manipulation can never constitute semantic phenomena, (...)</p>
+</blockquote>
+<p>Similarly, <a href="http://www.tandfonline.com/doi/abs/10.1080/09528138908953691">Harnad</a> suggests that symbols need to be grounded:</p>
+<blockquote>
+<p>With symbols defined only in terms of still more symbols, their meanings appear to be "ungrounded". The problem is rather like trying to learn Chinese from a Chinese dictionary alone, without any prior knowledge of Chinese (or even of English or the sensory world).</p>
+</blockquote>
+<p>There are a few separate problems here, as far as I can see:</p>
+<ol>
+<li>Criticism of <em>symbolic functionalism</em> / <em>Strong AI</em>: these hold that "mind equals symbol processing" and is tested via the Turing test. The criticism is that syntax isn't enough for semantics (symbols don't have meaning).
+<ul>
+<li>Harnad states this criticism as "(...) trying to learn Chinese from a Chinese dictionary alone, without any prior knowledge of Chinese (...)" (What meaning can a child learn by only ever interacting with words in a book, never experiencing anything else?).</li>
+</ul>
+</li>
+<li>Only physical hardware (like the brain) can think, not a simulation of it (just like a simulation of a plane can't fly).</li>
+<li>Harnad's considers that <em>if</em> the simulation informs a successful implementation, then there is some truth to it, as he states:</li>
+</ol>
+<blockquote>
+<p>Computer programs don't understand (though they can in principle model formally all of the relevant causal factors in understanding).</p>
+</blockquote>
+<p><a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> state that LLMs can't learn intents (what words refer to) if trained from <em>language form</em> alone (symbols). But they consider that computers may develop further if trained on e.g. meaning pairs. They also describe their own <em>Octopus test</em> for language understanding and comment on Searle's Chinese Room:</p>
 <blockquote>
 <p>Searle's thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately. We observe that much recent work in NLP claims to be building systems where not only the runtime system but in fact also the process for building it only has access to form.</p>
 </blockquote>
-</li>
-<li>
-<p><strong>False Positives</strong>: Searle's argument aside, the record shows that simple programs can be <em>mistakenly assumed to be thinking</em> by human evaluators.</p>
+<p>Searle's argument aside, the record shows that simple programs can be <em>mistakenly assumed to be thinking</em> by human evaluators.</p>
 <p>Humans anthropomorphise language easily (assigning a mind behind it), as the <a href="https://en.wikipedia.org/wiki/ELIZA_effect">ELIZA effect</a> has shown. A similar case was <a href="https://en.wikipedia.org/wiki/Clever_Hans">Clever Hans</a>; Hans was a horse assumed to understand arithmetic, but was using social queues to guess the result as it was shown later on (still impressive, but a different capability).</p>
 <p>This has happened in recent times as well, <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">with LLMs</a>; for example, a model taken to have learnt "a world model" was later on shown to be memorising (or using local rules and heuristics).</p>
-</li>
-</ul>
 <!-- And trusting output generated without an actual reasoning behind can be dangerous. -->
 <p>The take aways seem to be that:</p>
 <ul>
 <li>We aren't very good evaluators of simulated capabilities;</li>
 <li>Internal mechanisms of a network may help us do precisely that;</li>
 </ul>
+<!-- The Chinese Room may be argued to be an intuition pump or metaphor that eases the way into Searle's **Axiom 3**, that "_programs are neither constitutive nor sufficient for minds_". But.., was Searle right? -->
 <h2 id="meaning"><a class="header" href="#meaning">Meaning</a></h2>
 <p>A central part of the issue of machine understanding and thinking involves <em>meaning</em>. Let's now step back and ask: <em>But what is meaning?</em></p>
 <p>Searle states that <em>meaning</em> is what the symbols refer to:</p>
@@ -1419,8 +1441,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 </blockquote>
 <p>He says that, to <em>think</em> computers must "duplicate the specific causal powers of brains, and it could not do that just by running a formal program."</p>
 <p>So overall his view is that a running computer program, on a standard computer, is symbol processing without meaning (exemplified by the CRA), and the difference (which also <em>adds meaning in</em>) is to be found in the organisation and causal structure of the brain which computers (as currently designed) lack.</p>
-<p>Also, the causal structure isn't about adding a robotic body, but about the kind of causation within the neural network.</p>
-<p>Fascinating. But it's worth pondering here:</p>
+<p>Also, the causal structure isn't about adding a robotic body, but about the kind of causation within the neural network. But it's worth pondering here:</p>
 <ul>
 <li><em>Why is about meaning that require a particular organisation and causal powers (such as that of brains)?</em></li>
 <li>Conversely, we can push on the Strong AI view: What if all that is needed is a rich representations of (grounded)-symbols, links between them, and appropriate input-output mapping (processing)? Form alone does seem insufficient, and was refuted by <a href="https://aclanthology.org/2020.acl-main.463/">Koller and Bender</a> but what about rich representations of symbols connected to multimodal perceptions? This is what they suggest in Section 7 (among other options):</li>
@@ -1453,7 +1474,7 @@ When the model <span class="katex"><span class="katex-html" aria-hidden="true"><
 <!-- We want to design machines that understand or to make sure they understand! Otherwise, they may fail and be harmful. So we need to think about understanding.
 History of understanding? Examples of understanding? E.g. a mechanism on a real system, a simplified system, an analogy, a metaphor, a "fitting model", tinkering & programming, a person, a social situation; Types of systems & Types of explanations?
 -->
-<p>A <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">recent article</a> (Lombrozo et. al. 2026) considers that <em>understanding</em> requires specifying a system and a task: Does System (S) understand task (T)?</p>
+<p>A <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">recent article</a> (Lombrozo et. al. 2026) considers that <em>understanding</em> requires specifying a system and a task: Does System (<em>S</em>) understand task (<em>T</em>)?</p>
 <p>But what is understanding? Rather than advocating for a view, the identify <em>four common views</em> defining what understanding is from each perspective.</p>
 <p>The paper uses examples to make the discussion more vivid and concrete. The one belows highlights the 4 accounts/views of understanding (bold is mine):</p>
 <blockquote>
@@ -1488,25 +1509,41 @@ History of understanding? Examples of understanding? E.g. a mechanism on a real 
 <ul>
 <li>Designing knowledge structures or decoding them (e.g. intrinsic XAI methods), these are <em>direct evidence</em>.</li>
 <li>Extrinsic XAI methods (<em>indirect evidence</em>). For example post-hoc methods (e.g. SHAP and LIME, Saliency Maps, Counterfactuals) <em>may</em> suggest internal structures. Similarly reusing a layer for a different task (transfer learning) may be indirect evidence of internal representations. Frequently, these methods help a human build a model of the model (and don't provide evidence of internal model structure).</li>
-<li>Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability based accounts (see next section).</li>
+<li>Adequate Tests: some can provide indirect evidence of internal structure; they are direct evidence for ability-based accounts (see next section).</li>
 </ul>
-<h3 id="ability-based-and-other-accounts"><a class="header" href="#ability-based-and-other-accounts">Ability-based and Other Accounts</a></h3>
+<h3 id="ability-based-account"><a class="header" href="#ability-based-account">Ability-based Account</a></h3>
 <p><em>Ability-based</em> accounts consider understanding to be:</p>
 <blockquote>
 <p>(...) constituted by its performance or behaviors, not the internal features that give rise to them.</p>
 </blockquote>
-<p>This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test".</p>
-<p><em>Etiology</em> and <em>phenomenology</em>-based accounts are usually additions to ability or model-based accounts.</p>
-<ul>
-<li>Etiology-based accounts: is about the causal history of the system's development (e.g. in the learning process).</li>
-<li>Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.</li>
-</ul>
-<p>The accounts and related questions are arranged in the paper's table 1.</p>
-<!-- Ability vs Model is the general view of defining an object by how it behaves/what it does vs how the parts interact (e.g. replace "it" by "matter"). It is possible that, by careful design of layers or architectures where each layer/part encodes a distinct concept.-->
+<p>This one is at the root related to Wittgenstein "meaning is use" and to the "Turing test". Both relate to how performance on a benchmark (if it benchmarks the right thing) could constitute understanding. But evaluations in AI are <a href="https://www.youtube.com/watch?v=yKbeCvOKvMchttps://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X">not always well designed</a> (nor carefully analysed or correctly interpreted).</p>
+<p>In that light, they recall someone else's idea to improve evaluation of AI models:</p>
+<blockquote>
+<p>Buckner argues that future evaluations could instead draw inspiration from comparative psychology, adopting rigorous, species-fair testing protocols that assess underlying cognitive capacities rather than just surface-level performance [125].</p>
+</blockquote>
 <p>Both ability-based understanding (via generalisatio tasks) or model-based understanding
 (via finding suitable representations) can often separate between systems that memorise versus others with more general concepts; that is, as long as the test is correctly designed, and the encoded representation can be found.</p>
 <p>These approaches can also be complementary, or disprove one another.</p>
+<h3 id="other-accounts"><a class="header" href="#other-accounts">Other accounts</a></h3>
+<p>The remaining two accounts are less central, but still complementary to ability or model-based accounts, and are briefly described next.</p>
+<ul>
+<li>Etiology-based accounts: is about the causal history of the system's development (e.g. in the learning process). Think of a model as a painting, and each stroke is an additional etiological datapoint; in the case of AIs, this is represented by the dataset (e.g. quality and diversity of data) and how it is used to learn from it (via training a model).</li>
+<li>Phenomenology-based accounts are related to subjective experience. We won't discuss them further in this overview.</li>
+</ul>
+<blockquote>
+<p>[!INFO]
+The accounts and questions to guide AI research are presented in the paper's Table 1, and seem useful.</p>
+</blockquote>
+<!-- Ability vs Model is the general view of defining an object by how it behaves/what it does vs how the parts interact (e.g. replace "it" by "matter"). It is possible that, by careful design of layers or architectures where each layer/part encodes a distinct concept.-->
 <h2 id="concluding-remarks"><a class="header" href="#concluding-remarks">Concluding remarks</a></h2>
+<p>The four-accounts framework can help researchers frame relate challenges in the AI lifecycle. The paper makes this clear with one example and one abstract paragraph. The concrete example is (bold was added):</p>
+<blockquote>
+<p>Consider an ImageNet-trained system that classifies a picture as "class 949" [63]. What (if anything) does the system understand? On a <strong>model-based</strong> approach, one might use decoding techniques to identify which image features are associated with class 949. On an <strong>ability-based</strong> approach, one might assess classification performance: which images does the system classify as 949? On an <strong>etiology-based</strong> view, the place to look is the system’s history: What are the images used to train class 949 images of? (Strawberries.) What were human coders referring to when labeling these images? (Strawberries.)</p>
+</blockquote>
+<p>And the abstracted view:</p>
+<blockquote>
+<p>(...) data and annotation bias (a largely etiological challenge), the black box problem (a largely model-based challenge; see Box 5), and OOD robustness (an ability-based challenge). However, they can be powerfully recast as specific concerns about the understanding a system does or does not possess.</p>
+</blockquote>
 <p><em>For machines</em>, we look at the coded or learnt program; <em>for humans</em>, we don't look at the brain. Hence, for humans, we only have different kinds of ability-based tests and can only ever <em>infer</em> internal representations (or assume the human has access to it, and can describe it). Had we the have distinct practices (e.g. looking at the brain) then there would be more symmetry between humans and machine understanding.</p>
 <!-- (Incidentally the paper's title can be read as "How to understand machines" or "How machines understand". This may be in purpose, but I don't like it.) -->
 <p>In studies of explanation (including of AI systems) it is usually stated that explanations are always for an audience: the kind of explanation is dependent on those involved.</p>
@@ -2210,22 +2247,6 @@ B --&gt; D(Embeddings)
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>
