@@ -10,25 +10,25 @@ This post is an introduction to explanations.
 
 <!-- They are more than the presentation of causes, though that is an essential aspect.  -->
 
-A concise definition of an explanation was given by [Hempel and Oppenheim][hempel_oppenheim] ("Studies in The Logic of Explanation", 1948):
+A concise definition of an explanation was given in [Studies in The Logic of Explanation][logic_of_expl_hempel] (Hempel and Oppenheim, 1948):
 
 > To explain the phenomena in the world of our experience, to answer the question "why?" rather than only the question "what?"; is one of the foremost objectives of rational enquiry (...)
 
-The paper "[How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems]" (2017) highlights a structural aspect of explanations:
+The paper [How People Explain Action (and Autonomous Intelligent Systems Should Too)][autonomous_intelligent_systems] (Malle et. al., 2017) highlights a structural aspect of explanations:
 
 > Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience. The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation.
 
 <!-- That's a step forwards. But what is _explains_? -->
 
-[Explaining Explanations in AI][xxai] also defines of explanations with emphasis on complex models:
+[Explaining Explanations in AI][xxai] (Wachter et. al., 2019) also defines of explanations with emphasis on complex models:
 
 > (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017).
 
-In the book "Why we ask why?", Tania Lombrozo defines _explanation_ in similar terms to Hempel and Oppenheim's:
+In the book "Why we ask why?" (2026), Tania Lombrozo defines _explanation_ in similar terms to Hempel and Oppenheim's:
 
 > Explanations are responses to actual or implied why- or how-questions that offer understanding about what's being explained.
 
-[Explanation in artificial intelligence: insights from the social sciences][explanations_social] (citing Lombrozo) states that explanation is both a process and a product (the result).
+[Explanation in artificial intelligence: insights from the social sciences][explanations_social] (Miller, 2019; citing Lombrozo) states that explanation is both a process and a product (the result).
 
 These ideas can be combined as below:
 
@@ -40,25 +40,26 @@ All or some of the steps may repeat; for example, by refining the explanandum an
 
 - Contradicted by experience (falsified),
 - Superseded by a simpler or more general one,
-- Shown to be inconsistent with prior knowledge.
-
-(Though those may be overridden by other aspects such as convenience or belief or anything else!)
+- Shown to be inconsistent with prior knowledge,
+- Other reasons (list is not exhaustive).
 
 <!-- The process of explaining can expose a lack (or illusion) of understanding; it can also show and improve understanding. -->
 
 <!-- So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works, though this is just one view of understanding[^mu_post]. -->
 
-As Lombrozo notes in her book, this perspective on what explanations are leaves out certain cases such as "_Can you explain me the meaning of this word?_" This is where the "why or how" in Lombrozo's definition matters. The aspects we will focus here are closer to explanation of mechanisms and everyday events and may or not be helpful for other kinds of questions and situations.
+>[!NOTE]
+> This definitions are just a starting point, and only cover a subset of instances of what we'd call explanations.
+<!-- As Lombrozo notes in her book, this perspective on what explanations are leaves out certain cases such as "_Can you explain me the meaning of this word?_" This is where the "why or how" in Lombrozo's definition matters. The aspects we will focus here are closer to explanation of mechanisms and everyday events and may or not be helpful for other kinds of questions and situations. -->
 
 ### Scientific Explanation
 
-Scientific explanation is a type of explanation, so it shares all the elements mentioned earlier.
+Scientific explanation is a type of explanation, so it inherits all the characteristics mentioned earlier.
 
-What makes it _scientific_ is a complex topic. For example, the paper "[From scientific theory to duality of predictive artificial intelligence models][bajorath]" defines the cognitive process involving _scientific understanding of a phenomenon_ (references removed) as:
+What makes it _scientific_ is a complex topic. On the whole, scientific explanations tend to be general and supported by large bodies of knowledge; the hypotheses need to be falsifiable, and the selection process involves rigorous proofs or experimental testing.
+
+The paper "[From scientific theory to duality of predictive artificial intelligence models][bajorath]" describes what constitutes _scientific understanding of a phenomenon_ (references removed) as:
 
 > (...) if there is an underlying intelligible theory such that scientists can qualitatively comprehend the consequences of this theory without the need for quantitative analysis and exact calculations.
-
-Moreover, scientific explanations tend to be general and supported by large bodies of knowledge; the hypotheses need to be falsifiable, and the selection process involves rigorous proofs or experimental testing.
 
 Now that the problem has drifted from defining _explanation_ to refining what the _cognitive_ and _social process_ should look like, let's dive into them.
 <!-- This "qualitative comprehension" seems (intuitively at least) to be related to causality (scientific?), but maybe also to familiarity with a reference case (everyday?). -->
@@ -67,19 +68,15 @@ Now that the problem has drifted from defining _explanation_ to refining what th
 
 ## The Cognitive Process
 
-The cognitive process involves understanding the problem and generating possible hypotheses that lead to it.
+The cognitive process involves understanding the explanandum and generating possible hypotheses that led to it.
 
 ### Contrastive Explanations
 
-And this is much simpler if we use a contrast (or reference or foil); as [Miller et al.,][beware_inmates_asylum] puts it:
+Explanations are _contrastive_, as [Miller et al.,][beware_inmates_asylum] put it:
 
 > Perhaps the most important result from this work is that explanations are _contrastive_; or more accurately, _why–questions_ are contrastive. That is, _why–questions_ are of the form "_Why P rather than Q?_", where _P_ is the _fact_ that requires explanation, and _Q_ is some _foil_ case that was expected.
 
-<!-- > [!NOTE] -->
-<!-- > (Not sure of this...) -->
-<!-- > This is also how we can define a counterfactual question, so at a rough level contrastive and counterfactual questions (and explanations) are the same. -->
-
-And even "Why P?" questions usually have an _implicit_ foil. If we can find a useful foil, then answering the question is easier, as we only need to focus on the differences between these two cases to generate a contrastive explanation.
+Even "Why P?" questions usually have an _implicit_ foil. Foils can make answering questions easier, by only focusing on the differences between the two cases.
 
 The paper [Beware of Inmates Running the Asylum][beware_inmates_asylum] has an example using _implicit_ foils:
 
@@ -92,11 +89,15 @@ Let's now dive deeper into the problem of selecting useful foils.
 
 <!-- Let's digress briefly to explore how all this relates to causes and causal inference. -->
 
-#### Selecting Foils
+### Selecting Foils
 
-[Hesslow][causal_selection_problem] considers preferences of certain causes over others such as: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.
+When the number of variables is large simulating all the combinations is infeasible, so humans must select a few counterfactuals to simulate, but how?
 
-He concludes that most of those are taking care of by _contrastive why-questions_ which compare the event to be explained to a reference case (particular instance or general case). He states (bold is mine):
+[Miller et. al.][beware_inmates_asylum] consider this problem:
+
+> However, simulating an entire causal chain is infeasible in most cases, so cognitive scientists and social psychologists have studied how people decide which events to 'undo' (the counterfactuals) to determine cause. For example, people tend to undo more proximal causes over more distal causes [Miller and Gunasegaram, 1990], abnormal events over normal events [Kahneman and Tversky, 1982], and events that are considered more 'controllable' [Girotto et al., 1991].
+
+[Hesslow][causal_selection_problem] considers a similar set: proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth. He concludes that most of those are taking care of by _contrastive why-questions_ which compare the event to be explained to a reference case (particular instance or general case). He states (bold is mine):
 
 > Many of the selection criteria listed in Section 3 can be construed as the result of **choosing different objects of comparison or reference classes**. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of **abnormal conditions** can be viewed as the result of comparing the explanandum object with a normal object.
 
@@ -114,30 +115,17 @@ Here is yet another illustration by Hesslow, of how contrasts cases narrow down 
 
 However, selecting a useful reference case (or foil) isn't trivial. As [Explaining Explanations in AI][xxai] states:
 
-> However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. The way in which information is transferred has a substantial impact on the quality and psychological acceptability of explanations (Hilton, 1990).
+> However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. (...)
 
-The last sentence is related to the social process of explaining described later on in this post (see Gricean Maxims, _relevance_).
+<!-- The last sentence is related to the social process of explaining described later on in this post (see Gricean Maxims, _relevance_). -->
 
-### Causes and Counterfactuals
+### The Idea of a Counterfactual
 
-(Causation is a complex topic and this brief section is a minimum description.)
+Assigning causes is [Miller et. al.][beware_inmates_asylum] "_necessary to provide explanations_", and foils can help us focus in the relevant causes[^attribution].
 
-Attribution theory is about how people assign causes to events. Assigning causes is [Miller et. al.][beware_inmates_asylum] "_necessary to provide explanations_".
-We have considered that foils can help us focus in the relevant causes.
+To the extent our question is answered by identifying and inferring _a cause_, the process of explaining requires causal inference.
 
-Miller et. al. distinguish _social_ from _general_ causal attribution. For the _general_ case, they state (references removed):
-
-> Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently.
-
-Social attribution uses beliefs, desires, intents and traits (of people) as causes.
-
-When the number of variables is large simulating all the combinations is infeasible, so humans must select a few counterfactuals to simulate, giving rise to the _causal selection_ problem.
-
-They add:
-
-> However, simulating an entire causal chain is infeasible in most cases, so cognitive scientists and social psychologists have studied how people decide which events to 'undo' (the counterfactuals) to determine cause. For example, people tend to undo more proximal causes over more distal causes [Miller and Gunasegaram, 1990], abnormal events over normal events [Kahneman and Tversky, 1982], and events that are considered more 'controllable' [Girotto et al., 1991].
-
-To the extent our question is answered by identifying and inferring _a cause_, the process of explaining requires causal inference. This is where counterfactuals entres the stage. Counterfactual means contrary to the facts. A hypothetical or imaginary world. Counterfactuals are not restricted to causal inference. They relate to causes because they can be used to define causes.
+Counterfactuals are one way to define causes. It means contrary to the facts; that is, a hypothetical or imaginary world. But counterfactuals are not restricted to their role defining causes; they relate to causes because they can be used to define causes.
 
 >[!NOTE]
 > Defining _Cause_ via Counterfactuals
@@ -147,11 +135,13 @@ Notice that this definition isn't a necessarily a _physical cause_. It is an epi
 
 Going back to our task at hand "Why P rather than Q?" (or "Why P?" with an implicit foil (maybe "rather than not P")) involves finding _a cause_.
 
-Either way, the cause "X" can't lead to both P and Q! If so, it can't explain why only one occurred. So we want a case where "X" makes "P" likely but not Q.
+Either way, the cause "X" can't lead to both P and Q! If so, it can't explain why only _one_ of them happened. So we want a case where "X" makes "P" likely but not "Q".
 
 In this case we are using the counterfactual: Had X not happened, P wouldn't have happened and Q could have happened. The contrast will help us reduce the number of causes to consider.
 
-Now that we have a defined question, and an idea of
+So far the idea is that we are answering "Why P rather than Q?" and this involves assigning a cause, which is an event (or something) that leads to P but not to Q.
+
+Next, we will continue to explore contrastive explanations but change the question slightly.
 
 ### "Shifting" Counterfactual Contrastive Explanations
 
@@ -161,7 +151,7 @@ Instead of the question "_Why P rather than Q?_" we can ask "_What minimal chang
 >
 > While many such explanations are possible, an ideal counterfactual explanation would alter values as little as possible and represent a closest world under which score p' is returned instead of p. The notion of a "closest possible world" is thus implicit in our definition.
 
-A more descriptive name would be something like "Shifting _Counterfactual-Contrastive_ Explanations_" since we "shifting" the input state to shift the output state (to the contrast).
+A more descriptive name would be something like "Shifting _Counterfactual-Contrastive_ Explanations" since we are "shifting" the input state with the goal of "shifting" the output state (to the contrast).
 <!-- But in fact, we can't know in advance which metric to use.-->
 
 Another kind of counterfactual seeks for the output to remain the same rather than to change (for fairness purposes); this could be called "_Shifting-Counterfactual_ Contrastive Explanation". They state:
@@ -170,20 +160,22 @@ Another kind of counterfactual seeks for the output to remain the same rather th
 
 Often, multiple counterfactual explanations may be preferred, so that the subject can choose the optimal one.
 
-## Causal Explanations
+## Causal Explanations in AI
 
-Machine Learning Models are often doing correlation then the reasoning may use counterfactual explanations, but no causation.
+Machine Learning Models are often doing correlation, so the assignment of causes may lead us astray, since it does not correspond to a real structure in the world (for that case, it should be based on a causal graph).
 
-However, building models where we have causal variables may be of interest and it's done in certain cases.
+Building models where causal variables and causal graphs are preferred is of interest for certain modelling problems.
 
-[Explaining Explanations in AI][xxai] states:
+<!-- -->
+<!---->
+<!-- > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q". -->
 
-> In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q".
+<!-- Also, not all causal explanations involve counterfactuals.[^funny] -->
 
-However, it doesn't seem that all causal explanations involve counterfactuals (nor all counterfactuals need to be causal). [^funny]
+<!-- _Why-questions_ asking for a cause (causal explanation) can be answered via causal-counterfactual explanations. -->
+<!-- Counterfactual explanations don't use a hypothesised causal graph, so they aren't causal explanations (don't do causal attribution). In their own words: -->
 
-_Why-questions_ asking for a cause (causal explanation) can be answered via causal-counterfactual explanations.
-Counterfactual explanations don't use a hypothesised causal graph, so they aren't causal explanations (don't do causal attribution). In their own words:
+[Explaining Explanations in AI][xxai] is clear about it:
 
 > In any case, our approach does not rely on knowledge of the causal structure of the world, (...)
 
@@ -275,7 +267,14 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 
 <!-- [^mu_post]: A recent paper by [Lombrozo et. al.][mu] (2026) proposes a pluralist approach to _machine understanding_, and is discussed in [this post](../systems_that_learn/machine_understanding_2.md). -->
 
-[^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)."
+[^attribution]: Attribution theory is about how people assign causes to events.
+<!-- What is considered _cause_ depends on the explanatory stance (intentional, mechanical, design and so forth). -->
+<!-- Miller et. al. distinguish _social_ from _general_ causal attribution. For the _general_ case, they state (references removed): -->
+<!---->
+<!-- > Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently. -->
+<!---->
+<!-- Social attribution uses beliefs, desires, intents and traits (of people) as causes. -->
+<!-- [^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)." -->
 
 <!-- ### Counterfactuals And Contrasts -->
 <!---->
@@ -291,3 +290,7 @@ _Contrastive explanations_ can also take care of many of these aspects automatic
 <!-- However, this isn't entirely correct or complete: we don't only explain by assigning _causes_ in a rigorous way, but we use that form "a cause" for things we know are probably just correlated, but can't quite point at a causal mechanism. -->
 
 <!-- If we have a causal model, we attribute as "cause" of an output, a certain input or feature value; but in that case, it's not the cause for the real world event but for the model's output. Whether it accurately models the real world or not, is a different question. -->
+
+<!-- > [!NOTE] -->
+<!-- > (Not sure of this...) -->
+<!-- > This is also how we can define a counterfactual question, so at a rough level contrastive and counterfactual questions (and explanations) are the same. -->
