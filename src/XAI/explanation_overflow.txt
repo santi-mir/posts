@@ -1,0 +1,64 @@
+<!-- [^mu_post]: A recent paper by [Lombrozo et. al.][mu] (2026) proposes a pluralist approach to _machine understanding_, and is discussed in [this post](../systems_that_learn/machine_understanding_2.md). -->
+
+
+<!-- What is considered _cause_ depends on the explanatory stance (intentional, mechanical, design and so forth). -->
+<!-- Miller et. al. distinguish _social_ from _general_ causal attribution. For the _general_ case, they state (references removed): -->
+<!---->
+<!-- > Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently. -->
+<!---->
+<!-- Social attribution uses beliefs, desires, intents and traits (of people) as causes. -->
+<!-- [^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)." -->
+
+<!-- ### Counterfactuals And Contrasts -->
+<!---->
+<!-- The difference between a counterfactual and a contrast seems to be that the former (in the context of causal inference) refer to the initial states (or causes); instead, contrasts refer to end-states (the hypothetical end state). -->
+<!---->
+<!-- We won't put much effort distinguishing these two concepts, but my sense is that they are the same under the hood, and the context indicates when one or the other is used. -->
+<!---->
+<!-- Answering a contrastive question implies finding a cause or a difference that leads to P but not to Q. -->
+<!-- Counterfactuals usually appear in causal explanations. But not all causal explanations require counterfactuals (this is rung 3 of Judea Pearl's _Ladder of Causation_) -->
+<!---->
+<!-- For _scientific_ explanation, this is more rigorous and there are also other mechanisms (e.g. Pearl's Ladder of Causation). -->
+
+<!-- However, this isn't entirely correct or complete: we don't only explain by assigning _causes_ in a rigorous way, but we use that form "a cause" for things we know are probably just correlated, but can't quite point at a causal mechanism. -->
+
+<!-- If we have a causal model, we attribute as "cause" of an output, a certain input or feature value; but in that case, it's not the cause for the real world event but for the model's output. Whether it accurately models the real world or not, is a different question. -->
+
+<!-- > [!NOTE] -->
+<!-- > (Not sure of this...) -->
+<!-- > This is also how we can define a counterfactual question, so at a rough level contrastive and counterfactual questions (and explanations) are the same. -->
+
+
+<!-- (...) The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation. -->
+
+<!-- But what is "explains"? -->
+
+<!-- [Explaining Explanations in AI][xxai] (Wachter et. al., 2019) emphasise explaining complex models: -->
+<!---->
+<!-- > (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017). -->
+
+<!-- The process of explaining can expose a lack (or illusion) of understanding; it can also show and improve understanding. -->
+
+<!-- So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works, though this is just one view of understanding[^mu_post]. -->
+<!-- As Lombrozo notes in her book, this perspective on what explanations are leaves out certain cases such as "_Can you explain me the meaning of this word?_" This is where the "why or how" in Lombrozo's definition matters. The aspects we will focus here are closer to explanation of mechanisms and everyday events and may or not be helpful for other kinds of questions and situations. -->
+
+<!-- In some papers _explainability_ and _interpretability_ are distinguished; in other papers, they are not. In this post, they are not, but _explainability_ is preferred. -->
+
+
+<!-- In the following sections, two strategies used in the cognitive process referred to as "Contrastive" and "Counterfactual" explanations. But as an experiment, here those are called "Alternative Outcomes" and "Alternative Sources", respectively, to clarify not only what they are, but also emphasise the difference between them. -->
+
+<!-- (I considered "Alternative Outputs" and "Alternative Inputs" but these would point to simulations only, so I am avoiding them. However, they may be useful in a different context.) -->
+
+<!-- -------------------- -->
+<!---->
+<!-- We now turn to the _cognitive_ and _social_ processes that make an explanation. -->
+<!---->
+<!-- -------------------- -->
+<!-- This "qualitative comprehension" seems (intuitively at least) to be related to causality (scientific?), but maybe also to familiarity with a reference case (everyday?). -->
+
+<!-- In the case of _AI-models_ (either approximations or the original ones) we may also require to know its assumptions (e.g. is it causal or correlative?), domain of applicability, accuracy and other model characteristics. -->
+
+<!-- The _foil_ focuses the explanation on "What leads to P and not to Q". Similarly it ignores what leads to both. This is usually easier to explain than the standalone fact P. -->
+<!-- , and can also reduce confusion. -->
+
+<!-- Let's digress briefly to explore how all this relates to causes and causal inference. -->

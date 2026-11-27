@@ -36,7 +36,7 @@
             const path_to_root = "../";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-f8b55223.js";
+            window.path_to_searchindex_js = "../searchindex-7369ec1a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-90c7a4fb.js"></script>
@@ -181,38 +181,29 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="explanation"><a class="header" href="#explanation">Explanation</a></h1>
 <p>This post is an introduction to explanations.</p>
-<!-- In some papers _explainability_ and _interpretability_ are distinguished; in other papers, they are not. In this post, they are not, but _explainability_ is preferred. -->
 <hr>
 <h2 id="what-is-an-explanation"><a class="header" href="#what-is-an-explanation">What is an explanation?</a></h2>
 <!-- They are more than the presentation of causes, though that is an essential aspect.  -->
-<p>A concise definition of an explanation was given in <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in The Logic of Explanation</a> (Hempel and Oppenheim, 1948):</p>
+<p>In <a href="https://fitelson.org/woodward/hempel_oppenheim.pdf">Studies in The Logic of Explanation</a>, Hempel and Oppenheim (1948) give one definition of <em>explanation</em>:</p>
 <blockquote>
 <p>To explain the phenomena in the world of our experience, to answer the question "why?" rather than only the question "what?"; is one of the foremost objectives of rational enquiry (...)</p>
 </blockquote>
-<p>The paper <a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (and Autonomous Intelligent Systems Should Too)</a> (Malle et. al., 2017) highlights a structural aspect of explanations:</p>
+<p><a href="https://aaai.org/papers/16009-16009-how-people-explain-action-and-autonomous-intelligent-systems-should-too/">How People Explain Action (...)</a> (Malle et. al., 2017) highlights a structural aspect of explanations:</p>
 <blockquote>
 <p>Explanation is arguably a three-value predicate: someone, a communicator, explains something to someone, an audience.</p>
 </blockquote>
-<!-- (...) The success of an explanation therefore depends on several critical audience factors—assumptions, knowledge, and interests that an audience has when decoding the explanation. -->
-<!-- But what is "explains"? -->
-<!-- [Explaining Explanations in AI][xxai] (Wachter et. al., 2019) emphasise explaining complex models: -->
-<!---->
-<!-- > (...) "explanation" refers to numerous ways of exchanging information about a phenomenon, in this case the functionality of a model or the rationale and criteria for a decision, to different stakeholders (Lipton, 2016; Miller, 2017). -->
 <p>In the book "Why we ask why?" (2026), Tania Lombrozo defines <em>explanation</em> in similar terms to Hempel and Oppenheim's:</p>
 <blockquote>
 <p>Explanations are responses to actual or implied why- or how-questions that offer understanding about what's being explained.</p>
 </blockquote>
-<p><a href="https://doi.org/10.1016/j.artint.2018.07.007">Explanation in artificial intelligence: insights from the social sciences</a> (Miller, 2019; citing Lombrozo) states that explanation is both a process (see following list) and a product (the result).</p>
-<p>These ideas can be combined as below:</p>
-<ul>
-<li><em>Someone explains something (the explanandum) to someone</em>, in two steps:
+<p><a href="https://doi.org/10.1016/j.artint.2018.07.007">Explanation in artificial intelligence: insights from the social sciences</a> (2019), Miller states that explanation is both a process and a product.<sup class="footnote-reference" id="fr-miller_from_lombrozo-1"><a href="#footnote-miller_from_lombrozo">1</a></sup></p>
+<p>Inspired by those views, we specify the explanation process as:</p>
 <ol>
-<li><strong>Cognitive Process</strong>: explanatory hypotheses are generated (aiming for <em>understanding</em>),</li>
-<li><strong>Social Process</strong>: the hypotheses are communicated to an audience and / or ourselves.</li>
+<li>There is a phenomenon to explain (explanandum),</li>
+<li>Hypotheses are generated (cognitive process),</li>
+<li>Hypotheses are communicated to an audience and / or ourselves (social process).</li>
 </ol>
-</li>
-</ul>
-<p>All or some of the steps may repeat; for example, by refining the explanandum and re-evaluating the hypotheses. Eventually, one hypothesis, the "best explanation", is <em>selected</em> until it is either:</p>
+<p>All or some of the above steps may repeat; for example, by refining the explanandum and re-evaluating the hypotheses. Eventually, one hypothesis, the "best explanation", is <em>selected</em> until it is either:</p>
 <ul>
 <li>Contradicted by experience (falsified),</li>
 <li>Superseded by a simpler or more general one,</li>
@@ -221,48 +212,37 @@
 </li>
 <li>Other reasons (list is not exhaustive).</li>
 </ul>
-<!-- The process of explaining can expose a lack (or illusion) of understanding; it can also show and improve understanding. -->
-<!-- So the _cognitive process_ involves the generation of hypotheses, theories and reasons, which in turn reflect our _understanding_ about how something works, though this is just one view of understanding[^mu_post]. -->
+<p>And the <em>product</em> view is the resulting or distilled version of this process.</p>
 <blockquote class="blockquote-tag blockquote-tag-note">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>This definitions are just a starting point, and only cover a subset of instances of what we'd call explanations.</p>
+<p>This definitions are just a starting point, and only cover a subset of instances of what we would call explanations.</p>
 </blockquote>
-<!-- As Lombrozo notes in her book, this perspective on what explanations are leaves out certain cases such as "_Can you explain me the meaning of this word?_" This is where the "why or how" in Lombrozo's definition matters. The aspects we will focus here are closer to explanation of mechanisms and everyday events and may or not be helpful for other kinds of questions and situations. -->
 <h3 id="scientific-explanation"><a class="header" href="#scientific-explanation">Scientific Explanation</a></h3>
 <p>Scientific explanation is a type of explanation, so it inherits all the characteristics mentioned earlier.</p>
 <p>What makes it <em>scientific</em> is a complex topic. On the whole, scientific explanations tend to be general and supported by large bodies of knowledge; the hypotheses need to be falsifiable, and the selection process involves rigorous proofs or experimental testing.</p>
-<p>The paper "<a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">From scientific theory to duality of predictive artificial intelligence models</a>" describes what constitutes <em>scientific understanding</em> of a phenomenon (references removed) as:</p>
+<p>This paper on the <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">duality of predictive models</a> describes what constitutes <em>scientific understanding</em> of a phenomenon (references removed) as:</p>
 <blockquote>
 <p>(...) if there is an underlying intelligible theory such that scientists can qualitatively comprehend the consequences of this theory without the need for quantitative analysis and exact calculations.</p>
 </blockquote>
-<!-- -------------------- -->
-<!---->
-<!-- We now turn to the _cognitive_ and _social_ processes that make an explanation. -->
-<!---->
-<!-- -------------------- -->
-<!-- This "qualitative comprehension" seems (intuitively at least) to be related to causality (scientific?), but maybe also to familiarity with a reference case (everyday?). -->
-<!-- In the case of _AI-models_ (either approximations or the original ones) we may also require to know its assumptions (e.g. is it causal or correlative?), domain of applicability, accuracy and other model characteristics. -->
 <h2 id="the-cognitive-process"><a class="header" href="#the-cognitive-process">The Cognitive Process</a></h2>
 <!-- The first part of the process of explaining is the cognitive process. -->
-<p>The central aspect of this process is the generation of hypotheses that could lead to the event, object or situation (explanandum) under analysis.</p>
-<!-- In the following sections, two strategies used in the cognitive process referred to as "Contrastive" and "Counterfactual" explanations. But as an experiment, here those are called "Alternative Outcomes" and "Alternative Sources", respectively, to clarify not only what they are, but also emphasise the difference between them. -->
-<!-- (I considered "Alternative Outputs" and "Alternative Inputs" but these would point to simulations only, so I am avoiding them. However, they may be useful in a different context.) -->
+<p>This section analyses the generation of explanaory hypotheses, that is, those allegedly leading to the event, object or situation (explanandum) under analysis.</p>
 <h3 id="alternative-outcomes-contrastive-questions"><a class="header" href="#alternative-outcomes-contrastive-questions">Alternative Outcomes (Contrastive Questions)</a></h3>
-<p>Causal attribution seems to be essential to answer <em>why-questions</em> <a href="http://arxiv.org/abs/1712.00547">Miller et. al.</a> state that assigning causes is "<em>necessary to provide explanations</em>"<sup class="footnote-reference" id="fr-attribution-1"><a href="#footnote-attribution">1</a></sup>.</p>
-<p>But rather than complete causal chains, humans tend to select some causes over others. For example, <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a> considers that humans favour proximal over distal events (in the causal chain of events); abnormal or unexpected events; controllable events, deviation from theoretical ideals, model, predictive power, responsibility, and so forth.</p>
-<p>The same effect (selecting some causes) is achieved by using a reference case (or foil). Hesslow states:</p>
+<p><a href="http://arxiv.org/abs/1712.00547">Miller et. al.</a> state that assigning causes is "<em>necessary to provide explanations</em>"<sup class="footnote-reference" id="fr-attribution-1"><a href="#footnote-attribution">2</a></sup>.</p>
+<p>And rather than <em>complete</em> causal chains, humans tend to <em>select</em> or prioritise some causes over others. <a href="https://www.researchgate.net/publication/232592695_The_problem_of_causal_selection">Hesslow</a> classifies some of the selection criteria such as: proximal over distal events, abnormal or unexpected events over expected ones, and so forth. He then states:</p>
 <blockquote>
 <p>Many of the selection criteria listed in Section 3 can be construed as the result of <strong>choosing different objects of comparison or reference classes</strong>. Let us consider again the fire in the barn, and let us suppose that we have in the back of our minds the picture of a normal barn. (...) the normal barn has not caught fire, it follows that an explanatorily relevant condition for this barn's catching fire must be abnormal. Thus, selection of <strong>abnormal conditions</strong> can be viewed as the result of comparing the explanandum object with a normal object.</p>
 </blockquote>
+<p>And continues:</p>
 <blockquote>
-<p>(...) the difference between this barn now and this barn yesterday, i.e. we would be selecting a <strong>precipitating</strong> cause [proximal in the list above]. Selection of the <strong>unexpected</strong> may be viewed as the result of explaining the difference between an expected and an actual outcome. Selection according to <strong>responsibility</strong> follows from a comparison between actual and morally ideal behaviour. Selection of conditions which cause a <strong>deviation from a theoretical ideal</strong> involves a comparison between an actual and a theoretically ideal situation, and so on (cf. Hesslow, 1983).</p>
+<p>(...) the difference between this barn now and this barn yesterday, i.e. we would be selecting a <strong>precipitating</strong> cause [proximal in the list above]. Selection of the <strong>unexpected</strong> may be viewed as the result of explaining the difference between an expected and an actual outcome. (...)</p>
 </blockquote>
-<p>And then he describes a general recipe:</p>
+<p>Hesslow synthesises the idea into a general recipe:</p>
 <blockquote>
 <p>What I want to suggest, then, is that the explanandum should be construed as a relation which involves three things: an <em>object a</em>, an <em>object of comparison b</em> and an <em>explanandum property E</em> which a has and b does not have.</p>
 </blockquote>
-<p>In other words, by focusing on differences between the actual case and the reference, we reduce the causes, variables, or characteristics to consider.</p>
-<p>Here is yet another illustration by Hesslow, of how a foil can narrow down possible causes:</p>
+<p>Comparison is a way to subtract similarities and focus on the differences, which ideally will be explanatory.</p>
+<p>Here is another illustration by Hesslow:</p>
 <blockquote>
 <p>For instance, if we want to explain why the fly Ml has shorter wings than Nl, then the temperature in which the flies were raised is explanatorily irrelevant, since the temperature was the same in both cases. The mutated gene on the other hand was present in one case and absent in the other. It is, therefore, explanatorily relevant.</p>
 </blockquote>
@@ -270,75 +250,66 @@
 <blockquote>
 <p>However, choosing a relevant set of cases or events against which contrastive explanations are provided is not a straightforward challenge. (...)</p>
 </blockquote>
-<!-- The last sentence is related to the social process of explaining described later on in this post (see Gricean Maxims, _relevance_). -->
-<p>The "reference strategy" described above is equivalent to what is called <em>contrastive questions</em> (or contrastive explanations), as <a href="http://arxiv.org/abs/1712.00547">Miller et al.,</a> put it:</p>
+<p>The "reference strategy" described above is equivalent to what is called <em>contrastive questions</em> (or contrastive explanations), described by <a href="http://arxiv.org/abs/1712.00547">Miller et. al.</a> as:</p>
 <blockquote>
 <p>Perhaps the most important result from this work is that explanations are <em>contrastive</em>; or more accurately, <em>why–questions</em> are contrastive. That is, <em>why–questions</em> are of the form "<em>Why P rather than Q?</em>", where <em>P</em> is the <em>fact</em> that requires explanation, and <em>Q</em> is some <em>foil</em> case that was expected.</p>
 </blockquote>
-<p>Even "Why P?" questions usually have an <em>implicit</em> foil. Foils can make answering questions easier, by focusing on the differences between the two cases (and their explanatory role).</p>
-<p>Miller et. al. do include an example of <em>implicit</em> foils in why-questions:</p>
+<p>In the case of "Why P?" questions there is usually an <em>implicit</em> foil; Miller gives an example of this case:</p>
 <blockquote>
 <p>(...) "Why did Mr. Jones open the window?" with the response "Because he was hot" is not useful if the implied foil is Mr. Jones turning on the air conditioner, as this explains both the fact and the foil; or if the implied foil was why Ms. Smith, who was sitting closer to the window, did not open it instead, as the cited cause does not refer to a cause of Ms. Smith's lack of action.</p>
 </blockquote>
-<p>We can consider some of these concepts in a simple diagram:</p>
-<pre class="mermaid">
-flowchart TB
-subgraph "Why B rather than C?"
-A["P1,Q,R,S,T,U,V..."]--&gt;B["B"]
-C["P2,Q,R,S,T,U,V..."]--&gt;D["C"]
+<p>We can aggregate these concepts into a diagram:</p>
+<pre class="mermaid">flowchart TB
+subgraph "Why Y1 rather than Y2?"
+A["P1,Q,R,..."]--&gt;B["Y1"]
+C["P2,Q,R,..."]--&gt;D["Y2"]
+end
+
+subgraph "Why Y1?"
+X["P,Q,R,..."]--&gt;Y["Y1"]
 end
 </pre>
 
-<p>Consider the diagram above with a concrete example of an imaginary phenomenon of "It snows" when <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and "It rains" when <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and all the rest are the same. So we ask: Why did it snow rather than rain? Because P's value was <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
-<p>The aspect I want to highlight is that all the other variables are the same, so we didn't have to think about them; this is why contrasts are useful.</p>
-<!-- The _foil_ focuses the explanation on "What leads to P and not to Q". Similarly it ignores what leads to both. This is usually easier to explain than the standalone fact P. -->
-<!-- , and can also reduce confusion. -->
-<!-- Let's digress briefly to explore how all this relates to causes and causal inference. -->
-<h3 id="the-idea-of-a-counterfactual"><a class="header" href="#the-idea-of-a-counterfactual">The Idea of a Counterfactual</a></h3>
-<p>We have considered that answering "Why P?" or "Why P rather than Q?" involves finding <em>a cause</em>. Counterfactuals are one way to define causes, so we will briefly describe them.</p>
-<p>Counterfactual means "contrary to the facts"; that is, a hypothetical or imaginary world other than what actually happened. Counterfactuals can be used to define causes as is done below:</p>
-<blockquote class="blockquote-tag blockquote-tag-note">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-<p>Defining <em>Cause</em> via Counterfactuals
-Assume that an event B happened. Then, if B couldn't have happen without A, we can say that A is <em>a cause</em> of B or that "B wouldn't have happened had A not happened".</p>
-</blockquote>
-<p>This definition doesn't mean we must know the entire mechanism that lead to an outcome. It is a <em>cause</em> if it solves the counterfactual.</p>
-<p>A cause "X" shouldn't lead to both P and Q. If so, it can't explain why only <em>one</em> of them happened. So we want a case where "X" makes "P" likely but not "Q".</p>
-<p>In this case, we are using the counterfactual definition of a cause: Had X not happened, P wouldn't have happened and Q could have happened. The contrast helps us reduce the number of causes to consider.</p>
-<p>Later on Counterfactual Explanations are analysed, that definition is slightly different to this more general one, and it is useful to know both.</p>
-<hr>
-<p>So far, the idea is that to use "Why P rather than Q?" to help reduce complexity and infer a cause; that is, an event that leads to P but not to Q.</p>
+<p>As a concrete (imaginary) example consider "Y1=It snows" when P=P1 and "Y2=It rains" when P=P2. So we ask: Why did it snow rather than rain? Because P's value was P1 (had it been P2 it would have rained instead).</p>
+<p>By cancelling causes leading to both outcomes (or similarities), and also keeping the differences, contrasts simplify explanation generation.</p>
+<hr><details>
+<summary>Aside on Counterfactuals (optional section, click to open)</summary>
+<h3 id="the-idea-of-counterfactuals"><a class="header" href="#the-idea-of-counterfactuals">The Idea of Counterfactuals</a></h3>
+<p>We have considered how foils can help us answer "Why P rather than Q?" by highlighting some explanatory <em>cause</em>. Counterfactuals are one way to define causes, so we will briefly describe them.</p>
+<!-- or difference leading to the outcome. -->
+<p>Counterfactual means "contrary to the facts", a state different to what actually happened, an alternate world. Hence, counterfactuals <em>aren't restricted to</em> causal inference (e.g. <a href="#alternative-sources-and-outcomes-counterfactual-explanations">"Counterfactual Explanations"</a>).</p>
+<p>But counterfactuals <em>can</em> be used to define causes, as we do next.</p>
+<p>Consider two events: A and B. Consider also that, had A not happened first, B wouldn't have happened. We conclude that A is the cause of B (via a counterfactual view of causes).</p>
+<p>This definition doesn't mean we must know <em>how</em> A leads to B. It is a <em>cause</em> if it solves the counterfactual.</p>
+<p>When we answer "Why B rather than C?", the cause (say "X") shouldn't lead to both outcomes. If so, it can't explain why only <em>one</em> of them happened. We want a case where "X" makes "B" likely but not "C".</p>
+<p>Up to this point, we have argued that the cognitive process (of an explanation) often involves (and benefits from) using contrastive questions such as: "Why P rather than Q?". Contrastive questions aim to spotlight some event that leads to P but not to Q.</p>
 <p>Next, we will continue to explore contrastive explanations but change the question slightly.</p>
+</details>
 <hr>
 <h3 id="alternative-sources-what-if-"><a class="header" href="#alternative-sources-what-if-">Alternative Sources (What if ...?)</a></h3>
+<p>As a summary, we have a few related questions (currently at the second one, "What Ifs"):</p>
 <ul>
-<li>Why-questions ask which previous state (cause) led to the current one;</li>
-<li>What-if questions ask about the future state <em>after changing</em> the initial state.</li>
+<li><strong>Why-questions</strong> (Relate to Alternative Outcomes) ask for the source that <em>led to</em> the current state (and may use a reference state or contrast); the unknown is the cause (or source).</li>
+<li><strong>What-if questions</strong> (Alternative Sources) ask for the outcome <em>after changing</em> the initial state; the unknown is the effect (or outcome).</li>
+<li><strong>Counterfactual Explanations</strong> (Or closest possible world, or Alternative Sources and Outcomes; see next section): asks for the smallest change to X (~X) leading not to Y but to Y'; the unknown is the necessary change in X.</li>
 </ul>
-<p>Here is each of them, visually:</p>
-<pre class="mermaid">
-flowchart TB
-subgraph "What if X' rathen than X?"
+<p>Visually:</p>
+<pre class="mermaid">flowchart TB
+subgraph "What if X' rather than X?"
 X--&gt;Y
 X'["X'"]--&gt;Z["?"]
 end
 </pre>
 
-<p>There are other interesting questions we can ask with these diagrams such as which smallest changes on X (that is, X') change Y to our desired outcome (Y'), or what is the largest change on X that keeps Y unchanged.</p>
-<p>We could also represent how many causes (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.123em;"></span><span class="minner">…</span></span></span></span>) are shadowed by a reference case, simplifying the number of causes to consider (for example leaving only <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>).</p>
 <h3 id="alternative-sources-and-outcomes-counterfactual-explanations"><a class="header" href="#alternative-sources-and-outcomes-counterfactual-explanations">Alternative Sources and Outcomes (Counterfactual Explanations)</a></h3>
-<p>Instead of the question "<em>Why P rather than Q?</em>" we can ask "<em>What minimal changes (to the inputs) take us from P to Q (or P')?</em>". This close to what <a href="https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&amp;section=29c">Counterfactual explanations without opening the black box (...)</a> asks:</p>
+<p><a href="https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&amp;section=29c">Counterfactual explanations without opening the black box (...)</a> defines "Counterfactual Explanations" as:</p>
 <blockquote>
 <p>We define Counterfactual Explanations as statements taking the form: Score p was returned because variables V had values (v1, v2,...) associated with them. If V instead had values (v1', v2',...), and all other variables had remained constant, score p' would have been returned.</p>
 <p>While many such explanations are possible, an ideal counterfactual explanation would alter values as little as possible and represent a closest world under which score p' is returned instead of p. The notion of a "closest possible world" is thus implicit in our definition.</p>
 </blockquote>
-<p>A more descriptive name would be something like "Shifting <em>Counterfactual-Contrastive</em> Explanations" since we are "shifting" the input state with the goal of "shifting" the output state (to the contrast).</p>
-<!-- But in fact, we can't know in advance which metric to use.-->
-<p>Another kind of counterfactual seeks for the output to remain the same rather than to change (for fairness purposes); this could be called "<em>Shifting-Counterfactual</em> Contrastive Explanation". They state:</p>
-<blockquote>
-<p>Kusner et al.58 consider counterfactuals where the subject belongs to a different race or sex, and require that the decision made remain the same under such a counterfactual for it to be considered fair. In contrast, we consider counterfactuals in which the decision differs from its current state.</p>
-</blockquote>
-<p>Often, multiple counterfactual explanations may be preferred, so that the subject can choose the optimal one.</p>
+<p>So instead of the question "<em>Why P rather than Q?</em>" we ask "<em>What minimal changes (to the inputs) take us from P to P' (or Q)?</em>".</p>
+<!-- But we can't know in advance which metric to use.-->
+<p>Another kind of counterfactual seeks for the output to remain the same rather than to change (for fairness purposes), they state:</p>
 <pre class="mermaid">flowchart TB
 subgraph "Smallest X to X' shift to change Y to Y'?"
 subgraph W[Initial]
@@ -353,51 +324,66 @@ W --&gt; Q
 end
 </pre>
 
-<h3 id="comparative-diagram"><a class="header" href="#comparative-diagram">Comparative Diagram</a></h3>
+<!-- ; this could be called "_Shifting-Counterfactual_ Contrastive Explanation". They state: -->
+<blockquote>
+<p>Kusner et al.58 consider counterfactuals where the subject belongs to a different race or sex, and require that the decision made remain the same under such a counterfactual for it to be considered fair. In contrast, we consider counterfactuals in which the decision differs from its current state.</p>
+</blockquote>
+<p>This one could be called "Alternative Sources Equal Outcome". Often, multiple counterfactual explanations may be preferred, so that the subject can choose the optimal one.</p>
 <pre class="mermaid">flowchart TB
-subgraph "Why B rather than C?"
-A["P1,...,V"]--&gt;B["B"]
-C["P2,...,V"]--&gt;D["C"]
-end
-subgraph "What if X' rathen than X?"
+subgraph "Change X to X' expect same Y"
 X--&gt;Y
-X'["X'"]--&gt;Z["?"]
-end
-
-subgraph "Smallest X to X' shift to change Y to Y'?"
-subgraph W[Initial]
-direction LR
-L["X"]--&gt;M["Y"]
-end
-subgraph Q["Changes To"]
-direction LR
-L'["~X"]--&gt;M'["Y'"]
-end
-W --&gt; Q
+X' --&gt; Y
 end
 </pre>
 
-<h2 id="causal-explanations-in-ai"><a class="header" href="#causal-explanations-in-ai">Causal Explanations in AI</a></h2>
-<p>Machine Learning Models are often doing correlation, so the assignment of causes may lead us astray, since it does not correspond to a real structure in the world (for that case, it should be based on a causal graph).</p>
-<p>Building models where causal variables and causal graphs are preferred is of interest for certain modelling problems.</p>
-<!-- -->
+<!-- ### All Diagrams -->
 <!---->
-<!-- > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q". -->
-<!-- Also, not all causal explanations involve counterfactuals.[^funny] -->
-<!-- _Why-questions_ asking for a cause (causal explanation) can be answered via causal-counterfactual explanations. -->
-<!-- Counterfactual explanations don't use a hypothesised causal graph, so they aren't causal explanations (don't do causal attribution). In their own words: -->
-<p><a href="https://dl.acm.org/doi/10.1145/3287560.3287574">Explaining Explanations in AI</a> is clear about it:</p>
+<!-- ```mermaid -->
+<!-- flowchart TB -->
+<!-- subgraph "Why Y rather than Y'?" -->
+<!-- A["P1,Q,R,..."]->B["Y"] -->
+<!-- C["P2,Q,R,..."]->D["Y'"] -->
+<!-- end -->
+<!-- subgraph "What if X' rathen than X?" -->
+<!-- X->Y -->
+<!-- X'["X'"]->Z["?"] -->
+<!-- end -->
+<!---->
+<!-- subgraph "Smallest change in X to change Y to Y'?" -->
+<!-- subgraph W[Initial] -->
+<!-- direction LR -->
+<!-- L["X"]->M["Y"] -->
+<!-- end -->
+<!-- subgraph Q["Changes To"] -->
+<!-- direction LR -->
+<!-- L'["~X"]->M'["Y'"] -->
+<!-- end -->
+<!-- W -> Q -->
+<!-- end -->
+<!-- ``` -->
+<h3 id="real-and-virtual-causes"><a class="header" href="#real-and-virtual-causes">Real and Virtual Causes</a></h3>
+<p>"Counterfactual Explanations" explain the behaviour of the model, but not necessarily of the world.</p>
+<p><a href="https://heinonline.org/hol-cgi-bin/get_pdf.cgi?handle=hein.journals/hjlt31&amp;section=29c">Counterfactual explanations without opening the black box (...)</a> is clear about it:</p>
 <blockquote>
 <p>In any case, our approach does not rely on knowledge of the causal structure of the world, (...)</p>
 </blockquote>
-<p>Pearl has a "Ladder of Causation" for causal attribution (assigning causes):</p>
-<ol>
-<li>Association / correlation: can't assign causes,</li>
-<li>Interventions: experiments where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> is a cause if  <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> (other variables remain constant) i.e. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> increases the probability of the outcome; also observations in double blind, randomised controlled trials (RCTs),</li>
-<li>Cause-finding Counterfactuals: require that we have a causal graph.</li>
-</ol>
+<p>Whether this approach can help doing causal inference depends on what the model is based off. If there is a causal graph, then it is, if there isn't one (most often) then it is not.</p>
+<p>In other words, it seems useful to differentiate between models that mirror the causal structure of the world, versus those that don't.</p>
+<!-- At the same time, this means that counterfactual explanations (that I called "alternative sources and outcomes") can be used to assign "virtual causes" rather than real, unless the model represents the real world via a causal graph. -->
+<!-- And this is because machine learning models are usually doing correlation, which is very useful for prediction. To do causal inference the model must be representing a causal graph that exists in the real world. -->
+<!-- "virtual causes", which are responsible for the output of a model (e.g. when we change the input and changes the output, or not causes when they don't), and real causes, related to virtual or actual causal models of the world. -->
+<p>Unless the model embodies a causal graph based on the real world inferring from the model's behaviour a cause in the real world would be incorrect. And even if it does model the causal structure of the world, we still need to test the inference.</p>
+<p>The paper on the <a href="https://www.cell.com/cell-reports-physical-science/fulltext/S2666-3864(25)00115-8">duality of models</a> touches on this aspect, and how framing a model within a scientific framework (in particular causal theories), can be useful.</p>
+<p>Building causal models with causal variables (based of real world causal graphs) may be preferred for in modelling certain problems, and for explaining and testing them.</p>
+<h3 id="virtual-causes-and-object-classification"><a class="header" href="#virtual-causes-and-object-classification">Virtual causes and Object Classification</a></h3>
+<p>Another related case here is the classification of objects (physical or abstract), "Why are spiders arthropods rather than insects?" does not involve a real cause, but this framing is quite useful for answering (focusing on the differences).</p>
+<!-- Pearl has a "Ladder of Causation" for causal attribution (assigning causes): -->
+<!---->
+<!-- 1. Association / correlation: can't assign causes, -->
+<!-- 2. Interventions: experiments where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> is a cause if  <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord">∣</span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> (other variables remain constant) i.e. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> increases the probability of the outcome; also observations in double blind, randomised controlled trials (RCTs), -->
+<!-- 3. Cause-finding Counterfactuals: require that we have a causal graph. -->
 <h2 id="social-process-communication"><a class="header" href="#social-process-communication">Social Process (Communication)</a></h2>
-<p>We have gone through the <em>cognitive process</em> and how contrastive questions can aid the generation and selection of a hypothesis or a cause.</p>
+<p>We have gone through the <em>cognitive process</em> and how contrastive questions (and related questions) can aid the generation and selection of a hypotheses or causes (real or virtual).</p>
 <p>The second process is that of communication. This isn't just the <em>transfer of knowledge</em>; in the best cases, it involves an exchange between the participants (explainer and explainee), as in a e.g. dialogue.</p>
 <p>The communication can be aided by the <a href="https://effectiviology.com/principles-of-effective-communication/">gricean maxims</a>: rules of <em>effective</em> communication.</p>
 <ul>
@@ -438,32 +424,19 @@ end
 </ol>
 </details>
 <!-- Also, a very interesting experiment in terms of explainability was <https://distill.pub>. -->
+<!-- [mu]: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(26)00077-X -->
 <!-- [XAI for whom]: http://arxiv.org/abs/2106.05568 -->
-<!-- [^mu_post]: A recent paper by [Lombrozo et. al.][mu] (2026) proposes a pluralist approach to _machine understanding_, and is discussed in [this post](../systems_that_learn/machine_understanding_2.md). -->
-<!-- What is considered _cause_ depends on the explanatory stance (intentional, mechanical, design and so forth). -->
-<!-- Miller et. al. distinguish _social_ from _general_ causal attribution. For the _general_ case, they state (references removed): -->
+<!-- -->
 <!---->
-<!-- > Research on how people connect causes shows that they do so by undertaking a mental simulation of _what would have happened_ had some other event turned out differently. -->
-<!---->
-<!-- Social attribution uses beliefs, desires, intents and traits (of people) as causes. -->
-<!-- [^funny]: As [Counterfactuals Explanations Without Opening The Black Box][counterfactual_explanations_gdpr] states: "For example, S could believe that a person is inherently more trustworthy (p) because they are a Capricorn (q)." -->
-<!-- ### Counterfactuals And Contrasts -->
-<!---->
-<!-- The difference between a counterfactual and a contrast seems to be that the former (in the context of causal inference) refer to the initial states (or causes); instead, contrasts refer to end-states (the hypothetical end state). -->
-<!---->
-<!-- We won't put much effort distinguishing these two concepts, but my sense is that they are the same under the hood, and the context indicates when one or the other is used. -->
-<!---->
-<!-- Answering a contrastive question implies finding a cause or a difference that leads to P but not to Q. -->
-<!-- Counterfactuals usually appear in causal explanations. But not all causal explanations require counterfactuals (this is rung 3 of Judea Pearl's _Ladder of Causation_) -->
-<!---->
-<!-- For _scientific_ explanation, this is more rigorous and there are also other mechanisms (e.g. Pearl's Ladder of Causation). -->
-<!-- However, this isn't entirely correct or complete: we don't only explain by assigning _causes_ in a rigorous way, but we use that form "a cause" for things we know are probably just correlated, but can't quite point at a causal mechanism. -->
-<!-- If we have a causal model, we attribute as "cause" of an output, a certain input or feature value; but in that case, it's not the cause for the real world event but for the model's output. Whether it accurately models the real world or not, is a different question. -->
-<!-- > [!NOTE] -->
-<!-- > (Not sure of this...) -->
-<!-- > This is also how we can define a counterfactual question, so at a rough level contrastive and counterfactual questions (and explanations) are the same. -->
+<!-- > In short, contrastive theories argue that causal explanations inevitably involve appeal to a counterfactual case, be it a cause or event, which did not occur. A canonical example is provided by Lipton Lipton (1990): "To explain why P rather than Q, we must cite a causal difference between P and not-Q, consisting of a cause of P and the absence of a corresponding event in the history of not-Q". -->
+<!-- Also, not all causal explanations involve counterfactuals.[^funny] -->
+<!-- _Why-questions_ asking for a cause (causal explanation) can be answered via causal-counterfactual explanations. -->
+<!-- Counterfactual explanations don't use a hypothesised causal graph, so they aren't causal explanations (don't do causal attribution). In their own words: -->
 <hr>
 <ol class="footnote-definition">
+<li id="footnote-miller_from_lombrozo">
+<p>From Lombrozo's work. <a href="#fr-miller_from_lombrozo-1">↩</a></p>
+</li>
 <li id="footnote-attribution">
 <p>Attribution theory is about how people assign causes to events. <a href="#fr-attribution-1">↩</a></p>
 </li>
